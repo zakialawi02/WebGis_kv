@@ -5,7 +5,7 @@ namespace App\Models;
 use CodeIgniter\Model;
 
 
-class ModelSekolah extends Model
+class ModelKv extends Model
 {
     protected $table      = 'tbl_kafe';
     protected $primaryKey = 'id_kafe';
@@ -18,7 +18,7 @@ class ModelSekolah extends Model
         $this->db = db_connect();
     }
 
-    function callSekolah($id_kafe = false)
+    function callKafe($id_kafe = false)
     {
         if ($id_kafe === false) {
             // return $this->db->table('tbl_kafe')
@@ -75,7 +75,7 @@ class ModelSekolah extends Model
 
 
 
-
+    // SCRAPING DATA FROM DATABASE FOR SELECT FORM MENU
 
     // PROVINSI
     public function allProvinsi()

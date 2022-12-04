@@ -90,7 +90,7 @@
                             </thead>
                             <tbody>
                                 <?php $i = 1; ?>
-                                <?php foreach ($tampilSekolah as $S) : ?>
+                                <?php foreach ($tampilKafe as $S) : ?>
                                     <tr>
                                         <th scope="row"><?= $i++; ?></th>
                                         <td><?= $S->user; ?></td>

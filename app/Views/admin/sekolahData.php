@@ -45,7 +45,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php foreach ($tampilSekolah as $S) : ?>
+                            <?php foreach ($tampilKafe as $S) : ?>
                                 <tr>
                                     <td><?= $S->nama_kafe; ?></td>
                                     <td><?= $S->alamat_kafe; ?></td>
@@ -68,7 +68,7 @@
                         </tbody>
                     </table>
 
-                    <?= print_r($tampilSekolah); ?>
+                    <?= print_r($tampilKafe); ?>
 
                 </div>
             </div>

@@ -22,9 +22,9 @@ in APPPATH\Controllers\Admin.php on line 256.
  3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
  5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
-CRITICAL - 2022-11-20 00:57:09 --> Call to undefined method App\Models\ModelGeojson::callSekolah
+CRITICAL - 2022-11-20 00:57:09 --> Call to undefined method App\Models\ModelGeojson::callKafe
 in SYSTEMPATH\Model.php on line 774.
- 1 APPPATH\Controllers\Admin.php(262): CodeIgniter\Model->__call('callSekolah', [...])
+ 1 APPPATH\Controllers\Admin.php(262): CodeIgniter\Model->__call('callKafe', [...])
  2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->editSekolah('13')
  3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
  4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)

@@ -27,7 +27,7 @@
 
             <a class="nav-link collapsed" href="/admin/data/sekolah">
                 <i class="bi bi-building"></i>
-                <span>Sekolah</span>
+                <span>KV</span>
             </a>
 
             <a class="nav-link collapsed" href="/admin/pending">

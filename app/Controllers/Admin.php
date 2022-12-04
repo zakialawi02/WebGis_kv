@@ -5,18 +5,18 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\ModelSetting;
 use App\Models\ModelGeojson;
-use App\Models\ModelSekolah;
+use App\Models\ModelKv;
 
 class Admin extends BaseController
 {
     protected $ModelSetting;
     protected $ModelGeojson;
-    protected $ModelSekolah;
+    protected $ModelKv;
     public function __construct()
     {
         $this->setting = new ModelSetting();
         $this->FGeojson = new ModelGeojson();
-        $this->sekolah = new ModelSekolah();
+        $this->kafe = new ModelKv();
     }
     public function index()
     {
@@ -32,7 +32,7 @@ class Admin extends BaseController
     {
         $data = [
             'title' => 'PENDING LIST',
-            'tampilSekolah' => $this->sekolah->callSekolahPend()->getResult(),
+            'tampilKafe' => $this->kafe->callSekolahPend()->getResult(),
         ];
 
 
@@ -210,11 +210,11 @@ class Admin extends BaseController
     public function sekolah()
     {
         $data = [
-            'title' => 'DATA SEKOLAH',
+            'title' => 'DATA KV',
             'tampilData' => $this->setting->tampilData()->getResult(),
             'tampilGeojson' => $this->FGeojson->callGeojson()->getResult(),
             'updateGeojson' => $this->FGeojson->callGeojson()->getRow(),
-            'tampilSekolah' => $this->sekolah->callSekolah()->getResult(),
+            'tampilKafe' => $this->kafe->callKafe()->getResult(),
         ];
 
         return view('admin/sekolahData', $data);
@@ -224,11 +224,11 @@ class Admin extends BaseController
     {
 
         $data = [
-            'title' => 'DATA SEKOLAH',
+            'title' => 'DATA KV',
             'tampilData' => $this->setting->tampilData()->getResult(),
             'tampilGeojson' => $this->FGeojson->callGeojson()->getResult(),
-            'tampilSekolah' => $this->sekolah->callSekolah()->getResult(),
-            'provinsi' => $this->sekolah->allProvinsi(),
+            'tampilKafe' => $this->kafe->callKafe()->getResult(),
+            'provinsi' => $this->kafe->allProvinsi(),
         ];
 
         return view('admin/tambahSekolah', $data);
@@ -237,11 +237,11 @@ class Admin extends BaseController
     public function editSekolah($id_kafe)
     {
         $data = [
-            'title' => 'DATA SEKOLAH',
+            'title' => 'DATA KV',
             'tampilData' => $this->setting->tampilData()->getResult(), //ambil settingan mapView
             'tampilGeojson' => $this->FGeojson->callGeojson()->getResult(), //ambil data geojson
-            'tampilSekolah' => $this->sekolah->callSekolah($id_kafe)->getRow(),
-            'provinsi' => $this->sekolah->allProvinsi(),
+            'tampilKafe' => $this->kafe->callKafe($id_kafe)->getRow(),
+            'provinsi' => $this->kafe->allProvinsi(),
         ];
 
         return view('admin/updateSekolah', $data);
@@ -274,7 +274,7 @@ class Admin extends BaseController
             'created_at' => date('Y-m-d H:i:s'),
         ];
 
-        $addSekolah = $this->sekolah->addSekolah($data);
+        $addSekolah = $this->kafe->addSekolah($data);
 
         if ($addSekolah) {
             session()->setFlashdata('alert', 'Data Anda Berhasil Ditambahkan.');
@@ -309,7 +309,7 @@ class Admin extends BaseController
             'created_at' => date('Y-m-d H:i:s'),
         ];
 
-        $addSekolah = $this->sekolah->addSekolah($data);
+        $addSekolah = $this->kafe->addSekolah($data);
 
         if ($addSekolah) {
             session()->setFlashdata('alert', 'Data Anda Berhasil Ditambahkan.');
@@ -327,7 +327,7 @@ class Admin extends BaseController
             'stat_appv' => '1',
         ];
 
-        $this->sekolah->chck_appv($data, $id_kafe);
+        $this->kafe->chck_appv($data, $id_kafe);
         session()->setFlashdata('alert', 'Data Approved.');
         return $this->response->redirect(site_url('/admin/pending'));
     }
@@ -335,11 +335,11 @@ class Admin extends BaseController
     public function rejectSekolah($id_kafe)
     {
 
-        $data = $this->sekolah->callSekolah($id_kafe)->getRow();
+        $data = $this->kafe->callKafe($id_kafe)->getRow();
         $file = $data->foto_kafe;
         unlink("img/sekolah/" . $file);
 
-        $this->sekolah->delete(['id_kafe' => $id_kafe]);
+        $this->kafe->delete(['id_kafe' => $id_kafe]);
         session()->setFlashdata('alert', "Data Berhasil dihapus.");
         return $this->response->redirect(site_url('/admin/data/sekolah'));
     }
@@ -347,11 +347,11 @@ class Admin extends BaseController
     public function delete_Sekolah($id_kafe)
     {
 
-        $data = $this->sekolah->callSekolah($id_kafe)->getRow();
+        $data = $this->kafe->callKafe($id_kafe)->getRow();
         $file = $data->foto_kafe;
         unlink("img/sekolah/" . $file);
 
-        $this->sekolah->delete(['id_kafe' => $id_kafe]);
+        $this->kafe->delete(['id_kafe' => $id_kafe]);
         session()->setFlashdata('alert', "Data Berhasil dihapus.");
         return $this->response->redirect(site_url('/admin/data/sekolah'));
     }
@@ -363,7 +363,7 @@ class Admin extends BaseController
     public function kabupaten()
     {
         $id_provinsi = $this->request->getPost('id_provinsi');
-        $kab = $this->sekolah->allKabupaten($id_provinsi);
+        $kab = $this->kafe->allKabupaten($id_provinsi);
         echo '<option value="">--Pilih Kab/Kota</option>';
         foreach ($kab as $key => $value) {
             echo '<option value=' . $value['id_kabupaten'] . '>' . $value['nama_kabupaten'] . '</option>';
@@ -372,7 +372,7 @@ class Admin extends BaseController
     public function kecamatan()
     {
         $id_kabupaten = $this->request->getPost('id_kabupaten');
-        $kec = $this->sekolah->allKecamatan($id_kabupaten);
+        $kec = $this->kafe->allKecamatan($id_kabupaten);
         echo '<option value="">--Pilih Kecamatan</option>';
         foreach ($kec as $key => $value) {
             echo '<option value=' . $value['id_kecamatan'] . '>' . $value['nama_kecamatan'] . '</option>';
@@ -381,7 +381,7 @@ class Admin extends BaseController
     public function kelurahan()
     {
         $id_kecamatan = $this->request->getPost('id_kecamatan');
-        $kel = $this->sekolah->allKelurahan($id_kecamatan);
+        $kel = $this->kafe->allKelurahan($id_kecamatan);
         echo '<option value="">--Pilih Desa/Kelurahan</option>';
         foreach ($kel as $key => $value) {
             echo '<option value=' . $value['id_kelurahan'] . '>' . $value['nama_kelurahan'] . '</option>';
