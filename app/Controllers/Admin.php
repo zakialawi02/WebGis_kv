@@ -205,7 +205,7 @@ class Admin extends BaseController
 
 
 
-    //  SEKOLAH  ====================================================================================
+    //  KV  ====================================================================================
 
     public function sekolah()
     {
@@ -236,13 +236,13 @@ class Admin extends BaseController
         return view('admin/tambahSekolah', $data);
     }
 
-    public function editSekolah($id_sekolah)
+    public function editSekolah($id_kafe)
     {
         $data = [
             'title' => 'DATA SEKOLAH',
             'tampilData' => $this->setting->tampilData()->getResult(), //ambil settingan mapView
             'tampilGeojson' => $this->FGeojson->callGeojson()->getResult(), //ambil data geojson
-            'tampilSekolah' => $this->sekolah->callSekolah($id_sekolah)->getRow(),
+            'tampilSekolah' => $this->sekolah->callSekolah($id_kafe)->getRow(),
             'provinsi' => $this->sekolah->allProvinsi(),
             'jenjang' => $this->sekolah->allJenjang(),
             'akreditasi' => $this->sekolah->allAkreditasi(),
@@ -257,7 +257,7 @@ class Admin extends BaseController
         // dd($this->request->getVar());
 
         // ambil file
-        $fileFotoSekolah = $this->request->getFile('foto_sekolah');
+        $fileFotoSekolah = $this->request->getFile('foto_kafe');
         //generate random file name
         $randomName = $fileFotoSekolah->getRandomName();
         // pindah file to hosting
@@ -267,8 +267,8 @@ class Admin extends BaseController
         $data = [
             'user' => $user,
             'stat_appv' => $this->request->getVar('stat_appv'),
-            'nama_sekolah' => $this->request->getVar('nama_sekolah'),
-            'alamat_sekolah'  => $this->request->getVar('alamat_sekolah'),
+            'nama_kafe' => $this->request->getVar('nama_kafe'),
+            'alamat_kafe'  => $this->request->getVar('alamat_kafe'),
             'coordinate'  => $this->request->getVar('coordinate'),
             'id_provinsi'  => $this->request->getVar('id_provinsi'),
             'id_kabupaten'  => $this->request->getVar('id_kabupaten'),
@@ -277,7 +277,7 @@ class Admin extends BaseController
             'id_jenjang'  => $this->request->getVar('id_jenjang'),
             'id_akreditasi'  => $this->request->getVar('id_akreditasi'),
             'status'  => $this->request->getVar('status'),
-            'foto_sekolah'  => $randomName,
+            'foto_kafe'  => $randomName,
             'created_at' => date('Y-m-d H:i:s'),
         ];
 
@@ -295,7 +295,7 @@ class Admin extends BaseController
         // dd($this->request->getVar());
 
         // ambil file
-        $fileFotoSekolah = $this->request->getFile('foto_sekolah');
+        $fileFotoSekolah = $this->request->getFile('foto_kafe');
         //generate random file name
         $randomName = $fileFotoSekolah->getRandomName();
         // pindah file to hosting
@@ -305,8 +305,8 @@ class Admin extends BaseController
         $data = [
             'user' => $user,
             'stat_appv' => $this->request->getVar('stat_appv'),
-            'nama_sekolah' => $this->request->getVar('nama_sekolah'),
-            'alamat_sekolah'  => $this->request->getVar('alamat_sekolah'),
+            'nama_kafe' => $this->request->getVar('nama_kafe'),
+            'alamat_kafe'  => $this->request->getVar('alamat_kafe'),
             'coordinate'  => $this->request->getVar('coordinate'),
             'id_provinsi'  => $this->request->getVar('id_provinsi'),
             'id_kabupaten'  => $this->request->getVar('id_kabupaten'),
@@ -315,7 +315,7 @@ class Admin extends BaseController
             'id_jenjang'  => $this->request->getVar('id_jenjang'),
             'id_akreditasi'  => $this->request->getVar('id_akreditasi'),
             'status'  => $this->request->getVar('status'),
-            'foto_sekolah'  => $randomName,
+            'foto_kafe'  => $randomName,
             'created_at' => date('Y-m-d H:i:s'),
         ];
 
@@ -329,7 +329,7 @@ class Admin extends BaseController
 
 
     // approve data
-    public function approveSekolah($id_sekolah)
+    public function approveSekolah($id_kafe)
     {
         // dd($this->request->getVar());
 
@@ -337,31 +337,31 @@ class Admin extends BaseController
             'stat_appv' => '1',
         ];
 
-        $this->sekolah->chck_appv($data, $id_sekolah);
+        $this->sekolah->chck_appv($data, $id_kafe);
         session()->setFlashdata('alert', 'Data Approved.');
         return $this->response->redirect(site_url('/admin/pending'));
     }
 
-    public function rejectSekolah($id_sekolah)
+    public function rejectSekolah($id_kafe)
     {
 
-        $data = $this->sekolah->callSekolah($id_sekolah)->getRow();
-        $file = $data->foto_sekolah;
+        $data = $this->sekolah->callSekolah($id_kafe)->getRow();
+        $file = $data->foto_kafe;
         unlink("img/sekolah/" . $file);
 
-        $this->sekolah->delete(['id_sekolah' => $id_sekolah]);
+        $this->sekolah->delete(['id_kafe' => $id_kafe]);
         session()->setFlashdata('alert', "Data Berhasil dihapus.");
         return $this->response->redirect(site_url('/admin/data/sekolah'));
     }
 
-    public function delete_Sekolah($id_sekolah)
+    public function delete_Sekolah($id_kafe)
     {
 
-        $data = $this->sekolah->callSekolah($id_sekolah)->getRow();
-        $file = $data->foto_sekolah;
+        $data = $this->sekolah->callSekolah($id_kafe)->getRow();
+        $file = $data->foto_kafe;
         unlink("img/sekolah/" . $file);
 
-        $this->sekolah->delete(['id_sekolah' => $id_sekolah]);
+        $this->sekolah->delete(['id_kafe' => $id_kafe]);
         session()->setFlashdata('alert', "Data Berhasil dihapus.");
         return $this->response->redirect(site_url('/admin/data/sekolah'));
     }

@@ -47,16 +47,16 @@
                         <tbody>
                             <?php foreach ($tampilSekolah as $S) : ?>
                                 <tr>
-                                    <td><?= $S->nama_sekolah; ?></td>
-                                    <td><?= $S->alamat_sekolah; ?></td>
+                                    <td><?= $S->nama_kafe; ?></td>
+                                    <td><?= $S->alamat_kafe; ?></td>
                                     <td><?= $S->status; ?></td>
                                     <td><?= $S->akreditasi; ?></td>
                                     <td>
                                         <div class="btn-group mr-2" role="group" aria-label="First group">
-                                            <a href="/admin/data/sekolah/edit/<?= $S->id_sekolah; ?>" class="btn btn-primary bi bi-pencil-square" role="button"></a>
+                                            <a href="/admin/data/sekolah/edit/<?= $S->id_kafe; ?>" class="btn btn-primary bi bi-pencil-square" role="button"></a>
                                         </div>
                                         <div class="btn-group mr-2" role="group" aria-label="First group">
-                                            <form action="/admin/delete_Sekolah/<?= $S->id_sekolah; ?>" method="post">
+                                            <form action="/admin/delete_Sekolah/<?= $S->id_kafe; ?>" method="post">
                                                 <?= csrf_field(); ?>
                                                 <input type="hidden" name="_method" value="DELETE">
                                                 <button type="submit" class="btn btn-danger bi bi-trash" onclick="return confirm('Yakin Hapus Data?')"></button>

@@ -94,19 +94,19 @@
                                     <tr>
                                         <th scope="row"><?= $i++; ?></th>
                                         <td><?= $S->user; ?></td>
-                                        <td><?= $S->nama_sekolah; ?></td>
-                                        <td><?= $S->alamat_sekolah; ?></td>
+                                        <td><?= $S->nama_kafe; ?></td>
+                                        <td><?= $S->alamat_kafe; ?></td>
                                         <td><?= $S->status; ?></td>
                                         <td>
                                             <div class="btn-group mr-2" role="group" aria-label="First group">
-                                                <form action="/admin/rejectSekolah/<?= $S->id_sekolah; ?>" method="post">
+                                                <form action="/admin/rejectSekolah/<?= $S->id_kafe; ?>" method="post">
                                                     <?= csrf_field(); ?>
                                                     <input type="hidden" name="_method" value="DELETE">
                                                     <button type="submit" class="btn btn-danger bi bi-x-octagon" onclick="return confirm('Yakin Hapus Data?')"> Reject</button>
                                                 </form>
                                             </div>
                                             <div class="btn-group mr-2" role="group" aria-label="First group">
-                                                <form action="/admin/approveSekolah/<?= $S->id_sekolah; ?>" method="post">
+                                                <form action="/admin/approveSekolah/<?= $S->id_kafe; ?>" method="post">
                                                     <?= csrf_field(); ?>
                                                     <input type="hidden" name="_method" value="DELETE">
                                                     <button type="submit" class="btn btn-success bi bi-check-circle" onclick="return confirm('Yakin Hapus Data?')"> Accept</button>

@@ -35,12 +35,12 @@
                             <?php endif ?>
 
                             <div class="mb-3">
-                                <label for="nama_sekolah" class="form-label">Nama Sekolah</label>
-                                <input type="text" class="form-control" id="nama_sekolah" aria-describedby="textlHelp" name="nama_sekolah">
+                                <label for="nama_kafe" class="form-label">Nama Sekolah</label>
+                                <input type="text" class="form-control" id="nama_kafe" aria-describedby="textlHelp" name="nama_kafe">
                             </div>
                             <div class="col-md-6">
-                                <label for="alamat_sekolah" class="form-label">Alamat Sekolah</label>
-                                <input type="text" class="form-control" id="alamat_sekolah" aria-describedby="textlHelp" name="alamat_sekolah">
+                                <label for="alamat_kafe" class="form-label">Alamat Sekolah</label>
+                                <input type="text" class="form-control" id="alamat_kafe" aria-describedby="textlHelp" name="alamat_kafe">
                             </div>
                             <div class="col-md-6">
                                 <label for="coordinate" class="form-label">Koordinat</label>
@@ -100,7 +100,7 @@
 
                             <div class="mb-3">
                                 <label for="formFile" class="form-label">Upload Foto Sekolah</label>
-                                <input class="form-control" type="file" name="foto_sekolah" id="foto_sekolah" accept="image/*">
+                                <input class="form-control" type="file" name="foto_kafe" id="foto_kafe" accept="image/*">
                                 <div id="FileHelp" class="form-text">.jpg/.png</div>
                             </div>
 
