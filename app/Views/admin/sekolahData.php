@@ -49,8 +49,8 @@
                                 <tr>
                                     <td><?= $S->nama_kafe; ?></td>
                                     <td><?= $S->alamat_kafe; ?></td>
-                                    <td><?= $S->status; ?></td>
-                                    <td><?= $S->akreditasi; ?></td>
+                                    <td> - </td>
+                                    <td> - </td>
                                     <td>
                                         <div class="btn-group mr-2" role="group" aria-label="First group">
                                             <a href="/admin/data/sekolah/edit/<?= $S->id_kafe; ?>" class="btn btn-primary bi bi-pencil-square" role="button"></a>

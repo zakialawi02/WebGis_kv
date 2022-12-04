@@ -96,7 +96,7 @@
                                         <td><?= $S->user; ?></td>
                                         <td><?= $S->nama_kafe; ?></td>
                                         <td><?= $S->alamat_kafe; ?></td>
-                                        <td><?= $S->status; ?></td>
+                                        <td> - </td>
                                         <td>
                                             <div class="btn-group mr-2" role="group" aria-label="First group">
                                                 <form action="/admin/rejectSekolah/<?= $S->id_kafe; ?>" method="post">

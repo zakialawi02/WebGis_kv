@@ -229,8 +229,6 @@ class Admin extends BaseController
             'tampilGeojson' => $this->FGeojson->callGeojson()->getResult(),
             'tampilSekolah' => $this->sekolah->callSekolah()->getResult(),
             'provinsi' => $this->sekolah->allProvinsi(),
-            'jenjang' => $this->sekolah->allJenjang(),
-            'akreditasi' => $this->sekolah->allAkreditasi(),
         ];
 
         return view('admin/tambahSekolah', $data);
@@ -244,8 +242,6 @@ class Admin extends BaseController
             'tampilGeojson' => $this->FGeojson->callGeojson()->getResult(), //ambil data geojson
             'tampilSekolah' => $this->sekolah->callSekolah($id_kafe)->getRow(),
             'provinsi' => $this->sekolah->allProvinsi(),
-            'jenjang' => $this->sekolah->allJenjang(),
-            'akreditasi' => $this->sekolah->allAkreditasi(),
         ];
 
         return view('admin/updateSekolah', $data);
@@ -274,9 +270,6 @@ class Admin extends BaseController
             'id_kabupaten'  => $this->request->getVar('id_kabupaten'),
             'id_kecamatan'  => $this->request->getVar('id_kecamatan'),
             'id_kelurahan'  => $this->request->getVar('id_kelurahan'),
-            'id_jenjang'  => $this->request->getVar('id_jenjang'),
-            'id_akreditasi'  => $this->request->getVar('id_akreditasi'),
-            'status'  => $this->request->getVar('status'),
             'foto_kafe'  => $randomName,
             'created_at' => date('Y-m-d H:i:s'),
         ];
@@ -312,9 +305,6 @@ class Admin extends BaseController
             'id_kabupaten'  => $this->request->getVar('id_kabupaten'),
             'id_kecamatan'  => $this->request->getVar('id_kecamatan'),
             'id_kelurahan'  => $this->request->getVar('id_kelurahan'),
-            'id_jenjang'  => $this->request->getVar('id_jenjang'),
-            'id_akreditasi'  => $this->request->getVar('id_akreditasi'),
-            'status'  => $this->request->getVar('status'),
             'foto_kafe'  => $randomName,
             'created_at' => date('Y-m-d H:i:s'),
         ];

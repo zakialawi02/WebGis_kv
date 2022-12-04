@@ -75,29 +75,6 @@
                                 </select>
                             </div>
 
-                            <div class="col-md-4">
-                                <label for="status" class="form-label">Jenjang</label>
-                                <select class="form-control select2" id="id_jenjang" name="id_jenjang">
-                                    <option value="">--Pilih Jenjang Sekolah--</option>
-                                    <?php foreach ($jenjang as $key => $value) : ?>
-                                        <option value="<?= $value['id_jenjang'] ?>"><?= $value['jenjang'] ?></option>
-                                    <?php endforeach ?>
-                                </select>
-                            </div>
-                            <div class="col-md-4">
-                                <label class="form-label">Akreditasi</label>
-                                <select class="form-control select2" id="id_akreditasi" name="id_akreditasi">
-                                    <option value="">--Pilih Akreditasi--</option>
-                                    <?php foreach ($akreditasi as $key => $value) : ?>
-                                        <option value="<?= $value['id_akreditasi'] ?>"><?= $value['akreditasi'] ?></option>
-                                    <?php endforeach ?>
-                                </select>
-                            </div>
-                            <div class="col-md-4">
-                                <label for="status" class="form-label">Status</label>
-                                <input type="text" class="form-control" id="status" aria-describedby="textlHelp" name="status">
-                            </div>
-
                             <div class="mb-3">
                                 <label for="formFile" class="form-label">Upload Foto Sekolah</label>
                                 <input class="form-control" type="file" name="foto_kafe" id="foto_kafe" accept="image/*">

@@ -11,7 +11,7 @@ class ModelSekolah extends Model
     protected $primaryKey = 'id_kafe';
 
 
-    protected $allowFields = ['id_jenjang', 'stat_appv', 'nama_kafe', 'alamat_kafe', 'id_akreditasi', 'status', 'coordinate', 'foto_kafe', 'id_provinsi', 'id_kabkot', 'id_kecamatan'];
+    protected $allowFields = ['stat_appv', 'nama_kafe', 'alamat_kafe', 'coordinate', 'foto_kafe', 'id_provinsi', 'id_kabkot', 'id_kecamatan'];
 
     function __construct()
     {
@@ -22,8 +22,6 @@ class ModelSekolah extends Model
     {
         if ($id_kafe === false) {
             // return $this->db->table('tbl_kafe')
-            //     ->join('tbl_jenjang', 'tbl_jenjang.id_jenjang = tbl_kafe.id_jenjang')
-            //     ->join('tbl_akreditasi', 'tbl_akreditasi.id_akreditasi = tbl_kafe.id_akreditasi')
             //     ->join('tbl_provinsi', 'tbl_provinsi.id_provinsi = tbl_kafe.id_provinsi')
             //     ->join('tbl_kabupaten', 'tbl_kabupaten.id_kabupaten = tbl_kafe.id_kabupaten')
             //     ->join('tbl_kecamatan', 'tbl_kecamatan.id_kecamatan = tbl_kafe.id_kecamatan')
@@ -31,8 +29,6 @@ class ModelSekolah extends Model
             //     ->get(); //select all data
 
             return $this->db->table('tbl_kafe')
-                ->join('tbl_jenjang', 'tbl_jenjang.id_jenjang = tbl_kafe.id_jenjang')
-                ->join('tbl_akreditasi', 'tbl_akreditasi.id_akreditasi = tbl_kafe.id_akreditasi')
                 ->join('tbl_provinsi', 'tbl_provinsi.id_provinsi = tbl_kafe.id_provinsi')
                 ->join('tbl_kabupaten', 'tbl_kabupaten.id_kabupaten = tbl_kafe.id_kabupaten')
                 ->join('tbl_kecamatan', 'tbl_kecamatan.id_kecamatan = tbl_kafe.id_kecamatan')
@@ -48,8 +44,6 @@ class ModelSekolah extends Model
     {
         if ($id_kafe === false) {
             return $this->db->table('tbl_kafe')
-                ->join('tbl_jenjang', 'tbl_jenjang.id_jenjang = tbl_kafe.id_jenjang')
-                ->join('tbl_akreditasi', 'tbl_akreditasi.id_akreditasi = tbl_kafe.id_akreditasi')
                 ->join('tbl_provinsi', 'tbl_provinsi.id_provinsi = tbl_kafe.id_provinsi')
                 ->join('tbl_kabupaten', 'tbl_kabupaten.id_kabupaten = tbl_kafe.id_kabupaten')
                 ->join('tbl_kecamatan', 'tbl_kecamatan.id_kecamatan = tbl_kafe.id_kecamatan')
@@ -80,16 +74,8 @@ class ModelSekolah extends Model
 
 
 
-    // Jenjang
-    public function allJenjang()
-    {
-        return $this->db->table('tbl_jenjang')->orderBy('id_jenjang', 'ASC')->get()->getResultArray();
-    }
-    // Akreditasi
-    public function allAkreditasi()
-    {
-        return $this->db->table('tbl_akreditasi')->orderBy('id_akreditasi', 'ASC')->get()->getResultArray();
-    }
+
+
 
     // PROVINSI
     public function allProvinsi()
