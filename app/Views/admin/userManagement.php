@@ -159,10 +159,10 @@
                                         <td><span class="badge bg-<?= ($user->name == 'Admin' or $user->name == 'SuperAdmin') ? 'info' : 'secondary'; ?>"> <?= $user->name; ?> </span></td>
                                         <td>
                                             <div class="btn-group mr-2" role="group" aria-label="First group">
-                                                <a href="/admin/data/sekolah/edit/" class="btn btn-primary bi bi-pencil-square" role="button"></a>
+                                                <a href="/admin/data/kafe/edit/" class="btn btn-primary bi bi-pencil-square" role="button"></a>
                                             </div>
                                             <div class="btn-group mr-2" role="group" aria-label="First group">
-                                                <form action="/admin/delete_Sekolah/" method="post">
+                                                <form action="/admin/delete/" method="post">
                                                     <?= csrf_field(); ?>
                                                     <input type="hidden" name="_method" value="DELETE">
                                                     <button type="submit" class="btn btn-danger bi bi-trash" onclick="return confirm('Yakin Hapus Data?')"></button>

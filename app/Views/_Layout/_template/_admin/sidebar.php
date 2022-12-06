@@ -25,7 +25,7 @@
                 <span>GeoJson</span>
             </a>
 
-            <a class="nav-link collapsed" href="/admin/data/sekolah">
+            <a class="nav-link collapsed" href="/admin/data/kafe">
                 <i class="bi bi-building"></i>
                 <span>KV</span>
             </a>

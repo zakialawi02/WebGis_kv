@@ -42,9 +42,9 @@ $routes->get('/admin/data/geojson', 'Admin::geojson');
 $routes->get('/admin/data/geojson/tambah', 'Admin::tambahGeojson');
 $routes->get('/admin/data/geojson/edit/(:num)', 'Admin::editGeojson/$1');
 
-$routes->get('/admin/data/sekolah', 'Admin::sekolah');
-$routes->get('/admin/data/sekolah/tambah', 'Admin::tambahSekolah');
-$routes->get('/admin/data/sekolah/edit/(:num)', 'Admin::editSekolah/$1');
+$routes->get('/admin/data/kafe', 'Admin::kafe');
+$routes->get('/admin/data/kafe/tambah', 'Admin::tambahKafe');
+$routes->get('/admin/data/kafe/edit/(:num)', 'Admin::editKafe/$1');
 
 $routes->delete('/admin/delete_Geojson/(:num)', 'Admin::delete_Geojson/$1');
 

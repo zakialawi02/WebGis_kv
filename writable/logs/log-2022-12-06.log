@@ -1,0 +1,137 @@
+CRITICAL - 2022-12-06 04:48:20 --> The original file is not a valid file.
+in SYSTEMPATH\HTTP\Files\UploadedFile.php on line 137.
+ 1 SYSTEMPATH\HTTP\Files\UploadedFile.php(137): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidFile()
+ 2 APPPATH\Controllers\Admin.php(310): CodeIgniter\HTTP\Files\UploadedFile->move('FCPATH\\img\\sekolah', '1670323700_95a8944236b667f40275')
+ 3 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->update_Kafe()
+ 4 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 5 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-06 04:48:30 --> The original file is not a valid file.
+in SYSTEMPATH\HTTP\Files\UploadedFile.php on line 137.
+ 1 SYSTEMPATH\HTTP\Files\UploadedFile.php(137): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidFile()
+ 2 APPPATH\Controllers\Admin.php(310): CodeIgniter\HTTP\Files\UploadedFile->move('FCPATH\\img\\sekolah', '1670323710_ef29b8ff43708a78ebee')
+ 3 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->update_Kafe()
+ 4 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 5 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-06 04:49:14 --> The original file is not a valid file.
+in SYSTEMPATH\HTTP\Files\UploadedFile.php on line 137.
+ 1 SYSTEMPATH\HTTP\Files\UploadedFile.php(137): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidFile()
+ 2 APPPATH\Controllers\Admin.php(310): CodeIgniter\HTTP\Files\UploadedFile->move('FCPATH\\img\\sekolah', '1670323754_2fe8da1ffb0cd9c2d2eb')
+ 3 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->update_Kafe()
+ 4 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 5 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-06 04:50:32 --> The original file is not a valid file.
+in SYSTEMPATH\HTTP\Files\UploadedFile.php on line 137.
+ 1 SYSTEMPATH\HTTP\Files\UploadedFile.php(137): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidFile()
+ 2 APPPATH\Controllers\Admin.php(310): CodeIgniter\HTTP\Files\UploadedFile->move('FCPATH\\img\\sekolah', '1670323831_f6caf0de13ecf8731d1b')
+ 3 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->update_Kafe()
+ 4 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 5 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-06 04:50:39 --> The original file is not a valid file.
+in SYSTEMPATH\HTTP\Files\UploadedFile.php on line 137.
+ 1 SYSTEMPATH\HTTP\Files\UploadedFile.php(137): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidFile()
+ 2 APPPATH\Controllers\Admin.php(310): CodeIgniter\HTTP\Files\UploadedFile->move('FCPATH\\img\\sekolah', '1670323839_54558313e262d960b9f8')
+ 3 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->update_Kafe()
+ 4 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 5 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-06 04:59:34 --> The original file is not a valid file.
+in SYSTEMPATH\HTTP\Files\UploadedFile.php on line 137.
+ 1 SYSTEMPATH\HTTP\Files\UploadedFile.php(137): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidFile()
+ 2 APPPATH\Controllers\Admin.php(310): CodeIgniter\HTTP\Files\UploadedFile->move('FCPATH\\img\\sekolah', '1670324374_6fda01a7435ddc82226e')
+ 3 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->update_Kafe()
+ 4 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 5 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-06 05:00:34 --> The original file is not a valid file.
+in SYSTEMPATH\HTTP\Files\UploadedFile.php on line 137.
+ 1 SYSTEMPATH\HTTP\Files\UploadedFile.php(137): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidFile()
+ 2 APPPATH\Controllers\Admin.php(310): CodeIgniter\HTTP\Files\UploadedFile->move('FCPATH\\img\\sekolah', '1670324434_368d770650479d04b56c')
+ 3 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->update_Kafe()
+ 4 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 5 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-06 05:01:33 --> The original file is not a valid file.
+in SYSTEMPATH\HTTP\Files\UploadedFile.php on line 137.
+ 1 SYSTEMPATH\HTTP\Files\UploadedFile.php(137): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidFile()
+ 2 APPPATH\Controllers\Admin.php(310): CodeIgniter\HTTP\Files\UploadedFile->move('FCPATH\\img\\sekolah', '1670324493_e19ee7e75521f8403748')
+ 3 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->update_Kafe()
+ 4 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 5 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-06 05:03:49 --> The original file is not a valid file.
+in SYSTEMPATH\HTTP\Files\UploadedFile.php on line 137.
+ 1 SYSTEMPATH\HTTP\Files\UploadedFile.php(137): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidFile()
+ 2 APPPATH\Controllers\Admin.php(310): CodeIgniter\HTTP\Files\UploadedFile->move('FCPATH\\img\\sekolah', '1670324629_1f637bf7e5a659c97714')
+ 3 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->update_Kafe()
+ 4 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 5 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-06 05:04:35 --> The original file is not a valid file.
+in SYSTEMPATH\HTTP\Files\UploadedFile.php on line 137.
+ 1 SYSTEMPATH\HTTP\Files\UploadedFile.php(137): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidFile()
+ 2 APPPATH\Controllers\Admin.php(310): CodeIgniter\HTTP\Files\UploadedFile->move('FCPATH\\img\\sekolah', '1670324675_7b13a6a2951e9140845b')
+ 3 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->update_Kafe()
+ 4 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 5 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-06 05:17:16 --> Invalid file: _Layout/_template/_admin/templateKafeData.php
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('_Layout/_template/_admin/templateKafeData.php')
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->render('_Layout/_template/_admin/templateKafeData', [], true)
+ 3 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/KafeData', [], true)
+ 4 APPPATH\Controllers\Admin.php(235): view('admin/KafeData', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->Kafe()
+ 6 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 7 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-06 05:59:01 --> Undefined property: stdClass::$coordinate
+in APPPATH\Views\admin\kafeData.php on line 276.
+ 1 APPPATH\Views\admin\kafeData.php(276): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$coordinate', 'APPPATH\\Views\\admin\\kafeData.php', 276)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\kafeData.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/KafeData', [], true)
+ 5 APPPATH\Controllers\Admin.php(235): view('admin/KafeData', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->Kafe()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-06 06:00:02 --> Undefined property: stdClass::$coordinate
+in APPPATH\Views\admin\kafeData.php on line 276.
+ 1 APPPATH\Views\admin\kafeData.php(276): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$coordinate', 'APPPATH\\Views\\admin\\kafeData.php', 276)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\kafeData.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/KafeData', [], true)
+ 5 APPPATH\Controllers\Admin.php(235): view('admin/KafeData', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->Kafe()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-06 06:01:01 --> Undefined property: stdClass::$coordinate
+in APPPATH\Views\admin\kafeData.php on line 276.
+ 1 APPPATH\Views\admin\kafeData.php(276): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$coordinate', 'APPPATH\\Views\\admin\\kafeData.php', 276)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\kafeData.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/KafeData', [], true)
+ 5 APPPATH\Controllers\Admin.php(235): view('admin/KafeData', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->Kafe()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')

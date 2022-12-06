@@ -40,7 +40,7 @@ class ModelKv extends Model
             return $this->Where(['id_kafe' => $id_kafe])->get();
         }
     }
-    function callSekolahPend($id_kafe = false)
+    function callPendingData($id_kafe = false)
     {
         if ($id_kafe === false) {
             return $this->db->table('tbl_kafe')
@@ -56,12 +56,12 @@ class ModelKv extends Model
         }
     }
 
-    function addSekolah($addSekolah)
+    function addKafe($addKafe)
     {
-        return $this->db->table('tbl_kafe')->insert($addSekolah);
+        return $this->db->table('tbl_kafe')->insert($addKafe);
     }
 
-    public function updateSekolah($data, $id_kafe)
+    public function updateKafe($data, $id_kafe)
     {
         return $this->db->table('tbl_kafe')->update($data, ['id_kafe' => $id_kafe]);
     }

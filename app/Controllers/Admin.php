@@ -32,7 +32,7 @@ class Admin extends BaseController
     {
         $data = [
             'title' => 'PENDING LIST',
-            'tampilKafe' => $this->kafe->callSekolahPend()->getResult(),
+            'tampilKafe' => $this->kafe->callPendingData()->getResult(),
         ];
 
 
@@ -205,9 +205,24 @@ class Admin extends BaseController
 
 
 
+    //  FASILITAS KV  ====================================================================================
+
+    public function fasilitas()
+    {
+        $data = [
+            'title' => 'DATA KV',
+            'tampilData' => $this->setting->tampilData()->getResult(),
+        ];
+
+        return view('admin/fasilitasList', $data);
+    }
+
+
+
+
     //  KV  ====================================================================================
 
-    public function sekolah()
+    public function Kafe()
     {
         $data = [
             'title' => 'DATA KV',
@@ -217,10 +232,10 @@ class Admin extends BaseController
             'tampilKafe' => $this->kafe->callKafe()->getResult(),
         ];
 
-        return view('admin/sekolahData', $data);
+        return view('admin/KafeData', $data);
     }
 
-    public function tambahSekolah()
+    public function tambahKafe()
     {
 
         $data = [
@@ -231,10 +246,10 @@ class Admin extends BaseController
             'provinsi' => $this->kafe->allProvinsi(),
         ];
 
-        return view('admin/tambahSekolah', $data);
+        return view('admin/tambahKafe', $data);
     }
 
-    public function editSekolah($id_kafe)
+    public function editKafe($id_kafe)
     {
         $data = [
             'title' => 'DATA KV',
@@ -244,11 +259,11 @@ class Admin extends BaseController
             'provinsi' => $this->kafe->allProvinsi(),
         ];
 
-        return view('admin/updateSekolah', $data);
+        return view('admin/updateKafe', $data);
     }
 
     // insert data
-    public function tambah_Sekolah()
+    public function tambah_Kafe()
     {
         // dd($this->request->getVar());
 
@@ -257,7 +272,7 @@ class Admin extends BaseController
         //generate random file name
         $randomName = $fileFotoSekolah->getRandomName();
         // pindah file to hosting
-        $fileFotoSekolah->move(ROOTPATH . 'public/img/sekolah/', $randomName);
+        $fileFotoSekolah->move(ROOTPATH . 'public/img/kafe/', $randomName);
 
         $user = user()->username;
         $data = [
@@ -274,16 +289,16 @@ class Admin extends BaseController
             'created_at' => date('Y-m-d H:i:s'),
         ];
 
-        $addSekolah = $this->kafe->addSekolah($data);
+        $addKafe = $this->kafe->addKafe($data);
 
-        if ($addSekolah) {
+        if ($addKafe) {
             session()->setFlashdata('alert', 'Data Anda Berhasil Ditambahkan.');
-            return $this->response->redirect(site_url('/admin/data/sekolah'));
+            return $this->response->redirect(site_url('/admin/data/kafe'));
         }
     }
 
     // update data
-    public function update_Sekolah()
+    public function update_Kafe()
     {
         // dd($this->request->getVar());
 
@@ -292,34 +307,32 @@ class Admin extends BaseController
         //generate random file name
         $randomName = $fileFotoSekolah->getRandomName();
         // pindah file to hosting
-        $fileFotoSekolah->move(ROOTPATH . 'public/img/sekolah/', $randomName);
+        $fileFotoSekolah->move(ROOTPATH . 'public/img/kafe/', $randomName);
 
-        $user = user()->username;
+        $id = $this->request->getVar('id');
         $data = [
-            'user' => $user,
-            'stat_appv' => $this->request->getVar('stat_appv'),
             'nama_kafe' => $this->request->getVar('nama_kafe'),
             'alamat_kafe'  => $this->request->getVar('alamat_kafe'),
             'coordinate'  => $this->request->getVar('coordinate'),
-            'id_provinsi'  => $this->request->getVar('id_provinsi'),
-            'id_kabupaten'  => $this->request->getVar('id_kabupaten'),
-            'id_kecamatan'  => $this->request->getVar('id_kecamatan'),
-            'id_kelurahan'  => $this->request->getVar('id_kelurahan'),
-            'foto_kafe'  => $randomName,
+            // 'id_provinsi'  => $this->request->getVar('id_provinsi'),
+            // 'id_kabupaten'  => $this->request->getVar('id_kabupaten'),
+            // 'id_kecamatan'  => $this->request->getVar('id_kecamatan'),
+            // 'id_kelurahan'  => $this->request->getVar('id_kelurahan'),
+            // 'foto_kafe'  => $randomName,
             'created_at' => date('Y-m-d H:i:s'),
         ];
 
-        $addSekolah = $this->kafe->addSekolah($data);
+        $addKafe = $this->kafe->addKafe($data, $id);
 
-        if ($addSekolah) {
+        if ($addKafe) {
             session()->setFlashdata('alert', 'Data Anda Berhasil Ditambahkan.');
-            return $this->response->redirect(site_url('/admin/data/sekolah'));
+            return $this->response->redirect(site_url('/admin/data/kafe'));
         }
     }
 
 
     // approve data
-    public function approveSekolah($id_kafe)
+    public function approveKafe($id_kafe)
     {
         // dd($this->request->getVar());
 
@@ -332,7 +345,7 @@ class Admin extends BaseController
         return $this->response->redirect(site_url('/admin/pending'));
     }
 
-    public function rejectSekolah($id_kafe)
+    public function rejectKafe($id_kafe)
     {
 
         $data = $this->kafe->callKafe($id_kafe)->getRow();
@@ -341,10 +354,10 @@ class Admin extends BaseController
 
         $this->kafe->delete(['id_kafe' => $id_kafe]);
         session()->setFlashdata('alert', "Data Berhasil dihapus.");
-        return $this->response->redirect(site_url('/admin/data/sekolah'));
+        return $this->response->redirect(site_url('/admin/data/kafe'));
     }
 
-    public function delete_Sekolah($id_kafe)
+    public function delete_Kafe($id_kafe)
     {
 
         $data = $this->kafe->callKafe($id_kafe)->getRow();
@@ -353,7 +366,7 @@ class Admin extends BaseController
 
         $this->kafe->delete(['id_kafe' => $id_kafe]);
         session()->setFlashdata('alert', "Data Berhasil dihapus.");
-        return $this->response->redirect(site_url('/admin/data/sekolah'));
+        return $this->response->redirect(site_url('/admin/data/kafe'));
     }
 
 
