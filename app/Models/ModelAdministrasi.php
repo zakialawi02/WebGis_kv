@@ -35,8 +35,19 @@ class ModelAdministrasi extends Model
             ->join('tbl_kecamatan', 'tbl_kecamatan.id_kecamatan = tbl_kelurahan.id_kecamatan')
             ->join('tbl_kabupaten', 'tbl_kabupaten.id_kabupaten = tbl_kecamatan.id_kabupaten')
             ->join('tbl_provinsi', 'tbl_provinsi.id_provinsi = tbl_kabupaten.id_provinsi')
-            ->like('nama_kecamatan', 'sukolilo')
-            ->orLike('nama_kelurahan', 'sukolilo')
+            ->like('nama_kecamatan', 'keputih')
+            ->orLike('nama_kelurahan', 'keputih')
             ->get()->getResultArray();
+    }
+
+    public function getDataByIdAjaxRemote($id, $type)
+    {
+        if ($type == 'nama_kelurahan') {
+            return $this->where('tbl_kelurahan', ['id' => $id])->get();
+        } else if ($type == 'nama_kabupaten') {
+            return $this->where('tbl_kecamatan', ['id' => $id])->get();
+        } else {
+            return $this->where('tbl_kabupaten', ['id' => $id])->get();
+        }
     }
 }

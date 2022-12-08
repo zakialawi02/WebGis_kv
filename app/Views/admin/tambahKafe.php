@@ -101,17 +101,13 @@
 
                                 <div class="form-group">
                                     <label class="form-label">Wilayah Administrasi</label>
-                                    <select class="form-control" id="wilayah" name="wilayah">
+                                    <select class="form-control" id="wilayah" name="wilayah" value="">
 
                                     </select>
                                 </div>
 
-                                <div class="">
+                                <div class="form-group">
                                     <label for="fasilitas_kafe" class="form-label">Fasilitas</label>
-                                    <!-- <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                    <label class="form-check-label" for="flexCheckDefault">Fas 1</label>
-                                </div> -->
                                     <div>
                                         <div class="form-check" style="display: inline-flex ; margin: 0 10px 0 0;">
                                             <input class="form-check-input" type="checkbox" value="1" id="fasil1" name="fasil1">
@@ -122,6 +118,12 @@
                                             <label class="form-check-label" for="flexCheckChecked">&nbsp; Fasil 2</label>
                                         </div>
                                     </div>
+                                </div>
+
+                                <label for="instagram_kafe" class="form-label">Instagram</label>
+                                <div class="input-group form-group mt-1">
+                                    <span class="input-group-text" id="basic-addon1">@</span>
+                                    <input type="text" class="form-control" id="instagram_kafe" name="instagram_kafe" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
                                 </div>
 
                                 <div class="mb-3">
@@ -172,6 +174,7 @@
     <!-- Vendor JS Files -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js" integrity="sha256-xLD7nhI62fcsEZK2/v8LsBcb4lG7dgULkuXoXB/j91c=" crossorigin="anonymous"></script>
     <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.2/moment.min.js"></script>

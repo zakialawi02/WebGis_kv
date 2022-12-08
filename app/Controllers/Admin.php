@@ -279,6 +279,13 @@ class Admin extends BaseController
         // pindah file to hosting
         $fileFotoSekolah->move(ROOTPATH . 'public/img/kafe/', $randomName);
 
+        $wilayah  = $this->request->getVar('wilayah');
+        $wilayah = explode(',', $wilayah);
+        $id_kelurahan = $wilayah[0];
+        $id_kecamatan = $wilayah[1];
+        $id_kabupaten = $wilayah[2];
+        $id_provinsi = $wilayah[3];
+
         $user = user()->username;
         $data = [
             'user' => $user,
@@ -286,16 +293,15 @@ class Admin extends BaseController
             'nama_kafe' => $this->request->getVar('nama_kafe'),
             'alamat_kafe'  => $this->request->getVar('alamat_kafe'),
             'coordinate'  => $this->request->getVar('coordinate'),
-            'id_provinsi'  => $this->request->getVar('id_provinsi'),
-            'id_kabupaten'  => $this->request->getVar('id_kabupaten'),
-            'id_kecamatan'  => $this->request->getVar('id_kecamatan'),
-            'id_kelurahan'  => $this->request->getVar('id_kelurahan'),
+            'instagram_kafe'  => $this->request->getVar('instagram_kafe'),
+            'id_provinsi'  => $id_provinsi,
+            'id_kabupaten'  => $id_kabupaten,
+            'id_kecamatan'  => $id_kecamatan,
+            'id_kelurahan'  => $id_kelurahan,
             'foto_kafe'  => $randomName,
             'created_at' => date('Y-m-d H:i:s'),
         ];
-
         $addKafe = $this->kafe->addKafe($data);
-
         if ($addKafe) {
             session()->setFlashdata('alert', 'Data Anda Berhasil Ditambahkan.');
             return $this->response->redirect(site_url('/admin/data/kafe'));
@@ -391,7 +397,7 @@ class Admin extends BaseController
             if (count($results) > 0) {
                 foreach ($results as $row) {
                     $selectajax[] = [
-                        'id' => $row['id_kelurahan'],
+                        'id' => $row['id_kelurahan'] . ", " . $row['id_kecamatan'] . ", " . $row['id_kabupaten'] . ", " . $row['id_provinsi'],
                         'text' => $row['nama_kabupaten'] . ", Kecamatan " . $row['nama_kecamatan'] . ", " . $row['nama_kelurahan'],
                     ];
                 };
@@ -407,13 +413,15 @@ class Admin extends BaseController
         if (count($results) > 0) {
             foreach ($results as $row) {
                 $selectajax[] = [
-                    'id' => $row['id_kelurahan'],
+                    'id' => $row['id_kelurahan'] . ", " . $row['id_kecamatan'] . ", " . $row['id_kabupaten'],
                     'text' => $row['nama_kabupaten'] . ", Kecamatan " . $row['nama_kecamatan'] . ", " . $row['nama_kelurahan'],
                 ];
             };
         }
+        print_r($results);
         print_r($selectajax);
     }
+
 
     //  SCRAP KAB/KOT, KECAMATAN, KELURAHAN
     public function kabupaten()

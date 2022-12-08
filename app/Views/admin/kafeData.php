@@ -271,13 +271,14 @@
         L.control.scale().addTo(map);
 
 
+        // set marker place
         var locKafe = L.icon({
             iconUrl: '<?= base_url(); ?>/leaflet/icon/restaurant_breakfast.png',
             iconSize: [30, 30],
             iconAnchor: [18.5, 30], // point of the icon which will correspond to marker's location
             popupAnchor: [0, -28] // point from which the popup should open relative to the iconAnchor
         });
-        // set marker place
+
         <?php foreach ($tampilKafe as $K) : ?>
             L.marker([<?= $K->coordinate; ?>], {
                 icon: locKafe
