@@ -4,17 +4,22 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\ModelSetting;
+use App\Models\ModelAdministrasi;
 use App\Models\ModelGeojson;
 use App\Models\ModelKv;
+use Faker\Extension\Helper;
 
 class Admin extends BaseController
 {
     protected $ModelSetting;
+    protected $ModelAdministrasi;
     protected $ModelGeojson;
     protected $ModelKv;
     public function __construct()
     {
+        helper(['url']);
         $this->setting = new ModelSetting();
+        $this->Administrasi = new ModelAdministrasi();
         $this->FGeojson = new ModelGeojson();
         $this->kafe = new ModelKv();
     }
@@ -232,7 +237,7 @@ class Admin extends BaseController
             'tampilKafe' => $this->kafe->callKafe()->getResult(),
         ];
 
-        return view('admin/KafeData', $data);
+        return view('admin/kafeData', $data);
     }
 
     public function tambahKafe()
@@ -372,12 +377,50 @@ class Admin extends BaseController
 
 
 
+
+
+
+    //  SCRAP KAB/KOT, KECAMATAN, KELURAHAN
+    // Ajax Remote Wilayah Administrasi
+    public function getDataAjaxRemote()
+    {
+        if ($this->request->isAJAX()) {
+            $search = $this->request->getPost('search');
+            $results = $this->Administrasi->getDataAjaxRemote($search);
+            // var_dump($results);
+            if (count($results) > 0) {
+                foreach ($results as $row) {
+                    $selectajax[] = [
+                        'id' => $row['id_kelurahan'],
+                        'text' => $row['nama_kabupaten'] . ", Kecamatan " . $row['nama_kecamatan'] . ", " . $row['nama_kelurahan'],
+                    ];
+                };
+            }
+            // var_dump($selectajax);
+            return $this->response->setJSON($selectajax);
+        }
+    }
+    // vardump AjaxRemote
+    public function wil()
+    {
+        $results = $this->Administrasi->Remote();
+        if (count($results) > 0) {
+            foreach ($results as $row) {
+                $selectajax[] = [
+                    'id' => $row['id_kelurahan'],
+                    'text' => $row['nama_kabupaten'] . ", Kecamatan " . $row['nama_kecamatan'] . ", " . $row['nama_kelurahan'],
+                ];
+            };
+        }
+        print_r($selectajax);
+    }
+
     //  SCRAP KAB/KOT, KECAMATAN, KELURAHAN
     public function kabupaten()
     {
         $id_provinsi = $this->request->getPost('id_provinsi');
         $kab = $this->kafe->allKabupaten($id_provinsi);
-        echo '<option value="">--Pilih Kab/Kota</option>';
+        echo '<option value="">--Pilih Kab/Kota--</option>';
         foreach ($kab as $key => $value) {
             echo '<option value=' . $value['id_kabupaten'] . '>' . $value['nama_kabupaten'] . '</option>';
         }
@@ -386,7 +429,7 @@ class Admin extends BaseController
     {
         $id_kabupaten = $this->request->getPost('id_kabupaten');
         $kec = $this->kafe->allKecamatan($id_kabupaten);
-        echo '<option value="">--Pilih Kecamatan</option>';
+        echo '<option value="">--Pilih Kecamatan--</option>';
         foreach ($kec as $key => $value) {
             echo '<option value=' . $value['id_kecamatan'] . '>' . $value['nama_kecamatan'] . '</option>';
         }
@@ -395,7 +438,7 @@ class Admin extends BaseController
     {
         $id_kecamatan = $this->request->getPost('id_kecamatan');
         $kel = $this->kafe->allKelurahan($id_kecamatan);
-        echo '<option value="">--Pilih Desa/Kelurahan</option>';
+        echo '<option value="">--Pilih Desa/Kelurahan--</option>';
         foreach ($kel as $key => $value) {
             echo '<option value=' . $value['id_kelurahan'] . '>' . $value['nama_kelurahan'] . '</option>';
         }

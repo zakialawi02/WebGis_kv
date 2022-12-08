@@ -1,0 +1,1192 @@
+ERROR - 2022-12-08 01:06:32 --> mysqli_sql_exception: Column 'id_provinsi' in field list is ambiguous in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `id_prov...', 0)
+#1 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `id_prov...')
+#2 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `id_prov...')
+#3 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `id_prov...', Array, false)
+#4 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Models\ModelAdministrasi.php(29): CodeIgniter\Database\BaseBuilder->get()
+#5 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Controllers\Admin.php(383): App\Models\ModelAdministrasi->getDataAjaxRemote('keput')
+#6 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(927): App\Controllers\Admin->getDataAjaxRemote()
+#7 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#8 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 F:\WEB\XAMPP\htdocs\WebGis_kv\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(46): require_once('F:\\WEB\\XAMPP\\ht...')
+#11 {main}
+CRITICAL - 2022-12-08 01:06:32 --> Column 'id_provinsi' in field list is ambiguous
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `id_provinsi`, `nama_provinsi`, `id_kabupaten`, `nama_kabupaten`, `id_kecamatan`, `nama_kecamatan`, `id_kelurahan`, `nama_kelurahan`
+FROM (`tbl_provinsi`, `tbl_provinsi` as `a`)
+JOIN `tbl_kabupaten` as `b` ON `a`.`id_provinsi`=`b`.`id_provinsi`
+JOIN `tbl_kecamatan` as `c` ON `b`.`id_kabupaten`=`c`.`id_kabupaten`
+JOIN `tbl_kelurahan` as `d` ON `c`.`id_kecamatan`=`d`.`id_kecamatan`
+WHERE `d`.`nama_kelurahan` LIKE \'%keput%\' ESCAPE \'!\'
+OR  `c`.`nama_kecamatan` LIKE \'%keput%\' ESCAPE \'!\'
+ LIMIT 20', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `id_provinsi`, `nama_provinsi`, `id_kabupaten`, `nama_kabupaten`, `id_kecamatan`, `nama_kecamatan`, `id_kelurahan`, `nama_kelurahan`
+FROM (`tbl_provinsi`, `tbl_provinsi` as `a`)
+JOIN `tbl_kabupaten` as `b` ON `a`.`id_provinsi`=`b`.`id_provinsi`
+JOIN `tbl_kecamatan` as `c` ON `b`.`id_kabupaten`=`c`.`id_kabupaten`
+JOIN `tbl_kelurahan` as `d` ON `c`.`id_kecamatan`=`d`.`id_kecamatan`
+WHERE `d`.`nama_kelurahan` LIKE \'%keput%\' ESCAPE \'!\'
+OR  `c`.`nama_kecamatan` LIKE \'%keput%\' ESCAPE \'!\'
+ LIMIT 20')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `id_provinsi`, `nama_provinsi`, `id_kabupaten`, `nama_kabupaten`, `id_kecamatan`, `nama_kecamatan`, `id_kelurahan`, `nama_kelurahan`
+FROM (`tbl_provinsi`, `tbl_provinsi` as `a`)
+JOIN `tbl_kabupaten` as `b` ON `a`.`id_provinsi`=`b`.`id_provinsi`
+JOIN `tbl_kecamatan` as `c` ON `b`.`id_kabupaten`=`c`.`id_kabupaten`
+JOIN `tbl_kelurahan` as `d` ON `c`.`id_kecamatan`=`d`.`id_kecamatan`
+WHERE `d`.`nama_kelurahan` LIKE \'%keput%\' ESCAPE \'!\'
+OR  `c`.`nama_kecamatan` LIKE \'%keput%\' ESCAPE \'!\'
+ LIMIT 20')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `id_provinsi`, `nama_provinsi`, `id_kabupaten`, `nama_kabupaten`, `id_kecamatan`, `nama_kecamatan`, `id_kelurahan`, `nama_kelurahan`
+FROM (`tbl_provinsi`, `tbl_provinsi` as `a`)
+JOIN `tbl_kabupaten` as `b` ON `a`.`id_provinsi`=`b`.`id_provinsi`
+JOIN `tbl_kecamatan` as `c` ON `b`.`id_kabupaten`=`c`.`id_kabupaten`
+JOIN `tbl_kelurahan` as `d` ON `c`.`id_kecamatan`=`d`.`id_kecamatan`
+WHERE `d`.`nama_kelurahan` LIKE :d.nama_kelurahan: ESCAPE \'!\'
+OR  `c`.`nama_kecamatan` LIKE :c.nama_kecamatan: ESCAPE \'!\'
+ LIMIT 20', [...], false)
+ 5 APPPATH\Models\ModelAdministrasi.php(29): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Admin.php(383): App\Models\ModelAdministrasi->getDataAjaxRemote('keput')
+ 7 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->getDataAjaxRemote()
+ 8 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+ERROR - 2022-12-08 01:06:33 --> mysqli_sql_exception: Column 'id_provinsi' in field list is ambiguous in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `id_prov...', 0)
+#1 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `id_prov...')
+#2 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `id_prov...')
+#3 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `id_prov...', Array, false)
+#4 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Models\ModelAdministrasi.php(29): CodeIgniter\Database\BaseBuilder->get()
+#5 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Controllers\Admin.php(383): App\Models\ModelAdministrasi->getDataAjaxRemote('kepu')
+#6 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(927): App\Controllers\Admin->getDataAjaxRemote()
+#7 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#8 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 F:\WEB\XAMPP\htdocs\WebGis_kv\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(46): require_once('F:\\WEB\\XAMPP\\ht...')
+#11 {main}
+CRITICAL - 2022-12-08 01:06:33 --> Column 'id_provinsi' in field list is ambiguous
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `id_provinsi`, `nama_provinsi`, `id_kabupaten`, `nama_kabupaten`, `id_kecamatan`, `nama_kecamatan`, `id_kelurahan`, `nama_kelurahan`
+FROM (`tbl_provinsi`, `tbl_provinsi` as `a`)
+JOIN `tbl_kabupaten` as `b` ON `a`.`id_provinsi`=`b`.`id_provinsi`
+JOIN `tbl_kecamatan` as `c` ON `b`.`id_kabupaten`=`c`.`id_kabupaten`
+JOIN `tbl_kelurahan` as `d` ON `c`.`id_kecamatan`=`d`.`id_kecamatan`
+WHERE `d`.`nama_kelurahan` LIKE \'%kepu%\' ESCAPE \'!\'
+OR  `c`.`nama_kecamatan` LIKE \'%kepu%\' ESCAPE \'!\'
+ LIMIT 20', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `id_provinsi`, `nama_provinsi`, `id_kabupaten`, `nama_kabupaten`, `id_kecamatan`, `nama_kecamatan`, `id_kelurahan`, `nama_kelurahan`
+FROM (`tbl_provinsi`, `tbl_provinsi` as `a`)
+JOIN `tbl_kabupaten` as `b` ON `a`.`id_provinsi`=`b`.`id_provinsi`
+JOIN `tbl_kecamatan` as `c` ON `b`.`id_kabupaten`=`c`.`id_kabupaten`
+JOIN `tbl_kelurahan` as `d` ON `c`.`id_kecamatan`=`d`.`id_kecamatan`
+WHERE `d`.`nama_kelurahan` LIKE \'%kepu%\' ESCAPE \'!\'
+OR  `c`.`nama_kecamatan` LIKE \'%kepu%\' ESCAPE \'!\'
+ LIMIT 20')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `id_provinsi`, `nama_provinsi`, `id_kabupaten`, `nama_kabupaten`, `id_kecamatan`, `nama_kecamatan`, `id_kelurahan`, `nama_kelurahan`
+FROM (`tbl_provinsi`, `tbl_provinsi` as `a`)
+JOIN `tbl_kabupaten` as `b` ON `a`.`id_provinsi`=`b`.`id_provinsi`
+JOIN `tbl_kecamatan` as `c` ON `b`.`id_kabupaten`=`c`.`id_kabupaten`
+JOIN `tbl_kelurahan` as `d` ON `c`.`id_kecamatan`=`d`.`id_kecamatan`
+WHERE `d`.`nama_kelurahan` LIKE \'%kepu%\' ESCAPE \'!\'
+OR  `c`.`nama_kecamatan` LIKE \'%kepu%\' ESCAPE \'!\'
+ LIMIT 20')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `id_provinsi`, `nama_provinsi`, `id_kabupaten`, `nama_kabupaten`, `id_kecamatan`, `nama_kecamatan`, `id_kelurahan`, `nama_kelurahan`
+FROM (`tbl_provinsi`, `tbl_provinsi` as `a`)
+JOIN `tbl_kabupaten` as `b` ON `a`.`id_provinsi`=`b`.`id_provinsi`
+JOIN `tbl_kecamatan` as `c` ON `b`.`id_kabupaten`=`c`.`id_kabupaten`
+JOIN `tbl_kelurahan` as `d` ON `c`.`id_kecamatan`=`d`.`id_kecamatan`
+WHERE `d`.`nama_kelurahan` LIKE :d.nama_kelurahan: ESCAPE \'!\'
+OR  `c`.`nama_kecamatan` LIKE :c.nama_kecamatan: ESCAPE \'!\'
+ LIMIT 20', [...], false)
+ 5 APPPATH\Models\ModelAdministrasi.php(29): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Admin.php(383): App\Models\ModelAdministrasi->getDataAjaxRemote('kepu')
+ 7 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->getDataAjaxRemote()
+ 8 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+ERROR - 2022-12-08 01:06:58 --> mysqli_sql_exception: Column 'id_provinsi' in field list is ambiguous in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `id_prov...', 0)
+#1 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `id_prov...')
+#2 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `id_prov...')
+#3 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `id_prov...', Array, false)
+#4 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Models\ModelAdministrasi.php(29): CodeIgniter\Database\BaseBuilder->get()
+#5 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Controllers\Admin.php(383): App\Models\ModelAdministrasi->getDataAjaxRemote('kep')
+#6 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(927): App\Controllers\Admin->getDataAjaxRemote()
+#7 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#8 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 F:\WEB\XAMPP\htdocs\WebGis_kv\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(46): require_once('F:\\WEB\\XAMPP\\ht...')
+#11 {main}
+CRITICAL - 2022-12-08 01:06:58 --> Column 'id_provinsi' in field list is ambiguous
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `id_provinsi`, `nama_provinsi`, `id_kabupaten`, `nama_kabupaten`, `id_kecamatan`, `nama_kecamatan`, `id_kelurahan`, `nama_kelurahan`
+FROM (`tbl_provinsi`, `tbl_provinsi` as `a`)
+JOIN `tbl_kabupaten` as `b` ON `a`.`id_provinsi`=`b`.`id_provinsi`
+JOIN `tbl_kecamatan` as `c` ON `b`.`id_kabupaten`=`c`.`id_kabupaten`
+JOIN `tbl_kelurahan` as `d` ON `c`.`id_kecamatan`=`d`.`id_kecamatan`
+WHERE `d`.`nama_kelurahan` LIKE \'%kep%\' ESCAPE \'!\'
+OR  `c`.`nama_kecamatan` LIKE \'%kep%\' ESCAPE \'!\'
+ LIMIT 20', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `id_provinsi`, `nama_provinsi`, `id_kabupaten`, `nama_kabupaten`, `id_kecamatan`, `nama_kecamatan`, `id_kelurahan`, `nama_kelurahan`
+FROM (`tbl_provinsi`, `tbl_provinsi` as `a`)
+JOIN `tbl_kabupaten` as `b` ON `a`.`id_provinsi`=`b`.`id_provinsi`
+JOIN `tbl_kecamatan` as `c` ON `b`.`id_kabupaten`=`c`.`id_kabupaten`
+JOIN `tbl_kelurahan` as `d` ON `c`.`id_kecamatan`=`d`.`id_kecamatan`
+WHERE `d`.`nama_kelurahan` LIKE \'%kep%\' ESCAPE \'!\'
+OR  `c`.`nama_kecamatan` LIKE \'%kep%\' ESCAPE \'!\'
+ LIMIT 20')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `id_provinsi`, `nama_provinsi`, `id_kabupaten`, `nama_kabupaten`, `id_kecamatan`, `nama_kecamatan`, `id_kelurahan`, `nama_kelurahan`
+FROM (`tbl_provinsi`, `tbl_provinsi` as `a`)
+JOIN `tbl_kabupaten` as `b` ON `a`.`id_provinsi`=`b`.`id_provinsi`
+JOIN `tbl_kecamatan` as `c` ON `b`.`id_kabupaten`=`c`.`id_kabupaten`
+JOIN `tbl_kelurahan` as `d` ON `c`.`id_kecamatan`=`d`.`id_kecamatan`
+WHERE `d`.`nama_kelurahan` LIKE \'%kep%\' ESCAPE \'!\'
+OR  `c`.`nama_kecamatan` LIKE \'%kep%\' ESCAPE \'!\'
+ LIMIT 20')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `id_provinsi`, `nama_provinsi`, `id_kabupaten`, `nama_kabupaten`, `id_kecamatan`, `nama_kecamatan`, `id_kelurahan`, `nama_kelurahan`
+FROM (`tbl_provinsi`, `tbl_provinsi` as `a`)
+JOIN `tbl_kabupaten` as `b` ON `a`.`id_provinsi`=`b`.`id_provinsi`
+JOIN `tbl_kecamatan` as `c` ON `b`.`id_kabupaten`=`c`.`id_kabupaten`
+JOIN `tbl_kelurahan` as `d` ON `c`.`id_kecamatan`=`d`.`id_kecamatan`
+WHERE `d`.`nama_kelurahan` LIKE :d.nama_kelurahan: ESCAPE \'!\'
+OR  `c`.`nama_kecamatan` LIKE :c.nama_kecamatan: ESCAPE \'!\'
+ LIMIT 20', [...], false)
+ 5 APPPATH\Models\ModelAdministrasi.php(29): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Admin.php(383): App\Models\ModelAdministrasi->getDataAjaxRemote('kep')
+ 7 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->getDataAjaxRemote()
+ 8 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+ERROR - 2022-12-08 01:06:58 --> mysqli_sql_exception: Column 'id_provinsi' in field list is ambiguous in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `id_prov...', 0)
+#1 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `id_prov...')
+#2 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `id_prov...')
+#3 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `id_prov...', Array, false)
+#4 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Models\ModelAdministrasi.php(29): CodeIgniter\Database\BaseBuilder->get()
+#5 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Controllers\Admin.php(383): App\Models\ModelAdministrasi->getDataAjaxRemote('kepu')
+#6 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(927): App\Controllers\Admin->getDataAjaxRemote()
+#7 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#8 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 F:\WEB\XAMPP\htdocs\WebGis_kv\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(46): require_once('F:\\WEB\\XAMPP\\ht...')
+#11 {main}
+CRITICAL - 2022-12-08 01:06:58 --> Column 'id_provinsi' in field list is ambiguous
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `id_provinsi`, `nama_provinsi`, `id_kabupaten`, `nama_kabupaten`, `id_kecamatan`, `nama_kecamatan`, `id_kelurahan`, `nama_kelurahan`
+FROM (`tbl_provinsi`, `tbl_provinsi` as `a`)
+JOIN `tbl_kabupaten` as `b` ON `a`.`id_provinsi`=`b`.`id_provinsi`
+JOIN `tbl_kecamatan` as `c` ON `b`.`id_kabupaten`=`c`.`id_kabupaten`
+JOIN `tbl_kelurahan` as `d` ON `c`.`id_kecamatan`=`d`.`id_kecamatan`
+WHERE `d`.`nama_kelurahan` LIKE \'%kepu%\' ESCAPE \'!\'
+OR  `c`.`nama_kecamatan` LIKE \'%kepu%\' ESCAPE \'!\'
+ LIMIT 20', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `id_provinsi`, `nama_provinsi`, `id_kabupaten`, `nama_kabupaten`, `id_kecamatan`, `nama_kecamatan`, `id_kelurahan`, `nama_kelurahan`
+FROM (`tbl_provinsi`, `tbl_provinsi` as `a`)
+JOIN `tbl_kabupaten` as `b` ON `a`.`id_provinsi`=`b`.`id_provinsi`
+JOIN `tbl_kecamatan` as `c` ON `b`.`id_kabupaten`=`c`.`id_kabupaten`
+JOIN `tbl_kelurahan` as `d` ON `c`.`id_kecamatan`=`d`.`id_kecamatan`
+WHERE `d`.`nama_kelurahan` LIKE \'%kepu%\' ESCAPE \'!\'
+OR  `c`.`nama_kecamatan` LIKE \'%kepu%\' ESCAPE \'!\'
+ LIMIT 20')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `id_provinsi`, `nama_provinsi`, `id_kabupaten`, `nama_kabupaten`, `id_kecamatan`, `nama_kecamatan`, `id_kelurahan`, `nama_kelurahan`
+FROM (`tbl_provinsi`, `tbl_provinsi` as `a`)
+JOIN `tbl_kabupaten` as `b` ON `a`.`id_provinsi`=`b`.`id_provinsi`
+JOIN `tbl_kecamatan` as `c` ON `b`.`id_kabupaten`=`c`.`id_kabupaten`
+JOIN `tbl_kelurahan` as `d` ON `c`.`id_kecamatan`=`d`.`id_kecamatan`
+WHERE `d`.`nama_kelurahan` LIKE \'%kepu%\' ESCAPE \'!\'
+OR  `c`.`nama_kecamatan` LIKE \'%kepu%\' ESCAPE \'!\'
+ LIMIT 20')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `id_provinsi`, `nama_provinsi`, `id_kabupaten`, `nama_kabupaten`, `id_kecamatan`, `nama_kecamatan`, `id_kelurahan`, `nama_kelurahan`
+FROM (`tbl_provinsi`, `tbl_provinsi` as `a`)
+JOIN `tbl_kabupaten` as `b` ON `a`.`id_provinsi`=`b`.`id_provinsi`
+JOIN `tbl_kecamatan` as `c` ON `b`.`id_kabupaten`=`c`.`id_kabupaten`
+JOIN `tbl_kelurahan` as `d` ON `c`.`id_kecamatan`=`d`.`id_kecamatan`
+WHERE `d`.`nama_kelurahan` LIKE :d.nama_kelurahan: ESCAPE \'!\'
+OR  `c`.`nama_kecamatan` LIKE :c.nama_kecamatan: ESCAPE \'!\'
+ LIMIT 20', [...], false)
+ 5 APPPATH\Models\ModelAdministrasi.php(29): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Admin.php(383): App\Models\ModelAdministrasi->getDataAjaxRemote('kepu')
+ 7 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->getDataAjaxRemote()
+ 8 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+ERROR - 2022-12-08 01:08:25 --> mysqli_sql_exception: Unknown column 'a.id' in 'field list' in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `a`.`id`...', 0)
+#1 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `a`.`id`...')
+#2 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `a`.`id`...')
+#3 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `a`.`id`...', Array, false)
+#4 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Models\ModelAdministrasi.php(29): CodeIgniter\Database\BaseBuilder->get()
+#5 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Controllers\Admin.php(383): App\Models\ModelAdministrasi->getDataAjaxRemote('kep')
+#6 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(927): App\Controllers\Admin->getDataAjaxRemote()
+#7 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#8 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 F:\WEB\XAMPP\htdocs\WebGis_kv\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(46): require_once('F:\\WEB\\XAMPP\\ht...')
+#11 {main}
+CRITICAL - 2022-12-08 01:08:25 --> Unknown column 'a.id' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `a`.`id` as `provinsi_id`, `a`.`nama` as `provinsi`, `b`.`id` as `kabupaten_id`, `b`.`nama` as `kabupaten`, `c`.`id` as `kecamatan_id`, `c`.`nama` as `kecamatan`, `d`.`id` as `desa_id`, `d`.`nama` as `desa`
+FROM (`tbl_provinsi`, `tbl_provinsi` as `a`)
+JOIN `tbl_kabupaten` as `b` ON `a`.`id_provinsi`=`b`.`id_provinsi`
+JOIN `tbl_kecamatan` as `c` ON `b`.`id_kabupaten`=`c`.`id_kabupaten`
+JOIN `tbl_kelurahan` as `d` ON `c`.`id_kecamatan`=`d`.`id_kecamatan`
+WHERE `d`.`nama_kelurahan` LIKE \'%kep%\' ESCAPE \'!\'
+OR  `c`.`nama_kecamatan` LIKE \'%kep%\' ESCAPE \'!\'
+ LIMIT 20', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `a`.`id` as `provinsi_id`, `a`.`nama` as `provinsi`, `b`.`id` as `kabupaten_id`, `b`.`nama` as `kabupaten`, `c`.`id` as `kecamatan_id`, `c`.`nama` as `kecamatan`, `d`.`id` as `desa_id`, `d`.`nama` as `desa`
+FROM (`tbl_provinsi`, `tbl_provinsi` as `a`)
+JOIN `tbl_kabupaten` as `b` ON `a`.`id_provinsi`=`b`.`id_provinsi`
+JOIN `tbl_kecamatan` as `c` ON `b`.`id_kabupaten`=`c`.`id_kabupaten`
+JOIN `tbl_kelurahan` as `d` ON `c`.`id_kecamatan`=`d`.`id_kecamatan`
+WHERE `d`.`nama_kelurahan` LIKE \'%kep%\' ESCAPE \'!\'
+OR  `c`.`nama_kecamatan` LIKE \'%kep%\' ESCAPE \'!\'
+ LIMIT 20')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `a`.`id` as `provinsi_id`, `a`.`nama` as `provinsi`, `b`.`id` as `kabupaten_id`, `b`.`nama` as `kabupaten`, `c`.`id` as `kecamatan_id`, `c`.`nama` as `kecamatan`, `d`.`id` as `desa_id`, `d`.`nama` as `desa`
+FROM (`tbl_provinsi`, `tbl_provinsi` as `a`)
+JOIN `tbl_kabupaten` as `b` ON `a`.`id_provinsi`=`b`.`id_provinsi`
+JOIN `tbl_kecamatan` as `c` ON `b`.`id_kabupaten`=`c`.`id_kabupaten`
+JOIN `tbl_kelurahan` as `d` ON `c`.`id_kecamatan`=`d`.`id_kecamatan`
+WHERE `d`.`nama_kelurahan` LIKE \'%kep%\' ESCAPE \'!\'
+OR  `c`.`nama_kecamatan` LIKE \'%kep%\' ESCAPE \'!\'
+ LIMIT 20')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `a`.`id` as `provinsi_id`, `a`.`nama` as `provinsi`, `b`.`id` as `kabupaten_id`, `b`.`nama` as `kabupaten`, `c`.`id` as `kecamatan_id`, `c`.`nama` as `kecamatan`, `d`.`id` as `desa_id`, `d`.`nama` as `desa`
+FROM (`tbl_provinsi`, `tbl_provinsi` as `a`)
+JOIN `tbl_kabupaten` as `b` ON `a`.`id_provinsi`=`b`.`id_provinsi`
+JOIN `tbl_kecamatan` as `c` ON `b`.`id_kabupaten`=`c`.`id_kabupaten`
+JOIN `tbl_kelurahan` as `d` ON `c`.`id_kecamatan`=`d`.`id_kecamatan`
+WHERE `d`.`nama_kelurahan` LIKE :d.nama_kelurahan: ESCAPE \'!\'
+OR  `c`.`nama_kecamatan` LIKE :c.nama_kecamatan: ESCAPE \'!\'
+ LIMIT 20', [...], false)
+ 5 APPPATH\Models\ModelAdministrasi.php(29): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Admin.php(383): App\Models\ModelAdministrasi->getDataAjaxRemote('kep')
+ 7 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->getDataAjaxRemote()
+ 8 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+ERROR - 2022-12-08 01:08:26 --> mysqli_sql_exception: Unknown column 'a.id' in 'field list' in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `a`.`id`...', 0)
+#1 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `a`.`id`...')
+#2 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `a`.`id`...')
+#3 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `a`.`id`...', Array, false)
+#4 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Models\ModelAdministrasi.php(29): CodeIgniter\Database\BaseBuilder->get()
+#5 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Controllers\Admin.php(383): App\Models\ModelAdministrasi->getDataAjaxRemote('kepu')
+#6 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(927): App\Controllers\Admin->getDataAjaxRemote()
+#7 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#8 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 F:\WEB\XAMPP\htdocs\WebGis_kv\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(46): require_once('F:\\WEB\\XAMPP\\ht...')
+#11 {main}
+CRITICAL - 2022-12-08 01:08:26 --> Unknown column 'a.id' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `a`.`id` as `provinsi_id`, `a`.`nama` as `provinsi`, `b`.`id` as `kabupaten_id`, `b`.`nama` as `kabupaten`, `c`.`id` as `kecamatan_id`, `c`.`nama` as `kecamatan`, `d`.`id` as `desa_id`, `d`.`nama` as `desa`
+FROM (`tbl_provinsi`, `tbl_provinsi` as `a`)
+JOIN `tbl_kabupaten` as `b` ON `a`.`id_provinsi`=`b`.`id_provinsi`
+JOIN `tbl_kecamatan` as `c` ON `b`.`id_kabupaten`=`c`.`id_kabupaten`
+JOIN `tbl_kelurahan` as `d` ON `c`.`id_kecamatan`=`d`.`id_kecamatan`
+WHERE `d`.`nama_kelurahan` LIKE \'%kepu%\' ESCAPE \'!\'
+OR  `c`.`nama_kecamatan` LIKE \'%kepu%\' ESCAPE \'!\'
+ LIMIT 20', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `a`.`id` as `provinsi_id`, `a`.`nama` as `provinsi`, `b`.`id` as `kabupaten_id`, `b`.`nama` as `kabupaten`, `c`.`id` as `kecamatan_id`, `c`.`nama` as `kecamatan`, `d`.`id` as `desa_id`, `d`.`nama` as `desa`
+FROM (`tbl_provinsi`, `tbl_provinsi` as `a`)
+JOIN `tbl_kabupaten` as `b` ON `a`.`id_provinsi`=`b`.`id_provinsi`
+JOIN `tbl_kecamatan` as `c` ON `b`.`id_kabupaten`=`c`.`id_kabupaten`
+JOIN `tbl_kelurahan` as `d` ON `c`.`id_kecamatan`=`d`.`id_kecamatan`
+WHERE `d`.`nama_kelurahan` LIKE \'%kepu%\' ESCAPE \'!\'
+OR  `c`.`nama_kecamatan` LIKE \'%kepu%\' ESCAPE \'!\'
+ LIMIT 20')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `a`.`id` as `provinsi_id`, `a`.`nama` as `provinsi`, `b`.`id` as `kabupaten_id`, `b`.`nama` as `kabupaten`, `c`.`id` as `kecamatan_id`, `c`.`nama` as `kecamatan`, `d`.`id` as `desa_id`, `d`.`nama` as `desa`
+FROM (`tbl_provinsi`, `tbl_provinsi` as `a`)
+JOIN `tbl_kabupaten` as `b` ON `a`.`id_provinsi`=`b`.`id_provinsi`
+JOIN `tbl_kecamatan` as `c` ON `b`.`id_kabupaten`=`c`.`id_kabupaten`
+JOIN `tbl_kelurahan` as `d` ON `c`.`id_kecamatan`=`d`.`id_kecamatan`
+WHERE `d`.`nama_kelurahan` LIKE \'%kepu%\' ESCAPE \'!\'
+OR  `c`.`nama_kecamatan` LIKE \'%kepu%\' ESCAPE \'!\'
+ LIMIT 20')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `a`.`id` as `provinsi_id`, `a`.`nama` as `provinsi`, `b`.`id` as `kabupaten_id`, `b`.`nama` as `kabupaten`, `c`.`id` as `kecamatan_id`, `c`.`nama` as `kecamatan`, `d`.`id` as `desa_id`, `d`.`nama` as `desa`
+FROM (`tbl_provinsi`, `tbl_provinsi` as `a`)
+JOIN `tbl_kabupaten` as `b` ON `a`.`id_provinsi`=`b`.`id_provinsi`
+JOIN `tbl_kecamatan` as `c` ON `b`.`id_kabupaten`=`c`.`id_kabupaten`
+JOIN `tbl_kelurahan` as `d` ON `c`.`id_kecamatan`=`d`.`id_kecamatan`
+WHERE `d`.`nama_kelurahan` LIKE :d.nama_kelurahan: ESCAPE \'!\'
+OR  `c`.`nama_kecamatan` LIKE :c.nama_kecamatan: ESCAPE \'!\'
+ LIMIT 20', [...], false)
+ 5 APPPATH\Models\ModelAdministrasi.php(29): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Admin.php(383): App\Models\ModelAdministrasi->getDataAjaxRemote('kepu')
+ 7 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->getDataAjaxRemote()
+ 8 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+ERROR - 2022-12-08 01:08:51 --> mysqli_sql_exception: Column 'id_provinsi' in field list is ambiguous in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `id_prov...', 0)
+#1 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `id_prov...')
+#2 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `id_prov...')
+#3 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `id_prov...', Array, false)
+#4 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Models\ModelAdministrasi.php(29): CodeIgniter\Database\BaseBuilder->get()
+#5 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Controllers\Admin.php(383): App\Models\ModelAdministrasi->getDataAjaxRemote('kepu')
+#6 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(927): App\Controllers\Admin->getDataAjaxRemote()
+#7 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#8 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 F:\WEB\XAMPP\htdocs\WebGis_kv\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(46): require_once('F:\\WEB\\XAMPP\\ht...')
+#11 {main}
+CRITICAL - 2022-12-08 01:08:51 --> Column 'id_provinsi' in field list is ambiguous
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `id_provinsi`, `nama_provinsi`, `id_kabupaten`, `nama_kabupaten`, `id_kecamatan`, `nama_kecamatan`, `id_kelurahan`, `nama_kelurahan`
+FROM (`tbl_provinsi`, `tbl_provinsi` as `a`)
+JOIN `tbl_kabupaten` as `b` ON `a`.`id_provinsi`=`b`.`id_provinsi`
+JOIN `tbl_kecamatan` as `c` ON `b`.`id_kabupaten`=`c`.`id_kabupaten`
+JOIN `tbl_kelurahan` as `d` ON `c`.`id_kecamatan`=`d`.`id_kecamatan`
+WHERE `d`.`nama_kelurahan` LIKE \'%kepu%\' ESCAPE \'!\'
+OR  `c`.`nama_kecamatan` LIKE \'%kepu%\' ESCAPE \'!\'
+ LIMIT 20', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `id_provinsi`, `nama_provinsi`, `id_kabupaten`, `nama_kabupaten`, `id_kecamatan`, `nama_kecamatan`, `id_kelurahan`, `nama_kelurahan`
+FROM (`tbl_provinsi`, `tbl_provinsi` as `a`)
+JOIN `tbl_kabupaten` as `b` ON `a`.`id_provinsi`=`b`.`id_provinsi`
+JOIN `tbl_kecamatan` as `c` ON `b`.`id_kabupaten`=`c`.`id_kabupaten`
+JOIN `tbl_kelurahan` as `d` ON `c`.`id_kecamatan`=`d`.`id_kecamatan`
+WHERE `d`.`nama_kelurahan` LIKE \'%kepu%\' ESCAPE \'!\'
+OR  `c`.`nama_kecamatan` LIKE \'%kepu%\' ESCAPE \'!\'
+ LIMIT 20')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `id_provinsi`, `nama_provinsi`, `id_kabupaten`, `nama_kabupaten`, `id_kecamatan`, `nama_kecamatan`, `id_kelurahan`, `nama_kelurahan`
+FROM (`tbl_provinsi`, `tbl_provinsi` as `a`)
+JOIN `tbl_kabupaten` as `b` ON `a`.`id_provinsi`=`b`.`id_provinsi`
+JOIN `tbl_kecamatan` as `c` ON `b`.`id_kabupaten`=`c`.`id_kabupaten`
+JOIN `tbl_kelurahan` as `d` ON `c`.`id_kecamatan`=`d`.`id_kecamatan`
+WHERE `d`.`nama_kelurahan` LIKE \'%kepu%\' ESCAPE \'!\'
+OR  `c`.`nama_kecamatan` LIKE \'%kepu%\' ESCAPE \'!\'
+ LIMIT 20')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `id_provinsi`, `nama_provinsi`, `id_kabupaten`, `nama_kabupaten`, `id_kecamatan`, `nama_kecamatan`, `id_kelurahan`, `nama_kelurahan`
+FROM (`tbl_provinsi`, `tbl_provinsi` as `a`)
+JOIN `tbl_kabupaten` as `b` ON `a`.`id_provinsi`=`b`.`id_provinsi`
+JOIN `tbl_kecamatan` as `c` ON `b`.`id_kabupaten`=`c`.`id_kabupaten`
+JOIN `tbl_kelurahan` as `d` ON `c`.`id_kecamatan`=`d`.`id_kecamatan`
+WHERE `d`.`nama_kelurahan` LIKE :d.nama_kelurahan: ESCAPE \'!\'
+OR  `c`.`nama_kecamatan` LIKE :c.nama_kecamatan: ESCAPE \'!\'
+ LIMIT 20', [...], false)
+ 5 APPPATH\Models\ModelAdministrasi.php(29): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Admin.php(383): App\Models\ModelAdministrasi->getDataAjaxRemote('kepu')
+ 7 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->getDataAjaxRemote()
+ 8 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+ERROR - 2022-12-08 01:09:56 --> mysqli_sql_exception: Unknown column 'a.id' in 'field list' in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `a`.`id`...', 0)
+#1 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `a`.`id`...')
+#2 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `a`.`id`...')
+#3 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `a`.`id`...', Array, false)
+#4 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Models\ModelAdministrasi.php(29): CodeIgniter\Database\BaseBuilder->get()
+#5 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Controllers\Admin.php(383): App\Models\ModelAdministrasi->getDataAjaxRemote('kepu')
+#6 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(927): App\Controllers\Admin->getDataAjaxRemote()
+#7 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#8 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 F:\WEB\XAMPP\htdocs\WebGis_kv\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(46): require_once('F:\\WEB\\XAMPP\\ht...')
+#11 {main}
+CRITICAL - 2022-12-08 01:09:56 --> Unknown column 'a.id' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `a`.`id` as `id_provinsi`, `a`.`nama_provinsi` as `provinsi`
+FROM (`tbl_provinsi`, `tbl_provinsi` as `a`)
+JOIN `tbl_kabupaten` as `b` ON `a`.`id_provinsi`=`b`.`id_provinsi`
+JOIN `tbl_kecamatan` as `c` ON `b`.`id_kabupaten`=`c`.`id_kabupaten`
+JOIN `tbl_kelurahan` as `d` ON `c`.`id_kecamatan`=`d`.`id_kecamatan`
+WHERE `d`.`nama_kelurahan` LIKE \'%kepu%\' ESCAPE \'!\'
+OR  `c`.`nama_kecamatan` LIKE \'%kepu%\' ESCAPE \'!\'
+ LIMIT 20', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `a`.`id` as `id_provinsi`, `a`.`nama_provinsi` as `provinsi`
+FROM (`tbl_provinsi`, `tbl_provinsi` as `a`)
+JOIN `tbl_kabupaten` as `b` ON `a`.`id_provinsi`=`b`.`id_provinsi`
+JOIN `tbl_kecamatan` as `c` ON `b`.`id_kabupaten`=`c`.`id_kabupaten`
+JOIN `tbl_kelurahan` as `d` ON `c`.`id_kecamatan`=`d`.`id_kecamatan`
+WHERE `d`.`nama_kelurahan` LIKE \'%kepu%\' ESCAPE \'!\'
+OR  `c`.`nama_kecamatan` LIKE \'%kepu%\' ESCAPE \'!\'
+ LIMIT 20')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `a`.`id` as `id_provinsi`, `a`.`nama_provinsi` as `provinsi`
+FROM (`tbl_provinsi`, `tbl_provinsi` as `a`)
+JOIN `tbl_kabupaten` as `b` ON `a`.`id_provinsi`=`b`.`id_provinsi`
+JOIN `tbl_kecamatan` as `c` ON `b`.`id_kabupaten`=`c`.`id_kabupaten`
+JOIN `tbl_kelurahan` as `d` ON `c`.`id_kecamatan`=`d`.`id_kecamatan`
+WHERE `d`.`nama_kelurahan` LIKE \'%kepu%\' ESCAPE \'!\'
+OR  `c`.`nama_kecamatan` LIKE \'%kepu%\' ESCAPE \'!\'
+ LIMIT 20')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `a`.`id` as `id_provinsi`, `a`.`nama_provinsi` as `provinsi`
+FROM (`tbl_provinsi`, `tbl_provinsi` as `a`)
+JOIN `tbl_kabupaten` as `b` ON `a`.`id_provinsi`=`b`.`id_provinsi`
+JOIN `tbl_kecamatan` as `c` ON `b`.`id_kabupaten`=`c`.`id_kabupaten`
+JOIN `tbl_kelurahan` as `d` ON `c`.`id_kecamatan`=`d`.`id_kecamatan`
+WHERE `d`.`nama_kelurahan` LIKE :d.nama_kelurahan: ESCAPE \'!\'
+OR  `c`.`nama_kecamatan` LIKE :c.nama_kecamatan: ESCAPE \'!\'
+ LIMIT 20', [...], false)
+ 5 APPPATH\Models\ModelAdministrasi.php(29): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Admin.php(383): App\Models\ModelAdministrasi->getDataAjaxRemote('kepu')
+ 7 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->getDataAjaxRemote()
+ 8 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-08 01:41:59 --> Undefined array key "nama_provinsi"
+in APPPATH\Controllers\Admin.php on line 392.
+ 1 APPPATH\Controllers\Admin.php(392): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nama_provinsi"', 'APPPATH\\Controllers\\Admin.php', 392)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->getDataAjaxRemote()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+ERROR - 2022-12-08 01:44:30 --> mysqli_sql_exception: Unknown column 'd.nama_kecamatan' in 'where clause' in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM (...', 0)
+#1 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM (...')
+#2 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM (...')
+#3 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM (...', Array, false)
+#4 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Models\ModelAdministrasi.php(28): CodeIgniter\Database\BaseBuilder->get()
+#5 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Controllers\Admin.php(387): App\Models\ModelAdministrasi->getDataAjaxRemote('suko')
+#6 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(927): App\Controllers\Admin->getDataAjaxRemote()
+#7 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#8 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 F:\WEB\XAMPP\htdocs\WebGis_kv\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(46): require_once('F:\\WEB\\XAMPP\\ht...')
+#11 {main}
+CRITICAL - 2022-12-08 01:44:30 --> Unknown column 'd.nama_kecamatan' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *
+FROM (`tbl_provinsi`, `tbl_provinsi` as `a`)
+JOIN `tbl_kabupaten` as `b` ON `a`.`id_provinsi`=`b`.`id_provinsi`
+JOIN `tbl_kecamatan` as `c` ON `b`.`id_kabupaten`=`c`.`id_kabupaten`
+WHERE `d`.`nama_kecamatan` LIKE \'%suko%\' ESCAPE \'!\'
+OR  `c`.`nama_kabupaten` LIKE \'%suko%\' ESCAPE \'!\'
+ LIMIT 20', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM (`tbl_provinsi`, `tbl_provinsi` as `a`)
+JOIN `tbl_kabupaten` as `b` ON `a`.`id_provinsi`=`b`.`id_provinsi`
+JOIN `tbl_kecamatan` as `c` ON `b`.`id_kabupaten`=`c`.`id_kabupaten`
+WHERE `d`.`nama_kecamatan` LIKE \'%suko%\' ESCAPE \'!\'
+OR  `c`.`nama_kabupaten` LIKE \'%suko%\' ESCAPE \'!\'
+ LIMIT 20')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM (`tbl_provinsi`, `tbl_provinsi` as `a`)
+JOIN `tbl_kabupaten` as `b` ON `a`.`id_provinsi`=`b`.`id_provinsi`
+JOIN `tbl_kecamatan` as `c` ON `b`.`id_kabupaten`=`c`.`id_kabupaten`
+WHERE `d`.`nama_kecamatan` LIKE \'%suko%\' ESCAPE \'!\'
+OR  `c`.`nama_kabupaten` LIKE \'%suko%\' ESCAPE \'!\'
+ LIMIT 20')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM (`tbl_provinsi`, `tbl_provinsi` as `a`)
+JOIN `tbl_kabupaten` as `b` ON `a`.`id_provinsi`=`b`.`id_provinsi`
+JOIN `tbl_kecamatan` as `c` ON `b`.`id_kabupaten`=`c`.`id_kabupaten`
+WHERE `d`.`nama_kecamatan` LIKE :d.nama_kecamatan: ESCAPE \'!\'
+OR  `c`.`nama_kabupaten` LIKE :c.nama_kabupaten: ESCAPE \'!\'
+ LIMIT 20', [...], false)
+ 5 APPPATH\Models\ModelAdministrasi.php(28): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Admin.php(387): App\Models\ModelAdministrasi->getDataAjaxRemote('suko')
+ 7 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->getDataAjaxRemote()
+ 8 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-08 01:45:02 --> Undefined array key "id_kelurahan"
+in APPPATH\Controllers\Admin.php on line 391.
+ 1 APPPATH\Controllers\Admin.php(391): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "id_kelurahan"', 'APPPATH\\Controllers\\Admin.php', 391)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->getDataAjaxRemote()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-08 01:45:53 --> Undefined variable $selectajax
+in APPPATH\Controllers\Admin.php on line 396.
+ 1 APPPATH\Controllers\Admin.php(396): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $selectajax', 'APPPATH\\Controllers\\Admin.php', 396)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->getDataAjaxRemote()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-08 01:51:17 --> Undefined variable $selectajax
+in APPPATH\Controllers\Admin.php on line 396.
+ 1 APPPATH\Controllers\Admin.php(396): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $selectajax', 'APPPATH\\Controllers\\Admin.php', 396)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->getDataAjaxRemote()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-08 01:51:49 --> Undefined variable $selectajax
+in APPPATH\Controllers\Admin.php on line 396.
+ 1 APPPATH\Controllers\Admin.php(396): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $selectajax', 'APPPATH\\Controllers\\Admin.php', 396)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->getDataAjaxRemote()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-08 02:20:45 --> syntax error, unexpected variable "$data"
+in APPPATH\Controllers\Admin.php on line 385.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(259): CodeIgniter\Autoloader\Autoloader->includeFile('APPPATH\\Controllers\\Admin.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(237): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Admin')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Admin')
+ 4 SYSTEMPATH\CodeIgniter.php(877): class_exists('\\App\\Controllers\\Admin', true)
+ 5 SYSTEMPATH\CodeIgniter.php(469): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-08 02:21:10 --> syntax error, unexpected token "echo"
+in APPPATH\Controllers\Admin.php on line 386.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(259): CodeIgniter\Autoloader\Autoloader->includeFile('APPPATH\\Controllers\\Admin.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(237): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Admin')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Admin')
+ 4 SYSTEMPATH\CodeIgniter.php(877): class_exists('\\App\\Controllers\\Admin', true)
+ 5 SYSTEMPATH\CodeIgniter.php(469): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-08 02:26:07 --> Undefined array key "nama_provinsi"
+in APPPATH\Controllers\Admin.php on line 387.
+ 1 APPPATH\Controllers\Admin.php(387): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nama_provinsi"', 'APPPATH\\Controllers\\Admin.php', 387)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->getDataAjaxRemote()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+ERROR - 2022-12-08 02:29:05 --> mysqli_sql_exception: Unknown column 'tbl_kabupaten.id_kabupaten' in 'field list' in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `tbl_pro...', 0)
+#1 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_pro...')
+#2 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_pro...')
+#3 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_pro...', Array, false)
+#4 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Models\ModelAdministrasi.php(29): CodeIgniter\Database\BaseBuilder->get()
+#5 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Controllers\Admin.php(381): App\Models\ModelAdministrasi->getDataAjaxRemote('kepu')
+#6 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(927): App\Controllers\Admin->getDataAjaxRemote()
+#7 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#8 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 F:\WEB\XAMPP\htdocs\WebGis_kv\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(46): require_once('F:\\WEB\\XAMPP\\ht...')
+#11 {main}
+CRITICAL - 2022-12-08 02:29:05 --> Unknown column 'tbl_kabupaten.id_kabupaten' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `tbl_provinsi`.`id_provinsi` as `id_provinsi`, `tbl_provinsi`.`nama_provinsi` as `nama_provinsi`, `tbl_kabupaten`.`id_kabupaten` as `id_kabupaten`, `tbl_kabupaten`.`nama_kabupaten` as `nama_kabupaten`, `c`.`id` as `kecamatan_id`, `c`.`nama` as `kecamatan`, `d`.`id` as `desa_id`, `d`.`nama` as `desa`
+FROM (`tbl_provinsi`, `tbl_provinsi` as `a`)
+JOIN `tbl_kabupaten` as `b` ON `a`.`id_provinsi`=`b`.`id_provinsi`
+JOIN `tbl_kecamatan` as `c` ON `b`.`id_kabupaten`=`c`.`id_kabupaten`
+JOIN `tbl_kelurahan` as `d` ON `c`.`id_kecamatan`=`d`.`id_kecamatan`
+WHERE `d`.`nama_kelurahan` LIKE \'%kepu%\' ESCAPE \'!\'
+OR  `c`.`nama_kecamatan` LIKE \'%kepu%\' ESCAPE \'!\'
+ LIMIT 20', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_provinsi`.`id_provinsi` as `id_provinsi`, `tbl_provinsi`.`nama_provinsi` as `nama_provinsi`, `tbl_kabupaten`.`id_kabupaten` as `id_kabupaten`, `tbl_kabupaten`.`nama_kabupaten` as `nama_kabupaten`, `c`.`id` as `kecamatan_id`, `c`.`nama` as `kecamatan`, `d`.`id` as `desa_id`, `d`.`nama` as `desa`
+FROM (`tbl_provinsi`, `tbl_provinsi` as `a`)
+JOIN `tbl_kabupaten` as `b` ON `a`.`id_provinsi`=`b`.`id_provinsi`
+JOIN `tbl_kecamatan` as `c` ON `b`.`id_kabupaten`=`c`.`id_kabupaten`
+JOIN `tbl_kelurahan` as `d` ON `c`.`id_kecamatan`=`d`.`id_kecamatan`
+WHERE `d`.`nama_kelurahan` LIKE \'%kepu%\' ESCAPE \'!\'
+OR  `c`.`nama_kecamatan` LIKE \'%kepu%\' ESCAPE \'!\'
+ LIMIT 20')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_provinsi`.`id_provinsi` as `id_provinsi`, `tbl_provinsi`.`nama_provinsi` as `nama_provinsi`, `tbl_kabupaten`.`id_kabupaten` as `id_kabupaten`, `tbl_kabupaten`.`nama_kabupaten` as `nama_kabupaten`, `c`.`id` as `kecamatan_id`, `c`.`nama` as `kecamatan`, `d`.`id` as `desa_id`, `d`.`nama` as `desa`
+FROM (`tbl_provinsi`, `tbl_provinsi` as `a`)
+JOIN `tbl_kabupaten` as `b` ON `a`.`id_provinsi`=`b`.`id_provinsi`
+JOIN `tbl_kecamatan` as `c` ON `b`.`id_kabupaten`=`c`.`id_kabupaten`
+JOIN `tbl_kelurahan` as `d` ON `c`.`id_kecamatan`=`d`.`id_kecamatan`
+WHERE `d`.`nama_kelurahan` LIKE \'%kepu%\' ESCAPE \'!\'
+OR  `c`.`nama_kecamatan` LIKE \'%kepu%\' ESCAPE \'!\'
+ LIMIT 20')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_provinsi`.`id_provinsi` as `id_provinsi`, `tbl_provinsi`.`nama_provinsi` as `nama_provinsi`, `tbl_kabupaten`.`id_kabupaten` as `id_kabupaten`, `tbl_kabupaten`.`nama_kabupaten` as `nama_kabupaten`, `c`.`id` as `kecamatan_id`, `c`.`nama` as `kecamatan`, `d`.`id` as `desa_id`, `d`.`nama` as `desa`
+FROM (`tbl_provinsi`, `tbl_provinsi` as `a`)
+JOIN `tbl_kabupaten` as `b` ON `a`.`id_provinsi`=`b`.`id_provinsi`
+JOIN `tbl_kecamatan` as `c` ON `b`.`id_kabupaten`=`c`.`id_kabupaten`
+JOIN `tbl_kelurahan` as `d` ON `c`.`id_kecamatan`=`d`.`id_kecamatan`
+WHERE `d`.`nama_kelurahan` LIKE :d.nama_kelurahan: ESCAPE \'!\'
+OR  `c`.`nama_kecamatan` LIKE :c.nama_kecamatan: ESCAPE \'!\'
+ LIMIT 20', [...], false)
+ 5 APPPATH\Models\ModelAdministrasi.php(29): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Admin.php(381): App\Models\ModelAdministrasi->getDataAjaxRemote('kepu')
+ 7 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->getDataAjaxRemote()
+ 8 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+ERROR - 2022-12-08 02:30:48 --> mysqli_sql_exception: Unknown column 'tbl_kabupaten.id_kabupaten' in 'field list' in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `tbl_pro...', 0)
+#1 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_pro...')
+#2 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_pro...')
+#3 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_pro...', Array, false)
+#4 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Models\ModelAdministrasi.php(29): CodeIgniter\Database\BaseBuilder->get()
+#5 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Controllers\Admin.php(381): App\Models\ModelAdministrasi->getDataAjaxRemote('kepu')
+#6 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(927): App\Controllers\Admin->getDataAjaxRemote()
+#7 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#8 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 F:\WEB\XAMPP\htdocs\WebGis_kv\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(46): require_once('F:\\WEB\\XAMPP\\ht...')
+#11 {main}
+CRITICAL - 2022-12-08 02:30:48 --> Unknown column 'tbl_kabupaten.id_kabupaten' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `tbl_provinsi`.`id_provinsi` as `id_provinsi`, `tbl_provinsi`.`nama_provinsi` as `nama_provinsi`, `tbl_kabupaten`.`id_kabupaten` as `id_kabupaten`, `tbl_kabupaten`.`nama_kabupaten` as `nama_kabupaten`, `tbl_kecamatan`.`id_kecamatan` as `id_kecamatan`, `tbl_kecamatan`.`nama_kecamatan` as `nama_kecamatan`, `tbl_kelurahan`.`id_kelurahan` as `id_kelurahan`, `tbl_kelurahan`.`nama_kelurahan` as `kelurahan`
+FROM (`tbl_provinsi`, `tbl_provinsi` as `a`)
+JOIN `tbl_kabupaten` as `b` ON `a`.`id_provinsi`=`b`.`id_provinsi`
+JOIN `tbl_kecamatan` as `c` ON `b`.`id_kabupaten`=`c`.`id_kabupaten`
+JOIN `tbl_kelurahan` as `d` ON `c`.`id_kecamatan`=`d`.`id_kecamatan`
+WHERE `d`.`nama_kelurahan` LIKE \'%kepu%\' ESCAPE \'!\'
+OR  `c`.`nama_kecamatan` LIKE \'%kepu%\' ESCAPE \'!\'
+ LIMIT 20', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_provinsi`.`id_provinsi` as `id_provinsi`, `tbl_provinsi`.`nama_provinsi` as `nama_provinsi`, `tbl_kabupaten`.`id_kabupaten` as `id_kabupaten`, `tbl_kabupaten`.`nama_kabupaten` as `nama_kabupaten`, `tbl_kecamatan`.`id_kecamatan` as `id_kecamatan`, `tbl_kecamatan`.`nama_kecamatan` as `nama_kecamatan`, `tbl_kelurahan`.`id_kelurahan` as `id_kelurahan`, `tbl_kelurahan`.`nama_kelurahan` as `kelurahan`
+FROM (`tbl_provinsi`, `tbl_provinsi` as `a`)
+JOIN `tbl_kabupaten` as `b` ON `a`.`id_provinsi`=`b`.`id_provinsi`
+JOIN `tbl_kecamatan` as `c` ON `b`.`id_kabupaten`=`c`.`id_kabupaten`
+JOIN `tbl_kelurahan` as `d` ON `c`.`id_kecamatan`=`d`.`id_kecamatan`
+WHERE `d`.`nama_kelurahan` LIKE \'%kepu%\' ESCAPE \'!\'
+OR  `c`.`nama_kecamatan` LIKE \'%kepu%\' ESCAPE \'!\'
+ LIMIT 20')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_provinsi`.`id_provinsi` as `id_provinsi`, `tbl_provinsi`.`nama_provinsi` as `nama_provinsi`, `tbl_kabupaten`.`id_kabupaten` as `id_kabupaten`, `tbl_kabupaten`.`nama_kabupaten` as `nama_kabupaten`, `tbl_kecamatan`.`id_kecamatan` as `id_kecamatan`, `tbl_kecamatan`.`nama_kecamatan` as `nama_kecamatan`, `tbl_kelurahan`.`id_kelurahan` as `id_kelurahan`, `tbl_kelurahan`.`nama_kelurahan` as `kelurahan`
+FROM (`tbl_provinsi`, `tbl_provinsi` as `a`)
+JOIN `tbl_kabupaten` as `b` ON `a`.`id_provinsi`=`b`.`id_provinsi`
+JOIN `tbl_kecamatan` as `c` ON `b`.`id_kabupaten`=`c`.`id_kabupaten`
+JOIN `tbl_kelurahan` as `d` ON `c`.`id_kecamatan`=`d`.`id_kecamatan`
+WHERE `d`.`nama_kelurahan` LIKE \'%kepu%\' ESCAPE \'!\'
+OR  `c`.`nama_kecamatan` LIKE \'%kepu%\' ESCAPE \'!\'
+ LIMIT 20')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_provinsi`.`id_provinsi` as `id_provinsi`, `tbl_provinsi`.`nama_provinsi` as `nama_provinsi`, `tbl_kabupaten`.`id_kabupaten` as `id_kabupaten`, `tbl_kabupaten`.`nama_kabupaten` as `nama_kabupaten`, `tbl_kecamatan`.`id_kecamatan` as `id_kecamatan`, `tbl_kecamatan`.`nama_kecamatan` as `nama_kecamatan`, `tbl_kelurahan`.`id_kelurahan` as `id_kelurahan`, `tbl_kelurahan`.`nama_kelurahan` as `kelurahan`
+FROM (`tbl_provinsi`, `tbl_provinsi` as `a`)
+JOIN `tbl_kabupaten` as `b` ON `a`.`id_provinsi`=`b`.`id_provinsi`
+JOIN `tbl_kecamatan` as `c` ON `b`.`id_kabupaten`=`c`.`id_kabupaten`
+JOIN `tbl_kelurahan` as `d` ON `c`.`id_kecamatan`=`d`.`id_kecamatan`
+WHERE `d`.`nama_kelurahan` LIKE :d.nama_kelurahan: ESCAPE \'!\'
+OR  `c`.`nama_kecamatan` LIKE :c.nama_kecamatan: ESCAPE \'!\'
+ LIMIT 20', [...], false)
+ 5 APPPATH\Models\ModelAdministrasi.php(29): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Admin.php(381): App\Models\ModelAdministrasi->getDataAjaxRemote('kepu')
+ 7 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->getDataAjaxRemote()
+ 8 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+ERROR - 2022-12-08 02:31:50 --> mysqli_sql_exception: Unknown column 'tbl_kabupaten.id_kabupaten' in 'field list' in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `tbl_pro...', 0)
+#1 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_pro...')
+#2 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_pro...')
+#3 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_pro...', Array, false)
+#4 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Models\ModelAdministrasi.php(29): CodeIgniter\Database\BaseBuilder->get()
+#5 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Controllers\Admin.php(381): App\Models\ModelAdministrasi->getDataAjaxRemote('kepu')
+#6 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(927): App\Controllers\Admin->getDataAjaxRemote()
+#7 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#8 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 F:\WEB\XAMPP\htdocs\WebGis_kv\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(46): require_once('F:\\WEB\\XAMPP\\ht...')
+#11 {main}
+CRITICAL - 2022-12-08 02:31:50 --> Unknown column 'tbl_kabupaten.id_kabupaten' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `tbl_provinsi`.`id_provinsi` as `id_provinsi`, `tbl_provinsi`.`nama_provinsi` as `provinsi`, `tbl_kabupaten`.`id_kabupaten` as `id_kabupaten`, `tbl_kabupaten`.`nama_kabupaten` as `kabupaten`, `tbl_kecamatan`.`id_kecamatan` as `id_kecamatan`, `tbl_kecamatan`.`nama_kecamatan` as `kecamatan`, `tbl_kelurahan`.`id_kelurahan` as `id_kelurahan`, `tbl_kelurahan`.`nama_kelurahan` as `kelurahan`
+FROM (`tbl_provinsi`, `tbl_provinsi` as `a`)
+JOIN `tbl_kabupaten` as `b` ON `a`.`id_provinsi`=`b`.`id_provinsi`
+JOIN `tbl_kecamatan` as `c` ON `b`.`id_kabupaten`=`c`.`id_kabupaten`
+JOIN `tbl_kelurahan` as `d` ON `c`.`id_kecamatan`=`d`.`id_kecamatan`
+WHERE `d`.`nama_kelurahan` LIKE \'%kepu%\' ESCAPE \'!\'
+OR  `c`.`nama_kecamatan` LIKE \'%kepu%\' ESCAPE \'!\'
+ LIMIT 20', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_provinsi`.`id_provinsi` as `id_provinsi`, `tbl_provinsi`.`nama_provinsi` as `provinsi`, `tbl_kabupaten`.`id_kabupaten` as `id_kabupaten`, `tbl_kabupaten`.`nama_kabupaten` as `kabupaten`, `tbl_kecamatan`.`id_kecamatan` as `id_kecamatan`, `tbl_kecamatan`.`nama_kecamatan` as `kecamatan`, `tbl_kelurahan`.`id_kelurahan` as `id_kelurahan`, `tbl_kelurahan`.`nama_kelurahan` as `kelurahan`
+FROM (`tbl_provinsi`, `tbl_provinsi` as `a`)
+JOIN `tbl_kabupaten` as `b` ON `a`.`id_provinsi`=`b`.`id_provinsi`
+JOIN `tbl_kecamatan` as `c` ON `b`.`id_kabupaten`=`c`.`id_kabupaten`
+JOIN `tbl_kelurahan` as `d` ON `c`.`id_kecamatan`=`d`.`id_kecamatan`
+WHERE `d`.`nama_kelurahan` LIKE \'%kepu%\' ESCAPE \'!\'
+OR  `c`.`nama_kecamatan` LIKE \'%kepu%\' ESCAPE \'!\'
+ LIMIT 20')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_provinsi`.`id_provinsi` as `id_provinsi`, `tbl_provinsi`.`nama_provinsi` as `provinsi`, `tbl_kabupaten`.`id_kabupaten` as `id_kabupaten`, `tbl_kabupaten`.`nama_kabupaten` as `kabupaten`, `tbl_kecamatan`.`id_kecamatan` as `id_kecamatan`, `tbl_kecamatan`.`nama_kecamatan` as `kecamatan`, `tbl_kelurahan`.`id_kelurahan` as `id_kelurahan`, `tbl_kelurahan`.`nama_kelurahan` as `kelurahan`
+FROM (`tbl_provinsi`, `tbl_provinsi` as `a`)
+JOIN `tbl_kabupaten` as `b` ON `a`.`id_provinsi`=`b`.`id_provinsi`
+JOIN `tbl_kecamatan` as `c` ON `b`.`id_kabupaten`=`c`.`id_kabupaten`
+JOIN `tbl_kelurahan` as `d` ON `c`.`id_kecamatan`=`d`.`id_kecamatan`
+WHERE `d`.`nama_kelurahan` LIKE \'%kepu%\' ESCAPE \'!\'
+OR  `c`.`nama_kecamatan` LIKE \'%kepu%\' ESCAPE \'!\'
+ LIMIT 20')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_provinsi`.`id_provinsi` as `id_provinsi`, `tbl_provinsi`.`nama_provinsi` as `provinsi`, `tbl_kabupaten`.`id_kabupaten` as `id_kabupaten`, `tbl_kabupaten`.`nama_kabupaten` as `kabupaten`, `tbl_kecamatan`.`id_kecamatan` as `id_kecamatan`, `tbl_kecamatan`.`nama_kecamatan` as `kecamatan`, `tbl_kelurahan`.`id_kelurahan` as `id_kelurahan`, `tbl_kelurahan`.`nama_kelurahan` as `kelurahan`
+FROM (`tbl_provinsi`, `tbl_provinsi` as `a`)
+JOIN `tbl_kabupaten` as `b` ON `a`.`id_provinsi`=`b`.`id_provinsi`
+JOIN `tbl_kecamatan` as `c` ON `b`.`id_kabupaten`=`c`.`id_kabupaten`
+JOIN `tbl_kelurahan` as `d` ON `c`.`id_kecamatan`=`d`.`id_kecamatan`
+WHERE `d`.`nama_kelurahan` LIKE :d.nama_kelurahan: ESCAPE \'!\'
+OR  `c`.`nama_kecamatan` LIKE :c.nama_kecamatan: ESCAPE \'!\'
+ LIMIT 20', [...], false)
+ 5 APPPATH\Models\ModelAdministrasi.php(29): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Admin.php(381): App\Models\ModelAdministrasi->getDataAjaxRemote('kepu')
+ 7 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->getDataAjaxRemote()
+ 8 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-08 02:41:06 --> Allowed memory size of 1073741824 bytes exhausted (tried to allocate 16777224 bytes)
+in SYSTEMPATH\Database\BaseResult.php on line 191.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+ERROR - 2022-12-08 02:48:28 --> mysqli_sql_exception: Column 'id_provinsi' in field list is ambiguous in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `id_prov...', 0)
+#1 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `id_prov...')
+#2 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `id_prov...')
+#3 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `id_prov...', Array, false)
+#4 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Models\ModelAdministrasi.php(29): CodeIgniter\Database\BaseBuilder->get()
+#5 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Controllers\Admin.php(381): App\Models\ModelAdministrasi->getDataAjaxRemote('sukolilo')
+#6 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(927): App\Controllers\Admin->getDataAjaxRemote()
+#7 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#8 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 F:\WEB\XAMPP\htdocs\WebGis_kv\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(46): require_once('F:\\WEB\\XAMPP\\ht...')
+#11 {main}
+CRITICAL - 2022-12-08 02:48:28 --> Column 'id_provinsi' in field list is ambiguous
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `id_provinsi`, `id_kabupaten`, `id_kecamatan`, `id_kelurahan`, `nama_kecamatan`, `nama_kelurahan`
+FROM (`tbl_kecamatan`, `tbl_provinsi` as `a`)
+JOIN `tbl_kabupaten` as `b` ON `a`.`id_provinsi`=`b`.`id_provinsi`
+JOIN `tbl_kecamatan` as `c` ON `b`.`id_kabupaten`=`c`.`id_kabupaten`
+JOIN `tbl_kelurahan` as `d` ON `c`.`id_kecamatan`=`d`.`id_kecamatan`
+WHERE `d`.`nama_kelurahan` LIKE \'%sukolilo%\' ESCAPE \'!\'
+OR  `c`.`nama_kecamatan` LIKE \'%sukolilo%\' ESCAPE \'!\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `id_provinsi`, `id_kabupaten`, `id_kecamatan`, `id_kelurahan`, `nama_kecamatan`, `nama_kelurahan`
+FROM (`tbl_kecamatan`, `tbl_provinsi` as `a`)
+JOIN `tbl_kabupaten` as `b` ON `a`.`id_provinsi`=`b`.`id_provinsi`
+JOIN `tbl_kecamatan` as `c` ON `b`.`id_kabupaten`=`c`.`id_kabupaten`
+JOIN `tbl_kelurahan` as `d` ON `c`.`id_kecamatan`=`d`.`id_kecamatan`
+WHERE `d`.`nama_kelurahan` LIKE \'%sukolilo%\' ESCAPE \'!\'
+OR  `c`.`nama_kecamatan` LIKE \'%sukolilo%\' ESCAPE \'!\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `id_provinsi`, `id_kabupaten`, `id_kecamatan`, `id_kelurahan`, `nama_kecamatan`, `nama_kelurahan`
+FROM (`tbl_kecamatan`, `tbl_provinsi` as `a`)
+JOIN `tbl_kabupaten` as `b` ON `a`.`id_provinsi`=`b`.`id_provinsi`
+JOIN `tbl_kecamatan` as `c` ON `b`.`id_kabupaten`=`c`.`id_kabupaten`
+JOIN `tbl_kelurahan` as `d` ON `c`.`id_kecamatan`=`d`.`id_kecamatan`
+WHERE `d`.`nama_kelurahan` LIKE \'%sukolilo%\' ESCAPE \'!\'
+OR  `c`.`nama_kecamatan` LIKE \'%sukolilo%\' ESCAPE \'!\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `id_provinsi`, `id_kabupaten`, `id_kecamatan`, `id_kelurahan`, `nama_kecamatan`, `nama_kelurahan`
+FROM (`tbl_kecamatan`, `tbl_provinsi` as `a`)
+JOIN `tbl_kabupaten` as `b` ON `a`.`id_provinsi`=`b`.`id_provinsi`
+JOIN `tbl_kecamatan` as `c` ON `b`.`id_kabupaten`=`c`.`id_kabupaten`
+JOIN `tbl_kelurahan` as `d` ON `c`.`id_kecamatan`=`d`.`id_kecamatan`
+WHERE `d`.`nama_kelurahan` LIKE :d.nama_kelurahan: ESCAPE \'!\'
+OR  `c`.`nama_kecamatan` LIKE :c.nama_kecamatan: ESCAPE \'!\'', [...], false)
+ 5 APPPATH\Models\ModelAdministrasi.php(29): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Admin.php(381): App\Models\ModelAdministrasi->getDataAjaxRemote('sukolilo')
+ 7 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->getDataAjaxRemote()
+ 8 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-08 02:50:49 --> Undefined variable $selectajax
+in APPPATH\Controllers\Admin.php on line 392.
+ 1 APPPATH\Controllers\Admin.php(392): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $selectajax', 'APPPATH\\Controllers\\Admin.php', 392)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->getDataAjaxRemote()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-08 02:55:04 --> Allowed memory size of 1073741824 bytes exhausted (tried to allocate 984668168 bytes)
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2022-12-08 03:02:51 --> Allowed memory size of 1073741824 bytes exhausted (tried to allocate 20480 bytes)
+in SYSTEMPATH\Database\MySQLi\Result.php on line 132.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2022-12-08 03:06:01 --> Cannot access protected property CodeIgniter\Database\MySQLi\Builder::$db
+in APPPATH\Models\ModelAdministrasi.php on line 20.
+ 1 APPPATH\Controllers\Admin.php(381): App\Models\ModelAdministrasi->getDataAjaxRemote('sukolilo')
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->getDataAjaxRemote()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-08 03:19:24 --> Undefined array key "id_kelurahan"
+in APPPATH\Controllers\Admin.php on line 387.
+ 1 APPPATH\Controllers\Admin.php(387): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "id_kelurahan"', 'APPPATH\\Controllers\\Admin.php', 387)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->getDataAjaxRemote()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-08 03:20:00 --> Undefined array key "nama_kabupaten"
+in APPPATH\Controllers\Admin.php on line 388.
+ 1 APPPATH\Controllers\Admin.php(388): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nama_kabupaten"', 'APPPATH\\Controllers\\Admin.php', 388)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->getDataAjaxRemote()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-08 03:20:29 --> Undefined array key "nama_kabupaten"
+in APPPATH\Controllers\Admin.php on line 388.
+ 1 APPPATH\Controllers\Admin.php(388): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nama_kabupaten"', 'APPPATH\\Controllers\\Admin.php', 388)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->getDataAjaxRemote()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-08 03:21:12 --> Undefined variable $selectajax
+in APPPATH\Controllers\Admin.php on line 392.
+ 1 APPPATH\Controllers\Admin.php(392): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $selectajax', 'APPPATH\\Controllers\\Admin.php', 392)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->getDataAjaxRemote()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-08 03:47:31 --> Undefined variable $selectajax
+in APPPATH\Controllers\Admin.php on line 394.
+ 1 APPPATH\Controllers\Admin.php(394): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $selectajax', 'APPPATH\\Controllers\\Admin.php', 394)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->getDataAjaxRemote()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+ERROR - 2022-12-08 04:10:41 --> mysqli_sql_exception: Unknown column 'c.nama_kecamatan' in 'where clause' in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Models\ModelAdministrasi.php(26): CodeIgniter\Database\BaseBuilder->get()
+#5 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Controllers\Admin.php(381): App\Models\ModelAdministrasi->getAjaxRemote('suko')
+#6 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(927): App\Controllers\Admin->AjaxRemote()
+#7 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#8 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 F:\WEB\XAMPP\htdocs\WebGis_kv\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(46): require_once('F:\\WEB\\XAMPP\\ht...')
+#11 {main}
+CRITICAL - 2022-12-08 04:10:41 --> Unknown column 'c.nama_kecamatan' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *
+FROM `tbl_kelurahan`
+WHERE `c`.`nama_kecamatan` LIKE \'%suko%\' ESCAPE \'!\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `tbl_kelurahan`
+WHERE `c`.`nama_kecamatan` LIKE \'%suko%\' ESCAPE \'!\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `tbl_kelurahan`
+WHERE `c`.`nama_kecamatan` LIKE \'%suko%\' ESCAPE \'!\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tbl_kelurahan`
+WHERE `c`.`nama_kecamatan` LIKE :c.nama_kecamatan: ESCAPE \'!\'', [...], false)
+ 5 APPPATH\Models\ModelAdministrasi.php(26): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Admin.php(381): App\Models\ModelAdministrasi->getAjaxRemote('suko')
+ 7 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->AjaxRemote()
+ 8 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+ERROR - 2022-12-08 04:10:46 --> mysqli_sql_exception: Unknown column 'c.nama_kecamatan' in 'where clause' in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Models\ModelAdministrasi.php(26): CodeIgniter\Database\BaseBuilder->get()
+#5 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Controllers\Admin.php(381): App\Models\ModelAdministrasi->getAjaxRemote('suko')
+#6 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(927): App\Controllers\Admin->AjaxRemote()
+#7 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#8 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 F:\WEB\XAMPP\htdocs\WebGis_kv\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(46): require_once('F:\\WEB\\XAMPP\\ht...')
+#11 {main}
+CRITICAL - 2022-12-08 04:10:46 --> Unknown column 'c.nama_kecamatan' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *
+FROM `tbl_kelurahan`
+WHERE `c`.`nama_kecamatan` LIKE \'%suko%\' ESCAPE \'!\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `tbl_kelurahan`
+WHERE `c`.`nama_kecamatan` LIKE \'%suko%\' ESCAPE \'!\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `tbl_kelurahan`
+WHERE `c`.`nama_kecamatan` LIKE \'%suko%\' ESCAPE \'!\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tbl_kelurahan`
+WHERE `c`.`nama_kecamatan` LIKE :c.nama_kecamatan: ESCAPE \'!\'', [...], false)
+ 5 APPPATH\Models\ModelAdministrasi.php(26): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Admin.php(381): App\Models\ModelAdministrasi->getAjaxRemote('suko')
+ 7 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->AjaxRemote()
+ 8 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-08 04:19:59 --> Too few arguments to function App\Models\ModelAdministrasi::getDataAjaxRemote(), 0 passed in F:\WEB\XAMPP\htdocs\WebGis_kv\app\Controllers\Admin.php on line 380 and exactly 1 expected
+in APPPATH\Models\ModelAdministrasi.php on line 21.
+ 1 APPPATH\Controllers\Admin.php(380): App\Models\ModelAdministrasi->getDataAjaxRemote()
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->wil()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-08 04:20:56 --> Allowed memory size of 1073741824 bytes exhausted (tried to allocate 20480 bytes)
+in SYSTEMPATH\Database\MySQLi\Result.php on line 132.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2022-12-08 04:21:34 --> Allowed memory size of 1073741824 bytes exhausted (tried to allocate 20480 bytes)
+in SYSTEMPATH\Database\MySQLi\Result.php on line 132.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2022-12-08 04:23:18 --> Allowed memory size of 1073741824 bytes exhausted (tried to allocate 20480 bytes)
+in SYSTEMPATH\Database\MySQLi\Result.php on line 132.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2022-12-08 04:29:39 --> Allowed memory size of 1073741824 bytes exhausted (tried to allocate 20480 bytes)
+in SYSTEMPATH\Database\MySQLi\Result.php on line 132.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+ERROR - 2022-12-08 05:10:38 --> mysqli_sql_exception: Not unique table/alias: 'tbl_provinsi' in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM (...', 0)
+#1 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM (...')
+#2 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM (...')
+#3 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM (...', Array, false)
+#4 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Models\ModelAdministrasi.php(31): CodeIgniter\Database\BaseBuilder->get()
+#5 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Controllers\Admin.php(380): App\Models\ModelAdministrasi->Remote()
+#6 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(927): App\Controllers\Admin->wil()
+#7 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#8 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 F:\WEB\XAMPP\htdocs\WebGis_kv\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(46): require_once('F:\\WEB\\XAMPP\\ht...')
+#11 {main}
+CRITICAL - 2022-12-08 05:10:38 --> Not unique table/alias: 'tbl_provinsi'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *
+FROM (`tbl_provinsi`, `tbl_provinsi` as `a`)
+JOIN `tbl_kabupaten` as `b` ON `a`.`id_provinsi`=`b`.`id_provinsi`
+JOIN `tbl_kecamatan` as `c` ON `b`.`id_kabupaten`=`c`.`id_kabupaten`
+JOIN `tbl_kelurahan` as `d` ON `c`.`id_kecamatan`=`d`.`id_kecamatan`
+JOIN `tbl_provinsi` ON `tbl_provinsi`.`id_provinsi`=`tbl_kabupaten`.`id_provinsi`
+WHERE `nama_kelurahan` LIKE \'%keputih%\' ESCAPE \'!\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM (`tbl_provinsi`, `tbl_provinsi` as `a`)
+JOIN `tbl_kabupaten` as `b` ON `a`.`id_provinsi`=`b`.`id_provinsi`
+JOIN `tbl_kecamatan` as `c` ON `b`.`id_kabupaten`=`c`.`id_kabupaten`
+JOIN `tbl_kelurahan` as `d` ON `c`.`id_kecamatan`=`d`.`id_kecamatan`
+JOIN `tbl_provinsi` ON `tbl_provinsi`.`id_provinsi`=`tbl_kabupaten`.`id_provinsi`
+WHERE `nama_kelurahan` LIKE \'%keputih%\' ESCAPE \'!\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM (`tbl_provinsi`, `tbl_provinsi` as `a`)
+JOIN `tbl_kabupaten` as `b` ON `a`.`id_provinsi`=`b`.`id_provinsi`
+JOIN `tbl_kecamatan` as `c` ON `b`.`id_kabupaten`=`c`.`id_kabupaten`
+JOIN `tbl_kelurahan` as `d` ON `c`.`id_kecamatan`=`d`.`id_kecamatan`
+JOIN `tbl_provinsi` ON `tbl_provinsi`.`id_provinsi`=`tbl_kabupaten`.`id_provinsi`
+WHERE `nama_kelurahan` LIKE \'%keputih%\' ESCAPE \'!\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM (`tbl_provinsi`, `tbl_provinsi` as `a`)
+JOIN `tbl_kabupaten` as `b` ON `a`.`id_provinsi`=`b`.`id_provinsi`
+JOIN `tbl_kecamatan` as `c` ON `b`.`id_kabupaten`=`c`.`id_kabupaten`
+JOIN `tbl_kelurahan` as `d` ON `c`.`id_kecamatan`=`d`.`id_kecamatan`
+JOIN `tbl_provinsi` ON `tbl_provinsi`.`id_provinsi`=`tbl_kabupaten`.`id_provinsi`
+WHERE `nama_kelurahan` LIKE :nama_kelurahan: ESCAPE \'!\'', [...], false)
+ 5 APPPATH\Models\ModelAdministrasi.php(31): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Admin.php(380): App\Models\ModelAdministrasi->Remote()
+ 7 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->wil()
+ 8 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+ERROR - 2022-12-08 05:10:51 --> mysqli_sql_exception: Not unique table/alias: 'tbl_provinsi' in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Models\ModelAdministrasi.php(25): CodeIgniter\Database\BaseBuilder->get()
+#5 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Controllers\Admin.php(380): App\Models\ModelAdministrasi->Remote()
+#6 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(927): App\Controllers\Admin->wil()
+#7 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#8 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 F:\WEB\XAMPP\htdocs\WebGis_kv\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(46): require_once('F:\\WEB\\XAMPP\\ht...')
+#11 {main}
+CRITICAL - 2022-12-08 05:10:51 --> Not unique table/alias: 'tbl_provinsi'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *
+FROM `tbl_provinsi`
+JOIN `tbl_provinsi` ON `tbl_provinsi`.`id_provinsi`=`tbl_kabupaten`.`id_provinsi`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `tbl_provinsi`
+JOIN `tbl_provinsi` ON `tbl_provinsi`.`id_provinsi`=`tbl_kabupaten`.`id_provinsi`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `tbl_provinsi`
+JOIN `tbl_provinsi` ON `tbl_provinsi`.`id_provinsi`=`tbl_kabupaten`.`id_provinsi`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tbl_provinsi`
+JOIN `tbl_provinsi` ON `tbl_provinsi`.`id_provinsi`=`tbl_kabupaten`.`id_provinsi`', [], false)
+ 5 APPPATH\Models\ModelAdministrasi.php(25): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Admin.php(380): App\Models\ModelAdministrasi->Remote()
+ 7 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->wil()
+ 8 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+ERROR - 2022-12-08 05:11:40 --> mysqli_sql_exception: Not unique table/alias: 'tbl_provinsi' in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Models\ModelAdministrasi.php(25): CodeIgniter\Database\BaseBuilder->get()
+#5 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Controllers\Admin.php(380): App\Models\ModelAdministrasi->Remote()
+#6 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(927): App\Controllers\Admin->wil()
+#7 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#8 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 F:\WEB\XAMPP\htdocs\WebGis_kv\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(46): require_once('F:\\WEB\\XAMPP\\ht...')
+#11 {main}
+CRITICAL - 2022-12-08 05:11:40 --> Not unique table/alias: 'tbl_provinsi'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *
+FROM `tbl_provinsi`
+JOIN `tbl_provinsi` ON `tbl_provinsi`.`id_provinsi` = `tbl_kelurahan`.`id_provinsi`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `tbl_provinsi`
+JOIN `tbl_provinsi` ON `tbl_provinsi`.`id_provinsi` = `tbl_kelurahan`.`id_provinsi`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `tbl_provinsi`
+JOIN `tbl_provinsi` ON `tbl_provinsi`.`id_provinsi` = `tbl_kelurahan`.`id_provinsi`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tbl_provinsi`
+JOIN `tbl_provinsi` ON `tbl_provinsi`.`id_provinsi` = `tbl_kelurahan`.`id_provinsi`', [], false)
+ 5 APPPATH\Models\ModelAdministrasi.php(25): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Admin.php(380): App\Models\ModelAdministrasi->Remote()
+ 7 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->wil()
+ 8 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+ERROR - 2022-12-08 05:11:50 --> mysqli_sql_exception: Unknown column 'tbl_kelurahan.id_provinsi' in 'on clause' in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Models\ModelAdministrasi.php(25): CodeIgniter\Database\BaseBuilder->get()
+#5 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Controllers\Admin.php(380): App\Models\ModelAdministrasi->Remote()
+#6 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(927): App\Controllers\Admin->wil()
+#7 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#8 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 F:\WEB\XAMPP\htdocs\WebGis_kv\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(46): require_once('F:\\WEB\\XAMPP\\ht...')
+#11 {main}
+CRITICAL - 2022-12-08 05:11:50 --> Unknown column 'tbl_kelurahan.id_provinsi' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *
+FROM `tbl_kelurahan`
+JOIN `tbl_provinsi` ON `tbl_provinsi`.`id_provinsi` = `tbl_kelurahan`.`id_provinsi`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `tbl_kelurahan`
+JOIN `tbl_provinsi` ON `tbl_provinsi`.`id_provinsi` = `tbl_kelurahan`.`id_provinsi`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `tbl_kelurahan`
+JOIN `tbl_provinsi` ON `tbl_provinsi`.`id_provinsi` = `tbl_kelurahan`.`id_provinsi`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tbl_kelurahan`
+JOIN `tbl_provinsi` ON `tbl_provinsi`.`id_provinsi` = `tbl_kelurahan`.`id_provinsi`', [], false)
+ 5 APPPATH\Models\ModelAdministrasi.php(25): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Admin.php(380): App\Models\ModelAdministrasi->Remote()
+ 7 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->wil()
+ 8 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+ERROR - 2022-12-08 05:12:32 --> mysqli_sql_exception: Unknown column 'tbl_kecamatan.id_provinsi' in 'on clause' in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Models\ModelAdministrasi.php(25): CodeIgniter\Database\BaseBuilder->get()
+#5 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Controllers\Admin.php(380): App\Models\ModelAdministrasi->Remote()
+#6 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(927): App\Controllers\Admin->wil()
+#7 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#8 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 F:\WEB\XAMPP\htdocs\WebGis_kv\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(46): require_once('F:\\WEB\\XAMPP\\ht...')
+#11 {main}
+CRITICAL - 2022-12-08 05:12:32 --> Unknown column 'tbl_kecamatan.id_provinsi' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *
+FROM `tbl_kelurahan`
+JOIN `tbl_kecamatan` ON `tbl_kecamatan`.`id_provinsi` = `tbl_kelurahan`.`id_provinsi`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `tbl_kelurahan`
+JOIN `tbl_kecamatan` ON `tbl_kecamatan`.`id_provinsi` = `tbl_kelurahan`.`id_provinsi`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `tbl_kelurahan`
+JOIN `tbl_kecamatan` ON `tbl_kecamatan`.`id_provinsi` = `tbl_kelurahan`.`id_provinsi`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tbl_kelurahan`
+JOIN `tbl_kecamatan` ON `tbl_kecamatan`.`id_provinsi` = `tbl_kelurahan`.`id_provinsi`', [], false)
+ 5 APPPATH\Models\ModelAdministrasi.php(25): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Admin.php(380): App\Models\ModelAdministrasi->Remote()
+ 7 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->wil()
+ 8 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+ERROR - 2022-12-08 05:24:39 --> mysqli_sql_exception: Unknown column 'tbl_kecamatan.id_provinsi' in 'on clause' in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `tbl_kel...', 0)
+#1 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_kel...')
+#2 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_kel...')
+#3 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_kel...', Array, false)
+#4 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Models\ModelAdministrasi.php(31): CodeIgniter\Database\BaseBuilder->get()
+#5 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Controllers\Admin.php(380): App\Models\ModelAdministrasi->Remote()
+#6 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(927): App\Controllers\Admin->wil()
+#7 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#8 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 F:\WEB\XAMPP\htdocs\WebGis_kv\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(46): require_once('F:\\WEB\\XAMPP\\ht...')
+#11 {main}
+CRITICAL - 2022-12-08 05:24:39 --> Unknown column 'tbl_kecamatan.id_provinsi' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `tbl_kelurahan`.`id_kelurahan` as `id_kelurahan`, `nama_kelurahan`, `tbl_kecamatan`.`id_kecamatan` as `id_kecamatan`, `nama_kecamatan`, `tbl_kabupaten`.`id_kabupaten` as `id_kabupaten`, `nama_kabupaten`, `tbl_provinsi`.`id_provinsi` as `id_provinsi`, `nama_provinsi`
+FROM `tbl_kelurahan`
+JOIN `tbl_kecamatan` ON `tbl_kecamatan`.`id_kecamatan` = `tbl_kelurahan`.`id_kecamatan`
+JOIN `tbl_kabupaten` ON `tbl_kabupaten`.`id_kabupaten` = `tbl_kecamatan`.`id_kabupaten`
+JOIN `tbl_provinsi` ON `tbl_provinsi`.`id_provinsi` = `tbl_kecamatan`.`id_provinsi`
+WHERE `nama_kelurahan` LIKE \'%kepu%\' ESCAPE \'!\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_kelurahan`.`id_kelurahan` as `id_kelurahan`, `nama_kelurahan`, `tbl_kecamatan`.`id_kecamatan` as `id_kecamatan`, `nama_kecamatan`, `tbl_kabupaten`.`id_kabupaten` as `id_kabupaten`, `nama_kabupaten`, `tbl_provinsi`.`id_provinsi` as `id_provinsi`, `nama_provinsi`
+FROM `tbl_kelurahan`
+JOIN `tbl_kecamatan` ON `tbl_kecamatan`.`id_kecamatan` = `tbl_kelurahan`.`id_kecamatan`
+JOIN `tbl_kabupaten` ON `tbl_kabupaten`.`id_kabupaten` = `tbl_kecamatan`.`id_kabupaten`
+JOIN `tbl_provinsi` ON `tbl_provinsi`.`id_provinsi` = `tbl_kecamatan`.`id_provinsi`
+WHERE `nama_kelurahan` LIKE \'%kepu%\' ESCAPE \'!\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_kelurahan`.`id_kelurahan` as `id_kelurahan`, `nama_kelurahan`, `tbl_kecamatan`.`id_kecamatan` as `id_kecamatan`, `nama_kecamatan`, `tbl_kabupaten`.`id_kabupaten` as `id_kabupaten`, `nama_kabupaten`, `tbl_provinsi`.`id_provinsi` as `id_provinsi`, `nama_provinsi`
+FROM `tbl_kelurahan`
+JOIN `tbl_kecamatan` ON `tbl_kecamatan`.`id_kecamatan` = `tbl_kelurahan`.`id_kecamatan`
+JOIN `tbl_kabupaten` ON `tbl_kabupaten`.`id_kabupaten` = `tbl_kecamatan`.`id_kabupaten`
+JOIN `tbl_provinsi` ON `tbl_provinsi`.`id_provinsi` = `tbl_kecamatan`.`id_provinsi`
+WHERE `nama_kelurahan` LIKE \'%kepu%\' ESCAPE \'!\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_kelurahan`.`id_kelurahan` as `id_kelurahan`, `nama_kelurahan`, `tbl_kecamatan`.`id_kecamatan` as `id_kecamatan`, `nama_kecamatan`, `tbl_kabupaten`.`id_kabupaten` as `id_kabupaten`, `nama_kabupaten`, `tbl_provinsi`.`id_provinsi` as `id_provinsi`, `nama_provinsi`
+FROM `tbl_kelurahan`
+JOIN `tbl_kecamatan` ON `tbl_kecamatan`.`id_kecamatan` = `tbl_kelurahan`.`id_kecamatan`
+JOIN `tbl_kabupaten` ON `tbl_kabupaten`.`id_kabupaten` = `tbl_kecamatan`.`id_kabupaten`
+JOIN `tbl_provinsi` ON `tbl_provinsi`.`id_provinsi` = `tbl_kecamatan`.`id_provinsi`
+WHERE `nama_kelurahan` LIKE :nama_kelurahan: ESCAPE \'!\'', [...], false)
+ 5 APPPATH\Models\ModelAdministrasi.php(31): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Admin.php(380): App\Models\ModelAdministrasi->Remote()
+ 7 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->wil()
+ 8 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-08 05:30:14 --> Undefined variable $selectajax
+in APPPATH\Controllers\Admin.php on line 406.
+ 1 APPPATH\Controllers\Admin.php(406): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $selectajax', 'APPPATH\\Controllers\\Admin.php', 406)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->getDataAjaxRemote()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-08 05:30:16 --> Undefined variable $selectajax
+in APPPATH\Controllers\Admin.php on line 406.
+ 1 APPPATH\Controllers\Admin.php(406): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $selectajax', 'APPPATH\\Controllers\\Admin.php', 406)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->getDataAjaxRemote()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-08 05:38:02 --> Undefined variable $selectajax
+in APPPATH\Controllers\Admin.php on line 400.
+ 1 APPPATH\Controllers\Admin.php(400): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $selectajax', 'APPPATH\\Controllers\\Admin.php', 400)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->getDataAjaxRemote()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')

@@ -42,24 +42,29 @@
                                 <label for="coordinate" class="form-label">Koordinat</label>
                                 <input type="text" class="form-control" id="coordinate" aria-describedby="textlHelp" name="coordinate" value="<?= $tampilKafe->coordinate; ?>">
                             </div>
+
+
+                            <input type="hidden" class="form-control" for="id_provinsi" id="id_provinsi" name="id_provinsi" value="<?= $tampilKafe->id_provinsi; ?>">
                             <div class="col-md-6">
                                 <label class="form-label">Provinsi</label>
                                 <select class="form-control select2" id="id_provinsi" name="id_provinsi">
                                     <option value="">--Pilih Provinsi--</option>
                                     <?php foreach ($provinsi as $key => $value) : ?>
-                                        <option value="<?= $value['id_provinsi'] ?>"><?= $value['nama_provinsi'] ?></option>
+                                        <option value="<?= $value['id_provinsi'] ?>" <?= $value['id_provinsi'] == $tampilKafe->id_provinsi ? "selected" : null ?>><?= $value['nama_provinsi'] ?></option>
                                     <?php endforeach ?>
                                 </select>
                             </div>
                             <div class="col-md-6">
                                 <label class="form-label">Kabupaten/Kota</label>
                                 <select class="form-control select2" id="id_kabupaten" name="id_kabupaten">
+                                    <option value="<?= $tampilKafe->id_kabupaten; ?>"><?= $tampilKafe->nama_kabupaten; ?></option>
 
                                 </select>
                             </div>
                             <div class="col-md-6">
                                 <label class="form-label">Kecamatan</label>
                                 <select class="form-control select2" id="id_kecamatan" name="id_kecamatan">
+                                    <option value="<?= $tampilKafe->id_kecamatan; ?>"><?= $tampilKafe->nama_kecamatan; ?></option>
 
                                 </select>
                             </div>
@@ -67,10 +72,11 @@
                             <div class="col-md-6">
                                 <label class="form-label">Kelurahan/Desa</label>
                                 <select class="form-control select2" id="id_kelurahan" name="id_kelurahan">
+                                    <option value="<?= $tampilKafe->id_kelurahan; ?>"><?= $tampilKafe->nama_kelurahan; ?></option>
 
                                 </select>
                             </div>
-
+                            <?= print_r($tampilKafe); ?>
                             <div class="">
                                 <label for="fasilitas_kafe" class="form-label">Fasilitas</label>
                                 <input type="text" class="form-control" id="fasilitas_kafe" aria-describedby="textlHelp" name="fasilitas_kafe">

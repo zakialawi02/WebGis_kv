@@ -37,7 +37,12 @@ class ModelKv extends Model
 
             // return $this->db->table('tbl_kafe')->get();
         } else {
-            return $this->Where(['id_kafe' => $id_kafe])->get();
+            return $this->Where(['id_kafe' => $id_kafe])
+                ->join('tbl_provinsi', 'tbl_provinsi.id_provinsi = tbl_kafe.id_provinsi')
+                ->join('tbl_kabupaten', 'tbl_kabupaten.id_kabupaten = tbl_kafe.id_kabupaten')
+                ->join('tbl_kecamatan', 'tbl_kecamatan.id_kecamatan = tbl_kafe.id_kecamatan')
+                ->join('tbl_kelurahan', 'tbl_kelurahan.id_kelurahan = tbl_kafe.id_kelurahan')
+                ->get();
         }
     }
     function callPendingData($id_kafe = false)
