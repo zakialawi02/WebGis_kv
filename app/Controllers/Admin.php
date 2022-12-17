@@ -7,6 +7,7 @@ use App\Models\ModelSetting;
 use App\Models\ModelAdministrasi;
 use App\Models\ModelGeojson;
 use App\Models\ModelKv;
+use App\Models\ModelFoto;
 use Faker\Extension\Helper;
 
 class Admin extends BaseController
@@ -22,6 +23,7 @@ class Admin extends BaseController
         $this->Administrasi = new ModelAdministrasi();
         $this->FGeojson = new ModelGeojson();
         $this->kafe = new ModelKv();
+        $this->fotoKafe = new ModelFoto();
     }
     public function index()
     {
@@ -235,6 +237,7 @@ class Admin extends BaseController
             'tampilGeojson' => $this->FGeojson->callGeojson()->getResult(),
             'updateGeojson' => $this->FGeojson->callGeojson()->getRow(),
             'tampilKafe' => $this->kafe->callKafe()->getResult(),
+            'getFoto' => $this->fotoKafe->getFoto()->getResult(),
         ];
 
         return view('admin/kafeData', $data);
@@ -261,6 +264,7 @@ class Admin extends BaseController
             'tampilData' => $this->setting->tampilData()->getResult(), //ambil settingan mapView
             'tampilGeojson' => $this->FGeojson->callGeojson()->getResult(), //ambil data geojson
             'tampilKafe' => $this->kafe->callKafe($id_kafe)->getRow(),
+            'getFoto' => $this->fotoKafe->getFoto($id_kafe)->getResult(),
             'provinsi' => $this->kafe->allProvinsi(),
         ];
 
@@ -271,14 +275,6 @@ class Admin extends BaseController
     public function tambah_Kafe()
     {
         // dd($this->request->getVar());
-
-        // ambil file
-        $fileFotoSekolah = $this->request->getFile('foto_kafe');
-        //generate random file name
-        $randomName = $fileFotoSekolah->getRandomName();
-        // pindah file to hosting
-        $fileFotoSekolah->move(ROOTPATH . 'public/img/kafe/', $randomName);
-
         $wilayah  = $this->request->getVar('wilayah');
         $wilayah = explode(',', $wilayah);
         $id_kelurahan = $wilayah[0];
@@ -294,14 +290,30 @@ class Admin extends BaseController
             'alamat_kafe'  => $this->request->getVar('alamat_kafe'),
             'coordinate'  => $this->request->getVar('coordinate'),
             'instagram_kafe'  => $this->request->getVar('instagram_kafe'),
+            'fasilitas_kafe' => implode(", ", $this->request->getVar('fasil[]')),
             'id_provinsi'  => $id_provinsi,
             'id_kabupaten'  => $id_kabupaten,
             'id_kecamatan'  => $id_kecamatan,
             'id_kelurahan'  => $id_kelurahan,
-            'foto_kafe'  => $randomName,
             'created_at' => date('Y-m-d H:i:s'),
         ];
+
         $addKafe = $this->kafe->addKafe($data);
+
+        $id_foto = $this->kafe->getLastID();
+        $files = $this->request->getFiles();
+        foreach ($files['foto_kafe'] as $key => $img) {
+            if ($img->isValid() && !$img->hasMoved()) {
+                $newName = $img->getRandomName();
+                $dataF = [
+                    'id_kafe' => $id_foto['id_kafe'],
+                    'nama_file_foto' => $newName,
+                ];
+                $this->fotoKafe->addFoto($dataF);
+                $img->move(ROOTPATH . 'public/img/kafe', $newName);
+            }
+        }
+
         if ($addKafe) {
             session()->setFlashdata('alert', 'Data Anda Berhasil Ditambahkan.');
             return $this->response->redirect(site_url('/admin/data/kafe'));
@@ -313,34 +325,93 @@ class Admin extends BaseController
     {
         // dd($this->request->getVar());
 
-        // ambil file
-        $fileFotoSekolah = $this->request->getFile('foto_kafe');
-        //generate random file name
-        $randomName = $fileFotoSekolah->getRandomName();
-        // pindah file to hosting
-        $fileFotoSekolah->move(ROOTPATH . 'public/img/kafe/', $randomName);
+        $wilayahLama  = $this->request->getVar('wilayahLama');
+        $wilayah  = $this->request->getVar('wilayah');
+        $id = $this->request->getPost('id');
 
-        $id = $this->request->getVar('id');
+        if ($wilayah != $wilayahLama) {
+            // jika ada berubahan wilayah
+            $wilayah = explode(',', $this->request->getVar('wilayah'));
+            $id_kelurahan = $wilayah[0];
+            $id_kecamatan = $wilayah[1];
+            $id_kabupaten = $wilayah[2];
+            $id_provinsi = $wilayah[3];
+            $data = [
+                'id_provinsi'  => $id_provinsi,
+                'id_kabupaten'  => $id_kabupaten,
+                'id_kecamatan'  => $id_kecamatan,
+                'id_kelurahan'  => $id_kelurahan,
+            ];
+        } else {
+            // jika wilayah tetap
+        }
         $data = [
+            'id_kafe' => $id,
             'nama_kafe' => $this->request->getVar('nama_kafe'),
             'alamat_kafe'  => $this->request->getVar('alamat_kafe'),
             'coordinate'  => $this->request->getVar('coordinate'),
-            // 'id_provinsi'  => $this->request->getVar('id_provinsi'),
-            // 'id_kabupaten'  => $this->request->getVar('id_kabupaten'),
-            // 'id_kecamatan'  => $this->request->getVar('id_kecamatan'),
-            // 'id_kelurahan'  => $this->request->getVar('id_kelurahan'),
-            // 'foto_kafe'  => $randomName,
-            'created_at' => date('Y-m-d H:i:s'),
+            'instagram_kafe'  => $this->request->getVar('instagram_kafe'),
+            // 'fasilitas_kafe' => implode(", ", $this->request->getVar('fasil[]')),
+            'updated_at' => date('Y-m-d H:i:s'),
         ];
 
-        $addKafe = $this->kafe->addKafe($data, $id);
+        $files = $this->request->getFiles();
+        foreach ($files['foto_kafe'] as $key => $img) {
+            if ($img->isValid() && !$img->hasMoved()) {
+                $newName = $img->getRandomName();
+                $dataF = [
+                    'id_kafe' => $id,
+                    'nama_file_foto' => $newName,
+                ];
+                $this->fotoKafe->addFoto($dataF);
+                $img->move(ROOTPATH . 'public/img/kafe', $newName);
+            }
+        }
 
-        if ($addKafe) {
-            session()->setFlashdata('alert', 'Data Anda Berhasil Ditambahkan.');
+
+        // var_dump($data);
+
+        $updateKafe = $this->kafe->updateKafe($data, $id);
+
+        if ($updateKafe) {
+            session()->setFlashdata('alert', 'Data Anda Berhasil Diupdate.');
             return $this->response->redirect(site_url('/admin/data/kafe'));
         }
     }
 
+    // Delete Data
+    public function delete_Kafe($id_kafe)
+    {
+        $files = $this->fotoKafe->getFoto($id_kafe)->getResult();
+        foreach ($files as $img) {
+            $file = $img->nama_file_foto;
+            unlink("img/kafe/" . $file);
+        }
+
+        $this->fotoKafe->where('id_kafe', $id_kafe)->delete('tbl_foto_kafe');
+        $this->kafe->delete(['id_kafe' => $id_kafe]);
+        session()->setFlashdata('alert', "Data Berhasil dihapus.");
+        return $this->response->redirect(site_url('/admin/data/kafe'));
+    }
+
+    public function deleteImage()
+    {
+        // Menerima ID data yang akan dihapus dari permintaan POST
+        $id = $this->request->getPost('id');
+        $id_kafe = $this->request->getPost('id_kafe');
+        $imgData = $this->fotoKafe->getImgRow($id)->getRow();
+        // Remove files from the server  
+        $file = $imgData->nama_file_foto;
+        unlink("img/kafe/" . $file);
+        // Delete image data 
+        $this->fotoKafe->delete(['id' => $id]);
+
+        // Ambil data gambar dari database
+        $imageUrl = $this->fotoKafe->getFoto()->getResult();
+
+        // Kembalikan data ke client dalam format JSON
+        return json_encode(['status' => true, 'imageUrl' => $imageUrl]);
+    }
 
     // approve data
     public function approveKafe($id_kafe)
@@ -368,23 +439,19 @@ class Admin extends BaseController
         return $this->response->redirect(site_url('/admin/data/kafe'));
     }
 
-    public function delete_Kafe($id_kafe)
+
+
+
+
+
+
+    public function previewImg($id_kafe)
     {
-
-        $data = $this->kafe->callKafe($id_kafe)->getRow();
-        $file = $data->foto_kafe;
-        unlink("img/sekolah/" . $file);
-
-        $this->kafe->delete(['id_kafe' => $id_kafe]);
-        session()->setFlashdata('alert', "Data Berhasil dihapus.");
-        return $this->response->redirect(site_url('/admin/data/kafe'));
+        $data = [
+            'getFoto' => $this->fotoKafe->getFoto($id_kafe)->getResult(),
+        ];
+        return view('serverSide/previewImg', $data);
     }
-
-
-
-
-
-
 
     //  SCRAP KAB/KOT, KECAMATAN, KELURAHAN
     // Ajax Remote Wilayah Administrasi

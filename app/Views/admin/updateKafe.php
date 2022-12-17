@@ -77,6 +77,10 @@
                             <form class="row g-3" action="/admin/update_Kafe" method="post" enctype="multipart/form-data">
                                 <?= csrf_field(); ?>
                                 <input type="hidden" class="form-control" for="id" id="id" name="id" value="<?= $tampilKafe->id_kafe; ?>">
+                                <input type="hidden" class="form-control" for="wilayahLama" id="wilayahLama" name="wilayahLama" value="<?= $tampilKafe->id_kelurahan; ?>">
+                                <?php foreach ($getFoto as $fotoKafe) : ?>
+                                    <input type="hidden" class="form-control" for="fotoKafeLama" id="fotoKafeLama" name="fotoKafeLama[]" value="<?= $fotoKafe->nama_file_foto; ?>">
+                                <?php endforeach ?>
 
                                 <div class="">
                                     <label for="nama_kafe" class="form-label">Nama Kafe</label>
@@ -95,7 +99,7 @@
                                 <div class="form-group">
                                     <label class="form-label">Wilayah Administrasi</label>
                                     <select class="form-control" id="wilayah" name="wilayah" value="">
-                                        <option value="<?= $tampilKafe->id_kelurahan; ?> selected"><?= $tampilKafe->nama_kelurahan; ?>, Kec. <?= $tampilKafe->nama_kecamatan; ?>, <?= $tampilKafe->nama_kabupaten; ?></option>
+                                        <option value="<?= $tampilKafe->id_kelurahan; ?>"><?= $tampilKafe->nama_kelurahan; ?>, Kec. <?= $tampilKafe->nama_kecamatan; ?>, <?= $tampilKafe->nama_kabupaten; ?></option>
 
                                     </select>
                                 </div>
@@ -123,9 +127,17 @@
                                 <?= print_r($tampilKafe); ?>
 
                                 <div class="mb-3">
-                                    <label for="formFile" class="form-label">Upload Foto Kafe</label>
-                                    <input class="form-control" type="file" name="foto_kafe" id="foto_kafe" accept="image/*">
+                                    <label for="formFile" class="form-label">Tambah Foto Kafe</label>
+                                    <input class="form-control" type="file" name="foto_kafe[]" id="foto_kafe" accept="image/*" multiple>
                                     <div id="FileHelp" class="form-text">.jpg/.png</div>
+                                    <div id="image">
+                                        <?php foreach ($getFoto as $fotoKafe) { ?>
+                                            <div class="img-box" id="imgb_<?= $fotoKafe->id; ?>">
+                                                <img class="img-kafeEdit" src="<?= base_url('/img/kafe/' . $fotoKafe->nama_file_foto); ?>">
+                                                <a href="javascript:void(0);" class="dellbut badge bg-danger btn-delete" data-id="<?= $fotoKafe->id; ?>" data-kafe="<?= $fotoKafe->id_kafe; ?>" onclick=" deleteImage('<?= $fotoKafe->id; ?>')">delete</a>
+                                            </div>
+                                        <?php } ?>
+                                    </div>
                                 </div>
 
 
@@ -228,6 +240,35 @@
             });
         });
     </script>
+    <script>
+        $(document).ready(function() {
+            // Ketika tombol di klik, kirim request Ajax
+            $(document).on('click', '.btn-delete', function(e) {
+                var result = confirm("Are you sure to delete?");
+                // ambil ID gambar dari atribut data-id tombol
+                var id = $(this).data('id');
+                var kafe = $(this).data('kafe');
+
+                // kirim request Ajax ke server
+                $.ajax({
+                    url: '<?= base_url('Admin/deleteImage') ?>', // URL untuk memproses delete
+                    type: 'POST', // metode request POST atau GET
+                    cache: false,
+                    data: {
+                        id: id,
+                        kafe: kafe
+                    }, // data yang akan dikirim ke server
+                    success: function(response) {
+                        // jalankan logic setelah menerima response dari server
+                        console.log(response);
+                        $('#image').load("<?php echo base_url(); ?>/admin/previewImg/<?= $tampilKafe->id_kafe; ?>");
+                    }
+                });
+            });
+        });
+    </script>
+
+
 
     <!-- Js Leaflet Setting -->
     <!-- Leafleat js Component -->

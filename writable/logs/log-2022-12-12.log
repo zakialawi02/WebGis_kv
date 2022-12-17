@@ -1,0 +1,294 @@
+CRITICAL - 2022-12-12 04:23:52 --> unlink(img/kafe/1670682611_f68d4d5ffce6d7d98052.png): No such file or directory
+in APPPATH\Controllers\Admin.php on line 395.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'unlink(img/kafe/1670682611_f68d4d5ffce6d7d98052.png): No such file or directory', 'APPPATH\\Controllers\\Admin.php', 395)
+ 2 APPPATH\Controllers\Admin.php(395): unlink('img/kafe/1670682611_f68d4d5ffce6d7d98052.png')
+ 3 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->delete_Kafe('37')
+ 4 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 5 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-12 04:32:58 --> Call to a member function isValid() on null
+in APPPATH\Controllers\Admin.php on line 278.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->tambah_Kafe()
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-12 04:33:22 --> Call to a member function hasMoved() on null
+in APPPATH\Controllers\Admin.php on line 278.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->tambah_Kafe()
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-12 04:34:37 --> Call to a member function getRandomName() on null
+in APPPATH\Controllers\Admin.php on line 280.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->tambah_Kafe()
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-12 04:34:57 --> Call to a member function getRandomName() on null
+in APPPATH\Controllers\Admin.php on line 280.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->tambah_Kafe()
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-12 04:35:27 --> Call to a member function getRandomName() on null
+in APPPATH\Controllers\Admin.php on line 280.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->tambah_Kafe()
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-12 05:29:48 --> Call to a member function getRandomName() on null
+in APPPATH\Controllers\Admin.php on line 279.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->tambah_Kafe()
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-12 05:43:05 --> ini_set(): Session ini settings cannot be changed after headers have already been sent
+in SYSTEMPATH\Session\Handlers\FileHandler.php on line 71.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'ini_set(): Session ini settings cannot be changed after headers have already been sent', 'SYSTEMPATH\\Session\\Handlers\\FileHandler.php', 71)
+ 2 SYSTEMPATH\Session\Handlers\FileHandler.php(71): ini_set('session.save_path', 'ROOTPATH\\writable\\session')
+ 3 SYSTEMPATH\Config\Services.php(658): CodeIgniter\Session\Handlers\FileHandler->__construct(Object(Config\App), '::1')
+ 4 SYSTEMPATH\Config\BaseService.php(253): CodeIgniter\Config\Services::session(Object(Config\App), false)
+ 5 SYSTEMPATH\Config\BaseService.php(194): CodeIgniter\Config\BaseService::__callStatic('session', [...])
+ 6 SYSTEMPATH\Config\Services.php(637): CodeIgniter\Config\BaseService::getSharedInstance('session', null)
+ 7 SYSTEMPATH\Config\BaseService.php(253): CodeIgniter\Config\Services::session()
+ 8 SYSTEMPATH\Common.php(931): CodeIgniter\Config\BaseService::__callStatic('session', [])
+ 9 VENDORPATH\myth\auth\src\Authentication\AuthenticationBase.php(128): session('logged_in')
+10 VENDORPATH\myth\auth\src\Authentication\LocalAuthenticator.php(67): Myth\Auth\Authentication\AuthenticationBase->isLoggedIn()
+11 VENDORPATH\myth\auth\src\Filters\LoginFilter.php(29): Myth\Auth\Authentication\LocalAuthenticator->check()
+12 SYSTEMPATH\Filters\Filters.php(173): Myth\Auth\Filters\LoginFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), null)
+13 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\Filters\Filters->run('admin/data/kafe/SlashUploader/server/UploadFiles.aspx', 'before')
+14 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+15 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+16 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-12 05:43:11 --> ini_set(): Session ini settings cannot be changed after headers have already been sent
+in SYSTEMPATH\Session\Handlers\FileHandler.php on line 71.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'ini_set(): Session ini settings cannot be changed after headers have already been sent', 'SYSTEMPATH\\Session\\Handlers\\FileHandler.php', 71)
+ 2 SYSTEMPATH\Session\Handlers\FileHandler.php(71): ini_set('session.save_path', 'ROOTPATH\\writable\\session')
+ 3 SYSTEMPATH\Config\Services.php(658): CodeIgniter\Session\Handlers\FileHandler->__construct(Object(Config\App), '::1')
+ 4 SYSTEMPATH\Config\BaseService.php(253): CodeIgniter\Config\Services::session(Object(Config\App), false)
+ 5 SYSTEMPATH\Config\BaseService.php(194): CodeIgniter\Config\BaseService::__callStatic('session', [...])
+ 6 SYSTEMPATH\Config\Services.php(637): CodeIgniter\Config\BaseService::getSharedInstance('session', null)
+ 7 SYSTEMPATH\Config\BaseService.php(253): CodeIgniter\Config\Services::session()
+ 8 SYSTEMPATH\Common.php(931): CodeIgniter\Config\BaseService::__callStatic('session', [])
+ 9 VENDORPATH\myth\auth\src\Authentication\AuthenticationBase.php(128): session('logged_in')
+10 VENDORPATH\myth\auth\src\Authentication\LocalAuthenticator.php(67): Myth\Auth\Authentication\AuthenticationBase->isLoggedIn()
+11 VENDORPATH\myth\auth\src\Filters\LoginFilter.php(29): Myth\Auth\Authentication\LocalAuthenticator->check()
+12 SYSTEMPATH\Filters\Filters.php(173): Myth\Auth\Filters\LoginFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), null)
+13 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\Filters\Filters->run('admin/data/kafe/SlashUploader/server/UploadFiles.aspx', 'before')
+14 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+15 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+16 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-12 05:43:15 --> ini_set(): Session ini settings cannot be changed after headers have already been sent
+in SYSTEMPATH\Session\Handlers\FileHandler.php on line 71.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'ini_set(): Session ini settings cannot be changed after headers have already been sent', 'SYSTEMPATH\\Session\\Handlers\\FileHandler.php', 71)
+ 2 SYSTEMPATH\Session\Handlers\FileHandler.php(71): ini_set('session.save_path', 'ROOTPATH\\writable\\session')
+ 3 SYSTEMPATH\Config\Services.php(658): CodeIgniter\Session\Handlers\FileHandler->__construct(Object(Config\App), '::1')
+ 4 SYSTEMPATH\Config\BaseService.php(253): CodeIgniter\Config\Services::session(Object(Config\App), false)
+ 5 SYSTEMPATH\Config\BaseService.php(194): CodeIgniter\Config\BaseService::__callStatic('session', [...])
+ 6 SYSTEMPATH\Config\Services.php(637): CodeIgniter\Config\BaseService::getSharedInstance('session', null)
+ 7 SYSTEMPATH\Config\BaseService.php(253): CodeIgniter\Config\Services::session()
+ 8 SYSTEMPATH\Common.php(931): CodeIgniter\Config\BaseService::__callStatic('session', [])
+ 9 VENDORPATH\myth\auth\src\Authentication\AuthenticationBase.php(128): session('logged_in')
+10 VENDORPATH\myth\auth\src\Authentication\LocalAuthenticator.php(67): Myth\Auth\Authentication\AuthenticationBase->isLoggedIn()
+11 VENDORPATH\myth\auth\src\Filters\LoginFilter.php(29): Myth\Auth\Authentication\LocalAuthenticator->check()
+12 SYSTEMPATH\Filters\Filters.php(173): Myth\Auth\Filters\LoginFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), null)
+13 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\Filters\Filters->run('admin/data/kafe/SlashUploader/server/UploadFiles.aspx', 'before')
+14 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+15 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+16 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-12 05:45:15 --> ini_set(): Session ini settings cannot be changed after headers have already been sent
+in SYSTEMPATH\Session\Handlers\FileHandler.php on line 71.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'ini_set(): Session ini settings cannot be changed after headers have already been sent', 'SYSTEMPATH\\Session\\Handlers\\FileHandler.php', 71)
+ 2 SYSTEMPATH\Session\Handlers\FileHandler.php(71): ini_set('session.save_path', 'ROOTPATH\\writable\\session')
+ 3 SYSTEMPATH\Config\Services.php(658): CodeIgniter\Session\Handlers\FileHandler->__construct(Object(Config\App), '::1')
+ 4 SYSTEMPATH\Config\BaseService.php(253): CodeIgniter\Config\Services::session(Object(Config\App), false)
+ 5 SYSTEMPATH\Config\BaseService.php(194): CodeIgniter\Config\BaseService::__callStatic('session', [...])
+ 6 SYSTEMPATH\Config\Services.php(637): CodeIgniter\Config\BaseService::getSharedInstance('session', null)
+ 7 SYSTEMPATH\Config\BaseService.php(253): CodeIgniter\Config\Services::session()
+ 8 SYSTEMPATH\Common.php(931): CodeIgniter\Config\BaseService::__callStatic('session', [])
+ 9 VENDORPATH\myth\auth\src\Authentication\AuthenticationBase.php(128): session('logged_in')
+10 VENDORPATH\myth\auth\src\Authentication\LocalAuthenticator.php(67): Myth\Auth\Authentication\AuthenticationBase->isLoggedIn()
+11 VENDORPATH\myth\auth\src\Filters\LoginFilter.php(29): Myth\Auth\Authentication\LocalAuthenticator->check()
+12 SYSTEMPATH\Filters\Filters.php(173): Myth\Auth\Filters\LoginFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), null)
+13 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\Filters\Filters->run('admin/data/kafe/SlashUploader/server/UploadFiles.aspx', 'before')
+14 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+15 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+16 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-12 05:48:38 --> ini_set(): Session ini settings cannot be changed after headers have already been sent
+in SYSTEMPATH\Session\Handlers\FileHandler.php on line 71.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'ini_set(): Session ini settings cannot be changed after headers have already been sent', 'SYSTEMPATH\\Session\\Handlers\\FileHandler.php', 71)
+ 2 SYSTEMPATH\Session\Handlers\FileHandler.php(71): ini_set('session.save_path', 'ROOTPATH\\writable\\session')
+ 3 SYSTEMPATH\Config\Services.php(658): CodeIgniter\Session\Handlers\FileHandler->__construct(Object(Config\App), '::1')
+ 4 SYSTEMPATH\Config\BaseService.php(253): CodeIgniter\Config\Services::session(Object(Config\App), false)
+ 5 SYSTEMPATH\Config\BaseService.php(194): CodeIgniter\Config\BaseService::__callStatic('session', [...])
+ 6 SYSTEMPATH\Config\Services.php(637): CodeIgniter\Config\BaseService::getSharedInstance('session', null)
+ 7 SYSTEMPATH\Config\BaseService.php(253): CodeIgniter\Config\Services::session()
+ 8 SYSTEMPATH\Common.php(931): CodeIgniter\Config\BaseService::__callStatic('session', [])
+ 9 VENDORPATH\myth\auth\src\Authentication\AuthenticationBase.php(128): session('logged_in')
+10 VENDORPATH\myth\auth\src\Authentication\LocalAuthenticator.php(67): Myth\Auth\Authentication\AuthenticationBase->isLoggedIn()
+11 VENDORPATH\myth\auth\src\Filters\LoginFilter.php(29): Myth\Auth\Authentication\LocalAuthenticator->check()
+12 SYSTEMPATH\Filters\Filters.php(173): Myth\Auth\Filters\LoginFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), null)
+13 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\Filters\Filters->run('admin/data/kafe/SlashUploader/server/UploadFiles.aspx', 'before')
+14 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+15 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+16 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-12 07:16:40 --> foreach() argument must be of type array|object, null given
+in APPPATH\Controllers\Admin.php on line 278.
+ 1 APPPATH\Controllers\Admin.php(278): CodeIgniter\Debug\Exceptions->errorHandler(2, 'foreach() argument must be of type array|object, null given', 'APPPATH\\Controllers\\Admin.php', 278)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->tambah_Kafe()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-12 07:36:00 --> [] operator not supported for strings
+in APPPATH\Controllers\Admin.php on line 285.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->tambah_Kafe()
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-12 07:36:17 --> [] operator not supported for strings
+in APPPATH\Controllers\Admin.php on line 285.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->tambah_Kafe()
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-12 07:36:25 --> Undefined array key 1
+in APPPATH\Controllers\Admin.php on line 295.
+ 1 APPPATH\Controllers\Admin.php(295): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 1', 'APPPATH\\Controllers\\Admin.php', 295)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->tambah_Kafe()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-12 07:38:53 --> [] operator not supported for strings
+in APPPATH\Controllers\Admin.php on line 285.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->tambah_Kafe()
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-12 07:39:04 --> [] operator not supported for strings
+in APPPATH\Controllers\Admin.php on line 285.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->tambah_Kafe()
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-12 07:39:42 --> [] operator not supported for strings
+in APPPATH\Controllers\Admin.php on line 285.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->tambah_Kafe()
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-12 07:40:32 --> Undefined array key 1
+in APPPATH\Controllers\Admin.php on line 295.
+ 1 APPPATH\Controllers\Admin.php(295): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 1', 'APPPATH\\Controllers\\Admin.php', 295)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->tambah_Kafe()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+ERROR - 2022-12-12 07:52:23 --> mysqli_sql_exception: Operand should contain 1 column(s) in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `tb...', 0)
+#1 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tb...')
+#2 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tb...')
+#3 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tb...', Array, false)
+#4 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Models\ModelKv.php(66): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Controllers\Admin.php(321): App\Models\ModelKv->addKafe(Array)
+#6 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(927): App\Controllers\Admin->tambah_Kafe()
+#7 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#8 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 F:\WEB\XAMPP\htdocs\WebGis_kv\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(46): require_once('F:\\WEB\\XAMPP\\ht...')
+#11 {main}
+CRITICAL - 2022-12-12 07:52:23 --> Operand should contain 1 column(s)
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `tbl_kafe` (`user`, `stat_appv`, `nama_kafe`, `alamat_kafe`, `coordinate`, `instagram_kafe`, `fasilitas_kafe`, `id_provinsi`, `id_kabupaten`, `id_kecamatan`, `id_kelurahan`, `foto_kafe`, `created_at`) VALUES (\'admin\', \'1\', \'Verte Cafe\', \'JL. Jambi No. 47, Darmo, Surabaya\', \'-7.290871578917681, 112.73218139711598\', \'vertecafe.id\', \'Writing\', \' 35\', \' 3578\', \' 357804\', \'3578041005\', (\'639732176db65.png\',\'6397321771d4d.jpeg\',\'6397321772436.png\'), \'2022-12-12 07:52:23\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tbl_kafe` (`user`, `stat_appv`, `nama_kafe`, `alamat_kafe`, `coordinate`, `instagram_kafe`, `fasilitas_kafe`, `id_provinsi`, `id_kabupaten`, `id_kecamatan`, `id_kelurahan`, `foto_kafe`, `created_at`) VALUES (\'admin\', \'1\', \'Verte Cafe\', \'JL. Jambi No. 47, Darmo, Surabaya\', \'-7.290871578917681, 112.73218139711598\', \'vertecafe.id\', \'Writing\', \' 35\', \' 3578\', \' 357804\', \'3578041005\', (\'639732176db65.png\',\'6397321771d4d.jpeg\',\'6397321772436.png\'), \'2022-12-12 07:52:23\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tbl_kafe` (`user`, `stat_appv`, `nama_kafe`, `alamat_kafe`, `coordinate`, `instagram_kafe`, `fasilitas_kafe`, `id_provinsi`, `id_kabupaten`, `id_kecamatan`, `id_kelurahan`, `foto_kafe`, `created_at`) VALUES (\'admin\', \'1\', \'Verte Cafe\', \'JL. Jambi No. 47, Darmo, Surabaya\', \'-7.290871578917681, 112.73218139711598\', \'vertecafe.id\', \'Writing\', \' 35\', \' 3578\', \' 357804\', \'3578041005\', (\'639732176db65.png\',\'6397321771d4d.jpeg\',\'6397321772436.png\'), \'2022-12-12 07:52:23\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tbl_kafe` (`user`, `stat_appv`, `nama_kafe`, `alamat_kafe`, `coordinate`, `instagram_kafe`, `fasilitas_kafe`, `id_provinsi`, `id_kabupaten`, `id_kecamatan`, `id_kelurahan`, `foto_kafe`, `created_at`) VALUES (:user:, :stat_appv:, :nama_kafe:, :alamat_kafe:, :coordinate:, :instagram_kafe:, :fasilitas_kafe:, :id_provinsi:, :id_kabupaten:, :id_kecamatan:, :id_kelurahan:, :foto_kafe:, :created_at:)', [...], false)
+ 5 APPPATH\Models\ModelKv.php(66): CodeIgniter\Database\BaseBuilder->insert([...])
+ 6 APPPATH\Controllers\Admin.php(321): App\Models\ModelKv->addKafe([...])
+ 7 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->tambah_Kafe()
+ 8 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+ERROR - 2022-12-12 07:56:46 --> mysqli_sql_exception: Operand should contain 1 column(s) in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `tb...', 0)
+#1 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tb...')
+#2 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tb...')
+#3 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tb...', Array, false)
+#4 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Models\ModelKv.php(66): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Controllers\Admin.php(321): App\Models\ModelKv->addKafe(Array)
+#6 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(927): App\Controllers\Admin->tambah_Kafe()
+#7 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#8 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 F:\WEB\XAMPP\htdocs\WebGis_kv\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(46): require_once('F:\\WEB\\XAMPP\\ht...')
+#11 {main}
+CRITICAL - 2022-12-12 07:56:46 --> Operand should contain 1 column(s)
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `tbl_kafe` (`user`, `stat_appv`, `nama_kafe`, `alamat_kafe`, `coordinate`, `instagram_kafe`, `fasilitas_kafe`, `id_provinsi`, `id_kabupaten`, `id_kecamatan`, `id_kelurahan`, `foto_kafe`, `created_at`) VALUES (\'admin\', \'1\', \'Verte Cafe\', \'JL. Jambi No. 47, Darmo, Surabaya\', \'-7.290871578917681, 112.73218139711598\', \'vertecafe.id\', \'Writing\', \' 35\', \' 3578\', \' 357804\', \'3578041005\', (\'6397331e50856.png\',\'6397331e50f9f.jpeg\',\'6397331e51a7f.png\'), \'2022-12-12 07:56:46\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tbl_kafe` (`user`, `stat_appv`, `nama_kafe`, `alamat_kafe`, `coordinate`, `instagram_kafe`, `fasilitas_kafe`, `id_provinsi`, `id_kabupaten`, `id_kecamatan`, `id_kelurahan`, `foto_kafe`, `created_at`) VALUES (\'admin\', \'1\', \'Verte Cafe\', \'JL. Jambi No. 47, Darmo, Surabaya\', \'-7.290871578917681, 112.73218139711598\', \'vertecafe.id\', \'Writing\', \' 35\', \' 3578\', \' 357804\', \'3578041005\', (\'6397331e50856.png\',\'6397331e50f9f.jpeg\',\'6397331e51a7f.png\'), \'2022-12-12 07:56:46\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tbl_kafe` (`user`, `stat_appv`, `nama_kafe`, `alamat_kafe`, `coordinate`, `instagram_kafe`, `fasilitas_kafe`, `id_provinsi`, `id_kabupaten`, `id_kecamatan`, `id_kelurahan`, `foto_kafe`, `created_at`) VALUES (\'admin\', \'1\', \'Verte Cafe\', \'JL. Jambi No. 47, Darmo, Surabaya\', \'-7.290871578917681, 112.73218139711598\', \'vertecafe.id\', \'Writing\', \' 35\', \' 3578\', \' 357804\', \'3578041005\', (\'6397331e50856.png\',\'6397331e50f9f.jpeg\',\'6397331e51a7f.png\'), \'2022-12-12 07:56:46\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tbl_kafe` (`user`, `stat_appv`, `nama_kafe`, `alamat_kafe`, `coordinate`, `instagram_kafe`, `fasilitas_kafe`, `id_provinsi`, `id_kabupaten`, `id_kecamatan`, `id_kelurahan`, `foto_kafe`, `created_at`) VALUES (:user:, :stat_appv:, :nama_kafe:, :alamat_kafe:, :coordinate:, :instagram_kafe:, :fasilitas_kafe:, :id_provinsi:, :id_kabupaten:, :id_kecamatan:, :id_kelurahan:, :foto_kafe:, :created_at:)', [...], false)
+ 5 APPPATH\Models\ModelKv.php(66): CodeIgniter\Database\BaseBuilder->insert([...])
+ 6 APPPATH\Controllers\Admin.php(321): App\Models\ModelKv->addKafe([...])
+ 7 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->tambah_Kafe()
+ 8 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-12 22:05:28 --> explode(): Argument #1 ($separator) must be of type string, array given
+in APPPATH\Controllers\Admin.php on line 290.
+ 1 APPPATH\Controllers\Admin.php(290): explode([...], ',', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->tambah_Kafe()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-12 22:10:43 --> explode(): Argument #1 ($separator) must be of type string, array given
+in APPPATH\Controllers\Admin.php on line 290.
+ 1 APPPATH\Controllers\Admin.php(290): explode([...], ',', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->tambah_Kafe()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-12 22:14:58 --> foreach() argument must be of type array|object, null given
+in APPPATH\Controllers\Admin.php on line 290.
+ 1 APPPATH\Controllers\Admin.php(290): CodeIgniter\Debug\Exceptions->errorHandler(2, 'foreach() argument must be of type array|object, null given', 'APPPATH\\Controllers\\Admin.php', 290)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->tambah_Kafe()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-12 22:16:57 --> Undefined array key "foto_kafe"
+in APPPATH\Controllers\Admin.php on line 290.
+ 1 APPPATH\Controllers\Admin.php(290): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "foto_kafe"', 'APPPATH\\Controllers\\Admin.php', 290)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->tambah_Kafe()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-12 22:19:00 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\Admin.php on line 291.
+ 1 APPPATH\Controllers\Admin.php(291): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH\\Controllers\\Admin.php', 291)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->tambah_Kafe()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')

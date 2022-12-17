@@ -87,7 +87,7 @@
                             <thead>
                                 <tr>
                                     <th>Nama Kafe</th>
-                                    <th>Alamat</th>
+                                    <th>Alamat Kafe</th>
                                     <th>Fasilitas</th>
                                     <th>Instagram</th>
                                     <th>Aksi</th>
@@ -98,12 +98,70 @@
                                     <tr>
                                         <td><?= $S->nama_kafe; ?></td>
                                         <td><?= $S->alamat_kafe; ?></td>
-                                        <td> - </td>
-                                        <td> - </td>
+                                        <td><?= $S->coordinate; ?></td>
+                                        <td> <a href="https://www.instagram.com/<?= $S->instagram_kafe ?>" target="_blank" rel="noopener noreferrer" class="d-inline-flex align-items-center">
+                                                <span>@<?= $S->instagram_kafe ?> <i class="ri-external-link-line"></i></span></a> </td>
                                         <td>
                                             <div class="btn-group mr-2" role="group" aria-label="First group">
                                                 <a href="/admin/data/kafe/edit/<?= $S->id_kafe; ?>" class="btn btn-primary bi bi-pencil-square" role="button"></a>
                                             </div>
+
+                                            <!-- Button trigger modalEdit -->
+                                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal-<?= $S->id_kafe ?>"><i class="ri-eye-fill"></i> </button>
+                                            <!-- EDIT Modal -->
+                                            <div class="modal fade mt-5" id="editModal-<?= $S->id_kafe ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="z-index: 2001 ;">
+                                                <div class="modal-dialog modal-lg">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="modaleditLabel">Details</h5>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+
+                                                            <div class="mb-2 row">
+                                                                <div class="col-lg-3 col-md-4 label ">Nama Kafe</div>
+                                                                <div class="col-lg-9 col-md-8">: <?= $S->nama_kafe ?></div>
+                                                            </div>
+                                                            <div class="mb-2 row">
+                                                                <div class="col-lg-3 col-md-4 label ">Alamat Kafe</div>
+                                                                <div class="col-lg-9 col-md-8">: <?= $S->alamat_kafe ?></div>
+                                                            </div>
+                                                            <div class="mb-2 row">
+                                                                <div class="col-lg-3 col-md-4 label ">Wilayah Administrasi</div>
+                                                                <div class="col-lg-9 col-md-8">: <?= $S->nama_kelurahan ?>, Kec. <?= $S->nama_kecamatan ?>, <?= $S->nama_kabupaten ?></div>
+                                                            </div>
+                                                            <div class="mb-2 row">
+                                                                <div class="col-lg-3 col-md-4 label ">Koordinat Kafe</div>
+                                                                <div class="col-lg-9 col-md-8">: <?= $S->coordinate ?></div>
+                                                            </div>
+                                                            <div class="mb-2 row">
+                                                                <div class="col-lg-3 col-md-4 label ">Fasilitas Kafe</div>
+                                                                <div class="col-lg-9 col-md-8">: <?= $S->fasilitas_kafe ?></div>
+                                                            </div>
+                                                            <div class="mb-2 row">
+                                                                <div class="col-lg-3 col-md-4 label ">Instagram</div>
+                                                                <div class="col-lg-9 col-md-8">: <a href="https://www.instagram.com/<?= $S->instagram_kafe ?>" target="_blank" rel="noopener noreferrer" class="d-inline-flex align-items-center">
+                                                                        <span>@<?= $S->instagram_kafe ?> <i class="ri-external-link-line"></i></span></a></div>
+                                                            </div>
+                                                            <div class="mb-2 row">
+                                                                <div class="col-lg-3 col-md-4 label ">Last Updated</div>
+                                                                <div class="col-lg-9 col-md-8">: <?= date('d M Y H:i:s', strtotime($S->updated_at)); ?></div>
+                                                            </div>
+                                                            <div class="mb-2 row">
+                                                                <div class="col-lg-3 col-md-4 mb-3 label ">Foto</div>
+                                                                <div class="col-lg-9 col-md-8">: </div>
+                                                                <div class="form-group">
+                                                                    <?php foreach ($getFoto as $foto) : ?>
+                                                                        <img class="img-kafe" src="<?= base_url('/img/kafe/' . $foto->nama_file_foto); ?>" alt="Foto">
+                                                                    <?php endforeach ?>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
                                             <div class="btn-group mr-2" role="group" aria-label="First group">
                                                 <form action="/admin/delete_Kafe/<?= $S->id_kafe; ?>" method="post">
                                                     <?= csrf_field(); ?>

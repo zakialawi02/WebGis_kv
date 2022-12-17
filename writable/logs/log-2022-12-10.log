@@ -1,0 +1,585 @@
+ERROR - 2022-12-10 04:12:44 --> mysqli_sql_exception: Operand should contain 1 column(s) in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `tb...', 0)
+#1 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tb...')
+#2 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tb...')
+#3 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tb...', Array, false)
+#4 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Models\ModelKv.php(66): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Controllers\Admin.php(310): App\Models\ModelKv->addKafe(Array)
+#6 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(927): App\Controllers\Admin->tambah_Kafe()
+#7 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#8 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 F:\WEB\XAMPP\htdocs\WebGis_kv\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(46): require_once('F:\\WEB\\XAMPP\\ht...')
+#11 {main}
+CRITICAL - 2022-12-10 04:12:44 --> Operand should contain 1 column(s)
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `tbl_kafe` (`user`, `stat_appv`, `nama_kafe`, `alamat_kafe`, `coordinate`, `instagram_kafe`, `fasilitas_kafe`, `id_provinsi`, `id_kabupaten`, `id_kecamatan`, `id_kelurahan`, `foto_kafe`, `created_at`) VALUES (\'user\', \'0\', \'jmju\', \'dfbfdgbfg\', \'-7.453543, 112.3\', \'wedwef\', (\'Reading\',\'Writing\'), \' 12\', \' 1205\', \' 120505\', \'1205051001\', \'1670667164_a9be18b8ab2f9bc516a2.png\', \'2022-12-10 04:12:44\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tbl_kafe` (`user`, `stat_appv`, `nama_kafe`, `alamat_kafe`, `coordinate`, `instagram_kafe`, `fasilitas_kafe`, `id_provinsi`, `id_kabupaten`, `id_kecamatan`, `id_kelurahan`, `foto_kafe`, `created_at`) VALUES (\'user\', \'0\', \'jmju\', \'dfbfdgbfg\', \'-7.453543, 112.3\', \'wedwef\', (\'Reading\',\'Writing\'), \' 12\', \' 1205\', \' 120505\', \'1205051001\', \'1670667164_a9be18b8ab2f9bc516a2.png\', \'2022-12-10 04:12:44\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tbl_kafe` (`user`, `stat_appv`, `nama_kafe`, `alamat_kafe`, `coordinate`, `instagram_kafe`, `fasilitas_kafe`, `id_provinsi`, `id_kabupaten`, `id_kecamatan`, `id_kelurahan`, `foto_kafe`, `created_at`) VALUES (\'user\', \'0\', \'jmju\', \'dfbfdgbfg\', \'-7.453543, 112.3\', \'wedwef\', (\'Reading\',\'Writing\'), \' 12\', \' 1205\', \' 120505\', \'1205051001\', \'1670667164_a9be18b8ab2f9bc516a2.png\', \'2022-12-10 04:12:44\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tbl_kafe` (`user`, `stat_appv`, `nama_kafe`, `alamat_kafe`, `coordinate`, `instagram_kafe`, `fasilitas_kafe`, `id_provinsi`, `id_kabupaten`, `id_kecamatan`, `id_kelurahan`, `foto_kafe`, `created_at`) VALUES (:user:, :stat_appv:, :nama_kafe:, :alamat_kafe:, :coordinate:, :instagram_kafe:, :fasilitas_kafe:, :id_provinsi:, :id_kabupaten:, :id_kecamatan:, :id_kelurahan:, :foto_kafe:, :created_at:)', [...], false)
+ 5 APPPATH\Models\ModelKv.php(66): CodeIgniter\Database\BaseBuilder->insert([...])
+ 6 APPPATH\Controllers\Admin.php(310): App\Models\ModelKv->addKafe([...])
+ 7 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->tambah_Kafe()
+ 8 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-10 04:24:09 --> explode(): Argument #2 ($string) must be of type string, array given
+in APPPATH\Controllers\Admin.php on line 294.
+ 1 APPPATH\Controllers\Admin.php(294): explode(', ', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->tambah_Kafe()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-10 04:35:36 --> Undefined array key 2
+in APPPATH\Controllers\Admin.php on line 294.
+ 1 APPPATH\Controllers\Admin.php(294): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 2', 'APPPATH\\Controllers\\Admin.php', 294)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->tambah_Kafe()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-10 04:37:13 --> Undefined array key 2
+in APPPATH\Controllers\Admin.php on line 295.
+ 1 APPPATH\Controllers\Admin.php(295): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 2', 'APPPATH\\Controllers\\Admin.php', 295)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->tambah_Kafe()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-10 04:37:30 --> Undefined array key -1
+in APPPATH\Controllers\Admin.php on line 295.
+ 1 APPPATH\Controllers\Admin.php(295): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key -1', 'APPPATH\\Controllers\\Admin.php', 295)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->tambah_Kafe()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-10 04:39:30 --> Undefined variable $hobby
+in APPPATH\Controllers\Admin.php on line 297.
+ 1 APPPATH\Controllers\Admin.php(297): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $hobby', 'APPPATH\\Controllers\\Admin.php', 297)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->tambah_Kafe()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-10 04:41:13 --> explode(): Argument #2 ($string) must be of type string, array given
+in APPPATH\Controllers\Admin.php on line 293.
+ 1 APPPATH\Controllers\Admin.php(293): explode(',', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->tambah_Kafe()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-10 04:41:27 --> explode(): Argument #2 ($string) must be of type string, array given
+in APPPATH\Controllers\Admin.php on line 293.
+ 1 APPPATH\Controllers\Admin.php(293): explode(',', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->tambah_Kafe()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-10 04:41:38 --> explode(): Argument #2 ($string) must be of type string, array given
+in APPPATH\Controllers\Admin.php on line 293.
+ 1 APPPATH\Controllers\Admin.php(293): explode(',', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->tambah_Kafe()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-10 04:52:58 --> Undefined variable $hobi
+in APPPATH\Controllers\Admin.php on line 301.
+ 1 APPPATH\Controllers\Admin.php(301): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $hobi', 'APPPATH\\Controllers\\Admin.php', 301)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->tambah_Kafe()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-10 05:00:13 --> Undefined array key 3
+in APPPATH\Controllers\Admin.php on line 291.
+ 1 APPPATH\Controllers\Admin.php(291): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 3', 'APPPATH\\Controllers\\Admin.php', 291)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->tambah_Kafe()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-10 05:00:44 --> Undefined array key 3
+in APPPATH\Controllers\Admin.php on line 292.
+ 1 APPPATH\Controllers\Admin.php(292): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 3', 'APPPATH\\Controllers\\Admin.php', 292)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->tambah_Kafe()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+ERROR - 2022-12-10 05:18:38 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '0, 1, 2) VALUES (:0:, :1:, :2:)' at line 1 in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `tb...', 0)
+#1 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tb...')
+#2 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tb...')
+#3 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tb...', Array, false)
+#4 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Models\ModelKv.php(66): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Controllers\Admin.php(321): App\Models\ModelKv->addKafe(Array)
+#6 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(927): App\Controllers\Admin->tambah_Kafe()
+#7 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#8 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 F:\WEB\XAMPP\htdocs\WebGis_kv\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(46): require_once('F:\\WEB\\XAMPP\\ht...')
+#11 {main}
+CRITICAL - 2022-12-10 05:18:38 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '0, 1, 2) VALUES (:0:, :1:, :2:)' at line 1
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `tbl_kafe` (0, 1, 2) VALUES (:0:, :1:, :2:)', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tbl_kafe` (0, 1, 2) VALUES (:0:, :1:, :2:)')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tbl_kafe` (0, 1, 2) VALUES (:0:, :1:, :2:)')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tbl_kafe` (0, 1, 2) VALUES (:0:, :1:, :2:)', [...], false)
+ 5 APPPATH\Models\ModelKv.php(66): CodeIgniter\Database\BaseBuilder->insert([...])
+ 6 APPPATH\Controllers\Admin.php(321): App\Models\ModelKv->addKafe([...])
+ 7 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->tambah_Kafe()
+ 8 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-10 07:37:19 --> Undefined variable $r
+in APPPATH\Views\admin\kafeData.php on line 109.
+ 1 APPPATH\Views\admin\kafeData.php(109): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $r', 'APPPATH\\Views\\admin\\kafeData.php', 109)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\kafeData.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/kafeData', [], true)
+ 5 APPPATH\Controllers\Admin.php(240): view('admin/kafeData', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->Kafe()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-10 08:29:59 --> Undefined variable $selectajax
+in APPPATH\Controllers\Admin.php on line 412.
+ 1 APPPATH\Controllers\Admin.php(412): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $selectajax', 'APPPATH\\Controllers\\Admin.php', 412)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->getDataAjaxRemote()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-10 08:31:27 --> unlink(img/sekolah/1670515777_87cbe88cf387bdbdbc39.jpg): No such file or directory
+in APPPATH\Controllers\Admin.php on line 382.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'unlink(img/sekolah/1670515777_87cbe88cf387bdbdbc39.jpg): No such file or directory', 'APPPATH\\Controllers\\Admin.php', 382)
+ 2 APPPATH\Controllers\Admin.php(382): unlink('img/sekolah/1670515777_87cbe88cf387bdbdbc39.jpg')
+ 3 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->delete_Kafe('35')
+ 4 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 5 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-10 09:30:45 --> Undefined array key 1
+in APPPATH\Controllers\Admin.php on line 332.
+ 1 APPPATH\Controllers\Admin.php(332): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 1', 'APPPATH\\Controllers\\Admin.php', 332)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->update_Kafe()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-10 09:33:04 --> The original file is not a valid file.
+in SYSTEMPATH\HTTP\Files\UploadedFile.php on line 137.
+ 1 SYSTEMPATH\HTTP\Files\UploadedFile.php(137): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidFile()
+ 2 APPPATH\Controllers\Admin.php(281): CodeIgniter\HTTP\Files\UploadedFile->move('FCPATH\\img\\kafe', '1670686384_0a9ed34d3ce3f71c05d9')
+ 3 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->tambah_Kafe()
+ 4 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 5 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-10 09:34:19 --> Undefined array key 1
+in APPPATH\Controllers\Admin.php on line 333.
+ 1 APPPATH\Controllers\Admin.php(333): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 1', 'APPPATH\\Controllers\\Admin.php', 333)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->update_Kafe()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-10 09:37:58 --> Undefined array key 1
+in APPPATH\Controllers\Admin.php on line 335.
+ 1 APPPATH\Controllers\Admin.php(335): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 1', 'APPPATH\\Controllers\\Admin.php', 335)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->update_Kafe()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-10 09:40:01 --> Undefined array key 1
+in APPPATH\Controllers\Admin.php on line 335.
+ 1 APPPATH\Controllers\Admin.php(335): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 1', 'APPPATH\\Controllers\\Admin.php', 335)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->update_Kafe()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-10 09:40:19 --> Undefined array key 1
+in APPPATH\Controllers\Admin.php on line 336.
+ 1 APPPATH\Controllers\Admin.php(336): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 1', 'APPPATH\\Controllers\\Admin.php', 336)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->update_Kafe()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-10 09:42:42 --> Undefined variable $data
+in APPPATH\Controllers\Admin.php on line 346.
+ 1 APPPATH\Controllers\Admin.php(346): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $data', 'APPPATH\\Controllers\\Admin.php', 346)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->update_Kafe()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-10 09:43:10 --> Undefined variable $data
+in APPPATH\Controllers\Admin.php on line 346.
+ 1 APPPATH\Controllers\Admin.php(346): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $data', 'APPPATH\\Controllers\\Admin.php', 346)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->update_Kafe()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-10 09:43:24 --> Undefined variable $data
+in APPPATH\Controllers\Admin.php on line 346.
+ 1 APPPATH\Controllers\Admin.php(346): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $data', 'APPPATH\\Controllers\\Admin.php', 346)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->update_Kafe()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-10 09:43:43 --> Undefined variable $id_kabupaten
+in APPPATH\Controllers\Admin.php on line 346.
+ 1 APPPATH\Controllers\Admin.php(346): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $id_kabupaten', 'APPPATH\\Controllers\\Admin.php', 346)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->update_Kafe()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-10 09:44:29 --> Undefined variable $data
+in APPPATH\Controllers\Admin.php on line 346.
+ 1 APPPATH\Controllers\Admin.php(346): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $data', 'APPPATH\\Controllers\\Admin.php', 346)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->update_Kafe()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-10 09:44:44 --> Undefined variable $data
+in APPPATH\Controllers\Admin.php on line 346.
+ 1 APPPATH\Controllers\Admin.php(346): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $data', 'APPPATH\\Controllers\\Admin.php', 346)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->update_Kafe()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-10 09:44:58 --> Undefined variable $id_kabupaten
+in APPPATH\Controllers\Admin.php on line 346.
+ 1 APPPATH\Controllers\Admin.php(346): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $id_kabupaten', 'APPPATH\\Controllers\\Admin.php', 346)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->update_Kafe()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-10 09:48:46 --> Undefined variable $id_kabupaten
+in APPPATH\Controllers\Admin.php on line 346.
+ 1 APPPATH\Controllers\Admin.php(346): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $id_kabupaten', 'APPPATH\\Controllers\\Admin.php', 346)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->update_Kafe()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-10 09:48:53 --> Undefined variable $id_kabupaten
+in APPPATH\Controllers\Admin.php on line 347.
+ 1 APPPATH\Controllers\Admin.php(347): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $id_kabupaten', 'APPPATH\\Controllers\\Admin.php', 347)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->update_Kafe()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-10 09:49:03 --> Undefined variable $id_kabupaten
+in APPPATH\Controllers\Admin.php on line 347.
+ 1 APPPATH\Controllers\Admin.php(347): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $id_kabupaten', 'APPPATH\\Controllers\\Admin.php', 347)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->update_Kafe()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-10 09:51:33 --> implode(): Argument #1 ($pieces) must be of type array, string given
+in APPPATH\Controllers\Admin.php on line 355.
+ 1 APPPATH\Controllers\Admin.php(355): implode(', ', null)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->update_Kafe()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-10 09:53:10 --> The original file is not a valid file.
+in SYSTEMPATH\HTTP\Files\UploadedFile.php on line 137.
+ 1 SYSTEMPATH\HTTP\Files\UploadedFile.php(137): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidFile()
+ 2 APPPATH\Controllers\Admin.php(328): CodeIgniter\HTTP\Files\UploadedFile->move('FCPATH\\img\\kafe', '1670687590_b81ed0fe26da80e91912')
+ 3 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->update_Kafe()
+ 4 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 5 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-10 09:55:13 --> Undefined variable $data2
+in APPPATH\Controllers\Admin.php on line 360.
+ 1 APPPATH\Controllers\Admin.php(360): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $data2', 'APPPATH\\Controllers\\Admin.php', 360)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->update_Kafe()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-10 09:55:25 --> Undefined variable $data2
+in APPPATH\Controllers\Admin.php on line 360.
+ 1 APPPATH\Controllers\Admin.php(360): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $data2', 'APPPATH\\Controllers\\Admin.php', 360)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->update_Kafe()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-10 09:55:37 --> Undefined variable $selectajax
+in APPPATH\Controllers\Admin.php on line 432.
+ 1 APPPATH\Controllers\Admin.php(432): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $selectajax', 'APPPATH\\Controllers\\Admin.php', 432)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->getDataAjaxRemote()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-10 09:55:41 --> The original file is not a valid file.
+in SYSTEMPATH\HTTP\Files\UploadedFile.php on line 137.
+ 1 SYSTEMPATH\HTTP\Files\UploadedFile.php(137): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidFile()
+ 2 APPPATH\Controllers\Admin.php(328): CodeIgniter\HTTP\Files\UploadedFile->move('FCPATH\\img\\kafe', '1670687741_24c17b5d3a0b582c7894')
+ 3 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->update_Kafe()
+ 4 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 5 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-10 09:55:55 --> Undefined variable $data2
+in APPPATH\Controllers\Admin.php on line 360.
+ 1 APPPATH\Controllers\Admin.php(360): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $data2', 'APPPATH\\Controllers\\Admin.php', 360)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->update_Kafe()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-10 09:57:43 --> Undefined variable $data
+in APPPATH\Controllers\Admin.php on line 359.
+ 1 APPPATH\Controllers\Admin.php(359): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $data', 'APPPATH\\Controllers\\Admin.php', 359)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->update_Kafe()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-10 09:58:07 --> Undefined variable $id_provinsi
+in APPPATH\Controllers\Admin.php on line 353.
+ 1 APPPATH\Controllers\Admin.php(353): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $id_provinsi', 'APPPATH\\Controllers\\Admin.php', 353)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->update_Kafe()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+ERROR - 2022-12-10 10:02:31 --> mysqli_sql_exception: Unknown column 'id' in 'field list' in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `tb...', 0)
+#1 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tb...')
+#2 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tb...')
+#3 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tb...', Array, false)
+#4 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Models\ModelKv.php(66): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Controllers\Admin.php(372): App\Models\ModelKv->addKafe(Array, '37')
+#6 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(927): App\Controllers\Admin->update_Kafe()
+#7 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#8 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 F:\WEB\XAMPP\htdocs\WebGis_kv\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(46): require_once('F:\\WEB\\XAMPP\\ht...')
+#11 {main}
+CRITICAL - 2022-12-10 10:02:31 --> Unknown column 'id' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `tbl_kafe` (`id`, `nama_kafe`, `alamat_kafe`, `coordinate`, `instagram_kafe`, `updated_at`) VALUES (\'37\', \'Asmaraloka Coffee\', \'Jl. Petemon 4A No. 28\', \'-7.263516671669007, 112.71427820904135\', \'asmaralokacoffee\', \'2022-12-10 10:02:31\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tbl_kafe` (`id`, `nama_kafe`, `alamat_kafe`, `coordinate`, `instagram_kafe`, `updated_at`) VALUES (\'37\', \'Asmaraloka Coffee\', \'Jl. Petemon 4A No. 28\', \'-7.263516671669007, 112.71427820904135\', \'asmaralokacoffee\', \'2022-12-10 10:02:31\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tbl_kafe` (`id`, `nama_kafe`, `alamat_kafe`, `coordinate`, `instagram_kafe`, `updated_at`) VALUES (\'37\', \'Asmaraloka Coffee\', \'Jl. Petemon 4A No. 28\', \'-7.263516671669007, 112.71427820904135\', \'asmaralokacoffee\', \'2022-12-10 10:02:31\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tbl_kafe` (`id`, `nama_kafe`, `alamat_kafe`, `coordinate`, `instagram_kafe`, `updated_at`) VALUES (:id:, :nama_kafe:, :alamat_kafe:, :coordinate:, :instagram_kafe:, :updated_at:)', [...], false)
+ 5 APPPATH\Models\ModelKv.php(66): CodeIgniter\Database\BaseBuilder->insert([...])
+ 6 APPPATH\Controllers\Admin.php(372): App\Models\ModelKv->addKafe([...], '37')
+ 7 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->update_Kafe()
+ 8 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+ERROR - 2022-12-10 10:02:43 --> mysqli_sql_exception: Unknown column 'id' in 'field list' in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `tb...', 0)
+#1 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tb...')
+#2 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tb...')
+#3 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tb...', Array, false)
+#4 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Models\ModelKv.php(66): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Controllers\Admin.php(372): App\Models\ModelKv->addKafe(Array, '37')
+#6 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(927): App\Controllers\Admin->update_Kafe()
+#7 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#8 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 F:\WEB\XAMPP\htdocs\WebGis_kv\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(46): require_once('F:\\WEB\\XAMPP\\ht...')
+#11 {main}
+CRITICAL - 2022-12-10 10:02:43 --> Unknown column 'id' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `tbl_kafe` (`id`, `nama_kafe`, `alamat_kafe`, `coordinate`, `instagram_kafe`, `updated_at`) VALUES (\'37\', \'Asmaraloka Coffee\', \'Jl. Petemon 4A No. 28\', \'-7.263516671669007, 112.71427820904135\', \'asmaralokacoffee\', \'2022-12-10 10:02:43\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tbl_kafe` (`id`, `nama_kafe`, `alamat_kafe`, `coordinate`, `instagram_kafe`, `updated_at`) VALUES (\'37\', \'Asmaraloka Coffee\', \'Jl. Petemon 4A No. 28\', \'-7.263516671669007, 112.71427820904135\', \'asmaralokacoffee\', \'2022-12-10 10:02:43\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tbl_kafe` (`id`, `nama_kafe`, `alamat_kafe`, `coordinate`, `instagram_kafe`, `updated_at`) VALUES (\'37\', \'Asmaraloka Coffee\', \'Jl. Petemon 4A No. 28\', \'-7.263516671669007, 112.71427820904135\', \'asmaralokacoffee\', \'2022-12-10 10:02:43\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tbl_kafe` (`id`, `nama_kafe`, `alamat_kafe`, `coordinate`, `instagram_kafe`, `updated_at`) VALUES (:id:, :nama_kafe:, :alamat_kafe:, :coordinate:, :instagram_kafe:, :updated_at:)', [...], false)
+ 5 APPPATH\Models\ModelKv.php(66): CodeIgniter\Database\BaseBuilder->insert([...])
+ 6 APPPATH\Controllers\Admin.php(372): App\Models\ModelKv->addKafe([...], '37')
+ 7 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->update_Kafe()
+ 8 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+ERROR - 2022-12-10 10:03:04 --> mysqli_sql_exception: Duplicate entry '37' for key 'PRIMARY' in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `tb...', 0)
+#1 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tb...')
+#2 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tb...')
+#3 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tb...', Array, false)
+#4 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Models\ModelKv.php(66): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Controllers\Admin.php(372): App\Models\ModelKv->addKafe(Array, '37')
+#6 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(927): App\Controllers\Admin->update_Kafe()
+#7 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#8 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 F:\WEB\XAMPP\htdocs\WebGis_kv\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(46): require_once('F:\\WEB\\XAMPP\\ht...')
+#11 {main}
+CRITICAL - 2022-12-10 10:03:04 --> Duplicate entry '37' for key 'PRIMARY'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `tbl_kafe` (`id_kafe`, `nama_kafe`, `alamat_kafe`, `coordinate`, `instagram_kafe`, `updated_at`) VALUES (\'37\', \'Asmaraloka Coffee\', \'Jl. Petemon 4A No. 28\', \'-7.263516671669007, 112.71427820904135\', \'asmaralokacoffee\', \'2022-12-10 10:03:04\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tbl_kafe` (`id_kafe`, `nama_kafe`, `alamat_kafe`, `coordinate`, `instagram_kafe`, `updated_at`) VALUES (\'37\', \'Asmaraloka Coffee\', \'Jl. Petemon 4A No. 28\', \'-7.263516671669007, 112.71427820904135\', \'asmaralokacoffee\', \'2022-12-10 10:03:04\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tbl_kafe` (`id_kafe`, `nama_kafe`, `alamat_kafe`, `coordinate`, `instagram_kafe`, `updated_at`) VALUES (\'37\', \'Asmaraloka Coffee\', \'Jl. Petemon 4A No. 28\', \'-7.263516671669007, 112.71427820904135\', \'asmaralokacoffee\', \'2022-12-10 10:03:04\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tbl_kafe` (`id_kafe`, `nama_kafe`, `alamat_kafe`, `coordinate`, `instagram_kafe`, `updated_at`) VALUES (:id_kafe:, :nama_kafe:, :alamat_kafe:, :coordinate:, :instagram_kafe:, :updated_at:)', [...], false)
+ 5 APPPATH\Models\ModelKv.php(66): CodeIgniter\Database\BaseBuilder->insert([...])
+ 6 APPPATH\Controllers\Admin.php(372): App\Models\ModelKv->addKafe([...], '37')
+ 7 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->update_Kafe()
+ 8 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+ERROR - 2022-12-10 10:03:20 --> mysqli_sql_exception: Duplicate entry '37' for key 'PRIMARY' in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `tb...', 0)
+#1 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tb...')
+#2 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tb...')
+#3 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tb...', Array, false)
+#4 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Models\ModelKv.php(66): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Controllers\Admin.php(372): App\Models\ModelKv->addKafe(Array, '37')
+#6 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(927): App\Controllers\Admin->update_Kafe()
+#7 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#8 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 F:\WEB\XAMPP\htdocs\WebGis_kv\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(46): require_once('F:\\WEB\\XAMPP\\ht...')
+#11 {main}
+CRITICAL - 2022-12-10 10:03:20 --> Duplicate entry '37' for key 'PRIMARY'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `tbl_kafe` (`id_kafe`, `nama_kafe`, `alamat_kafe`, `coordinate`, `instagram_kafe`, `updated_at`) VALUES (\'37\', \'Asmaraloka Coffee\', \'Jl. Petemon 4A No. 28\', \'-7.263516671669007, 112.71427820904135\', \'asmaralokacoffee\', \'2022-12-10 10:03:20\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tbl_kafe` (`id_kafe`, `nama_kafe`, `alamat_kafe`, `coordinate`, `instagram_kafe`, `updated_at`) VALUES (\'37\', \'Asmaraloka Coffee\', \'Jl. Petemon 4A No. 28\', \'-7.263516671669007, 112.71427820904135\', \'asmaralokacoffee\', \'2022-12-10 10:03:20\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tbl_kafe` (`id_kafe`, `nama_kafe`, `alamat_kafe`, `coordinate`, `instagram_kafe`, `updated_at`) VALUES (\'37\', \'Asmaraloka Coffee\', \'Jl. Petemon 4A No. 28\', \'-7.263516671669007, 112.71427820904135\', \'asmaralokacoffee\', \'2022-12-10 10:03:20\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tbl_kafe` (`id_kafe`, `nama_kafe`, `alamat_kafe`, `coordinate`, `instagram_kafe`, `updated_at`) VALUES (:id_kafe:, :nama_kafe:, :alamat_kafe:, :coordinate:, :instagram_kafe:, :updated_at:)', [...], false)
+ 5 APPPATH\Models\ModelKv.php(66): CodeIgniter\Database\BaseBuilder->insert([...])
+ 6 APPPATH\Controllers\Admin.php(372): App\Models\ModelKv->addKafe([...], '37')
+ 7 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->update_Kafe()
+ 8 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+ERROR - 2022-12-10 10:04:35 --> mysqli_sql_exception: Duplicate entry '37' for key 'PRIMARY' in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `tb...', 0)
+#1 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tb...')
+#2 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tb...')
+#3 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tb...', Array, false)
+#4 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Models\ModelKv.php(66): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Controllers\Admin.php(372): App\Models\ModelKv->addKafe(Array, '37')
+#6 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(927): App\Controllers\Admin->update_Kafe()
+#7 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#8 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 F:\WEB\XAMPP\htdocs\WebGis_kv\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(46): require_once('F:\\WEB\\XAMPP\\ht...')
+#11 {main}
+CRITICAL - 2022-12-10 10:04:35 --> Duplicate entry '37' for key 'PRIMARY'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `tbl_kafe` (`id_kafe`, `nama_kafe`, `alamat_kafe`, `coordinate`, `instagram_kafe`, `updated_at`) VALUES (\'37\', \'Asmaraloka Coffee\', \'Jl. Petemon 4A No. 28\', \'-7.263516671669007, 112.71427820904135\', \'asmaralokacoffee\', \'2022-12-10 10:04:35\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tbl_kafe` (`id_kafe`, `nama_kafe`, `alamat_kafe`, `coordinate`, `instagram_kafe`, `updated_at`) VALUES (\'37\', \'Asmaraloka Coffee\', \'Jl. Petemon 4A No. 28\', \'-7.263516671669007, 112.71427820904135\', \'asmaralokacoffee\', \'2022-12-10 10:04:35\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tbl_kafe` (`id_kafe`, `nama_kafe`, `alamat_kafe`, `coordinate`, `instagram_kafe`, `updated_at`) VALUES (\'37\', \'Asmaraloka Coffee\', \'Jl. Petemon 4A No. 28\', \'-7.263516671669007, 112.71427820904135\', \'asmaralokacoffee\', \'2022-12-10 10:04:35\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tbl_kafe` (`id_kafe`, `nama_kafe`, `alamat_kafe`, `coordinate`, `instagram_kafe`, `updated_at`) VALUES (:id_kafe:, :nama_kafe:, :alamat_kafe:, :coordinate:, :instagram_kafe:, :updated_at:)', [...], false)
+ 5 APPPATH\Models\ModelKv.php(66): CodeIgniter\Database\BaseBuilder->insert([...])
+ 6 APPPATH\Controllers\Admin.php(372): App\Models\ModelKv->addKafe([...], '37')
+ 7 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->update_Kafe()
+ 8 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-10 10:05:46 --> Undefined variable $id_kafe
+in APPPATH\Controllers\Admin.php on line 372.
+ 1 APPPATH\Controllers\Admin.php(372): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $id_kafe', 'APPPATH\\Controllers\\Admin.php', 372)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->update_Kafe()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-10 10:08:17 --> Undefined variable $data
+in APPPATH\Controllers\Admin.php on line 373.
+ 1 APPPATH\Controllers\Admin.php(373): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $data', 'APPPATH\\Controllers\\Admin.php', 373)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->update_Kafe()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-10 10:16:27 --> Undefined array key 1
+in APPPATH\Controllers\Admin.php on line 336.
+ 1 APPPATH\Controllers\Admin.php(336): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 1', 'APPPATH\\Controllers\\Admin.php', 336)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->update_Kafe()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-10 10:18:25 --> Undefined variable $data
+in APPPATH\Controllers\Admin.php on line 355.
+ 1 APPPATH\Controllers\Admin.php(355): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $data', 'APPPATH\\Controllers\\Admin.php', 355)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->update_Kafe()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-10 10:37:10 --> unlink(img/kafe/1670682611_f68d4d5ffce6d7d98052.png): No such file or directory
+in APPPATH\Controllers\Admin.php on line 331.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'unlink(img/kafe/1670682611_f68d4d5ffce6d7d98052.png): No such file or directory', 'APPPATH\\Controllers\\Admin.php', 331)
+ 2 APPPATH\Controllers\Admin.php(331): unlink('img/kafe/1670682611_f68d4d5ffce6d7d98052.png')
+ 3 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->update_Kafe()
+ 4 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 5 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-10 10:38:46 --> unlink(img/kafe/): Is a directory
+in APPPATH\Controllers\Admin.php on line 396.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'unlink(img/kafe/): Is a directory', 'APPPATH\\Controllers\\Admin.php', 396)
+ 2 APPPATH\Controllers\Admin.php(396): unlink('FCPATH\\img\\kafe')
+ 3 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->delete_Kafe('40')
+ 4 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 5 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-10 10:44:01 --> Undefined variable $selectajax
+in APPPATH\Controllers\Admin.php on line 454.
+ 1 APPPATH\Controllers\Admin.php(454): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $selectajax', 'APPPATH\\Controllers\\Admin.php', 454)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->getDataAjaxRemote()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-10 10:47:58 --> unlink(img/kafe/F:\WEB\XAMPP\tmp\php9103.tmp): No such file or directory
+in APPPATH\Controllers\Admin.php on line 396.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'unlink(img/kafe/F:\\WEB\\XAMPP\\tmp\\php9103.tmp): No such file or directory', 'APPPATH\\Controllers\\Admin.php', 396)
+ 2 APPPATH\Controllers\Admin.php(396): unlink('img/kafe/F:\\WEB\\XAMPP\\tmp\\php9103.tmp')
+ 3 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->delete_Kafe('43')
+ 4 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 5 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-10 10:49:52 --> unlink(img/kafe/F:\WEB\XAMPP\tmp\php9103.tmp): No such file or directory
+in APPPATH\Controllers\Admin.php on line 395.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'unlink(img/kafe/F:\\WEB\\XAMPP\\tmp\\php9103.tmp): No such file or directory', 'APPPATH\\Controllers\\Admin.php', 395)
+ 2 APPPATH\Controllers\Admin.php(395): unlink('img/kafe/F:\\WEB\\XAMPP\\tmp\\php9103.tmp')
+ 3 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->delete_Kafe('43')
+ 4 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 5 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')

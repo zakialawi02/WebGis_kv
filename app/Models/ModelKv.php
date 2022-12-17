@@ -21,18 +21,12 @@ class ModelKv extends Model
     function callKafe($id_kafe = false)
     {
         if ($id_kafe === false) {
-            // return $this->db->table('tbl_kafe')
-            //     ->join('tbl_provinsi', 'tbl_provinsi.id_provinsi = tbl_kafe.id_provinsi')
-            //     ->join('tbl_kabupaten', 'tbl_kabupaten.id_kabupaten = tbl_kafe.id_kabupaten')
-            //     ->join('tbl_kecamatan', 'tbl_kecamatan.id_kecamatan = tbl_kafe.id_kecamatan')
-            //     ->join('tbl_kelurahan', 'tbl_kelurahan.id_kelurahan = tbl_kafe.id_kelurahan')
-            //     ->get(); //select all data
-
             return $this->db->table('tbl_kafe')
                 ->join('tbl_provinsi', 'tbl_provinsi.id_provinsi = tbl_kafe.id_provinsi')
                 ->join('tbl_kabupaten', 'tbl_kabupaten.id_kabupaten = tbl_kafe.id_kabupaten')
                 ->join('tbl_kecamatan', 'tbl_kecamatan.id_kecamatan = tbl_kafe.id_kecamatan')
                 ->join('tbl_kelurahan', 'tbl_kelurahan.id_kelurahan = tbl_kafe.id_kelurahan')
+
                 ->getWhere(['stat_appv' => '1']); //select data of stat_appv=>1
 
             // return $this->db->table('tbl_kafe')->get();
@@ -74,6 +68,11 @@ class ModelKv extends Model
     public function chck_appv($data, $id_kafe)
     {
         return $this->db->table('tbl_kafe')->update($data, ['id_kafe' => $id_kafe]);
+    }
+
+    public function getLastID()
+    {
+        return $this->orderBy('id_kafe', 'desc')->get()->getFirstRow('array');
     }
 
 

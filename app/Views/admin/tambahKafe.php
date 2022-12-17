@@ -109,14 +109,9 @@
                                 <div class="form-group">
                                     <label for="fasilitas_kafe" class="form-label">Fasilitas</label>
                                     <div>
-                                        <div class="form-check" style="display: inline-flex ; margin: 0 10px 0 0;">
-                                            <input class="form-check-input" type="checkbox" value="1" id="fasil1" name="fasil1">
-                                            <label class="form-check-label" for="flexCheckChecked">&nbsp; Fasil 1</label>
-                                        </div>
-                                        <div class="form-check" style="display: inline-flex ;">
-                                            <input class="form-check-input" type="checkbox" value="2" id="fasil2" name="fasil2">
-                                            <label class="form-check-label" for="flexCheckChecked">&nbsp; Fasil 2</label>
-                                        </div>
+                                        <input class="form-check-input" type="checkbox" name="fasil[]" value="Reading"> Reading<br>
+                                        <input class="form-check-input" type="checkbox" name="fasil[]" value="Writing"> Writing<br>
+                                        <input class="form-check-input" type="checkbox" name="fasil[]" value="Coding"> Coding<br>
                                     </div>
                                 </div>
 
@@ -128,7 +123,7 @@
 
                                 <div class="mb-3">
                                     <label for="formFile" class="form-label">Upload Foto Kafe</label>
-                                    <input class="form-control" type="file" name="foto_kafe" id="foto_kafe" accept="image/*">
+                                    <input class="form-control" type="file" name="foto_kafe[]" id="foto_kafe" accept="image/*" multiple>
                                     <div id="FileHelp" class="form-text">.jpg/.png</div>
                                     <div id="imgPreview">
 
