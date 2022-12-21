@@ -23,14 +23,10 @@ class ModelFoto extends Model
         if ($id_kafe === false) {
             return $this->db->table('tbl_foto_kafe')->get();
         } else {
-            return $this->Where(['id_kafe' => $id_kafe])->get();
+            return $this->db->table('tbl_foto_kafe')->Where(['id_kafe' => $id_kafe])->get();
         }
     }
 
-    function getFotos($id_kafe)
-    {
-        $this->Where(['id_kafe' => $id_kafe])->get();
-    }
 
     public function getImgRow($id)
     {

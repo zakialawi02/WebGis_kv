@@ -107,9 +107,10 @@
                                             </div>
 
                                             <!-- Button trigger modalEdit -->
-                                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal-<?= $S->id_kafe ?>"><i class="ri-eye-fill"></i> </button>
+                                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#viewModal-<?= $S->id_kafe ?>"><i class="ri-eye-fill"></i> </button>
+
                                             <!-- EDIT Modal -->
-                                            <div class="modal fade mt-5" id="editModal-<?= $S->id_kafe ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="z-index: 2001 ;">
+                                            <div class="modal fade mt-5" id="viewModal-<?= $S->id_kafe ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="z-index: 2001 ;">
                                                 <div class="modal-dialog modal-lg">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
@@ -151,8 +152,9 @@
                                                                 <div class="col-lg-3 col-md-4 mb-3 label ">Foto</div>
                                                                 <div class="col-lg-9 col-md-8">: </div>
                                                                 <div class="form-group">
-                                                                    <?php foreach ($getFoto as $foto) : ?>
-                                                                        <img class="img-kafe" src="<?= base_url('/img/kafe/' . $foto->nama_file_foto); ?>" alt="Foto">
+                                                                    <?php $foto_kafe = explode(', ', $S->nama_foto); ?>
+                                                                    <?php foreach ($foto_kafe as $foto) : ?>
+                                                                        <img class="img-kafe" src="<?= base_url('/img/kafe/' . $foto); ?>" alt="Foto">
                                                                     <?php endforeach ?>
                                                                 </div>
                                                             </div>

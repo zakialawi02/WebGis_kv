@@ -1324,10 +1324,12 @@ h6 {
 
 .img-kafeEdit {
     display: inline;
-    max-width: 8rem;
+    max-width: 10rem;
 }
 
-.dellbut {}
+.dellbut {
+    padding: 10px;
+}
 
 
 

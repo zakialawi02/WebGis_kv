@@ -30,21 +30,65 @@ class Admin extends BaseController
         $data = [
             'title' => 'JUDUL',
         ];
+        $opening_hours = [
+            "Monday" => ["09:00", "17:00"],
+            "Tuesday" => ["09:00", "17:00"],
+            "Wednesday" => ["09:00", "17:00"],
+            "Thursday" => ["09:00", "17:00"],
+            "Friday" => ["09:00", "17:00"],
+            "Saturday" => ["10:00", "16:00"],
+            "Sunday" => ["Closed"],
+        ];
+        $amountOfDays = count($opening_hours);
+        $arrayKeys = array_keys($opening_hours);
+
+        for ($dayCount = 0; $dayCount < $amountOfDays; $dayCount++) {
+            $DayAmountOfConsecutiveSameHours = 1;
+            while (isset($arrayKeys[($dayCount + $DayAmountOfConsecutiveSameHours)]) && ($opening_hours[$arrayKeys[$dayCount]] === $opening_hours[$arrayKeys[($dayCount + $DayAmountOfConsecutiveSameHours)]]))
+                $DayAmountOfConsecutiveSameHours++;
+
+            if ($DayAmountOfConsecutiveSameHours > 1)
+                $result[$arrayKeys[$dayCount] . " - " . $arrayKeys[($dayCount + $DayAmountOfConsecutiveSameHours - 1)]] = $opening_hours[$arrayKeys[$dayCount]];
+            else
+                $result[$arrayKeys[$dayCount]] = $opening_hours[$arrayKeys[$dayCount]];
+
+            $dayCount += ($DayAmountOfConsecutiveSameHours - 1);
+        }
+
+        // print_r($result);
+        // die;
+
+
+        return view('admin/tempp', $data);
+    }
+
+    public function dump()
+    {
+        // dd($this->request->getVar());
+
+        $data = [
+            'title' => 'DUMP',
+            'tampilKafe' => $this->kafe->callKafe()->getResult(),
+            'getFoto' => $this->fotoKafe->getFoto()->getResult(),
+        ];
+        $dump = $this->kafe->callKafe()->getResult();
+        var_dump($dump);
+        die;
 
         return view('admin/tempp', $data);
     }
 
 
-    public function pending()
+    public function table()
     {
         $data = [
-            'title' => 'PENDING LIST',
-            'tampilKafe' => $this->kafe->callPendingData()->getResult(),
+            'title' => 'TABLE',
         ];
 
-
-        return view('admin/pendingList', $data);
+        return view('admin/table', $data);
     }
+
+
 
 
     // SETTING MAP VIEW  ===================================================================================
@@ -77,15 +121,6 @@ class Admin extends BaseController
 
 
 
-
-    public function table()
-    {
-        $data = [
-            'title' => 'TABLE',
-        ];
-
-        return view('admin/table', $data);
-    }
 
 
     // GEOJSONDATA =======================================================================================
@@ -136,7 +171,7 @@ class Admin extends BaseController
         $randomName = implode('.', $explode);
         $randomName = $randomName . ".geo" . $fileGeojson->getExtension();
         // pindah file to hosting
-        $fileGeojson->move(ROOTPATH . 'public/geojson/', $randomName);
+        $fileGeojson->move('geojson/', $randomName);
 
 
         $data = [
@@ -178,7 +213,7 @@ class Admin extends BaseController
             $fileGeojsonBaru = implode('.', $explode);
             $fileGeojsonBaru = $fileGeojsonBaru . ".geojson";
             // pindah file to hosting
-            $fileGeojson->move('geojson', $fileGeojsonBaru);
+            $fileGeojson->move('geojson/', $fileGeojsonBaru);
         } else {
             //    Jika tidak ada file baru
             $fileGeojsonBaru = $this->request->getPost('jsonLama');
@@ -310,7 +345,7 @@ class Admin extends BaseController
                     'nama_file_foto' => $newName,
                 ];
                 $this->fotoKafe->addFoto($dataF);
-                $img->move(ROOTPATH . 'public/img/kafe', $newName);
+                $img->move('img/kafe/', $newName);
             }
         }
 
@@ -364,7 +399,7 @@ class Admin extends BaseController
                     'nama_file_foto' => $newName,
                 ];
                 $this->fotoKafe->addFoto($dataF);
-                $img->move(ROOTPATH . 'public/img/kafe', $newName);
+                $img->move('img/kafe/', $newName);
             }
         }
 
@@ -398,7 +433,6 @@ class Admin extends BaseController
     {
         // Menerima ID data yang akan dihapus dari permintaan POST
         $id = $this->request->getPost('id');
-        $id_kafe = $this->request->getPost('id_kafe');
         $imgData = $this->fotoKafe->getImgRow($id)->getRow();
         // Remove files from the server  
         $file = $imgData->nama_file_foto;
@@ -411,6 +445,18 @@ class Admin extends BaseController
 
         // Kembalikan data ke client dalam format JSON
         return json_encode(['status' => true, 'imageUrl' => $imageUrl]);
+    }
+
+    // Pending Data
+    public function pending()
+    {
+        $data = [
+            'title' => 'PENDING LIST',
+            'tampilKafe' => $this->kafe->callPendingData()->getResult(),
+        ];
+
+
+        return view('admin/pendingList', $data);
     }
 
     // approve data

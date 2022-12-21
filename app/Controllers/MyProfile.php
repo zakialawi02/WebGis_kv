@@ -3,14 +3,18 @@
 namespace App\Controllers;
 
 use App\Models\ModelSetting;
+use App\Models\ModelUser;
 use Myth\Auth\Password;
 
 class MyProfile extends BaseController
 {
     protected $ModelSetting;
+    protected $ModelUser;
+
     public function __construct()
     {
         $this->setting = new ModelSetting();
+        $this->users = new ModelUser();
     }
 
     public function index()
@@ -20,7 +24,7 @@ class MyProfile extends BaseController
         ];
         $db      = \Config\Database::connect();
         $builder = $db->table('users');
-        $builder->select('users.id as userid, username, email, name');
+        $builder->select('users.id as userid, username, email, name, password_hash');
         $builder->join('auth_groups_users', 'auth_groups_users.user_id = users.id');
         $builder->join('auth_groups', 'auth_groups.id = auth_groups_users.group_id');
         $query = $builder->get();
@@ -56,10 +60,10 @@ class MyProfile extends BaseController
                 ],
             ],
             'newpassword' => [
-                'rules' => 'required|min_length[4]',
+                'rules' => 'required|min_length[8]',
                 'errors' => [
                     'required' => 'wajib di isi',
-                    'min_length' => 'Min. 4 karakter'
+                    'min_length' => 'Min. 8 karakter'
                 ],
             ],
             'renewpassword' => [
@@ -76,10 +80,21 @@ class MyProfile extends BaseController
 
         // dd($this->request->getVar());
         $id = $this->request->getPost('id');
+        $passwordLama = $this->request->getVar('newpassword');
         $data = [
             'password_hash' => Password::hash($this->request->getVar('newpassword')),
             'updated_at' => date('Y-m-d H:i:s'),
         ];
+
+
+        // // Cocokkan password yang dimasukkan dengan hash password yang disimpan menggunakan password_verify()
+        // if (password_verify($passwordLama, $hashed_password)) {
+        //     // Jika password sesuai, tampilkan pesan "Password cocok"
+        //     echo "Password cocok";
+        // } else {
+        //     // Jika password tidak sesuai, tampilkan pesan "Password tidak cocok"
+        //     echo "Password tidak cocok";
+        // }
 
         $this->setting->UpdatePassword($data, $id);
         // session()->setFlashdata('alert', 'Data Berhasil disimpan.');

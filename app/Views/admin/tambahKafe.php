@@ -125,9 +125,7 @@
                                     <label for="formFile" class="form-label">Upload Foto Kafe</label>
                                     <input class="form-control" type="file" name="foto_kafe[]" id="foto_kafe" accept="image/*" multiple>
                                     <div id="FileHelp" class="form-text">.jpg/.png</div>
-                                    <div id="imgPreview">
-
-                                    </div>
+                                    <div id="imgPreview"></div>
                                 </div>
 
 
@@ -229,6 +227,28 @@
             });
         });
     </script>
+    <!-- preview input image, multiple image -->
+    <script>
+        function readURL(input) {
+            if (input.files) {
+                $('#imgPreview').html(''); // mengosongkan preview
+                for (var i = 0; i < input.files.length; i++) {
+                    var reader = new FileReader();
+                    reader.onload = function(e) {
+                        $('#imgPreview').append('<div><img src="' + e.target.result + '" class="img-kafe"><button type="button" class="btn btn-danger btn-sm remove-preview">Hapus</button></div>');
+                    }
+                    reader.readAsDataURL(input.files[i]);
+                }
+            }
+        }
+        $("#foto_kafe").change(function() {
+            readURL(this);
+        });
+        $('#imgPreview').on('click', '.remove-preview', function() {
+            $(this).parent().remove(); // menghapus preview yang dipilih
+        });
+    </script>
+
 
     <!-- Js Leaflet Setting -->
     <!-- Leafleat js Component -->

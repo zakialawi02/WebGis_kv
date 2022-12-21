@@ -40,9 +40,4 @@ class ModelSetting extends Model
     {
         return $this->db->table('users')->update($data, ['id' => $id]);
     }
-
-    function addUser($addUser)
-    {
-        return $this->db->table('users')->insert($addUser);
-    }
 }

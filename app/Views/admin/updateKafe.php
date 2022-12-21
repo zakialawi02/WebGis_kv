@@ -130,11 +130,12 @@
                                     <label for="formFile" class="form-label">Tambah Foto Kafe</label>
                                     <input class="form-control" type="file" name="foto_kafe[]" id="foto_kafe" accept="image/*" multiple>
                                     <div id="FileHelp" class="form-text">.jpg/.png</div>
+                                    <div id="imgPreview"></div>
                                     <div id="image">
                                         <?php foreach ($getFoto as $fotoKafe) { ?>
                                             <div class="img-box" id="imgb_<?= $fotoKafe->id; ?>">
                                                 <img class="img-kafeEdit" src="<?= base_url('/img/kafe/' . $fotoKafe->nama_file_foto); ?>">
-                                                <a href="javascript:void(0);" class="dellbut badge bg-danger btn-delete" data-id="<?= $fotoKafe->id; ?>" data-kafe="<?= $fotoKafe->id_kafe; ?>" onclick=" deleteImage('<?= $fotoKafe->id; ?>')">delete</a>
+                                                <a href="javascript:void(0);" class="dellbut badge bg-danger btn-delete" data-id="<?= $fotoKafe->id; ?>" data-kafe="<?= $fotoKafe->id_kafe; ?>" onclick=" deleteImage('<?= $fotoKafe->id; ?>')">Hapus</a>
                                             </div>
                                         <?php } ?>
                                     </div>
@@ -267,7 +268,26 @@
             });
         });
     </script>
-
+    <script>
+        function readURL(input) {
+            if (input.files) {
+                $('#imgPreview').html(''); // mengosongkan preview
+                for (var i = 0; i < input.files.length; i++) {
+                    var reader = new FileReader();
+                    reader.onload = function(e) {
+                        $('#imgPreview').append('<div><img src="' + e.target.result + '" class="img-kafeEdit"><button type="button" class="btn btn-danger btn-sm remove-preview">Hapus</button></div>');
+                    }
+                    reader.readAsDataURL(input.files[i]);
+                }
+            }
+        }
+        $("#foto_kafe").change(function() {
+            readURL(this);
+        });
+        $('#imgPreview').on('click', '.remove-preview', function() {
+            $(this).parent().remove(); // menghapus preview yang dipilih
+        });
+    </script>
 
 
     <!-- Js Leaflet Setting -->

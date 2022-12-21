@@ -136,14 +136,14 @@
 
                                 <?php $validation = \Config\Services::validation(); ?>
 
-                                <form action="/MyProfile/UpdatePassword" method="post" enctype="multipart/form-data">
+                                <form action="/MyProfile/UpdatePassword" method="post" enctype="multipart/form-data" autocomplete="off">
 
                                     <input type="hidden" class="form-control" for="id" id="id" name="id" value="<?= user()->id; ?>">
 
                                     <div class="row mb-3">
                                         <label for="currentPassword" class="col-md-4 col-lg-3 col-form-label">Current Password</label>
                                         <div class="col-md-8 col-lg-9">
-                                            <input name="currentPassword" type="password" class="form-control <?= ($validation->hasError('currentPassword')) ? 'is-invalid' : ''; ?>" id="currentPassword">
+                                            <input name="currentPassword" type="password" class="form-control <?= ($validation->hasError('currentPassword')) ? 'is-invalid' : ''; ?>" id="currentPassword" required>
                                             <div class="invalid-feedback">
                                                 <?= $validation->getError('currentPassword'); ?>
                                             </div>
@@ -153,7 +153,7 @@
                                     <div class="row mb-3">
                                         <label for="newPassword" class="col-md-4 col-lg-3 col-form-label">New Password</label>
                                         <div class="col-md-8 col-lg-9">
-                                            <input name="newpassword" type="password" class="form-control <?= ($validation->hasError('newpassword')) ? 'is-invalid' : ''; ?>" id="newpassword">
+                                            <input name="newpassword" type="password" class="form-control <?= ($validation->hasError('newpassword')) ? 'is-invalid' : ''; ?>" id="newpassword" required>
                                             <div class="invalid-feedback">
                                                 <?= $validation->getError('newpassword'); ?>
                                             </div>
@@ -163,7 +163,7 @@
                                     <div class="row mb-3">
                                         <label for="renewPassword" class="col-md-4 col-lg-3 col-form-label">Re-enter New Password</label>
                                         <div class="col-md-8 col-lg-9">
-                                            <input name="renewpassword" type="password" class="form-control <?= ($validation->hasError('renewpassword')) ? 'is-invalid' : ''; ?>" id="renewpassword">
+                                            <input name="renewpassword" type="password" class="form-control <?= ($validation->hasError('renewpassword')) ? 'is-invalid' : ''; ?>" id="renewpassword" required>
                                             <div class="invalid-feedback">
                                                 <?= $validation->getError('renewpassword'); ?>
                                             </div>

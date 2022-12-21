@@ -22,6 +22,9 @@ class ModelKv extends Model
     {
         if ($id_kafe === false) {
             return $this->db->table('tbl_kafe')
+                ->select('tbl_kafe.id_kafe as id_kafe, nama_kafe, alamat_kafe, coordinate, fasilitas_kafe, instagram_kafe, tbl_provinsi.id_provinsi as id_provinsi, nama_provinsi, tbl_kabupaten.id_kabupaten as id_kabupaten, nama_kabupaten, tbl_kecamatan.id_kecamatan as id_kecamatan, nama_kecamatan, tbl_kelurahan.id_kelurahan as id_kelurahan, nama_kelurahan, created_at, updated_at, user, stat_appv, GROUP_CONCAT(tbl_foto_kafe.nama_file_foto SEPARATOR ",") as nama_foto')
+                ->join('tbl_foto_kafe', 'tbl_foto_kafe.id_kafe = tbl_kafe.id_kafe')
+                ->groupBy('tbl_kafe.id_kafe')
                 ->join('tbl_provinsi', 'tbl_provinsi.id_provinsi = tbl_kafe.id_provinsi')
                 ->join('tbl_kabupaten', 'tbl_kabupaten.id_kabupaten = tbl_kafe.id_kabupaten')
                 ->join('tbl_kecamatan', 'tbl_kecamatan.id_kecamatan = tbl_kafe.id_kecamatan')

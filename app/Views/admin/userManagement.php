@@ -70,10 +70,24 @@
                         <h3 class="card-title">Example Card</h3>
                         <?php if (session()->getFlashdata('alert')) : ?>
                             <div class="card-body">
-                                <div class="alert alert-info alert-dismissible fade show" role="alert">
+                                <div id="alert" class="alert alert-info alert-dismissible fade show" role="alert">
                                     <?= session()->getFlashdata('alert'); ?>
                                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                 </div>
+                            </div>
+                        <?php endif; ?>
+
+                        <?php $validation = \Config\Services::validation(); ?>
+                        <?php if ($validation->getErrors()) : ?>
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                <h6><b>Gagal Menambahkan !!</b></h6>
+                                <span>
+                                    <?= $validation->getError('username'); ?></br>
+                                    <?= $validation->getError('email'); ?></br>
+                                    <?= $validation->getError('password_hash'); ?></br>
+                                    <?= $validation->getError('role'); ?>
+                                </span>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                             </div>
                         <?php endif; ?>
 
@@ -90,50 +104,43 @@
                                     </div>
                                     <div class="modal-body">
 
-                                        <?php $validation = \Config\Services::validation(); ?>
 
-                                        <form action="/user/tambah" method="post" enctype="multipart/form-data" class="row g-3">
+                                        <form action="/user/tambah" method="post" enctype="multipart/form-data" class="row g-3" autocomplete="off">
+
+                                            <?= csrf_field(); ?>
+
                                             <div class="mb-3">
                                                 <label for="username" class="col-form-label">Username</label>
-                                                <input type="text" class="form-control <?= ($validation->hasError('username')) ? 'is-invalid' : ''; ?>" name="username" id="username">
-                                                <div class="invalid-feedback">
-                                                    <?= $validation->getError('username'); ?>
-                                                </div>
+                                                <input type="text" class="form-control " name="username" id="username" required>
                                             </div>
                                             <div class="mb-3">
                                                 <label for="full_name" class="col-form-label">Full Name</label>
-                                                <input type="text" class="form-control <?= ($validation->hasError('full_name')) ? 'is-invalid' : ''; ?>" name="full_name" id="full_name">
-                                                <div class="invalid-feedback">
-                                                    <?= $validation->getError('full_name'); ?>
-                                                </div>
+                                                <input type="text" class="form-control" name="full_name" id="full_name">
                                             </div>
                                             <div class="col-md-6">
                                                 <label for="email" class="col-form-label">Email</label>
-                                                <input type="email" class="form-control <?= ($validation->hasError('email')) ? 'is-invalid' : ''; ?>" name="email" id="email">
-                                                <div class="invalid-feedback">
-                                                    <?= $validation->getError('email'); ?>
-                                                </div>
+                                                <input type="email" class="form-control" name="email" id="email" required>
                                             </div>
                                             <div class="col-md-6">
                                                 <label for="password_hash" class="col-form-label">Password</label>
-                                                <input type="password" class="form-control <?= ($validation->hasError('password_hash')) ? 'is-invalid' : ''; ?>" name="password_hash" id="password_hash">
-                                                <div class="invalid-feedback">
-                                                    <?= $validation->getError('password_hash'); ?>
-                                                </div>
+                                                <input type="password" class="form-control" name="password_hash" id="password_hash" required>
                                             </div>
                                             <div class="mb-3">
                                                 <label for="role" class="col-form-label">Role</label>
-                                                <input type="text" class="form-control <?= ($validation->hasError('role')) ? 'is-invalid' : ''; ?>" name="role" id="role">
-                                                <div class="invalid-feedback">
-                                                    <?= $validation->getError('role'); ?>
-                                                </div>
+                                                <select class="form-control" name="role" id="role" required>
+                                                    <option value="">--Pilih Role--</option>
+                                                    <?php foreach ($auth_groups as $key => $value) : ?>
+                                                        <option value="<?= $value['id'] ?>"><?= $value['name'] ?></option>
+                                                    <?php endforeach ?>
+                                                </select>
                                             </div>
-                                        </form>
                                     </div>
+
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                         <button type="submit" class="btn btn-primary">Submit</button>
                                     </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -158,9 +165,69 @@
                                         <td><?= $user->email; ?></td>
                                         <td><span class="badge bg-<?= ($user->name == 'Admin' or $user->name == 'SuperAdmin') ? 'info' : 'secondary'; ?>"> <?= $user->name; ?> </span></td>
                                         <td>
-                                            <div class="btn-group mr-2" role="group" aria-label="First group">
-                                                <a href="/admin/data/kafe/edit/" class="btn btn-primary bi bi-pencil-square" role="button"></a>
+
+
+
+                                            <!-- Button trigger modal -->
+                                            <button type="button" class="btn btn-primary bi bi-pencil-square" data-bs-toggle="modal" data-bs-target="#editUserRole-<?= $user->userid ?>"></button>
+
+                                            <!-- Modal -->
+                                            <div class="modal fade mt-5" id="editUserRole-<?= $user->userid ?>" tabindex="-1" style="z-index: 2001 ;" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">Edit User</h5>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+
+
+                                                            <form action="/user/updateUser" method="post" enctype="multipart/form-data" class="row g-3" autocomplete="off">
+                                                                <?= csrf_field(); ?>
+
+                                                                <div class="col">
+                                                                    <input type="hidden" class="form-control" for="userid" id="userid" name="userid" value="<?= $user->userid ?>">
+                                                                </div>
+
+                                                                <div class="mb-3">
+                                                                    <label for="username" class="col-form-label">Username</label>
+                                                                    <input type="text" class="form-control " name="username" id="username" value="<?= $user->username ?>" required>
+                                                                </div>
+                                                                <div class="mb-3">
+                                                                    <label for="full_name" class="col-form-label">Full Name</label>
+                                                                    <input type="text" class="form-control " name="full_name" id="full_name" value="<?= $user->full_name ?>">
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <label for="email" class="col-form-label">Email</label>
+                                                                    <input type="email" class="form-control " name="email" id="email" value="<?= $user->email ?>" required>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <label for="password_hash" class="col-form-label">Password</label>
+                                                                    <input type="password" class="form-control" name="password_hash" id="password_hash">
+                                                                </div>
+                                                                <div class="mb-3">
+                                                                    <label for="role" class="col-form-label">Role</label>
+                                                                    <select class="form-control " name="role" id="role" required>
+                                                                        <option value="">--Pilih Role--</option>
+                                                                        <?php foreach ($auth_groups as $key => $value) : ?>
+                                                                            <option value="<?= $value['id'] ?>" <?= $value['id'] == $user->group_id ? "selected" : null ?>><?= $value['name'] ?></option>
+                                                                        <?php endforeach ?>
+                                                                    </select>
+                                                                </div>
+                                                        </div>
+
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                                        </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
                                             </div>
+
+
+
+
                                             <div class="btn-group mr-2" role="group" aria-label="First group">
                                                 <form action="/admin/delete/" method="post">
                                                     <?= csrf_field(); ?>
@@ -174,6 +241,7 @@
                             </tbody>
                         </table>
 
+                        <!-- <?php print_r($users); ?> -->
 
                     </div>
                 </div>
@@ -228,9 +296,9 @@
     </script>
     <script>
         $(document).ready(function() {
-            $(".alert");
+            $("#alert");
             setTimeout(function() {
-                $(".alert").fadeOut(800);
+                $("#alert").fadeOut(800);
             }, 2500);
         });
     </script>
