@@ -9,8 +9,7 @@ class ModelUser extends Model
 {
     protected $table      = 'users';
     protected $primaryKey = 'id';
-
-
+    protected $useSoftDeletes = false;
     protected $allowFields = ['full_name', 'user_image', 'email', 'user_about', 'password_hash', 'active'];
 
     function __construct()
@@ -18,15 +17,26 @@ class ModelUser extends Model
         $this->db = db_connect();
     }
 
-    function getUsers()
+
+    function getUsers($id = false)
     {
-        $db      = \Config\Database::connect();
-        $builder = $db->table('users');
-        $builder->select('users.id as userid, username, email, group_id, name, created_at,  full_name');
-        $builder->join('auth_groups_users', 'auth_groups_users.user_id = users.id');
-        $builder->join('auth_groups', 'auth_groups.id = auth_groups_users.group_id');
-        $query = $builder->orderBy('group_id', 'ASC')->get();
-        return $query;
+        if ($id == false) {
+            $db      = \Config\Database::connect();
+            $builder = $db->table('users');
+            $builder->select('users.id as userid, username, email, group_id, name, created_at,  full_name');
+            $builder->join('auth_groups_users', 'auth_groups_users.user_id = users.id');
+            $builder->join('auth_groups', 'auth_groups.id = auth_groups_users.group_id');
+            $query = $builder->orderBy('group_id', 'ASC')->get();
+            return $query;
+        } else {
+            $db      = \Config\Database::connect();
+            $builder = $db->table('users');
+            $builder->select('users.id as userid, username, email, group_id, name, created_at,  full_name');
+            $builder->join('auth_groups_users', 'auth_groups_users.user_id = users.id');
+            $builder->join('auth_groups', 'auth_groups.id = auth_groups_users.group_id');
+            $query = $builder->Where(['id' => $id])->get();
+            return $query;
+        }
     }
 
     function addUser($addUser)
@@ -47,6 +57,15 @@ class ModelUser extends Model
     public function updateRole($dataA, $userid)
     {
         return $this->db->table('auth_groups_users')->update($dataA, ['user_id' => $userid]);
+    }
+
+    public function deleteUser($id)
+    {
+        return $this->db->table('users')->delete(['id' => $id]);
+    }
+    public function deleteRole($id)
+    {
+        return $this->db->table('auth_groups_users')->delete(['user_id' => $id]);
     }
 
 

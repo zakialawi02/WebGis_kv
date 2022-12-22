@@ -1,0 +1,71 @@
+ERROR - 2022-12-22 01:49:38 --> mysqli_sql_exception: Unknown column 'user_id' in 'where clause' in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('DELETE FROM `us...', 0)
+#1 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `us...')
+#2 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `us...')
+#3 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(2391): CodeIgniter\Database\BaseConnection->query('DELETE FROM `us...', Array, false)
+#4 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Model.php(401): CodeIgniter\Database\BaseBuilder->delete()
+#5 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\BaseModel.php(984): CodeIgniter\Model->doDelete(Array, false)
+#6 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Controllers\User.php(204): CodeIgniter\BaseModel->delete(Array)
+#7 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(927): App\Controllers\User->delete('6')
+#8 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+#9 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 F:\WEB\XAMPP\htdocs\WebGis_kv\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(46): require_once('F:\\WEB\\XAMPP\\ht...')
+#12 {main}
+CRITICAL - 2022-12-22 01:49:38 --> Unknown column 'user_id' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('DELETE FROM `users`
+WHERE `user_id` = \'6\'
+AND `id` IN (\'auth_groups_users\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `users`
+WHERE `user_id` = \'6\'
+AND `id` IN (\'auth_groups_users\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `users`
+WHERE `user_id` = \'6\'
+AND `id` IN (\'auth_groups_users\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2391): CodeIgniter\Database\BaseConnection->query('DELETE FROM `users`
+WHERE `user_id` = :user_id:
+AND `id` IN :id:', [...], false)
+ 5 SYSTEMPATH\Model.php(401): CodeIgniter\Database\BaseBuilder->delete()
+ 6 SYSTEMPATH\BaseModel.php(984): CodeIgniter\Model->doDelete([...], false)
+ 7 APPPATH\Controllers\User.php(204): CodeIgniter\BaseModel->delete([...])
+ 8 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\User->delete('6')
+ 9 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+10 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-22 01:50:44 --> Call to a member function where() on bool
+in APPPATH\Controllers\User.php on line 204.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\User->delete('6')
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+ERROR - 2022-12-22 02:24:19 --> mysqli_sql_exception: Duplicate entry 'qpbyyyaoxd@karenkey.com' for key 'email' in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `us...', 0)
+#1 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `us...')
+#2 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `us...')
+#3 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `us...', Array, false)
+#4 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Models\ModelUser.php(44): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Controllers\User.php(62): App\Models\ModelUser->addUser(Array)
+#6 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(927): App\Controllers\User->tambah()
+#7 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+#8 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 F:\WEB\XAMPP\htdocs\WebGis_kv\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(46): require_once('F:\\WEB\\XAMPP\\ht...')
+#11 {main}
+CRITICAL - 2022-12-22 02:24:19 --> Duplicate entry 'qpbyyyaoxd@karenkey.com' for key 'email'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `users` (`username`, `full_name`, `email`, `password_hash`, `active`, `created_at`) VALUES (\'qwert1234\', \'\', \'qpbyyyaoxd@karenkey.com\', \'$2y$10$29miL.W0rt4BLPgl0l2v7ukLINqrMivYOfiQ/vRaDRPISzXmDdQnC\', \'1\', \'2022-12-22 02:24:19\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `users` (`username`, `full_name`, `email`, `password_hash`, `active`, `created_at`) VALUES (\'qwert1234\', \'\', \'qpbyyyaoxd@karenkey.com\', \'$2y$10$29miL.W0rt4BLPgl0l2v7ukLINqrMivYOfiQ/vRaDRPISzXmDdQnC\', \'1\', \'2022-12-22 02:24:19\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `users` (`username`, `full_name`, `email`, `password_hash`, `active`, `created_at`) VALUES (\'qwert1234\', \'\', \'qpbyyyaoxd@karenkey.com\', \'$2y$10$29miL.W0rt4BLPgl0l2v7ukLINqrMivYOfiQ/vRaDRPISzXmDdQnC\', \'1\', \'2022-12-22 02:24:19\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `users` (`username`, `full_name`, `email`, `password_hash`, `active`, `created_at`) VALUES (:username:, :full_name:, :email:, :password_hash:, :active:, :created_at:)', [...], false)
+ 5 APPPATH\Models\ModelUser.php(44): CodeIgniter\Database\BaseBuilder->insert([...])
+ 6 APPPATH\Controllers\User.php(62): App\Models\ModelUser->addUser([...])
+ 7 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\User->tambah()
+ 8 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+ 9 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')

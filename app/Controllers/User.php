@@ -48,39 +48,6 @@ class User extends BaseController
 
     public function tambah()
     {
-        // validation
-        $validate = $this->validate([
-            'username' => [
-                'rules' => 'required|min_length[4]',
-                'errors' => [
-                    'required' => '{field} wajib di isi',
-                    'min_length' => '{field} Min. 4 karakter'
-                ],
-            ],
-            'email' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => '{field} wajib di isi',
-                ],
-            ],
-            'password_hash' => [
-                'rules' => 'required|min_length[8]',
-                'errors' => [
-                    'required' => '{field} wajib di isi',
-                    'min_length' => '{field} Min. 8 karakter'
-                ],
-            ],
-            'Role' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => '{field} wajib di isi',
-                ],
-            ],
-        ]);
-        if (!$validate) {
-            return redirect()->to('/user/manajemen')->withInput();
-        }
-
         // dd($this->request->getVar());
 
         $data = [
@@ -125,33 +92,6 @@ class User extends BaseController
 
     public function updateUser()
     {
-        // validation
-        $validate = $this->validate([
-            'username' => [
-                'rules' => 'required|min_length[4]',
-                'errors' => [
-                    'required' => 'wajib di isi',
-                    'min_length' => 'Min. 4 karakter'
-                ],
-            ],
-            'email' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'wajib di isi',
-                ],
-            ],
-            'Role' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'wajib di isi',
-                ],
-            ],
-
-        ]);
-        if (!$validate) {
-            return redirect()->to('/user/manajemen')->withInput();
-        }
-
         // dd($this->request->getVar());
 
         $userid = $this->request->getVar('userid');
@@ -202,5 +142,14 @@ class User extends BaseController
             session()->setFlashdata('alert', 'Data Anda Berhasil Ditambahkan.');
             return $this->response->redirect(site_url('/user/manajemen'));
         }
+    }
+
+    // delete data
+    public function delete($id)
+    {
+        $this->users->deleteRole($id);
+        $this->users->deleteUser($id);
+        session()->setFlashdata('alert', "Data Berhasil dihapus.");
+        return $this->response->redirect(site_url('/user/manajemen'));
     }
 }

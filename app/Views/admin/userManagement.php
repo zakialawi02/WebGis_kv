@@ -77,20 +77,6 @@
                             </div>
                         <?php endif; ?>
 
-                        <?php $validation = \Config\Services::validation(); ?>
-                        <?php if ($validation->getErrors()) : ?>
-                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                <h6><b>Gagal Menambahkan !!</b></h6>
-                                <span>
-                                    <?= $validation->getError('username'); ?></br>
-                                    <?= $validation->getError('email'); ?></br>
-                                    <?= $validation->getError('password_hash'); ?></br>
-                                    <?= $validation->getError('role'); ?>
-                                </span>
-                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                            </div>
-                        <?php endif; ?>
-
                         <!-- Button trigger modal -->
                         <button type="button" class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#exampleModal">+ Tambah</button>
 
@@ -123,7 +109,7 @@
                                             </div>
                                             <div class="col-md-6">
                                                 <label for="password_hash" class="col-form-label">Password</label>
-                                                <input type="password" class="form-control" name="password_hash" id="password_hash" required>
+                                                <input type="password" class="form-control" name="password_hash" id="password_hash" autocomplete="off" required>
                                             </div>
                                             <div class="mb-3">
                                                 <label for="role" class="col-form-label">Role</label>
@@ -203,7 +189,7 @@
                                                                 </div>
                                                                 <div class="col-md-6">
                                                                     <label for="password_hash" class="col-form-label">Password</label>
-                                                                    <input type="password" class="form-control" name="password_hash" id="password_hash">
+                                                                    <input type="password" class="form-control" name="password_hash" id="password_hash" autocomplete="off">
                                                                 </div>
                                                                 <div class="mb-3">
                                                                     <label for="role" class="col-form-label">Role</label>
@@ -229,7 +215,7 @@
 
 
                                             <div class="btn-group mr-2" role="group" aria-label="First group">
-                                                <form action="/admin/delete/" method="post">
+                                                <form action="/user/delete/<?= $user->userid ?>" method="post">
                                                     <?= csrf_field(); ?>
                                                     <input type="hidden" name="_method" value="DELETE">
                                                     <button type="submit" class="btn btn-danger bi bi-trash" onclick="return confirm('Yakin Hapus Data?')"></button>
