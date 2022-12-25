@@ -91,27 +91,30 @@
                                     <div class="modal-body">
 
 
-                                        <form action="/user/tambah" method="post" enctype="multipart/form-data" class="row g-3" autocomplete="off">
+                                        <form id="form" name="form" action="/user/tambah" method="post" enctype="multipart/form-data" class="row g-3" autocomplete="off">
 
                                             <?= csrf_field(); ?>
 
-                                            <div class="mb-3">
+                                            <div class="form-group">
                                                 <label for="username" class="col-form-label">Username</label>
-                                                <input type="text" class="form-control " name="username" id="username" required>
+                                                <input type="text" class="form-control " name="username" id="username" pattern="^\S{5,}$" title="Minimum 5 karakter & Tidak Boleh Mengandung Spasi" required>
+                                                <div id="usernameError" class="error form-text" style="color: red;"></div>
                                             </div>
-                                            <div class="mb-3">
+                                            <div class="form-group">
                                                 <label for="full_name" class="col-form-label">Full Name</label>
                                                 <input type="text" class="form-control" name="full_name" id="full_name">
                                             </div>
                                             <div class="col-md-6">
                                                 <label for="email" class="col-form-label">Email</label>
-                                                <input type="email" class="form-control" name="email" id="email" required>
+                                                <input type="email" class="form-control" name="email" id="email" pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$" title="Masukkan Email Yang Benar" required>
+                                                <div id="emailError" class="error form-text" style="color: red;"></div>
                                             </div>
                                             <div class="col-md-6">
                                                 <label for="password_hash" class="col-form-label">Password</label>
-                                                <input type="password" class="form-control" name="password_hash" id="password_hash" autocomplete="off" required>
+                                                <input type="password" class="form-control" name="password_hash" id="password_hash" autocomplete="off" pattern="^.{6,}$" title="Minimum 6 karakter" required>
+                                                <div id="passwordError" class="error form-text" style="color: red;"></div>
                                             </div>
-                                            <div class="mb-3">
+                                            <div class="form-group">
                                                 <label for="role" class="col-form-label">Role</label>
                                                 <select class="form-control" name="role" id="role" required>
                                                     <option value="">--Pilih Role--</option>
@@ -124,7 +127,7 @@
 
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                        <button type="submit" id="tombol" class="btn btn-primary">Submit</button>
                                     </div>
                                     </form>
                                 </div>
@@ -288,8 +291,11 @@
             }, 2500);
         });
     </script>
+    <script>
+        $(document).ready(function() {
 
-
+        });
+    </script>
 
 
 </body>

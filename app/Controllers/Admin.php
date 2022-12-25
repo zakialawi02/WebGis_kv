@@ -25,6 +25,7 @@ class Admin extends BaseController
         $this->kafe = new ModelKv();
         $this->fotoKafe = new ModelFoto();
     }
+
     public function index()
     {
         $data = [
@@ -335,13 +336,13 @@ class Admin extends BaseController
 
         $addKafe = $this->kafe->addKafe($data);
 
-        $id_foto = $this->kafe->getLastID();
+        $insert_id = $this->db->insertID();
         $files = $this->request->getFiles();
         foreach ($files['foto_kafe'] as $key => $img) {
             if ($img->isValid() && !$img->hasMoved()) {
                 $newName = $img->getRandomName();
                 $dataF = [
-                    'id_kafe' => $id_foto['id_kafe'],
+                    'id_kafe' => $insert_id,
                     'nama_file_foto' => $newName,
                 ];
                 $this->fotoKafe->addFoto($dataF);
@@ -349,7 +350,52 @@ class Admin extends BaseController
             }
         }
 
-        if ($addKafe) {
+        $opens = $this->request->getVar('open-time[]');
+        $open = [];
+        foreach ($opens as $item) {
+            if ($item == '') {
+                $open[] = null;
+            } else {
+                $open[] = $item;
+            }
+        }
+        // print_r($open);
+        $closes = $this->request->getVar('close-time[]');
+        $close = [];
+        foreach ($closes as $item) {
+            if ($item == '') {
+                $close[] = null;
+            } else {
+                $close[] = $item;
+            }
+        }
+        // print_r($close);
+        $day = ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu'];
+
+        // Mengambil id kafe
+        $id = [];
+        foreach ($open as $key) {
+            $id[] = $insert_id;
+        }
+        // print_r($id);
+        $datas = [
+            'kafe_id' => $id,
+            'hari' => $day,
+            'open_time' => $open,
+            'close_time' => $close
+        ];
+        $data = [];
+        $i = 0;
+        foreach ($datas as $key => $val) {
+            $i = 0;
+            foreach ($val as $k => $v) {
+                $data[$i][$key] = $v;
+                $i++;
+            }
+        }
+        $addTime = $this->kafe->addTime($data);
+
+        if ($addKafe && $addTime) {
             session()->setFlashdata('alert', 'Data Anda Berhasil Ditambahkan.');
             return $this->response->redirect(site_url('/admin/data/kafe'));
         }
@@ -402,7 +448,6 @@ class Admin extends BaseController
                 $img->move('img/kafe/', $newName);
             }
         }
-
 
         // var_dump($data);
 
@@ -484,9 +529,6 @@ class Admin extends BaseController
         session()->setFlashdata('alert', "Data Berhasil dihapus.");
         return $this->response->redirect(site_url('/admin/data/kafe'));
     }
-
-
-
 
 
 

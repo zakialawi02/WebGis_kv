@@ -78,6 +78,10 @@ class ModelKv extends Model
         return $this->orderBy('id_kafe', 'desc')->get()->getFirstRow('array');
     }
 
+    function addTime($addTime)
+    {
+        return $this->db->table('tbl_jam_operasional')->insertBatch($addTime);;
+    }
 
 
 

@@ -371,8 +371,9 @@
 
         // set marker place
         <?php foreach ($tampilKafe as $K) : ?>
-            marker = L.marker([<?= $tampilKafe->coordinate; ?>]).addTo(map);
+            var marker = [<?= $tampilKafe->coordinate; ?>];
         <?php endforeach ?>
+        marker = L.marker(marker).addTo(map);
 
 
         // get coordinat on map to input

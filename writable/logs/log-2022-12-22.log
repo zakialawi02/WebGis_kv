@@ -69,3 +69,71 @@ in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
  9 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
 10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
 11 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-22 10:37:58 --> Undefined array key "foto_kafe"
+in APPPATH\Controllers\Admin.php on line 492.
+ 1 APPPATH\Controllers\Admin.php(492): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "foto_kafe"', 'APPPATH\\Controllers\\Admin.php', 492)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->insertImage()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-22 11:11:12 --> Undefined variable $dataF
+in APPPATH\Controllers\Admin.php on line 510.
+ 1 APPPATH\Controllers\Admin.php(510): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $dataF', 'APPPATH\\Controllers\\Admin.php', 510)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->insertImage()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-22 12:24:21 --> Undefined variable $tampilData
+in APPPATH\Views\page\viewMap.php on line 72.
+ 1 APPPATH\Views\page\viewMap.php(72): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $tampilData', 'APPPATH\\Views\\page\\viewMap.php', 72)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\page\\viewMap.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('page/viewMap', [], true)
+ 5 APPPATH\Controllers\View.php(12): view('page/viewMap', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\View->index()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\View))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-22 12:25:14 --> Undefined property: App\Controllers\View::$setting
+in APPPATH\Controllers\View.php on line 11.
+ 1 APPPATH\Controllers\View.php(11): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\View::$setting', 'APPPATH\\Controllers\\View.php', 11)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\View->index()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\View))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-22 12:25:17 --> Undefined property: App\Controllers\View::$setting
+in APPPATH\Controllers\View.php on line 11.
+ 1 APPPATH\Controllers\View.php(11): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\View::$setting', 'APPPATH\\Controllers\\View.php', 11)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\View->index()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\View))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-22 12:25:18 --> Undefined property: App\Controllers\View::$setting
+in APPPATH\Controllers\View.php on line 11.
+ 1 APPPATH\Controllers\View.php(11): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\View::$setting', 'APPPATH\\Controllers\\View.php', 11)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\View->index()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\View))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-22 12:25:18 --> Undefined property: App\Controllers\View::$setting
+in APPPATH\Controllers\View.php on line 11.
+ 1 APPPATH\Controllers\View.php(11): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\View::$setting', 'APPPATH\\Controllers\\View.php', 11)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\View->index()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\View))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-22 12:25:19 --> Undefined property: App\Controllers\View::$setting
+in APPPATH\Controllers\View.php on line 11.
+ 1 APPPATH\Controllers\View.php(11): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\View::$setting', 'APPPATH\\Controllers\\View.php', 11)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\View->index()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\View))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
