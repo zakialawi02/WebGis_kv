@@ -124,7 +124,152 @@
                                     <input type="text" class="form-control" id="instagram_kafe" name="instagram_kafe" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" value="<?= $tampilKafe->instagram_kafe; ?>">
                                 </div>
 
-                                <?= print_r($tampilKafe); ?>
+                                <?php $oprasional = $tampilKafe->business_hours; ?>
+
+                                <div class="form-group">
+                                    <label for="jam-oprasional" class="form-label">Waktu Oprasional</label>
+                                    <div class="row mb-3">
+                                        <div class="col-4">
+                                            <h5 id="dayTitle">Senin</h5>
+                                            <label class="toggle toggle-alternative">
+                                                <input type="checkbox" id="checkboxB1" class="checkbox" name="day[]" onclick="senin()" <?= (!empty($oprasional['Senin'][0]['open'])) ? 'checked' : ''; ?> />
+                                                <span class="toggle-text"></span>
+                                                <span class="toggle-handle"></span>
+                                            </label>
+                                        </div>
+                                        <div class="row col" id="jamSenin" style="<?= (!empty($oprasional['Senin'][0]['open'])) ? '' : 'display:none;'; ?>;">
+                                            <div class="col">
+                                                <label for="open-time">Jam Buka:</label>
+                                                <input type="time" class="form-control" id="openSenin" name="open-time[]" value="<?= $oprasional['Senin'][0]['open']; ?>">
+                                            </div>
+                                            <div class="col">
+                                                <label for="close-time">Jam Tutup:</label>
+                                                <input type="time" class="form-control" id="closeSenin" name="close-time[]" value="<?= $oprasional['Senin'][0]['close']; ?>">
+                                            </div>
+                                            <a class="btn btn-primary mt-2" onclick="setTimeToMonday()" role=" button">Terapkan Ke Semua Hari</a>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-4">
+                                            <h5 id="dayTitle">Selasa</h5>
+                                            <label class="toggle toggle-alternative">
+                                                <input type="checkbox" id="checkboxB" class="checkbox" name="day[]" onclick="Selasa()" <?= (!empty($oprasional['Selasa'][0]['open'])) ? 'checked' : ''; ?> />
+                                                <span class="toggle-text"></span>
+                                                <span class="toggle-handle"></span>
+                                            </label>
+                                        </div>
+                                        <div class="row col" id="jamSelasa" style="<?= (!empty($oprasional['Selasa'][0]['open'])) ? '' : 'display:none;'; ?>;">
+                                            <div class="col">
+                                                <label for="open-time">Jam Buka:</label>
+                                                <input type="time" class="form-control" id="openSelasa" name="open-time[]" value="<?= $oprasional['Selasa'][0]['open']; ?>">
+                                            </div>
+                                            <div class="col">
+                                                <label for="close-time">Jam Tutup:</label>
+                                                <input type="time" class="form-control" id="closeSelasa" name="close-time[]" value="<?= $oprasional['Selasa'][0]['close']; ?>">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-4">
+                                            <h5 id="dayTitle">Rabu</h5>
+                                            <label class="toggle toggle-alternative">
+                                                <input type="checkbox" id="checkboxB" class="checkbox" name="day[]" onclick="Rabu()" <?= (!empty($oprasional['Rabu'][0]['open'])) ? 'checked' : ''; ?> />
+                                                <span class="toggle-text"></span>
+                                                <span class="toggle-handle"></span>
+                                            </label>
+                                        </div>
+                                        <div class="row col" id="jamRabu" style="<?= (!empty($oprasional['Rabu'][0]['open'])) ? '' : 'display:none;'; ?>;">
+                                            <div class="col">
+                                                <label for="open-time">Jam Buka:</label>
+                                                <input type="time" class="form-control" id="openRabu" name="open-time[]" value="<?= $oprasional['Rabu'][0]['open']; ?>">
+                                            </div>
+                                            <div class="col">
+                                                <label for="close-time">Jam Tutup:</label>
+                                                <input type="time" class="form-control" id="closeRabu" name="close-time[]" value="<?= $oprasional['Rabu'][0]['close']; ?>">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-4">
+                                            <h5 id="dayTitle">Kamis</h5>
+                                            <label class="toggle toggle-alternative">
+                                                <input type="checkbox" id="checkboxB" class="checkbox" name="day[]" onclick="Kamis()" <?= (!empty($oprasional['Kamis'][0]['open'])) ? 'checked' : ''; ?> />
+                                                <span class="toggle-text"></span>
+                                                <span class="toggle-handle"></span>
+                                            </label>
+                                        </div>
+                                        <div class="row col" id="jamKamis" style="<?= (!empty($oprasional['Kamis'][0]['open'])) ? '' : 'display:none;'; ?>;">
+                                            <div class="col">
+                                                <label for="open-time">Jam Buka:</label>
+                                                <input type="time" class="form-control" id="openKamis" name="open-time[]" value="<?= $oprasional['Kamis'][0]['open']; ?>">
+                                            </div>
+                                            <div class="col">
+                                                <label for="close-time">Jam Tutup:</label>
+                                                <input type="time" class="form-control" id="closeKamis" name="close-time[]" value="<?= $oprasional['Kamis'][0]['close']; ?>">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-4">
+                                            <h5 id="dayTitle">Jum'at</h5>
+                                            <label class="toggle toggle-alternative">
+                                                <input type="checkbox" id="checkboxB" class="checkbox" name="day[]" onclick="Jumat()" <?= (!empty($oprasional['Jumat'][0]['open'])) ? 'checked' : ''; ?> />
+                                                <span class="toggle-text"></span>
+                                                <span class="toggle-handle"></span>
+                                            </label>
+                                        </div>
+                                        <div class="row col" id="jamJumat" style="<?= (!empty($oprasional['Jumat'][0]['open'])) ? '' : 'display:none;'; ?>;">
+                                            <div class="col">
+                                                <label for="open-time">Jam Buka:</label>
+                                                <input type="time" class="form-control" id="openJumat" name="open-time[]" value="<?= $oprasional['Jumat'][0]['open']; ?>">
+                                            </div>
+                                            <div class="col">
+                                                <label for="close-time">Jam Tutup:</label>
+                                                <input type="time" class="form-control" id="closeJumat" name="close-time[]" value="<?= $oprasional['Jumat'][0]['close']; ?>">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-4">
+                                            <h5 id="dayTitle">Sabtu</h5>
+                                            <label class="toggle toggle-alternative">
+                                                <input type="checkbox" id="checkboxB" class="checkbox" name="day[]" onclick="Sabtu()" <?= (!empty($oprasional['Sabtu'][0]['open'])) ? 'checked' : ''; ?> />
+                                                <span class="toggle-text"></span>
+                                                <span class="toggle-handle"></span>
+                                            </label>
+                                        </div>
+                                        <div class="row col" id="jamSabtu" style="<?= (!empty($oprasional['Sabtu'][0]['open'])) ? '' : 'display:none;'; ?>;">
+                                            <div class="col">
+                                                <label for="open-time">Jam Buka:</label>
+                                                <input type="time" class="form-control" id="openSabtu" name="open-time[]" value="<?= $oprasional['Sabtu'][0]['open']; ?>">
+                                            </div>
+                                            <div class="col">
+                                                <label for="close-time">Jam Tutup:</label>
+                                                <input type="time" class="form-control" id="closeSabtu" name="close-time[]" value="<?= $oprasional['Sabtu'][0]['close']; ?>">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-4">
+                                            <h5 id="dayTitle">Minggu</h5>
+                                            <label class="toggle toggle-alternative">
+                                                <input type="checkbox" id="checkboxB" class="checkbox" name="day[]" onclick="Minggu()" <?= (!empty($oprasional['Minggu'][0]['open'])) ? 'checked' : ''; ?> />
+                                                <span class="toggle-text"></span>
+                                                <span class="toggle-handle"></span>
+                                            </label>
+                                        </div>
+                                        <div class="row col" id="jamMinggu" style="<?= (!empty($oprasional['Minggu'][0]['open'])) ? '' : 'display:none;'; ?>;">
+                                            <div class="col">
+                                                <label for="open-time">Jam Buka:</label>
+                                                <input type="time" class="form-control" id="openMinggu" name="open-time[]" value="<?= $oprasional['Minggu'][0]['open']; ?>">
+                                            </div>
+                                            <div class="col">
+                                                <label for="close-time">Jam Tutup:</label>
+                                                <input type="time" class="form-control" id="closeMinggu" name="close-time[]" value="<?= $oprasional['Minggu'][0]['close']; ?>">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 
                                 <div class="mb-3">
                                     <label for="formFile" class="form-label">Tambah Foto Kafe</label>
@@ -143,7 +288,7 @@
 
 
 
-                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <button type="submit" onclick="submitWaktu()" class="btn btn-primary">Submit</button>
                             </form>
 
                         </div>
@@ -288,6 +433,170 @@
             $(this).parent().remove(); // menghapus preview yang dipilih
         });
     </script>
+    <script>
+        function setTimeToMonday() {
+            // ambil nilai dari input time hari Senin
+            var openTimeMonday = document.getElementById('openSenin').value;
+            var closeTimeMonday = document.getElementById('closeSenin').value;
+
+            // ubah nilai dari input time hari Selasa
+            document.getElementById('openSelasa').value = openTimeMonday;
+            document.getElementById('closeSelasa').value = closeTimeMonday;
+            document.getElementById('openRabu').value = openTimeMonday;
+            document.getElementById('closeRabu').value = closeTimeMonday;
+            document.getElementById('openKamis').value = openTimeMonday;
+            document.getElementById('closeKamis').value = closeTimeMonday;
+            document.getElementById('openJumat').value = openTimeMonday;
+            document.getElementById('closeJumat').value = closeTimeMonday;
+            document.getElementById('openSabtu').value = openTimeMonday;
+            document.getElementById('closeSabtu').value = closeTimeMonday;
+            document.getElementById('openMinggu').value = openTimeMonday;
+            document.getElementById('closeMinggu').value = closeTimeMonday;
+        }
+
+        function submitWaktu() {
+            var senin = document.getElementById("jamSenin");
+            var clear = document.getElementById("openSenin");
+            var clears = document.getElementById("closeSenin");
+            if (senin.style.display === "none") {
+                clear.value = "";
+                clears.value = "";
+            }
+            var selasa = document.getElementById("jamSelasa");
+            var clear = document.getElementById("openSelasa");
+            var clears = document.getElementById("closeSelasa");
+            if (selasa.style.display === "none") {
+                clear.value = "";
+                clears.value = "";
+            }
+            var Rabu = document.getElementById("jamRabu");
+            var clear = document.getElementById("openRabu");
+            var clears = document.getElementById("closeRabu");
+            if (Rabu.style.display === "none") {
+                clear.value = "";
+                clears.value = "";
+            }
+            var Kamis = document.getElementById("jamKamis");
+            var clear = document.getElementById("openKamis");
+            var clears = document.getElementById("closeKamis");
+            if (Kamis.style.display === "none") {
+                clear.value = "";
+                clears.value = "";
+            }
+            var Jumat = document.getElementById("jamJumat");
+            var clear = document.getElementById("openJumat");
+            var clears = document.getElementById("closeJumat");
+            if (Jumat.style.display === "none") {
+                clear.value = "";
+                clears.value = "";
+            }
+            var Sabtu = document.getElementById("jamSabtu");
+            var clear = document.getElementById("openSabtu");
+            var clears = document.getElementById("closeSabtu");
+            if (Sabtu.style.display === "none") {
+                clear.value = "";
+                clears.value = "";
+            }
+            var Minggu = document.getElementById("jamMinggu");
+            var clear = document.getElementById("openMinggu");
+            var clears = document.getElementById("closeMinggu");
+            if (Minggu.style.display === "none") {
+                clear.value = "";
+                clears.value = "";
+            }
+        }
+
+        function senin() {
+            var senin = document.getElementById("jamSenin");
+            var clear = document.getElementById("openSenin");
+            var clears = document.getElementById("closeSenin");
+            if (senin.style.display === "none") {
+                senin.style.display = "";
+                clear.value = "";
+                clears.value = "";
+            } else {
+                senin.style.display = "none";
+            }
+        }
+
+        function Selasa() {
+            var Selasa = document.getElementById("jamSelasa")
+            var clear = document.getElementById("openSelasa");;
+            var clears = document.getElementById("closeSelasa");;
+            if (Selasa.style.display === "none") {
+                Selasa.style.display = "";
+                clear.value = "";
+                clears.value = "";
+            } else {
+                Selasa.style.display = "none";
+            }
+        }
+
+        function Rabu() {
+            var Rabu = document.getElementById("jamRabu");
+            var clear = document.getElementById("openRabu");
+            var clears = document.getElementById("closeRabu");
+            if (Rabu.style.display === "none") {
+                Rabu.style.display = "";
+                clear.value = "";
+                clears.value = "";
+            } else {
+                Rabu.style.display = "none";
+            }
+        }
+
+        function Kamis() {
+            var Kamis = document.getElementById("jamKamis");
+            var clear = document.getElementById("openKamis");
+            var clears = document.getElementById("closeKamis");
+            if (Kamis.style.display === "none") {
+                Kamis.style.display = "";
+                clear.value = "";
+                clears.value = "";
+            } else {
+                Kamis.style.display = "none";
+            }
+        }
+
+        function Jumat() {
+            var Jumat = document.getElementById("jamJumat");
+            var clear = document.getElementById("openJumat");
+            var clears = document.getElementById("closeJumat");
+            if (Jumat.style.display === "none") {
+                Jumat.style.display = "";
+                clear.value = "";
+                clears.value = "";
+            } else {
+                Jumat.style.display = "none";
+            }
+        }
+
+        function Sabtu() {
+            var Sabtu = document.getElementById("jamSabtu");
+            var clear = document.getElementById("openSabtu");
+            var clears = document.getElementById("closeSabtu");
+            if (Sabtu.style.display === "none") {
+                Sabtu.style.display = "";
+                clear.value = "";
+                clears.value = "";
+            } else {
+                Sabtu.style.display = "none";
+            }
+        }
+
+        function Minggu() {
+            var Minggu = document.getElementById("jamMinggu");
+            var clear = document.getElementById("openMinggu");
+            var clears = document.getElementById("closeMinggu");
+            if (Minggu.style.display === "none") {
+                Minggu.style.display = "";
+                clear.value = "";
+                clears.value = "";
+            } else {
+                Minggu.style.display = "none";
+            }
+        }
+    </script>
 
 
     <!-- Js Leaflet Setting -->
@@ -305,19 +614,38 @@
     <script>
         // Base map
         var peta1 = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiNjg2MzUzMyIsImEiOiJjbDh4NDExZW0wMXZsM3ZwODR1eDB0ajY0In0.6jHWxwN6YfLftuCFHaa1zw', {
+            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+                '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+                'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
             id: 'mapbox/streets-v11',
             tileSize: 512,
-            zoomOffset: -1
+            zoomOffset: -1,
+            maxZoom: 22,
+            maxNativeZoom: 19
         });
 
         var peta2 = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiNjg2MzUzMyIsImEiOiJjbDh4NDExZW0wMXZsM3ZwODR1eDB0ajY0In0.6jHWxwN6YfLftuCFHaa1zw', {
-            id: 'mapbox/satellite-v9'
+            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+                '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+                'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+            id: 'mapbox/satellite-v9',
+            maxZoom: 22,
+            maxNativeZoom: 19
         });
 
-        var peta3 = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {});
+        var peta3 = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+            maxZoom: 22,
+            maxNativeZoom: 19
+        });
 
         var peta4 = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiNjg2MzUzMyIsImEiOiJjbDh4NDExZW0wMXZsM3ZwODR1eDB0ajY0In0.6jHWxwN6YfLftuCFHaa1zw', {
-            id: 'mapbox/dark-v10'
+            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+                '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+                'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+            id: 'mapbox/dark-v10',
+            maxZoom: 22,
+            maxNativeZoom: 19
         });
 
         // set frame view

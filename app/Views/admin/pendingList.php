@@ -102,14 +102,21 @@
                                                 <form action="/admin/rejectKafe/<?= $S->id_kafe; ?>" method="post">
                                                     <?= csrf_field(); ?>
                                                     <input type="hidden" name="_method" value="DELETE">
-                                                    <button type="submit" class="btn btn-danger bi bi-x-octagon" onclick="return confirm('Yakin Hapus Data?')"> Reject</button>
+                                                    <button type="submit" class="btn btn-danger bi bi-x-octagon" data-bs-toggle="tooltip" data-bs-placement="top" title="Reject" onclick="return confirm('Yakin Hapus Data?')"></button>
                                                 </form>
                                             </div>
                                             <div class="btn-group mr-2" role="group" aria-label="First group">
                                                 <form action="/admin/approveKafe/<?= $S->id_kafe; ?>" method="post">
                                                     <?= csrf_field(); ?>
                                                     <input type="hidden" name="_method" value="DELETE">
-                                                    <button type="submit" class="btn btn-success bi bi-check-circle" onclick="return confirm('Approve?')"> Accept</button>
+                                                    <button type="submit" class="btn btn-success bi bi-check-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="Accept" onclick="return confirm('Approve?')"></button>
+                                                </form>
+                                            </div>
+                                            <div class="btn-group mr-2" role="group" aria-label="First group">
+                                                <form action="/admin/" method="post">
+                                                    <?= csrf_field(); ?>
+                                                    <input type="hidden" name="_method" value="DELETE">
+                                                    <button type="submit" class="btn btn-info bi bi-info-circle"></button>
                                                 </form>
                                             </div>
                                         </td>

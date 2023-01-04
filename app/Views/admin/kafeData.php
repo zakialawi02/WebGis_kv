@@ -83,7 +83,7 @@
 
                         <a href="/admin/data/kafe/tambah" class="btn btn-primary m-1 mb-4 bi bi-plus" role="button">Tambah</a>
 
-                        <table class="table" style="width:100%" id="table1">
+                        <table class="table table-striped table-hover" style="width:100%" id="table1">
                             <thead>
                                 <tr>
                                     <th>Nama Kafe</th>
@@ -149,6 +149,28 @@
                                                                 <div class="col-lg-9 col-md-8">: <?= date('d M Y H:i:s', strtotime($S->updated_at)); ?></div>
                                                             </div>
                                                             <div class="mb-2 row">
+                                                                <div class="col-lg-3 col-md-4 label ">Jam Buka</div>
+                                                                <div class="col-lg-9 col-md-8">
+                                                                    <?php foreach ($S->business_hours as $day => $times) : ?>
+                                                                        <?= $open_close = ''; ?>
+                                                                        <?php foreach ($times as $time) : ?>
+                                                                            <?php $open = $time['open']; ?>
+                                                                            <?php $close = $time['close']; ?>
+                                                                            <?php if (!empty($open) && !empty($close)) : ?>
+                                                                                <?php $open = date('h:i', strtotime($open)); ?>
+                                                                                <?php $close = date('h:i', strtotime($close)); ?>
+                                                                                <?php $open_close .= "$open-$close, "; ?>
+                                                                            <?php else : ?>
+                                                                                <?php $open_close .= "Tutup"; ?>
+                                                                            <?php endif ?>
+                                                                            <?php $open_close = rtrim($open_close, ", "); ?>
+                                                                            <?php $result[$day] = $open_close; ?>
+                                                                            <?= $result[$day] = $day . ": " . $open_close; ?></br>
+                                                                        <?php endforeach ?>
+                                                                    <?php endforeach ?>
+                                                                </div>
+                                                            </div>
+                                                            <div class="mb-2 row">
                                                                 <div class="col-lg-3 col-md-4 mb-3 label ">Foto</div>
                                                                 <div class="col-lg-9 col-md-8">: </div>
                                                                 <div class="form-group">
@@ -176,8 +198,6 @@
                                 <?php endforeach ?>
                             </tbody>
                         </table>
-
-                        <?= print_r($tampilKafe); ?>
 
                     </div>
                 </div>
@@ -230,7 +250,7 @@
         $(document).ready(function() {
             $('#table1').DataTable({
                 scrollX: true,
-
+                order: [0],
             });
         });
     </script>

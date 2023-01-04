@@ -8,18 +8,22 @@ use App\Models\ModelAdministrasi;
 use App\Models\ModelGeojson;
 use App\Models\ModelKv;
 use App\Models\ModelFoto;
+use App\Models\ModelUser;
 use Faker\Extension\Helper;
 
 class Admin extends BaseController
 {
     protected $ModelSetting;
+    protected $ModelUser;
     protected $ModelAdministrasi;
     protected $ModelGeojson;
     protected $ModelKv;
+    protected $ModelFoto;
     public function __construct()
     {
         helper(['url']);
         $this->setting = new ModelSetting();
+        $this->user = new ModelUser();
         $this->Administrasi = new ModelAdministrasi();
         $this->FGeojson = new ModelGeojson();
         $this->kafe = new ModelKv();
@@ -27,6 +31,21 @@ class Admin extends BaseController
     }
 
     public function index()
+    {
+        $data = [
+            'title' => 'Dashboard',
+            'countAllKafe' => $this->kafe->countAllKafe(),
+            'countAllPending' => $this->kafe->countAllPending(),
+            'countAllUser' => $this->user->countAllUser(),
+            'userMonth' => $this->user->userMonth()->getResult(),
+        ];
+        // echo '<pre>';
+        // print_r($data['countAllKafe']);
+        // die;
+        return view('admin/dashboard', $data);
+    }
+
+    public function iii()
     {
         $data = [
             'title' => 'JUDUL',
@@ -55,18 +74,14 @@ class Admin extends BaseController
 
             $dayCount += ($DayAmountOfConsecutiveSameHours - 1);
         }
-
         // print_r($result);
         // die;
-
-
         return view('admin/tempp', $data);
     }
 
     public function dump()
     {
         // dd($this->request->getVar());
-
         $data = [
             'title' => 'DUMP',
             'tampilKafe' => $this->kafe->callKafe()->getResult(),
@@ -264,32 +279,31 @@ class Admin extends BaseController
 
 
     //  KV  ====================================================================================
-
     public function Kafe()
     {
+        $todayDate = date("m/d");
+
         $data = [
             'title' => 'DATA KV',
             'tampilData' => $this->setting->tampilData()->getResult(),
             'tampilGeojson' => $this->FGeojson->callGeojson()->getResult(),
             'updateGeojson' => $this->FGeojson->callGeojson()->getRow(),
-            'tampilKafe' => $this->kafe->callKafe()->getResult(),
-            'getFoto' => $this->fotoKafe->getFoto()->getResult(),
+            'tampilKafe' => $this->kafe->callKafe(),
         ];
-
+        // echo '<pre>';
+        // print_r($data['tampilKafe']);
+        // die;
         return view('admin/kafeData', $data);
     }
 
     public function tambahKafe()
     {
-
         $data = [
             'title' => 'DATA KV',
             'tampilData' => $this->setting->tampilData()->getResult(),
             'tampilGeojson' => $this->FGeojson->callGeojson()->getResult(),
-            'tampilKafe' => $this->kafe->callKafe()->getResult(),
             'provinsi' => $this->kafe->allProvinsi(),
         ];
-
         return view('admin/tambahKafe', $data);
     }
 
@@ -299,11 +313,10 @@ class Admin extends BaseController
             'title' => 'DATA KV',
             'tampilData' => $this->setting->tampilData()->getResult(), //ambil settingan mapView
             'tampilGeojson' => $this->FGeojson->callGeojson()->getResult(), //ambil data geojson
-            'tampilKafe' => $this->kafe->callKafe($id_kafe)->getRow(),
+            'tampilKafe' => $this->kafe->callKafe($id_kafe),
             'getFoto' => $this->fotoKafe->getFoto($id_kafe)->getResult(),
             'provinsi' => $this->kafe->allProvinsi(),
         ];
-
         return view('admin/updateKafe', $data);
     }
 
@@ -335,7 +348,6 @@ class Admin extends BaseController
         ];
 
         $addKafe = $this->kafe->addKafe($data);
-
         $insert_id = $this->db->insertID();
         $files = $this->request->getFiles();
         foreach ($files['foto_kafe'] as $key => $img) {
@@ -394,7 +406,6 @@ class Admin extends BaseController
             }
         }
         $addTime = $this->kafe->addTime($data);
-
         if ($addKafe && $addTime) {
             session()->setFlashdata('alert', 'Data Anda Berhasil Ditambahkan.');
             return $this->response->redirect(site_url('/admin/data/kafe'));
@@ -405,10 +416,9 @@ class Admin extends BaseController
     public function update_Kafe()
     {
         // dd($this->request->getVar());
-
         $wilayahLama  = $this->request->getVar('wilayahLama');
         $wilayah  = $this->request->getVar('wilayah');
-        $id = $this->request->getPost('id');
+        $id_kafe = $this->request->getPost('id');
 
         if ($wilayah != $wilayahLama) {
             // jika ada berubahan wilayah
@@ -418,42 +428,96 @@ class Admin extends BaseController
             $id_kabupaten = $wilayah[2];
             $id_provinsi = $wilayah[3];
             $data = [
+                'id_kafe' => $id_kafe,
                 'id_provinsi'  => $id_provinsi,
                 'id_kabupaten'  => $id_kabupaten,
                 'id_kecamatan'  => $id_kecamatan,
                 'id_kelurahan'  => $id_kelurahan,
+                'nama_kafe' => $this->request->getVar('nama_kafe'),
+                'alamat_kafe'  => $this->request->getVar('alamat_kafe'),
+                'coordinate'  => $this->request->getVar('coordinate'),
+                'instagram_kafe'  => $this->request->getVar('instagram_kafe'),
+                'updated_at' => date('Y-m-d H:i:s'),
             ];
         } else {
             // jika wilayah tetap
+            $data = [
+                'id_kafe' => $id_kafe,
+                'nama_kafe' => $this->request->getVar('nama_kafe'),
+                'alamat_kafe'  => $this->request->getVar('alamat_kafe'),
+                'coordinate'  => $this->request->getVar('coordinate'),
+                'instagram_kafe'  => $this->request->getVar('instagram_kafe'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ];
         }
-        $data = [
-            'id_kafe' => $id,
-            'nama_kafe' => $this->request->getVar('nama_kafe'),
-            'alamat_kafe'  => $this->request->getVar('alamat_kafe'),
-            'coordinate'  => $this->request->getVar('coordinate'),
-            'instagram_kafe'  => $this->request->getVar('instagram_kafe'),
-            // 'fasilitas_kafe' => implode(", ", $this->request->getVar('fasil[]')),
-            'updated_at' => date('Y-m-d H:i:s'),
+        $updateKafe = $this->kafe->updateKafe($data, $id_kafe);
+        // echo '<pre>';
+        // var_dump($data);
+
+        $opens = $this->request->getVar('open-time[]');
+        $open = [];
+        foreach ($opens as $item) {
+            if ($item == '') {
+                $open[] = null;
+            } else {
+                $open[] = $item;
+            }
+        }
+        // print_r($open);
+        $closes = $this->request->getVar('close-time[]');
+        $close = [];
+        foreach ($closes as $item) {
+            if ($item == '') {
+                $close[] = null;
+            } else {
+                $close[] = $item;
+            }
+        }
+        // print_r($close);
+        $day = ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu'];
+
+        // Mengambil id kafe
+        $id = [];
+        foreach ($open as $key) {
+            $id[] = $id_kafe;
+        }
+        // print_r($id);
+        $datas = [
+            'kafe_id' => $id,
+            'hari' => $day,
+            'open_time' => $open,
+            'close_time' => $close
         ];
+        $data = [];
+        $i = 0;
+        foreach ($datas as $key => $val) {
+            $i = 0;
+            foreach ($val as $k => $v) {
+                $data[$i][$key] = $v;
+                $i++;
+            }
+        }
+        foreach ($data as $time) {
+            $update = $time;
+            $hari = $update['hari'];
+            $updateTime = $this->kafe->updateTime($update, $id_kafe, $hari);
+        }
+        // var_dump($update);
+        // die;
 
         $files = $this->request->getFiles();
         foreach ($files['foto_kafe'] as $key => $img) {
             if ($img->isValid() && !$img->hasMoved()) {
                 $newName = $img->getRandomName();
                 $dataF = [
-                    'id_kafe' => $id,
+                    'id_kafe' => $id_kafe,
                     'nama_file_foto' => $newName,
                 ];
                 $this->fotoKafe->addFoto($dataF);
                 $img->move('img/kafe/', $newName);
             }
         }
-
-        // var_dump($data);
-
-        $updateKafe = $this->kafe->updateKafe($data, $id);
-
-        if ($updateKafe) {
+        if ($updateKafe && $updateTime) {
             session()->setFlashdata('alert', 'Data Anda Berhasil Diupdate.');
             return $this->response->redirect(site_url('/admin/data/kafe'));
         }
@@ -467,13 +531,12 @@ class Admin extends BaseController
             $file = $img->nama_file_foto;
             unlink("img/kafe/" . $file);
         }
-
-        $this->fotoKafe->where('id_kafe', $id_kafe)->delete('tbl_foto_kafe');
         $this->kafe->delete(['id_kafe' => $id_kafe]);
         session()->setFlashdata('alert', "Data Berhasil dihapus.");
         return $this->response->redirect(site_url('/admin/data/kafe'));
     }
 
+    // side server delete image
     public function deleteImage()
     {
         // Menerima ID data yang akan dihapus dari permintaan POST
@@ -484,10 +547,8 @@ class Admin extends BaseController
         unlink("img/kafe/" . $file);
         // Delete image data 
         $this->fotoKafe->delete(['id' => $id]);
-
         // Ambil data gambar dari database
         $imageUrl = $this->fotoKafe->getFoto()->getResult();
-
         // Kembalikan data ke client dalam format JSON
         return json_encode(['status' => true, 'imageUrl' => $imageUrl]);
     }
@@ -497,10 +558,8 @@ class Admin extends BaseController
     {
         $data = [
             'title' => 'PENDING LIST',
-            'tampilKafe' => $this->kafe->callPendingData()->getResult(),
+            'tampilKafe' => $this->kafe->callPendingData(),
         ];
-
-
         return view('admin/pendingList', $data);
     }
 
@@ -508,19 +567,17 @@ class Admin extends BaseController
     public function approveKafe($id_kafe)
     {
         // dd($this->request->getVar());
-
         $data = [
             'stat_appv' => '1',
         ];
-
         $this->kafe->chck_appv($data, $id_kafe);
         session()->setFlashdata('alert', 'Data Approved.');
         return $this->response->redirect(site_url('/admin/pending'));
     }
 
+    // reject data
     public function rejectKafe($id_kafe)
     {
-
         $data = $this->kafe->callKafe($id_kafe)->getRow();
         $file = $data->foto_kafe;
         unlink("img/sekolah/" . $file);
@@ -532,7 +589,7 @@ class Admin extends BaseController
 
 
 
-
+    // side server preview image
     public function previewImg($id_kafe)
     {
         $data = [

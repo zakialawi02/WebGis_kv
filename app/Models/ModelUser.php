@@ -68,22 +68,21 @@ class ModelUser extends Model
         return $this->db->table('auth_groups_users')->delete(['user_id' => $id]);
     }
 
-
-
-
-
-
-    public function chck_appv($data, $id_kafe)
+    function userMonth()
     {
-        return $this->db->table('tbl_kafe')->update($data, ['id_kafe' => $id_kafe]);
+        $db      = \Config\Database::connect();
+        $builder = $db->table('users');
+        $builder->select('users.id as userid, username, email, group_id, name, created_at,  full_name');
+        $builder->join('auth_groups_users', 'auth_groups_users.user_id = users.id');
+        $builder->join('auth_groups', 'auth_groups.id = auth_groups_users.group_id');
+        $query = $builder->where('created_at BETWEEN DATE_SUB(NOW(), INTERVAL 60 DAY) AND NOW()')->get();
+        return $query;
     }
 
-    public function getLastID()
+    function countAllUser()
     {
-        return $this->orderBy('id_kafe', 'desc')->get()->getFirstRow('array');
+        return $this->db->table('users')->countAll();
     }
-
-
 
 
 
@@ -93,22 +92,5 @@ class ModelUser extends Model
     public function allGroup()
     {
         return $this->db->table('auth_groups')->orderBy('id', 'ASC')->get()->getResultArray();
-    }
-
-
-    // KABUPATEN/KOTA
-    public function allKabupaten($id_provinsi)
-    {
-        return $this->db->table('tbl_kabupaten')->where('id_provinsi', $id_provinsi)->get()->getResultArray();
-    }
-    // KECAMATAN
-    public function allKecamatan($id_kecamatan)
-    {
-        return $this->db->table('tbl_kecamatan')->where('id_kabupaten', $id_kecamatan)->get()->getResultArray();
-    }
-    // KELURAHAN
-    public function allKelurahan($id_kelurahan)
-    {
-        return $this->db->table('tbl_kelurahan')->where('id_kecamatan', $id_kelurahan)->get()->getResultArray();
     }
 }

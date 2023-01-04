@@ -4,22 +4,24 @@
 * Author: BootstrapMade.com
 * License: https://bootstrapmade.com/license/
 */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap');
 
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
 body {
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
   color: #444444;
 }
 
 a {
   text-decoration: none;
-  color: #5cb874;
+  color: #5985d1;
 }
 
 a:hover {
-  color: #80c792;
+  color: #5985d1;
   text-decoration: none;
 }
 
@@ -29,7 +31,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Raleway", sans-serif;
+  font-family: 'Noto Sans', sans-serif;
 }
 
 /*--------------------------------------------------------------
@@ -114,7 +116,7 @@ h6 {
   background: #fff;
   transition: all 0.5s;
   z-index: 2000;
-  height: 70px;
+  height: 80px;
 }
 
 #header.header-scrolled {
@@ -383,149 +385,42 @@ h6 {
 /*--------------------------------------------------------------
 # Hero Section
 --------------------------------------------------------------*/
-#hero {
-  width: 100%;
-  height: 70vh;
-  background-color: rgba(9, 9, 9, 0.8);
-  overflow: hidden;
-  position: relative;
-}
 
-#hero .carousel,
-#hero .carousel-inner,
-#hero .carousel-item,
-#hero .carousel-item::before {
+#hero {
+  background-image: url('/img/hero.jpg');
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-}
-
-#hero .carousel-item::before {
-  content: "";
-  background-color: rgba(45, 103, 60, 0.8);
-}
-
-#hero .carousel-container {
+  width: 100%;
+  height: 100vh;
+  background-color: #2d2d2d00;
   display: flex;
-  justify-content: center;
   align-items: center;
-  position: absolute;
-  bottom: 0;
-  top: 0;
-  left: 50px;
-  right: 50px;
+  justify-content: center;
 }
 
-#hero .container {
+#hero h1 {
+  font-size: 3rem;
+}
+
+.hero-content {
   text-align: center;
+  color: white;
 }
 
-#hero h2 {
-  color: #fff;
-  margin-bottom: 20px;
-  font-size: 48px;
-  font-weight: 700;
+
+.hero-content p {
+  font-size: 1.5em;
+  font-weight: 400;
+  margin-bottom: 1em;
 }
 
-#hero p {
-  -webkit-animation-delay: 0.4s;
-  animation-delay: 0.4s;
-  margin: 0 auto 30px auto;
-  color: #fff;
-}
 
-#hero .carousel-inner .carousel-item {
-  transition-property: opacity;
-  background-position: center top;
-}
-
-#hero .carousel-inner .carousel-item,
-#hero .carousel-inner .active.carousel-item-start,
-#hero .carousel-inner .active.carousel-item-end {
-  opacity: 0;
-}
-
-#hero .carousel-inner .active,
-#hero .carousel-inner .carousel-item-next.carousel-item-start,
-#hero .carousel-inner .carousel-item-prev.carousel-item-end {
-  opacity: 1;
-  transition: 0.5s;
-}
-
-#hero .carousel-control-next-icon,
-#hero .carousel-control-prev-icon {
-  background: none;
-  font-size: 30px;
-  line-height: 0;
-  width: auto;
-  height: auto;
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 50px;
-  transition: 0.3s;
-  color: rgba(255, 255, 255, 0.5);
-  width: 54px;
-  height: 54px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-#hero .carousel-control-next-icon:hover,
-#hero .carousel-control-prev-icon:hover {
-  background: rgba(255, 255, 255, 0.3);
-  color: rgba(255, 255, 255, 0.8);
-}
-
-#hero .carousel-indicators li {
-  cursor: pointer;
-  background: #fff;
-  overflow: hidden;
-  border: 0;
-  width: 12px;
-  height: 12px;
-  border-radius: 50px;
-  opacity: 0.6;
-  transition: 0.3s;
-}
-
-#hero .carousel-indicators li.active {
-  opacity: 1;
-  background: #5cb874;
-}
-
-#hero .btn-get-started {
-  font-family: "Raleway", sans-serif;
-  font-weight: 500;
-  font-size: 14px;
-  letter-spacing: 1px;
-  display: inline-block;
-  padding: 14px 32px;
-  border-radius: 4px;
-  transition: 0.5s;
-  line-height: 1;
-  color: #fff;
-  -webkit-animation-delay: 0.8s;
-  animation-delay: 0.8s;
-  background: #5cb874;
-}
-
-#hero .btn-get-started:hover {
-  background: #6ec083;
-}
 
 @media (max-width: 992px) {
   #hero {
     height: 100vh;
   }
 
-  #hero .carousel-container {
-    top: 66px;
-  }
 }
 
 @media (max-width: 768px) {
@@ -534,71 +429,155 @@ h6 {
   }
 }
 
-@media (min-width: 1024px) {
-
-  #hero .carousel-control-prev,
-  #hero .carousel-control-next {
-    width: 5%;
-  }
-}
+@media (min-width: 1024px) {}
 
 @media (max-height: 500px) {
   #hero {
-    height: 120vh;
+    height: 110vh;
   }
 }
 
 /*--------------------------------------------------------------
-# Sections General
+# Discovery/Terdekat/CARD
 --------------------------------------------------------------*/
-section {
-  padding: 60px 0;
+.cards-list {
+  z-index: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
 
-.section-bg {
-  background-color: #f8fcf9;
+.card {
+  margin: 30px auto;
+  width: 300px;
+  height: 300px;
+  border-radius: 40px;
+  box-shadow: 5px 5px 30px 7px rgba(0, 0, 0, 0.25), -5px -5px 30px 7px rgba(0, 0, 0, 0.22);
+  cursor: pointer;
+  transition: 0.4s;
 }
 
-.section-title {
+.card .card_image {
+  width: inherit;
+  height: inherit;
+  border-radius: 40px;
+}
+
+.card .card_image img {
+  width: inherit;
+  height: inherit;
+  border-radius: 40px;
+  object-fit: cover;
+}
+
+.card .card_title {
   text-align: center;
-  padding-bottom: 30px;
+  border-radius: 0px 0px 40px 40px;
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: 600;
+  font-size: 1.7rem;
+  margin-top: -80px;
+  height: 40px;
 }
 
-.section-title h2 {
-  font-size: 32px;
-  font-weight: bold;
-  text-transform: uppercase;
-  margin-bottom: 20px;
-  padding-bottom: 20px;
-  position: relative;
+.card:hover {
+  transform: scale(0.9, 0.9);
+  box-shadow: 5px 5px 30px 15px rgba(0, 0, 0, 0.25),
+    -5px -5px 30px 15px rgba(0, 0, 0, 0.22);
 }
 
-.section-title h2::before {
-  content: "";
-  position: absolute;
+.title-white {
+  color: white;
+}
+
+.title-black {
+  color: black;
+}
+
+@media all and (max-width: 500px) {
+  .card-list {
+    /* On small screens, we are no longer using row direction but column */
+    flex-direction: column;
+  }
+}
+
+.card-map {
+  padding: 0;
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.5);
+  border-radius: 20px;
+}
+
+/*--------------------------------------------------------------
+# Detail Kafe
+--------------------------------------------------------------*/
+#details-kafe {
+  padding: 5px 10px;
+  min-height: 88vh;
+}
+
+img {
+  width: 100%;
   display: block;
-  width: 120px;
-  height: 1px;
-  background: #ddd;
-  bottom: 1px;
-  left: calc(50% - 60px);
 }
 
-.section-title h2::after {
-  content: "";
-  position: absolute;
-  display: block;
-  width: 40px;
-  height: 3px;
-  background: #5cb874;
-  bottom: 0;
-  left: calc(50% - 20px);
+.img-display {
+  overflow: hidden;
+  margin: 0 auto;
+  max-width: 30rem;
 }
 
-.section-title p {
-  margin-bottom: 0;
-  font-size: 14px;
-  color: #919191;
+.img-showcase {
+  display: flex;
+  width: 100%;
+  transition: all 0.5s ease;
+}
+
+.img-showcase img {
+  min-width: 100%;
+  object-fit: cover;
+}
+
+.img-select {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  object-fit: cover;
+}
+
+.img-item {
+  margin: 0.3rem;
+  object-fit: cover;
+}
+
+.img-item:nth-child(1),
+.img-item:nth-child(2),
+.img-item:nth-child(3) {
+  max-width: 7rem;
+  margin-right: 0;
+}
+
+.img-item:hover {
+  opacity: 0.8;
+}
+
+/*--------------------------------------------------------------
+# Persebaran Kafe
+--------------------------------------------------------------*/
+
+.sebaran {
+  min-height: 80vh;
+}
+
+.sebaran-kafe {
+  background-color: #f0f0f0;
+  box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.49);
+}
+
+.text-center {
+  text-align: center;
 }
 
 /*--------------------------------------------------------------
@@ -1472,6 +1451,15 @@ section {
 
 
 /* *****************************************************
+   * Map Leafleat
+   ***************************************************** */
+.leaflet-control-layers-list {
+  padding: 10px;
+}
+
+
+
+/* *****************************************************
    * Form
    ***************************************************** */
 #dayTitle {
@@ -1645,4 +1633,59 @@ section {
   color: white;
   text-shadow: 0 1px rgba(0, 0, 0, 0.2);
   opacity: 0;
+}
+
+/*--------------------------------------------------------------
+  DATA DETAIL KAFE
+  --------------------------------------------------------------*/
+.img-kafe {
+  max-width: 15rem;
+}
+
+.img-kafeEdit {
+  display: inline;
+  max-width: 10rem;
+}
+
+.dellbut {
+  padding: 10px;
+}
+
+#imgPreview {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+#imgPreview div {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  margin-right: 1rem;
+  margin-bottom: 3rem;
+}
+
+#imgPreview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#image {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+#image div {
+  position: relative;
+  max-width: 10rem;
+  margin-right: 1rem;
+  margin-bottom: 2rem;
+}
+
+#image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }

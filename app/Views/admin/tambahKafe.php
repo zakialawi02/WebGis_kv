@@ -99,9 +99,9 @@
                                     <div id="FileHelp" class="form-text">example: -7.0385384, 112.8998345</div>
                                 </div>
 
-                                <div class="form-group">
-                                    <label class="form-label">Wilayah Administrasi</label>
-                                    <select class="form-control" id="wilayah" name="wilayah" value="" required>
+                                <div class="form-group row g-2">
+                                    <label class="col-md-12 mb-2">Wilayah Administrasi</label>
+                                    <select class="col-md-12" id="wilayah" name="wilayah" value="" required>
 
                                     </select>
                                 </div>
@@ -115,150 +115,155 @@
                                     </div>
                                 </div>
 
-                                <label for="instagram_kafe" class="form-label">Instagram</label>
-                                <div class="input-group form-group mt-1">
-                                    <span class="input-group-text" id="basic-addon1">@</span>
-                                    <input type="text" class="form-control" id="instagram_kafe" name="instagram_kafe" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                                <div class="form-group mb-3">
+                                    <label for="instagram_kafe" class="form-label">Instagram</label>
+                                    <div class="input-group form-group mt-1">
+                                        <span class="input-group-text" id="basic-addon1">@</span>
+                                        <input type="text" class="form-control" id="instagram_kafe" name="instagram_kafe" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                                    </div>
                                 </div>
 
-                                <a class="btn btn-primary" onclick="setTimeToMonday()" role=" button">Link</a>
-                                <div class="row mb-3">
-                                    <div class="col-2">
-                                        <h5 id="dayTitle">Senin</h5>
-                                        <label class="toggle toggle-alternative">
-                                            <input type="checkbox" id="checkboxB1" class="checkbox" name="day[]" onclick="senin()" checked />
-                                            <span class="toggle-text"></span>
-                                            <span class="toggle-handle"></span>
-                                        </label>
-                                    </div>
-                                    <div class="row col" id="jamSenin">
-                                        <div class="col col-4">
-                                            <label for="open-time">Jam Buka:</label>
-                                            <input type="time" class="form-control" id="openSenin" name="open-time[]" checked>
+                                <div class="form-group">
+                                    <label for="jam-oprasional" class="form-label">Waktu Oprasional</label>
+                                    <div class="row mb-3">
+                                        <div class="col-4">
+                                            <h5 id="dayTitle">Senin</h5>
+                                            <label class="toggle toggle-alternative">
+                                                <input type="checkbox" id="checkboxB1" class="checkbox" name="day[]" onclick="senin()" checked />
+                                                <span class="toggle-text"></span>
+                                                <span class="toggle-handle"></span>
+                                            </label>
                                         </div>
-                                        <div class="col col-4">
-                                            <label for="close-time">Jam Tutup:</label>
-                                            <input type="time" class="form-control" id="closeSenin" name="close-time[]">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <div class="col-2">
-                                        <h5 id="dayTitle">Selasa</h5>
-                                        <label class="toggle toggle-alternative">
-                                            <input type="checkbox" id="checkboxB" class="checkbox" name="day[]" onclick="Selasa()" checked />
-                                            <span class="toggle-text"></span>
-                                            <span class="toggle-handle"></span>
-                                        </label>
-                                    </div>
-                                    <div class="row col" id="jamSelasa">
-                                        <div class="col col-4">
-                                            <label for="open-time">Jam Buka:</label>
-                                            <input type="time" class="form-control" id="openSelasa" name="open-time[]" checked>
-                                        </div>
-                                        <div class="col col-4">
-                                            <label for="close-time">Jam Tutup:</label>
-                                            <input type="time" class="form-control" id="closeSelasa" name="close-time[]">
+                                        <div class="row col" id="jamSenin">
+                                            <div class="col">
+                                                <label for="open-time">Jam Buka:</label>
+                                                <input type="time" class="form-control" id="openSenin" name="open-time[]" checked>
+                                            </div>
+                                            <div class="col">
+                                                <label for="close-time">Jam Tutup:</label>
+                                                <input type="time" class="form-control" id="closeSenin" name="close-time[]">
+                                            </div>
+                                            <a class="btn btn-primary mt-2" onclick="setTimeToMonday()" role=" button">Terapkan Ke Semua Hari</a>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <div class="col-2">
-                                        <h5 id="dayTitle">Rabu</h5>
-                                        <label class="toggle toggle-alternative">
-                                            <input type="checkbox" id="checkboxB" class="checkbox" name="day[]" onclick="Rabu()" checked />
-                                            <span class="toggle-text"></span>
-                                            <span class="toggle-handle"></span>
-                                        </label>
-                                    </div>
-                                    <div class="row col" id="jamRabu">
-                                        <div class="col col-4">
-                                            <label for="open-time">Jam Buka:</label>
-                                            <input type="time" class="form-control" id="openRabu" name="open-time[]" checked>
+                                    <div class="row mb-3">
+                                        <div class="col-4">
+                                            <h5 id="dayTitle">Selasa</h5>
+                                            <label class="toggle toggle-alternative">
+                                                <input type="checkbox" id="checkboxB" class="checkbox" name="day[]" onclick="Selasa()" checked />
+                                                <span class="toggle-text"></span>
+                                                <span class="toggle-handle"></span>
+                                            </label>
                                         </div>
-                                        <div class="col col-4">
-                                            <label for="close-time">Jam Tutup:</label>
-                                            <input type="time" class="form-control" id="closeRabu" name="close-time[]">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <div class="col-2">
-                                        <h5 id="dayTitle">Kamis</h5>
-                                        <label class="toggle toggle-alternative">
-                                            <input type="checkbox" id="checkboxB" class="checkbox" name="day[]" onclick="Kamis()" checked />
-                                            <span class="toggle-text"></span>
-                                            <span class="toggle-handle"></span>
-                                        </label>
-                                    </div>
-                                    <div class="row col" id="jamKamis">
-                                        <div class="col col-4">
-                                            <label for="open-time">Jam Buka:</label>
-                                            <input type="time" class="form-control" id="openKamis" name="open-time[]" checked>
-                                        </div>
-                                        <div class="col col-4">
-                                            <label for="close-time">Jam Tutup:</label>
-                                            <input type="time" class="form-control" id="closeKamis" name="close-time[]">
+                                        <div class="row col" id="jamSelasa">
+                                            <div class="col">
+                                                <label for="open-time">Jam Buka:</label>
+                                                <input type="time" class="form-control" id="openSelasa" name="open-time[]" checked>
+                                            </div>
+                                            <div class="col">
+                                                <label for="close-time">Jam Tutup:</label>
+                                                <input type="time" class="form-control" id="closeSelasa" name="close-time[]">
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <div class="col-2">
-                                        <h5 id="dayTitle">Jum'at</h5>
-                                        <label class="toggle toggle-alternative">
-                                            <input type="checkbox" id="checkboxB" class="checkbox" name="day[]" onclick="Jumat()" checked />
-                                            <span class="toggle-text"></span>
-                                            <span class="toggle-handle"></span>
-                                        </label>
-                                    </div>
-                                    <div class="row col" id="jamJumat">
-                                        <div class="col col-4">
-                                            <label for="open-time">Jam Buka:</label>
-                                            <input type="time" class="form-control" id="openJumat" name="open-time[]" checked>
+                                    <div class="row mb-3">
+                                        <div class="col-4">
+                                            <h5 id="dayTitle">Rabu</h5>
+                                            <label class="toggle toggle-alternative">
+                                                <input type="checkbox" id="checkboxB" class="checkbox" name="day[]" onclick="Rabu()" checked />
+                                                <span class="toggle-text"></span>
+                                                <span class="toggle-handle"></span>
+                                            </label>
                                         </div>
-                                        <div class="col col-4">
-                                            <label for="close-time">Jam Tutup:</label>
-                                            <input type="time" class="form-control" id="closeJumat" name="close-time[]">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <div class="col-2">
-                                        <h5 id="dayTitle">Sabtu</h5>
-                                        <label class="toggle toggle-alternative">
-                                            <input type="checkbox" id="checkboxB" class="checkbox" name="day[]" onclick="Sabtu()" />
-                                            <span class="toggle-text"></span>
-                                            <span class="toggle-handle"></span>
-                                        </label>
-                                    </div>
-                                    <div class="row col" id="jamSabtu" style="display:none;">
-                                        <div class="col col-4">
-                                            <label for="open-time">Jam Buka:</label>
-                                            <input type="time" class="form-control" id="openSabtu" name="open-time[]">
-                                        </div>
-                                        <div class="col col-4">
-                                            <label for="close-time">Jam Tutup:</label>
-                                            <input type="time" class="form-control" id="closeSabtu" name="close-time[]">
+                                        <div class="row col" id="jamRabu">
+                                            <div class="col">
+                                                <label for="open-time">Jam Buka:</label>
+                                                <input type="time" class="form-control" id="openRabu" name="open-time[]" checked>
+                                            </div>
+                                            <div class="col">
+                                                <label for="close-time">Jam Tutup:</label>
+                                                <input type="time" class="form-control" id="closeRabu" name="close-time[]">
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <div class="col-2">
-                                        <h5 id="dayTitle">Minggu</h5>
-                                        <label class="toggle toggle-alternative">
-                                            <input type="checkbox" id="checkboxB" class="checkbox" name="day[]" onclick="Minggu()" />
-                                            <span class="toggle-text"></span>
-                                            <span class="toggle-handle"></span>
-                                        </label>
-                                    </div>
-                                    <div class="row col" id="jamMinggu" style="display:none;">
-                                        <div class="col col-4">
-                                            <label for="open-time">Jam Buka:</label>
-                                            <input type="time" class="form-control" id="openMinggu" name="open-time[]">
+                                    <div class="row mb-3">
+                                        <div class="col-4">
+                                            <h5 id="dayTitle">Kamis</h5>
+                                            <label class="toggle toggle-alternative">
+                                                <input type="checkbox" id="checkboxB" class="checkbox" name="day[]" onclick="Kamis()" checked />
+                                                <span class="toggle-text"></span>
+                                                <span class="toggle-handle"></span>
+                                            </label>
                                         </div>
-                                        <div class="col col-4">
-                                            <label for="close-time">Jam Tutup:</label>
-                                            <input type="time" class="form-control" id="closeMinggu" name="close-time[]">
+                                        <div class="row col" id="jamKamis">
+                                            <div class="col">
+                                                <label for="open-time">Jam Buka:</label>
+                                                <input type="time" class="form-control" id="openKamis" name="open-time[]" checked>
+                                            </div>
+                                            <div class="col">
+                                                <label for="close-time">Jam Tutup:</label>
+                                                <input type="time" class="form-control" id="closeKamis" name="close-time[]">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-4">
+                                            <h5 id="dayTitle">Jum'at</h5>
+                                            <label class="toggle toggle-alternative">
+                                                <input type="checkbox" id="checkboxB" class="checkbox" name="day[]" onclick="Jumat()" checked />
+                                                <span class="toggle-text"></span>
+                                                <span class="toggle-handle"></span>
+                                            </label>
+                                        </div>
+                                        <div class="row col" id="jamJumat">
+                                            <div class="col">
+                                                <label for="open-time">Jam Buka:</label>
+                                                <input type="time" class="form-control" id="openJumat" name="open-time[]" checked>
+                                            </div>
+                                            <div class="col">
+                                                <label for="close-time">Jam Tutup:</label>
+                                                <input type="time" class="form-control" id="closeJumat" name="close-time[]">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-4">
+                                            <h5 id="dayTitle">Sabtu</h5>
+                                            <label class="toggle toggle-alternative">
+                                                <input type="checkbox" id="checkboxB" class="checkbox" name="day[]" onclick="Sabtu()" />
+                                                <span class="toggle-text"></span>
+                                                <span class="toggle-handle"></span>
+                                            </label>
+                                        </div>
+                                        <div class="row col" id="jamSabtu" style="display:none;">
+                                            <div class="col">
+                                                <label for="open-time">Jam Buka:</label>
+                                                <input type="time" class="form-control" id="openSabtu" name="open-time[]">
+                                            </div>
+                                            <div class="col">
+                                                <label for="close-time">Jam Tutup:</label>
+                                                <input type="time" class="form-control" id="closeSabtu" name="close-time[]">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-4">
+                                            <h5 id="dayTitle">Minggu</h5>
+                                            <label class="toggle toggle-alternative">
+                                                <input type="checkbox" id="checkboxB" class="checkbox" name="day[]" onclick="Minggu()" />
+                                                <span class="toggle-text"></span>
+                                                <span class="toggle-handle"></span>
+                                            </label>
+                                        </div>
+                                        <div class="row col" id="jamMinggu" style="display:none;">
+                                            <div class="col">
+                                                <label for="open-time">Jam Buka:</label>
+                                                <input type="time" class="form-control" id="openMinggu" name="open-time[]">
+                                            </div>
+                                            <div class="col">
+                                                <label for="close-time">Jam Tutup:</label>
+                                                <input type="time" class="form-control" id="closeMinggu" name="close-time[]">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -571,19 +576,38 @@
     <script>
         // Base map
         var peta1 = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiNjg2MzUzMyIsImEiOiJjbDh4NDExZW0wMXZsM3ZwODR1eDB0ajY0In0.6jHWxwN6YfLftuCFHaa1zw', {
+            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+                '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+                'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
             id: 'mapbox/streets-v11',
             tileSize: 512,
-            zoomOffset: -1
+            zoomOffset: -1,
+            maxZoom: 22,
+            maxNativeZoom: 19
         });
 
         var peta2 = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiNjg2MzUzMyIsImEiOiJjbDh4NDExZW0wMXZsM3ZwODR1eDB0ajY0In0.6jHWxwN6YfLftuCFHaa1zw', {
-            id: 'mapbox/satellite-v9'
+            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+                '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+                'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+            id: 'mapbox/satellite-v9',
+            maxZoom: 22,
+            maxNativeZoom: 19
         });
 
-        var peta3 = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {});
+        var peta3 = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+            maxZoom: 22,
+            maxNativeZoom: 19
+        });
 
         var peta4 = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiNjg2MzUzMyIsImEiOiJjbDh4NDExZW0wMXZsM3ZwODR1eDB0ajY0In0.6jHWxwN6YfLftuCFHaa1zw', {
-            id: 'mapbox/dark-v10'
+            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+                '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+                'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+            id: 'mapbox/dark-v10',
+            maxZoom: 22,
+            maxNativeZoom: 19
         });
 
         // set frame view

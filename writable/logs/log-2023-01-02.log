@@ -1,0 +1,867 @@
+CRITICAL - 2023-01-02 03:44:12 --> Attempt to read property "id_kafe" on array
+in APPPATH\Views\page\cariKafe.php on line 128.
+ 1 APPPATH\Views\page\cariKafe.php(128): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "id_kafe" on array', 'APPPATH\\Views\\page\\cariKafe.php', 128)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\page\\cariKafe.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('page/cariKafe', [], true)
+ 5 APPPATH\Controllers\Kafe.php(64): view('page/cariKafe', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->cari()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 04:02:00 --> Attempt to read property "id_kafe" on array
+in APPPATH\Views\page\cariKafe.php on line 126.
+ 1 APPPATH\Views\page\cariKafe.php(126): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "id_kafe" on array', 'APPPATH\\Views\\page\\cariKafe.php', 126)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\page\\cariKafe.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('page/cariKafe', [], true)
+ 5 APPPATH\Controllers\Kafe.php(64): view('page/cariKafe', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->cari()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 04:10:35 --> Too few arguments to function App\Controllers\Admin::previewImg(), 0 passed in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php on line 927 and exactly 1 expected
+in APPPATH\Controllers\Admin.php on line 551.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->previewImg()
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 04:11:00 --> Attempt to read property "id_kafe" on array
+in APPPATH\Views\admin\updateKafe.php on line 79.
+ 1 APPPATH\Views\admin\updateKafe.php(79): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "id_kafe" on array', 'APPPATH\\Views\\admin\\updateKafe.php', 79)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\updateKafe.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/updateKafe', [], true)
+ 5 APPPATH\Controllers\Admin.php(324): view('admin/updateKafe', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->editKafe('113')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 04:11:02 --> Attempt to read property "id_kafe" on array
+in APPPATH\Views\admin\updateKafe.php on line 79.
+ 1 APPPATH\Views\admin\updateKafe.php(79): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "id_kafe" on array', 'APPPATH\\Views\\admin\\updateKafe.php', 79)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\updateKafe.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/updateKafe', [], true)
+ 5 APPPATH\Controllers\Admin.php(324): view('admin/updateKafe', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->editKafe('113')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 04:15:40 --> Too few arguments to function App\Controllers\Admin::previewImg(), 0 passed in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php on line 927 and exactly 1 expected
+in APPPATH\Controllers\Admin.php on line 551.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->previewImg()
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 04:15:44 --> Too few arguments to function App\Controllers\Admin::previewImg(), 0 passed in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php on line 927 and exactly 1 expected
+in APPPATH\Controllers\Admin.php on line 551.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->previewImg()
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 04:15:44 --> Too few arguments to function App\Controllers\Admin::previewImg(), 0 passed in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php on line 927 and exactly 1 expected
+in APPPATH\Controllers\Admin.php on line 551.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->previewImg()
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 04:15:44 --> Too few arguments to function App\Controllers\Admin::previewImg(), 0 passed in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php on line 927 and exactly 1 expected
+in APPPATH\Controllers\Admin.php on line 551.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->previewImg()
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 04:16:39 --> Too few arguments to function App\Controllers\Admin::previewImg(), 0 passed in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php on line 927 and exactly 1 expected
+in APPPATH\Controllers\Admin.php on line 551.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->previewImg()
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 04:16:39 --> Too few arguments to function App\Controllers\Admin::previewImg(), 0 passed in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php on line 927 and exactly 1 expected
+in APPPATH\Controllers\Admin.php on line 551.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->previewImg()
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 04:16:40 --> Too few arguments to function App\Controllers\Admin::previewImg(), 0 passed in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php on line 927 and exactly 1 expected
+in APPPATH\Controllers\Admin.php on line 551.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->previewImg()
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 04:16:40 --> Too few arguments to function App\Controllers\Admin::previewImg(), 0 passed in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php on line 927 and exactly 1 expected
+in APPPATH\Controllers\Admin.php on line 551.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->previewImg()
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 04:16:40 --> Too few arguments to function App\Controllers\Admin::previewImg(), 0 passed in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php on line 927 and exactly 1 expected
+in APPPATH\Controllers\Admin.php on line 551.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->previewImg()
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 04:16:40 --> Too few arguments to function App\Controllers\Admin::previewImg(), 0 passed in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php on line 927 and exactly 1 expected
+in APPPATH\Controllers\Admin.php on line 551.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->previewImg()
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 04:17:00 --> Too few arguments to function App\Controllers\Admin::previewImg(), 0 passed in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php on line 927 and exactly 1 expected
+in APPPATH\Controllers\Admin.php on line 551.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->previewImg()
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 04:17:00 --> Too few arguments to function App\Controllers\Admin::previewImg(), 0 passed in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php on line 927 and exactly 1 expected
+in APPPATH\Controllers\Admin.php on line 551.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->previewImg()
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 04:17:01 --> Too few arguments to function App\Controllers\Admin::previewImg(), 0 passed in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php on line 927 and exactly 1 expected
+in APPPATH\Controllers\Admin.php on line 551.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->previewImg()
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 04:17:01 --> Too few arguments to function App\Controllers\Admin::previewImg(), 0 passed in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php on line 927 and exactly 1 expected
+in APPPATH\Controllers\Admin.php on line 551.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->previewImg()
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 04:17:01 --> Too few arguments to function App\Controllers\Admin::previewImg(), 0 passed in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php on line 927 and exactly 1 expected
+in APPPATH\Controllers\Admin.php on line 551.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->previewImg()
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 04:17:01 --> Too few arguments to function App\Controllers\Admin::previewImg(), 0 passed in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php on line 927 and exactly 1 expected
+in APPPATH\Controllers\Admin.php on line 551.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->previewImg()
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 04:17:02 --> Too few arguments to function App\Controllers\Admin::previewImg(), 0 passed in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php on line 927 and exactly 1 expected
+in APPPATH\Controllers\Admin.php on line 551.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->previewImg()
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 04:17:04 --> Too few arguments to function App\Controllers\Admin::previewImg(), 0 passed in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php on line 927 and exactly 1 expected
+in APPPATH\Controllers\Admin.php on line 551.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->previewImg()
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 04:17:04 --> Too few arguments to function App\Controllers\Admin::previewImg(), 0 passed in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php on line 927 and exactly 1 expected
+in APPPATH\Controllers\Admin.php on line 551.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->previewImg()
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 04:17:04 --> Too few arguments to function App\Controllers\Admin::previewImg(), 0 passed in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php on line 927 and exactly 1 expected
+in APPPATH\Controllers\Admin.php on line 551.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->previewImg()
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 04:17:05 --> Too few arguments to function App\Controllers\Admin::previewImg(), 0 passed in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php on line 927 and exactly 1 expected
+in APPPATH\Controllers\Admin.php on line 551.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->previewImg()
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 04:17:05 --> Too few arguments to function App\Controllers\Admin::previewImg(), 0 passed in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php on line 927 and exactly 1 expected
+in APPPATH\Controllers\Admin.php on line 551.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->previewImg()
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 04:20:42 --> Too few arguments to function App\Models\ModelKv::cariKafe(), 0 passed in F:\WEB\XAMPP\htdocs\WebGis_kv\app\Controllers\Kafe.php on line 73 and exactly 1 expected
+in APPPATH\Models\ModelKv.php on line 238.
+ 1 APPPATH\Controllers\Kafe.php(73): App\Models\ModelKv->cariKafe()
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->search()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 04:20:44 --> Too few arguments to function App\Models\ModelKv::cariKafe(), 0 passed in F:\WEB\XAMPP\htdocs\WebGis_kv\app\Controllers\Kafe.php on line 73 and exactly 1 expected
+in APPPATH\Models\ModelKv.php on line 238.
+ 1 APPPATH\Controllers\Kafe.php(73): App\Models\ModelKv->cariKafe()
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->search()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 04:20:44 --> Too few arguments to function App\Models\ModelKv::cariKafe(), 0 passed in F:\WEB\XAMPP\htdocs\WebGis_kv\app\Controllers\Kafe.php on line 73 and exactly 1 expected
+in APPPATH\Models\ModelKv.php on line 238.
+ 1 APPPATH\Controllers\Kafe.php(73): App\Models\ModelKv->cariKafe()
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->search()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 04:20:44 --> Too few arguments to function App\Models\ModelKv::cariKafe(), 0 passed in F:\WEB\XAMPP\htdocs\WebGis_kv\app\Controllers\Kafe.php on line 73 and exactly 1 expected
+in APPPATH\Models\ModelKv.php on line 238.
+ 1 APPPATH\Controllers\Kafe.php(73): App\Models\ModelKv->cariKafe()
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->search()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 04:20:45 --> Too few arguments to function App\Models\ModelKv::cariKafe(), 0 passed in F:\WEB\XAMPP\htdocs\WebGis_kv\app\Controllers\Kafe.php on line 73 and exactly 1 expected
+in APPPATH\Models\ModelKv.php on line 238.
+ 1 APPPATH\Controllers\Kafe.php(73): App\Models\ModelKv->cariKafe()
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->search()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 04:20:45 --> Too few arguments to function App\Models\ModelKv::cariKafe(), 0 passed in F:\WEB\XAMPP\htdocs\WebGis_kv\app\Controllers\Kafe.php on line 73 and exactly 1 expected
+in APPPATH\Models\ModelKv.php on line 238.
+ 1 APPPATH\Controllers\Kafe.php(73): App\Models\ModelKv->cariKafe()
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->search()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 04:21:20 --> Too few arguments to function App\Models\ModelKv::cariKafe(), 0 passed in F:\WEB\XAMPP\htdocs\WebGis_kv\app\Controllers\Kafe.php on line 73 and exactly 1 expected
+in APPPATH\Models\ModelKv.php on line 238.
+ 1 APPPATH\Controllers\Kafe.php(73): App\Models\ModelKv->cariKafe()
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->search()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 04:21:22 --> Too few arguments to function App\Models\ModelKv::cariKafe(), 0 passed in F:\WEB\XAMPP\htdocs\WebGis_kv\app\Controllers\Kafe.php on line 73 and exactly 1 expected
+in APPPATH\Models\ModelKv.php on line 238.
+ 1 APPPATH\Controllers\Kafe.php(73): App\Models\ModelKv->cariKafe()
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->search()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 04:21:22 --> Too few arguments to function App\Models\ModelKv::cariKafe(), 0 passed in F:\WEB\XAMPP\htdocs\WebGis_kv\app\Controllers\Kafe.php on line 73 and exactly 1 expected
+in APPPATH\Models\ModelKv.php on line 238.
+ 1 APPPATH\Controllers\Kafe.php(73): App\Models\ModelKv->cariKafe()
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->search()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 04:21:22 --> Too few arguments to function App\Models\ModelKv::cariKafe(), 0 passed in F:\WEB\XAMPP\htdocs\WebGis_kv\app\Controllers\Kafe.php on line 73 and exactly 1 expected
+in APPPATH\Models\ModelKv.php on line 238.
+ 1 APPPATH\Controllers\Kafe.php(73): App\Models\ModelKv->cariKafe()
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->search()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 04:21:22 --> Too few arguments to function App\Models\ModelKv::cariKafe(), 0 passed in F:\WEB\XAMPP\htdocs\WebGis_kv\app\Controllers\Kafe.php on line 73 and exactly 1 expected
+in APPPATH\Models\ModelKv.php on line 238.
+ 1 APPPATH\Controllers\Kafe.php(73): App\Models\ModelKv->cariKafe()
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->search()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 04:21:22 --> Too few arguments to function App\Models\ModelKv::cariKafe(), 0 passed in F:\WEB\XAMPP\htdocs\WebGis_kv\app\Controllers\Kafe.php on line 73 and exactly 1 expected
+in APPPATH\Models\ModelKv.php on line 238.
+ 1 APPPATH\Controllers\Kafe.php(73): App\Models\ModelKv->cariKafe()
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->search()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 04:22:04 --> Call to a member function table() on null
+in APPPATH\Models\ModelKv.php on line 240.
+ 1 APPPATH\Controllers\Kafe.php(73): App\Models\ModelKv->cariKafe('ve')
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->search()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 04:22:05 --> Call to a member function table() on null
+in APPPATH\Models\ModelKv.php on line 240.
+ 1 APPPATH\Controllers\Kafe.php(73): App\Models\ModelKv->cariKafe('ver')
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->search()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 04:22:05 --> Call to a member function table() on null
+in APPPATH\Models\ModelKv.php on line 240.
+ 1 APPPATH\Controllers\Kafe.php(73): App\Models\ModelKv->cariKafe('ver')
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->search()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 04:22:05 --> Call to a member function table() on null
+in APPPATH\Models\ModelKv.php on line 240.
+ 1 APPPATH\Controllers\Kafe.php(73): App\Models\ModelKv->cariKafe('verte')
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->search()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 04:22:05 --> Call to a member function table() on null
+in APPPATH\Models\ModelKv.php on line 240.
+ 1 APPPATH\Controllers\Kafe.php(73): App\Models\ModelKv->cariKafe('verte')
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->search()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 04:22:11 --> Call to a member function table() on null
+in APPPATH\Models\ModelKv.php on line 240.
+ 1 APPPATH\Controllers\Kafe.php(73): App\Models\ModelKv->cariKafe('verte ')
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->search()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 04:22:12 --> Call to a member function table() on null
+in APPPATH\Models\ModelKv.php on line 240.
+ 1 APPPATH\Controllers\Kafe.php(73): App\Models\ModelKv->cariKafe('verte c')
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->search()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 04:31:53 --> Too few arguments to function App\Controllers\Kafe::search(), 0 passed in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php on line 927 and exactly 1 expected
+in APPPATH\Controllers\Kafe.php on line 67.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->search()
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 04:31:53 --> Too few arguments to function App\Controllers\Kafe::search(), 0 passed in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php on line 927 and exactly 1 expected
+in APPPATH\Controllers\Kafe.php on line 67.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->search()
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 04:31:53 --> Too few arguments to function App\Controllers\Kafe::search(), 0 passed in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php on line 927 and exactly 1 expected
+in APPPATH\Controllers\Kafe.php on line 67.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->search()
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 04:31:54 --> Too few arguments to function App\Controllers\Kafe::search(), 0 passed in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php on line 927 and exactly 1 expected
+in APPPATH\Controllers\Kafe.php on line 67.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->search()
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 04:31:54 --> Too few arguments to function App\Controllers\Kafe::search(), 0 passed in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php on line 927 and exactly 1 expected
+in APPPATH\Controllers\Kafe.php on line 67.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->search()
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 04:33:02 --> Too few arguments to function App\Controllers\Kafe::search(), 0 passed in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php on line 927 and exactly 1 expected
+in APPPATH\Controllers\Kafe.php on line 67.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->search()
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 04:33:02 --> Too few arguments to function App\Controllers\Kafe::search(), 0 passed in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php on line 927 and exactly 1 expected
+in APPPATH\Controllers\Kafe.php on line 67.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->search()
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 04:33:02 --> Too few arguments to function App\Controllers\Kafe::search(), 0 passed in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php on line 927 and exactly 1 expected
+in APPPATH\Controllers\Kafe.php on line 67.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->search()
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 04:33:03 --> Too few arguments to function App\Controllers\Kafe::search(), 0 passed in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php on line 927 and exactly 1 expected
+in APPPATH\Controllers\Kafe.php on line 67.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->search()
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 04:33:03 --> Too few arguments to function App\Controllers\Kafe::search(), 0 passed in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php on line 927 and exactly 1 expected
+in APPPATH\Controllers\Kafe.php on line 67.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->search()
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 04:33:58 --> Too few arguments to function App\Controllers\Kafe::search(), 0 passed in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php on line 927 and exactly 1 expected
+in APPPATH\Controllers\Kafe.php on line 67.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->search()
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 04:33:58 --> Too few arguments to function App\Controllers\Kafe::search(), 0 passed in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php on line 927 and exactly 1 expected
+in APPPATH\Controllers\Kafe.php on line 67.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->search()
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 04:33:58 --> Too few arguments to function App\Controllers\Kafe::search(), 0 passed in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php on line 927 and exactly 1 expected
+in APPPATH\Controllers\Kafe.php on line 67.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->search()
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 04:33:59 --> Too few arguments to function App\Controllers\Kafe::search(), 0 passed in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php on line 927 and exactly 1 expected
+in APPPATH\Controllers\Kafe.php on line 67.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->search()
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 04:33:59 --> Too few arguments to function App\Controllers\Kafe::search(), 0 passed in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php on line 927 and exactly 1 expected
+in APPPATH\Controllers\Kafe.php on line 67.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->search()
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 04:34:03 --> Too few arguments to function App\Controllers\Kafe::search(), 0 passed in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php on line 927 and exactly 1 expected
+in APPPATH\Controllers\Kafe.php on line 67.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->search()
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 04:34:03 --> Too few arguments to function App\Controllers\Kafe::search(), 0 passed in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php on line 927 and exactly 1 expected
+in APPPATH\Controllers\Kafe.php on line 67.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->search()
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 04:34:03 --> Too few arguments to function App\Controllers\Kafe::search(), 0 passed in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php on line 927 and exactly 1 expected
+in APPPATH\Controllers\Kafe.php on line 67.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->search()
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 04:34:37 --> Too few arguments to function App\Controllers\Kafe::search(), 0 passed in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php on line 927 and exactly 1 expected
+in APPPATH\Controllers\Kafe.php on line 67.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->search()
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 04:34:55 --> Call to a member function table() on null
+in APPPATH\Models\ModelKv.php on line 240.
+ 1 APPPATH\Controllers\Kafe.php(73): App\Models\ModelKv->cariKafe('va')
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->search()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 04:34:55 --> Call to a member function table() on null
+in APPPATH\Models\ModelKv.php on line 240.
+ 1 APPPATH\Controllers\Kafe.php(73): App\Models\ModelKv->cariKafe('va')
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->search()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 04:34:56 --> Call to a member function table() on null
+in APPPATH\Models\ModelKv.php on line 240.
+ 1 APPPATH\Controllers\Kafe.php(73): App\Models\ModelKv->cariKafe('v')
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->search()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 04:34:56 --> Call to a member function table() on null
+in APPPATH\Models\ModelKv.php on line 240.
+ 1 APPPATH\Controllers\Kafe.php(73): App\Models\ModelKv->cariKafe('ROOTPATH\\public')
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->search()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 04:34:57 --> Call to a member function table() on null
+in APPPATH\Models\ModelKv.php on line 240.
+ 1 APPPATH\Controllers\Kafe.php(73): App\Models\ModelKv->cariKafe('ROOTPATH\\public')
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->search()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 04:34:57 --> Call to a member function table() on null
+in APPPATH\Models\ModelKv.php on line 240.
+ 1 APPPATH\Controllers\Kafe.php(73): App\Models\ModelKv->cariKafe('ve')
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->search()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 04:34:57 --> Call to a member function table() on null
+in APPPATH\Models\ModelKv.php on line 240.
+ 1 APPPATH\Controllers\Kafe.php(73): App\Models\ModelKv->cariKafe('ver')
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->search()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 04:34:57 --> Call to a member function table() on null
+in APPPATH\Models\ModelKv.php on line 240.
+ 1 APPPATH\Controllers\Kafe.php(73): App\Models\ModelKv->cariKafe('ver')
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->search()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 04:34:57 --> Call to a member function table() on null
+in APPPATH\Models\ModelKv.php on line 240.
+ 1 APPPATH\Controllers\Kafe.php(73): App\Models\ModelKv->cariKafe('verte')
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->search()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 04:34:58 --> Call to a member function table() on null
+in APPPATH\Models\ModelKv.php on line 240.
+ 1 APPPATH\Controllers\Kafe.php(73): App\Models\ModelKv->cariKafe('verte')
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->search()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 04:35:08 --> Call to a member function table() on null
+in APPPATH\Models\ModelKv.php on line 240.
+ 1 APPPATH\Controllers\Kafe.php(73): App\Models\ModelKv->cariKafe(null)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->search()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 04:35:26 --> CodeIgniter\Database\BaseBuilder::like(): Argument #2 ($match) must be of type string, null given, called in F:\WEB\XAMPP\htdocs\WebGis_kv\app\Models\ModelKv.php on line 241
+in SYSTEMPATH\Database\BaseBuilder.php on line 954.
+ 1 APPPATH\Models\ModelKv.php(241): CodeIgniter\Database\BaseBuilder->like('nama_kafe', null)
+ 2 APPPATH\Controllers\Kafe.php(73): App\Models\ModelKv->cariKafe(null)
+ 3 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->search()
+ 4 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 5 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 04:35:26 --> CodeIgniter\Database\BaseBuilder::like(): Argument #2 ($match) must be of type string, null given, called in F:\WEB\XAMPP\htdocs\WebGis_kv\app\Models\ModelKv.php on line 241
+in SYSTEMPATH\Database\BaseBuilder.php on line 954.
+ 1 APPPATH\Models\ModelKv.php(241): CodeIgniter\Database\BaseBuilder->like('nama_kafe', null)
+ 2 APPPATH\Controllers\Kafe.php(73): App\Models\ModelKv->cariKafe(null)
+ 3 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->search()
+ 4 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 5 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 04:35:27 --> CodeIgniter\Database\BaseBuilder::like(): Argument #2 ($match) must be of type string, null given, called in F:\WEB\XAMPP\htdocs\WebGis_kv\app\Models\ModelKv.php on line 241
+in SYSTEMPATH\Database\BaseBuilder.php on line 954.
+ 1 APPPATH\Models\ModelKv.php(241): CodeIgniter\Database\BaseBuilder->like('nama_kafe', null)
+ 2 APPPATH\Controllers\Kafe.php(73): App\Models\ModelKv->cariKafe(null)
+ 3 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->search()
+ 4 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 5 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 04:35:27 --> CodeIgniter\Database\BaseBuilder::like(): Argument #2 ($match) must be of type string, null given, called in F:\WEB\XAMPP\htdocs\WebGis_kv\app\Models\ModelKv.php on line 241
+in SYSTEMPATH\Database\BaseBuilder.php on line 954.
+ 1 APPPATH\Models\ModelKv.php(241): CodeIgniter\Database\BaseBuilder->like('nama_kafe', null)
+ 2 APPPATH\Controllers\Kafe.php(73): App\Models\ModelKv->cariKafe(null)
+ 3 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->search()
+ 4 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 5 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 04:35:28 --> CodeIgniter\Database\BaseBuilder::like(): Argument #2 ($match) must be of type string, null given, called in F:\WEB\XAMPP\htdocs\WebGis_kv\app\Models\ModelKv.php on line 241
+in SYSTEMPATH\Database\BaseBuilder.php on line 954.
+ 1 APPPATH\Models\ModelKv.php(241): CodeIgniter\Database\BaseBuilder->like('nama_kafe', null)
+ 2 APPPATH\Controllers\Kafe.php(73): App\Models\ModelKv->cariKafe(null)
+ 3 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->search()
+ 4 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 5 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 04:35:44 --> CodeIgniter\Database\BaseBuilder::like(): Argument #2 ($match) must be of type string, null given, called in F:\WEB\XAMPP\htdocs\WebGis_kv\app\Models\ModelKv.php on line 241
+in SYSTEMPATH\Database\BaseBuilder.php on line 954.
+ 1 APPPATH\Models\ModelKv.php(241): CodeIgniter\Database\BaseBuilder->like('nama_kafe', null)
+ 2 APPPATH\Controllers\Kafe.php(73): App\Models\ModelKv->cariKafe(null)
+ 3 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->search()
+ 4 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 5 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 04:49:40 --> CodeIgniter\Database\BaseBuilder::like(): Argument #2 ($match) must be of type string, null given, called in F:\WEB\XAMPP\htdocs\WebGis_kv\app\Models\ModelKv.php on line 242
+in SYSTEMPATH\Database\BaseBuilder.php on line 954.
+ 1 APPPATH\Models\ModelKv.php(242): CodeIgniter\Database\BaseBuilder->like('nama_kafe', null)
+ 2 APPPATH\Controllers\Kafe.php(73): App\Models\ModelKv->cariKafe(null)
+ 3 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->search()
+ 4 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 5 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 04:49:50 --> CodeIgniter\Database\BaseBuilder::like(): Argument #2 ($match) must be of type string, null given, called in F:\WEB\XAMPP\htdocs\WebGis_kv\app\Models\ModelKv.php on line 242
+in SYSTEMPATH\Database\BaseBuilder.php on line 954.
+ 1 APPPATH\Models\ModelKv.php(242): CodeIgniter\Database\BaseBuilder->like('nama_kafe', null)
+ 2 APPPATH\Controllers\Kafe.php(73): App\Models\ModelKv->cariKafe(null)
+ 3 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->search()
+ 4 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 5 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 10:38:25 --> Undefined variable $tampilData
+in APPPATH\Views\serverSide\seacrhMap.php on line 59.
+ 1 APPPATH\Views\serverSide\seacrhMap.php(59): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $tampilData', 'APPPATH\\Views\\serverSide\\seacrhMap.php', 59)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\serverSide\\seacrhMap.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('serverSide/seacrhMap', [], true)
+ 5 APPPATH\Controllers\Kafe.php(78): view('serverSide/seacrhMap', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->search()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 10:38:26 --> Undefined variable $tampilData
+in APPPATH\Views\serverSide\seacrhMap.php on line 59.
+ 1 APPPATH\Views\serverSide\seacrhMap.php(59): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $tampilData', 'APPPATH\\Views\\serverSide\\seacrhMap.php', 59)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\serverSide\\seacrhMap.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('serverSide/seacrhMap', [], true)
+ 5 APPPATH\Controllers\Kafe.php(78): view('serverSide/seacrhMap', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->search()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 10:39:05 --> Undefined variable $tampilData
+in APPPATH\Views\serverSide\seacrhMap.php on line 59.
+ 1 APPPATH\Views\serverSide\seacrhMap.php(59): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $tampilData', 'APPPATH\\Views\\serverSide\\seacrhMap.php', 59)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\serverSide\\seacrhMap.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('serverSide/seacrhMap', [], true)
+ 5 APPPATH\Controllers\Kafe.php(78): view('serverSide/seacrhMap', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->search()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 10:40:34 --> CodeIgniter\Database\BaseBuilder::like(): Argument #2 ($match) must be of type string, null given, called in F:\WEB\XAMPP\htdocs\WebGis_kv\app\Models\ModelKv.php on line 242
+in SYSTEMPATH\Database\BaseBuilder.php on line 954.
+ 1 APPPATH\Models\ModelKv.php(242): CodeIgniter\Database\BaseBuilder->like('nama_kafe', null)
+ 2 APPPATH\Controllers\Kafe.php(73): App\Models\ModelKv->cariKafe(null)
+ 3 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->search()
+ 4 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 5 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 10:41:15 --> CodeIgniter\Database\BaseBuilder::like(): Argument #2 ($match) must be of type string, null given, called in F:\WEB\XAMPP\htdocs\WebGis_kv\app\Models\ModelKv.php on line 242
+in SYSTEMPATH\Database\BaseBuilder.php on line 954.
+ 1 APPPATH\Models\ModelKv.php(242): CodeIgniter\Database\BaseBuilder->like('nama_kafe', null)
+ 2 APPPATH\Controllers\Kafe.php(73): App\Models\ModelKv->cariKafe(null)
+ 3 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->search()
+ 4 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 5 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 10:41:19 --> Undefined variable $tampilData
+in APPPATH\Views\serverSide\seacrhMap.php on line 59.
+ 1 APPPATH\Views\serverSide\seacrhMap.php(59): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $tampilData', 'APPPATH\\Views\\serverSide\\seacrhMap.php', 59)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\serverSide\\seacrhMap.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('serverSide/seacrhMap', [], true)
+ 5 APPPATH\Controllers\Kafe.php(78): view('serverSide/seacrhMap', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->search()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 10:41:52 --> CodeIgniter\Database\BaseBuilder::like(): Argument #2 ($match) must be of type string, null given, called in F:\WEB\XAMPP\htdocs\WebGis_kv\app\Models\ModelKv.php on line 242
+in SYSTEMPATH\Database\BaseBuilder.php on line 954.
+ 1 APPPATH\Models\ModelKv.php(242): CodeIgniter\Database\BaseBuilder->like('nama_kafe', null)
+ 2 APPPATH\Controllers\Kafe.php(73): App\Models\ModelKv->cariKafe(null)
+ 3 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->search()
+ 4 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 5 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 10:43:30 --> CodeIgniter\Database\BaseBuilder::like(): Argument #2 ($match) must be of type string, null given, called in F:\WEB\XAMPP\htdocs\WebGis_kv\app\Models\ModelKv.php on line 242
+in SYSTEMPATH\Database\BaseBuilder.php on line 954.
+ 1 APPPATH\Models\ModelKv.php(242): CodeIgniter\Database\BaseBuilder->like('nama_kafe', null)
+ 2 APPPATH\Controllers\Kafe.php(73): App\Models\ModelKv->cariKafe(null)
+ 3 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->search()
+ 4 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 5 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 10:50:34 --> CodeIgniter\Database\BaseBuilder::like(): Argument #2 ($match) must be of type string, null given, called in F:\WEB\XAMPP\htdocs\WebGis_kv\app\Models\ModelKv.php on line 242
+in SYSTEMPATH\Database\BaseBuilder.php on line 954.
+ 1 APPPATH\Models\ModelKv.php(242): CodeIgniter\Database\BaseBuilder->like('nama_kafe', null)
+ 2 APPPATH\Controllers\Kafe.php(73): App\Models\ModelKv->cariKafe(null)
+ 3 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->search()
+ 4 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 5 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 10:50:34 --> CodeIgniter\Database\BaseBuilder::like(): Argument #2 ($match) must be of type string, null given, called in F:\WEB\XAMPP\htdocs\WebGis_kv\app\Models\ModelKv.php on line 242
+in SYSTEMPATH\Database\BaseBuilder.php on line 954.
+ 1 APPPATH\Models\ModelKv.php(242): CodeIgniter\Database\BaseBuilder->like('nama_kafe', null)
+ 2 APPPATH\Controllers\Kafe.php(73): App\Models\ModelKv->cariKafe(null)
+ 3 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->search()
+ 4 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 5 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 10:58:08 --> Array to string conversion
+in APPPATH\Controllers\Kafe.php on line 75.
+ 1 APPPATH\Controllers\Kafe.php(75): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', 'APPPATH\\Controllers\\Kafe.php', 75)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->search()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 10:58:08 --> Array to string conversion
+in APPPATH\Controllers\Kafe.php on line 75.
+ 1 APPPATH\Controllers\Kafe.php(75): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', 'APPPATH\\Controllers\\Kafe.php', 75)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->search()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 11:00:02 --> Array to string conversion
+in APPPATH\Controllers\Kafe.php on line 75.
+ 1 APPPATH\Controllers\Kafe.php(75): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', 'APPPATH\\Controllers\\Kafe.php', 75)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->search()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 11:00:03 --> Array to string conversion
+in APPPATH\Controllers\Kafe.php on line 75.
+ 1 APPPATH\Controllers\Kafe.php(75): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', 'APPPATH\\Controllers\\Kafe.php', 75)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->search()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 11:00:07 --> Array to string conversion
+in APPPATH\Controllers\Kafe.php on line 75.
+ 1 APPPATH\Controllers\Kafe.php(75): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', 'APPPATH\\Controllers\\Kafe.php', 75)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->search()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 11:33:45 --> CodeIgniter\Database\BaseBuilder::like(): Argument #2 ($match) must be of type string, null given, called in F:\WEB\XAMPP\htdocs\WebGis_kv\app\Models\ModelKv.php on line 242
+in SYSTEMPATH\Database\BaseBuilder.php on line 954.
+ 1 APPPATH\Models\ModelKv.php(242): CodeIgniter\Database\BaseBuilder->like('nama_kafe', null)
+ 2 APPPATH\Controllers\Kafe.php(74): App\Models\ModelKv->cariKafe(null)
+ 3 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->search()
+ 4 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 5 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-02 11:33:51 --> CodeIgniter\Database\BaseBuilder::like(): Argument #2 ($match) must be of type string, null given, called in F:\WEB\XAMPP\htdocs\WebGis_kv\app\Models\ModelKv.php on line 242
+in SYSTEMPATH\Database\BaseBuilder.php on line 954.
+ 1 APPPATH\Models\ModelKv.php(242): CodeIgniter\Database\BaseBuilder->like('nama_kafe', null)
+ 2 APPPATH\Controllers\Kafe.php(74): App\Models\ModelKv->cariKafe(null)
+ 3 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->search()
+ 4 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 5 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+ERROR - 2023-01-02 22:35:13 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:171
+Stack trace:
+#0 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(171): mysqli->real_connect('localhost', 'root', '', 'webgis_kv', 3306, '', 0)
+#1 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#3 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Model.php(250): CodeIgniter\Database\BaseBuilder->get()
+#5 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\BaseModel.php(623): CodeIgniter\Model->doFirst()
+#6 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\myth\auth\src\Authentication\LocalAuthenticator.php(140): CodeIgniter\BaseModel->first()
+#7 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\myth\auth\src\Authentication\LocalAuthenticator.php(19): Myth\Auth\Authentication\LocalAuthenticator->validate(Array, true)
+#8 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\myth\auth\src\Controllers\AuthController.php(87): Myth\Auth\Authentication\LocalAuthenticator->attempt(Array, false)
+#9 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(927): Myth\Auth\Controllers\AuthController->attemptLogin()
+#10 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(Myth\Auth\Controllers\AuthController))
+#11 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 F:\WEB\XAMPP\htdocs\WebGis_kv\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#13 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(46): require_once('F:\\WEB\\XAMPP\\ht...')
+#14 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:215
+Stack trace:
+#0 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#2 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Model.php(250): CodeIgniter\Database\BaseBuilder->get()
+#4 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\BaseModel.php(623): CodeIgniter\Model->doFirst()
+#5 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\myth\auth\src\Authentication\LocalAuthenticator.php(140): CodeIgniter\BaseModel->first()
+#6 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\myth\auth\src\Authentication\LocalAuthenticator.php(19): Myth\Auth\Authentication\LocalAuthenticator->validate(Array, true)
+#7 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\myth\auth\src\Controllers\AuthController.php(87): Myth\Auth\Authentication\LocalAuthenticator->attempt(Array, false)
+#8 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(927): Myth\Auth\Controllers\AuthController->attemptLogin()
+#9 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(Myth\Auth\Controllers\AuthController))
+#10 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 F:\WEB\XAMPP\htdocs\WebGis_kv\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(46): require_once('F:\\WEB\\XAMPP\\ht...')
+#13 {main}
+CRITICAL - 2023-01-02 22:35:13 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+in SYSTEMPATH\Database\BaseConnection.php on line 418.
+ 1 SYSTEMPATH\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `users`
+WHERE `username` = :username:
+AND `users`.`deleted_at` IS NULL
+ LIMIT 1', [...], false)
+ 3 SYSTEMPATH\Model.php(250): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(623): CodeIgniter\Model->doFirst()
+ 5 VENDORPATH\myth\auth\src\Authentication\LocalAuthenticator.php(140): CodeIgniter\BaseModel->first()
+ 6 VENDORPATH\myth\auth\src\Authentication\LocalAuthenticator.php(19): Myth\Auth\Authentication\LocalAuthenticator->validate([...], true)
+ 7 VENDORPATH\myth\auth\src\Controllers\AuthController.php(87): Myth\Auth\Authentication\LocalAuthenticator->attempt([...], false)
+ 8 SYSTEMPATH\CodeIgniter.php(927): Myth\Auth\Controllers\AuthController->attemptLogin()
+ 9 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(Myth\Auth\Controllers\AuthController))
+10 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')

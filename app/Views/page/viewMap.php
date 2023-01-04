@@ -17,18 +17,11 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
     <!-- Vendor CSS Files -->
-    <link href="/assets/vendor/animate.css/animate.min.css" rel="stylesheet">
     <link href="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
     <link href="/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-    <link href="/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-    <link href="/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
-    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
     <!-- Template Main CSS File -->
     <link href="/assets/css/style.css" rel="stylesheet">
 
@@ -36,13 +29,13 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css" integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14=" crossorigin="" />
     <link href="/leaflet/L.Control.MousePosition.css" rel="stylesheet">
     <link rel="stylesheet" href="//unpkg.com/leaflet-gesture-handling/dist/leaflet-gesture-handling.min.css" type="text/css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/dist/L.Control.Locate.min.css" />
 
     <style>
         #map {
-            height: 70vh;
+            height: 80vh;
         }
     </style>
-
 
 </head>
 
@@ -51,22 +44,51 @@
     <!-- HEADER -->
     <?= $this->include('_Layout/_template/_umum/header'); ?>
 
+
+
     <!-- ISI CONTENT -->
+    <div class="pt-3"></div>
+    <section class="sebaran">
+        <div class="row p-4">
+            <div class="col-md-3 p-2 sebaran-kafe">
+                <div class="pt-2"></div>
+                <h3 class="p-2 text-center" style="font-size: 1.2rem;">Informasi</h3>
 
+                <input type="checkbox"> Batas Wilayah</br>
+                <input type="checkbox"> Coffe Shop</br>
 
-    <section id="" class="">
-        <div class="container">
+            </div>
+            <div class="col-md-9 p-2 sebaran-kafe">
+                <h2 class="text-center p-2" style="font-size: 1.8rem;">Peta Persebaran Kafe</h2>
+                <button id="btnAddCircle" class="btn btn-dark p-2">Tambah Lingkaran</button>
+                <input type="number" id="radiusInput" value="1000">
+                <div class="parent">
+                    <div class="child-top" id="panel">
+                        <div id="txtboxes">
 
-
-            <div class="map" id="map"></div>
-            <div style="background-color: whitesmoke;" class="infoPos" id="infoPos">Text</div>
-
-
-        </div>
+                            Select on click within
+                            <select id="miles">
+                                <option value='50'>50 Miles</option>
+                                <option value='100'>100 Mile</option>
+                                <option value='150'>150 Miles</option>
+                                <option value='200'>200 Miles</option>
+                                <option value='300'>300 Miles</option>
+                                <option value='500'>500 Miles</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="map" id="map"></div>
+                </div>
+            </div>
     </section>
 
 
+
+
     <!-- END ISI CONTENT -->
+
+
+
     <!-- FOOTER -->
     <?= $this->include('_Layout/_template/_umum/footer'); ?>
 
@@ -74,28 +96,13 @@
 
     <!-- Vendor JS Files -->
     <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="/assets/vendor/glightbox/js/glightbox.min.js"></script>
-    <script src="/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-    <script src="/assets/vendor/swiper/swiper-bundle.min.js"></script>
-    <script src="/assets/vendor/php-email-form/validate.js"></script>
-
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.2/moment.min.js"></script>
+
+
+
     <!-- Template Main JS File -->
     <script src="/assets/js/main.js"></script>
-
-    <script>
-        DataTable.datetime('D MMM YYYY');
-        $(document).ready(function() {
-            $('#table1').DataTable({
-                scrollX: true,
-
-            });
-        });
-    </script>
 
     <!-- Leafleat js Component -->
     <script src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js" integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg=" crossorigin=""></script>
@@ -105,6 +112,8 @@
     <script src="/leaflet/leaflet.ajax.js"></script>
     <script src="/leaflet/L.Control.MousePosition.js"></script>
     <script src="//unpkg.com/leaflet-gesture-handling"></script>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/dist/L.Control.Locate.min.js" charset="utf-8"></script>
+
 
     <!-- Leafleat Setting js-->
     <!-- initialize the map on the "map" div with a given center and zoom -->
@@ -116,62 +125,47 @@
                 'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
             id: 'mapbox/streets-v11',
             tileSize: 512,
-            zoomOffset: -1
+            zoomOffset: -1,
+            maxZoom: 22,
+            maxNativeZoom: 19
         });
 
         var peta2 = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiNjg2MzUzMyIsImEiOiJjbDh4NDExZW0wMXZsM3ZwODR1eDB0ajY0In0.6jHWxwN6YfLftuCFHaa1zw', {
             attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
                 '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
                 'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-            id: 'mapbox/satellite-v9'
+            id: 'mapbox/satellite-v9',
+            maxZoom: 22,
+            maxNativeZoom: 19
         });
 
         var peta3 = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+            maxZoom: 22,
+            maxNativeZoom: 19
         });
 
         var peta4 = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiNjg2MzUzMyIsImEiOiJjbDh4NDExZW0wMXZsM3ZwODR1eDB0ajY0In0.6jHWxwN6YfLftuCFHaa1zw', {
             attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
                 '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
                 'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-            id: 'mapbox/dark-v10'
+            id: 'mapbox/dark-v10',
+            maxZoom: 22,
+            maxNativeZoom: 19
         });
 
         // set frame view
-
         <?php foreach ($tampilData as $D) : ?>
             var map = L.map('map', {
                 center: [<?= $D->coordinat_wilayah; ?>],
                 zoom: <?= $D->zoom_view; ?>,
                 layers: [peta1],
+                minZoom: 3,
+                maxZoom: 22,
+                maxNativeZoom: 19,
                 gestureHandling: true,
             })
         <?php endforeach ?>
-
-        // Geojson to Leaflet
-        <?php foreach ($tampilGeojson as $G) : ?>
-            var myStyle<?= $G->id; ?> = {
-                "color": "<?= $G->warna; ?>",
-                "weight": 5,
-                "opacity": 0.5,
-            };
-
-            function popUp(f, l) {
-                var out = [];
-                if (f.properties) {
-                    for (key in f.properties) {
-                        out.push(key + ": " + f.properties[key]);
-                    }
-                    // l.bindPopup(out.join("<br />"));
-                }
-            }
-
-            var jsonTest = new L.GeoJSON.AJAX(["<?= base_url(); ?>/geojson/<?= $G->geojson; ?>", "counties.geojson"], {
-                onEachFeature: popUp,
-                style: myStyle<?= $G->id; ?>,
-            }).addTo(map);
-        <?php endforeach ?>
-
 
         // controller
         var baseLayers = {
@@ -181,11 +175,19 @@
         };
 
         L.control.layers(baseLayers).addTo(map);
+        L.control.locate({
+            flyTo: true,
+        }).addTo(map);
         L.control.mousePosition().addTo(map);
         L.control.scale().addTo(map);
 
-
         // set marker place
+        var locMe = L.icon({
+            iconUrl: '<?= base_url(); ?>/leaflet/images/locMe.png',
+            iconSize: [40, 40],
+            iconAnchor: [20, 40], // point of the icon which will correspond to marker's location
+            popupAnchor: [0, -36] // point from which the popup should open relative to the iconAnchor
+        });
         var locKafe = L.icon({
             iconUrl: '<?= base_url(); ?>/leaflet/icon/restaurant_breakfast.png',
             iconSize: [30, 30],
@@ -193,40 +195,52 @@
             popupAnchor: [0, -28] // point from which the popup should open relative to the iconAnchor
         });
 
-        // <?php foreach ($tampilKafe as $K) : ?>
-        //     L.marker([<?= $K->coordinate; ?>], {
-        //         icon: locKafe
-        //     }).addTo(map).bindPopup("<b><?= $K->nama_kafe; ?></b></br><?= $K->alamat_kafe; ?>");
-        // <?php endforeach ?>
-
-
-        // TEST
-        // menampilkan marker di koordinat (-7.27614831897039, 112.75837677361964)
-        var marker = L.marker([-7.27614831897039, 112.75837677361964]).addTo(map);
-        // membuat array untuk menampung marker lain
-        var markers = [];
-
-        // menambahkan marker lain ke dalam array
         <?php foreach ($tampilKafe as $K) : ?>
-            markers.push(L.marker([<?= $K->coordinate; ?>]));
+            L.marker([<?= $K->coordinate; ?>], {
+                icon: locKafe
+            }).addTo(map).bindPopup("<b><?= $K->nama_kafe; ?></b></br><?= $K->alamat_kafe; ?>");
         <?php endforeach ?>
-        // L.marker([<?= $K->coordinate; ?>], {
-        //     icon: locKafe
-        // }).addTo(map).bindPopup("<b><?= $K->nama_kafe; ?></b></br><?= $K->alamat_kafe; ?>");
-
-        // mencari marker dalam radius 3 km dari koordinat (-7.27614831897039, 112.75837677361964)
-        var circle = L.circle([-7.27614831897039, 112.75837677361964], {
-            radius: 10000, // radius dalam meter
-            color: 'red'
-        }).addTo(map);
-        // menampilkan marker yang berada dalam radius 3 km dari koordinat (-7.27614831897039, 112.75837677361964)
-        markers.forEach(function(marker) {
-            if (marker.getLatLng().distanceTo([-7.27614831897039, 112.75837677361964]) <= 10000) { // 3000 meter = 3 km
-                console.log(marker);
-                marker.addTo(map);
+    </script>
+    <script>
+        $(document).ready(function() {
+            function getLocation() {
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(showPosition);
+                } else {
+                    x.innerHTML = "Geolocation is not supported by this browser.";
+                }
             }
+            var marker;
+            var circle;
+
+            function showPosition(position) {
+                // console.log(position)
+                console.log('Route Sekarang', position.coords.latitude, position.coords.longitude, position.coords.accuracy)
+                let lat = position.coords.latitude
+                let long = position.coords.longitude
+                let accuracy = position.coords.accuracy
+                if (marker) {
+                    map.removeLayer(marker)
+                }
+                // if (circle) {
+                //     map.removeLayer(circle)
+                // }
+
+                marker = L.marker([lat, long], {
+                    icon: locMe
+                })
+                // circle = L.circle([lat, long], {
+                //     radius: accuracy,
+                //     fillOpacity: 0.1,
+                // })
+                var featureGroup = L.featureGroup([marker]).addTo(map);
+            }
+            getLocation();
+
         });
     </script>
+
+
 </body>
 
 </html>

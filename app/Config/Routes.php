@@ -36,7 +36,7 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::index');
+$routes->get('/', 'Kafe::index');
 $routes->match(['get', 'post'], 'Admin/getDataAjaxRemote', 'Admin::getDataAjaxRemote');
 
 $routes->get('/admin/data/geojson', 'Admin::geojson');
@@ -46,6 +46,8 @@ $routes->get('/admin/data/geojson/edit/(:num)', 'Admin::editGeojson/$1');
 $routes->get('/admin/data/kafe', 'Admin::kafe');
 $routes->get('/admin/data/kafe/tambah', 'Admin::tambahKafe');
 $routes->get('/admin/data/kafe/edit/(:num)', 'Admin::editKafe/$1');
+
+$routes->get('/kafe/(:num)/detail', 'Kafe::detail/$1');
 
 $routes->delete('/admin/delete_Geojson/(:num)', 'Admin::delete_Geojson/$1');
 

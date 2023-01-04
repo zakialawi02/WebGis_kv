@@ -31,8 +31,7 @@ class View extends BaseController
             'tampilData' => $this->setting->tampilData()->getResult(),
             'tampilGeojson' => $this->FGeojson->callGeojson()->getResult(),
             'updateGeojson' => $this->FGeojson->callGeojson()->getRow(),
-            'tampilKafe' => $this->kafe->callKafe()->getResult(),
-            'getFoto' => $this->fotoKafe->getFoto()->getResult(),
+            'tampilKafe' => $this->kafe->callKafe(),
         ];
         return view('page/viewMap', $data);
     }

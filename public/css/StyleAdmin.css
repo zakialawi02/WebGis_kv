@@ -404,37 +404,18 @@ h6 {
 }
 
 .header .toggle-sidebar-btn {
-    font-size: 32px;
-    padding-left: 10px;
-    cursor: pointer;
-    color: #012970;
-}
-
-.header .search-bar {
-    min-width: 360px;
-    padding: 0 20px;
+    display: none;
 }
 
 @media (max-width: 1199px) {
-    .header .search-bar {
-        position: fixed;
-        top: 50px;
-        left: 0;
-        right: 0;
-        padding: 20px;
-        box-shadow: 0px 0px 15px 0px rgba(1, 41, 112, 0.1);
-        background: white;
-        z-index: 9999;
-        transition: 0.3s;
-        visibility: hidden;
-        opacity: 0;
+    .header .toggle-sidebar-btn {
+        display: block;
+        font-size: 32px;
+        padding-left: 10px;
+        cursor: pointer;
+        color: #012970;
     }
 
-    .header .search-bar-show {
-        top: 60px;
-        visibility: visible;
-        opacity: 1;
-    }
 }
 
 .header .search-form {
@@ -1369,6 +1350,19 @@ h6 {
     height: 100%;
     object-fit: cover;
 }
+
+
+/* *****************************************************
+   * dataTable
+   ***************************************************** */
+table.dataTable td {
+    padding: 15px 8px
+}
+
+.fontawesome-icons .the-icon svg {
+    font-size: 24px
+}
+
 
 
 /* *****************************************************
