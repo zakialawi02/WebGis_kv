@@ -11,20 +11,20 @@
                 <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
                 <li><a class="nav-link scrollto" href="#about">About</a></li>
                 <li><a class="nav-link scrollto" href="#team">Team</a></li>
-                <li class="dropdown"><a href="#"><span>Cari</span> <i class="bi bi-chevron-down"></i></a>
+                <li class="dropdown"><a href="/kafe/cari"><span>Cari</span> <i class="bi bi-chevron-down"></i></a>
                     <ul>
-                        <li><a href="#">Data Persebaran</a></li>
-                        <li><a href="#">Terdekat</a></li>
+                        <li><a href="/kafe/sebaran">Data Persebaran</a></li>
+                        <li><a href="/kafe/near">Terdekat</a></li>
                     </ul>
                 </li>
                 <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
 
 
                 <?php if (logged_in()) : ?>
-                    <li><a class="dropdown getstarted scrollto" href="/MyProfile">Dashboard</a></li>
+                    <li><a class="dropdown getstarted scrollto" href="/dashboard">Dashboard</a></li>
                     <li><a class="dropdown getstarted scrollto" href="<?= base_url('logout'); ?>">Log Out<i class="bi bi-box-arrow-right"></i></a></li>
                 <?php else : ?>
-                    <li><a class="getstarted scrollto" href="/Login">Login</a></li>
+                    <li><a class="getstarted scrollto" href="/login">Login</a></li>
                 <?php endif ?>
 
             </ul>

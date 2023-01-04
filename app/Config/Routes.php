@@ -38,18 +38,22 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Kafe::index');
 $routes->match(['get', 'post'], 'Admin/getDataAjaxRemote', 'Admin::getDataAjaxRemote');
+$routes->get('/dashboard', 'Admin::index', ['filter' => 'role:Admin, User']);
+$routes->get('/admin/pending', 'Admin::pending', ['filter' => 'role:Admin']);
 
-$routes->get('/admin/data/geojson', 'Admin::geojson');
-$routes->get('/admin/data/geojson/tambah', 'Admin::tambahGeojson');
-$routes->get('/admin/data/geojson/edit/(:num)', 'Admin::editGeojson/$1');
+$routes->get('/admin/data/geojson', 'Admin::geojson', ['filter' => 'role:Admin']);
+$routes->get('/admin/data/geojson/tambah', 'Admin::tambahGeojson', ['filter' => 'role:Admin']);
+$routes->get('/admin/data/geojson/edit/(:num)', 'Admin::editGeojson/$1', ['filter' => 'role:Admin']);
+$routes->delete('/admin/delete_Geojson/(:num)', 'Admin::delete_Geojson/$1', ['filter' => 'role:Admin']);
 
-$routes->get('/admin/data/kafe', 'Admin::kafe');
-$routes->get('/admin/data/kafe/tambah', 'Admin::tambahKafe');
-$routes->get('/admin/data/kafe/edit/(:num)', 'Admin::editKafe/$1');
+$routes->get('/admin/data/kafe', 'Admin::kafe', ['filter' => 'role:Admin']);
+$routes->get('/admin/data/kafe/tambah', 'Admin::tambahKafe', ['filter' => 'role:Admin, User']);
+$routes->get('/admin/data/kafe/edit/(:num)', 'Admin::editKafe/$1', ['filter' => 'role:Admin']);
+
+$routes->get('/user/manajemen', 'User::manajemen', ['filter' => 'role:Admin']);
 
 $routes->get('/kafe/(:num)/detail', 'Kafe::detail/$1');
 
-$routes->delete('/admin/delete_Geojson/(:num)', 'Admin::delete_Geojson/$1');
 
 /*
  * --------------------------------------------------------------------

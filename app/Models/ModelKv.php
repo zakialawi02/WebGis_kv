@@ -229,6 +229,17 @@ class ModelKv extends Model
             return $this->Where(['id_kafe' => $id_kafe])->get();
         }
     }
+    function getFiveKafe()
+    {
+        $buidler = $this->db->table('tbl_kafe')->select('tbl_kafe.id_kafe, nama_kafe, alamat_kafe, coordinate, fasilitas_kafe, instagram_kafe, tbl_provinsi.id_provinsi as id_provinsi, nama_provinsi, tbl_kabupaten.id_kabupaten as id_kabupaten, nama_kabupaten, tbl_kecamatan.id_kecamatan as id_kecamatan, nama_kecamatan, tbl_kelurahan.id_kelurahan as id_kelurahan, nama_kelurahan, created_at, updated_at, user, stat_appv')
+            ->join('tbl_provinsi', 'tbl_provinsi.id_provinsi = tbl_kafe.id_provinsi')
+            ->join('tbl_kabupaten', 'tbl_kabupaten.id_kabupaten = tbl_kafe.id_kabupaten')
+            ->join('tbl_kecamatan', 'tbl_kecamatan.id_kecamatan = tbl_kafe.id_kecamatan')
+            ->join('tbl_kelurahan', 'tbl_kelurahan.id_kelurahan = tbl_kafe.id_kelurahan')
+            ->limit(5);
+        $query = $buidler->getWhere(['stat_appv' => '1']);
+        return $query;
+    }
 
     function cariKafe($keyword)
     {

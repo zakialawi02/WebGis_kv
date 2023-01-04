@@ -11,7 +11,7 @@
         </li>
 
         <li class="nav-item">
-            <a class="nav-link collapsed" href="/admin">
+            <a class="nav-link collapsed" href="/dashboard">
                 <i class="bi bi-grid"></i>
                 <span>Dashboard</span>
             </a>

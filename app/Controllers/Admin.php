@@ -38,9 +38,10 @@ class Admin extends BaseController
             'countAllPending' => $this->kafe->countAllPending(),
             'countAllUser' => $this->user->countAllUser(),
             'userMonth' => $this->user->userMonth()->getResult(),
+            'tampilKafe' => $this->kafe->getFiveKafe()->getResult(),
         ];
         // echo '<pre>';
-        // print_r($data['countAllKafe']);
+        // print_r($data['tampilKafe']);
         // die;
         return view('admin/dashboard', $data);
     }
