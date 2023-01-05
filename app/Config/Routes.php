@@ -17,7 +17,7 @@ if (is_file(SYSTEMPATH . 'Config/Routes.php')) {
  * --------------------------------------------------------------------
  */
 $routes->setDefaultNamespace('App\Controllers');
-$routes->setDefaultController('Home');
+$routes->setDefaultController('Kafe');
 $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
@@ -38,19 +38,20 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Kafe::index');
 $routes->match(['get', 'post'], 'Admin/getDataAjaxRemote', 'Admin::getDataAjaxRemote');
-$routes->get('/dashboard', 'Admin::index', ['filter' => 'role:Admin, User']);
-$routes->get('/admin/pending', 'Admin::pending', ['filter' => 'role:Admin']);
 
-$routes->get('/admin/data/geojson', 'Admin::geojson', ['filter' => 'role:Admin']);
-$routes->get('/admin/data/geojson/tambah', 'Admin::tambahGeojson', ['filter' => 'role:Admin']);
-$routes->get('/admin/data/geojson/edit/(:num)', 'Admin::editGeojson/$1', ['filter' => 'role:Admin']);
-$routes->delete('/admin/delete_Geojson/(:num)', 'Admin::delete_Geojson/$1', ['filter' => 'role:Admin']);
+$routes->get('/dashboard', 'Admin::index', ['filter' => 'role:SuperAdmin,Admin,User']);
+$routes->get('/admin/pending', 'Admin::pending', ['filter' => 'role:SuperAdmin,Admin']);
 
-$routes->get('/admin/data/kafe', 'Admin::kafe', ['filter' => 'role:Admin']);
-$routes->get('/admin/data/kafe/tambah', 'Admin::tambahKafe', ['filter' => 'role:Admin, User']);
-$routes->get('/admin/data/kafe/edit/(:num)', 'Admin::editKafe/$1', ['filter' => 'role:Admin']);
+$routes->get('/admin/data/geojson', 'Admin::geojson', ['filter' => 'role:SuperAdmin,Admin']);
+$routes->get('/admin/data/geojson/tambah', 'Admin::tambahGeojson', ['filter' => 'role:SuperAdmin,Admin']);
+$routes->get('/admin/data/geojson/edit/(:num)', 'Admin::editGeojson/$1', ['filter' => 'role:SuperAdmin,Admin']);
+$routes->delete('/admin/delete_Geojson/(:num)', 'Admin::delete_Geojson/$1', ['filter' => 'role:SuperAdmin,Admin']);
 
-$routes->get('/user/manajemen', 'User::manajemen', ['filter' => 'role:Admin']);
+$routes->get('/admin/data/kafe', 'Admin::kafe', ['filter' => 'role:SuperAdmin,Admin']);
+$routes->get('/admin/data/kafe/tambah', 'Admin::tambahKafe', ['filter' => 'role:SuperAdmin,Admin,User']);
+$routes->get('/admin/data/kafe/edit/(:num)', 'Admin::editKafe/$1', ['filter' => 'role:SuperAdmin,Admin']);
+
+$routes->get('/user/manajemen', 'User::manajemen', ['filter' => 'role:SuperAdmin,Admin']);
 
 $routes->get('/kafe/(:num)/detail', 'Kafe::detail/$1');
 

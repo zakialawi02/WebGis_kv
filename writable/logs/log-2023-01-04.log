@@ -789,3 +789,569 @@ in VENDORPATH\myth\auth\src\Filters\RoleFilter.php on line 45.
  3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
  5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-04 12:35:41 --> You do not have sufficient permissions to access that page.
+in VENDORPATH\myth\auth\src\Filters\RoleFilter.php on line 45.
+ 1 SYSTEMPATH\Filters\Filters.php(173): Myth\Auth\Filters\RoleFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), [...])
+ 2 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\Filters\Filters->run('dashboard', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-04 12:35:49 --> You do not have sufficient permissions to access that page.
+in VENDORPATH\myth\auth\src\Filters\RoleFilter.php on line 45.
+ 1 SYSTEMPATH\Filters\Filters.php(173): Myth\Auth\Filters\RoleFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), [...])
+ 2 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\Filters\Filters->run('dashboard', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-04 12:36:04 --> You do not have sufficient permissions to access that page.
+in VENDORPATH\myth\auth\src\Filters\RoleFilter.php on line 45.
+ 1 SYSTEMPATH\Filters\Filters.php(173): Myth\Auth\Filters\RoleFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), [...])
+ 2 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\Filters\Filters->run('admin/data/geojson', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-04 12:36:53 --> You do not have sufficient permissions to access that page.
+in VENDORPATH\myth\auth\src\Filters\RoleFilter.php on line 45.
+ 1 SYSTEMPATH\Filters\Filters.php(173): Myth\Auth\Filters\RoleFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), [...])
+ 2 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\Filters\Filters->run('admin/data/geojson', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-04 12:36:55 --> You do not have sufficient permissions to access that page.
+in VENDORPATH\myth\auth\src\Filters\RoleFilter.php on line 45.
+ 1 SYSTEMPATH\Filters\Filters.php(173): Myth\Auth\Filters\RoleFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), [...])
+ 2 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\Filters\Filters->run('admin/data/kafe', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-04 12:36:59 --> You do not have sufficient permissions to access that page.
+in VENDORPATH\myth\auth\src\Filters\RoleFilter.php on line 45.
+ 1 SYSTEMPATH\Filters\Filters.php(173): Myth\Auth\Filters\RoleFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), [...])
+ 2 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\Filters\Filters->run('admin/pending', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-04 12:37:42 --> You do not have sufficient permissions to access that page.
+in VENDORPATH\myth\auth\src\Filters\RoleFilter.php on line 45.
+ 1 SYSTEMPATH\Filters\Filters.php(173): Myth\Auth\Filters\RoleFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), [...])
+ 2 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\Filters\Filters->run('user/manajemen', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-04 12:38:32 --> You do not have sufficient permissions to access that page.
+in VENDORPATH\myth\auth\src\Filters\RoleFilter.php on line 45.
+ 1 SYSTEMPATH\Filters\Filters.php(173): Myth\Auth\Filters\RoleFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), [...])
+ 2 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\Filters\Filters->run('dashboard', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-04 12:38:54 --> You do not have sufficient permissions to access that page.
+in VENDORPATH\myth\auth\src\Filters\RoleFilter.php on line 45.
+ 1 SYSTEMPATH\Filters\Filters.php(173): Myth\Auth\Filters\RoleFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), [...])
+ 2 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\Filters\Filters->run('dashboard', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-04 12:39:42 --> You do not have sufficient permissions to access that page.
+in VENDORPATH\myth\auth\src\Filters\RoleFilter.php on line 45.
+ 1 SYSTEMPATH\Filters\Filters.php(173): Myth\Auth\Filters\RoleFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), [...])
+ 2 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\Filters\Filters->run('dashboard', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-04 12:39:45 --> You do not have sufficient permissions to access that page.
+in VENDORPATH\myth\auth\src\Filters\RoleFilter.php on line 45.
+ 1 SYSTEMPATH\Filters\Filters.php(173): Myth\Auth\Filters\RoleFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), [...])
+ 2 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\Filters\Filters->run('dashboard', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-04 12:39:58 --> You do not have sufficient permissions to access that page.
+in VENDORPATH\myth\auth\src\Filters\RoleFilter.php on line 45.
+ 1 SYSTEMPATH\Filters\Filters.php(173): Myth\Auth\Filters\RoleFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), [...])
+ 2 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\Filters\Filters->run('user/manajemen', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-04 12:40:12 --> You do not have sufficient permissions to access that page.
+in VENDORPATH\myth\auth\src\Filters\RoleFilter.php on line 45.
+ 1 SYSTEMPATH\Filters\Filters.php(173): Myth\Auth\Filters\RoleFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), [...])
+ 2 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\Filters\Filters->run('user/manajemen', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-04 12:40:14 --> You do not have sufficient permissions to access that page.
+in VENDORPATH\myth\auth\src\Filters\RoleFilter.php on line 45.
+ 1 SYSTEMPATH\Filters\Filters.php(173): Myth\Auth\Filters\RoleFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), [...])
+ 2 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\Filters\Filters->run('admin/pending', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-04 12:40:16 --> You do not have sufficient permissions to access that page.
+in VENDORPATH\myth\auth\src\Filters\RoleFilter.php on line 45.
+ 1 SYSTEMPATH\Filters\Filters.php(173): Myth\Auth\Filters\RoleFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), [...])
+ 2 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\Filters\Filters->run('admin/data/geojson', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-04 12:43:31 --> You do not have sufficient permissions to access that page.
+in VENDORPATH\myth\auth\src\Filters\RoleFilter.php on line 45.
+ 1 SYSTEMPATH\Filters\Filters.php(173): Myth\Auth\Filters\RoleFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), [...])
+ 2 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\Filters\Filters->run('admin/data/kafe', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-04 12:44:42 --> You do not have sufficient permissions to access that page.
+in VENDORPATH\myth\auth\src\Filters\RoleFilter.php on line 45.
+ 1 SYSTEMPATH\Filters\Filters.php(173): Myth\Auth\Filters\RoleFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), [...])
+ 2 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\Filters\Filters->run('dashboard', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-04 12:45:36 --> You do not have sufficient permissions to access that page.
+in VENDORPATH\myth\auth\src\Filters\RoleFilter.php on line 45.
+ 1 SYSTEMPATH\Filters\Filters.php(173): Myth\Auth\Filters\RoleFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), [...])
+ 2 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\Filters\Filters->run('dashboard', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-04 12:45:54 --> You do not have sufficient permissions to access that page.
+in VENDORPATH\myth\auth\src\Filters\RoleFilter.php on line 45.
+ 1 SYSTEMPATH\Filters\Filters.php(173): Myth\Auth\Filters\RoleFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), [...])
+ 2 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\Filters\Filters->run('dashboard', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-04 12:45:54 --> You do not have sufficient permissions to access that page.
+in VENDORPATH\myth\auth\src\Filters\RoleFilter.php on line 45.
+ 1 SYSTEMPATH\Filters\Filters.php(173): Myth\Auth\Filters\RoleFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), [...])
+ 2 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\Filters\Filters->run('dashboard', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-04 12:46:58 --> You do not have sufficient permissions to access that page.
+in VENDORPATH\myth\auth\src\Filters\RoleFilter.php on line 45.
+ 1 SYSTEMPATH\Filters\Filters.php(173): Myth\Auth\Filters\RoleFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), [...])
+ 2 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\Filters\Filters->run('admin/data/geojson', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-04 12:47:14 --> You do not have sufficient permissions to access that page.
+in VENDORPATH\myth\auth\src\Filters\RoleFilter.php on line 45.
+ 1 SYSTEMPATH\Filters\Filters.php(173): Myth\Auth\Filters\RoleFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), [...])
+ 2 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\Filters\Filters->run('user/manajemen', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-04 12:47:16 --> You do not have sufficient permissions to access that page.
+in VENDORPATH\myth\auth\src\Filters\RoleFilter.php on line 45.
+ 1 SYSTEMPATH\Filters\Filters.php(173): Myth\Auth\Filters\RoleFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), [...])
+ 2 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\Filters\Filters->run('admin/pending', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-04 12:47:28 --> You do not have sufficient permissions to access that page.
+in VENDORPATH\myth\auth\src\Filters\RoleFilter.php on line 45.
+ 1 SYSTEMPATH\Filters\Filters.php(173): Myth\Auth\Filters\RoleFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), [...])
+ 2 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\Filters\Filters->run('dashboard', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-04 12:48:07 --> You do not have sufficient permissions to access that page.
+in VENDORPATH\myth\auth\src\Filters\RoleFilter.php on line 45.
+ 1 SYSTEMPATH\Filters\Filters.php(173): Myth\Auth\Filters\RoleFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), [...])
+ 2 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\Filters\Filters->run('admin/data/geojson', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-04 12:48:08 --> You do not have sufficient permissions to access that page.
+in VENDORPATH\myth\auth\src\Filters\RoleFilter.php on line 45.
+ 1 SYSTEMPATH\Filters\Filters.php(173): Myth\Auth\Filters\RoleFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), [...])
+ 2 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\Filters\Filters->run('admin/pending', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-04 12:48:10 --> You do not have sufficient permissions to access that page.
+in VENDORPATH\myth\auth\src\Filters\RoleFilter.php on line 45.
+ 1 SYSTEMPATH\Filters\Filters.php(173): Myth\Auth\Filters\RoleFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), [...])
+ 2 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\Filters\Filters->run('dashboard', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-04 12:48:24 --> You do not have sufficient permissions to access that page.
+in VENDORPATH\myth\auth\src\Filters\RoleFilter.php on line 45.
+ 1 SYSTEMPATH\Filters\Filters.php(173): Myth\Auth\Filters\RoleFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), [...])
+ 2 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\Filters\Filters->run('dashboard', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-04 12:48:26 --> You do not have sufficient permissions to access that page.
+in VENDORPATH\myth\auth\src\Filters\RoleFilter.php on line 45.
+ 1 SYSTEMPATH\Filters\Filters.php(173): Myth\Auth\Filters\RoleFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), [...])
+ 2 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\Filters\Filters->run('dashboard', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-04 12:48:38 --> You do not have sufficient permissions to access that page.
+in VENDORPATH\myth\auth\src\Filters\RoleFilter.php on line 45.
+ 1 SYSTEMPATH\Filters\Filters.php(173): Myth\Auth\Filters\RoleFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), [...])
+ 2 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\Filters\Filters->run('dashboard', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-04 12:48:39 --> You do not have sufficient permissions to access that page.
+in VENDORPATH\myth\auth\src\Filters\RoleFilter.php on line 45.
+ 1 SYSTEMPATH\Filters\Filters.php(173): Myth\Auth\Filters\RoleFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), [...])
+ 2 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\Filters\Filters->run('dashboard', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-04 12:48:40 --> You do not have sufficient permissions to access that page.
+in VENDORPATH\myth\auth\src\Filters\RoleFilter.php on line 45.
+ 1 SYSTEMPATH\Filters\Filters.php(173): Myth\Auth\Filters\RoleFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), [...])
+ 2 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\Filters\Filters->run('dashboard', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-04 12:48:42 --> You do not have sufficient permissions to access that page.
+in VENDORPATH\myth\auth\src\Filters\RoleFilter.php on line 45.
+ 1 SYSTEMPATH\Filters\Filters.php(173): Myth\Auth\Filters\RoleFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), [...])
+ 2 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\Filters\Filters->run('dashboard', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-04 12:48:45 --> You do not have sufficient permissions to access that page.
+in VENDORPATH\myth\auth\src\Filters\RoleFilter.php on line 45.
+ 1 SYSTEMPATH\Filters\Filters.php(173): Myth\Auth\Filters\RoleFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), [...])
+ 2 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\Filters\Filters->run('dashboard', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-04 12:48:55 --> You do not have sufficient permissions to access that page.
+in VENDORPATH\myth\auth\src\Filters\RoleFilter.php on line 45.
+ 1 SYSTEMPATH\Filters\Filters.php(173): Myth\Auth\Filters\RoleFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), [...])
+ 2 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\Filters\Filters->run('dashboard', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-04 12:48:58 --> You do not have sufficient permissions to access that page.
+in VENDORPATH\myth\auth\src\Filters\RoleFilter.php on line 45.
+ 1 SYSTEMPATH\Filters\Filters.php(173): Myth\Auth\Filters\RoleFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), [...])
+ 2 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\Filters\Filters->run('dashboard', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-04 12:50:31 --> You do not have sufficient permissions to access that page.
+in VENDORPATH\myth\auth\src\Filters\RoleFilter.php on line 45.
+ 1 SYSTEMPATH\Filters\Filters.php(173): Myth\Auth\Filters\RoleFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), [...])
+ 2 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\Filters\Filters->run('dashboard', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-04 12:50:48 --> You do not have sufficient permissions to access that page.
+in VENDORPATH\myth\auth\src\Filters\RoleFilter.php on line 45.
+ 1 SYSTEMPATH\Filters\Filters.php(173): Myth\Auth\Filters\RoleFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), [...])
+ 2 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\Filters\Filters->run('admin/pending', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-04 12:51:03 --> You do not have sufficient permissions to access that page.
+in VENDORPATH\myth\auth\src\Filters\RoleFilter.php on line 45.
+ 1 SYSTEMPATH\Filters\Filters.php(173): Myth\Auth\Filters\RoleFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), [...])
+ 2 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\Filters\Filters->run('admin/pending', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-04 12:51:04 --> You do not have sufficient permissions to access that page.
+in VENDORPATH\myth\auth\src\Filters\RoleFilter.php on line 45.
+ 1 SYSTEMPATH\Filters\Filters.php(173): Myth\Auth\Filters\RoleFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), [...])
+ 2 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\Filters\Filters->run('admin/pending', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-04 12:51:05 --> You do not have sufficient permissions to access that page.
+in VENDORPATH\myth\auth\src\Filters\RoleFilter.php on line 45.
+ 1 SYSTEMPATH\Filters\Filters.php(173): Myth\Auth\Filters\RoleFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), [...])
+ 2 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\Filters\Filters->run('admin/pending', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-04 12:51:35 --> You do not have sufficient permissions to access that page.
+in VENDORPATH\myth\auth\src\Filters\RoleFilter.php on line 45.
+ 1 SYSTEMPATH\Filters\Filters.php(173): Myth\Auth\Filters\RoleFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), [...])
+ 2 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\Filters\Filters->run('dashboard', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-04 12:51:40 --> You do not have sufficient permissions to access that page.
+in VENDORPATH\myth\auth\src\Filters\RoleFilter.php on line 45.
+ 1 SYSTEMPATH\Filters\Filters.php(173): Myth\Auth\Filters\RoleFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), [...])
+ 2 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\Filters\Filters->run('dashboard', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-04 12:51:46 --> You do not have sufficient permissions to access that page.
+in VENDORPATH\myth\auth\src\Filters\RoleFilter.php on line 45.
+ 1 SYSTEMPATH\Filters\Filters.php(173): Myth\Auth\Filters\RoleFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), [...])
+ 2 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\Filters\Filters->run('dashboard', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-04 12:51:51 --> You do not have sufficient permissions to access that page.
+in VENDORPATH\myth\auth\src\Filters\RoleFilter.php on line 45.
+ 1 SYSTEMPATH\Filters\Filters.php(173): Myth\Auth\Filters\RoleFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), [...])
+ 2 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\Filters\Filters->run('dashboard', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-04 12:52:02 --> You do not have sufficient permissions to access that page.
+in VENDORPATH\myth\auth\src\Filters\RoleFilter.php on line 45.
+ 1 SYSTEMPATH\Filters\Filters.php(173): Myth\Auth\Filters\RoleFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), [...])
+ 2 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\Filters\Filters->run('dashboard', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-04 12:52:11 --> You do not have sufficient permissions to access that page.
+in VENDORPATH\myth\auth\src\Filters\RoleFilter.php on line 45.
+ 1 SYSTEMPATH\Filters\Filters.php(173): Myth\Auth\Filters\RoleFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), [...])
+ 2 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\Filters\Filters->run('dashboard', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-04 12:52:26 --> You do not have sufficient permissions to access that page.
+in VENDORPATH\myth\auth\src\Filters\RoleFilter.php on line 45.
+ 1 SYSTEMPATH\Filters\Filters.php(173): Myth\Auth\Filters\RoleFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), [...])
+ 2 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\Filters\Filters->run('dashboard', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-04 12:52:31 --> Attempt to read property "user_image" on null
+in APPPATH\Views\_Layout\_template\_admin\header.php on line 33.
+ 1 APPPATH\Views\_Layout\_template\_admin\header.php(33): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "user_image" on null', 'APPPATH\\Views\\_Layout\\_template\\_admin\\header.php', 33)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\_Layout\\_template\\_admin\\header.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(431): CodeIgniter\View\View->render('_Layout/_template/_admin/header', null, true)
+ 5 APPPATH\Views\admin\dashboard.php(36): CodeIgniter\View\View->include('_Layout/_template/_admin/header')
+ 6 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\dashboard.php')
+ 7 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/dashboard', [], true)
+ 9 APPPATH\Controllers\Admin.php(46): view('admin/dashboard', [...])
+10 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->index()
+11 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+12 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-04 12:52:34 --> Attempt to read property "user_image" on null
+in APPPATH\Views\_Layout\_template\_admin\header.php on line 33.
+ 1 APPPATH\Views\_Layout\_template\_admin\header.php(33): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "user_image" on null', 'APPPATH\\Views\\_Layout\\_template\\_admin\\header.php', 33)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\_Layout\\_template\\_admin\\header.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(431): CodeIgniter\View\View->render('_Layout/_template/_admin/header', null, true)
+ 5 APPPATH\Views\admin\dashboard.php(36): CodeIgniter\View\View->include('_Layout/_template/_admin/header')
+ 6 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\dashboard.php')
+ 7 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/dashboard', [], true)
+ 9 APPPATH\Controllers\Admin.php(46): view('admin/dashboard', [...])
+10 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->index()
+11 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+12 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-04 12:52:37 --> Attempt to read property "user_image" on null
+in APPPATH\Views\_Layout\_template\_admin\header.php on line 33.
+ 1 APPPATH\Views\_Layout\_template\_admin\header.php(33): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "user_image" on null', 'APPPATH\\Views\\_Layout\\_template\\_admin\\header.php', 33)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\_Layout\\_template\\_admin\\header.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(431): CodeIgniter\View\View->render('_Layout/_template/_admin/header', null, true)
+ 5 APPPATH\Views\admin\dashboard.php(36): CodeIgniter\View\View->include('_Layout/_template/_admin/header')
+ 6 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\dashboard.php')
+ 7 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/dashboard', [], true)
+ 9 APPPATH\Controllers\Admin.php(46): view('admin/dashboard', [...])
+10 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->index()
+11 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+12 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-04 12:58:34 --> You do not have sufficient permissions to access that page.
+in VENDORPATH\myth\auth\src\Filters\RoleFilter.php on line 45.
+ 1 SYSTEMPATH\Filters\Filters.php(173): Myth\Auth\Filters\RoleFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), [...])
+ 2 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\Filters\Filters->run('dashboard', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-04 21:18:27 --> You do not have sufficient permissions to access that page.
+in VENDORPATH\myth\auth\src\Filters\RoleFilter.php on line 45.
+ 1 SYSTEMPATH\Filters\Filters.php(173): Myth\Auth\Filters\RoleFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), [...])
+ 2 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\Filters\Filters->run('dashboard', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-04 21:19:16 --> You do not have sufficient permissions to access that page.
+in VENDORPATH\myth\auth\src\Filters\RoleFilter.php on line 45.
+ 1 SYSTEMPATH\Filters\Filters.php(173): Myth\Auth\Filters\RoleFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), [...])
+ 2 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\Filters\Filters->run('dashboard', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-04 22:16:43 --> You do not have sufficient permissions to access that page.
+in VENDORPATH\myth\auth\src\Filters\RoleFilter.php on line 45.
+ 1 SYSTEMPATH\Filters\Filters.php(173): Myth\Auth\Filters\RoleFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), [...])
+ 2 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\Filters\Filters->run('dashboard', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-04 22:17:06 --> You do not have sufficient permissions to access that page.
+in VENDORPATH\myth\auth\src\Filters\RoleFilter.php on line 45.
+ 1 SYSTEMPATH\Filters\Filters.php(173): Myth\Auth\Filters\RoleFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), [...])
+ 2 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\Filters\Filters->run('dashboard', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-04 22:17:11 --> You do not have sufficient permissions to access that page.
+in VENDORPATH\myth\auth\src\Filters\RoleFilter.php on line 45.
+ 1 SYSTEMPATH\Filters\Filters.php(173): Myth\Auth\Filters\RoleFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), [...])
+ 2 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\Filters\Filters->run('dashboard', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-04 22:17:19 --> You do not have sufficient permissions to access that page.
+in VENDORPATH\myth\auth\src\Filters\RoleFilter.php on line 45.
+ 1 SYSTEMPATH\Filters\Filters.php(173): Myth\Auth\Filters\RoleFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), [...])
+ 2 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\Filters\Filters->run('dashboard', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-04 22:17:19 --> You do not have sufficient permissions to access that page.
+in VENDORPATH\myth\auth\src\Filters\RoleFilter.php on line 45.
+ 1 SYSTEMPATH\Filters\Filters.php(173): Myth\Auth\Filters\RoleFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), [...])
+ 2 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\Filters\Filters->run('dashboard', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-04 22:17:20 --> You do not have sufficient permissions to access that page.
+in VENDORPATH\myth\auth\src\Filters\RoleFilter.php on line 45.
+ 1 SYSTEMPATH\Filters\Filters.php(173): Myth\Auth\Filters\RoleFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), [...])
+ 2 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\Filters\Filters->run('dashboard', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-04 22:17:20 --> You do not have sufficient permissions to access that page.
+in VENDORPATH\myth\auth\src\Filters\RoleFilter.php on line 45.
+ 1 SYSTEMPATH\Filters\Filters.php(173): Myth\Auth\Filters\RoleFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), [...])
+ 2 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\Filters\Filters->run('dashboard', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-04 22:17:36 --> You do not have sufficient permissions to access that page.
+in VENDORPATH\myth\auth\src\Filters\RoleFilter.php on line 45.
+ 1 SYSTEMPATH\Filters\Filters.php(173): Myth\Auth\Filters\RoleFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), [...])
+ 2 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\Filters\Filters->run('dashboard', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-04 22:17:37 --> You do not have sufficient permissions to access that page.
+in VENDORPATH\myth\auth\src\Filters\RoleFilter.php on line 45.
+ 1 SYSTEMPATH\Filters\Filters.php(173): Myth\Auth\Filters\RoleFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), [...])
+ 2 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\Filters\Filters->run('dashboard', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-04 22:17:38 --> You do not have sufficient permissions to access that page.
+in VENDORPATH\myth\auth\src\Filters\RoleFilter.php on line 45.
+ 1 SYSTEMPATH\Filters\Filters.php(173): Myth\Auth\Filters\RoleFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), [...])
+ 2 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\Filters\Filters->run('dashboard', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-04 22:17:38 --> You do not have sufficient permissions to access that page.
+in VENDORPATH\myth\auth\src\Filters\RoleFilter.php on line 45.
+ 1 SYSTEMPATH\Filters\Filters.php(173): Myth\Auth\Filters\RoleFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), [...])
+ 2 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\Filters\Filters->run('dashboard', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-04 22:17:50 --> You do not have sufficient permissions to access that page.
+in VENDORPATH\myth\auth\src\Filters\RoleFilter.php on line 45.
+ 1 SYSTEMPATH\Filters\Filters.php(173): Myth\Auth\Filters\RoleFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), [...])
+ 2 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\Filters\Filters->run('dashboard', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-04 22:17:54 --> You do not have sufficient permissions to access that page.
+in VENDORPATH\myth\auth\src\Filters\RoleFilter.php on line 45.
+ 1 SYSTEMPATH\Filters\Filters.php(173): Myth\Auth\Filters\RoleFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), [...])
+ 2 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\Filters\Filters->run('dashboard', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-04 22:17:55 --> You do not have sufficient permissions to access that page.
+in VENDORPATH\myth\auth\src\Filters\RoleFilter.php on line 45.
+ 1 SYSTEMPATH\Filters\Filters.php(173): Myth\Auth\Filters\RoleFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), [...])
+ 2 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\Filters\Filters->run('dashboard', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-04 22:18:03 --> You do not have sufficient permissions to access that page.
+in VENDORPATH\myth\auth\src\Filters\RoleFilter.php on line 45.
+ 1 SYSTEMPATH\Filters\Filters.php(173): Myth\Auth\Filters\RoleFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), [...])
+ 2 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\Filters\Filters->run('dashboard', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-04 22:19:09 --> You do not have sufficient permissions to access that page.
+in VENDORPATH\myth\auth\src\Filters\RoleFilter.php on line 45.
+ 1 SYSTEMPATH\Filters\Filters.php(173): Myth\Auth\Filters\RoleFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), [...])
+ 2 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\Filters\Filters->run('dashboard', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-04 22:21:16 --> You do not have sufficient permissions to access that page.
+in VENDORPATH\myth\auth\src\Filters\RoleFilter.php on line 45.
+ 1 SYSTEMPATH\Filters\Filters.php(173): Myth\Auth\Filters\RoleFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), [...])
+ 2 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\Filters\Filters->run('admin/data/kafe', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-04 22:23:05 --> You do not have sufficient permissions to access that page.
+in VENDORPATH\myth\auth\src\Filters\RoleFilter.php on line 45.
+ 1 SYSTEMPATH\Filters\Filters.php(173): Myth\Auth\Filters\RoleFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), [...])
+ 2 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\Filters\Filters->run('admin/data/geojson', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-04 22:23:10 --> You do not have sufficient permissions to access that page.
+in VENDORPATH\myth\auth\src\Filters\RoleFilter.php on line 45.
+ 1 SYSTEMPATH\Filters\Filters.php(173): Myth\Auth\Filters\RoleFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), [...])
+ 2 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\Filters\Filters->run('admin/data/kafe', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-04 22:23:35 --> You do not have sufficient permissions to access that page.
+in VENDORPATH\myth\auth\src\Filters\RoleFilter.php on line 45.
+ 1 SYSTEMPATH\Filters\Filters.php(173): Myth\Auth\Filters\RoleFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), [...])
+ 2 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\Filters\Filters->run('user/manajemen', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-04 22:24:33 --> You do not have sufficient permissions to access that page.
+in VENDORPATH\myth\auth\src\Filters\RoleFilter.php on line 45.
+ 1 SYSTEMPATH\Filters\Filters.php(173): Myth\Auth\Filters\RoleFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), [...])
+ 2 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\Filters\Filters->run('admin/data/kafe', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-04 22:24:37 --> You do not have sufficient permissions to access that page.
+in VENDORPATH\myth\auth\src\Filters\RoleFilter.php on line 45.
+ 1 SYSTEMPATH\Filters\Filters.php(173): Myth\Auth\Filters\RoleFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), [...])
+ 2 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\Filters\Filters->run('admin/pending', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-04 22:34:02 --> You do not have sufficient permissions to access that page.
+in VENDORPATH\myth\auth\src\Filters\RoleFilter.php on line 45.
+ 1 SYSTEMPATH\Filters\Filters.php(173): Myth\Auth\Filters\RoleFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), [...])
+ 2 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\Filters\Filters->run('user/manajemen', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
