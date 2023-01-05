@@ -37,6 +37,7 @@ $routes->setAutoRoute(true);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Kafe::index');
+$routes->get('/noaccess', 'Kafe::noaccess');
 $routes->match(['get', 'post'], 'Admin/getDataAjaxRemote', 'Admin::getDataAjaxRemote');
 
 $routes->get('/dashboard', 'Admin::index', ['filter' => 'role:SuperAdmin,Admin,User']);

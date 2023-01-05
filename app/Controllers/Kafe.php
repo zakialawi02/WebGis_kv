@@ -88,4 +88,14 @@ class Kafe extends BaseController
         // die;
         return view('page/nearby', $data);
     }
+
+
+    public function noaccess()
+    {
+        $data = [
+            'title' => 'No Access',
+            'pesan' => 'Anda Tidak Mempunyai Hak Akses'
+        ];
+        return view('page/noAccess', $data);
+    }
 }

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <title>404 Page Not Found</title>
@@ -15,6 +16,7 @@
             left: 50%;
             margin-left: -73px;
         }
+
         body {
             height: 100%;
             background: #fafafa;
@@ -22,16 +24,8 @@
             color: #777;
             font-weight: 300;
         }
-        h1 {
-            font-weight: lighter;
-            letter-spacing: normal;
-            font-size: 3rem;
-            margin-top: 0;
-            margin-bottom: 0;
-            color: #222;
-        }
+
         .wrap {
-            max-width: 1024px;
             margin: 5rem auto;
             padding: 2rem;
             background: #fff;
@@ -40,10 +34,21 @@
             border-radius: 0.5rem;
             position: relative;
         }
+
+        h1 {
+            font-weight: lighter;
+            letter-spacing: normal;
+            font-size: 3rem;
+            margin-top: 0;
+            margin-bottom: 0;
+            color: #222;
+        }
+
         pre {
             white-space: normal;
             margin-top: 1.5rem;
         }
+
         code {
             background: #fafafa;
             border: 1px solid #efefef;
@@ -51,9 +56,11 @@
             border-radius: 5px;
             display: block;
         }
+
         p {
             margin-top: 1.5rem;
         }
+
         .footer {
             margin-top: 2rem;
             border-top: 1px solid #efefef;
@@ -61,24 +68,76 @@
             font-size: 85%;
             color: #999;
         }
+
         a:active,
         a:link,
         a:visited {
-            color: #dd4814;
+            color: royalblue;
+        }
+
+        /* 404 */
+        #main {
+            display: table;
+            width: 100%;
+            height: 90vh;
+            text-align: center;
+        }
+
+        .fof {
+            display: table-cell;
+            vertical-align: middle;
+        }
+
+        .fof h1 {
+            font-size: 2.5rem;
+            display: inline-block;
+            padding-right: 12px;
+            animation: type .5s alternate infinite;
+        }
+
+        @keyframes type {
+            from {
+                box-shadow: inset -3px 0px 0px #888;
+            }
+
+            to {
+                box-shadow: inset -3px 0px 0px transparent;
+            }
+        }
+
+        .msg {
+            text-align: center;
+            font-size: 1.3rem;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
-<body>
-    <div class="wrap">
-        <h1>404 - File Not Found</h1>
 
-        <p>
-            <?php if (ENVIRONMENT !== 'production') : ?>
-                <?= nl2br(esc($message)) ?>
-            <?php else : ?>
-                Sorry! Cannot seem to find the page you were looking for.
-            <?php endif ?>
-        </p>
-    </div>
+<body>
+    <?php if (ENVIRONMENT !== 'production') : ?>
+        <div class="wrap">
+            <p>
+            <h1>404 - File Not Found</h1>
+            <?= nl2br(esc($message)) ?>
+            </p>
+        </div>
+    <?php else : ?>
+        <div id="main">
+            <div class="fof">
+                <h1>404 - Page Not Found</h1>
+                <div class="msg">
+                    <p>Let's go <a href="/" class="btn btn-primary">Home</a> Or <a href="javascript:history.back()" class="btn btn-primary">Back</a> and try from there.</p>
+                </div>
+            </div>
+        </div>
+    <?php endif ?>
 </body>
+
 </html>
