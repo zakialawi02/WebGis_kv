@@ -345,17 +345,12 @@ class Admin extends BaseController
         $id_kabupaten = $wilayah[2];
         $id_provinsi = $wilayah[3];
 
-        $longitude  = $this->request->getVar('longitude');
-        $latitude  = $this->request->getVar('latitude');
-        $geometryText = "POINT($longitude $latitude)";
-        $lokasi = "ST_GeomFromText('" . $geometryText . "', 4326)";
         $user = user_id();
         $data = [
             'nama_kafe' => $this->request->getVar('nama_kafe'),
             'alamat_kafe'  => $this->request->getVar('alamat_kafe'),
-            'longitude'  => $longitude,
-            'latitude'  => $latitude,
-            'lokasi' => $lokasi,
+            'longitude'  => $this->request->getVar('longitude'),
+            'latitude'  => $this->request->getVar('latitude'),
             'instagram_kafe'  => $this->request->getVar('instagram_kafe'),
             'fasilitas_kafe' => implode(", ", $this->request->getVar('fasil[]')),
             'id_provinsi'  => $id_provinsi,
@@ -367,7 +362,7 @@ class Admin extends BaseController
         ];
         // var_dump($data);
         // die;
-        $addKafe = $this->kafe->addKafe($data, $lokasi);
+        $addKafe = $this->kafe->addKafe($data);
         $insert_id = $this->db->insertID();
         $status = [
             'id_kafe' => $insert_id,
@@ -461,7 +456,8 @@ class Admin extends BaseController
                 'id_kelurahan'  => $id_kelurahan,
                 'nama_kafe' => $this->request->getVar('nama_kafe'),
                 'alamat_kafe'  => $this->request->getVar('alamat_kafe'),
-                'coordinate'  => $this->request->getVar('coordinate'),
+                'longitude'  => $this->request->getVar('longitude'),
+                'latitude'  => $this->request->getVar('latitude'),
                 'instagram_kafe'  => $this->request->getVar('instagram_kafe'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ];
@@ -471,7 +467,8 @@ class Admin extends BaseController
                 'id_kafe' => $id_kafe,
                 'nama_kafe' => $this->request->getVar('nama_kafe'),
                 'alamat_kafe'  => $this->request->getVar('alamat_kafe'),
-                'coordinate'  => $this->request->getVar('coordinate'),
+                'longitude'  => $this->request->getVar('longitude'),
+                'latitude'  => $this->request->getVar('latitude'),
                 'instagram_kafe'  => $this->request->getVar('instagram_kafe'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ];

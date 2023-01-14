@@ -79,6 +79,7 @@
     <!-- Vendor JS Files -->
     <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
 
 
     <!-- Template Main JS File -->
@@ -92,6 +93,7 @@
     <script src="/leaflet/leaflet.ajax.js"></script>
     <script src="/leaflet/L.Control.MousePosition.js"></script>
     <script src="//unpkg.com/leaflet-gesture-handling"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-tilelayer-geojson/1.0.2/TileLayer.GeoJSON.min.js"></script>
 
     <!-- Leafleat Setting js-->
     <!-- initialize the map on the "map" div with a given center and zoom -->
@@ -155,11 +157,20 @@
             popupAnchor: [0, -28] // point from which the popup should open relative to the iconAnchor
         });
 
-        <?php foreach ($tampilKafe as $K) : ?>
-            L.marker([<?= $K->latitude; ?>, <?= $K->longitude; ?>], {
-                icon: locKafe
-            }).addTo(map).bindPopup("<b><?= $K->nama_kafe; ?></b></br><?= $K->alamat_kafe; ?>");
-        <?php endforeach ?>
+
+        function popUp(f, l) {
+            var out = [];
+            if (f.properties) {
+                for (key in f.properties) {
+                    out.push(key + ": " + f.properties[key]);
+                }
+                l.bindPopup(out.join("<br />"));
+            }
+        }
+
+        var jsonTest = new L.GeoJSON.AJAX(["<?= base_url(); ?>/api"], {
+            onEachFeature: popUp,
+        }).addTo(map);
     </script>
 
 

@@ -98,7 +98,7 @@
                                     <tr>
                                         <td><?= $S->nama_kafe; ?></td>
                                         <td style="min-width: 8em;"><?= $S->alamat_kafe; ?></td>
-                                        <td style="max-width: 8em;"><?= $S->latitude; ?>, <?= $S->longitude; ?></td>
+                                        <td style="max-width: 9em;"><?= $S->latitude; ?>, <?= $S->longitude; ?></td>
                                         <td> <a href="https://www.instagram.com/<?= $S->instagram_kafe ?>" target="_blank" rel="noopener noreferrer" class="d-inline-flex align-items-center">
                                                 <span>@<?= $S->instagram_kafe ?> <i class="ri-external-link-line"></i></span></a> </td>
                                         <td>
@@ -156,13 +156,6 @@
     <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.2/moment.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-    <!-- <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
-<script src="assets/vendor/chart.js/chart.min.js"></script>
-<script src="assets/vendor/echarts/echarts.min.js"></script>
-<script src="assets/vendor/quill/quill.min.js"></script>
-<script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
-<script src="assets/vendor/tinymce/tinymce.min.js"></script>
-<script src="assets/vendor/php-email-form/validate.js"></script> -->
 
     <!-- Template Main JS File -->
     <script src="/js/Script.js"></script>
@@ -172,7 +165,7 @@
         $(document).ready(function() {
             $('#table1').DataTable({
                 scrollX: true,
-                order: [0],
+                order: false,
             });
         });
     </script>
@@ -254,7 +247,7 @@
                 }
             }
 
-            var jsonTest = new L.GeoJSON.AJAX(["<?= base_url(); ?>/geojson/<?= $G->geojson; ?>", "counties.geojson"], {
+            var jsonTest = new L.GeoJSON.AJAX(["<?= base_url(); ?>/geojson/<?= $G->geojson; ?>"], {
                 onEachFeature: popUp,
                 style: myStyle<?= $G->id; ?>,
             }).addTo(map);
@@ -284,7 +277,7 @@
         <?php foreach ($tampilKafe as $K) : ?>
             L.marker([<?= $K->latitude; ?>, <?= $K->longitude; ?>], {
                 icon: locKafe
-            }).addTo(map).bindPopup("<b><?= $K->nama_kafe; ?></b></br><?= $K->alamat_kafe; ?>");
+            }).addTo(map).bindPopup("<b><?= $K->nama_kafe; ?></b></br><?= $K->alamat_kafe; ?></br><a id='tombol-viewmap' href='/kafe/<?= $K->id_kafe; ?>/detail' style='color:black;'>view</a>");
         <?php endforeach ?>
 
         // Map clik coordinate show

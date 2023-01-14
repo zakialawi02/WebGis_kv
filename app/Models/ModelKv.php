@@ -33,7 +33,8 @@ class ModelKv extends Model
                 ->join('tbl_provinsi', 'tbl_provinsi.id_provinsi = tbl_kafe.id_provinsi')
                 ->join('tbl_kabupaten', 'tbl_kabupaten.id_kabupaten = tbl_kafe.id_kabupaten')
                 ->join('tbl_kecamatan', 'tbl_kecamatan.id_kecamatan = tbl_kafe.id_kecamatan')
-                ->join('tbl_kelurahan', 'tbl_kelurahan.id_kelurahan = tbl_kafe.id_kelurahan');
+                ->join('tbl_kelurahan', 'tbl_kelurahan.id_kelurahan = tbl_kafe.id_kelurahan')
+                ->orderBy('id_kafe', 'DESC');
             $query = $buidler->getWhere(['stat_appv' => '1']);
 
             // Buat subquery untuk mendapatkan daftar jam operasional
@@ -281,9 +282,9 @@ class ModelKv extends Model
             ->Where(['stat_appv' => '0'])->countAllResults();
     }
 
-    function addKafe($addKafe, $lokasi)
+    function addKafe($addKafe)
     {
-        return  $this->db->table('tbl_kafe')->set('lokasi', "ST_GeomFromText('$lokasi')")->insert($addKafe);
+        return  $this->db->table('tbl_kafe')->insert($addKafe);
     }
 
     public function updateKafe($data, $id_kafe)
