@@ -194,12 +194,6 @@
             iconAnchor: [18.5, 30], // point of the icon which will correspond to marker's location
             popupAnchor: [0, -28] // point from which the popup should open relative to the iconAnchor
         });
-
-        <?php foreach ($tampilKafe as $K) : ?>
-            L.marker([<?= $K->coordinate; ?>], {
-                icon: locKafe
-            }).addTo(map).bindPopup("<b><?= $K->nama_kafe; ?></b></br><?= $K->alamat_kafe; ?>");
-        <?php endforeach ?>
     </script>
     <script>
         $(document).ready(function() {

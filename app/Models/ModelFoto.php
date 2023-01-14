@@ -11,7 +11,7 @@ class ModelFoto extends Model
     protected $primaryKey = 'id';
 
 
-    protected $allowFields = ['id_kafe', 'nama_file_foto'];
+    protected $allowedFields = ['id_kafe', 'nama_file_foto'];
 
     function __construct()
     {

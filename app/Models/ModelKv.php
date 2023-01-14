@@ -9,9 +9,9 @@ class ModelKv extends Model
 {
     protected $table      = 'tbl_kafe';
     protected $primaryKey = 'id_kafe';
+    protected $returnType     = 'array';
 
-
-    protected $allowFields = ['stat_appv', 'nama_kafe', 'alamat_kafe', 'coordinate', 'foto_kafe', 'id_provinsi', 'id_kabkot', 'id_kecamatan'];
+    protected $allowedFields = ['nama_kafe', 'alamat_kafe', 'longitude', 'latitude', 'foto_kafe', 'id_provinsi', 'id_kabkot', 'id_kecamatan', 'id_kelurahan', 'stat_appv'];
 
     function __construct()
     {
@@ -27,8 +27,9 @@ class ModelKv extends Model
                 ->getCompiledSelect();
 
             // Gunakan subquery di dalam query utama
-            $buidler = $this->db->table('tbl_kafe')->select('tbl_kafe.id_kafe, nama_kafe, alamat_kafe, coordinate, fasilitas_kafe, instagram_kafe, tbl_provinsi.id_provinsi as id_provinsi, nama_provinsi, tbl_kabupaten.id_kabupaten as id_kabupaten, nama_kabupaten, tbl_kecamatan.id_kecamatan as id_kecamatan, nama_kecamatan, tbl_kelurahan.id_kelurahan as id_kelurahan, nama_kelurahan, created_at, updated_at, user, stat_appv, nama_foto')
+            $buidler = $this->db->table('tbl_kafe')->select('tbl_kafe.id_kafe, nama_kafe, alamat_kafe, latitude, longitude, fasilitas_kafe, instagram_kafe, tbl_provinsi.id_provinsi as id_provinsi, nama_provinsi, tbl_kabupaten.id_kabupaten as id_kabupaten, nama_kabupaten, tbl_kecamatan.id_kecamatan as id_kecamatan, nama_kecamatan, tbl_kelurahan.id_kelurahan as id_kelurahan, nama_kelurahan, created_at, updated_at, tbl_status_appv.user as user, tbl_status_appv.stat_appv as stat_appv, nama_foto')
                 ->join("($foto_kafe_subquery) as tbl_foto_kafe", 'tbl_foto_kafe.id_kafe = tbl_kafe.id_kafe', 'LEFT')
+                ->join('tbl_status_appv', 'tbl_status_appv.id_kafe = tbl_kafe.id_kafe')
                 ->join('tbl_provinsi', 'tbl_provinsi.id_provinsi = tbl_kafe.id_provinsi')
                 ->join('tbl_kabupaten', 'tbl_kabupaten.id_kabupaten = tbl_kafe.id_kabupaten')
                 ->join('tbl_kecamatan', 'tbl_kecamatan.id_kecamatan = tbl_kafe.id_kecamatan')
@@ -66,7 +67,8 @@ class ModelKv extends Model
                     'id_kafe' => $row->id_kafe,
                     'nama_kafe' => $row->nama_kafe,
                     'alamat_kafe' => $row->alamat_kafe,
-                    'coordinate' => $row->coordinate,
+                    'latitude' => $row->latitude,
+                    'longitude' => $row->longitude,
                     'fasilitas_kafe' => $row->fasilitas_kafe,
                     'instagram_kafe' => $row->instagram_kafe,
                     'id_provinsi' => $row->id_provinsi,
@@ -95,8 +97,10 @@ class ModelKv extends Model
                 ->getCompiledSelect();
 
             // Gunakan subquery di dalam query utama
-            $buidler = $this->db->table('tbl_kafe')->select('tbl_kafe.id_kafe, nama_kafe, alamat_kafe, coordinate, fasilitas_kafe, instagram_kafe, tbl_provinsi.id_provinsi as id_provinsi, nama_provinsi, tbl_kabupaten.id_kabupaten as id_kabupaten, nama_kabupaten, tbl_kecamatan.id_kecamatan as id_kecamatan, nama_kecamatan, tbl_kelurahan.id_kelurahan as id_kelurahan, nama_kelurahan, created_at, updated_at, user, stat_appv, nama_foto')
-                ->join("($foto_kafe_subquery) as tbl_foto_kafe", 'tbl_foto_kafe.id_kafe = tbl_kafe.id_kafe', 'LEFT')->join('tbl_provinsi', 'tbl_provinsi.id_provinsi = tbl_kafe.id_provinsi')
+            $buidler = $this->db->table('tbl_kafe')->select('tbl_kafe.id_kafe, nama_kafe, alamat_kafe, latitude, longitude, fasilitas_kafe, instagram_kafe, tbl_provinsi.id_provinsi as id_provinsi, nama_provinsi, tbl_kabupaten.id_kabupaten as id_kabupaten, nama_kabupaten, tbl_kecamatan.id_kecamatan as id_kecamatan, nama_kecamatan, tbl_kelurahan.id_kelurahan as id_kelurahan, nama_kelurahan, created_at, updated_at, tbl_status_appv.user as user, tbl_status_appv.stat_appv as stat_appv, nama_foto')
+                ->join("($foto_kafe_subquery) as tbl_foto_kafe", 'tbl_foto_kafe.id_kafe = tbl_kafe.id_kafe', 'LEFT')
+                ->join('tbl_status_appv', 'tbl_status_appv.id_kafe = tbl_kafe.id_kafe')
+                ->join('tbl_provinsi', 'tbl_provinsi.id_provinsi = tbl_kafe.id_provinsi')
                 ->join('tbl_kabupaten', 'tbl_kabupaten.id_kabupaten = tbl_kafe.id_kabupaten')
                 ->join('tbl_kecamatan', 'tbl_kecamatan.id_kecamatan = tbl_kafe.id_kecamatan')
                 ->join('tbl_kelurahan', 'tbl_kelurahan.id_kelurahan = tbl_kafe.id_kelurahan')
@@ -133,7 +137,8 @@ class ModelKv extends Model
                     'id_kafe' => $row->id_kafe,
                     'nama_kafe' => $row->nama_kafe,
                     'alamat_kafe' => $row->alamat_kafe,
-                    'coordinate' => $row->coordinate,
+                    'latitude' => $row->latitude,
+                    'longitude' => $row->longitude,
                     'fasilitas_kafe' => $row->fasilitas_kafe,
                     'instagram_kafe' => $row->instagram_kafe,
                     'id_provinsi' => $row->id_provinsi,
@@ -165,8 +170,10 @@ class ModelKv extends Model
                 ->getCompiledSelect();
 
             // Gunakan subquery di dalam query utama
-            $buidler = $this->db->table('tbl_kafe')->select('tbl_kafe.id_kafe, nama_kafe, alamat_kafe, coordinate, fasilitas_kafe, instagram_kafe, tbl_provinsi.id_provinsi as id_provinsi, nama_provinsi, tbl_kabupaten.id_kabupaten as id_kabupaten, nama_kabupaten, tbl_kecamatan.id_kecamatan as id_kecamatan, nama_kecamatan, tbl_kelurahan.id_kelurahan as id_kelurahan, nama_kelurahan, created_at, updated_at, user, stat_appv, nama_foto')
-                ->join("($foto_kafe_subquery) as tbl_foto_kafe", 'tbl_foto_kafe.id_kafe = tbl_kafe.id_kafe', 'LEFT')->join('tbl_provinsi', 'tbl_provinsi.id_provinsi = tbl_kafe.id_provinsi')
+            $buidler = $this->db->table('tbl_kafe')->select('tbl_kafe.id_kafe, nama_kafe, alamat_kafe, latitude, longitude, fasilitas_kafe, instagram_kafe, tbl_provinsi.id_provinsi as id_provinsi, nama_provinsi, tbl_kabupaten.id_kabupaten as id_kabupaten, nama_kabupaten, tbl_kecamatan.id_kecamatan as id_kecamatan, nama_kecamatan, tbl_kelurahan.id_kelurahan as id_kelurahan, nama_kelurahan, created_at, updated_at, tbl_status_appv.user as user, tbl_status_appv.stat_appv as stat_appv, nama_foto')
+                ->join("($foto_kafe_subquery) as tbl_foto_kafe", 'tbl_foto_kafe.id_kafe = tbl_kafe.id_kafe', 'LEFT')
+                ->join('tbl_status_appv', 'tbl_status_appv.id_kafe = tbl_kafe.id_kafe')
+                ->join('tbl_provinsi', 'tbl_provinsi.id_provinsi = tbl_kafe.id_provinsi')
                 ->join('tbl_kabupaten', 'tbl_kabupaten.id_kabupaten = tbl_kafe.id_kabupaten')
                 ->join('tbl_kecamatan', 'tbl_kecamatan.id_kecamatan = tbl_kafe.id_kecamatan')
                 ->join('tbl_kelurahan', 'tbl_kelurahan.id_kelurahan = tbl_kafe.id_kelurahan');
@@ -203,7 +210,8 @@ class ModelKv extends Model
                     'id_kafe' => $row->id_kafe,
                     'nama_kafe' => $row->nama_kafe,
                     'alamat_kafe' => $row->alamat_kafe,
-                    'coordinate' => $row->coordinate,
+                    'latitude' => $row->latitude,
+                    'longitude' => $row->longitude,
                     'fasilitas_kafe' => $row->fasilitas_kafe,
                     'instagram_kafe' => $row->instagram_kafe,
                     'id_provinsi' => $row->id_provinsi,
@@ -231,7 +239,8 @@ class ModelKv extends Model
     }
     function getFiveKafe()
     {
-        $buidler = $this->db->table('tbl_kafe')->select('tbl_kafe.id_kafe, nama_kafe, alamat_kafe, coordinate, fasilitas_kafe, instagram_kafe, tbl_provinsi.id_provinsi as id_provinsi, nama_provinsi, tbl_kabupaten.id_kabupaten as id_kabupaten, nama_kabupaten, tbl_kecamatan.id_kecamatan as id_kecamatan, nama_kecamatan, tbl_kelurahan.id_kelurahan as id_kelurahan, nama_kelurahan, created_at, updated_at, user, stat_appv')
+        $buidler = $this->db->table('tbl_kafe')->select('tbl_kafe.id_kafe, nama_kafe, alamat_kafe, latitude, longitude, fasilitas_kafe, instagram_kafe, tbl_provinsi.id_provinsi as id_provinsi, nama_provinsi, tbl_kabupaten.id_kabupaten as id_kabupaten, nama_kabupaten, tbl_kecamatan.id_kecamatan as id_kecamatan, nama_kecamatan, tbl_kelurahan.id_kelurahan as id_kelurahan, nama_kelurahan, created_at, updated_at, tbl_status_appv.user as user, tbl_status_appv.stat_appv as stat_appv')
+            ->join('tbl_status_appv', 'tbl_status_appv.id_kafe = tbl_kafe.id_kafe')
             ->join('tbl_provinsi', 'tbl_provinsi.id_provinsi = tbl_kafe.id_provinsi')
             ->join('tbl_kabupaten', 'tbl_kabupaten.id_kabupaten = tbl_kafe.id_kabupaten')
             ->join('tbl_kecamatan', 'tbl_kecamatan.id_kecamatan = tbl_kafe.id_kecamatan')
@@ -244,6 +253,7 @@ class ModelKv extends Model
     function cariKafe($keyword)
     {
         return $this->db->table('tbl_kafe')
+            ->join('tbl_status_appv', 'tbl_status_appv.id_kafe = tbl_kafe.id_kafe')
             ->Where(['stat_appv' => '1'])
             ->like('nama_kafe', $keyword)
             ->get()
@@ -252,22 +262,28 @@ class ModelKv extends Model
 
     function randomFour()
     {
-        return $this->db->table('tbl_kafe')->orderBy('RAND()')->limit(4)->getWhere(['stat_appv' => '1']);
+        return $this->db->table('tbl_kafe')
+            ->join('tbl_status_appv', 'tbl_status_appv.id_kafe = tbl_kafe.id_kafe')
+            ->orderBy('RAND()')->limit(4)->getWhere(['stat_appv' => '1']);
     }
 
     function countAllKafe()
     {
-        return $this->db->table('tbl_kafe')->Where(['stat_appv' => '1'])->countAllResults();
+        return $this->db->table('tbl_kafe')
+            ->join('tbl_status_appv', 'tbl_status_appv.id_kafe = tbl_kafe.id_kafe')
+            ->Where(['stat_appv' => '1'])->countAllResults();
     }
 
     function countAllPending()
     {
-        return $this->db->table('tbl_kafe')->Where(['stat_appv' => '0'])->countAllResults();
+        return $this->db->table('tbl_kafe')
+            ->join('tbl_status_appv', 'tbl_status_appv.id_kafe = tbl_kafe.id_kafe')
+            ->Where(['stat_appv' => '0'])->countAllResults();
     }
 
-    function addKafe($addKafe)
+    function addKafe($addKafe, $lokasi)
     {
-        return $this->db->table('tbl_kafe')->insert($addKafe);
+        return  $this->db->table('tbl_kafe')->set('lokasi', "ST_GeomFromText('$lokasi')")->insert($addKafe);
     }
 
     public function updateKafe($data, $id_kafe)
@@ -275,14 +291,13 @@ class ModelKv extends Model
         return $this->db->table('tbl_kafe')->update($data, ['id_kafe' => $id_kafe]);
     }
 
+    function addStatus($addStatus)
+    {
+        return $this->db->table('tbl_status_appv')->insert($addStatus);
+    }
     public function chck_appv($data, $id_kafe)
     {
-        return $this->db->table('tbl_kafe')->update($data, ['id_kafe' => $id_kafe]);
-    }
-
-    public function getLastID()
-    {
-        return $this->orderBy('id_kafe', 'desc')->get()->getFirstRow('array');
+        return $this->db->table('tbl_status_appv')->update($data, ['id_kafe' => $id_kafe]);
     }
 
     function addTime($addTime)
@@ -318,5 +333,9 @@ class ModelKv extends Model
     public function allKelurahan($id_kelurahan)
     {
         return $this->db->table('tbl_kelurahan')->where('id_kecamatan', $id_kelurahan)->get()->getResultArray();
+    }
+    function tes()
+    {
+        return $this->db->table('test')->get();
     }
 }

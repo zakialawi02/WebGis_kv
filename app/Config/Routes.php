@@ -43,6 +43,9 @@ $routes->match(['get', 'post'], 'Admin/getDataAjaxRemote', 'Admin::getDataAjaxRe
 $routes->get('/dashboard', 'Admin::index', ['filter' => 'role:SuperAdmin,Admin,User']);
 $routes->get('/admin/pending', 'Admin::pending', ['filter' => 'role:SuperAdmin,Admin']);
 
+$routes->get('/admin/setting', 'Admin::setting', ['filter' => 'role:SuperAdmin,Admin']);
+
+$routes->get('/admin/geojson', 'Admin::geojson', ['filter' => 'role:SuperAdmin,Admin']);
 $routes->get('/admin/data/geojson', 'Admin::geojson', ['filter' => 'role:SuperAdmin,Admin']);
 $routes->get('/admin/data/geojson/tambah', 'Admin::tambahGeojson', ['filter' => 'role:SuperAdmin,Admin']);
 $routes->get('/admin/data/geojson/edit/(:num)', 'Admin::editGeojson/$1', ['filter' => 'role:SuperAdmin,Admin']);

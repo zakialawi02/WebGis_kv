@@ -46,7 +46,7 @@
         <div class="container">
             <div class="row align-items-center">
 
-                <div class="col p-2">
+                <div class="col-lg p-2">
                     <div class="product-imgs">
                         <div class="img-display">
                             <div class="img-showcase">
@@ -71,34 +71,40 @@
                     </div>
                 </div>
 
-                <div class="col p-2">
+                <div class="col-lg p-2">
                     <table class="table">
                         <thead class="thead-left">
                             <tr>
                                 <th style="font-weight: 400; border-bottom-width: 1px; border-bottom-color: #dee2e6;">Nama Kafe</th>
+                                <th style="border-bottom-width: 1px; border-bottom-color: #dee2e6;">:</th>
                                 <th style="font-weight: 400; border-bottom-width: 1px; border-bottom-color: #dee2e6;"><?= $tampilKafe->nama_kafe; ?></th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td>Alamat</td>
+                                <th>:</th>
                                 <td><?= $tampilKafe->alamat_kafe; ?></td>
                             </tr>
                             <tr>
                                 <td>Koordinat</td>
-                                <td><?= $tampilKafe->coordinate; ?></td>
+                                <th>:</th>
+                                <td><?= $tampilKafe->latitude; ?>, <?= $tampilKafe->longitude; ?></td>
                             </tr>
                             <tr>
                                 <td>Wilayah Administrasi</td>
+                                <th>:</th>
                                 <td><?= $tampilKafe->nama_kelurahan ?>, Kec. <?= $tampilKafe->nama_kecamatan ?>, <?= $tampilKafe->nama_kabupaten ?></td>
                             </tr>
                             <tr>
                                 <td>Instagram</td>
+                                <th>:</th>
                                 <td><a href="https://www.instagram.com/<?= $tampilKafe->instagram_kafe ?>" target="_blank" rel="noopener noreferrer" class="d-inline-flex align-items-center">
                                         <span>@<?= $tampilKafe->instagram_kafe ?> <i class="ri-external-link-line"></i></span></a></td>
                             </tr>
                             <tr>
                                 <td>Jam Oprasional</td>
+                                <th>:</th>
                                 <td><?php foreach ($tampilKafe->business_hours as $day => $times) : ?>
                                         <?= $open_close = ''; ?>
                                         <?php foreach ($times as $time) : ?>
@@ -114,13 +120,30 @@
                                             <?php $open_close = rtrim($open_close, ", "); ?>
                                             <?php $result[$day] = $open_close; ?>
                                             <div class="mb-2 row">
-                                                <div class="col-lg-3 col-md-4 label "><?= $day; ?></div>
-                                                <div class="col-lg-9 col-md-8"><?= $open_close; ?></div>
+                                                <div class="col-lg-3 col-4 label "><?= $day; ?></div>
+                                                <div class="col-lg-9 col-8"><?= $open_close; ?></div>
                                             </div>
                                         <?php endforeach ?>
                                     <?php endforeach ?>
                                 </td>
                             </tr>
+                            <tr>
+                                <td>Kontak</td>
+                                <th>:</th>
+                                <td> ?? </td>
+                            </tr>
+                            <?php if (in_groups('SuperAdmin') || in_groups('Admin')) :; ?>
+                                <tr>
+                                    <td>Updated at</td>
+                                    <th>:</th>
+                                    <td><?= date('d M Y H:i:s', strtotime($tampilKafe->updated_at)); ?></td>
+                                </tr>
+                                <tr>
+                                    <td>User by</td>
+                                    <th>:</th>
+                                    <td><?= $tampilKafe->user; ?></td>
+                                </tr>
+                            <?php endif ?>
                         </tbody>
                     </table>
                 </div>
@@ -214,7 +237,7 @@
 
         // set frame view
         var map = L.map('map', {
-            center: [<?= $tampilKafe->coordinate; ?>],
+            center: [<?= $tampilKafe->latitude; ?>, <?= $tampilKafe->longitude; ?>],
             zoom: 18,
             layers: [peta1],
             gestureHandling: true,
@@ -240,7 +263,7 @@
             popupAnchor: [0, -38] // point from which the popup should open relative to the iconAnchor
         });
 
-        L.marker([<?= $tampilKafe->coordinate; ?>], {
+        L.marker([<?= $tampilKafe->latitude; ?>, <?= $tampilKafe->longitude; ?>], {
             icon: locKafe
         }).addTo(map).bindPopup("<b><?= $tampilKafe->nama_kafe; ?></b></br><?= $tampilKafe->alamat_kafe; ?>").openPopup();
     </script>

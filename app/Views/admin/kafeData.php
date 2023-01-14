@@ -88,7 +88,7 @@
                                 <tr>
                                     <th>Nama Kafe</th>
                                     <th>Alamat Kafe</th>
-                                    <th>Fasilitas</th>
+                                    <th>Koordinat</th>
                                     <th>Instagram</th>
                                     <th>Aksi</th>
                                 </tr>
@@ -97,95 +97,17 @@
                                 <?php foreach ($tampilKafe as $S) : ?>
                                     <tr>
                                         <td><?= $S->nama_kafe; ?></td>
-                                        <td><?= $S->alamat_kafe; ?></td>
-                                        <td><?= $S->coordinate; ?></td>
+                                        <td style="min-width: 8em;"><?= $S->alamat_kafe; ?></td>
+                                        <td style="max-width: 8em;"><?= $S->latitude; ?>, <?= $S->longitude; ?></td>
                                         <td> <a href="https://www.instagram.com/<?= $S->instagram_kafe ?>" target="_blank" rel="noopener noreferrer" class="d-inline-flex align-items-center">
                                                 <span>@<?= $S->instagram_kafe ?> <i class="ri-external-link-line"></i></span></a> </td>
                                         <td>
                                             <div class="btn-group mr-2" role="group" aria-label="First group">
+                                                <a href="/kafe/<?= $S->id_kafe; ?>/detail" class="btn btn-secondary bi bi-eye" role="button" target="_blank"></a>
+                                            </div>
+                                            <div class="btn-group mr-2" role="group" aria-label="First group">
                                                 <a href="/admin/data/kafe/edit/<?= $S->id_kafe; ?>" class="btn btn-primary bi bi-pencil-square" role="button"></a>
                                             </div>
-
-                                            <!-- Button trigger modalEdit -->
-                                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#viewModal-<?= $S->id_kafe ?>"><i class="ri-eye-fill"></i> </button>
-
-                                            <!-- EDIT Modal -->
-                                            <div class="modal fade mt-5" id="viewModal-<?= $S->id_kafe ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="z-index: 2001 ;">
-                                                <div class="modal-dialog modal-lg">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h5 class="modal-title" id="modaleditLabel">Details</h5>
-                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                        </div>
-                                                        <div class="modal-body">
-
-                                                            <div class="mb-2 row">
-                                                                <div class="col-lg-3 col-md-4 label ">Nama Kafe</div>
-                                                                <div class="col-lg-9 col-md-8">: <?= $S->nama_kafe ?></div>
-                                                            </div>
-                                                            <div class="mb-2 row">
-                                                                <div class="col-lg-3 col-md-4 label ">Alamat Kafe</div>
-                                                                <div class="col-lg-9 col-md-8">: <?= $S->alamat_kafe ?></div>
-                                                            </div>
-                                                            <div class="mb-2 row">
-                                                                <div class="col-lg-3 col-md-4 label ">Wilayah Administrasi</div>
-                                                                <div class="col-lg-9 col-md-8">: <?= $S->nama_kelurahan ?>, Kec. <?= $S->nama_kecamatan ?>, <?= $S->nama_kabupaten ?></div>
-                                                            </div>
-                                                            <div class="mb-2 row">
-                                                                <div class="col-lg-3 col-md-4 label ">Koordinat Kafe</div>
-                                                                <div class="col-lg-9 col-md-8">: <?= $S->coordinate ?></div>
-                                                            </div>
-                                                            <div class="mb-2 row">
-                                                                <div class="col-lg-3 col-md-4 label ">Fasilitas Kafe</div>
-                                                                <div class="col-lg-9 col-md-8">: <?= $S->fasilitas_kafe ?></div>
-                                                            </div>
-                                                            <div class="mb-2 row">
-                                                                <div class="col-lg-3 col-md-4 label ">Instagram</div>
-                                                                <div class="col-lg-9 col-md-8">: <a href="https://www.instagram.com/<?= $S->instagram_kafe ?>" target="_blank" rel="noopener noreferrer" class="d-inline-flex align-items-center">
-                                                                        <span>@<?= $S->instagram_kafe ?> <i class="ri-external-link-line"></i></span></a></div>
-                                                            </div>
-                                                            <div class="mb-2 row">
-                                                                <div class="col-lg-3 col-md-4 label ">Last Updated</div>
-                                                                <div class="col-lg-9 col-md-8">: <?= date('d M Y H:i:s', strtotime($S->updated_at)); ?></div>
-                                                            </div>
-                                                            <div class="mb-2 row">
-                                                                <div class="col-lg-3 col-md-4 label ">Jam Buka</div>
-                                                                <div class="col-lg-9 col-md-8">
-                                                                    <?php foreach ($S->business_hours as $day => $times) : ?>
-                                                                        <?= $open_close = ''; ?>
-                                                                        <?php foreach ($times as $time) : ?>
-                                                                            <?php $open = $time['open']; ?>
-                                                                            <?php $close = $time['close']; ?>
-                                                                            <?php if (!empty($open) && !empty($close)) : ?>
-                                                                                <?php $open = date('h:i', strtotime($open)); ?>
-                                                                                <?php $close = date('h:i', strtotime($close)); ?>
-                                                                                <?php $open_close .= "$open-$close, "; ?>
-                                                                            <?php else : ?>
-                                                                                <?php $open_close .= "Tutup"; ?>
-                                                                            <?php endif ?>
-                                                                            <?php $open_close = rtrim($open_close, ", "); ?>
-                                                                            <?php $result[$day] = $open_close; ?>
-                                                                            <?= $result[$day] = $day . ": " . $open_close; ?></br>
-                                                                        <?php endforeach ?>
-                                                                    <?php endforeach ?>
-                                                                </div>
-                                                            </div>
-                                                            <div class="mb-2 row">
-                                                                <div class="col-lg-3 col-md-4 mb-3 label ">Foto</div>
-                                                                <div class="col-lg-9 col-md-8">: </div>
-                                                                <div class="form-group">
-                                                                    <?php $foto_kafe = explode(', ', $S->nama_foto); ?>
-                                                                    <?php foreach ($foto_kafe as $foto) : ?>
-                                                                        <img class="img-kafe" src="<?= base_url('/img/kafe/' . $foto); ?>" alt="Foto">
-                                                                    <?php endforeach ?>
-                                                                </div>
-                                                            </div>
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
                                             <div class="btn-group mr-2" role="group" aria-label="First group">
                                                 <form action="/admin/delete_Kafe/<?= $S->id_kafe; ?>" method="post">
                                                     <?= csrf_field(); ?>
@@ -360,7 +282,7 @@
         });
 
         <?php foreach ($tampilKafe as $K) : ?>
-            L.marker([<?= $K->coordinate; ?>], {
+            L.marker([<?= $K->latitude; ?>, <?= $K->longitude; ?>], {
                 icon: locKafe
             }).addTo(map).bindPopup("<b><?= $K->nama_kafe; ?></b></br><?= $K->alamat_kafe; ?>");
         <?php endforeach ?>

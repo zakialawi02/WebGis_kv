@@ -105,20 +105,7 @@
             }, 2500);
         });
     </script>
-    <script>
-        // Get a reference to our file input
-        const fileInput = document.querySelector('input[type="file"]');
 
-        // Create a new File object
-        const myFile = new File(['GeoJSON'], '<?= $updateGeojson->geojson; ?>', {
-            lastModified: new Date(),
-        });
-
-        // Now let's create a DataTransfer to get a FileList
-        const dataTransfer = new DataTransfer();
-        dataTransfer.items.add(myFile);
-        fileInput.files = dataTransfer.files;
-    </script>
 
     <!-- Leafleat js Component -->
     <script src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js" integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg=" crossorigin=""></script>

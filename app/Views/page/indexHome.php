@@ -85,11 +85,11 @@
         <div class="p-5"></div>
         <div class="container card-map" style="width: 80%;">
             <div class="row">
-                <div class="p-5 col-4">
+                <div class="p-5 col-md-4">
                     <h2>Heading</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at dignissim velit. Praesent dictum auctor neque non suscipit. Duis lobortis arcu eu sapien condimentum, a placerat leo elementum. Suspendisse potenti. Nunc eu congue velit. Sed ultricies, est vel suscipit dictum, lacus purus aliquam libero, ut sollicitudin leo metus sit amet metus.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at dignissim velit. Praesent dictum auctor neque non suscipit. Duis lobortis arcu eu sapien condimentum, a placerat leo elementum. Suspendisse potenti. Ut sollicitudin leo metus sit amet metus.</p>
                 </div>
-                <div class="col-8">
+                <div class="col-md-8">
                     <div class="map" id="map"></div>
                 </div>
             </div>
@@ -187,7 +187,7 @@
         });
 
         <?php foreach ($tampilKafe as $K) : ?>
-            L.marker([<?= $K->coordinate; ?>], {
+            L.marker([<?= $K->latitude; ?>, <?= $K->longitude; ?>], {
                 icon: locKafe
             }).addTo(map).bindPopup("<b><?= $K->nama_kafe; ?></b></br><?= $K->alamat_kafe; ?>");
         <?php endforeach ?>

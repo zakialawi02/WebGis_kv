@@ -61,7 +61,7 @@
     });
 
     <?php foreach ($tampilKafe as $K) : ?>
-        L.marker([<?= $K->coordinate; ?>], {
+        L.marker([<?= $K->latitude; ?>, <?= $K->longitude; ?>], {
             icon: locKafe
         }).addTo(map).bindPopup("<b><?= $K->nama_kafe; ?></b></br><?= $K->alamat_kafe; ?>");
     <?php endforeach ?>

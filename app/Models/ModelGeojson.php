@@ -11,7 +11,7 @@ class ModelGeojson extends Model
     protected $primaryKey = 'id';
 
 
-    protected $allowFields = ['kode_wilayah', 'nama_wilayah', 'geojson', 'warna'];
+    protected $allowedFields = ['kode_wilayah', 'nama_wilayah', 'geojson', 'warna'];
 
     function __construct()
     {

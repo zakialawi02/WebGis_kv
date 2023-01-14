@@ -80,6 +80,19 @@ class Admin extends BaseController
         return view('admin/tempp', $data);
     }
 
+    public function tes()
+    {
+        $data = [
+            'title' => 'Lihat Peta',
+            'tampilData' => $this->setting->tampilData()->getResult(),
+            'tampilKafe' => $this->kafe->tes()->getResultArray(),
+        ];
+        echo '<pre>';
+        print_r($data['tampilKafe']);
+        die;
+        return view('page/viewMap', $data);
+    }
+
     public function dump()
     {
         // dd($this->request->getVar());
@@ -332,13 +345,17 @@ class Admin extends BaseController
         $id_kabupaten = $wilayah[2];
         $id_provinsi = $wilayah[3];
 
-        $user = user()->username;
+        $longitude  = $this->request->getVar('longitude');
+        $latitude  = $this->request->getVar('latitude');
+        $geometryText = "POINT($longitude $latitude)";
+        $lokasi = "ST_GeomFromText('" . $geometryText . "', 4326)";
+        $user = user_id();
         $data = [
-            'user' => $user,
-            'stat_appv' => $this->request->getVar('stat_appv'),
             'nama_kafe' => $this->request->getVar('nama_kafe'),
             'alamat_kafe'  => $this->request->getVar('alamat_kafe'),
-            'coordinate'  => $this->request->getVar('coordinate'),
+            'longitude'  => $longitude,
+            'latitude'  => $latitude,
+            'lokasi' => $lokasi,
             'instagram_kafe'  => $this->request->getVar('instagram_kafe'),
             'fasilitas_kafe' => implode(", ", $this->request->getVar('fasil[]')),
             'id_provinsi'  => $id_provinsi,
@@ -346,10 +363,18 @@ class Admin extends BaseController
             'id_kecamatan'  => $id_kecamatan,
             'id_kelurahan'  => $id_kelurahan,
             'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s'),
         ];
-
-        $addKafe = $this->kafe->addKafe($data);
+        // var_dump($data);
+        // die;
+        $addKafe = $this->kafe->addKafe($data, $lokasi);
         $insert_id = $this->db->insertID();
+        $status = [
+            'id_kafe' => $insert_id,
+            'stat_appv' => $this->request->getVar('stat_appv'),
+            'user' => $user,
+        ];
+        $addStatus = $this->kafe->addStatus($status);
         $files = $this->request->getFiles();
         foreach ($files['foto_kafe'] as $key => $img) {
             if ($img->isValid() && !$img->hasMoved()) {

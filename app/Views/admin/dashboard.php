@@ -143,7 +143,7 @@
                                                 <tr>
                                                     <td><?= $kafe->nama_kafe; ?></td>
                                                     <td><?= $kafe->alamat_kafe; ?></td>
-                                                    <td><a href="#" class="text-primary"><?= $kafe->coordinate; ?></a></td>
+                                                    <td><a href="#" class="text-primary"><?= $kafe->latitude; ?>, <?= $kafe->longitude; ?></a></td>
                                                     <td><?= date('d M Y', strtotime($kafe->created_at)); ?></td>
                                                     <td><span class="badge bg-success"><?= $kafe->user; ?></span></td>
                                                 </tr>
@@ -151,7 +151,7 @@
                                         </tbody>
                                     </table>
 
-                                    <a type="button" class="btn btn-primary" href="/admin/kafe">View More</a>
+                                    <a type="button" class="btn btn-primary" href="/admin/data/kafe">View More</a>
                                 </div>
 
                             </div>

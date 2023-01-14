@@ -93,10 +93,19 @@
                                     <label for="alamat_kafe" class="form-label">Alamat Kafe</label>
                                     <input type="text" class="form-control" id="alamat_kafe" aria-describedby="textlHelp" name="alamat_kafe" required>
                                 </div>
-                                <div class="form-group">
-                                    <label for="coordinate" class="form-label">Koordinat</label>
-                                    <input type="text" class="form-control" id="coordinate" aria-describedby="textlHelp" name="coordinate" value="" pattern="^(\-?\d+(\.\d+)?),\s*(\-?\d+(\.\d+)?)$" title="Tuliskan Sesuai Format Contoh" required>
-                                    <div id="FileHelp" class="form-text">example: -7.0385384, 112.8998345</div>
+
+                                <div class="row g-2">
+                                    <label for="koordinat" class="form-label">Koordinat</label>
+                                    <div class="form-group col-md-6">
+                                        <label for="latitude" class="form-label">Latitude</label>
+                                        <input type="text" class="form-control" id="latitude" aria-describedby="textlHelp" name="latitude" pattern="/^(\-?\d+(\.\d+)?)$/" title="Tuliskan Sesuai Format" required>
+                                        <div id="FileHelp" class="form-text">Use Desimal Degree; example: -7.0385384</div>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="longitude" class="form-label">Longitude</label>
+                                        <input type="text" class="form-control" id="longitude" aria-describedby="textlHelp" name="longitude" pattern="/^[^a-zA-Z]*(\-?\d+(\.\d+)?)$/" title="Tuliskan Sesuai Format" required>
+                                        <div id="FileHelp" class="form-text">Use Desimal Degree; example: 112.8998345</div>
+                                    </div>
                                 </div>
 
                                 <div class="form-group row g-2">
@@ -658,40 +667,19 @@
         L.control.scale().addTo(map);
 
 
-        // set marker place
-
-
-
-        // get coordinat on map to input
+        // set marker place from input
         $(document).ready(function() {
-            $("#coordinate").on('keyup', function() {
-                var coor = document.getElementById("coordinate").value;
-                const myArray = coor.split(",", 2);
-                console.log(myArray);
-                x = myArray[0];
-                y = myArray[1];
-                koordinat = x + "," + y;
+            $("#latitude, #longitude").on('keyup', function() {
+                var lat = document.getElementById("latitude").value;
+                var lng = document.getElementById("longitude").value;
                 if (marker) map.removeLayer(marker);
-                marker = L.marker([x, y]).addTo(map);
+                marker = L.marker([lat, lng]).addTo(map);
                 document.getElementById("koordinat").textContent = koordinat;
-                map.panTo(new L.LatLng(x, y));
+                map.panTo(new L.LatLng(lat, lng));
             });
         });
 
-        // function zoomTo() {
-        //     var coor = document.getElementById("coordinate").value;
-        //     const myArray = coor.split(",", 2);
-        //     console.log(myArray);
-        //     x = myArray[0];
-        //     y = myArray[1];
-        //     koordinat = x + "," + y;
-        //     if (marker) map.removeLayer(marker);
-        //     marker = L.marker([x, y]).addTo(map);
-        //     document.getElementById("koordinat").textContent = koordinat;
-        //     map.panTo(new L.LatLng(x, y));
-        // };
-
-
+        // get coordinat on map to input
         var koordinat, marker;
         map.on("click", function(e) {
             if (marker) map.removeLayer(marker);
@@ -703,8 +691,8 @@
             console.log(koordinat);
             marker = L.marker([lat, lng]).addTo(map);
             document.getElementById("koordinat").textContent = koordinat;
-            // document.getElementById("coordinate").textContent = koordinat;
-            $('#coordinate').val(koordinat);
+            $('#latitude').val(lat);
+            $('#longitude').val(lng);
         });
     </script>
 

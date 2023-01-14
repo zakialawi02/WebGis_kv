@@ -10,7 +10,7 @@ class ModelUser extends Model
     protected $table      = 'users';
     protected $primaryKey = 'id';
     protected $useSoftDeletes = false;
-    protected $allowFields = ['full_name', 'user_image', 'email', 'user_about', 'password_hash', 'active'];
+    protected $allowedFields = ['full_name', 'user_image', 'email', 'user_about', 'password_hash', 'active'];
 
     function __construct()
     {
