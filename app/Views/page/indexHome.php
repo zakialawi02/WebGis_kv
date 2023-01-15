@@ -123,6 +123,7 @@
     <script src="/leaflet/leaflet.ajax.js"></script>
     <script src="/leaflet/L.Control.MousePosition.js"></script>
     <script src="//unpkg.com/leaflet-gesture-handling"></script>
+    <script src="https://unpkg.com/leaflet.featuregroup.subgroup@1.0.2/dist/leaflet.featuregroup.subgroup.js"></script>
 
     <!-- Leafleat Setting js-->
     <!-- initialize the map on the "map" div with a given center and zoom -->
@@ -156,7 +157,6 @@
         });
 
         // set frame view
-
         <?php foreach ($tampilData as $D) : ?>
             var map = L.map('map', {
                 center: [<?= $D->coordinat_wilayah; ?>],

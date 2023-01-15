@@ -42,7 +42,6 @@ class User extends BaseController
             'title' => 'USER LIST',
             'users' => $this->users->getUsers()->getResult(),
         ];
-
         return view('page/userList', $data);
     }
 

@@ -40,6 +40,7 @@ $routes->get('/', 'Kafe::index');
 $routes->get('/noaccess', 'Kafe::noaccess');
 $routes->match(['get', 'post'], 'Admin/getDataAjaxRemote', 'Admin::getDataAjaxRemote');
 
+$routes->get('/contact', 'Kafe::contact');
 $routes->get('/dashboard', 'Admin::index', ['filter' => 'role:SuperAdmin,Admin,User']);
 $routes->get('/admin/pending', 'Admin::pending', ['filter' => 'role:SuperAdmin,Admin']);
 

@@ -17,7 +17,7 @@
                         <li><a href="/kafe/near">Terdekat</a></li>
                     </ul>
                 </li>
-                <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+                <li><a class="nav-link scrollto" href="/contact">Contact</a></li>
 
 
                 <?php if (logged_in()) : ?>

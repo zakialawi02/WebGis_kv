@@ -89,7 +89,6 @@ class Kafe extends BaseController
         return view('page/nearby', $data);
     }
 
-
     public function noaccess()
     {
         $data = [
@@ -97,5 +96,13 @@ class Kafe extends BaseController
             'pesan' => 'Anda Tidak Mempunyai Hak Akses'
         ];
         return view('page/noAccess', $data);
+    }
+
+    public function contact()
+    {
+        $data = [
+            'title' => 'CONTACT',
+        ];
+        return view('page/contact', $data);
     }
 }
