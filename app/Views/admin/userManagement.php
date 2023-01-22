@@ -142,6 +142,7 @@
                                     <th>Username</th>
                                     <th>Email</th>
                                     <th>Role</th>
+                                    <th>Active</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -153,10 +154,8 @@
                                         <td><?= $user->username; ?></td>
                                         <td><?= $user->email; ?></td>
                                         <td><span class="badge bg-<?= ($user->name == 'Admin' or $user->name == 'SuperAdmin') ? 'info' : 'secondary'; ?>"> <?= $user->name; ?> </span></td>
+                                        <td><span class="badge bg-<?= ($user->active == '0') ? 'danger' : 'success'; ?>"> <?= ($user->active == '0') ? 'inactive' : 'active'; ?> </span></td>
                                         <td>
-
-
-
                                             <!-- Button trigger modal -->
                                             <button type="button" class="btn btn-primary bi bi-pencil-square" data-bs-toggle="modal" data-bs-target="#editUserRole-<?= $user->userid ?>"></button>
 
@@ -170,19 +169,16 @@
                                                         </div>
                                                         <div class="modal-body">
 
-
                                                             <form action="/user/updateUser" method="post" enctype="multipart/form-data" class="row g-3" autocomplete="off">
                                                                 <?= csrf_field(); ?>
 
-                                                                <div class="col">
-                                                                    <input type="hidden" class="form-control" for="userid" id="userid" name="userid" value="<?= $user->userid ?>">
-                                                                </div>
+                                                                <input type="hidden" class="form-control" for="userid" id="userid" name="userid" value="<?= $user->userid ?>">
 
-                                                                <div class="mb-3">
+                                                                <div class="form-group">
                                                                     <label for="username" class="col-form-label">Username</label>
                                                                     <input type="text" class="form-control " name="username" id="username" value="<?= $user->username ?>" required>
                                                                 </div>
-                                                                <div class="mb-3">
+                                                                <div class="form-group">
                                                                     <label for="full_name" class="col-form-label">Full Name</label>
                                                                     <input type="text" class="form-control " name="full_name" id="full_name" value="<?= $user->full_name ?>">
                                                                 </div>
@@ -194,13 +190,22 @@
                                                                     <label for="password_hash" class="col-form-label">Password</label>
                                                                     <input type="password" class="form-control" name="password_hash" id="password_hash" autocomplete="off">
                                                                 </div>
-                                                                <div class="mb-3">
+                                                                <div class="col-md-6">
                                                                     <label for="role" class="col-form-label">Role</label>
                                                                     <select class="form-control " name="role" id="role" required>
                                                                         <option value="">--Pilih Role--</option>
                                                                         <?php foreach ($auth_groups as $key => $value) : ?>
                                                                             <option value="<?= $value['id'] ?>" <?= $value['id'] == $user->group_id ? "selected" : null ?>><?= $value['name'] ?></option>
                                                                         <?php endforeach ?>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <label for="active" class="col-form-label">Status</label>
+                                                                    <select class="form-control " name="active" id="active" required>
+                                                                        <option value="">--Status--</option>
+                                                                        <?php $active = $user->active; ?>
+                                                                        <option value="1" <?php if ($active == 1) echo "selected"; ?>>Active</option>
+                                                                        <option value="0" <?php if ($active == 0) echo "selected"; ?>>Inactive</option>
                                                                     </select>
                                                                 </div>
                                                         </div>
@@ -213,8 +218,6 @@
                                                     </div>
                                                 </div>
                                             </div>
-
-
 
 
                                             <div class="btn-group mr-2" role="group" aria-label="First group">

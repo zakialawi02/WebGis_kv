@@ -32,7 +32,6 @@ class User extends BaseController
             'users' => $this->users->getUsers()->getResult(),
             'auth_groups' => $this->users->allGroup(),
         ];
-
         return view('admin/userManagement', $data);
     }
 
@@ -100,6 +99,7 @@ class User extends BaseController
             'username' => $this->request->getVar('username'),
             'full_name' => $this->request->getVar('full_name'),
             'email' => $this->request->getVar('email'),
+            'active' => $this->request->getVar('active'),
         ];
 
         if (!empty($password)) {
