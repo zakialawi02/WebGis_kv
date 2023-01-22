@@ -1,0 +1,315 @@
+ERROR - 2023-01-23 00:18:03 --> mysqli_sql_exception: Column 'created_at' in field list is ambiguous in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `tbl_kaf...', 0)
+#1 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_kaf...')
+#2 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_kaf...')
+#3 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1718): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_kaf...', Array, false)
+#4 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Models\ModelKv.php(251): CodeIgniter\Database\BaseBuilder->getWhere(Array)
+#5 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Controllers\Admin.php(41): App\Models\ModelKv->getFiveKafe()
+#6 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(927): App\Controllers\Admin->index()
+#7 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#8 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 F:\WEB\XAMPP\htdocs\WebGis_kv\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(46): require_once('F:\\WEB\\XAMPP\\ht...')
+#11 {main}
+CRITICAL - 2023-01-23 00:18:03 --> Column 'created_at' in field list is ambiguous
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `tbl_kafe`.`id_kafe`, `nama_kafe`, `alamat_kafe`, `latitude`, `longitude`, `fasilitas_kafe`, `instagram_kafe`, `tbl_provinsi`.`id_provinsi` as `id_provinsi`, `nama_provinsi`, `tbl_kabupaten`.`id_kabupaten` as `id_kabupaten`, `nama_kabupaten`, `tbl_kecamatan`.`id_kecamatan` as `id_kecamatan`, `nama_kecamatan`, `tbl_kelurahan`.`id_kelurahan` as `id_kelurahan`, `nama_kelurahan`, `created_at`, `updated_at`, `tbl_status_appv`.`user` as `user`, `tbl_status_appv`.`stat_appv` as `stat_appv`, `tbl_status_appv`.`user` as `username`
+FROM `tbl_kafe`
+JOIN `users` ON `users`.`id` = `tbl_status_appv`.`user`
+JOIN `tbl_status_appv` ON `tbl_status_appv`.`id_kafe` = `tbl_kafe`.`id_kafe`
+JOIN `tbl_provinsi` ON `tbl_provinsi`.`id_provinsi` = `tbl_kafe`.`id_provinsi`
+JOIN `tbl_kabupaten` ON `tbl_kabupaten`.`id_kabupaten` = `tbl_kafe`.`id_kabupaten`
+JOIN `tbl_kecamatan` ON `tbl_kecamatan`.`id_kecamatan` = `tbl_kafe`.`id_kecamatan`
+JOIN `tbl_kelurahan` ON `tbl_kelurahan`.`id_kelurahan` = `tbl_kafe`.`id_kelurahan`
+WHERE `stat_appv` = \'1\'
+ LIMIT 5', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_kafe`.`id_kafe`, `nama_kafe`, `alamat_kafe`, `latitude`, `longitude`, `fasilitas_kafe`, `instagram_kafe`, `tbl_provinsi`.`id_provinsi` as `id_provinsi`, `nama_provinsi`, `tbl_kabupaten`.`id_kabupaten` as `id_kabupaten`, `nama_kabupaten`, `tbl_kecamatan`.`id_kecamatan` as `id_kecamatan`, `nama_kecamatan`, `tbl_kelurahan`.`id_kelurahan` as `id_kelurahan`, `nama_kelurahan`, `created_at`, `updated_at`, `tbl_status_appv`.`user` as `user`, `tbl_status_appv`.`stat_appv` as `stat_appv`, `tbl_status_appv`.`user` as `username`
+FROM `tbl_kafe`
+JOIN `users` ON `users`.`id` = `tbl_status_appv`.`user`
+JOIN `tbl_status_appv` ON `tbl_status_appv`.`id_kafe` = `tbl_kafe`.`id_kafe`
+JOIN `tbl_provinsi` ON `tbl_provinsi`.`id_provinsi` = `tbl_kafe`.`id_provinsi`
+JOIN `tbl_kabupaten` ON `tbl_kabupaten`.`id_kabupaten` = `tbl_kafe`.`id_kabupaten`
+JOIN `tbl_kecamatan` ON `tbl_kecamatan`.`id_kecamatan` = `tbl_kafe`.`id_kecamatan`
+JOIN `tbl_kelurahan` ON `tbl_kelurahan`.`id_kelurahan` = `tbl_kafe`.`id_kelurahan`
+WHERE `stat_appv` = \'1\'
+ LIMIT 5')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_kafe`.`id_kafe`, `nama_kafe`, `alamat_kafe`, `latitude`, `longitude`, `fasilitas_kafe`, `instagram_kafe`, `tbl_provinsi`.`id_provinsi` as `id_provinsi`, `nama_provinsi`, `tbl_kabupaten`.`id_kabupaten` as `id_kabupaten`, `nama_kabupaten`, `tbl_kecamatan`.`id_kecamatan` as `id_kecamatan`, `nama_kecamatan`, `tbl_kelurahan`.`id_kelurahan` as `id_kelurahan`, `nama_kelurahan`, `created_at`, `updated_at`, `tbl_status_appv`.`user` as `user`, `tbl_status_appv`.`stat_appv` as `stat_appv`, `tbl_status_appv`.`user` as `username`
+FROM `tbl_kafe`
+JOIN `users` ON `users`.`id` = `tbl_status_appv`.`user`
+JOIN `tbl_status_appv` ON `tbl_status_appv`.`id_kafe` = `tbl_kafe`.`id_kafe`
+JOIN `tbl_provinsi` ON `tbl_provinsi`.`id_provinsi` = `tbl_kafe`.`id_provinsi`
+JOIN `tbl_kabupaten` ON `tbl_kabupaten`.`id_kabupaten` = `tbl_kafe`.`id_kabupaten`
+JOIN `tbl_kecamatan` ON `tbl_kecamatan`.`id_kecamatan` = `tbl_kafe`.`id_kecamatan`
+JOIN `tbl_kelurahan` ON `tbl_kelurahan`.`id_kelurahan` = `tbl_kafe`.`id_kelurahan`
+WHERE `stat_appv` = \'1\'
+ LIMIT 5')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1718): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_kafe`.`id_kafe`, `nama_kafe`, `alamat_kafe`, `latitude`, `longitude`, `fasilitas_kafe`, `instagram_kafe`, `tbl_provinsi`.`id_provinsi` as `id_provinsi`, `nama_provinsi`, `tbl_kabupaten`.`id_kabupaten` as `id_kabupaten`, `nama_kabupaten`, `tbl_kecamatan`.`id_kecamatan` as `id_kecamatan`, `nama_kecamatan`, `tbl_kelurahan`.`id_kelurahan` as `id_kelurahan`, `nama_kelurahan`, `created_at`, `updated_at`, `tbl_status_appv`.`user` as `user`, `tbl_status_appv`.`stat_appv` as `stat_appv`, `tbl_status_appv`.`user` as `username`
+FROM `tbl_kafe`
+JOIN `users` ON `users`.`id` = `tbl_status_appv`.`user`
+JOIN `tbl_status_appv` ON `tbl_status_appv`.`id_kafe` = `tbl_kafe`.`id_kafe`
+JOIN `tbl_provinsi` ON `tbl_provinsi`.`id_provinsi` = `tbl_kafe`.`id_provinsi`
+JOIN `tbl_kabupaten` ON `tbl_kabupaten`.`id_kabupaten` = `tbl_kafe`.`id_kabupaten`
+JOIN `tbl_kecamatan` ON `tbl_kecamatan`.`id_kecamatan` = `tbl_kafe`.`id_kecamatan`
+JOIN `tbl_kelurahan` ON `tbl_kelurahan`.`id_kelurahan` = `tbl_kafe`.`id_kelurahan`
+WHERE `stat_appv` = :stat_appv:
+ LIMIT 5', [...], false)
+ 5 APPPATH\Models\ModelKv.php(251): CodeIgniter\Database\BaseBuilder->getWhere([...])
+ 6 APPPATH\Controllers\Admin.php(41): App\Models\ModelKv->getFiveKafe()
+ 7 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->index()
+ 8 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+ERROR - 2023-01-23 00:18:26 --> mysqli_sql_exception: Column 'created_at' in field list is ambiguous in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `tbl_kaf...', 0)
+#1 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_kaf...')
+#2 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_kaf...')
+#3 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1718): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_kaf...', Array, false)
+#4 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Models\ModelKv.php(251): CodeIgniter\Database\BaseBuilder->getWhere(Array)
+#5 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Controllers\Admin.php(41): App\Models\ModelKv->getFiveKafe()
+#6 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(927): App\Controllers\Admin->index()
+#7 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#8 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 F:\WEB\XAMPP\htdocs\WebGis_kv\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(46): require_once('F:\\WEB\\XAMPP\\ht...')
+#11 {main}
+CRITICAL - 2023-01-23 00:18:26 --> Column 'created_at' in field list is ambiguous
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `tbl_kafe`.`id_kafe`, `nama_kafe`, `alamat_kafe`, `latitude`, `longitude`, `fasilitas_kafe`, `instagram_kafe`, `tbl_provinsi`.`id_provinsi` as `id_provinsi`, `nama_provinsi`, `tbl_kabupaten`.`id_kabupaten` as `id_kabupaten`, `nama_kabupaten`, `tbl_kecamatan`.`id_kecamatan` as `id_kecamatan`, `nama_kecamatan`, `tbl_kelurahan`.`id_kelurahan` as `id_kelurahan`, `nama_kelurahan`, `created_at`, `updated_at`, `tbl_status_appv`.`user` as `user`, `tbl_status_appv`.`stat_appv` as `stat_appv`, `tbl_status_appv`.`user` as `username`
+FROM `tbl_kafe`
+LEFT JOIN `users` ON `users`.`id` = `tbl_status_appv`.`user`
+JOIN `tbl_status_appv` ON `tbl_status_appv`.`id_kafe` = `tbl_kafe`.`id_kafe`
+JOIN `tbl_provinsi` ON `tbl_provinsi`.`id_provinsi` = `tbl_kafe`.`id_provinsi`
+JOIN `tbl_kabupaten` ON `tbl_kabupaten`.`id_kabupaten` = `tbl_kafe`.`id_kabupaten`
+JOIN `tbl_kecamatan` ON `tbl_kecamatan`.`id_kecamatan` = `tbl_kafe`.`id_kecamatan`
+JOIN `tbl_kelurahan` ON `tbl_kelurahan`.`id_kelurahan` = `tbl_kafe`.`id_kelurahan`
+WHERE `stat_appv` = \'1\'
+ LIMIT 5', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_kafe`.`id_kafe`, `nama_kafe`, `alamat_kafe`, `latitude`, `longitude`, `fasilitas_kafe`, `instagram_kafe`, `tbl_provinsi`.`id_provinsi` as `id_provinsi`, `nama_provinsi`, `tbl_kabupaten`.`id_kabupaten` as `id_kabupaten`, `nama_kabupaten`, `tbl_kecamatan`.`id_kecamatan` as `id_kecamatan`, `nama_kecamatan`, `tbl_kelurahan`.`id_kelurahan` as `id_kelurahan`, `nama_kelurahan`, `created_at`, `updated_at`, `tbl_status_appv`.`user` as `user`, `tbl_status_appv`.`stat_appv` as `stat_appv`, `tbl_status_appv`.`user` as `username`
+FROM `tbl_kafe`
+LEFT JOIN `users` ON `users`.`id` = `tbl_status_appv`.`user`
+JOIN `tbl_status_appv` ON `tbl_status_appv`.`id_kafe` = `tbl_kafe`.`id_kafe`
+JOIN `tbl_provinsi` ON `tbl_provinsi`.`id_provinsi` = `tbl_kafe`.`id_provinsi`
+JOIN `tbl_kabupaten` ON `tbl_kabupaten`.`id_kabupaten` = `tbl_kafe`.`id_kabupaten`
+JOIN `tbl_kecamatan` ON `tbl_kecamatan`.`id_kecamatan` = `tbl_kafe`.`id_kecamatan`
+JOIN `tbl_kelurahan` ON `tbl_kelurahan`.`id_kelurahan` = `tbl_kafe`.`id_kelurahan`
+WHERE `stat_appv` = \'1\'
+ LIMIT 5')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_kafe`.`id_kafe`, `nama_kafe`, `alamat_kafe`, `latitude`, `longitude`, `fasilitas_kafe`, `instagram_kafe`, `tbl_provinsi`.`id_provinsi` as `id_provinsi`, `nama_provinsi`, `tbl_kabupaten`.`id_kabupaten` as `id_kabupaten`, `nama_kabupaten`, `tbl_kecamatan`.`id_kecamatan` as `id_kecamatan`, `nama_kecamatan`, `tbl_kelurahan`.`id_kelurahan` as `id_kelurahan`, `nama_kelurahan`, `created_at`, `updated_at`, `tbl_status_appv`.`user` as `user`, `tbl_status_appv`.`stat_appv` as `stat_appv`, `tbl_status_appv`.`user` as `username`
+FROM `tbl_kafe`
+LEFT JOIN `users` ON `users`.`id` = `tbl_status_appv`.`user`
+JOIN `tbl_status_appv` ON `tbl_status_appv`.`id_kafe` = `tbl_kafe`.`id_kafe`
+JOIN `tbl_provinsi` ON `tbl_provinsi`.`id_provinsi` = `tbl_kafe`.`id_provinsi`
+JOIN `tbl_kabupaten` ON `tbl_kabupaten`.`id_kabupaten` = `tbl_kafe`.`id_kabupaten`
+JOIN `tbl_kecamatan` ON `tbl_kecamatan`.`id_kecamatan` = `tbl_kafe`.`id_kecamatan`
+JOIN `tbl_kelurahan` ON `tbl_kelurahan`.`id_kelurahan` = `tbl_kafe`.`id_kelurahan`
+WHERE `stat_appv` = \'1\'
+ LIMIT 5')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1718): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_kafe`.`id_kafe`, `nama_kafe`, `alamat_kafe`, `latitude`, `longitude`, `fasilitas_kafe`, `instagram_kafe`, `tbl_provinsi`.`id_provinsi` as `id_provinsi`, `nama_provinsi`, `tbl_kabupaten`.`id_kabupaten` as `id_kabupaten`, `nama_kabupaten`, `tbl_kecamatan`.`id_kecamatan` as `id_kecamatan`, `nama_kecamatan`, `tbl_kelurahan`.`id_kelurahan` as `id_kelurahan`, `nama_kelurahan`, `created_at`, `updated_at`, `tbl_status_appv`.`user` as `user`, `tbl_status_appv`.`stat_appv` as `stat_appv`, `tbl_status_appv`.`user` as `username`
+FROM `tbl_kafe`
+LEFT JOIN `users` ON `users`.`id` = `tbl_status_appv`.`user`
+JOIN `tbl_status_appv` ON `tbl_status_appv`.`id_kafe` = `tbl_kafe`.`id_kafe`
+JOIN `tbl_provinsi` ON `tbl_provinsi`.`id_provinsi` = `tbl_kafe`.`id_provinsi`
+JOIN `tbl_kabupaten` ON `tbl_kabupaten`.`id_kabupaten` = `tbl_kafe`.`id_kabupaten`
+JOIN `tbl_kecamatan` ON `tbl_kecamatan`.`id_kecamatan` = `tbl_kafe`.`id_kecamatan`
+JOIN `tbl_kelurahan` ON `tbl_kelurahan`.`id_kelurahan` = `tbl_kafe`.`id_kelurahan`
+WHERE `stat_appv` = :stat_appv:
+ LIMIT 5', [...], false)
+ 5 APPPATH\Models\ModelKv.php(251): CodeIgniter\Database\BaseBuilder->getWhere([...])
+ 6 APPPATH\Controllers\Admin.php(41): App\Models\ModelKv->getFiveKafe()
+ 7 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->index()
+ 8 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+ERROR - 2023-01-23 00:18:48 --> mysqli_sql_exception: Column 'created_at' in field list is ambiguous in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `tbl_kaf...', 0)
+#1 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_kaf...')
+#2 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_kaf...')
+#3 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1718): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_kaf...', Array, false)
+#4 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Models\ModelKv.php(251): CodeIgniter\Database\BaseBuilder->getWhere(Array)
+#5 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Controllers\Admin.php(41): App\Models\ModelKv->getFiveKafe()
+#6 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(927): App\Controllers\Admin->index()
+#7 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#8 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 F:\WEB\XAMPP\htdocs\WebGis_kv\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(46): require_once('F:\\WEB\\XAMPP\\ht...')
+#11 {main}
+CRITICAL - 2023-01-23 00:18:48 --> Column 'created_at' in field list is ambiguous
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `tbl_kafe`.`id_kafe`, `nama_kafe`, `alamat_kafe`, `latitude`, `longitude`, `fasilitas_kafe`, `instagram_kafe`, `tbl_provinsi`.`id_provinsi` as `id_provinsi`, `nama_provinsi`, `tbl_kabupaten`.`id_kabupaten` as `id_kabupaten`, `nama_kabupaten`, `tbl_kecamatan`.`id_kecamatan` as `id_kecamatan`, `nama_kecamatan`, `tbl_kelurahan`.`id_kelurahan` as `id_kelurahan`, `nama_kelurahan`, `created_at`, `updated_at`, `tbl_status_appv`.`user` as `user`, `tbl_status_appv`.`stat_appv` as `stat_appv`, `users`.`id` as `username`
+FROM `tbl_kafe`
+LEFT JOIN `users` ON `users`.`id` = `tbl_status_appv`.`user`
+JOIN `tbl_status_appv` ON `tbl_status_appv`.`id_kafe` = `tbl_kafe`.`id_kafe`
+JOIN `tbl_provinsi` ON `tbl_provinsi`.`id_provinsi` = `tbl_kafe`.`id_provinsi`
+JOIN `tbl_kabupaten` ON `tbl_kabupaten`.`id_kabupaten` = `tbl_kafe`.`id_kabupaten`
+JOIN `tbl_kecamatan` ON `tbl_kecamatan`.`id_kecamatan` = `tbl_kafe`.`id_kecamatan`
+JOIN `tbl_kelurahan` ON `tbl_kelurahan`.`id_kelurahan` = `tbl_kafe`.`id_kelurahan`
+WHERE `stat_appv` = \'1\'
+ LIMIT 5', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_kafe`.`id_kafe`, `nama_kafe`, `alamat_kafe`, `latitude`, `longitude`, `fasilitas_kafe`, `instagram_kafe`, `tbl_provinsi`.`id_provinsi` as `id_provinsi`, `nama_provinsi`, `tbl_kabupaten`.`id_kabupaten` as `id_kabupaten`, `nama_kabupaten`, `tbl_kecamatan`.`id_kecamatan` as `id_kecamatan`, `nama_kecamatan`, `tbl_kelurahan`.`id_kelurahan` as `id_kelurahan`, `nama_kelurahan`, `created_at`, `updated_at`, `tbl_status_appv`.`user` as `user`, `tbl_status_appv`.`stat_appv` as `stat_appv`, `users`.`id` as `username`
+FROM `tbl_kafe`
+LEFT JOIN `users` ON `users`.`id` = `tbl_status_appv`.`user`
+JOIN `tbl_status_appv` ON `tbl_status_appv`.`id_kafe` = `tbl_kafe`.`id_kafe`
+JOIN `tbl_provinsi` ON `tbl_provinsi`.`id_provinsi` = `tbl_kafe`.`id_provinsi`
+JOIN `tbl_kabupaten` ON `tbl_kabupaten`.`id_kabupaten` = `tbl_kafe`.`id_kabupaten`
+JOIN `tbl_kecamatan` ON `tbl_kecamatan`.`id_kecamatan` = `tbl_kafe`.`id_kecamatan`
+JOIN `tbl_kelurahan` ON `tbl_kelurahan`.`id_kelurahan` = `tbl_kafe`.`id_kelurahan`
+WHERE `stat_appv` = \'1\'
+ LIMIT 5')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_kafe`.`id_kafe`, `nama_kafe`, `alamat_kafe`, `latitude`, `longitude`, `fasilitas_kafe`, `instagram_kafe`, `tbl_provinsi`.`id_provinsi` as `id_provinsi`, `nama_provinsi`, `tbl_kabupaten`.`id_kabupaten` as `id_kabupaten`, `nama_kabupaten`, `tbl_kecamatan`.`id_kecamatan` as `id_kecamatan`, `nama_kecamatan`, `tbl_kelurahan`.`id_kelurahan` as `id_kelurahan`, `nama_kelurahan`, `created_at`, `updated_at`, `tbl_status_appv`.`user` as `user`, `tbl_status_appv`.`stat_appv` as `stat_appv`, `users`.`id` as `username`
+FROM `tbl_kafe`
+LEFT JOIN `users` ON `users`.`id` = `tbl_status_appv`.`user`
+JOIN `tbl_status_appv` ON `tbl_status_appv`.`id_kafe` = `tbl_kafe`.`id_kafe`
+JOIN `tbl_provinsi` ON `tbl_provinsi`.`id_provinsi` = `tbl_kafe`.`id_provinsi`
+JOIN `tbl_kabupaten` ON `tbl_kabupaten`.`id_kabupaten` = `tbl_kafe`.`id_kabupaten`
+JOIN `tbl_kecamatan` ON `tbl_kecamatan`.`id_kecamatan` = `tbl_kafe`.`id_kecamatan`
+JOIN `tbl_kelurahan` ON `tbl_kelurahan`.`id_kelurahan` = `tbl_kafe`.`id_kelurahan`
+WHERE `stat_appv` = \'1\'
+ LIMIT 5')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1718): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_kafe`.`id_kafe`, `nama_kafe`, `alamat_kafe`, `latitude`, `longitude`, `fasilitas_kafe`, `instagram_kafe`, `tbl_provinsi`.`id_provinsi` as `id_provinsi`, `nama_provinsi`, `tbl_kabupaten`.`id_kabupaten` as `id_kabupaten`, `nama_kabupaten`, `tbl_kecamatan`.`id_kecamatan` as `id_kecamatan`, `nama_kecamatan`, `tbl_kelurahan`.`id_kelurahan` as `id_kelurahan`, `nama_kelurahan`, `created_at`, `updated_at`, `tbl_status_appv`.`user` as `user`, `tbl_status_appv`.`stat_appv` as `stat_appv`, `users`.`id` as `username`
+FROM `tbl_kafe`
+LEFT JOIN `users` ON `users`.`id` = `tbl_status_appv`.`user`
+JOIN `tbl_status_appv` ON `tbl_status_appv`.`id_kafe` = `tbl_kafe`.`id_kafe`
+JOIN `tbl_provinsi` ON `tbl_provinsi`.`id_provinsi` = `tbl_kafe`.`id_provinsi`
+JOIN `tbl_kabupaten` ON `tbl_kabupaten`.`id_kabupaten` = `tbl_kafe`.`id_kabupaten`
+JOIN `tbl_kecamatan` ON `tbl_kecamatan`.`id_kecamatan` = `tbl_kafe`.`id_kecamatan`
+JOIN `tbl_kelurahan` ON `tbl_kelurahan`.`id_kelurahan` = `tbl_kafe`.`id_kelurahan`
+WHERE `stat_appv` = :stat_appv:
+ LIMIT 5', [...], false)
+ 5 APPPATH\Models\ModelKv.php(251): CodeIgniter\Database\BaseBuilder->getWhere([...])
+ 6 APPPATH\Controllers\Admin.php(41): App\Models\ModelKv->getFiveKafe()
+ 7 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->index()
+ 8 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+ERROR - 2023-01-23 00:20:50 --> mysqli_sql_exception: Unknown column 'tbl_status_appv.user' in 'on clause' in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `tbl_kaf...', 0)
+#1 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_kaf...')
+#2 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_kaf...')
+#3 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1718): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_kaf...', Array, false)
+#4 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Models\ModelKv.php(251): CodeIgniter\Database\BaseBuilder->getWhere(Array)
+#5 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Controllers\Admin.php(41): App\Models\ModelKv->getFiveKafe()
+#6 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(927): App\Controllers\Admin->index()
+#7 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#8 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 F:\WEB\XAMPP\htdocs\WebGis_kv\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(46): require_once('F:\\WEB\\XAMPP\\ht...')
+#11 {main}
+CRITICAL - 2023-01-23 00:20:50 --> Unknown column 'tbl_status_appv.user' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `tbl_kafe`.`id_kafe`, `nama_kafe`, `alamat_kafe`, `latitude`, `longitude`, `fasilitas_kafe`, `instagram_kafe`, `tbl_provinsi`.`id_provinsi` as `id_provinsi`, `nama_provinsi`, `tbl_kabupaten`.`id_kabupaten` as `id_kabupaten`, `nama_kabupaten`, `tbl_kecamatan`.`id_kecamatan` as `id_kecamatan`, `nama_kecamatan`, `tbl_kelurahan`.`id_kelurahan` as `id_kelurahan`, `nama_kelurahan`, `tbl_kafe`.`created_at`, `tbl_kafe`.`updated_at`, `tbl_status_appv`.`user` as `user`, `tbl_status_appv`.`stat_appv` as `stat_appv`, `users`.`username` as `username`
+FROM `tbl_kafe`
+LEFT JOIN `users` ON `users`.`id` = `tbl_status_appv`.`user`
+JOIN `tbl_status_appv` ON `tbl_status_appv`.`id_kafe` = `tbl_kafe`.`id_kafe`
+JOIN `tbl_provinsi` ON `tbl_provinsi`.`id_provinsi` = `tbl_kafe`.`id_provinsi`
+JOIN `tbl_kabupaten` ON `tbl_kabupaten`.`id_kabupaten` = `tbl_kafe`.`id_kabupaten`
+JOIN `tbl_kecamatan` ON `tbl_kecamatan`.`id_kecamatan` = `tbl_kafe`.`id_kecamatan`
+JOIN `tbl_kelurahan` ON `tbl_kelurahan`.`id_kelurahan` = `tbl_kafe`.`id_kelurahan`
+WHERE `stat_appv` = \'1\'
+ LIMIT 5', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_kafe`.`id_kafe`, `nama_kafe`, `alamat_kafe`, `latitude`, `longitude`, `fasilitas_kafe`, `instagram_kafe`, `tbl_provinsi`.`id_provinsi` as `id_provinsi`, `nama_provinsi`, `tbl_kabupaten`.`id_kabupaten` as `id_kabupaten`, `nama_kabupaten`, `tbl_kecamatan`.`id_kecamatan` as `id_kecamatan`, `nama_kecamatan`, `tbl_kelurahan`.`id_kelurahan` as `id_kelurahan`, `nama_kelurahan`, `tbl_kafe`.`created_at`, `tbl_kafe`.`updated_at`, `tbl_status_appv`.`user` as `user`, `tbl_status_appv`.`stat_appv` as `stat_appv`, `users`.`username` as `username`
+FROM `tbl_kafe`
+LEFT JOIN `users` ON `users`.`id` = `tbl_status_appv`.`user`
+JOIN `tbl_status_appv` ON `tbl_status_appv`.`id_kafe` = `tbl_kafe`.`id_kafe`
+JOIN `tbl_provinsi` ON `tbl_provinsi`.`id_provinsi` = `tbl_kafe`.`id_provinsi`
+JOIN `tbl_kabupaten` ON `tbl_kabupaten`.`id_kabupaten` = `tbl_kafe`.`id_kabupaten`
+JOIN `tbl_kecamatan` ON `tbl_kecamatan`.`id_kecamatan` = `tbl_kafe`.`id_kecamatan`
+JOIN `tbl_kelurahan` ON `tbl_kelurahan`.`id_kelurahan` = `tbl_kafe`.`id_kelurahan`
+WHERE `stat_appv` = \'1\'
+ LIMIT 5')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_kafe`.`id_kafe`, `nama_kafe`, `alamat_kafe`, `latitude`, `longitude`, `fasilitas_kafe`, `instagram_kafe`, `tbl_provinsi`.`id_provinsi` as `id_provinsi`, `nama_provinsi`, `tbl_kabupaten`.`id_kabupaten` as `id_kabupaten`, `nama_kabupaten`, `tbl_kecamatan`.`id_kecamatan` as `id_kecamatan`, `nama_kecamatan`, `tbl_kelurahan`.`id_kelurahan` as `id_kelurahan`, `nama_kelurahan`, `tbl_kafe`.`created_at`, `tbl_kafe`.`updated_at`, `tbl_status_appv`.`user` as `user`, `tbl_status_appv`.`stat_appv` as `stat_appv`, `users`.`username` as `username`
+FROM `tbl_kafe`
+LEFT JOIN `users` ON `users`.`id` = `tbl_status_appv`.`user`
+JOIN `tbl_status_appv` ON `tbl_status_appv`.`id_kafe` = `tbl_kafe`.`id_kafe`
+JOIN `tbl_provinsi` ON `tbl_provinsi`.`id_provinsi` = `tbl_kafe`.`id_provinsi`
+JOIN `tbl_kabupaten` ON `tbl_kabupaten`.`id_kabupaten` = `tbl_kafe`.`id_kabupaten`
+JOIN `tbl_kecamatan` ON `tbl_kecamatan`.`id_kecamatan` = `tbl_kafe`.`id_kecamatan`
+JOIN `tbl_kelurahan` ON `tbl_kelurahan`.`id_kelurahan` = `tbl_kafe`.`id_kelurahan`
+WHERE `stat_appv` = \'1\'
+ LIMIT 5')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1718): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_kafe`.`id_kafe`, `nama_kafe`, `alamat_kafe`, `latitude`, `longitude`, `fasilitas_kafe`, `instagram_kafe`, `tbl_provinsi`.`id_provinsi` as `id_provinsi`, `nama_provinsi`, `tbl_kabupaten`.`id_kabupaten` as `id_kabupaten`, `nama_kabupaten`, `tbl_kecamatan`.`id_kecamatan` as `id_kecamatan`, `nama_kecamatan`, `tbl_kelurahan`.`id_kelurahan` as `id_kelurahan`, `nama_kelurahan`, `tbl_kafe`.`created_at`, `tbl_kafe`.`updated_at`, `tbl_status_appv`.`user` as `user`, `tbl_status_appv`.`stat_appv` as `stat_appv`, `users`.`username` as `username`
+FROM `tbl_kafe`
+LEFT JOIN `users` ON `users`.`id` = `tbl_status_appv`.`user`
+JOIN `tbl_status_appv` ON `tbl_status_appv`.`id_kafe` = `tbl_kafe`.`id_kafe`
+JOIN `tbl_provinsi` ON `tbl_provinsi`.`id_provinsi` = `tbl_kafe`.`id_provinsi`
+JOIN `tbl_kabupaten` ON `tbl_kabupaten`.`id_kabupaten` = `tbl_kafe`.`id_kabupaten`
+JOIN `tbl_kecamatan` ON `tbl_kecamatan`.`id_kecamatan` = `tbl_kafe`.`id_kecamatan`
+JOIN `tbl_kelurahan` ON `tbl_kelurahan`.`id_kelurahan` = `tbl_kafe`.`id_kelurahan`
+WHERE `stat_appv` = :stat_appv:
+ LIMIT 5', [...], false)
+ 5 APPPATH\Models\ModelKv.php(251): CodeIgniter\Database\BaseBuilder->getWhere([...])
+ 6 APPPATH\Controllers\Admin.php(41): App\Models\ModelKv->getFiveKafe()
+ 7 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->index()
+ 8 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+ERROR - 2023-01-23 00:21:06 --> mysqli_sql_exception: Unknown column 'tbl_status_appv.user' in 'on clause' in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `tbl_kaf...', 0)
+#1 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_kaf...')
+#2 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_kaf...')
+#3 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1718): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_kaf...', Array, false)
+#4 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Models\ModelKv.php(251): CodeIgniter\Database\BaseBuilder->getWhere(Array)
+#5 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Controllers\Admin.php(41): App\Models\ModelKv->getFiveKafe()
+#6 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(927): App\Controllers\Admin->index()
+#7 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#8 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 F:\WEB\XAMPP\htdocs\WebGis_kv\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(46): require_once('F:\\WEB\\XAMPP\\ht...')
+#11 {main}
+CRITICAL - 2023-01-23 00:21:06 --> Unknown column 'tbl_status_appv.user' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `tbl_kafe`.`id_kafe`, `nama_kafe`, `alamat_kafe`, `latitude`, `longitude`, `fasilitas_kafe`, `instagram_kafe`, `tbl_provinsi`.`id_provinsi` as `id_provinsi`, `nama_provinsi`, `tbl_kabupaten`.`id_kabupaten` as `id_kabupaten`, `nama_kabupaten`, `tbl_kecamatan`.`id_kecamatan` as `id_kecamatan`, `nama_kecamatan`, `tbl_kelurahan`.`id_kelurahan` as `id_kelurahan`, `nama_kelurahan`, `tbl_kafe`.`created_at`, `tbl_kafe`.`updated_at`, `tbl_status_appv`.`user` as `user`, `tbl_status_appv`.`stat_appv` as `stat_appv`, `users`.`username` as `username`
+FROM `tbl_kafe`
+JOIN `users` ON `users`.`id` = `tbl_status_appv`.`user`
+JOIN `tbl_status_appv` ON `tbl_status_appv`.`id_kafe` = `tbl_kafe`.`id_kafe`
+JOIN `tbl_provinsi` ON `tbl_provinsi`.`id_provinsi` = `tbl_kafe`.`id_provinsi`
+JOIN `tbl_kabupaten` ON `tbl_kabupaten`.`id_kabupaten` = `tbl_kafe`.`id_kabupaten`
+JOIN `tbl_kecamatan` ON `tbl_kecamatan`.`id_kecamatan` = `tbl_kafe`.`id_kecamatan`
+JOIN `tbl_kelurahan` ON `tbl_kelurahan`.`id_kelurahan` = `tbl_kafe`.`id_kelurahan`
+WHERE `stat_appv` = \'1\'
+ LIMIT 5', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_kafe`.`id_kafe`, `nama_kafe`, `alamat_kafe`, `latitude`, `longitude`, `fasilitas_kafe`, `instagram_kafe`, `tbl_provinsi`.`id_provinsi` as `id_provinsi`, `nama_provinsi`, `tbl_kabupaten`.`id_kabupaten` as `id_kabupaten`, `nama_kabupaten`, `tbl_kecamatan`.`id_kecamatan` as `id_kecamatan`, `nama_kecamatan`, `tbl_kelurahan`.`id_kelurahan` as `id_kelurahan`, `nama_kelurahan`, `tbl_kafe`.`created_at`, `tbl_kafe`.`updated_at`, `tbl_status_appv`.`user` as `user`, `tbl_status_appv`.`stat_appv` as `stat_appv`, `users`.`username` as `username`
+FROM `tbl_kafe`
+JOIN `users` ON `users`.`id` = `tbl_status_appv`.`user`
+JOIN `tbl_status_appv` ON `tbl_status_appv`.`id_kafe` = `tbl_kafe`.`id_kafe`
+JOIN `tbl_provinsi` ON `tbl_provinsi`.`id_provinsi` = `tbl_kafe`.`id_provinsi`
+JOIN `tbl_kabupaten` ON `tbl_kabupaten`.`id_kabupaten` = `tbl_kafe`.`id_kabupaten`
+JOIN `tbl_kecamatan` ON `tbl_kecamatan`.`id_kecamatan` = `tbl_kafe`.`id_kecamatan`
+JOIN `tbl_kelurahan` ON `tbl_kelurahan`.`id_kelurahan` = `tbl_kafe`.`id_kelurahan`
+WHERE `stat_appv` = \'1\'
+ LIMIT 5')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_kafe`.`id_kafe`, `nama_kafe`, `alamat_kafe`, `latitude`, `longitude`, `fasilitas_kafe`, `instagram_kafe`, `tbl_provinsi`.`id_provinsi` as `id_provinsi`, `nama_provinsi`, `tbl_kabupaten`.`id_kabupaten` as `id_kabupaten`, `nama_kabupaten`, `tbl_kecamatan`.`id_kecamatan` as `id_kecamatan`, `nama_kecamatan`, `tbl_kelurahan`.`id_kelurahan` as `id_kelurahan`, `nama_kelurahan`, `tbl_kafe`.`created_at`, `tbl_kafe`.`updated_at`, `tbl_status_appv`.`user` as `user`, `tbl_status_appv`.`stat_appv` as `stat_appv`, `users`.`username` as `username`
+FROM `tbl_kafe`
+JOIN `users` ON `users`.`id` = `tbl_status_appv`.`user`
+JOIN `tbl_status_appv` ON `tbl_status_appv`.`id_kafe` = `tbl_kafe`.`id_kafe`
+JOIN `tbl_provinsi` ON `tbl_provinsi`.`id_provinsi` = `tbl_kafe`.`id_provinsi`
+JOIN `tbl_kabupaten` ON `tbl_kabupaten`.`id_kabupaten` = `tbl_kafe`.`id_kabupaten`
+JOIN `tbl_kecamatan` ON `tbl_kecamatan`.`id_kecamatan` = `tbl_kafe`.`id_kecamatan`
+JOIN `tbl_kelurahan` ON `tbl_kelurahan`.`id_kelurahan` = `tbl_kafe`.`id_kelurahan`
+WHERE `stat_appv` = \'1\'
+ LIMIT 5')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1718): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_kafe`.`id_kafe`, `nama_kafe`, `alamat_kafe`, `latitude`, `longitude`, `fasilitas_kafe`, `instagram_kafe`, `tbl_provinsi`.`id_provinsi` as `id_provinsi`, `nama_provinsi`, `tbl_kabupaten`.`id_kabupaten` as `id_kabupaten`, `nama_kabupaten`, `tbl_kecamatan`.`id_kecamatan` as `id_kecamatan`, `nama_kecamatan`, `tbl_kelurahan`.`id_kelurahan` as `id_kelurahan`, `nama_kelurahan`, `tbl_kafe`.`created_at`, `tbl_kafe`.`updated_at`, `tbl_status_appv`.`user` as `user`, `tbl_status_appv`.`stat_appv` as `stat_appv`, `users`.`username` as `username`
+FROM `tbl_kafe`
+JOIN `users` ON `users`.`id` = `tbl_status_appv`.`user`
+JOIN `tbl_status_appv` ON `tbl_status_appv`.`id_kafe` = `tbl_kafe`.`id_kafe`
+JOIN `tbl_provinsi` ON `tbl_provinsi`.`id_provinsi` = `tbl_kafe`.`id_provinsi`
+JOIN `tbl_kabupaten` ON `tbl_kabupaten`.`id_kabupaten` = `tbl_kafe`.`id_kabupaten`
+JOIN `tbl_kecamatan` ON `tbl_kecamatan`.`id_kecamatan` = `tbl_kafe`.`id_kecamatan`
+JOIN `tbl_kelurahan` ON `tbl_kelurahan`.`id_kelurahan` = `tbl_kafe`.`id_kelurahan`
+WHERE `stat_appv` = :stat_appv:
+ LIMIT 5', [...], false)
+ 5 APPPATH\Models\ModelKv.php(251): CodeIgniter\Database\BaseBuilder->getWhere([...])
+ 6 APPPATH\Controllers\Admin.php(41): App\Models\ModelKv->getFiveKafe()
+ 7 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->index()
+ 8 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')

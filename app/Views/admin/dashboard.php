@@ -145,7 +145,7 @@
                                                     <td><?= $kafe->alamat_kafe; ?></td>
                                                     <td><a href="#" class="text-primary"><?= $kafe->latitude; ?>, <?= $kafe->longitude; ?></a></td>
                                                     <td><?= date('d M Y', strtotime($kafe->created_at)); ?></td>
-                                                    <td><span class="badge bg-success"><?= $kafe->user; ?></span></td>
+                                                    <td><span class="badge bg-primary"><?= $kafe->username; ?></span></td>
                                                 </tr>
                                             <?php endforeach ?>
                                         </tbody>
