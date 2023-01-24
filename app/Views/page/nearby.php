@@ -181,27 +181,29 @@
             popupAnchor: [0, -28] // point from which the popup should open relative to the iconAnchor
         });
 
-        <?php foreach ($tampilKafe as $K) : ?>
-            L.marker([<?= $K->latitude; ?>, <?= $K->longitude; ?>], {
-                icon: locKafe
-            }).addTo(map).bindPopup("<b><?= $K->nama_kafe; ?></b></br><?= $K->alamat_kafe; ?>");
-        <?php endforeach ?>
-
-        // Titik koordinat pusat yang akan digunakan sebagai acuan dalam filter
-        var centerLat = -7.2753924;
-        var centerLng = 112.7271528;
-
-        // Jarak radius dalam kilometer
-        var radius = 10;
-
-        // Buat objek circle dengan radius yang ditentukan
-        var circle = L.circle([centerLat, centerLng], {
-            radius: radius * 1000 // konversi dari km ke m
+        // create circle around specified coordinates with 3km radius
+        var circle = L.circle([-7.2753924, 112.7271528], {
+            color: 'red',
+            fillColor: '#f03',
+            fillOpacity: 0.3,
+            radius: 3000
         }).addTo(map);
 
-        // Filter data titik koordinat yang berada dalam lingkaran
-        var filteredPoints = points.filter(function(point) {
-            return circle.getBounds().contains([point.lat, point.lng]);
+        // group markers
+        var markers = L.featureGroup();
+
+        <?php foreach ($tampilKafe as $K) : ?>
+            var marker = L.marker([<?= $K->latitude; ?>, <?= $K->longitude; ?>], {
+                icon: locKafe
+            }).bindPopup("<b><?= $K->nama_kafe; ?></b></br><?= $K->alamat_kafe; ?>");
+            markers.addLayer(marker);
+        <?php endforeach ?>
+
+        // check if markers are within the circle and add to map
+        markers.eachLayer(function(layer) {
+            if (circle.getBounds().contains(layer.getLatLng())) {
+                layer.addTo(map);
+            }
         });
     </script>
     <script>
