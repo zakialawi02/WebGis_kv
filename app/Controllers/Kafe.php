@@ -2,17 +2,20 @@
 
 namespace App\Controllers;
 
+use App\Models\ModelGeojson;
 use App\Models\ModelKv;
 use App\Models\ModelSetting;
 use App\Models\ModelFoto;
 
 class Kafe extends BaseController
 {
+    protected $ModelGeojson;
     protected $ModelKv;
     protected $ModelSetting;
     protected $ModelFoto;
     public function __construct()
     {
+        $this->FGeojson = new ModelGeojson();
         $this->kafe = new ModelKv();
         $this->setting = new ModelSetting();
         $this->fotoKafe = new ModelFoto();
@@ -104,5 +107,16 @@ class Kafe extends BaseController
             'title' => 'CONTACT',
         ];
         return view('page/contact', $data);
+    }
+
+    public function pdf()
+    {
+        $data = [
+            'title' => 'Beranda',
+            'tampilGeojson' => $this->FGeojson->callGeojson()->getResult(),
+            'tampilData' => $this->setting->tampilData()->getResult(),
+            'tampilKafe' => $this->kafe->callKafe(),
+        ];
+        return view('page/peta', $data);
     }
 }

@@ -1,0 +1,1090 @@
+CRITICAL - 2023-02-27 16:47:44 --> Class "Locale" not found
+in SYSTEMPATH/CodeIgniter.php on line 186.
+ 1 ROOTPATH/spark(83): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2023-02-27 16:47:44 --> Uncaught Error: Call to undefined function CodeIgniter\CLI\mb_strpos() in /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CLI/CLI.php:776
+Stack trace:
+#0 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CLI/CLI.php(161): CodeIgniter\CLI\CLI::parseCommandLine()
+#1 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CLI/CLI.php(1018): CodeIgniter\CLI\CLI::init()
+#2 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Autoloader/Autoloader.php(282): include_once('...')
+#3 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Autoloader/Autoloader.php(259): CodeIgniter\Autoloader\Autoloader->includeFile()
+#4 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Autoloader/Autoloader.php(237): CodeIgniter\Autoloader\Autoloader->loadInNamespace()
+#5 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/app/Views/errors/cli/error_exception.php(6): CodeIgniter\Autoloader\Autoloader->loadClass()
+#6 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Debug/Exceptions.php(284): include('...')
+#7 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Debug/Exceptions.php(287): CodeIgniter\Debug\Exceptions->CodeIgniter\Debug\{closure}()
+#8 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Debug/Exceptions.php(139): CodeIgniter\Debug\Exceptions->render()
+#9 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler()
+#10 {main}
+  thrown
+in SYSTEMPATH/CLI/CLI.php on line 776.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2023-02-27 16:48:19 --> Class "Locale" not found
+in SYSTEMPATH/CodeIgniter.php on line 186.
+ 1 ROOTPATH/spark(83): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2023-02-27 16:48:19 --> Uncaught Error: Call to undefined function CodeIgniter\CLI\mb_strpos() in /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CLI/CLI.php:776
+Stack trace:
+#0 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CLI/CLI.php(161): CodeIgniter\CLI\CLI::parseCommandLine()
+#1 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CLI/CLI.php(1018): CodeIgniter\CLI\CLI::init()
+#2 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Autoloader/Autoloader.php(282): include_once('...')
+#3 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Autoloader/Autoloader.php(259): CodeIgniter\Autoloader\Autoloader->includeFile()
+#4 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Autoloader/Autoloader.php(237): CodeIgniter\Autoloader\Autoloader->loadInNamespace()
+#5 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/app/Views/errors/cli/error_exception.php(6): CodeIgniter\Autoloader\Autoloader->loadClass()
+#6 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Debug/Exceptions.php(284): include('...')
+#7 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Debug/Exceptions.php(287): CodeIgniter\Debug\Exceptions->CodeIgniter\Debug\{closure}()
+#8 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Debug/Exceptions.php(139): CodeIgniter\Debug\Exceptions->render()
+#9 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler()
+#10 {main}
+  thrown
+in SYSTEMPATH/CLI/CLI.php on line 776.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+ERROR - 2023-02-27 17:12:39 --> Error connecting to the database: mysqli_sql_exception: No such file or directory in /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:171
+Stack trace:
+#0 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(171): mysqli->real_connect()
+#1 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect()
+#2 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#3 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query()
+#4 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Model.php(772): CodeIgniter\Database\BaseBuilder->get()
+#5 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/app/Models/ModelSetting.php(23): CodeIgniter\Model->__call()
+#6 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/app/Controllers/Kafe.php(28): App\Models\ModelSetting->tampilData()
+#7 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(927): App\Controllers\Kafe->index()
+#8 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController()
+#9 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest()
+#10 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#11 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(46): require_once('...')
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No such file or directory in /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:215
+Stack trace:
+#0 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect()
+#1 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#2 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query()
+#3 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Model.php(772): CodeIgniter\Database\BaseBuilder->get()
+#4 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/app/Models/ModelSetting.php(23): CodeIgniter\Model->__call()
+#5 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/app/Controllers/Kafe.php(28): App\Models\ModelSetting->tampilData()
+#6 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(927): App\Controllers\Kafe->index()
+#7 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController()
+#8 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest()
+#9 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#10 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(46): require_once('...')
+#11 {main}
+CRITICAL - 2023-02-27 17:12:39 --> Unable to connect to the database.
+Main connection [MySQLi]: No such file or directory
+in SYSTEMPATH/Database/BaseConnection.php on line 418.
+ 1 SYSTEMPATH/Database/BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query()
+ 3 SYSTEMPATH/Model.php(772): CodeIgniter\Database\BaseBuilder->get()
+ 4 APPPATH/Models/ModelSetting.php(23): CodeIgniter\Model->__call()
+ 5 APPPATH/Controllers/Kafe.php(28): App\Models\ModelSetting->tampilData()
+ 6 SYSTEMPATH/CodeIgniter.php(927): App\Controllers\Kafe->index()
+ 7 SYSTEMPATH/CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest()
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(46): require_once('FCPATH/index.php')
+ERROR - 2023-02-27 17:13:17 --> Error connecting to the database: mysqli_sql_exception: No such file or directory in /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:171
+Stack trace:
+#0 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(171): mysqli->real_connect()
+#1 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect()
+#2 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#3 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query()
+#4 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Model.php(772): CodeIgniter\Database\BaseBuilder->get()
+#5 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/app/Models/ModelSetting.php(23): CodeIgniter\Model->__call()
+#6 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/app/Controllers/Kafe.php(28): App\Models\ModelSetting->tampilData()
+#7 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(927): App\Controllers\Kafe->index()
+#8 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController()
+#9 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest()
+#10 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#11 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(46): require_once('...')
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No such file or directory in /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:215
+Stack trace:
+#0 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect()
+#1 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#2 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query()
+#3 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Model.php(772): CodeIgniter\Database\BaseBuilder->get()
+#4 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/app/Models/ModelSetting.php(23): CodeIgniter\Model->__call()
+#5 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/app/Controllers/Kafe.php(28): App\Models\ModelSetting->tampilData()
+#6 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(927): App\Controllers\Kafe->index()
+#7 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController()
+#8 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest()
+#9 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#10 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(46): require_once('...')
+#11 {main}
+CRITICAL - 2023-02-27 17:13:17 --> Unable to connect to the database.
+Main connection [MySQLi]: No such file or directory
+in SYSTEMPATH/Database/BaseConnection.php on line 418.
+ 1 SYSTEMPATH/Database/BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query()
+ 3 SYSTEMPATH/Model.php(772): CodeIgniter\Database\BaseBuilder->get()
+ 4 APPPATH/Models/ModelSetting.php(23): CodeIgniter\Model->__call()
+ 5 APPPATH/Controllers/Kafe.php(28): App\Models\ModelSetting->tampilData()
+ 6 SYSTEMPATH/CodeIgniter.php(927): App\Controllers\Kafe->index()
+ 7 SYSTEMPATH/CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest()
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(46): require_once('FCPATH/index.php')
+ERROR - 2023-02-27 17:13:19 --> Error connecting to the database: mysqli_sql_exception: No such file or directory in /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:171
+Stack trace:
+#0 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(171): mysqli->real_connect()
+#1 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect()
+#2 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#3 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query()
+#4 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Model.php(772): CodeIgniter\Database\BaseBuilder->get()
+#5 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/app/Models/ModelSetting.php(23): CodeIgniter\Model->__call()
+#6 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/app/Controllers/Kafe.php(28): App\Models\ModelSetting->tampilData()
+#7 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(927): App\Controllers\Kafe->index()
+#8 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController()
+#9 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest()
+#10 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#11 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(46): require_once('...')
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No such file or directory in /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:215
+Stack trace:
+#0 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect()
+#1 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#2 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query()
+#3 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Model.php(772): CodeIgniter\Database\BaseBuilder->get()
+#4 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/app/Models/ModelSetting.php(23): CodeIgniter\Model->__call()
+#5 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/app/Controllers/Kafe.php(28): App\Models\ModelSetting->tampilData()
+#6 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(927): App\Controllers\Kafe->index()
+#7 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController()
+#8 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest()
+#9 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#10 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(46): require_once('...')
+#11 {main}
+CRITICAL - 2023-02-27 17:13:19 --> Unable to connect to the database.
+Main connection [MySQLi]: No such file or directory
+in SYSTEMPATH/Database/BaseConnection.php on line 418.
+ 1 SYSTEMPATH/Database/BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query()
+ 3 SYSTEMPATH/Model.php(772): CodeIgniter\Database\BaseBuilder->get()
+ 4 APPPATH/Models/ModelSetting.php(23): CodeIgniter\Model->__call()
+ 5 APPPATH/Controllers/Kafe.php(28): App\Models\ModelSetting->tampilData()
+ 6 SYSTEMPATH/CodeIgniter.php(927): App\Controllers\Kafe->index()
+ 7 SYSTEMPATH/CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest()
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(46): require_once('FCPATH/index.php')
+ERROR - 2023-02-27 17:13:20 --> Error connecting to the database: mysqli_sql_exception: No such file or directory in /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:171
+Stack trace:
+#0 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(171): mysqli->real_connect()
+#1 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect()
+#2 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#3 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query()
+#4 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Model.php(772): CodeIgniter\Database\BaseBuilder->get()
+#5 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/app/Models/ModelSetting.php(23): CodeIgniter\Model->__call()
+#6 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/app/Controllers/Kafe.php(28): App\Models\ModelSetting->tampilData()
+#7 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(927): App\Controllers\Kafe->index()
+#8 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController()
+#9 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest()
+#10 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#11 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(46): require_once('...')
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No such file or directory in /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:215
+Stack trace:
+#0 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect()
+#1 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#2 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query()
+#3 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Model.php(772): CodeIgniter\Database\BaseBuilder->get()
+#4 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/app/Models/ModelSetting.php(23): CodeIgniter\Model->__call()
+#5 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/app/Controllers/Kafe.php(28): App\Models\ModelSetting->tampilData()
+#6 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(927): App\Controllers\Kafe->index()
+#7 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController()
+#8 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest()
+#9 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#10 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(46): require_once('...')
+#11 {main}
+CRITICAL - 2023-02-27 17:13:20 --> Unable to connect to the database.
+Main connection [MySQLi]: No such file or directory
+in SYSTEMPATH/Database/BaseConnection.php on line 418.
+ 1 SYSTEMPATH/Database/BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query()
+ 3 SYSTEMPATH/Model.php(772): CodeIgniter\Database\BaseBuilder->get()
+ 4 APPPATH/Models/ModelSetting.php(23): CodeIgniter\Model->__call()
+ 5 APPPATH/Controllers/Kafe.php(28): App\Models\ModelSetting->tampilData()
+ 6 SYSTEMPATH/CodeIgniter.php(927): App\Controllers\Kafe->index()
+ 7 SYSTEMPATH/CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest()
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(46): require_once('FCPATH/index.php')
+ERROR - 2023-02-27 17:13:20 --> Error connecting to the database: mysqli_sql_exception: No such file or directory in /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:171
+Stack trace:
+#0 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(171): mysqli->real_connect()
+#1 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect()
+#2 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#3 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query()
+#4 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Model.php(772): CodeIgniter\Database\BaseBuilder->get()
+#5 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/app/Models/ModelSetting.php(23): CodeIgniter\Model->__call()
+#6 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/app/Controllers/Kafe.php(28): App\Models\ModelSetting->tampilData()
+#7 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(927): App\Controllers\Kafe->index()
+#8 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController()
+#9 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest()
+#10 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#11 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(46): require_once('...')
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No such file or directory in /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:215
+Stack trace:
+#0 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect()
+#1 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#2 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query()
+#3 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Model.php(772): CodeIgniter\Database\BaseBuilder->get()
+#4 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/app/Models/ModelSetting.php(23): CodeIgniter\Model->__call()
+#5 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/app/Controllers/Kafe.php(28): App\Models\ModelSetting->tampilData()
+#6 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(927): App\Controllers\Kafe->index()
+#7 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController()
+#8 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest()
+#9 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#10 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(46): require_once('...')
+#11 {main}
+CRITICAL - 2023-02-27 17:13:20 --> Unable to connect to the database.
+Main connection [MySQLi]: No such file or directory
+in SYSTEMPATH/Database/BaseConnection.php on line 418.
+ 1 SYSTEMPATH/Database/BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query()
+ 3 SYSTEMPATH/Model.php(772): CodeIgniter\Database\BaseBuilder->get()
+ 4 APPPATH/Models/ModelSetting.php(23): CodeIgniter\Model->__call()
+ 5 APPPATH/Controllers/Kafe.php(28): App\Models\ModelSetting->tampilData()
+ 6 SYSTEMPATH/CodeIgniter.php(927): App\Controllers\Kafe->index()
+ 7 SYSTEMPATH/CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest()
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(46): require_once('FCPATH/index.php')
+ERROR - 2023-02-27 17:13:21 --> Error connecting to the database: mysqli_sql_exception: No such file or directory in /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:171
+Stack trace:
+#0 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(171): mysqli->real_connect()
+#1 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect()
+#2 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#3 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query()
+#4 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Model.php(772): CodeIgniter\Database\BaseBuilder->get()
+#5 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/app/Models/ModelSetting.php(23): CodeIgniter\Model->__call()
+#6 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/app/Controllers/Kafe.php(28): App\Models\ModelSetting->tampilData()
+#7 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(927): App\Controllers\Kafe->index()
+#8 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController()
+#9 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest()
+#10 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#11 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(46): require_once('...')
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No such file or directory in /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:215
+Stack trace:
+#0 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect()
+#1 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#2 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query()
+#3 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Model.php(772): CodeIgniter\Database\BaseBuilder->get()
+#4 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/app/Models/ModelSetting.php(23): CodeIgniter\Model->__call()
+#5 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/app/Controllers/Kafe.php(28): App\Models\ModelSetting->tampilData()
+#6 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(927): App\Controllers\Kafe->index()
+#7 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController()
+#8 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest()
+#9 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#10 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(46): require_once('...')
+#11 {main}
+CRITICAL - 2023-02-27 17:13:21 --> Unable to connect to the database.
+Main connection [MySQLi]: No such file or directory
+in SYSTEMPATH/Database/BaseConnection.php on line 418.
+ 1 SYSTEMPATH/Database/BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query()
+ 3 SYSTEMPATH/Model.php(772): CodeIgniter\Database\BaseBuilder->get()
+ 4 APPPATH/Models/ModelSetting.php(23): CodeIgniter\Model->__call()
+ 5 APPPATH/Controllers/Kafe.php(28): App\Models\ModelSetting->tampilData()
+ 6 SYSTEMPATH/CodeIgniter.php(927): App\Controllers\Kafe->index()
+ 7 SYSTEMPATH/CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest()
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(46): require_once('FCPATH/index.php')
+ERROR - 2023-02-27 17:13:22 --> Error connecting to the database: mysqli_sql_exception: No such file or directory in /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:171
+Stack trace:
+#0 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(171): mysqli->real_connect()
+#1 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect()
+#2 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#3 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query()
+#4 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Model.php(772): CodeIgniter\Database\BaseBuilder->get()
+#5 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/app/Models/ModelSetting.php(23): CodeIgniter\Model->__call()
+#6 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/app/Controllers/Kafe.php(28): App\Models\ModelSetting->tampilData()
+#7 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(927): App\Controllers\Kafe->index()
+#8 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController()
+#9 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest()
+#10 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#11 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(46): require_once('...')
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No such file or directory in /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:215
+Stack trace:
+#0 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect()
+#1 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#2 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query()
+#3 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Model.php(772): CodeIgniter\Database\BaseBuilder->get()
+#4 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/app/Models/ModelSetting.php(23): CodeIgniter\Model->__call()
+#5 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/app/Controllers/Kafe.php(28): App\Models\ModelSetting->tampilData()
+#6 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(927): App\Controllers\Kafe->index()
+#7 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController()
+#8 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest()
+#9 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#10 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(46): require_once('...')
+#11 {main}
+CRITICAL - 2023-02-27 17:13:22 --> Unable to connect to the database.
+Main connection [MySQLi]: No such file or directory
+in SYSTEMPATH/Database/BaseConnection.php on line 418.
+ 1 SYSTEMPATH/Database/BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query()
+ 3 SYSTEMPATH/Model.php(772): CodeIgniter\Database\BaseBuilder->get()
+ 4 APPPATH/Models/ModelSetting.php(23): CodeIgniter\Model->__call()
+ 5 APPPATH/Controllers/Kafe.php(28): App\Models\ModelSetting->tampilData()
+ 6 SYSTEMPATH/CodeIgniter.php(927): App\Controllers\Kafe->index()
+ 7 SYSTEMPATH/CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest()
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(46): require_once('FCPATH/index.php')
+ERROR - 2023-02-27 17:13:22 --> Error connecting to the database: mysqli_sql_exception: No such file or directory in /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:171
+Stack trace:
+#0 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(171): mysqli->real_connect()
+#1 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect()
+#2 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#3 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query()
+#4 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Model.php(772): CodeIgniter\Database\BaseBuilder->get()
+#5 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/app/Models/ModelSetting.php(23): CodeIgniter\Model->__call()
+#6 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/app/Controllers/Kafe.php(28): App\Models\ModelSetting->tampilData()
+#7 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(927): App\Controllers\Kafe->index()
+#8 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController()
+#9 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest()
+#10 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#11 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(46): require_once('...')
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No such file or directory in /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:215
+Stack trace:
+#0 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect()
+#1 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#2 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query()
+#3 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Model.php(772): CodeIgniter\Database\BaseBuilder->get()
+#4 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/app/Models/ModelSetting.php(23): CodeIgniter\Model->__call()
+#5 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/app/Controllers/Kafe.php(28): App\Models\ModelSetting->tampilData()
+#6 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(927): App\Controllers\Kafe->index()
+#7 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController()
+#8 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest()
+#9 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#10 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(46): require_once('...')
+#11 {main}
+CRITICAL - 2023-02-27 17:13:22 --> Unable to connect to the database.
+Main connection [MySQLi]: No such file or directory
+in SYSTEMPATH/Database/BaseConnection.php on line 418.
+ 1 SYSTEMPATH/Database/BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query()
+ 3 SYSTEMPATH/Model.php(772): CodeIgniter\Database\BaseBuilder->get()
+ 4 APPPATH/Models/ModelSetting.php(23): CodeIgniter\Model->__call()
+ 5 APPPATH/Controllers/Kafe.php(28): App\Models\ModelSetting->tampilData()
+ 6 SYSTEMPATH/CodeIgniter.php(927): App\Controllers\Kafe->index()
+ 7 SYSTEMPATH/CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest()
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(46): require_once('FCPATH/index.php')
+ERROR - 2023-02-27 17:13:23 --> Error connecting to the database: mysqli_sql_exception: No such file or directory in /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:171
+Stack trace:
+#0 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(171): mysqli->real_connect()
+#1 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect()
+#2 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#3 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query()
+#4 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Model.php(772): CodeIgniter\Database\BaseBuilder->get()
+#5 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/app/Models/ModelSetting.php(23): CodeIgniter\Model->__call()
+#6 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/app/Controllers/Kafe.php(28): App\Models\ModelSetting->tampilData()
+#7 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(927): App\Controllers\Kafe->index()
+#8 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController()
+#9 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest()
+#10 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#11 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(46): require_once('...')
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No such file or directory in /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:215
+Stack trace:
+#0 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect()
+#1 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#2 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query()
+#3 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Model.php(772): CodeIgniter\Database\BaseBuilder->get()
+#4 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/app/Models/ModelSetting.php(23): CodeIgniter\Model->__call()
+#5 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/app/Controllers/Kafe.php(28): App\Models\ModelSetting->tampilData()
+#6 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(927): App\Controllers\Kafe->index()
+#7 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController()
+#8 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest()
+#9 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#10 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(46): require_once('...')
+#11 {main}
+CRITICAL - 2023-02-27 17:13:23 --> Unable to connect to the database.
+Main connection [MySQLi]: No such file or directory
+in SYSTEMPATH/Database/BaseConnection.php on line 418.
+ 1 SYSTEMPATH/Database/BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query()
+ 3 SYSTEMPATH/Model.php(772): CodeIgniter\Database\BaseBuilder->get()
+ 4 APPPATH/Models/ModelSetting.php(23): CodeIgniter\Model->__call()
+ 5 APPPATH/Controllers/Kafe.php(28): App\Models\ModelSetting->tampilData()
+ 6 SYSTEMPATH/CodeIgniter.php(927): App\Controllers\Kafe->index()
+ 7 SYSTEMPATH/CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest()
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(46): require_once('FCPATH/index.php')
+ERROR - 2023-02-27 17:13:23 --> Error connecting to the database: mysqli_sql_exception: No such file or directory in /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:171
+Stack trace:
+#0 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(171): mysqli->real_connect()
+#1 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect()
+#2 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#3 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query()
+#4 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Model.php(772): CodeIgniter\Database\BaseBuilder->get()
+#5 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/app/Models/ModelSetting.php(23): CodeIgniter\Model->__call()
+#6 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/app/Controllers/Kafe.php(28): App\Models\ModelSetting->tampilData()
+#7 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(927): App\Controllers\Kafe->index()
+#8 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController()
+#9 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest()
+#10 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#11 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(46): require_once('...')
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No such file or directory in /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:215
+Stack trace:
+#0 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect()
+#1 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#2 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query()
+#3 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Model.php(772): CodeIgniter\Database\BaseBuilder->get()
+#4 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/app/Models/ModelSetting.php(23): CodeIgniter\Model->__call()
+#5 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/app/Controllers/Kafe.php(28): App\Models\ModelSetting->tampilData()
+#6 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(927): App\Controllers\Kafe->index()
+#7 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController()
+#8 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest()
+#9 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#10 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(46): require_once('...')
+#11 {main}
+CRITICAL - 2023-02-27 17:13:23 --> Unable to connect to the database.
+Main connection [MySQLi]: No such file or directory
+in SYSTEMPATH/Database/BaseConnection.php on line 418.
+ 1 SYSTEMPATH/Database/BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query()
+ 3 SYSTEMPATH/Model.php(772): CodeIgniter\Database\BaseBuilder->get()
+ 4 APPPATH/Models/ModelSetting.php(23): CodeIgniter\Model->__call()
+ 5 APPPATH/Controllers/Kafe.php(28): App\Models\ModelSetting->tampilData()
+ 6 SYSTEMPATH/CodeIgniter.php(927): App\Controllers\Kafe->index()
+ 7 SYSTEMPATH/CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest()
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(46): require_once('FCPATH/index.php')
+ERROR - 2023-02-27 17:13:24 --> Error connecting to the database: mysqli_sql_exception: No such file or directory in /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:171
+Stack trace:
+#0 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(171): mysqli->real_connect()
+#1 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect()
+#2 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#3 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query()
+#4 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Model.php(772): CodeIgniter\Database\BaseBuilder->get()
+#5 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/app/Models/ModelSetting.php(23): CodeIgniter\Model->__call()
+#6 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/app/Controllers/Kafe.php(28): App\Models\ModelSetting->tampilData()
+#7 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(927): App\Controllers\Kafe->index()
+#8 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController()
+#9 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest()
+#10 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#11 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(46): require_once('...')
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No such file or directory in /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:215
+Stack trace:
+#0 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect()
+#1 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#2 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query()
+#3 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Model.php(772): CodeIgniter\Database\BaseBuilder->get()
+#4 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/app/Models/ModelSetting.php(23): CodeIgniter\Model->__call()
+#5 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/app/Controllers/Kafe.php(28): App\Models\ModelSetting->tampilData()
+#6 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(927): App\Controllers\Kafe->index()
+#7 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController()
+#8 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest()
+#9 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#10 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(46): require_once('...')
+#11 {main}
+CRITICAL - 2023-02-27 17:13:24 --> Unable to connect to the database.
+Main connection [MySQLi]: No such file or directory
+in SYSTEMPATH/Database/BaseConnection.php on line 418.
+ 1 SYSTEMPATH/Database/BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query()
+ 3 SYSTEMPATH/Model.php(772): CodeIgniter\Database\BaseBuilder->get()
+ 4 APPPATH/Models/ModelSetting.php(23): CodeIgniter\Model->__call()
+ 5 APPPATH/Controllers/Kafe.php(28): App\Models\ModelSetting->tampilData()
+ 6 SYSTEMPATH/CodeIgniter.php(927): App\Controllers\Kafe->index()
+ 7 SYSTEMPATH/CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest()
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(46): require_once('FCPATH/index.php')
+ERROR - 2023-02-27 17:13:25 --> Error connecting to the database: mysqli_sql_exception: No such file or directory in /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:171
+Stack trace:
+#0 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(171): mysqli->real_connect()
+#1 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect()
+#2 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#3 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query()
+#4 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Model.php(772): CodeIgniter\Database\BaseBuilder->get()
+#5 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/app/Models/ModelSetting.php(23): CodeIgniter\Model->__call()
+#6 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/app/Controllers/Kafe.php(28): App\Models\ModelSetting->tampilData()
+#7 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(927): App\Controllers\Kafe->index()
+#8 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController()
+#9 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest()
+#10 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#11 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(46): require_once('...')
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No such file or directory in /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:215
+Stack trace:
+#0 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect()
+#1 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#2 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query()
+#3 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Model.php(772): CodeIgniter\Database\BaseBuilder->get()
+#4 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/app/Models/ModelSetting.php(23): CodeIgniter\Model->__call()
+#5 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/app/Controllers/Kafe.php(28): App\Models\ModelSetting->tampilData()
+#6 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(927): App\Controllers\Kafe->index()
+#7 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController()
+#8 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest()
+#9 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#10 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(46): require_once('...')
+#11 {main}
+CRITICAL - 2023-02-27 17:13:25 --> Unable to connect to the database.
+Main connection [MySQLi]: No such file or directory
+in SYSTEMPATH/Database/BaseConnection.php on line 418.
+ 1 SYSTEMPATH/Database/BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query()
+ 3 SYSTEMPATH/Model.php(772): CodeIgniter\Database\BaseBuilder->get()
+ 4 APPPATH/Models/ModelSetting.php(23): CodeIgniter\Model->__call()
+ 5 APPPATH/Controllers/Kafe.php(28): App\Models\ModelSetting->tampilData()
+ 6 SYSTEMPATH/CodeIgniter.php(927): App\Controllers\Kafe->index()
+ 7 SYSTEMPATH/CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest()
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(46): require_once('FCPATH/index.php')
+ERROR - 2023-02-27 17:40:05 --> Error connecting to the database: mysqli_sql_exception: No such file or directory in /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:171
+Stack trace:
+#0 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(171): mysqli->real_connect()
+#1 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect()
+#2 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#3 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query()
+#4 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Model.php(772): CodeIgniter\Database\BaseBuilder->get()
+#5 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/app/Models/ModelSetting.php(23): CodeIgniter\Model->__call()
+#6 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/app/Controllers/Kafe.php(28): App\Models\ModelSetting->tampilData()
+#7 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(927): App\Controllers\Kafe->index()
+#8 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController()
+#9 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest()
+#10 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#11 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(46): require_once('...')
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No such file or directory in /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:215
+Stack trace:
+#0 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect()
+#1 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#2 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query()
+#3 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Model.php(772): CodeIgniter\Database\BaseBuilder->get()
+#4 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/app/Models/ModelSetting.php(23): CodeIgniter\Model->__call()
+#5 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/app/Controllers/Kafe.php(28): App\Models\ModelSetting->tampilData()
+#6 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(927): App\Controllers\Kafe->index()
+#7 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController()
+#8 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest()
+#9 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#10 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(46): require_once('...')
+#11 {main}
+CRITICAL - 2023-02-27 17:40:05 --> Unable to connect to the database.
+Main connection [MySQLi]: No such file or directory
+in SYSTEMPATH/Database/BaseConnection.php on line 418.
+ 1 SYSTEMPATH/Database/BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query()
+ 3 SYSTEMPATH/Model.php(772): CodeIgniter\Database\BaseBuilder->get()
+ 4 APPPATH/Models/ModelSetting.php(23): CodeIgniter\Model->__call()
+ 5 APPPATH/Controllers/Kafe.php(28): App\Models\ModelSetting->tampilData()
+ 6 SYSTEMPATH/CodeIgniter.php(927): App\Controllers\Kafe->index()
+ 7 SYSTEMPATH/CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest()
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(46): require_once('FCPATH/index.php')
+ERROR - 2023-02-27 17:40:05 --> Error connecting to the database: mysqli_sql_exception: No such file or directory in /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:171
+Stack trace:
+#0 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(171): mysqli->real_connect()
+#1 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect()
+#2 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#3 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query()
+#4 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Model.php(772): CodeIgniter\Database\BaseBuilder->get()
+#5 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/app/Models/ModelSetting.php(23): CodeIgniter\Model->__call()
+#6 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/app/Controllers/Kafe.php(28): App\Models\ModelSetting->tampilData()
+#7 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(927): App\Controllers\Kafe->index()
+#8 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController()
+#9 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest()
+#10 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#11 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(46): require_once('...')
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No such file or directory in /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:215
+Stack trace:
+#0 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect()
+#1 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#2 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query()
+#3 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Model.php(772): CodeIgniter\Database\BaseBuilder->get()
+#4 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/app/Models/ModelSetting.php(23): CodeIgniter\Model->__call()
+#5 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/app/Controllers/Kafe.php(28): App\Models\ModelSetting->tampilData()
+#6 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(927): App\Controllers\Kafe->index()
+#7 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController()
+#8 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest()
+#9 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#10 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(46): require_once('...')
+#11 {main}
+CRITICAL - 2023-02-27 17:40:05 --> Unable to connect to the database.
+Main connection [MySQLi]: No such file or directory
+in SYSTEMPATH/Database/BaseConnection.php on line 418.
+ 1 SYSTEMPATH/Database/BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query()
+ 3 SYSTEMPATH/Model.php(772): CodeIgniter\Database\BaseBuilder->get()
+ 4 APPPATH/Models/ModelSetting.php(23): CodeIgniter\Model->__call()
+ 5 APPPATH/Controllers/Kafe.php(28): App\Models\ModelSetting->tampilData()
+ 6 SYSTEMPATH/CodeIgniter.php(927): App\Controllers\Kafe->index()
+ 7 SYSTEMPATH/CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest()
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(46): require_once('FCPATH/index.php')
+ERROR - 2023-02-27 17:40:06 --> Error connecting to the database: mysqli_sql_exception: No such file or directory in /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:171
+Stack trace:
+#0 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(171): mysqli->real_connect()
+#1 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect()
+#2 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#3 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query()
+#4 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Model.php(772): CodeIgniter\Database\BaseBuilder->get()
+#5 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/app/Models/ModelSetting.php(23): CodeIgniter\Model->__call()
+#6 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/app/Controllers/Kafe.php(28): App\Models\ModelSetting->tampilData()
+#7 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(927): App\Controllers\Kafe->index()
+#8 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController()
+#9 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest()
+#10 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#11 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(46): require_once('...')
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No such file or directory in /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:215
+Stack trace:
+#0 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect()
+#1 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#2 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query()
+#3 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Model.php(772): CodeIgniter\Database\BaseBuilder->get()
+#4 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/app/Models/ModelSetting.php(23): CodeIgniter\Model->__call()
+#5 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/app/Controllers/Kafe.php(28): App\Models\ModelSetting->tampilData()
+#6 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(927): App\Controllers\Kafe->index()
+#7 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController()
+#8 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest()
+#9 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#10 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(46): require_once('...')
+#11 {main}
+CRITICAL - 2023-02-27 17:40:06 --> Unable to connect to the database.
+Main connection [MySQLi]: No such file or directory
+in SYSTEMPATH/Database/BaseConnection.php on line 418.
+ 1 SYSTEMPATH/Database/BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query()
+ 3 SYSTEMPATH/Model.php(772): CodeIgniter\Database\BaseBuilder->get()
+ 4 APPPATH/Models/ModelSetting.php(23): CodeIgniter\Model->__call()
+ 5 APPPATH/Controllers/Kafe.php(28): App\Models\ModelSetting->tampilData()
+ 6 SYSTEMPATH/CodeIgniter.php(927): App\Controllers\Kafe->index()
+ 7 SYSTEMPATH/CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest()
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(46): require_once('FCPATH/index.php')
+ERROR - 2023-02-27 17:40:07 --> Error connecting to the database: mysqli_sql_exception: No such file or directory in /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:171
+Stack trace:
+#0 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(171): mysqli->real_connect()
+#1 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect()
+#2 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#3 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query()
+#4 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Model.php(772): CodeIgniter\Database\BaseBuilder->get()
+#5 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/app/Models/ModelSetting.php(23): CodeIgniter\Model->__call()
+#6 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/app/Controllers/Kafe.php(28): App\Models\ModelSetting->tampilData()
+#7 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(927): App\Controllers\Kafe->index()
+#8 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController()
+#9 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest()
+#10 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#11 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(46): require_once('...')
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No such file or directory in /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:215
+Stack trace:
+#0 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect()
+#1 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#2 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query()
+#3 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Model.php(772): CodeIgniter\Database\BaseBuilder->get()
+#4 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/app/Models/ModelSetting.php(23): CodeIgniter\Model->__call()
+#5 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/app/Controllers/Kafe.php(28): App\Models\ModelSetting->tampilData()
+#6 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(927): App\Controllers\Kafe->index()
+#7 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController()
+#8 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest()
+#9 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#10 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(46): require_once('...')
+#11 {main}
+CRITICAL - 2023-02-27 17:40:07 --> Unable to connect to the database.
+Main connection [MySQLi]: No such file or directory
+in SYSTEMPATH/Database/BaseConnection.php on line 418.
+ 1 SYSTEMPATH/Database/BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query()
+ 3 SYSTEMPATH/Model.php(772): CodeIgniter\Database\BaseBuilder->get()
+ 4 APPPATH/Models/ModelSetting.php(23): CodeIgniter\Model->__call()
+ 5 APPPATH/Controllers/Kafe.php(28): App\Models\ModelSetting->tampilData()
+ 6 SYSTEMPATH/CodeIgniter.php(927): App\Controllers\Kafe->index()
+ 7 SYSTEMPATH/CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest()
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(46): require_once('FCPATH/index.php')
+ERROR - 2023-02-27 17:40:08 --> Error connecting to the database: mysqli_sql_exception: No such file or directory in /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:171
+Stack trace:
+#0 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(171): mysqli->real_connect()
+#1 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect()
+#2 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#3 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query()
+#4 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Model.php(772): CodeIgniter\Database\BaseBuilder->get()
+#5 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/app/Models/ModelSetting.php(23): CodeIgniter\Model->__call()
+#6 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/app/Controllers/Kafe.php(28): App\Models\ModelSetting->tampilData()
+#7 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(927): App\Controllers\Kafe->index()
+#8 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController()
+#9 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest()
+#10 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#11 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(46): require_once('...')
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No such file or directory in /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:215
+Stack trace:
+#0 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect()
+#1 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#2 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query()
+#3 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Model.php(772): CodeIgniter\Database\BaseBuilder->get()
+#4 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/app/Models/ModelSetting.php(23): CodeIgniter\Model->__call()
+#5 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/app/Controllers/Kafe.php(28): App\Models\ModelSetting->tampilData()
+#6 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(927): App\Controllers\Kafe->index()
+#7 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController()
+#8 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest()
+#9 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#10 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(46): require_once('...')
+#11 {main}
+CRITICAL - 2023-02-27 17:40:08 --> Unable to connect to the database.
+Main connection [MySQLi]: No such file or directory
+in SYSTEMPATH/Database/BaseConnection.php on line 418.
+ 1 SYSTEMPATH/Database/BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query()
+ 3 SYSTEMPATH/Model.php(772): CodeIgniter\Database\BaseBuilder->get()
+ 4 APPPATH/Models/ModelSetting.php(23): CodeIgniter\Model->__call()
+ 5 APPPATH/Controllers/Kafe.php(28): App\Models\ModelSetting->tampilData()
+ 6 SYSTEMPATH/CodeIgniter.php(927): App\Controllers\Kafe->index()
+ 7 SYSTEMPATH/CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest()
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(46): require_once('FCPATH/index.php')
+ERROR - 2023-02-27 17:40:09 --> Error connecting to the database: mysqli_sql_exception: No such file or directory in /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:171
+Stack trace:
+#0 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(171): mysqli->real_connect()
+#1 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect()
+#2 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#3 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query()
+#4 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Model.php(772): CodeIgniter\Database\BaseBuilder->get()
+#5 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/app/Models/ModelSetting.php(23): CodeIgniter\Model->__call()
+#6 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/app/Controllers/Kafe.php(28): App\Models\ModelSetting->tampilData()
+#7 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(927): App\Controllers\Kafe->index()
+#8 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController()
+#9 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest()
+#10 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#11 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(46): require_once('...')
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No such file or directory in /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:215
+Stack trace:
+#0 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect()
+#1 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#2 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query()
+#3 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Model.php(772): CodeIgniter\Database\BaseBuilder->get()
+#4 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/app/Models/ModelSetting.php(23): CodeIgniter\Model->__call()
+#5 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/app/Controllers/Kafe.php(28): App\Models\ModelSetting->tampilData()
+#6 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(927): App\Controllers\Kafe->index()
+#7 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController()
+#8 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest()
+#9 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#10 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(46): require_once('...')
+#11 {main}
+CRITICAL - 2023-02-27 17:40:09 --> Unable to connect to the database.
+Main connection [MySQLi]: No such file or directory
+in SYSTEMPATH/Database/BaseConnection.php on line 418.
+ 1 SYSTEMPATH/Database/BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query()
+ 3 SYSTEMPATH/Model.php(772): CodeIgniter\Database\BaseBuilder->get()
+ 4 APPPATH/Models/ModelSetting.php(23): CodeIgniter\Model->__call()
+ 5 APPPATH/Controllers/Kafe.php(28): App\Models\ModelSetting->tampilData()
+ 6 SYSTEMPATH/CodeIgniter.php(927): App\Controllers\Kafe->index()
+ 7 SYSTEMPATH/CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest()
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(46): require_once('FCPATH/index.php')
+ERROR - 2023-02-27 17:40:29 --> Error connecting to the database: mysqli_sql_exception: No such file or directory in /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:171
+Stack trace:
+#0 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(171): mysqli->real_connect()
+#1 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect()
+#2 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#3 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query()
+#4 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Model.php(772): CodeIgniter\Database\BaseBuilder->get()
+#5 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/app/Models/ModelSetting.php(23): CodeIgniter\Model->__call()
+#6 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/app/Controllers/Kafe.php(28): App\Models\ModelSetting->tampilData()
+#7 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(927): App\Controllers\Kafe->index()
+#8 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController()
+#9 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest()
+#10 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#11 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(46): require_once('...')
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No such file or directory in /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:215
+Stack trace:
+#0 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect()
+#1 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#2 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query()
+#3 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Model.php(772): CodeIgniter\Database\BaseBuilder->get()
+#4 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/app/Models/ModelSetting.php(23): CodeIgniter\Model->__call()
+#5 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/app/Controllers/Kafe.php(28): App\Models\ModelSetting->tampilData()
+#6 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(927): App\Controllers\Kafe->index()
+#7 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController()
+#8 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest()
+#9 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#10 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(46): require_once('...')
+#11 {main}
+CRITICAL - 2023-02-27 17:40:29 --> Unable to connect to the database.
+Main connection [MySQLi]: No such file or directory
+in SYSTEMPATH/Database/BaseConnection.php on line 418.
+ 1 SYSTEMPATH/Database/BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query()
+ 3 SYSTEMPATH/Model.php(772): CodeIgniter\Database\BaseBuilder->get()
+ 4 APPPATH/Models/ModelSetting.php(23): CodeIgniter\Model->__call()
+ 5 APPPATH/Controllers/Kafe.php(28): App\Models\ModelSetting->tampilData()
+ 6 SYSTEMPATH/CodeIgniter.php(927): App\Controllers\Kafe->index()
+ 7 SYSTEMPATH/CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest()
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(46): require_once('FCPATH/index.php')
+ERROR - 2023-02-27 17:41:46 --> Error connecting to the database: mysqli_sql_exception: No such file or directory in /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:171
+Stack trace:
+#0 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(171): mysqli->real_connect()
+#1 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect()
+#2 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#3 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query()
+#4 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Model.php(772): CodeIgniter\Database\BaseBuilder->get()
+#5 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/app/Models/ModelSetting.php(23): CodeIgniter\Model->__call()
+#6 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/app/Controllers/Kafe.php(28): App\Models\ModelSetting->tampilData()
+#7 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(927): App\Controllers\Kafe->index()
+#8 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController()
+#9 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest()
+#10 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#11 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(46): require_once('...')
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No such file or directory in /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:215
+Stack trace:
+#0 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect()
+#1 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#2 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query()
+#3 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Model.php(772): CodeIgniter\Database\BaseBuilder->get()
+#4 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/app/Models/ModelSetting.php(23): CodeIgniter\Model->__call()
+#5 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/app/Controllers/Kafe.php(28): App\Models\ModelSetting->tampilData()
+#6 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(927): App\Controllers\Kafe->index()
+#7 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController()
+#8 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest()
+#9 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#10 /media/zaki/GUDANG1/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(46): require_once('...')
+#11 {main}
+CRITICAL - 2023-02-27 17:41:46 --> Unable to connect to the database.
+Main connection [MySQLi]: No such file or directory
+in SYSTEMPATH/Database/BaseConnection.php on line 418.
+ 1 SYSTEMPATH/Database/BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query()
+ 3 SYSTEMPATH/Model.php(772): CodeIgniter\Database\BaseBuilder->get()
+ 4 APPPATH/Models/ModelSetting.php(23): CodeIgniter\Model->__call()
+ 5 APPPATH/Controllers/Kafe.php(28): App\Models\ModelSetting->tampilData()
+ 6 SYSTEMPATH/CodeIgniter.php(927): App\Controllers\Kafe->index()
+ 7 SYSTEMPATH/CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest()
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(46): require_once('FCPATH/index.php')
+ERROR - 2023-02-27 20:02:06 --> Error connecting to the database: mysqli_sql_exception: Connection refused in /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:171
+Stack trace:
+#0 /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(171): mysqli->real_connect()
+#1 /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect()
+#2 /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#3 /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query()
+#4 /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Model.php(772): CodeIgniter\Database\BaseBuilder->get()
+#5 /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/app/Models/ModelSetting.php(23): CodeIgniter\Model->__call()
+#6 /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/app/Controllers/Kafe.php(28): App\Models\ModelSetting->tampilData()
+#7 /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(927): App\Controllers\Kafe->index()
+#8 /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController()
+#9 /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest()
+#10 /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#11 /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(46): require_once('...')
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Connection refused in /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:215
+Stack trace:
+#0 /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect()
+#1 /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#2 /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query()
+#3 /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Model.php(772): CodeIgniter\Database\BaseBuilder->get()
+#4 /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/app/Models/ModelSetting.php(23): CodeIgniter\Model->__call()
+#5 /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/app/Controllers/Kafe.php(28): App\Models\ModelSetting->tampilData()
+#6 /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(927): App\Controllers\Kafe->index()
+#7 /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController()
+#8 /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest()
+#9 /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#10 /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(46): require_once('...')
+#11 {main}
+CRITICAL - 2023-02-27 20:02:06 --> Unable to connect to the database.
+Main connection [MySQLi]: Connection refused
+in SYSTEMPATH/Database/BaseConnection.php on line 418.
+ 1 SYSTEMPATH/Database/BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query()
+ 3 SYSTEMPATH/Model.php(772): CodeIgniter\Database\BaseBuilder->get()
+ 4 APPPATH/Models/ModelSetting.php(23): CodeIgniter\Model->__call()
+ 5 APPPATH/Controllers/Kafe.php(28): App\Models\ModelSetting->tampilData()
+ 6 SYSTEMPATH/CodeIgniter.php(927): App\Controllers\Kafe->index()
+ 7 SYSTEMPATH/CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest()
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(46): require_once('FCPATH/index.php')
+ERROR - 2023-02-27 20:02:49 --> Error connecting to the database: mysqli_sql_exception: Connection refused in /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:171
+Stack trace:
+#0 /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(171): mysqli->real_connect()
+#1 /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect()
+#2 /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#3 /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query()
+#4 /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Model.php(772): CodeIgniter\Database\BaseBuilder->get()
+#5 /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/app/Models/ModelSetting.php(23): CodeIgniter\Model->__call()
+#6 /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/app/Controllers/Kafe.php(28): App\Models\ModelSetting->tampilData()
+#7 /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(927): App\Controllers\Kafe->index()
+#8 /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController()
+#9 /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest()
+#10 /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#11 /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(46): require_once('...')
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Connection refused in /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:215
+Stack trace:
+#0 /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect()
+#1 /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#2 /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query()
+#3 /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Model.php(772): CodeIgniter\Database\BaseBuilder->get()
+#4 /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/app/Models/ModelSetting.php(23): CodeIgniter\Model->__call()
+#5 /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/app/Controllers/Kafe.php(28): App\Models\ModelSetting->tampilData()
+#6 /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(927): App\Controllers\Kafe->index()
+#7 /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController()
+#8 /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest()
+#9 /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#10 /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(46): require_once('...')
+#11 {main}
+CRITICAL - 2023-02-27 20:02:49 --> Unable to connect to the database.
+Main connection [MySQLi]: Connection refused
+in SYSTEMPATH/Database/BaseConnection.php on line 418.
+ 1 SYSTEMPATH/Database/BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query()
+ 3 SYSTEMPATH/Model.php(772): CodeIgniter\Database\BaseBuilder->get()
+ 4 APPPATH/Models/ModelSetting.php(23): CodeIgniter\Model->__call()
+ 5 APPPATH/Controllers/Kafe.php(28): App\Models\ModelSetting->tampilData()
+ 6 SYSTEMPATH/CodeIgniter.php(927): App\Controllers\Kafe->index()
+ 7 SYSTEMPATH/CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest()
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(46): require_once('FCPATH/index.php')
+ERROR - 2023-02-27 20:03:27 --> Error connecting to the database: mysqli_sql_exception: Connection refused in /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:171
+Stack trace:
+#0 /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(171): mysqli->real_connect()
+#1 /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect()
+#2 /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#3 /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query()
+#4 /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Model.php(772): CodeIgniter\Database\BaseBuilder->get()
+#5 /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/app/Models/ModelSetting.php(23): CodeIgniter\Model->__call()
+#6 /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/app/Controllers/Kafe.php(28): App\Models\ModelSetting->tampilData()
+#7 /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(927): App\Controllers\Kafe->index()
+#8 /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController()
+#9 /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest()
+#10 /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#11 /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(46): require_once('...')
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Connection refused in /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:215
+Stack trace:
+#0 /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect()
+#1 /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#2 /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query()
+#3 /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Model.php(772): CodeIgniter\Database\BaseBuilder->get()
+#4 /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/app/Models/ModelSetting.php(23): CodeIgniter\Model->__call()
+#5 /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/app/Controllers/Kafe.php(28): App\Models\ModelSetting->tampilData()
+#6 /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(927): App\Controllers\Kafe->index()
+#7 /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController()
+#8 /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest()
+#9 /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#10 /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(46): require_once('...')
+#11 {main}
+CRITICAL - 2023-02-27 20:03:27 --> Unable to connect to the database.
+Main connection [MySQLi]: Connection refused
+in SYSTEMPATH/Database/BaseConnection.php on line 418.
+ 1 SYSTEMPATH/Database/BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query()
+ 3 SYSTEMPATH/Model.php(772): CodeIgniter\Database\BaseBuilder->get()
+ 4 APPPATH/Models/ModelSetting.php(23): CodeIgniter\Model->__call()
+ 5 APPPATH/Controllers/Kafe.php(28): App\Models\ModelSetting->tampilData()
+ 6 SYSTEMPATH/CodeIgniter.php(927): App\Controllers\Kafe->index()
+ 7 SYSTEMPATH/CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest()
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(46): require_once('FCPATH/index.php')
+ERROR - 2023-02-27 20:03:45 --> Error connecting to the database: mysqli_sql_exception: Connection refused in /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:171
+Stack trace:
+#0 /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(171): mysqli->real_connect()
+#1 /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect()
+#2 /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#3 /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query()
+#4 /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Model.php(772): CodeIgniter\Database\BaseBuilder->get()
+#5 /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/app/Models/ModelSetting.php(23): CodeIgniter\Model->__call()
+#6 /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/app/Controllers/Kafe.php(28): App\Models\ModelSetting->tampilData()
+#7 /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(927): App\Controllers\Kafe->index()
+#8 /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController()
+#9 /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest()
+#10 /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#11 /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(46): require_once('...')
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Connection refused in /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:215
+Stack trace:
+#0 /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect()
+#1 /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#2 /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query()
+#3 /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Model.php(772): CodeIgniter\Database\BaseBuilder->get()
+#4 /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/app/Models/ModelSetting.php(23): CodeIgniter\Model->__call()
+#5 /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/app/Controllers/Kafe.php(28): App\Models\ModelSetting->tampilData()
+#6 /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(927): App\Controllers\Kafe->index()
+#7 /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController()
+#8 /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest()
+#9 /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#10 /media/zaki/GUDANG/WEB/XAMPP/htdocs/WebGis_kv/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(46): require_once('...')
+#11 {main}
+CRITICAL - 2023-02-27 20:03:45 --> Unable to connect to the database.
+Main connection [MySQLi]: Connection refused
+in SYSTEMPATH/Database/BaseConnection.php on line 418.
+ 1 SYSTEMPATH/Database/BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query()
+ 3 SYSTEMPATH/Model.php(772): CodeIgniter\Database\BaseBuilder->get()
+ 4 APPPATH/Models/ModelSetting.php(23): CodeIgniter\Model->__call()
+ 5 APPPATH/Controllers/Kafe.php(28): App\Models\ModelSetting->tampilData()
+ 6 SYSTEMPATH/CodeIgniter.php(927): App\Controllers\Kafe->index()
+ 7 SYSTEMPATH/CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest()
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(46): require_once('FCPATH/index.php')
+CRITICAL - 2023-02-27 22:16:11 --> Invalid file: page/nearby.php
+in SYSTEMPATH/Exceptions/FrameworkException.php on line 33.
+ 1 SYSTEMPATH/View/View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile()
+ 2 SYSTEMPATH/Common.php(1134): CodeIgniter\View\View->render()
+ 3 APPPATH/Controllers/Kafe.php(92): view()
+ 4 SYSTEMPATH/CodeIgniter.php(927): App\Controllers\Kafe->near()
+ 5 SYSTEMPATH/CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest()
+ 7 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Commands/Server/rewrite.php(46): require_once('FCPATH/index.php')
+CRITICAL - 2023-02-27 22:16:16 --> Invalid file: page/persebaran.php
+in SYSTEMPATH/Exceptions/FrameworkException.php on line 33.
+ 1 SYSTEMPATH/View/View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile()
+ 2 SYSTEMPATH/Common.php(1134): CodeIgniter\View\View->render()
+ 3 APPPATH/Controllers/Kafe.php(57): view()
+ 4 SYSTEMPATH/CodeIgniter.php(927): App\Controllers\Kafe->sebaran()
+ 5 SYSTEMPATH/CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest()
+ 7 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Commands/Server/rewrite.php(46): require_once('FCPATH/index.php')

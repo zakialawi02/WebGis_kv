@@ -205,16 +205,21 @@
                                         <?php endforeach ?>
                                     </tbody>
                                 </table>
+                                <center>
+                                    <p><?= ($userMonth == null) ? 'No Data' : null; ?> </p>
+                                </center>
 
                             </div>
+                            <a type="button" class="btn btn-primary" href="/user/list">View More</a>
 
                         </div>
 
-                        <a type="button" class="btn btn-primary" href="/user/list">View More</a>
+                    </div>
 
-                    </div><!-- End user Activity -->
 
-                </div><!-- End Right side columns -->
+                </div><!-- End user Activity -->
+
+            </div><!-- End Right side columns -->
 
             </div>
         </section>

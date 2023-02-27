@@ -1,0 +1,102 @@
+ERROR - 2023-02-02 16:10:28 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:171
+Stack trace:
+#0 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(171): mysqli->real_connect('localhost', 'root', '', 'webgis_kv', 3306, '', 0)
+#1 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#3 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Model.php(772): CodeIgniter\Database\BaseBuilder->get()
+#5 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Models\ModelSetting.php(23): CodeIgniter\Model->__call('get', Array)
+#6 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Controllers\Kafe.php(64): App\Models\ModelSetting->tampilData()
+#7 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(927): App\Controllers\Kafe->cari()
+#8 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+#9 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 F:\WEB\XAMPP\htdocs\WebGis_kv\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(46): require_once('F:\\WEB\\XAMPP\\ht...')
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:215
+Stack trace:
+#0 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#2 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Model.php(772): CodeIgniter\Database\BaseBuilder->get()
+#4 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Models\ModelSetting.php(23): CodeIgniter\Model->__call('get', Array)
+#5 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Controllers\Kafe.php(64): App\Models\ModelSetting->tampilData()
+#6 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(927): App\Controllers\Kafe->cari()
+#7 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+#8 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 F:\WEB\XAMPP\htdocs\WebGis_kv\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(46): require_once('F:\\WEB\\XAMPP\\ht...')
+#11 {main}
+CRITICAL - 2023-02-02 16:10:28 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+in SYSTEMPATH\Database\BaseConnection.php on line 418.
+ 1 SYSTEMPATH\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tbl_setting`
+WHERE `id` = :id:', [...], false)
+ 3 SYSTEMPATH\Model.php(772): CodeIgniter\Database\BaseBuilder->get()
+ 4 APPPATH\Models\ModelSetting.php(23): CodeIgniter\Model->__call('get', [])
+ 5 APPPATH\Controllers\Kafe.php(64): App\Models\ModelSetting->tampilData()
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->cari()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-02-02 16:17:21 --> Attempt to read property "id_kafe" on array
+in APPPATH\Controllers\Api.php on line 28.
+ 1 APPPATH\Controllers\Api.php(28): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "id_kafe" on array', 'APPPATH\\Controllers\\Api.php', 28)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Api->index()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-02-02 16:38:07 --> Cannot use object of type stdClass as array
+in APPPATH\Controllers\Api.php on line 24.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Api->index()
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-02-02 16:38:08 --> Cannot use object of type stdClass as array
+in APPPATH\Controllers\Api.php on line 24.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Api->index()
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-02-02 16:38:10 --> Cannot use object of type stdClass as array
+in APPPATH\Controllers\Api.php on line 24.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Api->index()
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-02-02 16:38:30 --> Cannot use object of type stdClass as array
+in APPPATH\Controllers\Api.php on line 24.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Api->index()
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-02-02 16:38:31 --> Cannot use object of type stdClass as array
+in APPPATH\Controllers\Api.php on line 24.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Api->index()
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-02-02 16:38:46 --> Cannot use object of type stdClass as array
+in APPPATH\Controllers\Api.php on line 23.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Api->index()
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-02-02 16:38:59 --> Cannot use object of type stdClass as array
+in APPPATH\Controllers\Api.php on line 23.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Api->index()
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')

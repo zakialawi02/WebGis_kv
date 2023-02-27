@@ -6,24 +6,31 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
     <title><?= $title; ?></title>
-    <meta content="" name="description">
     <meta content="" name="keywords">
+    <meta content="" name="description">
 
-    <!-- Favicons -->
-    <link href="/img/favicon.png" rel="icon">
-    <link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <!-- Favicon -->
+    <link href="img/favicon.png" rel="icon">
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Roboto:wght@500;700&display=swap" rel="stylesheet">
 
-    <!-- Vendor CSS Files -->
-    <link href="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
-    <!-- Template Main CSS File -->
-    <link href="/assets/css/style.css" rel="stylesheet">
+    <!-- Libraries Stylesheet -->
+    <link href="assets/lib/animate/animate.min.css" rel="stylesheet">
+    <link href="assets/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="assets/css/style.css" rel="stylesheet">
 
     <!-- leaflet Component -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css" integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14=" crossorigin="" />
@@ -32,7 +39,7 @@
 
     <style>
         #map {
-            height: 60vh;
+            height: 70vh;
             border-radius: 20px;
         }
     </style>
@@ -40,80 +47,94 @@
 </head>
 
 <body>
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-grow text-primary" role="status"></div>
+    </div>
+    <!-- Spinner End -->
 
-    <!-- HEADER -->
+    <!-- NAVBAR HEADER -->
     <?= $this->include('_Layout/_template/_umum/header'); ?>
-
-
 
     <!-- ISI CONTENT -->
     <!-- ======= Hero Section ======= -->
-    <section id="hero">
-        <div class="hero-content">
-            <h1>WebGIS Kafe</h1>
-            <p>Temukan kafe terdekat dan jelajahi menu-menu yang tersedia dengan WebGIS Kafe</p>
-            <a href="#discovery" class="btn btn-primary p-2">Mulai Jelajahi</a>
-        </div>
-    </section><!-- End Hero -->
-
-    <section id="discovery">
-
-        <div class="p-5"></div>
-        <div class="container mb-2">
-            <div class="p-2">
-                <h2>Terdekat</h2>
+    <div class="container-fluid hero-header bg-light py-5" id="hero">
+        <div class="container py-5">
+            <div class="row g-5 align-items-center">
+                <div class="hero-content">
+                    <h1>WebGIS Kafe</h1>
+                    <p>Temukan kafe terdekat dan jelajahi menu-menu yang tersedia dengan WebGIS Kafe</p>
+                    <a href="#discovery" class="btn btn-primary p-2">Mulai Jelajahi</a>
+                </div>
+                <div class="col-lg-6 animated fadeIn">
+                    <img class="img-fluid animated pulse infinite" style="animation-duration: 3s;" src="img/hero-1.png" alt="">
+                </div>
             </div>
+        </div>
+    </div>
+    <!-- Hdeader End -->
 
-            <div class="cards-list">
-                <?php foreach ($randomFour as $rand) : ?>
-                    <div class="card <?= $rand->id_kafe; ?>">
-                        <div class="card_image"> <img src="https://i.redd.it/b3esnz5ra34y.jpg" /> </div>
-                        <div class="card_title title-white">
-                            <a href="#">
-                                <p><?= $rand->nama_kafe; ?></p>
-                            </a>
+    <!-- Discovery -->
+    <section id="discovery">
+        <div class="container-fluid bg-light discovery fadeIn" data-wow-delay="0.1s">
+            <div class="container py-5">
+                <div class="pt-5 pb-2">
+                    <h2>Discovery</h2>
+                </div>
+
+                <div class="cards-list">
+                    <?php foreach ($randomFour as $rand) : ?>
+                        <div class="card <?= $rand->id_kafe; ?>">
+                            <div class="card_image"> <img src="https://i.redd.it/b3esnz5ra34y.jpg" /> </div>
+                            <div class="card_title title-white">
+                                <a href="#">
+                                    <p><?= $rand->nama_kafe; ?></p>
+                                </a>
+                            </div>
+                        </div>
+                    <?php endforeach ?>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Discovery End -->
+
+    <!-- Map -->
+    <section id="discovery">
+        <div class="container-fluid bg-light discovery fadeIn" data-wow-delay="0.1s">
+            <div class="container py-5">
+                <div class="container card-map" style="width: 100%;">
+                    <div class="row">
+                        <div class="p-5 col-md-4">
+                            <h2>Heading</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at dignissim velit. Praesent dictum auctor neque non suscipit. Duis lobortis arcu eu sapien condimentum, a placerat leo elementum. Suspendisse potenti. Ut sollicitudin leo metus sit amet metus.</p>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="map" id="map"></div>
                         </div>
                     </div>
-                <?php endforeach ?>
-            </div>
-        </div>
-
-    </section>
-
-
-    <section class="p-4">
-        <div class="p-5"></div>
-        <div class="container card-map" style="width: 80%;">
-            <div class="row">
-                <div class="p-5 col-md-4">
-                    <h2>Heading</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at dignissim velit. Praesent dictum auctor neque non suscipit. Duis lobortis arcu eu sapien condimentum, a placerat leo elementum. Suspendisse potenti. Ut sollicitudin leo metus sit amet metus.</p>
-                </div>
-                <div class="col-md-8">
-                    <div class="map" id="map"></div>
                 </div>
             </div>
         </div>
     </section>
-
-
-
-    <!-- END ISI CONTENT -->
-
-
+    <!-- Map End -->
 
     <!-- FOOTER -->
     <?= $this->include('_Layout/_template/_umum/footer'); ?>
 
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-    <!-- Vendor JS Files -->
-    <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
 
 
-    <!-- Template Main JS File -->
-    <script src="/assets/js/main.js"></script>
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/lib/wow/wow.min.js"></script>
+    <script src="assets/lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="assets/js/main.js"></script>
+
 
     <!-- Leafleat js Component -->
     <script src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js" integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg=" crossorigin=""></script>
@@ -192,8 +213,6 @@
             }).addTo(map).bindPopup("<b><?= $K->nama_kafe; ?></b></br><?= $K->alamat_kafe; ?>");
         <?php endforeach ?>
     </script>
-
-
 </body>
 
 </html>

@@ -1,14 +1,18 @@
    <!-- ======= Footer ======= -->
-   <footer id="footer">
-       <div class="copyright">
-           &copy; Copyright <strong><span>Green</span></strong>. All Rights Reserved
+   <!-- CPR -->
+   <div class="container-fluid bg-light footer pt-5 wow fadeIn">
+       <div class="container-fluid copyright">
+           <div class="container">
+               <div class="row">
+                   <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                       &copy; <a href="<?= base_url(); ?>">WebGIS</a>, All Right Reserved.
+                   </div>
+                   <div class="col-md-6 text-center text-md-end">
+                       <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+                       Designed By <a href="https://htmlcodex.com">HTML Codex</a> Distributed By <a href="https://themewagon.com">ThemeWagon</a>
+                   </div>
+               </div>
+           </div>
        </div>
-       <div class="credits">
-           <!-- All the links in the footer should remain intact. -->
-           <!-- You can delete the links only if you purchased the pro version. -->
-           <!-- Licensing information: https://bootstrapmade.com/license/ -->
-           <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/green-free-one-page-bootstrap-template/ -->
-           Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-       </div>
-       </div>
-   </footer><!-- End Footer -->
+   </div>
+   <!-- CPR End -->

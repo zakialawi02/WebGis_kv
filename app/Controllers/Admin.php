@@ -101,8 +101,9 @@ class Admin extends BaseController
             'tampilKafe' => $this->kafe->callKafe()->getResult(),
             'getFoto' => $this->fotoKafe->getFoto()->getResult(),
         ];
-        $dump = $this->kafe->callKafe()->getResult();
-        var_dump($dump);
+        $dump = $this->kafe->callKafe();
+        echo '<pre>';
+        print_r($dump);
         die;
 
         return view('admin/tempp', $data);
