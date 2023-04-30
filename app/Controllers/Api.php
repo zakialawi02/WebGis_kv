@@ -17,13 +17,7 @@ class Api extends ResourceController
 
     public function index()
     {
-        $dataKafe = $this->kafe->callKafe();
-
-        // $jam = [];
-        // foreach ($dataKafe as $key => $value) {
-        //     $jam[] = [$value->business_hours];
-        // }
-        // return $this->respond($jam);
+        $dataKafe = $this->kafe->callKafe()->getResult();
 
         $feature = [];
         foreach ($dataKafe as $row) {
@@ -47,7 +41,7 @@ class Api extends ResourceController
                     'updated_at' => $row->updated_at,
                     'user' => $row->user,
                     'nama_foto' => ["$row->nama_foto"],
-                    'business_hours' => [$row->business_hours],
+                    'jam_oprasional' => [$row->jam_oprasional],
                 ],
                 'geometry' => [
                     'coordinates' => [

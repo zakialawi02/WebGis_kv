@@ -101,7 +101,7 @@ class Admin extends BaseController
             'tampilKafe' => $this->kafe->callKafe()->getResult(),
             'getFoto' => $this->fotoKafe->getFoto()->getResult(),
         ];
-        $dump = $this->kafe->callKafe();
+        $dump = $this->kafe->callKafe()->getResult();
         echo '<pre>';
         print_r($dump);
         die;
@@ -303,7 +303,7 @@ class Admin extends BaseController
             'tampilData' => $this->setting->tampilData()->getResult(),
             'tampilGeojson' => $this->FGeojson->callGeojson()->getResult(),
             'updateGeojson' => $this->FGeojson->callGeojson()->getRow(),
-            'tampilKafe' => $this->kafe->callKafe(),
+            'tampilKafe' => $this->kafe->callKafe()->getResult(),
         ];
         // echo '<pre>';
         // print_r($data['tampilKafe']);
@@ -328,10 +328,13 @@ class Admin extends BaseController
             'title' => 'DATA KV',
             'tampilData' => $this->setting->tampilData()->getResult(), //ambil settingan mapView
             'tampilGeojson' => $this->FGeojson->callGeojson()->getResult(), //ambil data geojson
-            'tampilKafe' => $this->kafe->callKafe($id_kafe),
+            'tampilKafe' => $this->kafe->callKafe($id_kafe)->getRow(),
             'getFoto' => $this->fotoKafe->getFoto($id_kafe)->getResult(),
             'provinsi' => $this->kafe->allProvinsi(),
         ];
+        // echo '<pre>';
+        // print_r($data['tampilKafe']);
+        // die;
         return view('admin/updateKafe', $data);
     }
 
@@ -353,7 +356,6 @@ class Admin extends BaseController
             'longitude'  => $this->request->getVar('longitude'),
             'latitude'  => $this->request->getVar('latitude'),
             'instagram_kafe'  => $this->request->getVar('instagram_kafe'),
-            'fasilitas_kafe' => implode(", ", $this->request->getVar('fasil[]')),
             'id_provinsi'  => $id_provinsi,
             'id_kabupaten'  => $id_kabupaten,
             'id_kecamatan'  => $id_kecamatan,
@@ -361,8 +363,6 @@ class Admin extends BaseController
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
         ];
-        // var_dump($data);
-        // die;
         $addKafe = $this->kafe->addKafe($data);
         $insert_id = $this->db->insertID();
         $status = [
@@ -582,8 +582,9 @@ class Admin extends BaseController
     {
         $data = [
             'title' => 'PENDING LIST',
-            'tampilKafe' => $this->kafe->callPendingData(),
+            'tampilKafe' => $this->kafe->callPendingData()->getResult(),
         ];
+
         return view('admin/pendingList', $data);
     }
 

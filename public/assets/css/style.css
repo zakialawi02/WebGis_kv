@@ -484,6 +484,21 @@ img {
   opacity: 0.8;
 }
 
+#tombol-viewmap {
+  background-color: #5858ff;
+  text-decoration: none;
+  padding: 5px 10px;
+  margin-top: 2px;
+  border-color: #5858ff;
+  border-radius: 10px;
+  text-align: center;
+  display: inline-block;
+}
+
+#tombol-viewmap:hover {
+  background-color: #7272cf;
+}
+
 
 /** Data Detail Kafe **/
 .img-kafe {

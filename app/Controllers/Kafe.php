@@ -26,9 +26,12 @@ class Kafe extends BaseController
         $data = [
             'title' => 'Beranda',
             'tampilData' => $this->setting->tampilData()->getResult(),
-            'tampilKafe' => $this->kafe->callKafe(),
+            'tampilKafe' => $this->kafe->callKafe()->getResult(),
             'randomFour' => $this->kafe->randomFour()->getResult(),
         ];
+        // echo '<pre>';
+        // print_r($data['tampilKafe']);
+        // die;
         return view('page/indexHome', $data);
     }
 
@@ -38,12 +41,11 @@ class Kafe extends BaseController
 
         $data = [
             'title' => 'Detail Kafe',
-            'tampilKafe' => $this->kafe->callKafe($id_kafe),
+            'tampilKafe' => $this->kafe->callKafe($id_kafe)->getRow(),
         ];
         // echo '<pre>';
         // print_r($data['tampilKafe']);
         // die;
-
         return view('page/kafeDetail', $data);
     }
 
@@ -52,7 +54,7 @@ class Kafe extends BaseController
         $data = [
             'title' => 'Beranda',
             'tampilData' => $this->setting->tampilData()->getResult(),
-            'tampilKafe' => $this->kafe->callKafe(),
+            'tampilKafe' => $this->kafe->callKafe()->getResult(),
         ];
         return view('page/persebaran', $data);
     }
@@ -62,7 +64,7 @@ class Kafe extends BaseController
         $data = [
             'title' => 'Cari',
             'tampilData' => $this->setting->tampilData()->getResult(),
-            'tampilKafe' => $this->kafe->callKafe(),
+            'tampilKafe' => $this->kafe->callKafe()->getResult(),
         ];
         return view('page/cariKafe', $data);
     }
@@ -84,7 +86,7 @@ class Kafe extends BaseController
         $data = [
             'title' => 'Near',
             'tampilData' => $this->setting->tampilData()->getResult(),
-            'tampilKafe' => $this->kafe->callKafe(),
+            'tampilKafe' => $this->kafe->callKafe()->getResult(),
         ];
         // echo '<pre>';
         // print_r($data['tampilKafe']);
@@ -115,7 +117,7 @@ class Kafe extends BaseController
             'title' => 'Beranda',
             'tampilGeojson' => $this->FGeojson->callGeojson()->getResult(),
             'tampilData' => $this->setting->tampilData()->getResult(),
-            'tampilKafe' => $this->kafe->callKafe(),
+            'tampilKafe' => $this->kafe->callKafe()->getResult(),
         ];
         return view('page/peta', $data);
     }

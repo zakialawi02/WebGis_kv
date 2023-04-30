@@ -1,0 +1,454 @@
+CRITICAL - 2023-03-08 11:33:08 --> Attempt to read property "nama_foto" on string
+in APPPATH\Views\page\kafeDetail.php on line 67.
+ 1 APPPATH\Views\page\kafeDetail.php(67): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "nama_foto" on string', 'APPPATH\\Views\\page\\kafeDetail.php', 67)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\page\\kafeDetail.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('page/kafeDetail', [], true)
+ 5 APPPATH\Controllers\Kafe.php(49): view('page/kafeDetail', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->detail('112')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-08 11:34:01 --> foreach() argument must be of type array|object, string given
+in APPPATH\Views\page\kafeDetail.php on line 121.
+ 1 APPPATH\Views\page\kafeDetail.php(121): CodeIgniter\Debug\Exceptions->errorHandler(2, 'foreach() argument must be of type array|object, string given', 'APPPATH\\Views\\page\\kafeDetail.php', 121)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\page\\kafeDetail.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('page/kafeDetail', [], true)
+ 5 APPPATH\Controllers\Kafe.php(49): view('page/kafeDetail', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->detail('112')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-08 11:39:46 --> Undefined variable $kafe
+in APPPATH\Views\page\kafeDetail.php on line 121.
+ 1 APPPATH\Views\page\kafeDetail.php(121): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $kafe', 'APPPATH\\Views\\page\\kafeDetail.php', 121)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\page\\kafeDetail.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('page/kafeDetail', [], true)
+ 5 APPPATH\Controllers\Kafe.php(49): view('page/kafeDetail', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->detail('112')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-08 11:40:03 --> foreach() argument must be of type array|object, null given
+in APPPATH\Views\page\kafeDetail.php on line 122.
+ 1 APPPATH\Views\page\kafeDetail.php(122): CodeIgniter\Debug\Exceptions->errorHandler(2, 'foreach() argument must be of type array|object, null given', 'APPPATH\\Views\\page\\kafeDetail.php', 122)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\page\\kafeDetail.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('page/kafeDetail', [], true)
+ 5 APPPATH\Controllers\Kafe.php(49): view('page/kafeDetail', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->detail('112')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-08 11:41:33 --> foreach() argument must be of type array|object, null given
+in APPPATH\Views\page\kafeDetail.php on line 122.
+ 1 APPPATH\Views\page\kafeDetail.php(122): CodeIgniter\Debug\Exceptions->errorHandler(2, 'foreach() argument must be of type array|object, null given', 'APPPATH\\Views\\page\\kafeDetail.php', 122)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\page\\kafeDetail.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('page/kafeDetail', [], true)
+ 5 APPPATH\Controllers\Kafe.php(49): view('page/kafeDetail', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->detail('112')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-08 11:44:57 --> foreach() argument must be of type array|object, null given
+in APPPATH\Views\page\kafeDetail.php on line 122.
+ 1 APPPATH\Views\page\kafeDetail.php(122): CodeIgniter\Debug\Exceptions->errorHandler(2, 'foreach() argument must be of type array|object, null given', 'APPPATH\\Views\\page\\kafeDetail.php', 122)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\page\\kafeDetail.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('page/kafeDetail', [], true)
+ 5 APPPATH\Controllers\Kafe.php(49): view('page/kafeDetail', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->detail('112')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-08 11:45:20 --> Undefined variable $jam_oprasional
+in APPPATH\Views\page\kafeDetail.php on line 122.
+ 1 APPPATH\Views\page\kafeDetail.php(122): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $jam_oprasional', 'APPPATH\\Views\\page\\kafeDetail.php', 122)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\page\\kafeDetail.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('page/kafeDetail', [], true)
+ 5 APPPATH\Controllers\Kafe.php(49): view('page/kafeDetail', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->detail('112')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-08 11:46:59 --> foreach() argument must be of type array|object, null given
+in APPPATH\Views\page\kafeDetail.php on line 122.
+ 1 APPPATH\Views\page\kafeDetail.php(122): CodeIgniter\Debug\Exceptions->errorHandler(2, 'foreach() argument must be of type array|object, null given', 'APPPATH\\Views\\page\\kafeDetail.php', 122)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\page\\kafeDetail.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('page/kafeDetail', [], true)
+ 5 APPPATH\Controllers\Kafe.php(49): view('page/kafeDetail', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->detail('112')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-08 11:47:42 --> foreach() argument must be of type array|object, null given
+in APPPATH\Views\page\kafeDetail.php on line 122.
+ 1 APPPATH\Views\page\kafeDetail.php(122): CodeIgniter\Debug\Exceptions->errorHandler(2, 'foreach() argument must be of type array|object, null given', 'APPPATH\\Views\\page\\kafeDetail.php', 122)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\page\\kafeDetail.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('page/kafeDetail', [], true)
+ 5 APPPATH\Controllers\Kafe.php(49): view('page/kafeDetail', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->detail('112')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-08 11:49:38 --> Cannot use object of type stdClass as array
+in APPPATH\Views\page\kafeDetail.php on line 122.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('page/kafeDetail', [], true)
+ 4 APPPATH\Controllers\Kafe.php(49): view('page/kafeDetail', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->detail('112')
+ 6 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 7 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-08 11:49:54 --> Undefined property: stdClass::$
+in APPPATH\Views\page\kafeDetail.php on line 122.
+ 1 APPPATH\Views\page\kafeDetail.php(122): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$', 'APPPATH\\Views\\page\\kafeDetail.php', 122)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\page\\kafeDetail.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('page/kafeDetail', [], true)
+ 5 APPPATH\Controllers\Kafe.php(49): view('page/kafeDetail', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->detail('112')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-08 11:50:16 --> Undefined variable $jam_oprasional
+in APPPATH\Views\page\kafeDetail.php on line 122.
+ 1 APPPATH\Views\page\kafeDetail.php(122): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $jam_oprasional', 'APPPATH\\Views\\page\\kafeDetail.php', 122)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\page\\kafeDetail.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('page/kafeDetail', [], true)
+ 5 APPPATH\Controllers\Kafe.php(49): view('page/kafeDetail', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->detail('112')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-08 11:50:36 --> Cannot use object of type stdClass as array
+in APPPATH\Views\page\kafeDetail.php on line 122.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('page/kafeDetail', [], true)
+ 4 APPPATH\Controllers\Kafe.php(49): view('page/kafeDetail', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->detail('112')
+ 6 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 7 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-08 11:50:48 --> Undefined variable $jam_oprasional
+in APPPATH\Views\page\kafeDetail.php on line 121.
+ 1 APPPATH\Views\page\kafeDetail.php(121): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $jam_oprasional', 'APPPATH\\Views\\page\\kafeDetail.php', 121)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\page\\kafeDetail.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('page/kafeDetail', [], true)
+ 5 APPPATH\Controllers\Kafe.php(49): view('page/kafeDetail', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->detail('112')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-08 11:51:07 --> foreach() argument must be of type array|object, string given
+in APPPATH\Views\page\kafeDetail.php on line 122.
+ 1 APPPATH\Views\page\kafeDetail.php(122): CodeIgniter\Debug\Exceptions->errorHandler(2, 'foreach() argument must be of type array|object, string given', 'APPPATH\\Views\\page\\kafeDetail.php', 122)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\page\\kafeDetail.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('page/kafeDetail', [], true)
+ 5 APPPATH\Controllers\Kafe.php(49): view('page/kafeDetail', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->detail('112')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-08 11:51:20 --> foreach() argument must be of type array|object, null given
+in APPPATH\Views\page\kafeDetail.php on line 122.
+ 1 APPPATH\Views\page\kafeDetail.php(122): CodeIgniter\Debug\Exceptions->errorHandler(2, 'foreach() argument must be of type array|object, null given', 'APPPATH\\Views\\page\\kafeDetail.php', 122)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\page\\kafeDetail.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('page/kafeDetail', [], true)
+ 5 APPPATH\Controllers\Kafe.php(49): view('page/kafeDetail', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->detail('112')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-08 11:53:04 --> Undefined variable $hari
+in APPPATH\Views\page\kafeDetail.php on line 122.
+ 1 APPPATH\Views\page\kafeDetail.php(122): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $hari', 'APPPATH\\Views\\page\\kafeDetail.php', 122)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\page\\kafeDetail.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('page/kafeDetail', [], true)
+ 5 APPPATH\Controllers\Kafe.php(49): view('page/kafeDetail', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->detail('112')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-08 11:56:16 --> foreach() argument must be of type array|object, null given
+in APPPATH\Views\page\kafeDetail.php on line 122.
+ 1 APPPATH\Views\page\kafeDetail.php(122): CodeIgniter\Debug\Exceptions->errorHandler(2, 'foreach() argument must be of type array|object, null given', 'APPPATH\\Views\\page\\kafeDetail.php', 122)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\page\\kafeDetail.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('page/kafeDetail', [], true)
+ 5 APPPATH\Controllers\Kafe.php(49): view('page/kafeDetail', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->detail('112')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-08 12:01:01 --> Trying to access array offset on value of type null
+in APPPATH\Views\page\kafeDetail.php on line 122.
+ 1 APPPATH\Views\page\kafeDetail.php(122): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH\\Views\\page\\kafeDetail.php', 122)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\page\\kafeDetail.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('page/kafeDetail', [], true)
+ 5 APPPATH\Controllers\Kafe.php(49): view('page/kafeDetail', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->detail('112')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-08 12:01:18 --> Attempt to read property "jam_oprasional" on null
+in APPPATH\Views\page\kafeDetail.php on line 122.
+ 1 APPPATH\Views\page\kafeDetail.php(122): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "jam_oprasional" on null', 'APPPATH\\Views\\page\\kafeDetail.php', 122)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\page\\kafeDetail.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('page/kafeDetail', [], true)
+ 5 APPPATH\Controllers\Kafe.php(49): view('page/kafeDetail', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->detail('112')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-08 12:01:41 --> json_decode(): Argument #1 ($json) must be of type string, stdClass given
+in APPPATH\Controllers\Kafe.php on line 47.
+ 1 APPPATH\Controllers\Kafe.php(47): json_decode(Object(stdClass))
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->detail('112')
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-08 12:01:59 --> json_decode(): Argument #1 ($json) must be of type string, stdClass given
+in APPPATH\Controllers\Kafe.php on line 47.
+ 1 APPPATH\Controllers\Kafe.php(47): json_decode(Object(stdClass))
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->detail('112')
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-08 12:02:34 --> Cannot use object of type stdClass as array
+in APPPATH\Controllers\Kafe.php on line 47.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->detail('112')
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-08 12:02:50 --> Cannot use object of type stdClass as array
+in APPPATH\Controllers\Kafe.php on line 50.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->detail('112')
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-08 12:03:17 --> Cannot use object of type stdClass as array
+in APPPATH\Controllers\Kafe.php on line 50.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->detail('112')
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-08 12:04:10 --> Undefined array key "jam_oprasional"
+in APPPATH\Controllers\Kafe.php on line 50.
+ 1 APPPATH\Controllers\Kafe.php(50): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "jam_oprasional"', 'APPPATH\\Controllers\\Kafe.php', 50)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->detail('112')
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-08 12:05:43 --> Cannot access offset of type string on string
+in APPPATH\Controllers\Kafe.php on line 51.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->detail('112')
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-08 12:05:45 --> Cannot access offset of type string on string
+in APPPATH\Controllers\Kafe.php on line 51.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->detail('112')
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-08 12:06:06 --> Cannot access offset of type string on string
+in APPPATH\Controllers\Kafe.php on line 52.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->detail('112')
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-08 12:07:35 --> Cannot access offset of type string on string
+in APPPATH\Controllers\Kafe.php on line 52.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->detail('112')
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-08 12:07:57 --> Attempt to read property "hari" on string
+in APPPATH\Controllers\Kafe.php on line 52.
+ 1 APPPATH\Controllers\Kafe.php(52): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "hari" on string', 'APPPATH\\Controllers\\Kafe.php', 52)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->detail('112')
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-08 12:20:44 --> Undefined variable $data
+in APPPATH\Views\page\kafeDetail.php on line 121.
+ 1 APPPATH\Views\page\kafeDetail.php(121): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $data', 'APPPATH\\Views\\page\\kafeDetail.php', 121)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\page\\kafeDetail.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('page/kafeDetail', [], true)
+ 5 APPPATH\Controllers\Kafe.php(49): view('page/kafeDetail', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->detail('112')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-08 12:20:59 --> Undefined variable $jam_oprasional
+in APPPATH\Views\page\kafeDetail.php on line 122.
+ 1 APPPATH\Views\page\kafeDetail.php(122): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $jam_oprasional', 'APPPATH\\Views\\page\\kafeDetail.php', 122)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\page\\kafeDetail.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('page/kafeDetail', [], true)
+ 5 APPPATH\Controllers\Kafe.php(49): view('page/kafeDetail', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->detail('112')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-08 12:21:09 --> Attempt to read property "hari" on array
+in APPPATH\Views\page\kafeDetail.php on line 124.
+ 1 APPPATH\Views\page\kafeDetail.php(124): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "hari" on array', 'APPPATH\\Views\\page\\kafeDetail.php', 124)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\page\\kafeDetail.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('page/kafeDetail', [], true)
+ 5 APPPATH\Controllers\Kafe.php(49): view('page/kafeDetail', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->detail('112')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-08 12:22:05 --> Attempt to read property "open_time" on array
+in APPPATH\Views\page\kafeDetail.php on line 125.
+ 1 APPPATH\Views\page\kafeDetail.php(125): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "open_time" on array', 'APPPATH\\Views\\page\\kafeDetail.php', 125)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\page\\kafeDetail.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('page/kafeDetail', [], true)
+ 5 APPPATH\Controllers\Kafe.php(49): view('page/kafeDetail', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->detail('112')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-03-08 12:22:28 --> Attempt to read property "close_time" on array
+in APPPATH\Views\page\kafeDetail.php on line 126.
+ 1 APPPATH\Views\page\kafeDetail.php(126): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "close_time" on array', 'APPPATH\\Views\\page\\kafeDetail.php', 126)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\page\\kafeDetail.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('page/kafeDetail', [], true)
+ 5 APPPATH\Controllers\Kafe.php(49): view('page/kafeDetail', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->detail('112')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+ERROR - 2023-03-08 12:24:52 --> mysqli_sql_exception: Column 'id' in order clause is ambiguous in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `tbl_kaf...', 0)
+#1 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_kaf...')
+#2 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_kaf...')
+#3 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1718): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_kaf...', Array, false)
+#4 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Models\ModelKv.php(49): CodeIgniter\Database\BaseBuilder->getWhere(Array)
+#5 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Controllers\Kafe.php(44): App\Models\ModelKv->callKafe('112')
+#6 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(927): App\Controllers\Kafe->detail('112')
+#7 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+#8 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 F:\WEB\XAMPP\htdocs\WebGis_kv\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(46): require_once('F:\\WEB\\XAMPP\\ht...')
+#11 {main}
+CRITICAL - 2023-03-08 12:24:52 --> Column 'id' in order clause is ambiguous
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `tbl_kafe`.`id_kafe`, `nama_kafe`, `alamat_kafe`, `latitude`, `longitude`, `fasilitas_kafe`, `instagram_kafe`, `tbl_provinsi`.`id_provinsi` as `id_provinsi`, `nama_provinsi`, `tbl_kabupaten`.`id_kabupaten` as `id_kabupaten`, `nama_kabupaten`, `tbl_kecamatan`.`id_kecamatan` as `id_kecamatan`, `nama_kecamatan`, `tbl_kelurahan`.`id_kelurahan` as `id_kelurahan`, `nama_kelurahan`, `created_at`, `updated_at`, `tbl_status_appv`.`user` as `user`, `tbl_status_appv`.`stat_appv` as `stat_appv`, GROUP_CONCAT(DISTINCT nama_file_foto SEPARATOR ", ") as nama_foto, GROUP_CONCAT(DISTINCT JSON_OBJECT("hari", `tjo`.`hari`, "open_time", `tjo`.`open_time`, "close_time", tjo.close_time)) AS jam_oprasional
+FROM `tbl_kafe`
+LEFT JOIN `tbl_foto_kafe` `tfk` ON `tfk`.`id_kafe` = `tbl_kafe`.`id_kafe`
+LEFT JOIN `tbl_jam_operasional` `tjo` ON `tjo`.`kafe_id` = `tbl_kafe`.`id_kafe`
+JOIN `tbl_status_appv` ON `tbl_status_appv`.`id_kafe` = `tbl_kafe`.`id_kafe`
+JOIN `tbl_provinsi` ON `tbl_provinsi`.`id_provinsi` = `tbl_kafe`.`id_provinsi`
+JOIN `tbl_kabupaten` ON `tbl_kabupaten`.`id_kabupaten` = `tbl_kafe`.`id_kabupaten`
+JOIN `tbl_kecamatan` ON `tbl_kecamatan`.`id_kecamatan` = `tbl_kafe`.`id_kecamatan`
+JOIN `tbl_kelurahan` ON `tbl_kelurahan`.`id_kelurahan` = `tbl_kafe`.`id_kelurahan`
+WHERE `tbl_kafe`.`id_kafe` = \'112\'
+AND `stat_appv` = \'1\'
+GROUP BY `id_kafe`, `tjo`.`kafe_id`
+ORDER BY `id` DESC, `id_kafe` DESC', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_kafe`.`id_kafe`, `nama_kafe`, `alamat_kafe`, `latitude`, `longitude`, `fasilitas_kafe`, `instagram_kafe`, `tbl_provinsi`.`id_provinsi` as `id_provinsi`, `nama_provinsi`, `tbl_kabupaten`.`id_kabupaten` as `id_kabupaten`, `nama_kabupaten`, `tbl_kecamatan`.`id_kecamatan` as `id_kecamatan`, `nama_kecamatan`, `tbl_kelurahan`.`id_kelurahan` as `id_kelurahan`, `nama_kelurahan`, `created_at`, `updated_at`, `tbl_status_appv`.`user` as `user`, `tbl_status_appv`.`stat_appv` as `stat_appv`, GROUP_CONCAT(DISTINCT nama_file_foto SEPARATOR ", ") as nama_foto, GROUP_CONCAT(DISTINCT JSON_OBJECT("hari", `tjo`.`hari`, "open_time", `tjo`.`open_time`, "close_time", tjo.close_time)) AS jam_oprasional
+FROM `tbl_kafe`
+LEFT JOIN `tbl_foto_kafe` `tfk` ON `tfk`.`id_kafe` = `tbl_kafe`.`id_kafe`
+LEFT JOIN `tbl_jam_operasional` `tjo` ON `tjo`.`kafe_id` = `tbl_kafe`.`id_kafe`
+JOIN `tbl_status_appv` ON `tbl_status_appv`.`id_kafe` = `tbl_kafe`.`id_kafe`
+JOIN `tbl_provinsi` ON `tbl_provinsi`.`id_provinsi` = `tbl_kafe`.`id_provinsi`
+JOIN `tbl_kabupaten` ON `tbl_kabupaten`.`id_kabupaten` = `tbl_kafe`.`id_kabupaten`
+JOIN `tbl_kecamatan` ON `tbl_kecamatan`.`id_kecamatan` = `tbl_kafe`.`id_kecamatan`
+JOIN `tbl_kelurahan` ON `tbl_kelurahan`.`id_kelurahan` = `tbl_kafe`.`id_kelurahan`
+WHERE `tbl_kafe`.`id_kafe` = \'112\'
+AND `stat_appv` = \'1\'
+GROUP BY `id_kafe`, `tjo`.`kafe_id`
+ORDER BY `id` DESC, `id_kafe` DESC')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_kafe`.`id_kafe`, `nama_kafe`, `alamat_kafe`, `latitude`, `longitude`, `fasilitas_kafe`, `instagram_kafe`, `tbl_provinsi`.`id_provinsi` as `id_provinsi`, `nama_provinsi`, `tbl_kabupaten`.`id_kabupaten` as `id_kabupaten`, `nama_kabupaten`, `tbl_kecamatan`.`id_kecamatan` as `id_kecamatan`, `nama_kecamatan`, `tbl_kelurahan`.`id_kelurahan` as `id_kelurahan`, `nama_kelurahan`, `created_at`, `updated_at`, `tbl_status_appv`.`user` as `user`, `tbl_status_appv`.`stat_appv` as `stat_appv`, GROUP_CONCAT(DISTINCT nama_file_foto SEPARATOR ", ") as nama_foto, GROUP_CONCAT(DISTINCT JSON_OBJECT("hari", `tjo`.`hari`, "open_time", `tjo`.`open_time`, "close_time", tjo.close_time)) AS jam_oprasional
+FROM `tbl_kafe`
+LEFT JOIN `tbl_foto_kafe` `tfk` ON `tfk`.`id_kafe` = `tbl_kafe`.`id_kafe`
+LEFT JOIN `tbl_jam_operasional` `tjo` ON `tjo`.`kafe_id` = `tbl_kafe`.`id_kafe`
+JOIN `tbl_status_appv` ON `tbl_status_appv`.`id_kafe` = `tbl_kafe`.`id_kafe`
+JOIN `tbl_provinsi` ON `tbl_provinsi`.`id_provinsi` = `tbl_kafe`.`id_provinsi`
+JOIN `tbl_kabupaten` ON `tbl_kabupaten`.`id_kabupaten` = `tbl_kafe`.`id_kabupaten`
+JOIN `tbl_kecamatan` ON `tbl_kecamatan`.`id_kecamatan` = `tbl_kafe`.`id_kecamatan`
+JOIN `tbl_kelurahan` ON `tbl_kelurahan`.`id_kelurahan` = `tbl_kafe`.`id_kelurahan`
+WHERE `tbl_kafe`.`id_kafe` = \'112\'
+AND `stat_appv` = \'1\'
+GROUP BY `id_kafe`, `tjo`.`kafe_id`
+ORDER BY `id` DESC, `id_kafe` DESC')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1718): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_kafe`.`id_kafe`, `nama_kafe`, `alamat_kafe`, `latitude`, `longitude`, `fasilitas_kafe`, `instagram_kafe`, `tbl_provinsi`.`id_provinsi` as `id_provinsi`, `nama_provinsi`, `tbl_kabupaten`.`id_kabupaten` as `id_kabupaten`, `nama_kabupaten`, `tbl_kecamatan`.`id_kecamatan` as `id_kecamatan`, `nama_kecamatan`, `tbl_kelurahan`.`id_kelurahan` as `id_kelurahan`, `nama_kelurahan`, `created_at`, `updated_at`, `tbl_status_appv`.`user` as `user`, `tbl_status_appv`.`stat_appv` as `stat_appv`, GROUP_CONCAT(DISTINCT nama_file_foto SEPARATOR ", ") as nama_foto, GROUP_CONCAT(DISTINCT JSON_OBJECT("hari", `tjo`.`hari`, "open_time", `tjo`.`open_time`, "close_time", tjo.close_time)) AS jam_oprasional
+FROM `tbl_kafe`
+LEFT JOIN `tbl_foto_kafe` `tfk` ON `tfk`.`id_kafe` = `tbl_kafe`.`id_kafe`
+LEFT JOIN `tbl_jam_operasional` `tjo` ON `tjo`.`kafe_id` = `tbl_kafe`.`id_kafe`
+JOIN `tbl_status_appv` ON `tbl_status_appv`.`id_kafe` = `tbl_kafe`.`id_kafe`
+JOIN `tbl_provinsi` ON `tbl_provinsi`.`id_provinsi` = `tbl_kafe`.`id_provinsi`
+JOIN `tbl_kabupaten` ON `tbl_kabupaten`.`id_kabupaten` = `tbl_kafe`.`id_kabupaten`
+JOIN `tbl_kecamatan` ON `tbl_kecamatan`.`id_kecamatan` = `tbl_kafe`.`id_kecamatan`
+JOIN `tbl_kelurahan` ON `tbl_kelurahan`.`id_kelurahan` = `tbl_kafe`.`id_kelurahan`
+WHERE `tbl_kafe`.`id_kafe` = :tbl_kafe.id_kafe:
+AND `stat_appv` = :stat_appv:
+GROUP BY `id_kafe`, `tjo`.`kafe_id`
+ORDER BY `id` DESC, `id_kafe` DESC', [...], false)
+ 5 APPPATH\Models\ModelKv.php(49): CodeIgniter\Database\BaseBuilder->getWhere([...])
+ 6 APPPATH\Controllers\Kafe.php(44): App\Models\ModelKv->callKafe('112')
+ 7 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->detail('112')
+ 8 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 9 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')

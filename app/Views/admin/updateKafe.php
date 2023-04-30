@@ -112,27 +112,13 @@
                                     </select>
                                 </div>
 
-                                <div class="form-group">
-                                    <label for="fasilitas_kafe" class="form-label">Fasilitas</label>
-                                    <div>
-                                        <div class="form-check" style="display: inline-flex ; margin: 0 10px 0 0;">
-                                            <input class="form-check-input" type="checkbox" value="1" id="fasil1" name="fasil1">
-                                            <label class="form-check-label" for="flexCheckChecked">&nbsp; Fasil 1</label>
-                                        </div>
-                                        <div class="form-check" style="display: inline-flex ;">
-                                            <input class="form-check-input" type="checkbox" value="2" id="fasil2" name="fasil2">
-                                            <label class="form-check-label" for="flexCheckChecked">&nbsp; Fasil 2</label>
-                                        </div>
-                                    </div>
-                                </div>
-
                                 <label for="instagram_kafe" class="form-label">Instagram</label>
                                 <div class="input-group form-group mt-1">
                                     <span class="input-group-text" id="basic-addon1">@</span>
                                     <input type="text" class="form-control" id="instagram_kafe" name="instagram_kafe" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" value="<?= $tampilKafe->instagram_kafe; ?>">
                                 </div>
 
-                                <?php $oprasional = $tampilKafe->business_hours; ?>
+                                <?php $oprasional = json_decode('[' . $tampilKafe->jam_oprasional . ']', true); ?>
 
                                 <div class="form-group">
                                     <label for="jam-oprasional" class="form-label">Waktu Oprasional</label>
@@ -140,19 +126,19 @@
                                         <div class="col-4">
                                             <h5 id="dayTitle">Senin</h5>
                                             <label class="toggle toggle-alternative">
-                                                <input type="checkbox" id="checkboxB1" class="checkbox" name="day[]" onclick="senin()" <?= (!empty($oprasional['Senin'][0]['open'])) ? 'checked' : ''; ?> />
+                                                <input type="checkbox" id="checkboxB1" class="checkbox" name="day[]" onclick="senin()" <?= (!empty($oprasional['0']['open_time'])) ? 'checked' : ''; ?> />
                                                 <span class="toggle-text"></span>
                                                 <span class="toggle-handle"></span>
                                             </label>
                                         </div>
-                                        <div class="row col" id="jamSenin" style="<?= (!empty($oprasional['Senin'][0]['open'])) ? '' : 'display:none;'; ?>;">
+                                        <div class="row col" id="jamSenin" style="<?= (!empty($oprasional['0']['open_time'])) ? '' : 'display:none;'; ?>;">
                                             <div class="col">
                                                 <label for="open-time">Jam Buka:</label>
-                                                <input type="time" class="form-control" id="openSenin" name="open-time[]" value="<?= $oprasional['Senin'][0]['open']; ?>">
+                                                <input type="time" class="form-control" id="openSenin" name="open-time[]" value="<?= $oprasional['0']['open_time']; ?>">
                                             </div>
                                             <div class="col">
                                                 <label for="close-time">Jam Tutup:</label>
-                                                <input type="time" class="form-control" id="closeSenin" name="close-time[]" value="<?= $oprasional['Senin'][0]['close']; ?>">
+                                                <input type="time" class="form-control" id="closeSenin" name="close-time[]" value="<?= $oprasional['0']['close_time']; ?>">
                                             </div>
                                             <a class="btn btn-primary mt-2" onclick="setTimeToMonday()" role=" button">Terapkan Ke Semua Hari</a>
                                         </div>
@@ -161,19 +147,19 @@
                                         <div class="col-4">
                                             <h5 id="dayTitle">Selasa</h5>
                                             <label class="toggle toggle-alternative">
-                                                <input type="checkbox" id="checkboxB" class="checkbox" name="day[]" onclick="Selasa()" <?= (!empty($oprasional['Selasa'][0]['open'])) ? 'checked' : ''; ?> />
+                                                <input type="checkbox" id="checkboxB" class="checkbox" name="day[]" onclick="Selasa()" <?= (!empty($oprasional['1']['open_time'])) ? 'checked' : ''; ?> />
                                                 <span class="toggle-text"></span>
                                                 <span class="toggle-handle"></span>
                                             </label>
                                         </div>
-                                        <div class="row col" id="jamSelasa" style="<?= (!empty($oprasional['Selasa'][0]['open'])) ? '' : 'display:none;'; ?>;">
+                                        <div class="row col" id="jamSelasa" style="<?= (!empty($oprasional['1']['open_time'])) ? '' : 'display:none;'; ?>;">
                                             <div class="col">
                                                 <label for="open-time">Jam Buka:</label>
-                                                <input type="time" class="form-control" id="openSelasa" name="open-time[]" value="<?= $oprasional['Selasa'][0]['open']; ?>">
+                                                <input type="time" class="form-control" id="openSelasa" name="open-time[]" value="<?= $oprasional['1']['open_time']; ?>">
                                             </div>
                                             <div class="col">
                                                 <label for="close-time">Jam Tutup:</label>
-                                                <input type="time" class="form-control" id="closeSelasa" name="close-time[]" value="<?= $oprasional['Selasa'][0]['close']; ?>">
+                                                <input type="time" class="form-control" id="closeSelasa" name="close-time[]" value="<?= $oprasional['1']['close_time']; ?>">
                                             </div>
                                         </div>
                                     </div>
@@ -181,19 +167,19 @@
                                         <div class="col-4">
                                             <h5 id="dayTitle">Rabu</h5>
                                             <label class="toggle toggle-alternative">
-                                                <input type="checkbox" id="checkboxB" class="checkbox" name="day[]" onclick="Rabu()" <?= (!empty($oprasional['Rabu'][0]['open'])) ? 'checked' : ''; ?> />
+                                                <input type="checkbox" id="checkboxB" class="checkbox" name="day[]" onclick="Rabu()" <?= (!empty($oprasional['2']['open_time'])) ? 'checked' : ''; ?> />
                                                 <span class="toggle-text"></span>
                                                 <span class="toggle-handle"></span>
                                             </label>
                                         </div>
-                                        <div class="row col" id="jamRabu" style="<?= (!empty($oprasional['Rabu'][0]['open'])) ? '' : 'display:none;'; ?>;">
+                                        <div class="row col" id="jamRabu" style="<?= (!empty($oprasional['2']['open_time'])) ? '' : 'display:none;'; ?>;">
                                             <div class="col">
                                                 <label for="open-time">Jam Buka:</label>
-                                                <input type="time" class="form-control" id="openRabu" name="open-time[]" value="<?= $oprasional['Rabu'][0]['open']; ?>">
+                                                <input type="time" class="form-control" id="openRabu" name="open-time[]" value="<?= $oprasional['2']['open_time']; ?>">
                                             </div>
                                             <div class="col">
                                                 <label for="close-time">Jam Tutup:</label>
-                                                <input type="time" class="form-control" id="closeRabu" name="close-time[]" value="<?= $oprasional['Rabu'][0]['close']; ?>">
+                                                <input type="time" class="form-control" id="closeRabu" name="close-time[]" value="<?= $oprasional['2']['close_time']; ?>">
                                             </div>
                                         </div>
                                     </div>
@@ -201,19 +187,19 @@
                                         <div class="col-4">
                                             <h5 id="dayTitle">Kamis</h5>
                                             <label class="toggle toggle-alternative">
-                                                <input type="checkbox" id="checkboxB" class="checkbox" name="day[]" onclick="Kamis()" <?= (!empty($oprasional['Kamis'][0]['open'])) ? 'checked' : ''; ?> />
+                                                <input type="checkbox" id="checkboxB" class="checkbox" name="day[]" onclick="Kamis()" <?= (!empty($oprasional['3']['open_time'])) ? 'checked' : ''; ?> />
                                                 <span class="toggle-text"></span>
                                                 <span class="toggle-handle"></span>
                                             </label>
                                         </div>
-                                        <div class="row col" id="jamKamis" style="<?= (!empty($oprasional['Kamis'][0]['open'])) ? '' : 'display:none;'; ?>;">
+                                        <div class="row col" id="jamKamis" style="<?= (!empty($oprasional['3']['open_time'])) ? '' : 'display:none;'; ?>;">
                                             <div class="col">
                                                 <label for="open-time">Jam Buka:</label>
-                                                <input type="time" class="form-control" id="openKamis" name="open-time[]" value="<?= $oprasional['Kamis'][0]['open']; ?>">
+                                                <input type="time" class="form-control" id="openKamis" name="open-time[]" value="<?= $oprasional['3']['open_time']; ?>">
                                             </div>
                                             <div class="col">
                                                 <label for="close-time">Jam Tutup:</label>
-                                                <input type="time" class="form-control" id="closeKamis" name="close-time[]" value="<?= $oprasional['Kamis'][0]['close']; ?>">
+                                                <input type="time" class="form-control" id="closeKamis" name="close-time[]" value="<?= $oprasional['3']['close_time']; ?>">
                                             </div>
                                         </div>
                                     </div>
@@ -221,19 +207,19 @@
                                         <div class="col-4">
                                             <h5 id="dayTitle">Jum'at</h5>
                                             <label class="toggle toggle-alternative">
-                                                <input type="checkbox" id="checkboxB" class="checkbox" name="day[]" onclick="Jumat()" <?= (!empty($oprasional['Jumat'][0]['open'])) ? 'checked' : ''; ?> />
+                                                <input type="checkbox" id="checkboxB" class="checkbox" name="day[]" onclick="Jumat()" <?= (!empty($oprasional['4']['open_time'])) ? 'checked' : ''; ?> />
                                                 <span class="toggle-text"></span>
                                                 <span class="toggle-handle"></span>
                                             </label>
                                         </div>
-                                        <div class="row col" id="jamJumat" style="<?= (!empty($oprasional['Jumat'][0]['open'])) ? '' : 'display:none;'; ?>;">
+                                        <div class="row col" id="jamJumat" style="<?= (!empty($oprasional['4']['open_time'])) ? '' : 'display:none;'; ?>;">
                                             <div class="col">
                                                 <label for="open-time">Jam Buka:</label>
-                                                <input type="time" class="form-control" id="openJumat" name="open-time[]" value="<?= $oprasional['Jumat'][0]['open']; ?>">
+                                                <input type="time" class="form-control" id="openJumat" name="open-time[]" value="<?= $oprasional['4']['open_time']; ?>">
                                             </div>
                                             <div class="col">
                                                 <label for="close-time">Jam Tutup:</label>
-                                                <input type="time" class="form-control" id="closeJumat" name="close-time[]" value="<?= $oprasional['Jumat'][0]['close']; ?>">
+                                                <input type="time" class="form-control" id="closeJumat" name="close-time[]" value="<?= $oprasional['4']['close_time']; ?>">
                                             </div>
                                         </div>
                                     </div>
@@ -241,19 +227,19 @@
                                         <div class="col-4">
                                             <h5 id="dayTitle">Sabtu</h5>
                                             <label class="toggle toggle-alternative">
-                                                <input type="checkbox" id="checkboxB" class="checkbox" name="day[]" onclick="Sabtu()" <?= (!empty($oprasional['Sabtu'][0]['open'])) ? 'checked' : ''; ?> />
+                                                <input type="checkbox" id="checkboxB" class="checkbox" name="day[]" onclick="Sabtu()" <?= (!empty($oprasional['5']['open_time'])) ? 'checked' : ''; ?> />
                                                 <span class="toggle-text"></span>
                                                 <span class="toggle-handle"></span>
                                             </label>
                                         </div>
-                                        <div class="row col" id="jamSabtu" style="<?= (!empty($oprasional['Sabtu'][0]['open'])) ? '' : 'display:none;'; ?>;">
+                                        <div class="row col" id="jamSabtu" style="<?= (!empty($oprasional['5']['open_time'])) ? '' : 'display:none;'; ?>;">
                                             <div class="col">
                                                 <label for="open-time">Jam Buka:</label>
-                                                <input type="time" class="form-control" id="openSabtu" name="open-time[]" value="<?= $oprasional['Sabtu'][0]['open']; ?>">
+                                                <input type="time" class="form-control" id="openSabtu" name="open-time[]" value="<?= $oprasional['5']['open_time']; ?>">
                                             </div>
                                             <div class="col">
                                                 <label for="close-time">Jam Tutup:</label>
-                                                <input type="time" class="form-control" id="closeSabtu" name="close-time[]" value="<?= $oprasional['Sabtu'][0]['close']; ?>">
+                                                <input type="time" class="form-control" id="closeSabtu" name="close-time[]" value="<?= $oprasional['5']['close_time']; ?>">
                                             </div>
                                         </div>
                                     </div>
@@ -261,19 +247,19 @@
                                         <div class="col-4">
                                             <h5 id="dayTitle">Minggu</h5>
                                             <label class="toggle toggle-alternative">
-                                                <input type="checkbox" id="checkboxB" class="checkbox" name="day[]" onclick="Minggu()" <?= (!empty($oprasional['Minggu'][0]['open'])) ? 'checked' : ''; ?> />
+                                                <input type="checkbox" id="checkboxB" class="checkbox" name="day[]" onclick="Minggu()" <?= (!empty($oprasional['6']['open_time'])) ? 'checked' : ''; ?> />
                                                 <span class="toggle-text"></span>
                                                 <span class="toggle-handle"></span>
                                             </label>
                                         </div>
-                                        <div class="row col" id="jamMinggu" style="<?= (!empty($oprasional['Minggu'][0]['open'])) ? '' : 'display:none;'; ?>;">
+                                        <div class="row col" id="jamMinggu" style="<?= (!empty($oprasional['6']['open_time'])) ? '' : 'display:none;'; ?>;">
                                             <div class="col">
                                                 <label for="open-time">Jam Buka:</label>
-                                                <input type="time" class="form-control" id="openMinggu" name="open-time[]" value="<?= $oprasional['Minggu'][0]['open']; ?>">
+                                                <input type="time" class="form-control" id="openMinggu" name="open-time[]" value="<?= $oprasional['6']['open_time']; ?>">
                                             </div>
                                             <div class="col">
                                                 <label for="close-time">Jam Tutup:</label>
-                                                <input type="time" class="form-control" id="closeMinggu" name="close-time[]" value="<?= $oprasional['Minggu'][0]['close']; ?>">
+                                                <input type="time" class="form-control" id="closeMinggu" name="close-time[]" value="<?= $oprasional['6']['close_time']; ?>">
                                             </div>
                                         </div>
                                     </div>

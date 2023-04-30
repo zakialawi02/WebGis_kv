@@ -21,219 +21,47 @@ class ModelKv extends Model
     function callKafe($id_kafe = false)
     {
         if ($id_kafe === false) {
-            // Buat subquery untuk mendapatkan daftar foto kafe
-            $foto_kafe_subquery = $this->db->table('tbl_foto_kafe')->select('id_kafe, GROUP_CONCAT(nama_file_foto SEPARATOR ",") as nama_foto')
-                ->groupBy('tbl_foto_kafe.id_kafe')
-                ->getCompiledSelect();
 
-            // Gunakan subquery di dalam query utama
-            $buidler = $this->db->table('tbl_kafe')->select('tbl_kafe.id_kafe, nama_kafe, alamat_kafe, latitude, longitude, fasilitas_kafe, instagram_kafe, tbl_provinsi.id_provinsi as id_provinsi, nama_provinsi, tbl_kabupaten.id_kabupaten as id_kabupaten, nama_kabupaten, tbl_kecamatan.id_kecamatan as id_kecamatan, nama_kecamatan, tbl_kelurahan.id_kelurahan as id_kelurahan, nama_kelurahan, created_at, updated_at, tbl_status_appv.user as user, tbl_status_appv.stat_appv as stat_appv, nama_foto')
-                ->join("($foto_kafe_subquery) as tbl_foto_kafe", 'tbl_foto_kafe.id_kafe = tbl_kafe.id_kafe', 'LEFT')
+            return $this->db->table('tbl_kafe')->select('tbl_kafe.id_kafe, nama_kafe, alamat_kafe, latitude, longitude, fasilitas_kafe, instagram_kafe, tbl_provinsi.id_provinsi as id_provinsi, nama_provinsi, tbl_kabupaten.id_kabupaten as id_kabupaten, nama_kabupaten, tbl_kecamatan.id_kecamatan as id_kecamatan, nama_kecamatan, tbl_kelurahan.id_kelurahan as id_kelurahan, nama_kelurahan, created_at, updated_at, tbl_status_appv.user as user, tbl_status_appv.stat_appv as stat_appv, GROUP_CONCAT(DISTINCT nama_file_foto SEPARATOR ",") as nama_foto, GROUP_CONCAT(DISTINCT JSON_OBJECT("hari", tjo.hari, "open_time", tjo.open_time, "close_time", tjo.close_time) ORDER BY FIELD(tjo.hari, "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu")) AS jam_oprasional')
+                ->join('tbl_foto_kafe tfk', 'tfk.id_kafe = tbl_kafe.id_kafe', 'LEFT')
+                ->join('tbl_jam_operasional  tjo', 'tjo.kafe_id = tbl_kafe.id_kafe')
                 ->join('tbl_status_appv', 'tbl_status_appv.id_kafe = tbl_kafe.id_kafe')
                 ->join('tbl_provinsi', 'tbl_provinsi.id_provinsi = tbl_kafe.id_provinsi')
                 ->join('tbl_kabupaten', 'tbl_kabupaten.id_kabupaten = tbl_kafe.id_kabupaten')
                 ->join('tbl_kecamatan', 'tbl_kecamatan.id_kecamatan = tbl_kafe.id_kecamatan')
                 ->join('tbl_kelurahan', 'tbl_kelurahan.id_kelurahan = tbl_kafe.id_kelurahan')
-                ->orderBy('id_kafe', 'DESC');
-            $query = $buidler->getWhere(['stat_appv' => '1']);
-
-            // Buat subquery untuk mendapatkan daftar jam operasional
-            $jam_operasional_subquery = $this->db->table('tbl_jam_operasional')
-                ->select('')
-                ->get();
-            $jam_operasional = $jam_operasional_subquery->getResult();
-            $jamBuka = [];
-            foreach ($jam_operasional as $row) {
-                $kafe_id = $row->kafe_id;
-                $dow = $row->hari;
-                $start_time = $row->open_time;
-                $end_time = $row->close_time;
-
-                $item = [
-                    'open' => $start_time,
-                    'close' => $end_time
-                ];
-
-                if (!isset($jamBuka[$kafe_id][$dow])) {
-                    $jamBuka[$kafe_id][$dow] = [];
-                }
-                array_push($jamBuka[$kafe_id][$dow], $item);
-            }
-            $kafe = $query->getResult();
-            $result_array = [];
-            foreach ($kafe as $row) {
-                $id_kafe = $row->id_kafe;
-                $business_hours = $jamBuka[$id_kafe];
-                $item = (object) [
-                    'id_kafe' => $row->id_kafe,
-                    'nama_kafe' => $row->nama_kafe,
-                    'alamat_kafe' => $row->alamat_kafe,
-                    'latitude' => $row->latitude,
-                    'longitude' => $row->longitude,
-                    'fasilitas_kafe' => $row->fasilitas_kafe,
-                    'instagram_kafe' => $row->instagram_kafe,
-                    'id_provinsi' => $row->id_provinsi,
-                    'nama_provinsi' => $row->nama_provinsi,
-                    'id_kabupaten' => $row->id_kabupaten,
-                    'nama_kabupaten' => $row->nama_kabupaten,
-                    'id_kecamatan' => $row->id_kecamatan,
-                    'nama_kecamatan' => $row->nama_kecamatan,
-                    'id_kelurahan' => $row->id_kelurahan,
-                    'nama_kelurahan' => $row->nama_kelurahan,
-                    'created_at' => $row->created_at,
-                    'updated_at' => $row->updated_at,
-                    'user' => $row->user,
-                    'nama_foto' => $row->nama_foto,
-                    'business_hours' => $business_hours
-                ];
-
-                array_push($result_array, $item);
-            }
-
-            return $result_array;
+                ->groupBy('id_kafe, tjo.kafe_id')
+                ->orderBy('id_kafe', 'DESC')
+                ->getWhere(['stat_appv' => '1']);
         } else {
-            // Buat subquery untuk mendapatkan daftar foto kafe
-            $foto_kafe_subquery = $this->db->table('tbl_foto_kafe')->select('id_kafe, GROUP_CONCAT(nama_file_foto SEPARATOR ",") as nama_foto')
-                ->groupBy('tbl_foto_kafe.id_kafe')
-                ->getCompiledSelect();
-
-            // Gunakan subquery di dalam query utama
-            $buidler = $this->db->table('tbl_kafe')->select('tbl_kafe.id_kafe, nama_kafe, alamat_kafe, latitude, longitude, fasilitas_kafe, instagram_kafe, tbl_provinsi.id_provinsi as id_provinsi, nama_provinsi, tbl_kabupaten.id_kabupaten as id_kabupaten, nama_kabupaten, tbl_kecamatan.id_kecamatan as id_kecamatan, nama_kecamatan, tbl_kelurahan.id_kelurahan as id_kelurahan, nama_kelurahan, created_at, updated_at, tbl_status_appv.user as user, tbl_status_appv.stat_appv as stat_appv, nama_foto')
-                ->join("($foto_kafe_subquery) as tbl_foto_kafe", 'tbl_foto_kafe.id_kafe = tbl_kafe.id_kafe', 'LEFT')
+            return $this->db->table('tbl_kafe')->select('tbl_kafe.id_kafe, nama_kafe, alamat_kafe, latitude, longitude, fasilitas_kafe, instagram_kafe, tbl_provinsi.id_provinsi as id_provinsi, nama_provinsi, tbl_kabupaten.id_kabupaten as id_kabupaten, nama_kabupaten, tbl_kecamatan.id_kecamatan as id_kecamatan, nama_kecamatan, tbl_kelurahan.id_kelurahan as id_kelurahan, nama_kelurahan, created_at, updated_at, tbl_status_appv.user as user, tbl_status_appv.stat_appv as stat_appv, GROUP_CONCAT(DISTINCT nama_file_foto SEPARATOR ",") as nama_foto, GROUP_CONCAT(DISTINCT JSON_OBJECT("hari", tjo.hari, "open_time", tjo.open_time, "close_time", tjo.close_time) ORDER BY FIELD(tjo.hari, "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu")) AS jam_oprasional')
+                ->join('tbl_foto_kafe tfk', 'tfk.id_kafe = tbl_kafe.id_kafe', 'LEFT')
+                ->join('tbl_jam_operasional  tjo', 'tjo.kafe_id = tbl_kafe.id_kafe', 'LEFT')
                 ->join('tbl_status_appv', 'tbl_status_appv.id_kafe = tbl_kafe.id_kafe')
                 ->join('tbl_provinsi', 'tbl_provinsi.id_provinsi = tbl_kafe.id_provinsi')
                 ->join('tbl_kabupaten', 'tbl_kabupaten.id_kabupaten = tbl_kafe.id_kabupaten')
                 ->join('tbl_kecamatan', 'tbl_kecamatan.id_kecamatan = tbl_kafe.id_kecamatan')
                 ->join('tbl_kelurahan', 'tbl_kelurahan.id_kelurahan = tbl_kafe.id_kelurahan')
-                ->Where(['tbl_kafe.id_kafe' => $id_kafe]);
-            $query = $buidler->getWhere(['stat_appv' => '1']);
-
-            // Buat subquery untuk mendapatkan daftar jam operasional
-            $jam_operasional_subquery = $this->db->table('tbl_jam_operasional')
-                ->select('')
-                ->Where(['tbl_jam_operasional.kafe_id' => $id_kafe])
-                ->get();
-            $jam_operasional = $jam_operasional_subquery->getResult();
-            $jamBuka = [];
-            foreach ($jam_operasional as $row) {
-                $kafe_id = $row->kafe_id;
-                $dow = $row->hari;
-                $start_time = $row->open_time;
-                $end_time = $row->close_time;
-
-                $item = [
-                    'open' => $start_time,
-                    'close' => $end_time
-                ];
-
-                if (!isset($jamBuka[$kafe_id][$dow])) {
-                    $jamBuka[$kafe_id][$dow] = [];
-                }
-                array_push($jamBuka[$kafe_id][$dow], $item);
-            }
-            $kafe = $query->getResult();
-            foreach ($kafe as $row) {
-                $business_hours = $jamBuka[$id_kafe];
-                $item = (object) [
-                    'id_kafe' => $row->id_kafe,
-                    'nama_kafe' => $row->nama_kafe,
-                    'alamat_kafe' => $row->alamat_kafe,
-                    'latitude' => $row->latitude,
-                    'longitude' => $row->longitude,
-                    'fasilitas_kafe' => $row->fasilitas_kafe,
-                    'instagram_kafe' => $row->instagram_kafe,
-                    'id_provinsi' => $row->id_provinsi,
-                    'nama_provinsi' => $row->nama_provinsi,
-                    'id_kabupaten' => $row->id_kabupaten,
-                    'nama_kabupaten' => $row->nama_kabupaten,
-                    'id_kecamatan' => $row->id_kecamatan,
-                    'nama_kecamatan' => $row->nama_kecamatan,
-                    'id_kelurahan' => $row->id_kelurahan,
-                    'nama_kelurahan' => $row->nama_kelurahan,
-                    'created_at' => $row->created_at,
-                    'updated_at' => $row->updated_at,
-                    'user' => $row->user,
-                    'nama_foto' => $row->nama_foto,
-                    'business_hours' => $business_hours
-                ];
-            }
-
-            return $item;
+                ->groupBy('id_kafe, tjo.kafe_id')
+                ->Where(['tbl_kafe.id_kafe' => $id_kafe])
+                ->getWhere(['stat_appv' => '1']);
         }
     }
 
     function callPendingData($id_kafe = false)
     {
         if ($id_kafe === false) {
-            // Buat subquery untuk mendapatkan daftar foto kafe
-            $foto_kafe_subquery = $this->db->table('tbl_foto_kafe')->select('id_kafe, GROUP_CONCAT(nama_file_foto SEPARATOR ",") as nama_foto')
-                ->groupBy('tbl_foto_kafe.id_kafe')
-                ->getCompiledSelect();
-
-            // Gunakan subquery di dalam query utama
-            $buidler = $this->db->table('tbl_kafe')->select('tbl_kafe.id_kafe, nama_kafe, alamat_kafe, latitude, longitude, fasilitas_kafe, instagram_kafe, tbl_provinsi.id_provinsi as id_provinsi, nama_provinsi, tbl_kabupaten.id_kabupaten as id_kabupaten, nama_kabupaten, tbl_kecamatan.id_kecamatan as id_kecamatan, nama_kecamatan, tbl_kelurahan.id_kelurahan as id_kelurahan, nama_kelurahan, created_at, updated_at, tbl_status_appv.user as user, tbl_status_appv.stat_appv as stat_appv, nama_foto')
-                ->join("($foto_kafe_subquery) as tbl_foto_kafe", 'tbl_foto_kafe.id_kafe = tbl_kafe.id_kafe', 'LEFT')
+            return $this->db->table('tbl_kafe')->select('tbl_kafe.id_kafe, nama_kafe, alamat_kafe, latitude, longitude, fasilitas_kafe, instagram_kafe, tbl_provinsi.id_provinsi as id_provinsi, nama_provinsi, tbl_kabupaten.id_kabupaten as id_kabupaten, nama_kabupaten, tbl_kecamatan.id_kecamatan as id_kecamatan, nama_kecamatan, tbl_kelurahan.id_kelurahan as id_kelurahan, nama_kelurahan, created_at, updated_at, tbl_status_appv.user as user, tbl_status_appv.stat_appv as stat_appv, GROUP_CONCAT(DISTINCT nama_file_foto SEPARATOR ",") as nama_foto, GROUP_CONCAT(DISTINCT JSON_OBJECT("hari", tjo.hari, "open_time", tjo.open_time, "close_time", tjo.close_time)) AS jam_oprasional')
+                ->join('tbl_foto_kafe tfk', 'tfk.id_kafe = tbl_kafe.id_kafe', 'LEFT')
+                ->join('tbl_jam_operasional  tjo', 'tjo.kafe_id = tbl_kafe.id_kafe')
                 ->join('tbl_status_appv', 'tbl_status_appv.id_kafe = tbl_kafe.id_kafe')
                 ->join('tbl_provinsi', 'tbl_provinsi.id_provinsi = tbl_kafe.id_provinsi')
                 ->join('tbl_kabupaten', 'tbl_kabupaten.id_kabupaten = tbl_kafe.id_kabupaten')
                 ->join('tbl_kecamatan', 'tbl_kecamatan.id_kecamatan = tbl_kafe.id_kecamatan')
-                ->join('tbl_kelurahan', 'tbl_kelurahan.id_kelurahan = tbl_kafe.id_kelurahan');
-            $query = $buidler->getWhere(['stat_appv' => '0']);
-
-            // Buat subquery untuk mendapatkan daftar jam operasional
-            $jam_operasional_subquery = $this->db->table('tbl_jam_operasional')
-                ->select('')
-                ->get();
-            $jam_operasional = $jam_operasional_subquery->getResult();
-            $jamBuka = [];
-            foreach ($jam_operasional as $row) {
-                $kafe_id = $row->kafe_id;
-                $dow = $row->hari;
-                $start_time = $row->open_time;
-                $end_time = $row->close_time;
-
-                $item = [
-                    'open' => $start_time,
-                    'close' => $end_time
-                ];
-
-                if (!isset($jamBuka[$kafe_id][$dow])) {
-                    $jamBuka[$kafe_id][$dow] = [];
-                }
-                array_push($jamBuka[$kafe_id][$dow], $item);
-            }
-            $kafe = $query->getResult();
-            $result_array = [];
-            foreach ($kafe as $row) {
-                $id_kafe = $row->id_kafe;
-                $business_hours = $jamBuka[$id_kafe];
-                $item = (object) [
-                    'id_kafe' => $row->id_kafe,
-                    'nama_kafe' => $row->nama_kafe,
-                    'alamat_kafe' => $row->alamat_kafe,
-                    'latitude' => $row->latitude,
-                    'longitude' => $row->longitude,
-                    'fasilitas_kafe' => $row->fasilitas_kafe,
-                    'instagram_kafe' => $row->instagram_kafe,
-                    'id_provinsi' => $row->id_provinsi,
-                    'nama_provinsi' => $row->nama_provinsi,
-                    'id_kabupaten' => $row->id_kabupaten,
-                    'nama_kabupaten' => $row->nama_kabupaten,
-                    'id_kecamatan' => $row->id_kecamatan,
-                    'nama_kecamatan' => $row->nama_kecamatan,
-                    'id_kelurahan' => $row->id_kelurahan,
-                    'nama_kelurahan' => $row->nama_kelurahan,
-                    'created_at' => $row->created_at,
-                    'updated_at' => $row->updated_at,
-                    'user' => $row->user,
-                    'nama_foto' => $row->nama_foto,
-                    'business_hours' => $business_hours
-                ];
-
-                array_push($result_array, $item);
-            }
-
-            return $result_array;
+                ->join('tbl_kelurahan', 'tbl_kelurahan.id_kelurahan = tbl_kafe.id_kelurahan')
+                ->groupBy('id_kafe, tjo.kafe_id')
+                ->orderBy('id_kafe', 'DESC')
+                ->getWhere(['stat_appv' => '0']);
         } else {
             return $this->Where(['id_kafe' => $id_kafe])->get();
         }

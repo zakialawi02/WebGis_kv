@@ -95,17 +95,16 @@
                                 </div>
 
                                 <div class="row g-2">
-                                    <label for="koordinat" class="form-label">Koordinat</label>
+                                    <label for="koordinat" class="">Koordinat</label>
                                     <div class="form-group col-md-6">
-                                        <label for="latitude" class="form-label">Latitude</label>
-                                        <input type="text" class="form-control" id="latitude" aria-describedby="textlHelp" name="latitude" pattern="/^(\-?\d+(\.\d+)?)$/" title="Tuliskan Sesuai Format" required>
-                                        <div id="FileHelp" class="form-text">Use Desimal Degree; example: -7.0385384</div>
+                                        <label for="latitude" class="">Latitude</label>
+                                        <input type="text" class="form-control" id="latitude" aria-describedby="textlHelp" name="latitude" placeholder="-7.0385384" pattern="/^(\-?\d+(\.\d+)?)$/" title="Tuliskan Sesuai Format" required>
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label for="longitude" class="form-label">Longitude</label>
-                                        <input type="text" class="form-control" id="longitude" aria-describedby="textlHelp" name="longitude" pattern="/^[^a-zA-Z]*(\-?\d+(\.\d+)?)$/" title="Tuliskan Sesuai Format" required>
-                                        <div id="FileHelp" class="form-text">Use Desimal Degree; example: 112.8998345</div>
+                                        <label for="longitude" class="">Longitude</label>
+                                        <input type="text" class="form-control" id="longitude" aria-describedby="textlHelp" name="longitude" placeholder="112.8998345" pattern="/^[^a-zA-Z]*(\-?\d+(\.\d+)?)$/" title="Tuliskan Sesuai Format" required>
                                     </div>
+                                    <div id="FileHelp" class="form-text"><span style="font-weight: bold;">NOTE:</span> Ketikan Koordinat Latitude dan Longitude atau klik lokasi pada peta</div>
                                 </div>
 
                                 <div class="form-group row g-2">
@@ -113,15 +112,6 @@
                                     <select class="col-md-12" id="wilayah" name="wilayah" value="" required>
 
                                     </select>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="fasilitas_kafe" class="form-label">Fasilitas</label>
-                                    <div>
-                                        <input class="form-check-input" type="checkbox" name="fasil[]" value="Reading"> Reading<br>
-                                        <input class="form-check-input" type="checkbox" name="fasil[]" value="Writing"> Writing<br>
-                                        <input class="form-check-input" type="checkbox" name="fasil[]" value="Coding"> Coding<br>
-                                    </div>
                                 </div>
 
                                 <div class="form-group mb-3">

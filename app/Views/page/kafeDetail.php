@@ -118,26 +118,23 @@
                             <tr>
                                 <td>Jam Oprasional</td>
                                 <th>:</th>
-                                <td><?php foreach ($tampilKafe->business_hours as $day => $times) : ?>
-                                        <?= $open_close = ''; ?>
-                                        <?php foreach ($times as $time) : ?>
-                                            <?php $open = $time['open']; ?>
-                                            <?php $close = $time['close']; ?>
-                                            <?php if (!empty($open) && !empty($close)) : ?>
-                                                <?php $open = date('h:i', strtotime($open)); ?>
-                                                <?php $close = date('h:i', strtotime($close)); ?>
-                                                <?php $open_close .= "$open-$close, "; ?>
-                                            <?php else : ?>
-                                                <?php $open_close .= "Tutup"; ?>
-                                            <?php endif ?>
-                                            <?php $open_close = rtrim($open_close, ", "); ?>
-                                            <?php $result[$day] = $open_close; ?>
-                                            <div class="mb-2 row">
-                                                <div class="col-lg-3 col-4 label "><?= $day; ?></div>
-                                                <div class="col-lg-9 col-8"><?= $open_close; ?></div>
-                                            </div>
-                                        <?php endforeach ?>
-                                    <?php endforeach ?>
+                                <td><?php $jam_oprasional = json_decode('[' . $tampilKafe->jam_oprasional . ']', true); ?>
+                                    <?php foreach ($jam_oprasional as $jam) {
+                                        // Ambil nilai "hari", "open_time", dan "close_time"
+                                        $hari = $jam['hari'];
+                                        $open_time = $jam['open_time'];
+                                        $close_time = $jam['close_time'];
+
+                                        // Tampilkan dalam format yang diinginkan
+                                        echo $hari . "\t: ";
+                                        if ($open_time != null && $close_time != null) {
+                                            echo $open_time . "-" . $close_time;
+                                        } else {
+                                            echo "Tutup";
+                                        }
+                                        echo "<br>";
+                                    } ?>
+
                                 </td>
                             </tr>
                             <tr>
