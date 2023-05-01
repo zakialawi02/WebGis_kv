@@ -115,7 +115,7 @@
                                             <div class="card-body">
                                                 <h5 class="card-title">Daftar Kafe</h5>
 
-                                                <table id="tabels" class="table table-striped table-bordered display">
+                                                <table id="tabels" class="table table-striped table-bordered">
                                                     <thead>
                                                         <tr>
                                                             <th style="min-width:10em">Nama Kafe</th>
@@ -234,11 +234,15 @@
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/816b3ace5c.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-    <script src="/js/chart-area-demo.js"></script>
-    <script src="/js/chart-bar-demo.js"></script>
     <script src="/js/datatables-simple-demo.js"></script>
     <script src="/js/scripts.js"></script>
 
+    <script>
+        $(document).ready(function() {
+            $("th").css("pointer-events", "none");
+            $(".no-sort").css("pointer-events", "none");
+        });
+    </script>
     <script>
         $(document).ready(function() {
             var options = {

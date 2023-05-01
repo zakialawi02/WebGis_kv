@@ -46,40 +46,6 @@ class Admin extends BaseController
         return view('admin/dashboard', $data);
     }
 
-    public function iii()
-    {
-        $data = [
-            'title' => 'JUDUL',
-        ];
-        $opening_hours = [
-            "Monday" => ["09:00", "17:00"],
-            "Tuesday" => ["09:00", "17:00"],
-            "Wednesday" => ["09:00", "17:00"],
-            "Thursday" => ["09:00", "17:00"],
-            "Friday" => ["09:00", "17:00"],
-            "Saturday" => ["10:00", "16:00"],
-            "Sunday" => ["Closed"],
-        ];
-        $amountOfDays = count($opening_hours);
-        $arrayKeys = array_keys($opening_hours);
-
-        for ($dayCount = 0; $dayCount < $amountOfDays; $dayCount++) {
-            $DayAmountOfConsecutiveSameHours = 1;
-            while (isset($arrayKeys[($dayCount + $DayAmountOfConsecutiveSameHours)]) && ($opening_hours[$arrayKeys[$dayCount]] === $opening_hours[$arrayKeys[($dayCount + $DayAmountOfConsecutiveSameHours)]]))
-                $DayAmountOfConsecutiveSameHours++;
-
-            if ($DayAmountOfConsecutiveSameHours > 1)
-                $result[$arrayKeys[$dayCount] . " - " . $arrayKeys[($dayCount + $DayAmountOfConsecutiveSameHours - 1)]] = $opening_hours[$arrayKeys[$dayCount]];
-            else
-                $result[$arrayKeys[$dayCount]] = $opening_hours[$arrayKeys[$dayCount]];
-
-            $dayCount += ($DayAmountOfConsecutiveSameHours - 1);
-        }
-        // print_r($result);
-        // die;
-        return view('admin/tempp', $data);
-    }
-
     public function tes()
     {
         $data = [
@@ -87,23 +53,6 @@ class Admin extends BaseController
         ];
         return view('page/tes', $data);
     }
-
-    public function dump()
-    {
-        // dd($this->request->getVar());
-        $data = [
-            'title' => 'DUMP',
-            'tampilKafe' => $this->kafe->callKafe()->getResult(),
-            'getFoto' => $this->fotoKafe->getFoto()->getResult(),
-        ];
-        $dump = $this->kafe->callKafe()->getResult();
-        echo '<pre>';
-        print_r($dump);
-        die;
-
-        return view('admin/tempp', $data);
-    }
-
 
     public function temp()
     {
