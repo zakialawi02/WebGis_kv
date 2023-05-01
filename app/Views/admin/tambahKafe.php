@@ -2,35 +2,23 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
 
     <title><?= $title; ?></title>
-    <meta content="" name="description">
-    <meta content="" name="keywords">
-
     <!-- Favicons -->
     <link href="/img/favicon.png" rel="icon">
-    <link href="/img/apple-touch-icon.png" rel="apple-touch-icon">
-
-    <!-- Google Fonts -->
-    <link href="https://fonts.gstatic.com" rel="preconnect">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
     <!-- Vendor CSS Files -->
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
-    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-    <!-- <link href="assets/vendor/quill/quill.snow.css" rel="stylesheet">
-    <link href="assets/vendor/quill/quill.bubble.css" rel="stylesheet">
-    <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet"> -->
 
     <!-- Template Main CSS File -->
-    <link href="/css/StyleAdmin.css" rel="stylesheet">
+    <link href="/css/StyleAdmin.css" rel="stylesheet" />
 
     <!-- leaflet Component -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css" integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14=" crossorigin="" />
@@ -44,289 +32,281 @@
     </style>
 </head>
 
-<body>
-    <!-- HEADER -->
-    <?= $this->include('_Layout/_template/_admin/header'); ?>
+<body class="sb-nav-fixed">
+    <!-- NAV HAEADER -->
+    <?= $this->include('_Layout\_template\_admin\header'); ?>
+    <div id="layoutSidenav">
+        <!-- SIDEBAR -->
+        <?= $this->include('_Layout\_template\_admin\sidebar'); ?>
+
+        <div id="layoutSidenav_content">
+
+            <!-- MAIN CONTENT -->
+            <main>
+                <div class="container-fluid px-4">
+
+                    <div class="mb-4 mt-2">
+                        <div class="pagetitle">
+                            <h1><?= $title; ?></h1>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="card">
+
+                                    <div class="card-body">
+                                        <h4 class="card-title">Tambah Data</h4>
+
+                                        <form class="row g-3" action="/admin/tambah_Kafe" method="post" enctype="multipart/form-data">
+                                            <?= csrf_field(); ?>
+
+                                            <?php if (in_groups('User')) : ?>
+                                                <input type="hidden" class="form-control" for="stat_appv" id="stat_appv" name="stat_appv" value="0">
+                                            <?php else : ?>
+                                                <input type="hidden" class="form-control" for="stat_appv" id="stat_appv" name="stat_appv" value="1">
+                                            <?php endif ?>
+
+                                            <div class="form-group">
+                                                <label for="nama_kafe" class="form-label">Nama Kafe</label>
+                                                <input type="text" class="form-control" id="nama_kafe" aria-describedby="textlHelp" name="nama_kafe" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="alamat_kafe" class="form-label">Alamat Kafe</label>
+                                                <input type="text" class="form-control" id="alamat_kafe" aria-describedby="textlHelp" name="alamat_kafe" required>
+                                            </div>
+
+                                            <div class="row g-2">
+                                                <label for="koordinat" class="">Koordinat</label>
+                                                <div class="form-group col-md-6">
+                                                    <label for="latitude" class="">Latitude</label>
+                                                    <input type="text" class="form-control" id="latitude" aria-describedby="textlHelp" name="latitude" placeholder="-7.0385384" pattern="/^(\-?\d+(\.\d+)?)$/" title="Tuliskan Sesuai Format" required>
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label for="longitude" class="">Longitude</label>
+                                                    <input type="text" class="form-control" id="longitude" aria-describedby="textlHelp" name="longitude" placeholder="112.8998345" pattern="/^[^a-zA-Z]*(\-?\d+(\.\d+)?)$/" title="Tuliskan Sesuai Format" required>
+                                                </div>
+                                                <div id="FileHelp" class="form-text"><span style="font-weight: bold;">NOTE:</span> Ketikan Koordinat Latitude dan Longitude atau klik lokasi pada peta</div>
+                                            </div>
+
+                                            <div class="form-group row g-2">
+                                                <label class="col-md-12 mb-2">Wilayah Administrasi</label>
+                                                <select class="col-md-12" id="wilayah" name="wilayah" value="" required>
+
+                                                </select>
+                                            </div>
+
+                                            <div class="form-group mb-3">
+                                                <label for="instagram_kafe" class="form-label">Instagram</label>
+                                                <div class="input-group form-group mt-1">
+                                                    <span class="input-group-text" id="basic-addon1">@</span>
+                                                    <input type="text" class="form-control" id="instagram_kafe" name="instagram_kafe" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="jam-oprasional" class="form-label">Waktu Oprasional</label>
+                                                <div class="row mb-3">
+                                                    <div class="col-4">
+                                                        <h5 id="dayTitle">Senin</h5>
+                                                        <label class="toggle toggle-alternative">
+                                                            <input type="checkbox" id="checkboxB1" class="checkbox" name="day[]" onclick="senin()" checked />
+                                                            <span class="toggle-text"></span>
+                                                            <span class="toggle-handle"></span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="row col" id="jamSenin">
+                                                        <div class="col">
+                                                            <label for="open-time">Jam Buka:</label>
+                                                            <input type="time" class="form-control" id="openSenin" name="open-time[]" checked>
+                                                        </div>
+                                                        <div class="col">
+                                                            <label for="close-time">Jam Tutup:</label>
+                                                            <input type="time" class="form-control" id="closeSenin" name="close-time[]">
+                                                        </div>
+                                                        <a class="btn btn-primary mt-2" onclick="setTimeToMonday()" role=" button">Terapkan Ke Semua Hari</a>
+                                                    </div>
+                                                </div>
+                                                <div class="row mb-3">
+                                                    <div class="col-4">
+                                                        <h5 id="dayTitle">Selasa</h5>
+                                                        <label class="toggle toggle-alternative">
+                                                            <input type="checkbox" id="checkboxB" class="checkbox" name="day[]" onclick="Selasa()" checked />
+                                                            <span class="toggle-text"></span>
+                                                            <span class="toggle-handle"></span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="row col" id="jamSelasa">
+                                                        <div class="col">
+                                                            <label for="open-time">Jam Buka:</label>
+                                                            <input type="time" class="form-control" id="openSelasa" name="open-time[]" checked>
+                                                        </div>
+                                                        <div class="col">
+                                                            <label for="close-time">Jam Tutup:</label>
+                                                            <input type="time" class="form-control" id="closeSelasa" name="close-time[]">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row mb-3">
+                                                    <div class="col-4">
+                                                        <h5 id="dayTitle">Rabu</h5>
+                                                        <label class="toggle toggle-alternative">
+                                                            <input type="checkbox" id="checkboxB" class="checkbox" name="day[]" onclick="Rabu()" checked />
+                                                            <span class="toggle-text"></span>
+                                                            <span class="toggle-handle"></span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="row col" id="jamRabu">
+                                                        <div class="col">
+                                                            <label for="open-time">Jam Buka:</label>
+                                                            <input type="time" class="form-control" id="openRabu" name="open-time[]" checked>
+                                                        </div>
+                                                        <div class="col">
+                                                            <label for="close-time">Jam Tutup:</label>
+                                                            <input type="time" class="form-control" id="closeRabu" name="close-time[]">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row mb-3">
+                                                    <div class="col-4">
+                                                        <h5 id="dayTitle">Kamis</h5>
+                                                        <label class="toggle toggle-alternative">
+                                                            <input type="checkbox" id="checkboxB" class="checkbox" name="day[]" onclick="Kamis()" checked />
+                                                            <span class="toggle-text"></span>
+                                                            <span class="toggle-handle"></span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="row col" id="jamKamis">
+                                                        <div class="col">
+                                                            <label for="open-time">Jam Buka:</label>
+                                                            <input type="time" class="form-control" id="openKamis" name="open-time[]" checked>
+                                                        </div>
+                                                        <div class="col">
+                                                            <label for="close-time">Jam Tutup:</label>
+                                                            <input type="time" class="form-control" id="closeKamis" name="close-time[]">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row mb-3">
+                                                    <div class="col-4">
+                                                        <h5 id="dayTitle">Jum'at</h5>
+                                                        <label class="toggle toggle-alternative">
+                                                            <input type="checkbox" id="checkboxB" class="checkbox" name="day[]" onclick="Jumat()" checked />
+                                                            <span class="toggle-text"></span>
+                                                            <span class="toggle-handle"></span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="row col" id="jamJumat">
+                                                        <div class="col">
+                                                            <label for="open-time">Jam Buka:</label>
+                                                            <input type="time" class="form-control" id="openJumat" name="open-time[]" checked>
+                                                        </div>
+                                                        <div class="col">
+                                                            <label for="close-time">Jam Tutup:</label>
+                                                            <input type="time" class="form-control" id="closeJumat" name="close-time[]">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row mb-3">
+                                                    <div class="col-4">
+                                                        <h5 id="dayTitle">Sabtu</h5>
+                                                        <label class="toggle toggle-alternative">
+                                                            <input type="checkbox" id="checkboxB" class="checkbox" name="day[]" onclick="Sabtu()" />
+                                                            <span class="toggle-text"></span>
+                                                            <span class="toggle-handle"></span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="row col" id="jamSabtu" style="display:none;">
+                                                        <div class="col">
+                                                            <label for="open-time">Jam Buka:</label>
+                                                            <input type="time" class="form-control" id="openSabtu" name="open-time[]">
+                                                        </div>
+                                                        <div class="col">
+                                                            <label for="close-time">Jam Tutup:</label>
+                                                            <input type="time" class="form-control" id="closeSabtu" name="close-time[]">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row mb-3">
+                                                    <div class="col-4">
+                                                        <h5 id="dayTitle">Minggu</h5>
+                                                        <label class="toggle toggle-alternative">
+                                                            <input type="checkbox" id="checkboxB" class="checkbox" name="day[]" onclick="Minggu()" />
+                                                            <span class="toggle-text"></span>
+                                                            <span class="toggle-handle"></span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="row col" id="jamMinggu" style="display:none;">
+                                                        <div class="col">
+                                                            <label for="open-time">Jam Buka:</label>
+                                                            <input type="time" class="form-control" id="openMinggu" name="open-time[]">
+                                                        </div>
+                                                        <div class="col">
+                                                            <label for="close-time">Jam Tutup:</label>
+                                                            <input type="time" class="form-control" id="closeMinggu" name="close-time[]">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
 
 
-    <!-- SIDEBAR -->
-    <?= $this->include('_Layout/_template/_admin/sidebar'); ?>
+                                            <div class="mb-3">
+                                                <label for="formFile" class="form-label">Upload Foto Kafe</label>
+                                                <input class="form-control" type="file" name="foto_kafe[]" id="foto_kafe" accept="image/*" multiple required>
+                                                <div id="FileHelp" class="form-text">.jpg/.png</div>
+                                                <div id="imgPreview"></div>
+                                            </div>
 
 
 
-    <!-- MAIN ISI -->
-    <main id="main" class="main">
+                                            <button type="submit" onclick="submitWaktu()" class="btn btn-primary">Submit</button>
+                                        </form>
 
-        <div class="pagetitle">
-            <h1><?= $title; ?></h1>
-            <nav>
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                    <li class="breadcrumb-item">Pages</li>
-                    <li class="breadcrumb-item active">Blank</li>
-                </ol>
-            </nav>
-        </div><!-- End Page Title -->
-
-        <section class="section">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="card">
-
-                        <div class="card-body">
-                            <h3 class="card-title">Tambah Data</h3>
-
-                            <form class="row g-3" action="/admin/tambah_Kafe" method="post" enctype="multipart/form-data">
-                                <?= csrf_field(); ?>
-
-                                <?php if (in_groups('User')) : ?>
-                                    <input type="hidden" class="form-control" for="stat_appv" id="stat_appv" name="stat_appv" value="0">
-                                <?php else : ?>
-                                    <input type="hidden" class="form-control" for="stat_appv" id="stat_appv" name="stat_appv" value="1">
-                                <?php endif ?>
-
-                                <div class="form-group">
-                                    <label for="nama_kafe" class="form-label">Nama Kafe</label>
-                                    <input type="text" class="form-control" id="nama_kafe" aria-describedby="textlHelp" name="nama_kafe" required>
+                                    </div>
                                 </div>
-                                <div class="form-group">
-                                    <label for="alamat_kafe" class="form-label">Alamat Kafe</label>
-                                    <input type="text" class="form-control" id="alamat_kafe" aria-describedby="textlHelp" name="alamat_kafe" required>
-                                </div>
+                            </div>
 
-                                <div class="row g-2">
-                                    <label for="koordinat" class="">Koordinat</label>
-                                    <div class="form-group col-md-6">
-                                        <label for="latitude" class="">Latitude</label>
-                                        <input type="text" class="form-control" id="latitude" aria-describedby="textlHelp" name="latitude" placeholder="-7.0385384" pattern="/^(\-?\d+(\.\d+)?)$/" title="Tuliskan Sesuai Format" required>
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label for="longitude" class="">Longitude</label>
-                                        <input type="text" class="form-control" id="longitude" aria-describedby="textlHelp" name="longitude" placeholder="112.8998345" pattern="/^[^a-zA-Z]*(\-?\d+(\.\d+)?)$/" title="Tuliskan Sesuai Format" required>
-                                    </div>
-                                    <div id="FileHelp" class="form-text"><span style="font-weight: bold;">NOTE:</span> Ketikan Koordinat Latitude dan Longitude atau klik lokasi pada peta</div>
-                                </div>
 
-                                <div class="form-group row g-2">
-                                    <label class="col-md-12 mb-2">Wilayah Administrasi</label>
-                                    <select class="col-md-12" id="wilayah" name="wilayah" value="" required>
 
-                                    </select>
-                                </div>
-
-                                <div class="form-group mb-3">
-                                    <label for="instagram_kafe" class="form-label">Instagram</label>
-                                    <div class="input-group form-group mt-1">
-                                        <span class="input-group-text" id="basic-addon1">@</span>
-                                        <input type="text" class="form-control" id="instagram_kafe" name="instagram_kafe" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                            <div class="col-lg-6">
+                                <div class="card card-title">
+                                    <div class="card-body">
+                                        <div class="map" id="map"></div>
+                                        <span id="koordinat"></span>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
 
-                                <div class="form-group">
-                                    <label for="jam-oprasional" class="form-label">Waktu Oprasional</label>
-                                    <div class="row mb-3">
-                                        <div class="col-4">
-                                            <h5 id="dayTitle">Senin</h5>
-                                            <label class="toggle toggle-alternative">
-                                                <input type="checkbox" id="checkboxB1" class="checkbox" name="day[]" onclick="senin()" checked />
-                                                <span class="toggle-text"></span>
-                                                <span class="toggle-handle"></span>
-                                            </label>
-                                        </div>
-                                        <div class="row col" id="jamSenin">
-                                            <div class="col">
-                                                <label for="open-time">Jam Buka:</label>
-                                                <input type="time" class="form-control" id="openSenin" name="open-time[]" checked>
-                                            </div>
-                                            <div class="col">
-                                                <label for="close-time">Jam Tutup:</label>
-                                                <input type="time" class="form-control" id="closeSenin" name="close-time[]">
-                                            </div>
-                                            <a class="btn btn-primary mt-2" onclick="setTimeToMonday()" role=" button">Terapkan Ke Semua Hari</a>
-                                        </div>
-                                    </div>
-                                    <div class="row mb-3">
-                                        <div class="col-4">
-                                            <h5 id="dayTitle">Selasa</h5>
-                                            <label class="toggle toggle-alternative">
-                                                <input type="checkbox" id="checkboxB" class="checkbox" name="day[]" onclick="Selasa()" checked />
-                                                <span class="toggle-text"></span>
-                                                <span class="toggle-handle"></span>
-                                            </label>
-                                        </div>
-                                        <div class="row col" id="jamSelasa">
-                                            <div class="col">
-                                                <label for="open-time">Jam Buka:</label>
-                                                <input type="time" class="form-control" id="openSelasa" name="open-time[]" checked>
-                                            </div>
-                                            <div class="col">
-                                                <label for="close-time">Jam Tutup:</label>
-                                                <input type="time" class="form-control" id="closeSelasa" name="close-time[]">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row mb-3">
-                                        <div class="col-4">
-                                            <h5 id="dayTitle">Rabu</h5>
-                                            <label class="toggle toggle-alternative">
-                                                <input type="checkbox" id="checkboxB" class="checkbox" name="day[]" onclick="Rabu()" checked />
-                                                <span class="toggle-text"></span>
-                                                <span class="toggle-handle"></span>
-                                            </label>
-                                        </div>
-                                        <div class="row col" id="jamRabu">
-                                            <div class="col">
-                                                <label for="open-time">Jam Buka:</label>
-                                                <input type="time" class="form-control" id="openRabu" name="open-time[]" checked>
-                                            </div>
-                                            <div class="col">
-                                                <label for="close-time">Jam Tutup:</label>
-                                                <input type="time" class="form-control" id="closeRabu" name="close-time[]">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row mb-3">
-                                        <div class="col-4">
-                                            <h5 id="dayTitle">Kamis</h5>
-                                            <label class="toggle toggle-alternative">
-                                                <input type="checkbox" id="checkboxB" class="checkbox" name="day[]" onclick="Kamis()" checked />
-                                                <span class="toggle-text"></span>
-                                                <span class="toggle-handle"></span>
-                                            </label>
-                                        </div>
-                                        <div class="row col" id="jamKamis">
-                                            <div class="col">
-                                                <label for="open-time">Jam Buka:</label>
-                                                <input type="time" class="form-control" id="openKamis" name="open-time[]" checked>
-                                            </div>
-                                            <div class="col">
-                                                <label for="close-time">Jam Tutup:</label>
-                                                <input type="time" class="form-control" id="closeKamis" name="close-time[]">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row mb-3">
-                                        <div class="col-4">
-                                            <h5 id="dayTitle">Jum'at</h5>
-                                            <label class="toggle toggle-alternative">
-                                                <input type="checkbox" id="checkboxB" class="checkbox" name="day[]" onclick="Jumat()" checked />
-                                                <span class="toggle-text"></span>
-                                                <span class="toggle-handle"></span>
-                                            </label>
-                                        </div>
-                                        <div class="row col" id="jamJumat">
-                                            <div class="col">
-                                                <label for="open-time">Jam Buka:</label>
-                                                <input type="time" class="form-control" id="openJumat" name="open-time[]" checked>
-                                            </div>
-                                            <div class="col">
-                                                <label for="close-time">Jam Tutup:</label>
-                                                <input type="time" class="form-control" id="closeJumat" name="close-time[]">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row mb-3">
-                                        <div class="col-4">
-                                            <h5 id="dayTitle">Sabtu</h5>
-                                            <label class="toggle toggle-alternative">
-                                                <input type="checkbox" id="checkboxB" class="checkbox" name="day[]" onclick="Sabtu()" />
-                                                <span class="toggle-text"></span>
-                                                <span class="toggle-handle"></span>
-                                            </label>
-                                        </div>
-                                        <div class="row col" id="jamSabtu" style="display:none;">
-                                            <div class="col">
-                                                <label for="open-time">Jam Buka:</label>
-                                                <input type="time" class="form-control" id="openSabtu" name="open-time[]">
-                                            </div>
-                                            <div class="col">
-                                                <label for="close-time">Jam Tutup:</label>
-                                                <input type="time" class="form-control" id="closeSabtu" name="close-time[]">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row mb-3">
-                                        <div class="col-4">
-                                            <h5 id="dayTitle">Minggu</h5>
-                                            <label class="toggle toggle-alternative">
-                                                <input type="checkbox" id="checkboxB" class="checkbox" name="day[]" onclick="Minggu()" />
-                                                <span class="toggle-text"></span>
-                                                <span class="toggle-handle"></span>
-                                            </label>
-                                        </div>
-                                        <div class="row col" id="jamMinggu" style="display:none;">
-                                            <div class="col">
-                                                <label for="open-time">Jam Buka:</label>
-                                                <input type="time" class="form-control" id="openMinggu" name="open-time[]">
-                                            </div>
-                                            <div class="col">
-                                                <label for="close-time">Jam Tutup:</label>
-                                                <input type="time" class="form-control" id="closeMinggu" name="close-time[]">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                    </div>
+
+                </div>
+            </main><!-- End #main -->
 
 
-                                <div class="mb-3">
-                                    <label for="formFile" class="form-label">Upload Foto Kafe</label>
-                                    <input class="form-control" type="file" name="foto_kafe[]" id="foto_kafe" accept="image/*" multiple required>
-                                    <div id="FileHelp" class="form-text">.jpg/.png</div>
-                                    <div id="imgPreview"></div>
-                                </div>
-
-
-
-                                <button type="submit" onclick="submitWaktu()" class="btn btn-primary">Submit</button>
-                            </form>
-
+            <!-- ======= Footer ======= -->
+            <footer class="py-4 mt-auto">
+                <div class="container-fluid px-4">
+                    <div class="d-flex align-items-center justify-content-between small">
+                        <div class="text-muted">Copyright &copy; Your Website 2023</div>
+                        <div>
+                            <a href="#">Privacy Policy</a>
+                            &middot;
+                            <a href="#">Terms &amp; Conditions</a>
                         </div>
                     </div>
                 </div>
+            </footer><!-- End Footer -->
 
-
-
-                <div class="col-lg-6">
-                    <div class="card card-title">
-                        <div class="card-body">
-                            <div class="map" id="map"></div>
-                            <span id="koordinat"></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            </div>
-        </section>
-
-    </main><!-- End #main -->
-
-
-    <!-- ======= Footer ======= -->
-    <footer id="footer" class="footer">
-        <!-- <div class="copyright">
-        &copy; Copyright <strong><span>NiceAdmin</span></strong>. All Rights Reserved
-    </div> -->
-    </footer><!-- End Footer -->
-
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+        </div>
+    </div>
 
 
     <!-- Vendor JS Files -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/816b3ace5c.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js" integrity="sha256-xLD7nhI62fcsEZK2/v8LsBcb4lG7dgULkuXoXB/j91c=" crossorigin="anonymous"></script>
-    <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.2/moment.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/proj4js/1.1.0/proj4js-compressed.min.js"></script>
-    <!-- <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
-    <script src="assets/vendor/chart.js/chart.min.js"></script>
-    <script src="assets/vendor/echarts/echarts.min.js"></script>
-    <script src="assets/vendor/quill/quill.min.js"></script>
-    <script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
-    <script src="assets/vendor/tinymce/tinymce.min.js"></script>
-    <script src="assets/vendor/php-email-form/validate.js"></script> -->
 
     <!-- Template Main JS File -->
     <script src="/js/Script.js"></script>

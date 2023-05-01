@@ -1,70 +1,88 @@
 <!-- ======= Sidebar ======= -->
-<aside id="sidebar" class="sidebar">
+<div id="layoutSidenav_nav">
+    <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+        <div class="sb-sidenav-menu">
+            <div class="nav">
 
-    <ul class="sidebar-nav" id="sidebar-nav">
-
-        <li class="nav-item">
-            <a class="nav-link collapsed bg-light" href="<?= base_url(); ?>">
-                <i class="bi bi-house-door"></i>
-                <span>HOME</span>
-            </a>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="/dashboard">
-                <i class="bi bi-grid"></i>
-                <span>Dashboard</span>
-            </a>
-        </li><!-- End Dashboard Nav -->
-
-        <?php if (in_groups('SuperAdmin') || in_groups('Admin')) :; ?>
-            <li class="nav-heading">Data</li>
-
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="/admin/data/geojson">
-                    <i class="bi bi-archive"></i>
-                    <span>GeoJson</span>
+                <a class="nav-link pt-3" href="<?= base_url(); ?>">
+                    <div class="sb-nav-link-icon"><i class="bi bi-house-door-fill"></i></div>
+                    HOME
+                </a>
+                <a class="nav-link" href="/dashboard">
+                    <div class="sb-nav-link-icon"><i class="bi bi-grid-fill"></i></div>
+                    Dashboard
                 </a>
 
-                <a class="nav-link collapsed" href="/admin/data/kafe">
-                    <i class="bi bi-building"></i>
-                    <span>KV</span>
+                <?php if (in_groups('SuperAdmin') || in_groups('Admin')) :; ?>
+                    <div class="sb-sidenav-menu-heading">Data</div>
+
+                    <a class="nav-link collapsed" href="/admin/data/geojson" data-bs-toggle="collapse" data-bs-target="#collapseGeojson" aria-expanded="false" aria-controls="collapseGeojson">
+                        <div class="sb-nav-link-icon"><i class="bi bi-archive-fill"></i></div>
+                        GeoJson
+                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                    </a>
+                    <div class="collapse" id="collapseGeojson" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                        <div class="sb-sidenav-menu-nested nav">
+                            <a class="nav-link" href="/admin/data/geojson/tambah">Add Data</a>
+                            <a class="nav-link" href="/admin/data/geojson">All Data</a>
+                        </div>
+                    </div>
+
+                    <a class="nav-link collapsed" href="/admin/data/geojson" data-bs-toggle="collapse" data-bs-target="#collapseKafe" aria-expanded="false" aria-controls="collapseKafe">
+                        <div class="sb-nav-link-icon"><i class="fa-sharp fa-solid fa-store"></i></div>
+                        Kafe
+                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                    </a>
+                    <div class="collapse" id="collapseKafe" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                        <div class="sb-sidenav-menu-nested nav">
+                            <a class="nav-link" href="/admin/data/kafe/tambah">Add Data</a>
+                            <a class="nav-link" href="/admin/data/kafe">All Data</a>
+                        </div>
+                    </div>
+
+                    <a class="nav-link collapsed" href="/admin/data/geojson" data-bs-toggle="collapse" data-bs-target="#collapsePending" aria-expanded="false" aria-controls="collapsePending">
+                        <div class="sb-nav-link-icon"><i class="bi bi-hourglass-split"></i></div>
+                        Pending
+                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                    </a>
+                    <div class="collapse" id="collapsePending" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                        <div class="sb-sidenav-menu-nested nav">
+                            <a class="nav-link" href="/admin/pending">All Data</a>
+                        </div>
+                    </div>
+                <?php endif ?>
+
+                <div class="sb-sidenav-menu-heading">Setting</div>
+
+                <?php if (in_groups('SuperAdmin') || in_groups('Admin')) :; ?>
+                    <a class="nav-link" href="/user/manajemen">
+                        <div class="sb-nav-link-icon"><i class="bi bi-person-lines-fill"></i></div>
+                        User Management
+                    </a>
+                <?php endif ?>
+
+                <a class="nav-link" href="/user/list">
+                    <div class="sb-nav-link-icon"><i class="bi bi-person-lines-fill"></i></div>
+                    User List
                 </a>
 
-                <a class="nav-link collapsed" href="/admin/pending">
-                    <i class="bi bi-hourglass"></i>
-                    <span>Pending</span>
+                <?php if (in_groups('SuperAdmin') || in_groups('Admin')) :; ?>
+                    <a class="nav-link" href="/admin/setting">
+                        <div class="sb-nav-link-icon"><i class="bi bi-sliders"></i></div>
+                        Map View
+                    </a>
+                <?php endif ?>
+
+                <a class="nav-link" href="/contact">
+                    <div class="sb-nav-link-icon"><i class="bi bi-envelope-fill"></i></div>
+                    Contact
                 </a>
-            </li>
-        <?php endif ?>
 
-        <li class="nav-heading">Setting</li>
-
-        <?php if (in_groups('SuperAdmin') || in_groups('Admin')) :; ?>
-            <a class="nav-link collapsed" href="/user/manajemen">
-                <i class="bi bi-person-lines-fill"></i>
-                <span>User Management</span>
-            </a>
-        <?php endif ?>
-
-        <a class="nav-link collapsed" href="/user/list">
-            <i class="bi bi-person-lines-fill"></i>
-            <span>User List</span>
-        </a>
-
-        <?php if (in_groups('SuperAdmin') || in_groups('Admin')) :; ?>
-            <a class="nav-link collapsed" href="/admin/setting">
-                <i class="bi bi-sliders2"></i>
-                <span>Setting Map View</span>
-            </a>
-        <?php endif ?>
-
-        <a class="nav-link collapsed" href="/contact">
-            <i class="bi bi-envelope"></i>
-            <span>Contact</span>
-        </a>
-        <!-- End Contact Page Nav -->
-
-    </ul>
-
-</aside><!-- End Sidebar-->
+            </div>
+        </div>
+        <div class="sb-sidenav-footer">
+            <div class="small">Logged in as:</div>
+            <span><?= user()->username; ?></span>
+        </div>
+    </nav>
+</div>

@@ -85,7 +85,7 @@
                 </div>
 
                 <div class="col-lg p-2">
-                    <table class="table">
+                    <table class="table table-responsive">
                         <thead class="thead-left">
                             <tr>
                                 <th style="font-weight: 400; border-bottom-width: 1px; border-bottom-color: #dee2e6;">Nama Kafe</th>
@@ -185,8 +185,6 @@
     <!-- Template Javascript -->
     <script src="/assets/js/main.js"></script>
 
-    <!-- Template Main JS File -->
-    <script src="/assets/js/main.js"></script>
     <script>
         const imgs = document.querySelectorAll('.img-select a');
         const imgBtns = [...imgs];

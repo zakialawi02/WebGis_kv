@@ -2,35 +2,23 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
 
     <title><?= $title; ?></title>
-    <meta content="" name="description">
-    <meta content="" name="keywords">
-
     <!-- Favicons -->
     <link href="/img/favicon.png" rel="icon">
-    <link href="/img/apple-touch-icon.png" rel="apple-touch-icon">
-
-    <!-- Google Fonts -->
-    <link href="https://fonts.gstatic.com" rel="preconnect">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
     <!-- Vendor CSS Files -->
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
-    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-    <!-- <link href="assets/vendor/quill/quill.snow.css" rel="stylesheet">
-    <link href="assets/vendor/quill/quill.bubble.css" rel="stylesheet">
-    <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet"> -->
 
     <!-- Template Main CSS File -->
-    <link href="/css/StyleAdmin.css" rel="stylesheet">
+    <link href="/css/StyleAdmin.css" rel="stylesheet" />
 
     <!-- leaflet Component -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css" integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14=" crossorigin="" />
@@ -44,131 +32,114 @@
     </style>
 </head>
 
-<body>
-    <!-- HEADER -->
-    <?= $this->include('_Layout/_template/_admin/header'); ?>
+<body class="sb-nav-fixed">
+    <!-- NAV HAEADER -->
+    <?= $this->include('_Layout\_template\_admin\header'); ?>
+    <div id="layoutSidenav">
+        <!-- SIDEBAR -->
+        <?= $this->include('_Layout\_template\_admin\sidebar'); ?>
 
-    <!-- SIDEBAR -->
-    <?= $this->include('_Layout/_template/_admin/sidebar'); ?>
+        <div id="layoutSidenav_content">
 
+            <!-- MAIN CONTENT -->
+            <main>
+                <div class="container-fluid px-4">
+                    <h1 class="mt-2 mb-3">Data Kafe</h1>
 
-    <!-- MAIN ISI -->
-    <main id="main" class="main">
+                    <div class="card mb-4">
+                        <div class="card-body">
 
-        <div class="pagetitle">
-            <h1><?= $title; ?></h1>
-            <nav>
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                    <li class="breadcrumb-item">Pages</li>
-                    <li class="breadcrumb-item active">Blank</li>
-                </ol>
-            </nav>
-        </div><!-- End Page Title -->
-
-        <section class="section">
-            <div class="row">
-                <div class="card">
-
-                    <div class="card-body">
-                        <div class="card-title"></div>
-                        <?php if (session()->getFlashdata('alert')) : ?>
-                            <div class="card-body">
-                                <div class="alert alert-info alert-dismissible fade show" role="alert">
-                                    <?= session()->getFlashdata('alert'); ?>
-                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            <div class="card-title"></div>
+                            <?php if (session()->getFlashdata('alert')) : ?>
+                                <div class="card-body">
+                                    <div class="alert alert-info alert-dismissible fade show" role="alert">
+                                        <?= session()->getFlashdata('alert'); ?>
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </div>
                                 </div>
-                            </div>
-                        <?php endif; ?>
+                            <?php endif; ?>
 
-                        <a href="/admin/data/kafe/tambah" class="btn btn-primary m-1 mb-4 bi bi-plus" role="button">Tambah</a>
+                            <a href="/admin/data/kafe/tambah" class="btn btn-primary m-1 mb-4 bi bi-plus" role="button">Tambah</a>
 
-                        <table class="table table-striped table-hover" style="width:100%" id="table1">
-                            <thead>
-                                <tr>
-                                    <th>Nama Kafe</th>
-                                    <th>Alamat Kafe</th>
-                                    <th>Koordinat</th>
-                                    <th>Instagram</th>
-                                    <th>Aksi</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php foreach ($tampilKafe as $S) : ?>
+                            <table id="datatablesSimple">
+                                <thead>
                                     <tr>
-                                        <td><?= $S->nama_kafe; ?></td>
-                                        <td style="min-width: 8em;"><?= $S->alamat_kafe; ?></td>
-                                        <td style="max-width: 9em;"><?= $S->latitude; ?>, <?= $S->longitude; ?></td>
-                                        <td> <a href="https://www.instagram.com/<?= $S->instagram_kafe ?>" target="_blank" rel="noopener noreferrer" class="d-inline-flex align-items-center">
-                                                <span>@<?= $S->instagram_kafe ?> <i class="ri-external-link-line"></i></span></a> </td>
-                                        <td>
-                                            <div class="btn-group mr-2" role="group" aria-label="First group">
-                                                <a href="/kafe/<?= $S->id_kafe; ?>/detail" class="btn btn-secondary bi bi-eye" role="button" target="_blank"></a>
-                                            </div>
-                                            <div class="btn-group mr-2" role="group" aria-label="First group">
-                                                <a href="/admin/data/kafe/edit/<?= $S->id_kafe; ?>" class="btn btn-primary bi bi-pencil-square" role="button"></a>
-                                            </div>
-                                            <div class="btn-group mr-2" role="group" aria-label="First group">
-                                                <form action="/admin/delete_Kafe/<?= $S->id_kafe; ?>" method="post">
-                                                    <?= csrf_field(); ?>
-                                                    <input type="hidden" name="_method" value="DELETE">
-                                                    <button type="submit" class="btn btn-danger bi bi-trash" onclick="return confirm('Yakin Hapus Data?')"></button>
-                                                </form>
-                                            </div>
-                                        </td>
+                                        <th>Nama Kafe</th>
+                                        <th>Alamat Kafe</th>
+                                        <th>Koordinat</th>
+                                        <th>Instagram</th>
+                                        <th>Aksi</th>
                                     </tr>
-                                <?php endforeach ?>
-                            </tbody>
-                        </table>
+                                </thead>
+                                <tbody>
+                                    <?php foreach ($tampilKafe as $S) : ?>
+                                        <tr>
+                                            <td><?= $S->nama_kafe; ?></td>
+                                            <td style="min-width: 8em;"><?= $S->alamat_kafe; ?></td>
+                                            <td style="max-width: 9em;"><?= $S->latitude; ?>, <?= $S->longitude; ?></td>
+                                            <td> <a href="https://www.instagram.com/<?= $S->instagram_kafe ?>" target="_blank" rel="noopener noreferrer" class="d-inline-flex align-items-center">
+                                                    <span>@<?= $S->instagram_kafe ?> <i class="bi bi-box-arrow-up-right"></i></span></a> </td>
+                                            <td>
+                                                <div class="btn-group mr-2" role="group" aria-label="First group">
+                                                    <a href="/kafe/<?= $S->id_kafe; ?>/detail" class="btn btn-secondary bi bi-eye" role="button" target="_blank"></a>
+                                                </div>
+                                                <div class="btn-group mr-2" role="group" aria-label="First group">
+                                                    <a href="/admin/data/kafe/edit/<?= $S->id_kafe; ?>" class="btn btn-primary bi bi-pencil-square" role="button"></a>
+                                                </div>
+                                                <div class="btn-group mr-2" role="group" aria-label="First group">
+                                                    <form action="/admin/delete_Kafe/<?= $S->id_kafe; ?>" method="post">
+                                                        <?= csrf_field(); ?>
+                                                        <input type="hidden" name="_method" value="DELETE">
+                                                        <button type="submit" class="btn btn-danger bi bi-trash" onclick="return confirm('Yakin Hapus Data?')"></button>
+                                                    </form>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    <?php endforeach ?>
+                                </tbody>
+                            </table>
 
+                        </div>
+                    </div>
+
+                    <div class="card card-title">
+                        <div class="card-body">
+                            <div class="map" id="map"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </main><!-- End #main -->
+
+
+            <!-- ======= Footer ======= -->
+            <footer class="py-4 mt-auto">
+                <div class="container-fluid px-4">
+                    <div class="d-flex align-items-center justify-content-between small">
+                        <div class="text-muted">Copyright &copy; Your Website 2023</div>
+                        <div>
+                            <a href="#">Privacy Policy</a>
+                            &middot;
+                            <a href="#">Terms &amp; Conditions</a>
+                        </div>
                     </div>
                 </div>
+            </footer><!-- End Footer -->
 
-                <div class="card card-title">
-                    <div class="card-body">
-                        <div class="map" id="map"></div>
-                    </div>
-                </div>
-
-
-
-            </div>
-            </div>
-        </section>
-
-    </main><!-- End #main -->
-
-
-    <!-- ======= Footer ======= -->
-    <footer id="footer" class="footer">
-        <!-- <div class="copyright">
-        &copy; Copyright <strong><span>NiceAdmin</span></strong>. All Rights Reserved
-    </div> -->
-    </footer><!-- End Footer -->
-
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
+        </div>
+    </div>
 
     <!-- Vendor JS Files -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/816b3ace5c.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.2/moment.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
     <!-- Template Main JS File -->
-    <script src="/js/Script.js"></script>
+    <script src="/js/datatables-simple-demo.js"></script>
+    <script src="/js/scripts.js"></script>
 
-    <script>
-        DataTable.datetime('D MMM YYYY');
-        $(document).ready(function() {
-            $('#table1').DataTable({
-                scrollX: true,
-                order: false,
-            });
-        });
-    </script>
     <script>
         $(document).ready(function() {
             $(".alert");

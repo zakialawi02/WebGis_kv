@@ -83,14 +83,9 @@ class Admin extends BaseController
     public function tes()
     {
         $data = [
-            'title' => 'Lihat Peta',
-            'tampilData' => $this->setting->tampilData()->getResult(),
-            'tampilKafe' => $this->kafe->tes()->getResultArray(),
+            'title' => 'Tes',
         ];
-        echo '<pre>';
-        print_r($data['tampilKafe']);
-        die;
-        return view('page/viewMap', $data);
+        return view('page/tes', $data);
     }
 
     public function dump()
@@ -110,13 +105,13 @@ class Admin extends BaseController
     }
 
 
-    public function table()
+    public function temp()
     {
         $data = [
-            'title' => 'TABLE',
+            'title' => 'TEMP',
         ];
 
-        return view('admin/table', $data);
+        return view('admin/tempp', $data);
     }
 
 
@@ -183,6 +178,8 @@ class Admin extends BaseController
     {
         $data = [
             'title' => 'DATA GEOJSON',
+            'tampilData' => $this->setting->tampilData()->getResult(),
+
         ];
 
         return view('admin/tambahGeojson', $data);
