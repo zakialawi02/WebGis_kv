@@ -1,6 +1,6 @@
 CRITICAL - 2023-05-01 12:06:50 --> Attempt to read property "user_image" on null
-in APPPATH\Views\_Layout\_template\_admin\header.php on line 11.
- 1 APPPATH\Views\_Layout\_template\_admin\header.php(11): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "user_image" on null', 'APPPATH\\Views\\_Layout\\_template\\_admin\\header.php', 11)
+in APPPATH\Views\_Layout/_template/_admin/header.php on line 11.
+ 1 APPPATH\Views\_Layout/_template/_admin/header.php(11): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "user_image" on null', 'APPPATH\\Views\\_Layout\\_template\\_admin\\header.php', 11)
  2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\_Layout\\_template\\_admin\\header.php')
  3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
  4 SYSTEMPATH\View\View.php(431): CodeIgniter\View\View->render('_Layout\\_template\\_admin\\header', null, true)

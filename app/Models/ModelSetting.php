@@ -34,10 +34,4 @@ class ModelSetting extends Model
     {
         return $this->db->table('users')->update($data, ['id' => $id]);
     }
-
-    // update password
-    public function UpdatePassword($data, $id)
-    {
-        return $this->db->table('users')->update($data, ['id' => $id]);
-    }
 }

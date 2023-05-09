@@ -16,6 +16,7 @@
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link href=" https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.min.css " rel="stylesheet">
 
     <!-- Template Main CSS File -->
     <link href="/css/StyleAdmin.css" rel="stylesheet" />
@@ -24,10 +25,10 @@
 
 <body class="sb-nav-fixed">
     <!-- NAV HAEADER -->
-    <?= $this->include('_Layout\_template\_admin\header'); ?>
+    <?= $this->include('_Layout/_template/_admin/header'); ?>
     <div id="layoutSidenav">
         <!-- SIDEBAR -->
-        <?= $this->include('_Layout\_template\_admin\sidebar'); ?>
+        <?= $this->include('_Layout/_template/_admin/sidebar'); ?>
 
         <div id="layoutSidenav_content">
 
@@ -39,14 +40,14 @@
                     <div class="card mb-4">
                         <div class="card-body">
 
-                            <?php if (session()->getFlashdata('alert')) : ?>
+                            <!-- <?php if (session()->getFlashdata('alert')) : ?>
                                 <div class="card-body">
                                     <div id="alert" class="alert alert-info alert-dismissible fade show" role="alert">
                                         <?= session()->getFlashdata('alert'); ?>
                                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                     </div>
                                 </div>
-                            <?php endif; ?>
+                            <?php endif; ?> -->
 
                             <!-- Button trigger modal -->
                             <button type="button" class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#exampleModal">+ Tambah</button>
@@ -61,8 +62,7 @@
                                         </div>
                                         <div class="modal-body">
 
-
-                                            <form id="form" name="form" action="/user/tambah" method="post" enctype="multipart/form-data" class="row g-3" autocomplete="off">
+                                            <form id="form" name="form" action="/user/tambah" method="post" enctype="multipart/form-data" class="row g-3" autocomplete="off" id="addUserForm">
 
                                                 <?= csrf_field(); ?>
 
@@ -94,13 +94,13 @@
                                                         <?php endforeach ?>
                                                     </select>
                                                 </div>
-                                        </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                    <button type="submit" id="tombol" class="btn btn-primary">Submit</button>
+                                                </div>
+                                            </form>
 
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                            <button type="submit" id="tombol" class="btn btn-primary">Submit</button>
                                         </div>
-                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -131,16 +131,16 @@
                                                 <button type="button" class="btn btn-primary bi bi-pencil-square" data-bs-toggle="modal" data-bs-target="#editUserRole-<?= $user->userid ?>"></button>
 
                                                 <!-- Modal -->
-                                                <div class="modal fade mt-5" id="editUserRole-<?= $user->userid ?>" tabindex="-1" style="z-index: 2001 ;" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal fade mt-5" id="editUserRole-<?= $user->userid ?>" tabindex="-1" style="z-index: 2001 ;" aria-labelledby="exampleModalLabels" aria-hidden="true">
                                                     <div class="modal-dialog">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
-                                                                <h5 class="modal-title" id="exampleModalLabel">Edit User</h5>
+                                                                <h5 class="modal-title" id="exampleModalLabels">Edit User</h5>
                                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                             </div>
                                                             <div class="modal-body">
 
-                                                                <form action="/user/updateUser" method="post" enctype="multipart/form-data" class="row g-3" autocomplete="off">
+                                                                <form action="/user/updateUser" method="post" enctype="multipart/form-data" class="row g-3" autocomplete="off" id="updateUserForm">
                                                                     <?= csrf_field(); ?>
 
                                                                     <input type="hidden" class="form-control" for="userid" id="userid" name="userid" value="<?= $user->userid ?>">
@@ -179,13 +179,13 @@
                                                                             <option value="0" <?php if ($active == 0) echo "selected"; ?>>Inactive</option>
                                                                         </select>
                                                                     </div>
-                                                            </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                                                    </div>
+                                                                </form>
 
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                                <button type="submit" class="btn btn-primary">Submit</button>
                                                             </div>
-                                                            </form>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -194,9 +194,10 @@
                                                     <form action="/user/delete/<?= $user->userid ?>" method="post">
                                                         <?= csrf_field(); ?>
                                                         <input type="hidden" name="_method" value="DELETE">
-                                                        <button type="submit" class="btn btn-danger bi bi-trash" onclick="return confirm('Yakin Hapus Data?')"></button>
+                                                        <button type="submit" class="btn btn-danger bi bi-trash"></button>
                                                     </form>
                                                 </div>
+
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>
@@ -232,10 +233,35 @@
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/816b3ace5c.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src=" https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.all.min.js "></script>
 
     <!-- Template Main JS File -->
     <script src="/js/datatables-simple-demo.js"></script>
     <script src="/js/scripts.js"></script>
+
+
+
+
+    <?php if (session()->getFlashdata('success')) : ?>
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: 'Success!',
+                text: '<?= session()->getFlashdata('success'); ?>'
+            });
+        </script>
+    <?php endif; ?>
+
+    <?php if (session()->getFlashdata('error')) : ?>
+        <script>
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: '<?= session()->getFlashdata('error'); ?>'
+            });
+        </script>
+    <?php endif; ?>
+
 
 </body>
 

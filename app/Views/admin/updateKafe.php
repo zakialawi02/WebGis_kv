@@ -34,10 +34,10 @@
 
 <body class="sb-nav-fixed">
     <!-- NAV HAEADER -->
-    <?= $this->include('_Layout\_template\_admin\header'); ?>
+    <?= $this->include('_Layout/_template/_admin/header'); ?>
     <div id="layoutSidenav">
         <!-- SIDEBAR -->
-        <?= $this->include('_Layout\_template\_admin\sidebar'); ?>
+        <?= $this->include('_Layout/_template/_admin/sidebar'); ?>
 
         <div id="layoutSidenav_content">
 

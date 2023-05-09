@@ -37,7 +37,6 @@ class MyProfile extends BaseController
 
     public function UpdateMyData()
     {
-        // dd($this->request->getVar());
         $id = $this->request->getPost('id');
         $data = [
             'full_name' => $this->request->getVar('full_name'),
@@ -45,59 +44,61 @@ class MyProfile extends BaseController
         ];
 
         $this->setting->updateMyData($data, $id);
-        // session()->setFlashdata('alert', 'Data Berhasil disimpan.');
-        return $this->response->redirect(site_url('/MyProfile'));
-    }
 
-    public function UpdatePassword()
-    {
-        // validation
-        $validate = $this->validate([
-            'currentPassword' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'wajib di isi',
-                ],
-            ],
-            'newpassword' => [
-                'rules' => 'required|min_length[8]',
-                'errors' => [
-                    'required' => 'wajib di isi',
-                    'min_length' => 'Min. 8 karakter'
-                ],
-            ],
-            'renewpassword' => [
-                'rules' => 'required|matches[newpassword]',
-                'errors' => [
-                    'required' => 'wajib di isi',
-                    'matches' => 'konfirmasi password baru tidak sama',
-                ],
-            ],
-        ]);
-        if (!$validate) {
-            return redirect()->to('/MyProfile')->withInput();
-        }
-
-        // dd($this->request->getVar());
-        $id = $this->request->getPost('id');
-        $passwordLama = $this->request->getVar('newpassword');
-        $data = [
-            'password_hash' => Password::hash($this->request->getVar('newpassword')),
-            'updated_at' => date('Y-m-d H:i:s'),
+        $response = [
+            'status' => 'success',
+            'message' => 'Data updated successfully',
+            'user' => $data
         ];
 
+        return $this->response->setJSON($response);
+    }
 
-        // // Cocokkan password yang dimasukkan dengan hash password yang disimpan menggunakan password_verify()
-        // if (password_verify($passwordLama, $hashed_password)) {
-        //     // Jika password sesuai, tampilkan pesan "Password cocok"
-        //     echo "Password cocok";
-        // } else {
-        //     // Jika password tidak sesuai, tampilkan pesan "Password tidak cocok"
-        //     echo "Password tidak cocok";
+    public function updatedUserData()
+    {
+        $id = $this->request->getPost('id');
+        $user = $this->users->getUsers($id)->getRow();
+
+        return json_encode($user);
+    }
+
+    public function updatePassword()
+    {
+        $id = $this->request->getPost('id');
+        $currentPassword = $this->request->getVar('currentPassword');
+        $newPassword = $this->request->getVar('newPassword');
+        $renewPassword = $this->request->getVar('renewPassword');
+
+        // $user = $this->users->verifPass($id)->getRow();
+        // $hashed = $user->password_hash;
+
+        // if (!password_verify($currentPassword, $hashed)) {
+        //     $response = [
+        //         'status' => 'error',
+        //         'message' => 'Incorrect current password.'
+        //     ];
+        //     return $this->response->setJSON($response);
         // }
+        if ($newPassword != $renewPassword) {
+            $response = [
+                'status' => 'error',
+                'message' => 'New password does not match re-entered password.'
+            ];
+            return $this->response->setJSON($response);
+        }
 
-        $this->setting->UpdatePassword($data, $id);
-        // session()->setFlashdata('alert', 'Data Berhasil disimpan.');
-        return redirect()->to('/MyProfile');
+        $newPasswordHash = password_hash($newPassword, PASSWORD_DEFAULT);
+
+        $data = [
+            'id' => $id,
+            'password_hash' => $newPasswordHash
+        ];
+        $this->users->UpdatePassword($data, $id);
+
+        $response = [
+            'status' => 'success',
+            'message' => 'Password updated successfully.'
+        ];
+        return $this->response->setJSON($response);
     }
 }

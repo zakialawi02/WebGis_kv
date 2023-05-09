@@ -22,15 +22,16 @@
 
 <body class="sb-nav-fixed">
     <!-- NAV HAEADER -->
-    <?= $this->include('_Layout\_template\_admin\header'); ?>
+    <?= $this->include('_Layout/_template/_admin/header'); ?>
     <div id="layoutSidenav">
         <!-- SIDEBAR -->
-        <?= $this->include('_Layout\_template\_admin\sidebar'); ?>
+        <?= $this->include('_Layout/_template/_admin/sidebar'); ?>
 
         <div id="layoutSidenav_content">
 
             <!-- MAIN CONTENT -->
             <main>
+
                 <div class="container-fluid px-4">
                     <h1 class="mt-4">Static Navigation</h1>
                     <ol class="breadcrumb mb-4">

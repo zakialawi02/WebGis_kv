@@ -121,4 +121,15 @@ class Kafe extends BaseController
         ];
         return view('page/peta', $data);
     }
+
+    public function map()
+    {
+        $data = [
+            'title' => 'Map',
+            'tampilGeojson' => $this->FGeojson->callGeojson()->getResult(),
+            'tampilData' => $this->setting->tampilData()->getResult(),
+            'tampilKafe' => $this->kafe->callKafe()->getResult(),
+        ];
+        return view('page/map', $data);
+    }
 }

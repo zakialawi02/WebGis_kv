@@ -13,9 +13,9 @@
                     Dashboard
                 </a>
 
-                <?php if (in_groups('SuperAdmin') || in_groups('Admin')) :; ?>
-                    <div class="sb-sidenav-menu-heading">Data</div>
+                <div class="sb-sidenav-menu-heading">Data</div>
 
+                <?php if (in_groups('SuperAdmin') || in_groups('Admin')) :; ?>
                     <a class="nav-link collapsed" href="/admin/data/geojson" data-bs-toggle="collapse" data-bs-target="#collapseGeojson" aria-expanded="false" aria-controls="collapseGeojson">
                         <div class="sb-nav-link-icon"><i class="bi bi-archive-fill"></i></div>
                         GeoJson
@@ -27,19 +27,21 @@
                             <a class="nav-link" href="/admin/data/geojson">All Data</a>
                         </div>
                     </div>
+                <?php endif ?>
 
-                    <a class="nav-link collapsed" href="/admin/data/geojson" data-bs-toggle="collapse" data-bs-target="#collapseKafe" aria-expanded="false" aria-controls="collapseKafe">
-                        <div class="sb-nav-link-icon"><i class="fa-sharp fa-solid fa-store"></i></div>
-                        Kafe
-                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                    </a>
-                    <div class="collapse" id="collapseKafe" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                        <div class="sb-sidenav-menu-nested nav">
-                            <a class="nav-link" href="/admin/data/kafe/tambah">Add Data</a>
-                            <a class="nav-link" href="/admin/data/kafe">All Data</a>
-                        </div>
+                <a class="nav-link collapsed" href="/admin/data/kafe" data-bs-toggle="collapse" data-bs-target="#collapseKafe" aria-expanded="false" aria-controls="collapseKafe">
+                    <div class="sb-nav-link-icon"><i class="fa-sharp fa-solid fa-store"></i></div>
+                    Kafe
+                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                </a>
+                <div class="collapse" id="collapseKafe" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                    <div class="sb-sidenav-menu-nested nav">
+                        <a class="nav-link" href="/admin/data/kafe/tambah">Add Data</a>
+                        <a class="nav-link" href="/admin/data/kafe">All Data</a>
                     </div>
+                </div>
 
+                <?php if (in_groups('SuperAdmin') || in_groups('Admin')) :; ?>
                     <a class="nav-link collapsed" href="/admin/data/geojson" data-bs-toggle="collapse" data-bs-target="#collapsePending" aria-expanded="false" aria-controls="collapsePending">
                         <div class="sb-nav-link-icon"><i class="bi bi-hourglass-split"></i></div>
                         Pending

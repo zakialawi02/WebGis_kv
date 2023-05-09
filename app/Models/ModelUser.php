@@ -23,7 +23,7 @@ class ModelUser extends Model
         if ($id == false) {
             $db      = \Config\Database::connect();
             $builder = $db->table('users');
-            $builder->select('users.id as userid, username, email, active, group_id, name, created_at,  full_name');
+            $builder->select('users.id as userid, username, email, active, group_id, name, created_at,  full_name, user_about');
             $builder->join('auth_groups_users', 'auth_groups_users.user_id = users.id');
             $builder->join('auth_groups', 'auth_groups.id = auth_groups_users.group_id');
             $query = $builder->orderBy('group_id', 'ASC')->get();
@@ -31,12 +31,24 @@ class ModelUser extends Model
         } else {
             $db      = \Config\Database::connect();
             $builder = $db->table('users');
-            $builder->select('users.id as userid, username, email, active, group_id, name, created_at,  full_name');
+            $builder->select('users.id as userid, username, email, active, group_id, name, created_at,  full_name, user_about, password_hash');
             $builder->join('auth_groups_users', 'auth_groups_users.user_id = users.id');
             $builder->join('auth_groups', 'auth_groups.id = auth_groups_users.group_id');
             $query = $builder->Where(['id' => $id])->get();
             return $query;
         }
+    }
+
+    public function verifPass($id)
+    {
+        $builder = $this->db->table('users')->select('*');
+        $query = $builder->Where(['id' => $id])->get();
+        return $query;
+    }
+
+    public function UpdatePassword($data, $id)
+    {
+        return $this->db->table('users')->update($data, ['id' => $id]);
     }
 
     function addUser($addUser)
@@ -87,7 +99,6 @@ class ModelUser extends Model
 
 
     // SCRAPING DATA FROM DATABASE FOR SELECT FORM MENU
-
     // AUTH GROUP
     public function allGroup()
     {

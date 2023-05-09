@@ -58,7 +58,11 @@ class Admin extends BaseController
     {
         $data = [
             'title' => 'TEMP',
+            'tampilKafe' => $this->kafe->getFiveKafe()->getResult(),
         ];
+        echo '<pre>';
+        print_r($data['tampilKafe']);
+        die;
 
         return view('admin/tempp', $data);
     }
