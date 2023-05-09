@@ -102,7 +102,7 @@
 
                                                 <div class="mb-2 row">
                                                     <div class="col-lg-3 col-md-4 label ">Join at</div>
-                                                    <div class="col-lg-9 col-md-8">: <?= user()->created_at; ?></div>
+                                                    <div class="col-lg-9 col-md-8">: <?= date('d M Y', strtotime(user()->created_at)); ?></div>
                                                 </div>
 
                                             </div>
@@ -213,18 +213,8 @@
 
             </main>
 
-            <footer class="py-4 bg-light mt-auto">
-                <div class="container-fluid px-4">
-                    <div class="d-flex align-items-center justify-content-between small">
-                        <div class="text-muted">Copyright &copy; Your Website 2023</div>
-                        <div>
-                            <a href="#">Privacy Policy</a>
-                            &middot;
-                            <a href="#">Terms &amp; Conditions</a>
-                        </div>
-                    </div>
-                </div>
-            </footer>
+            <!-- FOOTER -->
+            <?= $this->include('_Layout/_template/_admin/footer'); ?>
 
         </div>
     </div>
