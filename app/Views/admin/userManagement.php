@@ -191,10 +191,10 @@
                                                 </div>
 
                                                 <div class="btn-group mr-2" role="group" aria-label="First group">
-                                                    <form action="/user/delete/<?= $user->userid ?>" method="post">
+                                                    <form id="delete-form-<?= $user->userid ?>" action="/user/delete/<?= $user->userid ?>" method="post">
                                                         <?= csrf_field(); ?>
                                                         <input type="hidden" name="_method" value="DELETE">
-                                                        <button type="submit" class="btn btn-danger bi bi-trash"></button>
+                                                        <button type="button" class="btn btn-danger bi bi-trash delete-btn" data-id="<?= $user->userid ?>"></button>
                                                     </form>
                                                 </div>
 
@@ -229,14 +229,34 @@
     <script src="/js/scripts.js"></script>
 
 
-
+    <script>
+        $(document).ready(function() {
+            $('.delete-btn').on('click', function() {
+                var userId = $(this).data('id');
+                Swal.fire({
+                    title: 'Apakah Anda yakin ingin menghapus data ini?',
+                    text: "Data yang sudah dihapus tidak dapat dikembalikan!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Ya, hapus data!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        $('#delete-form-' + userId).submit();
+                    }
+                });
+            });
+        });
+    </script>
 
     <?php if (session()->getFlashdata('success')) : ?>
         <script>
             Swal.fire({
                 icon: 'success',
                 title: 'Success!',
-                text: '<?= session()->getFlashdata('success'); ?>'
+                text: '<?= session()->getFlashdata('success'); ?>',
+                timer: 1500,
             });
         </script>
     <?php endif; ?>
@@ -246,7 +266,8 @@
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
-                text: '<?= session()->getFlashdata('error'); ?>'
+                text: '<?= session()->getFlashdata('error'); ?>',
+                timer: 1500,
             });
         </script>
     <?php endif; ?>

@@ -1487,3 +1487,433 @@ WHERE `stat_appv` = :stat_appv:
  9 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
 10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
 11 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+ERROR - 2023-05-09 17:27:06 --> mysqli_sql_exception: Column 'lokasi' cannot be null in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `tb...', 0)
+#1 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tb...')
+#2 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tb...')
+#3 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tb...', Array, false)
+#4 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Models\ModelKv.php(116): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Controllers\Admin.php(316): App\Models\ModelKv->addKafe(Array)
+#6 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(927): App\Controllers\Admin->tambah_Kafe()
+#7 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#8 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 F:\WEB\XAMPP\htdocs\WebGis_kv\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(46): require_once('F:\\WEB\\XAMPP\\ht...')
+#11 {main}
+CRITICAL - 2023-05-09 17:27:06 --> Column 'lokasi' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `tbl_kafe` (`nama_kafe`, `alamat_kafe`, `longitude`, `latitude`, `instagram_kafe`, `id_provinsi`, `id_kabupaten`, `id_kecamatan`, `id_kelurahan`, `created_at`, `updated_at`) VALUES (\'jmju\', \'Jl. Buntu\', \'112.72242848614911\', \'-7.3085015183217195\', \'adw\', \' 35\', \' 3578\', \' 357822\', \'3578221004\', \'2023-05-09 17:27:06\', \'2023-05-09 17:27:06\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tbl_kafe` (`nama_kafe`, `alamat_kafe`, `longitude`, `latitude`, `instagram_kafe`, `id_provinsi`, `id_kabupaten`, `id_kecamatan`, `id_kelurahan`, `created_at`, `updated_at`) VALUES (\'jmju\', \'Jl. Buntu\', \'112.72242848614911\', \'-7.3085015183217195\', \'adw\', \' 35\', \' 3578\', \' 357822\', \'3578221004\', \'2023-05-09 17:27:06\', \'2023-05-09 17:27:06\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tbl_kafe` (`nama_kafe`, `alamat_kafe`, `longitude`, `latitude`, `instagram_kafe`, `id_provinsi`, `id_kabupaten`, `id_kecamatan`, `id_kelurahan`, `created_at`, `updated_at`) VALUES (\'jmju\', \'Jl. Buntu\', \'112.72242848614911\', \'-7.3085015183217195\', \'adw\', \' 35\', \' 3578\', \' 357822\', \'3578221004\', \'2023-05-09 17:27:06\', \'2023-05-09 17:27:06\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tbl_kafe` (`nama_kafe`, `alamat_kafe`, `longitude`, `latitude`, `instagram_kafe`, `id_provinsi`, `id_kabupaten`, `id_kecamatan`, `id_kelurahan`, `created_at`, `updated_at`) VALUES (:nama_kafe:, :alamat_kafe:, :longitude:, :latitude:, :instagram_kafe:, :id_provinsi:, :id_kabupaten:, :id_kecamatan:, :id_kelurahan:, :created_at:, :updated_at:)', [...], false)
+ 5 APPPATH\Models\ModelKv.php(116): CodeIgniter\Database\BaseBuilder->insert([...])
+ 6 APPPATH\Controllers\Admin.php(316): App\Models\ModelKv->addKafe([...])
+ 7 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->tambah_Kafe()
+ 8 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+ERROR - 2023-05-09 17:27:54 --> mysqli_sql_exception: Column 'lokasi' cannot be null in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `tb...', 0)
+#1 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tb...')
+#2 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tb...')
+#3 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tb...', Array, false)
+#4 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Models\ModelKv.php(116): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Controllers\Admin.php(316): App\Models\ModelKv->addKafe(Array)
+#6 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(927): App\Controllers\Admin->tambah_Kafe()
+#7 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#8 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 F:\WEB\XAMPP\htdocs\WebGis_kv\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(46): require_once('F:\\WEB\\XAMPP\\ht...')
+#11 {main}
+CRITICAL - 2023-05-09 17:27:54 --> Column 'lokasi' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `tbl_kafe` (`nama_kafe`, `alamat_kafe`, `longitude`, `latitude`, `instagram_kafe`, `id_provinsi`, `id_kabupaten`, `id_kecamatan`, `id_kelurahan`, `created_at`, `updated_at`) VALUES (\'jmju\', \'dfbfdgbfg\', \'112.68055034566076\', \'-7.311906081327402\', \'adwfe\', \' 35\', \' 3578\', \' 357822\', \'3578221004\', \'2023-05-09 17:27:54\', \'2023-05-09 17:27:54\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tbl_kafe` (`nama_kafe`, `alamat_kafe`, `longitude`, `latitude`, `instagram_kafe`, `id_provinsi`, `id_kabupaten`, `id_kecamatan`, `id_kelurahan`, `created_at`, `updated_at`) VALUES (\'jmju\', \'dfbfdgbfg\', \'112.68055034566076\', \'-7.311906081327402\', \'adwfe\', \' 35\', \' 3578\', \' 357822\', \'3578221004\', \'2023-05-09 17:27:54\', \'2023-05-09 17:27:54\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tbl_kafe` (`nama_kafe`, `alamat_kafe`, `longitude`, `latitude`, `instagram_kafe`, `id_provinsi`, `id_kabupaten`, `id_kecamatan`, `id_kelurahan`, `created_at`, `updated_at`) VALUES (\'jmju\', \'dfbfdgbfg\', \'112.68055034566076\', \'-7.311906081327402\', \'adwfe\', \' 35\', \' 3578\', \' 357822\', \'3578221004\', \'2023-05-09 17:27:54\', \'2023-05-09 17:27:54\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tbl_kafe` (`nama_kafe`, `alamat_kafe`, `longitude`, `latitude`, `instagram_kafe`, `id_provinsi`, `id_kabupaten`, `id_kecamatan`, `id_kelurahan`, `created_at`, `updated_at`) VALUES (:nama_kafe:, :alamat_kafe:, :longitude:, :latitude:, :instagram_kafe:, :id_provinsi:, :id_kabupaten:, :id_kecamatan:, :id_kelurahan:, :created_at:, :updated_at:)', [...], false)
+ 5 APPPATH\Models\ModelKv.php(116): CodeIgniter\Database\BaseBuilder->insert([...])
+ 6 APPPATH\Controllers\Admin.php(316): App\Models\ModelKv->addKafe([...])
+ 7 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->tambah_Kafe()
+ 8 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+ERROR - 2023-05-09 19:35:26 --> mysqli_sql_exception: Column 'lokasi' cannot be null in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `tb...', 0)
+#1 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tb...')
+#2 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tb...')
+#3 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tb...', Array, false)
+#4 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Models\ModelKv.php(116): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Controllers\Admin.php(316): App\Models\ModelKv->addKafe(Array)
+#6 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(927): App\Controllers\Admin->tambah_Kafe()
+#7 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#8 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 F:\WEB\XAMPP\htdocs\WebGis_kv\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(46): require_once('F:\\WEB\\XAMPP\\ht...')
+#11 {main}
+CRITICAL - 2023-05-09 19:35:26 --> Column 'lokasi' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `tbl_kafe` (`nama_kafe`, `alamat_kafe`, `longitude`, `latitude`, `instagram_kafe`, `id_provinsi`, `id_kabupaten`, `id_kecamatan`, `id_kelurahan`, `created_at`, `updated_at`) VALUES (\'jmju\', \'dfbfdgbfg\', \'112.68055034566076\', \'-7.311906081327402\', \'adwfe\', \' 35\', \' 3578\', \' 357822\', \'3578221004\', \'2023-05-09 19:35:26\', \'2023-05-09 19:35:26\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tbl_kafe` (`nama_kafe`, `alamat_kafe`, `longitude`, `latitude`, `instagram_kafe`, `id_provinsi`, `id_kabupaten`, `id_kecamatan`, `id_kelurahan`, `created_at`, `updated_at`) VALUES (\'jmju\', \'dfbfdgbfg\', \'112.68055034566076\', \'-7.311906081327402\', \'adwfe\', \' 35\', \' 3578\', \' 357822\', \'3578221004\', \'2023-05-09 19:35:26\', \'2023-05-09 19:35:26\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tbl_kafe` (`nama_kafe`, `alamat_kafe`, `longitude`, `latitude`, `instagram_kafe`, `id_provinsi`, `id_kabupaten`, `id_kecamatan`, `id_kelurahan`, `created_at`, `updated_at`) VALUES (\'jmju\', \'dfbfdgbfg\', \'112.68055034566076\', \'-7.311906081327402\', \'adwfe\', \' 35\', \' 3578\', \' 357822\', \'3578221004\', \'2023-05-09 19:35:26\', \'2023-05-09 19:35:26\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tbl_kafe` (`nama_kafe`, `alamat_kafe`, `longitude`, `latitude`, `instagram_kafe`, `id_provinsi`, `id_kabupaten`, `id_kecamatan`, `id_kelurahan`, `created_at`, `updated_at`) VALUES (:nama_kafe:, :alamat_kafe:, :longitude:, :latitude:, :instagram_kafe:, :id_provinsi:, :id_kabupaten:, :id_kecamatan:, :id_kelurahan:, :created_at:, :updated_at:)', [...], false)
+ 5 APPPATH\Models\ModelKv.php(116): CodeIgniter\Database\BaseBuilder->insert([...])
+ 6 APPPATH\Controllers\Admin.php(316): App\Models\ModelKv->addKafe([...])
+ 7 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->tambah_Kafe()
+ 8 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-05-09 19:35:55 --> Undefined variable $selectajax
+in APPPATH\Controllers\Admin.php on line 595.
+ 1 APPPATH\Controllers\Admin.php(595): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $selectajax', 'APPPATH\\Controllers\\Admin.php', 595)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->getDataAjaxRemote()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+ERROR - 2023-05-09 19:36:21 --> mysqli_sql_exception: Column 'lokasi' cannot be null in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `tb...', 0)
+#1 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tb...')
+#2 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tb...')
+#3 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tb...', Array, false)
+#4 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Models\ModelKv.php(116): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Controllers\Admin.php(316): App\Models\ModelKv->addKafe(Array)
+#6 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(927): App\Controllers\Admin->tambah_Kafe()
+#7 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#8 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 F:\WEB\XAMPP\htdocs\WebGis_kv\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(46): require_once('F:\\WEB\\XAMPP\\ht...')
+#11 {main}
+CRITICAL - 2023-05-09 19:36:21 --> Column 'lokasi' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `tbl_kafe` (`nama_kafe`, `alamat_kafe`, `longitude`, `latitude`, `instagram_kafe`, `id_provinsi`, `id_kabupaten`, `id_kecamatan`, `id_kelurahan`, `created_at`, `updated_at`) VALUES (\'yuuykuk\', \'Jl. Buntu\', \'112.69702699109882\', \'-7.327566736631599\', \'adwfe\', \' 35\', \' 3578\', \' 357822\', \'3578221004\', \'2023-05-09 19:36:21\', \'2023-05-09 19:36:21\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tbl_kafe` (`nama_kafe`, `alamat_kafe`, `longitude`, `latitude`, `instagram_kafe`, `id_provinsi`, `id_kabupaten`, `id_kecamatan`, `id_kelurahan`, `created_at`, `updated_at`) VALUES (\'yuuykuk\', \'Jl. Buntu\', \'112.69702699109882\', \'-7.327566736631599\', \'adwfe\', \' 35\', \' 3578\', \' 357822\', \'3578221004\', \'2023-05-09 19:36:21\', \'2023-05-09 19:36:21\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tbl_kafe` (`nama_kafe`, `alamat_kafe`, `longitude`, `latitude`, `instagram_kafe`, `id_provinsi`, `id_kabupaten`, `id_kecamatan`, `id_kelurahan`, `created_at`, `updated_at`) VALUES (\'yuuykuk\', \'Jl. Buntu\', \'112.69702699109882\', \'-7.327566736631599\', \'adwfe\', \' 35\', \' 3578\', \' 357822\', \'3578221004\', \'2023-05-09 19:36:21\', \'2023-05-09 19:36:21\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tbl_kafe` (`nama_kafe`, `alamat_kafe`, `longitude`, `latitude`, `instagram_kafe`, `id_provinsi`, `id_kabupaten`, `id_kecamatan`, `id_kelurahan`, `created_at`, `updated_at`) VALUES (:nama_kafe:, :alamat_kafe:, :longitude:, :latitude:, :instagram_kafe:, :id_provinsi:, :id_kabupaten:, :id_kecamatan:, :id_kelurahan:, :created_at:, :updated_at:)', [...], false)
+ 5 APPPATH\Models\ModelKv.php(116): CodeIgniter\Database\BaseBuilder->insert([...])
+ 6 APPPATH\Controllers\Admin.php(316): App\Models\ModelKv->addKafe([...])
+ 7 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->tambah_Kafe()
+ 8 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+ERROR - 2023-05-09 19:52:03 --> mysqli_sql_exception: Column 'lokasi' cannot be null in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `tb...', 0)
+#1 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tb...')
+#2 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tb...')
+#3 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tb...', Array, false)
+#4 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Models\ModelKv.php(116): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Controllers\Admin.php(316): App\Models\ModelKv->addKafe(Array)
+#6 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(927): App\Controllers\Admin->tambah_Kafe()
+#7 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#8 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 F:\WEB\XAMPP\htdocs\WebGis_kv\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(46): require_once('F:\\WEB\\XAMPP\\ht...')
+#11 {main}
+CRITICAL - 2023-05-09 19:52:04 --> Column 'lokasi' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `tbl_kafe` (`nama_kafe`, `alamat_kafe`, `longitude`, `latitude`, `instagram_kafe`, `id_provinsi`, `id_kabupaten`, `id_kecamatan`, `id_kelurahan`, `created_at`, `updated_at`) VALUES (\'yuuykuk\', \'Jl. Buntu\', \'112.69702699109882\', \'-7.327566736631599\', \'adwfe\', \' 35\', \' 3578\', \' 357822\', \'3578221004\', \'2023-05-09 19:52:03\', \'2023-05-09 19:52:03\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tbl_kafe` (`nama_kafe`, `alamat_kafe`, `longitude`, `latitude`, `instagram_kafe`, `id_provinsi`, `id_kabupaten`, `id_kecamatan`, `id_kelurahan`, `created_at`, `updated_at`) VALUES (\'yuuykuk\', \'Jl. Buntu\', \'112.69702699109882\', \'-7.327566736631599\', \'adwfe\', \' 35\', \' 3578\', \' 357822\', \'3578221004\', \'2023-05-09 19:52:03\', \'2023-05-09 19:52:03\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tbl_kafe` (`nama_kafe`, `alamat_kafe`, `longitude`, `latitude`, `instagram_kafe`, `id_provinsi`, `id_kabupaten`, `id_kecamatan`, `id_kelurahan`, `created_at`, `updated_at`) VALUES (\'yuuykuk\', \'Jl. Buntu\', \'112.69702699109882\', \'-7.327566736631599\', \'adwfe\', \' 35\', \' 3578\', \' 357822\', \'3578221004\', \'2023-05-09 19:52:03\', \'2023-05-09 19:52:03\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tbl_kafe` (`nama_kafe`, `alamat_kafe`, `longitude`, `latitude`, `instagram_kafe`, `id_provinsi`, `id_kabupaten`, `id_kecamatan`, `id_kelurahan`, `created_at`, `updated_at`) VALUES (:nama_kafe:, :alamat_kafe:, :longitude:, :latitude:, :instagram_kafe:, :id_provinsi:, :id_kabupaten:, :id_kecamatan:, :id_kelurahan:, :created_at:, :updated_at:)', [...], false)
+ 5 APPPATH\Models\ModelKv.php(116): CodeIgniter\Database\BaseBuilder->insert([...])
+ 6 APPPATH\Controllers\Admin.php(316): App\Models\ModelKv->addKafe([...])
+ 7 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->tambah_Kafe()
+ 8 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+ERROR - 2023-05-09 19:53:19 --> mysqli_sql_exception: Column 'lokasi' cannot be null in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `tb...', 0)
+#1 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tb...')
+#2 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tb...')
+#3 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tb...', Array, false)
+#4 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Models\ModelKv.php(116): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Controllers\Admin.php(316): App\Models\ModelKv->addKafe(Array)
+#6 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(927): App\Controllers\Admin->tambah_Kafe()
+#7 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#8 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 F:\WEB\XAMPP\htdocs\WebGis_kv\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(46): require_once('F:\\WEB\\XAMPP\\ht...')
+#11 {main}
+CRITICAL - 2023-05-09 19:53:19 --> Column 'lokasi' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `tbl_kafe` (`nama_kafe`, `alamat_kafe`, `longitude`, `latitude`, `instagram_kafe`, `id_provinsi`, `id_kabupaten`, `id_kecamatan`, `id_kelurahan`, `created_at`, `updated_at`) VALUES (\'yuuykuk\', \'Jl. Buntu\', \'112.69702699109882\', \'-7.327566736631599\', \'adwfe\', \' 35\', \' 3578\', \' 357822\', \'3578221004\', \'2023-05-09 19:53:19\', \'2023-05-09 19:53:19\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tbl_kafe` (`nama_kafe`, `alamat_kafe`, `longitude`, `latitude`, `instagram_kafe`, `id_provinsi`, `id_kabupaten`, `id_kecamatan`, `id_kelurahan`, `created_at`, `updated_at`) VALUES (\'yuuykuk\', \'Jl. Buntu\', \'112.69702699109882\', \'-7.327566736631599\', \'adwfe\', \' 35\', \' 3578\', \' 357822\', \'3578221004\', \'2023-05-09 19:53:19\', \'2023-05-09 19:53:19\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tbl_kafe` (`nama_kafe`, `alamat_kafe`, `longitude`, `latitude`, `instagram_kafe`, `id_provinsi`, `id_kabupaten`, `id_kecamatan`, `id_kelurahan`, `created_at`, `updated_at`) VALUES (\'yuuykuk\', \'Jl. Buntu\', \'112.69702699109882\', \'-7.327566736631599\', \'adwfe\', \' 35\', \' 3578\', \' 357822\', \'3578221004\', \'2023-05-09 19:53:19\', \'2023-05-09 19:53:19\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tbl_kafe` (`nama_kafe`, `alamat_kafe`, `longitude`, `latitude`, `instagram_kafe`, `id_provinsi`, `id_kabupaten`, `id_kecamatan`, `id_kelurahan`, `created_at`, `updated_at`) VALUES (:nama_kafe:, :alamat_kafe:, :longitude:, :latitude:, :instagram_kafe:, :id_provinsi:, :id_kabupaten:, :id_kecamatan:, :id_kelurahan:, :created_at:, :updated_at:)', [...], false)
+ 5 APPPATH\Models\ModelKv.php(116): CodeIgniter\Database\BaseBuilder->insert([...])
+ 6 APPPATH\Controllers\Admin.php(316): App\Models\ModelKv->addKafe([...])
+ 7 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->tambah_Kafe()
+ 8 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+ERROR - 2023-05-09 19:56:15 --> mysqli_sql_exception: Column 'lokasi' cannot be null in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `tb...', 0)
+#1 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tb...')
+#2 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tb...')
+#3 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tb...', Array, false)
+#4 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Models\ModelKv.php(116): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Controllers\Admin.php(316): App\Models\ModelKv->addKafe(Array)
+#6 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(927): App\Controllers\Admin->tambah_Kafe()
+#7 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#8 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 F:\WEB\XAMPP\htdocs\WebGis_kv\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(46): require_once('F:\\WEB\\XAMPP\\ht...')
+#11 {main}
+CRITICAL - 2023-05-09 19:56:15 --> Column 'lokasi' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `tbl_kafe` (`nama_kafe`, `alamat_kafe`, `longitude`, `latitude`, `instagram_kafe`, `id_provinsi`, `id_kabupaten`, `id_kecamatan`, `id_kelurahan`, `created_at`, `updated_at`) VALUES (\'yuuykuk\', \'Jl. Buntu\', \'112.69702699109882\', \'-7.327566736631599\', \'adwfe\', \' 35\', \' 3578\', \' 357822\', \'3578221004\', \'2023-05-09 19:56:15\', \'2023-05-09 19:56:15\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tbl_kafe` (`nama_kafe`, `alamat_kafe`, `longitude`, `latitude`, `instagram_kafe`, `id_provinsi`, `id_kabupaten`, `id_kecamatan`, `id_kelurahan`, `created_at`, `updated_at`) VALUES (\'yuuykuk\', \'Jl. Buntu\', \'112.69702699109882\', \'-7.327566736631599\', \'adwfe\', \' 35\', \' 3578\', \' 357822\', \'3578221004\', \'2023-05-09 19:56:15\', \'2023-05-09 19:56:15\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tbl_kafe` (`nama_kafe`, `alamat_kafe`, `longitude`, `latitude`, `instagram_kafe`, `id_provinsi`, `id_kabupaten`, `id_kecamatan`, `id_kelurahan`, `created_at`, `updated_at`) VALUES (\'yuuykuk\', \'Jl. Buntu\', \'112.69702699109882\', \'-7.327566736631599\', \'adwfe\', \' 35\', \' 3578\', \' 357822\', \'3578221004\', \'2023-05-09 19:56:15\', \'2023-05-09 19:56:15\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tbl_kafe` (`nama_kafe`, `alamat_kafe`, `longitude`, `latitude`, `instagram_kafe`, `id_provinsi`, `id_kabupaten`, `id_kecamatan`, `id_kelurahan`, `created_at`, `updated_at`) VALUES (:nama_kafe:, :alamat_kafe:, :longitude:, :latitude:, :instagram_kafe:, :id_provinsi:, :id_kabupaten:, :id_kecamatan:, :id_kelurahan:, :created_at:, :updated_at:)', [...], false)
+ 5 APPPATH\Models\ModelKv.php(116): CodeIgniter\Database\BaseBuilder->insert([...])
+ 6 APPPATH\Controllers\Admin.php(316): App\Models\ModelKv->addKafe([...])
+ 7 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->tambah_Kafe()
+ 8 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+ERROR - 2023-05-09 19:58:03 --> mysqli_sql_exception: Unknown column 'fasilitas_kafe' in 'field list' in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `tbl_kaf...', 0)
+#1 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_kaf...')
+#2 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_kaf...')
+#3 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1718): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_kaf...', Array, false)
+#4 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Models\ModelKv.php(35): CodeIgniter\Database\BaseBuilder->getWhere(Array)
+#5 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Controllers\Admin.php(256): App\Models\ModelKv->callKafe()
+#6 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(927): App\Controllers\Admin->Kafe()
+#7 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#8 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 F:\WEB\XAMPP\htdocs\WebGis_kv\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(46): require_once('F:\\WEB\\XAMPP\\ht...')
+#11 {main}
+CRITICAL - 2023-05-09 19:58:03 --> Unknown column 'fasilitas_kafe' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `tbl_kafe`.`id_kafe`, `nama_kafe`, `alamat_kafe`, `latitude`, `longitude`, `fasilitas_kafe`, `instagram_kafe`, `tbl_provinsi`.`id_provinsi` as `id_provinsi`, `nama_provinsi`, `tbl_kabupaten`.`id_kabupaten` as `id_kabupaten`, `nama_kabupaten`, `tbl_kecamatan`.`id_kecamatan` as `id_kecamatan`, `nama_kecamatan`, `tbl_kelurahan`.`id_kelurahan` as `id_kelurahan`, `nama_kelurahan`, `created_at`, `updated_at`, `tbl_status_appv`.`user` as `user`, `tbl_status_appv`.`stat_appv` as `stat_appv`, GROUP_CONCAT(DISTINCT nama_file_foto SEPARATOR ", ") as nama_foto, GROUP_CONCAT(DISTINCT JSON_OBJECT("hari", `tjo`.`hari`, "open_time", `tjo`.`open_time`, "close_time", tjo.close_time) ORDER BY FIELD(tjo.hari, "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu")) AS jam_oprasional
+FROM `tbl_kafe`
+LEFT JOIN `tbl_foto_kafe` `tfk` ON `tfk`.`id_kafe` = `tbl_kafe`.`id_kafe`
+JOIN `tbl_jam_operasional` `tjo` ON `tjo`.`kafe_id` = `tbl_kafe`.`id_kafe`
+JOIN `tbl_status_appv` ON `tbl_status_appv`.`id_kafe` = `tbl_kafe`.`id_kafe`
+JOIN `tbl_provinsi` ON `tbl_provinsi`.`id_provinsi` = `tbl_kafe`.`id_provinsi`
+JOIN `tbl_kabupaten` ON `tbl_kabupaten`.`id_kabupaten` = `tbl_kafe`.`id_kabupaten`
+JOIN `tbl_kecamatan` ON `tbl_kecamatan`.`id_kecamatan` = `tbl_kafe`.`id_kecamatan`
+JOIN `tbl_kelurahan` ON `tbl_kelurahan`.`id_kelurahan` = `tbl_kafe`.`id_kelurahan`
+WHERE `stat_appv` = \'1\'
+GROUP BY `id_kafe`, `tjo`.`kafe_id`
+ORDER BY `id_kafe` DESC', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_kafe`.`id_kafe`, `nama_kafe`, `alamat_kafe`, `latitude`, `longitude`, `fasilitas_kafe`, `instagram_kafe`, `tbl_provinsi`.`id_provinsi` as `id_provinsi`, `nama_provinsi`, `tbl_kabupaten`.`id_kabupaten` as `id_kabupaten`, `nama_kabupaten`, `tbl_kecamatan`.`id_kecamatan` as `id_kecamatan`, `nama_kecamatan`, `tbl_kelurahan`.`id_kelurahan` as `id_kelurahan`, `nama_kelurahan`, `created_at`, `updated_at`, `tbl_status_appv`.`user` as `user`, `tbl_status_appv`.`stat_appv` as `stat_appv`, GROUP_CONCAT(DISTINCT nama_file_foto SEPARATOR ", ") as nama_foto, GROUP_CONCAT(DISTINCT JSON_OBJECT("hari", `tjo`.`hari`, "open_time", `tjo`.`open_time`, "close_time", tjo.close_time) ORDER BY FIELD(tjo.hari, "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu")) AS jam_oprasional
+FROM `tbl_kafe`
+LEFT JOIN `tbl_foto_kafe` `tfk` ON `tfk`.`id_kafe` = `tbl_kafe`.`id_kafe`
+JOIN `tbl_jam_operasional` `tjo` ON `tjo`.`kafe_id` = `tbl_kafe`.`id_kafe`
+JOIN `tbl_status_appv` ON `tbl_status_appv`.`id_kafe` = `tbl_kafe`.`id_kafe`
+JOIN `tbl_provinsi` ON `tbl_provinsi`.`id_provinsi` = `tbl_kafe`.`id_provinsi`
+JOIN `tbl_kabupaten` ON `tbl_kabupaten`.`id_kabupaten` = `tbl_kafe`.`id_kabupaten`
+JOIN `tbl_kecamatan` ON `tbl_kecamatan`.`id_kecamatan` = `tbl_kafe`.`id_kecamatan`
+JOIN `tbl_kelurahan` ON `tbl_kelurahan`.`id_kelurahan` = `tbl_kafe`.`id_kelurahan`
+WHERE `stat_appv` = \'1\'
+GROUP BY `id_kafe`, `tjo`.`kafe_id`
+ORDER BY `id_kafe` DESC')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_kafe`.`id_kafe`, `nama_kafe`, `alamat_kafe`, `latitude`, `longitude`, `fasilitas_kafe`, `instagram_kafe`, `tbl_provinsi`.`id_provinsi` as `id_provinsi`, `nama_provinsi`, `tbl_kabupaten`.`id_kabupaten` as `id_kabupaten`, `nama_kabupaten`, `tbl_kecamatan`.`id_kecamatan` as `id_kecamatan`, `nama_kecamatan`, `tbl_kelurahan`.`id_kelurahan` as `id_kelurahan`, `nama_kelurahan`, `created_at`, `updated_at`, `tbl_status_appv`.`user` as `user`, `tbl_status_appv`.`stat_appv` as `stat_appv`, GROUP_CONCAT(DISTINCT nama_file_foto SEPARATOR ", ") as nama_foto, GROUP_CONCAT(DISTINCT JSON_OBJECT("hari", `tjo`.`hari`, "open_time", `tjo`.`open_time`, "close_time", tjo.close_time) ORDER BY FIELD(tjo.hari, "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu")) AS jam_oprasional
+FROM `tbl_kafe`
+LEFT JOIN `tbl_foto_kafe` `tfk` ON `tfk`.`id_kafe` = `tbl_kafe`.`id_kafe`
+JOIN `tbl_jam_operasional` `tjo` ON `tjo`.`kafe_id` = `tbl_kafe`.`id_kafe`
+JOIN `tbl_status_appv` ON `tbl_status_appv`.`id_kafe` = `tbl_kafe`.`id_kafe`
+JOIN `tbl_provinsi` ON `tbl_provinsi`.`id_provinsi` = `tbl_kafe`.`id_provinsi`
+JOIN `tbl_kabupaten` ON `tbl_kabupaten`.`id_kabupaten` = `tbl_kafe`.`id_kabupaten`
+JOIN `tbl_kecamatan` ON `tbl_kecamatan`.`id_kecamatan` = `tbl_kafe`.`id_kecamatan`
+JOIN `tbl_kelurahan` ON `tbl_kelurahan`.`id_kelurahan` = `tbl_kafe`.`id_kelurahan`
+WHERE `stat_appv` = \'1\'
+GROUP BY `id_kafe`, `tjo`.`kafe_id`
+ORDER BY `id_kafe` DESC')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1718): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_kafe`.`id_kafe`, `nama_kafe`, `alamat_kafe`, `latitude`, `longitude`, `fasilitas_kafe`, `instagram_kafe`, `tbl_provinsi`.`id_provinsi` as `id_provinsi`, `nama_provinsi`, `tbl_kabupaten`.`id_kabupaten` as `id_kabupaten`, `nama_kabupaten`, `tbl_kecamatan`.`id_kecamatan` as `id_kecamatan`, `nama_kecamatan`, `tbl_kelurahan`.`id_kelurahan` as `id_kelurahan`, `nama_kelurahan`, `created_at`, `updated_at`, `tbl_status_appv`.`user` as `user`, `tbl_status_appv`.`stat_appv` as `stat_appv`, GROUP_CONCAT(DISTINCT nama_file_foto SEPARATOR ", ") as nama_foto, GROUP_CONCAT(DISTINCT JSON_OBJECT("hari", `tjo`.`hari`, "open_time", `tjo`.`open_time`, "close_time", tjo.close_time) ORDER BY FIELD(tjo.hari, "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu")) AS jam_oprasional
+FROM `tbl_kafe`
+LEFT JOIN `tbl_foto_kafe` `tfk` ON `tfk`.`id_kafe` = `tbl_kafe`.`id_kafe`
+JOIN `tbl_jam_operasional` `tjo` ON `tjo`.`kafe_id` = `tbl_kafe`.`id_kafe`
+JOIN `tbl_status_appv` ON `tbl_status_appv`.`id_kafe` = `tbl_kafe`.`id_kafe`
+JOIN `tbl_provinsi` ON `tbl_provinsi`.`id_provinsi` = `tbl_kafe`.`id_provinsi`
+JOIN `tbl_kabupaten` ON `tbl_kabupaten`.`id_kabupaten` = `tbl_kafe`.`id_kabupaten`
+JOIN `tbl_kecamatan` ON `tbl_kecamatan`.`id_kecamatan` = `tbl_kafe`.`id_kecamatan`
+JOIN `tbl_kelurahan` ON `tbl_kelurahan`.`id_kelurahan` = `tbl_kafe`.`id_kelurahan`
+WHERE `stat_appv` = :stat_appv:
+GROUP BY `id_kafe`, `tjo`.`kafe_id`
+ORDER BY `id_kafe` DESC', [...], false)
+ 5 APPPATH\Models\ModelKv.php(35): CodeIgniter\Database\BaseBuilder->getWhere([...])
+ 6 APPPATH\Controllers\Admin.php(256): App\Models\ModelKv->callKafe()
+ 7 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->Kafe()
+ 8 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+ERROR - 2023-05-09 19:58:35 --> mysqli_sql_exception: Unknown column 'fasilitas_kafe' in 'field list' in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `tbl_kaf...', 0)
+#1 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_kaf...')
+#2 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_kaf...')
+#3 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1718): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_kaf...', Array, false)
+#4 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Models\ModelKv.php(35): CodeIgniter\Database\BaseBuilder->getWhere(Array)
+#5 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Controllers\Admin.php(256): App\Models\ModelKv->callKafe()
+#6 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(927): App\Controllers\Admin->Kafe()
+#7 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#8 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 F:\WEB\XAMPP\htdocs\WebGis_kv\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(46): require_once('F:\\WEB\\XAMPP\\ht...')
+#11 {main}
+CRITICAL - 2023-05-09 19:58:35 --> Unknown column 'fasilitas_kafe' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `tbl_kafe`.`id_kafe`, `nama_kafe`, `alamat_kafe`, `latitude`, `longitude`, `fasilitas_kafe`, `instagram_kafe`, `tbl_provinsi`.`id_provinsi` as `id_provinsi`, `nama_provinsi`, `tbl_kabupaten`.`id_kabupaten` as `id_kabupaten`, `nama_kabupaten`, `tbl_kecamatan`.`id_kecamatan` as `id_kecamatan`, `nama_kecamatan`, `tbl_kelurahan`.`id_kelurahan` as `id_kelurahan`, `nama_kelurahan`, `created_at`, `updated_at`, `tbl_status_appv`.`user` as `user`, `tbl_status_appv`.`stat_appv` as `stat_appv`, GROUP_CONCAT(DISTINCT nama_file_foto SEPARATOR ", ") as nama_foto, GROUP_CONCAT(DISTINCT JSON_OBJECT("hari", `tjo`.`hari`, "open_time", `tjo`.`open_time`, "close_time", tjo.close_time) ORDER BY FIELD(tjo.hari, "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu")) AS jam_oprasional
+FROM `tbl_kafe`
+LEFT JOIN `tbl_foto_kafe` `tfk` ON `tfk`.`id_kafe` = `tbl_kafe`.`id_kafe`
+JOIN `tbl_jam_operasional` `tjo` ON `tjo`.`kafe_id` = `tbl_kafe`.`id_kafe`
+JOIN `tbl_status_appv` ON `tbl_status_appv`.`id_kafe` = `tbl_kafe`.`id_kafe`
+JOIN `tbl_provinsi` ON `tbl_provinsi`.`id_provinsi` = `tbl_kafe`.`id_provinsi`
+JOIN `tbl_kabupaten` ON `tbl_kabupaten`.`id_kabupaten` = `tbl_kafe`.`id_kabupaten`
+JOIN `tbl_kecamatan` ON `tbl_kecamatan`.`id_kecamatan` = `tbl_kafe`.`id_kecamatan`
+JOIN `tbl_kelurahan` ON `tbl_kelurahan`.`id_kelurahan` = `tbl_kafe`.`id_kelurahan`
+WHERE `stat_appv` = \'1\'
+GROUP BY `id_kafe`, `tjo`.`kafe_id`
+ORDER BY `id_kafe` DESC', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_kafe`.`id_kafe`, `nama_kafe`, `alamat_kafe`, `latitude`, `longitude`, `fasilitas_kafe`, `instagram_kafe`, `tbl_provinsi`.`id_provinsi` as `id_provinsi`, `nama_provinsi`, `tbl_kabupaten`.`id_kabupaten` as `id_kabupaten`, `nama_kabupaten`, `tbl_kecamatan`.`id_kecamatan` as `id_kecamatan`, `nama_kecamatan`, `tbl_kelurahan`.`id_kelurahan` as `id_kelurahan`, `nama_kelurahan`, `created_at`, `updated_at`, `tbl_status_appv`.`user` as `user`, `tbl_status_appv`.`stat_appv` as `stat_appv`, GROUP_CONCAT(DISTINCT nama_file_foto SEPARATOR ", ") as nama_foto, GROUP_CONCAT(DISTINCT JSON_OBJECT("hari", `tjo`.`hari`, "open_time", `tjo`.`open_time`, "close_time", tjo.close_time) ORDER BY FIELD(tjo.hari, "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu")) AS jam_oprasional
+FROM `tbl_kafe`
+LEFT JOIN `tbl_foto_kafe` `tfk` ON `tfk`.`id_kafe` = `tbl_kafe`.`id_kafe`
+JOIN `tbl_jam_operasional` `tjo` ON `tjo`.`kafe_id` = `tbl_kafe`.`id_kafe`
+JOIN `tbl_status_appv` ON `tbl_status_appv`.`id_kafe` = `tbl_kafe`.`id_kafe`
+JOIN `tbl_provinsi` ON `tbl_provinsi`.`id_provinsi` = `tbl_kafe`.`id_provinsi`
+JOIN `tbl_kabupaten` ON `tbl_kabupaten`.`id_kabupaten` = `tbl_kafe`.`id_kabupaten`
+JOIN `tbl_kecamatan` ON `tbl_kecamatan`.`id_kecamatan` = `tbl_kafe`.`id_kecamatan`
+JOIN `tbl_kelurahan` ON `tbl_kelurahan`.`id_kelurahan` = `tbl_kafe`.`id_kelurahan`
+WHERE `stat_appv` = \'1\'
+GROUP BY `id_kafe`, `tjo`.`kafe_id`
+ORDER BY `id_kafe` DESC')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_kafe`.`id_kafe`, `nama_kafe`, `alamat_kafe`, `latitude`, `longitude`, `fasilitas_kafe`, `instagram_kafe`, `tbl_provinsi`.`id_provinsi` as `id_provinsi`, `nama_provinsi`, `tbl_kabupaten`.`id_kabupaten` as `id_kabupaten`, `nama_kabupaten`, `tbl_kecamatan`.`id_kecamatan` as `id_kecamatan`, `nama_kecamatan`, `tbl_kelurahan`.`id_kelurahan` as `id_kelurahan`, `nama_kelurahan`, `created_at`, `updated_at`, `tbl_status_appv`.`user` as `user`, `tbl_status_appv`.`stat_appv` as `stat_appv`, GROUP_CONCAT(DISTINCT nama_file_foto SEPARATOR ", ") as nama_foto, GROUP_CONCAT(DISTINCT JSON_OBJECT("hari", `tjo`.`hari`, "open_time", `tjo`.`open_time`, "close_time", tjo.close_time) ORDER BY FIELD(tjo.hari, "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu")) AS jam_oprasional
+FROM `tbl_kafe`
+LEFT JOIN `tbl_foto_kafe` `tfk` ON `tfk`.`id_kafe` = `tbl_kafe`.`id_kafe`
+JOIN `tbl_jam_operasional` `tjo` ON `tjo`.`kafe_id` = `tbl_kafe`.`id_kafe`
+JOIN `tbl_status_appv` ON `tbl_status_appv`.`id_kafe` = `tbl_kafe`.`id_kafe`
+JOIN `tbl_provinsi` ON `tbl_provinsi`.`id_provinsi` = `tbl_kafe`.`id_provinsi`
+JOIN `tbl_kabupaten` ON `tbl_kabupaten`.`id_kabupaten` = `tbl_kafe`.`id_kabupaten`
+JOIN `tbl_kecamatan` ON `tbl_kecamatan`.`id_kecamatan` = `tbl_kafe`.`id_kecamatan`
+JOIN `tbl_kelurahan` ON `tbl_kelurahan`.`id_kelurahan` = `tbl_kafe`.`id_kelurahan`
+WHERE `stat_appv` = \'1\'
+GROUP BY `id_kafe`, `tjo`.`kafe_id`
+ORDER BY `id_kafe` DESC')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1718): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_kafe`.`id_kafe`, `nama_kafe`, `alamat_kafe`, `latitude`, `longitude`, `fasilitas_kafe`, `instagram_kafe`, `tbl_provinsi`.`id_provinsi` as `id_provinsi`, `nama_provinsi`, `tbl_kabupaten`.`id_kabupaten` as `id_kabupaten`, `nama_kabupaten`, `tbl_kecamatan`.`id_kecamatan` as `id_kecamatan`, `nama_kecamatan`, `tbl_kelurahan`.`id_kelurahan` as `id_kelurahan`, `nama_kelurahan`, `created_at`, `updated_at`, `tbl_status_appv`.`user` as `user`, `tbl_status_appv`.`stat_appv` as `stat_appv`, GROUP_CONCAT(DISTINCT nama_file_foto SEPARATOR ", ") as nama_foto, GROUP_CONCAT(DISTINCT JSON_OBJECT("hari", `tjo`.`hari`, "open_time", `tjo`.`open_time`, "close_time", tjo.close_time) ORDER BY FIELD(tjo.hari, "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu")) AS jam_oprasional
+FROM `tbl_kafe`
+LEFT JOIN `tbl_foto_kafe` `tfk` ON `tfk`.`id_kafe` = `tbl_kafe`.`id_kafe`
+JOIN `tbl_jam_operasional` `tjo` ON `tjo`.`kafe_id` = `tbl_kafe`.`id_kafe`
+JOIN `tbl_status_appv` ON `tbl_status_appv`.`id_kafe` = `tbl_kafe`.`id_kafe`
+JOIN `tbl_provinsi` ON `tbl_provinsi`.`id_provinsi` = `tbl_kafe`.`id_provinsi`
+JOIN `tbl_kabupaten` ON `tbl_kabupaten`.`id_kabupaten` = `tbl_kafe`.`id_kabupaten`
+JOIN `tbl_kecamatan` ON `tbl_kecamatan`.`id_kecamatan` = `tbl_kafe`.`id_kecamatan`
+JOIN `tbl_kelurahan` ON `tbl_kelurahan`.`id_kelurahan` = `tbl_kafe`.`id_kelurahan`
+WHERE `stat_appv` = :stat_appv:
+GROUP BY `id_kafe`, `tjo`.`kafe_id`
+ORDER BY `id_kafe` DESC', [...], false)
+ 5 APPPATH\Models\ModelKv.php(35): CodeIgniter\Database\BaseBuilder->getWhere([...])
+ 6 APPPATH\Controllers\Admin.php(256): App\Models\ModelKv->callKafe()
+ 7 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->Kafe()
+ 8 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+ERROR - 2023-05-09 19:59:14 --> mysqli_sql_exception: Unknown column 'fasilitas_kafe' in 'field list' in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `tbl_kaf...', 0)
+#1 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_kaf...')
+#2 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_kaf...')
+#3 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1718): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_kaf...', Array, false)
+#4 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Models\ModelKv.php(35): CodeIgniter\Database\BaseBuilder->getWhere(Array)
+#5 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Controllers\Admin.php(256): App\Models\ModelKv->callKafe()
+#6 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(927): App\Controllers\Admin->Kafe()
+#7 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#8 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 F:\WEB\XAMPP\htdocs\WebGis_kv\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(46): require_once('F:\\WEB\\XAMPP\\ht...')
+#11 {main}
+CRITICAL - 2023-05-09 19:59:14 --> Unknown column 'fasilitas_kafe' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `tbl_kafe`.`id_kafe`, `nama_kafe`, `alamat_kafe`, `latitude`, `longitude`, `fasilitas_kafe`, `instagram_kafe`, `tbl_provinsi`.`id_provinsi` as `id_provinsi`, `nama_provinsi`, `tbl_kabupaten`.`id_kabupaten` as `id_kabupaten`, `nama_kabupaten`, `tbl_kecamatan`.`id_kecamatan` as `id_kecamatan`, `nama_kecamatan`, `tbl_kelurahan`.`id_kelurahan` as `id_kelurahan`, `nama_kelurahan`, `created_at`, `updated_at`, `tbl_status_appv`.`user` as `user`, `tbl_status_appv`.`stat_appv` as `stat_appv`, GROUP_CONCAT(DISTINCT nama_file_foto SEPARATOR ", ") as nama_foto, GROUP_CONCAT(DISTINCT JSON_OBJECT("hari", `tjo`.`hari`, "open_time", `tjo`.`open_time`, "close_time", tjo.close_time) ORDER BY FIELD(tjo.hari, "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu")) AS jam_oprasional
+FROM `tbl_kafe`
+LEFT JOIN `tbl_foto_kafe` `tfk` ON `tfk`.`id_kafe` = `tbl_kafe`.`id_kafe`
+JOIN `tbl_jam_operasional` `tjo` ON `tjo`.`kafe_id` = `tbl_kafe`.`id_kafe`
+JOIN `tbl_status_appv` ON `tbl_status_appv`.`id_kafe` = `tbl_kafe`.`id_kafe`
+JOIN `tbl_provinsi` ON `tbl_provinsi`.`id_provinsi` = `tbl_kafe`.`id_provinsi`
+JOIN `tbl_kabupaten` ON `tbl_kabupaten`.`id_kabupaten` = `tbl_kafe`.`id_kabupaten`
+JOIN `tbl_kecamatan` ON `tbl_kecamatan`.`id_kecamatan` = `tbl_kafe`.`id_kecamatan`
+JOIN `tbl_kelurahan` ON `tbl_kelurahan`.`id_kelurahan` = `tbl_kafe`.`id_kelurahan`
+WHERE `stat_appv` = \'1\'
+GROUP BY `id_kafe`, `tjo`.`kafe_id`
+ORDER BY `id_kafe` DESC', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_kafe`.`id_kafe`, `nama_kafe`, `alamat_kafe`, `latitude`, `longitude`, `fasilitas_kafe`, `instagram_kafe`, `tbl_provinsi`.`id_provinsi` as `id_provinsi`, `nama_provinsi`, `tbl_kabupaten`.`id_kabupaten` as `id_kabupaten`, `nama_kabupaten`, `tbl_kecamatan`.`id_kecamatan` as `id_kecamatan`, `nama_kecamatan`, `tbl_kelurahan`.`id_kelurahan` as `id_kelurahan`, `nama_kelurahan`, `created_at`, `updated_at`, `tbl_status_appv`.`user` as `user`, `tbl_status_appv`.`stat_appv` as `stat_appv`, GROUP_CONCAT(DISTINCT nama_file_foto SEPARATOR ", ") as nama_foto, GROUP_CONCAT(DISTINCT JSON_OBJECT("hari", `tjo`.`hari`, "open_time", `tjo`.`open_time`, "close_time", tjo.close_time) ORDER BY FIELD(tjo.hari, "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu")) AS jam_oprasional
+FROM `tbl_kafe`
+LEFT JOIN `tbl_foto_kafe` `tfk` ON `tfk`.`id_kafe` = `tbl_kafe`.`id_kafe`
+JOIN `tbl_jam_operasional` `tjo` ON `tjo`.`kafe_id` = `tbl_kafe`.`id_kafe`
+JOIN `tbl_status_appv` ON `tbl_status_appv`.`id_kafe` = `tbl_kafe`.`id_kafe`
+JOIN `tbl_provinsi` ON `tbl_provinsi`.`id_provinsi` = `tbl_kafe`.`id_provinsi`
+JOIN `tbl_kabupaten` ON `tbl_kabupaten`.`id_kabupaten` = `tbl_kafe`.`id_kabupaten`
+JOIN `tbl_kecamatan` ON `tbl_kecamatan`.`id_kecamatan` = `tbl_kafe`.`id_kecamatan`
+JOIN `tbl_kelurahan` ON `tbl_kelurahan`.`id_kelurahan` = `tbl_kafe`.`id_kelurahan`
+WHERE `stat_appv` = \'1\'
+GROUP BY `id_kafe`, `tjo`.`kafe_id`
+ORDER BY `id_kafe` DESC')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_kafe`.`id_kafe`, `nama_kafe`, `alamat_kafe`, `latitude`, `longitude`, `fasilitas_kafe`, `instagram_kafe`, `tbl_provinsi`.`id_provinsi` as `id_provinsi`, `nama_provinsi`, `tbl_kabupaten`.`id_kabupaten` as `id_kabupaten`, `nama_kabupaten`, `tbl_kecamatan`.`id_kecamatan` as `id_kecamatan`, `nama_kecamatan`, `tbl_kelurahan`.`id_kelurahan` as `id_kelurahan`, `nama_kelurahan`, `created_at`, `updated_at`, `tbl_status_appv`.`user` as `user`, `tbl_status_appv`.`stat_appv` as `stat_appv`, GROUP_CONCAT(DISTINCT nama_file_foto SEPARATOR ", ") as nama_foto, GROUP_CONCAT(DISTINCT JSON_OBJECT("hari", `tjo`.`hari`, "open_time", `tjo`.`open_time`, "close_time", tjo.close_time) ORDER BY FIELD(tjo.hari, "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu")) AS jam_oprasional
+FROM `tbl_kafe`
+LEFT JOIN `tbl_foto_kafe` `tfk` ON `tfk`.`id_kafe` = `tbl_kafe`.`id_kafe`
+JOIN `tbl_jam_operasional` `tjo` ON `tjo`.`kafe_id` = `tbl_kafe`.`id_kafe`
+JOIN `tbl_status_appv` ON `tbl_status_appv`.`id_kafe` = `tbl_kafe`.`id_kafe`
+JOIN `tbl_provinsi` ON `tbl_provinsi`.`id_provinsi` = `tbl_kafe`.`id_provinsi`
+JOIN `tbl_kabupaten` ON `tbl_kabupaten`.`id_kabupaten` = `tbl_kafe`.`id_kabupaten`
+JOIN `tbl_kecamatan` ON `tbl_kecamatan`.`id_kecamatan` = `tbl_kafe`.`id_kecamatan`
+JOIN `tbl_kelurahan` ON `tbl_kelurahan`.`id_kelurahan` = `tbl_kafe`.`id_kelurahan`
+WHERE `stat_appv` = \'1\'
+GROUP BY `id_kafe`, `tjo`.`kafe_id`
+ORDER BY `id_kafe` DESC')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1718): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_kafe`.`id_kafe`, `nama_kafe`, `alamat_kafe`, `latitude`, `longitude`, `fasilitas_kafe`, `instagram_kafe`, `tbl_provinsi`.`id_provinsi` as `id_provinsi`, `nama_provinsi`, `tbl_kabupaten`.`id_kabupaten` as `id_kabupaten`, `nama_kabupaten`, `tbl_kecamatan`.`id_kecamatan` as `id_kecamatan`, `nama_kecamatan`, `tbl_kelurahan`.`id_kelurahan` as `id_kelurahan`, `nama_kelurahan`, `created_at`, `updated_at`, `tbl_status_appv`.`user` as `user`, `tbl_status_appv`.`stat_appv` as `stat_appv`, GROUP_CONCAT(DISTINCT nama_file_foto SEPARATOR ", ") as nama_foto, GROUP_CONCAT(DISTINCT JSON_OBJECT("hari", `tjo`.`hari`, "open_time", `tjo`.`open_time`, "close_time", tjo.close_time) ORDER BY FIELD(tjo.hari, "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu")) AS jam_oprasional
+FROM `tbl_kafe`
+LEFT JOIN `tbl_foto_kafe` `tfk` ON `tfk`.`id_kafe` = `tbl_kafe`.`id_kafe`
+JOIN `tbl_jam_operasional` `tjo` ON `tjo`.`kafe_id` = `tbl_kafe`.`id_kafe`
+JOIN `tbl_status_appv` ON `tbl_status_appv`.`id_kafe` = `tbl_kafe`.`id_kafe`
+JOIN `tbl_provinsi` ON `tbl_provinsi`.`id_provinsi` = `tbl_kafe`.`id_provinsi`
+JOIN `tbl_kabupaten` ON `tbl_kabupaten`.`id_kabupaten` = `tbl_kafe`.`id_kabupaten`
+JOIN `tbl_kecamatan` ON `tbl_kecamatan`.`id_kecamatan` = `tbl_kafe`.`id_kecamatan`
+JOIN `tbl_kelurahan` ON `tbl_kelurahan`.`id_kelurahan` = `tbl_kafe`.`id_kelurahan`
+WHERE `stat_appv` = :stat_appv:
+GROUP BY `id_kafe`, `tjo`.`kafe_id`
+ORDER BY `id_kafe` DESC', [...], false)
+ 5 APPPATH\Models\ModelKv.php(35): CodeIgniter\Database\BaseBuilder->getWhere([...])
+ 6 APPPATH\Controllers\Admin.php(256): App\Models\ModelKv->callKafe()
+ 7 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->Kafe()
+ 8 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-05-09 20:06:33 --> Undefined variable $selectajax
+in APPPATH\Controllers\Admin.php on line 598.
+ 1 APPPATH\Controllers\Admin.php(598): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $selectajax', 'APPPATH\\Controllers\\Admin.php', 598)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->getDataAjaxRemote()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-05-09 21:04:20 --> Undefined variable $user
+in APPPATH\Views\admin\kafeData.php on line 87.
+ 1 APPPATH\Views\admin\kafeData.php(87): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $user', 'APPPATH\\Views\\admin\\kafeData.php', 87)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\kafeData.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/kafeData', [], true)
+ 5 APPPATH\Controllers\Admin.php(261): view('admin/kafeData', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->Kafe()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')

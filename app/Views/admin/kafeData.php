@@ -16,6 +16,7 @@
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link href=" https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.min.css " rel="stylesheet">
 
     <!-- Template Main CSS File -->
     <link href="/css/StyleAdmin.css" rel="stylesheet" />
@@ -49,15 +50,6 @@
                     <div class="card mb-4">
                         <div class="card-body">
 
-                            <div class="card-title"></div>
-                            <?php if (session()->getFlashdata('alert')) : ?>
-                                <div class="card-body">
-                                    <div class="alert alert-info alert-dismissible fade show" role="alert">
-                                        <?= session()->getFlashdata('alert'); ?>
-                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                                    </div>
-                                </div>
-                            <?php endif; ?>
 
                             <a href="/admin/data/kafe/tambah" class="btn btn-primary m-1 mb-4 bi bi-plus" role="button">Tambah</a>
 
@@ -87,10 +79,10 @@
                                                     <a href="/admin/data/kafe/edit/<?= $S->id_kafe; ?>" class="btn btn-primary bi bi-pencil-square" role="button"></a>
                                                 </div>
                                                 <div class="btn-group mr-2" role="group" aria-label="First group">
-                                                    <form action="/admin/delete_Kafe/<?= $S->id_kafe; ?>" method="post">
+                                                    <form id="delete-form-<?= $S->id_kafe; ?>" action="/admin/delete_Kafe/<?= $S->id_kafe; ?>" method="post">
                                                         <?= csrf_field(); ?>
                                                         <input type="hidden" name="_method" value="DELETE">
-                                                        <button type="submit" class="btn btn-danger bi bi-trash" onclick="return confirm('Yakin Hapus Data?')"></button>
+                                                        <button type="button" class="btn btn-danger bi bi-trash delete-btn" data-id="<?= $S->id_kafe; ?>"></button>
                                                     </form>
                                                 </div>
                                             </td>
@@ -111,7 +103,6 @@
                 </div>
             </main><!-- End #main -->
 
-
             <!-- FOOTER -->
             <?= $this->include('_Layout/_template/_admin/footer'); ?>
 
@@ -124,6 +115,7 @@
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/816b3ace5c.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src=" https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.all.min.js "></script>
 
     <!-- Template Main JS File -->
     <script src="/js/datatables-simple-demo.js"></script>
@@ -131,12 +123,46 @@
 
     <script>
         $(document).ready(function() {
-            $(".alert");
-            setTimeout(function() {
-                $(".alert").fadeOut(800);
-            }, 2500);
+            $('.delete-btn').on('click', function() {
+                var userId = $(this).data('id');
+                Swal.fire({
+                    title: 'Apakah Anda yakin ingin menghapus data ini?',
+                    text: "Data yang sudah dihapus tidak dapat dikembalikan!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Ya, hapus data!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        $('#delete-form-' + userId).submit();
+                    }
+                });
+            });
         });
     </script>
+
+    <?php if (session()->getFlashdata('success')) : ?>
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: 'Success!',
+                text: '<?= session()->getFlashdata('success'); ?>',
+                timer: 1500,
+            });
+        </script>
+    <?php endif; ?>
+
+    <?php if (session()->getFlashdata('error')) : ?>
+        <script>
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: '<?= session()->getFlashdata('error'); ?>',
+                timer: 1500,
+            });
+        </script>
+    <?php endif; ?>
 
     <!-- Leafleat js Component -->
     <script src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js" integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg=" crossorigin=""></script>

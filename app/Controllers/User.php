@@ -138,7 +138,6 @@ class User extends BaseController
 
         $insertUser = $this->users->updateRole($dataA, $userid);
 
-
         if ($updateUser && $insertUser) {
             session()->setFlashdata('success', 'Data Berhasil diperbarui.');
             return $this->response->redirect(site_url('/user/manajemen'));

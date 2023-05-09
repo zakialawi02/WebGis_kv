@@ -16,6 +16,7 @@
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link href=" https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.min.css " rel="stylesheet">
 
     <!-- Template Main CSS File -->
     <link href="/css/StyleAdmin.css" rel="stylesheet" />
@@ -48,16 +49,6 @@
 
                     <div class="card mb-4">
                         <div class="card-body">
-
-                            <div class="card-title"></div>
-                            <?php if (session()->getFlashdata('alert')) : ?>
-                                <div class="card-body">
-                                    <div class="alert alert-info alert-dismissible fade show" role="alert">
-                                        <?= session()->getFlashdata('alert'); ?>
-                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                                    </div>
-                                </div>
-                            <?php endif; ?>
 
                             <a href="/admin/data/geojson/tambah" class="btn btn-primary m-1 mb-4 bi bi-plus" role="button">Tambah</a>
 
@@ -120,20 +111,33 @@
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/816b3ace5c.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src=" https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.all.min.js "></script>
 
     <!-- Template Main JS File -->
     <script src="/js/datatables-simple-demo.js"></script>
     <script src="/js/scripts.js"></script>
 
-    <script>
-        $(document).ready(function() {
-            $(".alert");
-            setTimeout(function() {
-                $(".alert").fadeOut(800);
-            }, 2500);
-        });
-    </script>
+    <?php if (session()->getFlashdata('success')) : ?>
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: 'Success!',
+                text: '<?= session()->getFlashdata('success'); ?>',
+                timer: 1500,
+            });
+        </script>
+    <?php endif; ?>
 
+    <?php if (session()->getFlashdata('error')) : ?>
+        <script>
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: '<?= session()->getFlashdata('error'); ?>',
+                timer: 1500,
+            });
+        </script>
+    <?php endif; ?>
     <!-- Leafleat js Component -->
     <script src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js" integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg=" crossorigin=""></script>
     <script src="https://unpkg.com/geojson-vt@3.2.0/geojson-vt.js"></script>

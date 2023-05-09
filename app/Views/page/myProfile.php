@@ -285,8 +285,8 @@
                         Swal.fire({
                             icon: 'success',
                             title: 'Data Berhasil Diperbarui.',
-                            showConfirmButton: false,
-                            timer: 1000
+                            showConfirmButton: true,
+                            timer: 1500
                         });
                     },
                     error: function() {
@@ -294,7 +294,7 @@
                             icon: 'error',
                             title: 'Data Gagal Diperbarui.',
                             showConfirmButton: true,
-                            timer: 1000
+                            timer: 1500
                         });
                     }
                 });

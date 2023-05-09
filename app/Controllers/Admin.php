@@ -94,8 +94,13 @@ class Admin extends BaseController
             'zoom_view' => $this->request->getPost('zoom_view'),
         ];
         $this->setting->updateData($data);
-        session()->setFlashdata('alert', 'Data Berhasil disimpan.');
-        return $this->response->redirect(site_url('admin/setting'));
+        if ($this) {
+            session()->setFlashdata('success', 'Data Berhasil disimpan.');
+            return $this->response->redirect(site_url('admin/setting'));
+        } else {
+            session()->setFlashdata('error', 'Gagal memperbarui data.');
+            return $this->response->redirect(site_url('admin/setting'));
+        }
     }
 
 
@@ -173,7 +178,6 @@ class Admin extends BaseController
     // update data
     public function update_Geojson()
     {
-
         // dd($this->request->getVar());
 
         // ambil file name
@@ -209,8 +213,13 @@ class Admin extends BaseController
         ];
 
         $this->FGeojson->updateGeojson($data, $id);
-        session()->setFlashdata('alert', 'Data Berhasil Diubah.');
-        return $this->response->redirect(site_url('/admin/data/geojson'));
+        if ($this) {
+            session()->setFlashdata('success', 'Data Berhasil diperbarui.');
+            return $this->response->redirect(site_url('/admin/data/geojson'));
+        } else {
+            session()->setFlashdata('error', 'Gagal memperbarui data.');
+            return $this->response->redirect(site_url('/admin/data/geojson'));
+        }
     }
 
     // delete data
@@ -379,7 +388,10 @@ class Admin extends BaseController
         }
         $addTime = $this->kafe->addTime($data);
         if ($addKafe && $addTime) {
-            session()->setFlashdata('alert', 'Data Anda Berhasil Ditambahkan.');
+            session()->setFlashdata('success', 'Data Berhasil Ditambahkan.');
+            return $this->response->redirect(site_url('/admin/data/kafe'));
+        } else {
+            session()->setFlashdata('error', 'Data gagal ditambahkan.');
             return $this->response->redirect(site_url('/admin/data/kafe'));
         }
     }
@@ -491,8 +503,12 @@ class Admin extends BaseController
                 $img->move('img/kafe/', $newName);
             }
         }
+
         if ($updateKafe && $updateTime) {
-            session()->setFlashdata('alert', 'Data Anda Berhasil Diupdate.');
+            session()->setFlashdata('success', 'Data Berhasil diperbarui.');
+            return $this->response->redirect(site_url('/admin/data/kafe'));
+        } else {
+            session()->setFlashdata('error', 'Gagal memperbarui data.');
             return $this->response->redirect(site_url('/admin/data/kafe'));
         }
     }
@@ -506,8 +522,13 @@ class Admin extends BaseController
             unlink("img/kafe/" . $file);
         }
         $this->kafe->delete(['id_kafe' => $id_kafe]);
-        session()->setFlashdata('alert', "Data Berhasil dihapus.");
-        return $this->response->redirect(site_url('/admin/data/kafe'));
+        if ($this) {
+            session()->setFlashdata('success', 'User berhasil dihapus.');
+            return $this->response->redirect(site_url('/admin/data/kafe'));
+        } else {
+            session()->setFlashdata('error', 'Gagal menghapus user.');
+            return $this->response->redirect(site_url('/admin/data/kafe'));
+        }
     }
 
     // side server delete image
