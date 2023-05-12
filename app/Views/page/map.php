@@ -17,17 +17,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Roboto:wght@500;700&display=swap" rel="stylesheet">
 
-    <!-- Icon Font Stylesheet -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-
-    <!-- Libraries Stylesheet -->
-    <link href="/assets/lib/animate/animate.min.css" rel="stylesheet">
-    <link href="/assets/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Template Stylesheet -->
     <link href="/assets/css/style.css" rel="stylesheet">
@@ -38,10 +29,11 @@
     <link href="/leaflet/L.Control.MousePosition.css" rel="stylesheet">
     <link rel="stylesheet" href="//unpkg.com/leaflet-gesture-handling/dist/leaflet-gesture-handling.min.css" type="text/css">
     <link rel="stylesheet" href="/leaflet/leaflet-sidepanel.css" />
+    <link rel="stylesheet" href="/leaflet/iconLayers.css" />
 
     <style>
         #map {
-            height: 89vh;
+            height: 100vh;
             width: 100%;
         }
     </style>
@@ -55,11 +47,8 @@
     </div>
     <!-- Spinner End -->
 
-    <!-- NAVBAR HEADER -->
-    <?= $this->include('_Layout/_template/_umum/header'); ?>
-
     <!-- ISI CONTENT -->
-    <section class="sebaran bg-light">
+    <section class="sebaran">
 
         <div class="map container-fluid" id="map">
 
@@ -68,11 +57,7 @@
                     <nav class="sidepanel-tabs-wrapper" aria-label="sidepanel tab navigation">
                         <ul class="sidepanel-tabs">
                             <li class="sidepanel-tab">
-                                <a href="#" class="sidebar-tab-link" role="tab" data-tab-link="tab-1">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor">
-                                        <path fill-rule="evenodd" />
-                                    </svg>
-                                </a>
+                                <a href="#" class="sidebar-tab-link" role="tab" data-tab-link="tab-1"><i class="bi bi-house-door-fill"></i></a>
                             </li>
 
                         </ul>
@@ -104,14 +89,11 @@
     <!-- END ISI CONTENT -->
 
     <!-- JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="/assets/lib/wow/wow.min.js"></script>
-    <script src="/assets/lib/owlcarousel/owl.carousel.min.js"></script>
 
     <!-- Template Javascript -->
     <script src="/assets/js/main.js"></script>
-
 
     <!-- Leafleat js Component -->
     <script src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js" integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg=" crossorigin=""></script>
@@ -123,6 +105,8 @@
     <script src="//unpkg.com/leaflet-gesture-handling"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-tilelayer-geojson/1.0.2/TileLayer.GeoJSON.min.js"></script>
     <script src="/leaflet/leaflet-sidepanel.min.js"></script>
+    <script src="/leaflet/Leaflet.Control.Custom.js"></script>
+    <script src="/leaflet/iconLayers.js"></script>
 
     <!-- Leafleat Setting js-->
     <!-- initialize the map on the "map" div with a given center and zoom -->
@@ -130,18 +114,15 @@
         // Base map
         var peta1 = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiNjg2MzUzMyIsImEiOiJjbDh4NDExZW0wMXZsM3ZwODR1eDB0ajY0In0.6jHWxwN6YfLftuCFHaa1zw', {
             attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
-                '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-                'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+                '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
             id: 'mapbox/streets-v11',
             tileSize: 512,
             zoomOffset: -1
         });
 
-        var peta2 = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiNjg2MzUzMyIsImEiOiJjbDh4NDExZW0wMXZsM3ZwODR1eDB0ajY0In0.6jHWxwN6YfLftuCFHaa1zw', {
-            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
-                '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-                'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-            id: 'mapbox/satellite-v9'
+        var peta2 = L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: '&copy; <a href="https://www.google.com/maps">Google Maps</a> contributors',
         });
 
         var peta3 = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -166,19 +147,37 @@
         <?php endforeach ?>
 
         // controller
-        var baseLayers = {
-            "Map": peta1,
-            "Satellite": peta2,
-            "OSM": peta3,
-        };
-
+        // baseLayers selection
+        var baseLayers = new L.Control.IconLayers(
+            [{
+                    title: 'Default', // use any string
+                    layer: peta1, // any ILayer
+                    icon: '/leaflet/icon/here_normaldaygrey.png' // 80x80 icon
+                },
+                {
+                    title: 'Satellite',
+                    layer: peta2,
+                    icon: '/leaflet/icon/here_satelliteday.png'
+                },
+                {
+                    title: 'OSM',
+                    layer: peta3,
+                    icon: '/leaflet/icon/openstreetmap_mapnik.png'
+                },
+            ], {
+                position: 'bottomright',
+                maxLayersInRow: 3
+            }
+        );
+        baseLayers.addTo(map);
         map.removeControl(map.zoomControl);
         L.control.zoom({
             position: 'bottomright'
         }).addTo(map);
-        L.control.layers(baseLayers).addTo(map);
         L.control.mousePosition().addTo(map);
         L.control.scale().addTo(map);
+
+
 
 
 
@@ -229,26 +228,43 @@
         }).addTo(map);
 
         // set marker place
-        var locKafe = L.icon({
+        const locKafe = L.icon({
             iconUrl: '<?= base_url(); ?>/leaflet/icon/restaurant_breakfast.png',
             iconSize: [30, 30],
             iconAnchor: [18.5, 30], // point of the icon which will correspond to marker's location
             popupAnchor: [0, -28] // point from which the popup should open relative to the iconAnchor
         });
 
-
+        // geojson
         function popUp(f, l) {
-            var out = [];
+            var out = "";
             if (f.properties) {
-                for (key in f.properties) {
-                    out.push(key + ": " + f.properties[key]);
-                }
-                l.bindPopup(out.join("<br />"));
+                const id_kafe = f.properties.id_kafe;
+                const nama_foto = f.properties.nama_foto[0];
+                const foto_list = nama_foto.split(","); // memecah string dengan koma sebagai delimiter menjadi array
+                const foto_html = foto_list.map(foto => "<img src='/img/kafe/" + foto.trim() + "'>"); // membuat HTML tag img untuk setiap nama file foto pada array
+                out += foto_html[0];
+                out += "<table>";
+                out += "<tr><td><b>Nama Kafe</b></td><th>:</th><td>" + f.properties.nama_kafe + "</td></tr>";
+                // out += "<tr><td><b>Longitude</b></td><th>:</th><td>" + f.properties.longitude + "</td></tr>";
+                // out += "<tr><td><b>Latitude</b></td><th>:</th><td>" + f.properties.latitude + "</td></tr>";
+                out += "<tr><td><b>Alamat</b></td><th>:</th><td>" + f.properties.alamat_kafe + "</td></tr>";
+                out += "<tr><td><b>Wilayah Administrasi</b></td><th>:</th><td>" + f.properties.nama_kelurahan + ", Kec." + f.properties.nama_kecamatan + ", " + f.properties.nama_kabupaten + "</td></tr>";
+                out += "<tr><td><b>Instagram</b></td><th>:</th><td>" + "@" + f.properties.instagram_kafe + "</td></tr>";
+                out += "<tr><td><b>Jam Oprasional</b></td><th>:</th><td>" + f.properties.jam_oprasional + "</td></tr>";
+                out += "</table>";
+                out += "<a id='tombol-viewmap' href='/kafe/" + id_kafe + "/detail' style='color:black;'>view</a>";
+
+                l.bindPopup(out);
             }
         }
-
         var jsonTest = new L.GeoJSON.AJAX(["<?= base_url(); ?>/api"], {
             onEachFeature: popUp,
+            pointToLayer: function(feature, latlng) {
+                return L.marker(latlng, {
+                    icon: locKafe,
+                });
+            }
         }).addTo(map);
     </script>
 

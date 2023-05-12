@@ -298,7 +298,7 @@
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/proj4js/1.1.0/proj4js-compressed.min.js"></script>
 
     <!-- Template Main JS File -->
-    <script src="/js/Script.js"></script>
+    <script src="/js/Scripts.js"></script>
 
     <script>
         DataTable.datetime('D MMM YYYY');

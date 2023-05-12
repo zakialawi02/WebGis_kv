@@ -26,8 +26,9 @@ class Api extends ResourceController
                 'properties' => [
                     'id_kafe' => $row->id_kafe,
                     'nama_kafe' => $row->nama_kafe,
+                    'longitude' => $row->longitude,
+                    'latitude' => $row->latitude,
                     'alamat_kafe' => $row->alamat_kafe,
-                    'fasilitas_kafe' => 'Writing',
                     'instagram_kafe' => $row->instagram_kafe,
                     'id_provinsi' => $row->id_provinsi,
                     'nama_provinsi' => $row->nama_provinsi,
