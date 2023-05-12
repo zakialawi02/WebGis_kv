@@ -30,6 +30,7 @@
     <link rel="stylesheet" href="//unpkg.com/leaflet-gesture-handling/dist/leaflet-gesture-handling.min.css" type="text/css">
     <link rel="stylesheet" href="/leaflet/leaflet-sidepanel.css" />
     <link rel="stylesheet" href="/leaflet/iconLayers.css" />
+    <link rel="stylesheet" href="/leaflet/leaflet-notifications.min.css" />
 
     <style>
         #map {
@@ -48,43 +49,87 @@
     <!-- Spinner End -->
 
     <!-- ISI CONTENT -->
-    <section class="sebaran">
 
-        <div class="map container-fluid" id="map">
 
-            <div id="panelID" class="sidepanel" aria-label="side panel" aria-hidden="false">
-                <div class="sidepanel-inner-wrapper">
-                    <nav class="sidepanel-tabs-wrapper" aria-label="sidepanel tab navigation">
-                        <ul class="sidepanel-tabs">
-                            <li class="sidepanel-tab">
-                                <a href="#" class="sidebar-tab-link" role="tab" data-tab-link="tab-1"><i class="bi bi-house-door-fill"></i></a>
-                            </li>
+    <div class="map" id="map">
 
-                        </ul>
-                    </nav>
-                    <div class="sidepanel-content-wrapper">
-                        <div class="sidepanel-content">
-                            <div class="sidepanel-tab-content" data-tab-content="tab-1">
-                                <p>Content 1.</p>
+        <div class="button-section-group">
+            <div class="bb">
+                <?php if (logged_in()) : ?>
+                    <button type="button" id="logout-btn" class="btn btn-primary float-end m-1">Log Out</button>
+                    <button id="spinners" class="btn btn-primary float-end m-1" type="button" disabled>
+                        <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+                        Logout... </button> <?php else : ?>
+                    <!-- Button trigger modal -->
+                    <button id="login-btn" class="btn btn-primary float-end m-1" data-bs-toggle="modal" data-bs-target="#loginModal">
+                        Login
+                    </button>
+                    <!-- Modal -->
+                    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="loginModalLabel">Login</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+
+                                    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="loginModalLabel">Login</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    ......
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
                             </div>
-
                         </div>
                     </div>
-                </div>
-                <div class="sidepanel-toggle-container">
-                    <button class="sidepanel-toggle-button" type="button" aria-label="toggle side panel"></button>
-                </div>
+                <?php endif ?>
+
             </div>
-
-
-
-
-
-
-
         </div>
 
-    </section>
+
+        <div id="panelID" class="sidepanel" aria-label="side panel" aria-hidden="false">
+            <div class="sidepanel-inner-wrapper">
+                <nav class="sidepanel-tabs-wrapper" aria-label="sidepanel tab navigation">
+                    <ul class="sidepanel-tabs">
+                        <li class="sidepanel-tab">
+                            <a href="#" class="sidebar-tab-link" role="tab" data-tab-link="tab-1"><i class="bi bi-house-door-fill"></i></a>
+                        </li>
+
+                    </ul>
+                </nav>
+                <div class="sidepanel-content-wrapper">
+                    <div class="sidepanel-content">
+                        <div class="sidepanel-tab-content" data-tab-content="tab-1">
+                            <p>Content 1.</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="sidepanel-toggle-container">
+                <button class="sidepanel-toggle-button" type="button" aria-label="toggle side panel"></button>
+            </div>
+        </div>
+
+
+
+
+
+
+
+    </div>
+
 
     <!-- END ISI CONTENT -->
 
@@ -94,6 +139,39 @@
 
     <!-- Template Javascript -->
     <script src="/assets/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            function logout() {
+                $('#logout-btn').hide();
+                $('#spinners').show();
+                // tunggu 500ms sebelum menjalankan AJAX
+                setTimeout(function() {
+                    $.ajax({
+                        url: "/logouts",
+                        type: "GET",
+                    }).done(function() {
+                        $('#spinners').hide();
+                        $('.button-section-group').load(document.URL + ' .button-section-group');
+                        var notification = L.control.notifications({
+                            timeout: 2000,
+                            position: 'topright',
+                            closable: true,
+                            dismissable: true,
+                        });
+                        notification.addTo(map);
+                        notification.success('Log Out', 'Logout Berhasil', {
+                            icon: 'bi bi-check-circle',
+                            className: 'pastel',
+                        });
+                    });
+                }, 500);
+            }
+            $('#logout-btn').on('click', function() {
+                logout();
+            });
+        });
+    </script>
 
     <!-- Leafleat js Component -->
     <script src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js" integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg=" crossorigin=""></script>
@@ -107,6 +185,7 @@
     <script src="/leaflet/leaflet-sidepanel.min.js"></script>
     <script src="/leaflet/Leaflet.Control.Custom.js"></script>
     <script src="/leaflet/iconLayers.js"></script>
+    <script src="/leaflet/leaflet-notifications.min.js"></script>
 
     <!-- Leafleat Setting js-->
     <!-- initialize the map on the "map" div with a given center and zoom -->
@@ -147,7 +226,10 @@
         <?php endforeach ?>
 
         // controller
-        // baseLayers selection
+        map.removeControl(map.zoomControl);
+        L.control.zoom({
+            position: 'bottomright'
+        }).addTo(map);
         var baseLayers = new L.Control.IconLayers(
             [{
                     title: 'Default', // use any string
@@ -170,12 +252,9 @@
             }
         );
         baseLayers.addTo(map);
-        map.removeControl(map.zoomControl);
-        L.control.zoom({
-            position: 'bottomright'
-        }).addTo(map);
         L.control.mousePosition().addTo(map);
         L.control.scale().addTo(map);
+
 
 
 
@@ -266,6 +345,12 @@
                 });
             }
         }).addTo(map);
+
+
+        var controlElement = baseLayers.getContainer();
+        controlElement.style.position = 'absolute';
+        controlElement.style.bottom = '1.2rem';
+        controlElement.style.right = '3rem';
     </script>
 
 

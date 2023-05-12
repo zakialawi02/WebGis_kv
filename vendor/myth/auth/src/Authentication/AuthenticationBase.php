@@ -224,14 +224,14 @@ class AuthenticationBase
 
         // Create the cookie
         $response->setCookie(
-            'remember',      							// Cookie Name
-            $token,                         			// Value
-            $this->config->rememberLength,  			// # Seconds until it expires
+            'remember',                                  // Cookie Name
+            $token,                                     // Value
+            $this->config->rememberLength,              // # Seconds until it expires
             $appConfig->cookieDomain,
             $appConfig->cookiePath,
             $appConfig->cookiePrefix,
             $appConfig->cookieSecure,                   // Only send over HTTPS?
-            true                    					// Hide from Javascript?
+            true                                        // Hide from Javascript?
         );
     }
 
@@ -261,8 +261,8 @@ class AuthenticationBase
 
         // Create the cookie
         set_cookie(
-            'remember',      						// Cookie Name
-            $selector . ':' . $validator, 				// Value
+            'remember',                              // Cookie Name
+            $selector . ':' . $validator,                 // Value
             (string) $this->config->rememberLength, // # Seconds until it expires
             $appConfig->cookieDomain,
             $appConfig->cookiePath,
@@ -299,7 +299,7 @@ class AuthenticationBase
      */
     public function retrieveUser(array $wheres)
     {
-        if (! $this->userModel instanceof Model) {
+        if (!$this->userModel instanceof Model) {
             throw AuthException::forInvalidModel('User');
         }
 

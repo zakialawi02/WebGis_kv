@@ -48,6 +48,7 @@ class Auth extends BaseConfig
     public $reservedRoutes = [
         'login'                   => 'login',
         'logout'                  => 'logout',
+        'logout'                  => 'logouts',
         'register'                => 'register',
         'activate-account'        => 'activate-account',
         'resend-activate-account' => 'resend-activate-account',
