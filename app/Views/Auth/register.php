@@ -20,10 +20,10 @@
                     <form action="<?= url_to('register') ?>" method="post">
                         <?= csrf_field() ?>
 
-                        <!-- <div class="form-group">
+                        <div class="form-group">
                             <label for="exampleInputEmail1">Full Name</label>
                             <input type="text" name="full_name" class="form-control" aria-describedby="emailHelp" placeholder="Enter Full Name">
-                        </div> -->
+                        </div>
 
                         <div class="form-group">
                             <label for="username"><?= lang('Auth.username') ?></label>

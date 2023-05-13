@@ -19,6 +19,8 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href=" https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.min.css " rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
     <!-- Template Stylesheet -->
     <link href="/assets/css/style.css" rel="stylesheet">
@@ -32,13 +34,6 @@
     <link rel="stylesheet" href="/leaflet/iconLayers.css" />
     <link rel="stylesheet" href="/leaflet/leaflet-notifications.min.css" />
 
-    <style>
-        #map {
-            height: 100vh;
-            width: 100%;
-        }
-    </style>
-
 </head>
 
 <body>
@@ -50,53 +45,76 @@
 
     <!-- ISI CONTENT -->
 
-
-    <div class="map" id="map">
-
-        <div class="button-section-group">
-            <div class="bb">
-                <?php if (logged_in()) : ?>
-                    <button type="button" id="logout-btn" class="btn btn-primary float-end m-1">Log Out</button>
-                    <button id="spinners" class="btn btn-primary float-end m-1" type="button" disabled>
-                        <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
-                        Logout... </button> <?php else : ?>
-                    <!-- Button trigger modal -->
-                    <button id="login-btn" class="btn btn-primary float-end m-1" data-bs-toggle="modal" data-bs-target="#loginModal">
-                        Login
-                    </button>
-                    <!-- Modal -->
-                    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="loginModalLabel">Login</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-
-                                    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="loginModalLabel">Login</h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    ......
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
+    <!-- Modal only-->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="loginModalLabel">Login</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <?= view('Myth\Auth\Views\_message_block') ?>
+                    <form action="<?= url_to('login') ?>" method="post" name="login">
+                        <?= csrf_field() ?>
+                        <div class="mb-3">
+                            <label for="login"><?= lang('Auth.emailOrUsername') ?></label>
+                            <input type="text" class="form-control <?php if (session('errors.login')) : ?>is-invalid<?php endif ?>" name="login" placeholder="<?= lang('Auth.emailOrUsername') ?>">
+                            <div class="invalid-feedback">
+                                <?= session('errors.login') ?>
                             </div>
                         </div>
-                    </div>
-                <?php endif ?>
-
+                        <div class="mb-3">
+                            <label for="password"><?= lang('Auth.password') ?></label>
+                            <input type="password" name="password" class="form-control  <?php if (session('errors.password')) : ?>is-invalid<?php endif ?>" placeholder="<?= lang('Auth.password') ?>" aria-describedby="emailHelp">
+                            <div class="invalid-feedback">
+                                <?= session('errors.password') ?>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-check-label">
+                                <input type="checkbox" name="remember" class="form-check-input" <?php if (old('remember')) : ?> checked <?php endif ?>>
+                                <?= lang('Auth.rememberMe') ?>
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <p class="text-center">Don't have account? <a href="<?= url_to('register') ?>" id="signup">Sign up here</a></p>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col">
+                                <button type="submit" id="login-submit" class=" btn btn-block mybtn btn-primary tx-tfm"><?= lang('Auth.loginAction') ?></button>
+                            </div>
+                            <div class="col">
+                                <p class="text-center">
+                                    <a href="<?= url_to('forgot') ?>" class="google btn mybtn"><?= lang('Auth.forgotYourPassword') ?>
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
+    </div>
 
+
+    <div id="button-section-group" class="">
+        <div id="button-section" class="float-end m-1">
+
+            <?php if (logged_in()) : ?>
+                <button type="button" id="logout-btn" class="btn btn-primary">Log Out</button>
+                <button id="spinners" class="btn btn-primary" type="button" disabled>
+                    <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>Logout... </button>
+            <?php else : ?>
+                <!-- Button trigger modal -->
+                <button type="button" id="login-btn" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
+            <?php endif ?>
+
+        </div>
+    </div>
+
+    <div class="map" id="map">
 
         <div id="panelID" class="sidepanel" aria-label="side panel" aria-hidden="false">
             <div class="sidepanel-inner-wrapper">
@@ -122,12 +140,6 @@
             </div>
         </div>
 
-
-
-
-
-
-
     </div>
 
 
@@ -136,42 +148,66 @@
     <!-- JavaScript Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src=" https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.all.min.js "></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
     <!-- Template Javascript -->
     <script src="/assets/js/main.js"></script>
 
     <script>
         $(document).ready(function() {
-            function logout() {
+            $('form[name="login"]').submit(function(event) {
+                event.preventDefault(); // prevent default form submit behavior
+                var form = $(this);
+                var url = form.attr('action');
+                var method = form.attr('method');
+                var data = form.serialize();
+                // AJAX request
+                $.ajax({
+                    url: url,
+                    type: method,
+                    data: data,
+                    success: function(response) {
+                        location.reload();
+                        // Swal.fire({
+                        //     title: "Login Berhasil!",
+                        //     icon: "success",
+                        //     showConfirmButton: false,
+                        //     timer: 1000
+                        // }).then(() => {
+                        //     $('.modal').hide();
+                        //     $('.modal-backdrop').hide();
+                        //     $('#button-section-group').load(location.href + ' #button-section');
+                        //     location.reload();
+                        // });
+                    },
+                });
+            });
+
+            $('#logout-btn').click(function(e) {
+                e.preventDefault();
                 $('#logout-btn').hide();
                 $('#spinners').show();
                 // tunggu 500ms sebelum menjalankan AJAX
-                setTimeout(function() {
-                    $.ajax({
-                        url: "/logouts",
-                        type: "GET",
-                    }).done(function() {
-                        $('#spinners').hide();
-                        $('.button-section-group').load(document.URL + ' .button-section-group');
-                        var notification = L.control.notifications({
-                            timeout: 2000,
-                            position: 'topright',
-                            closable: true,
-                            dismissable: true,
-                        });
-                        notification.addTo(map);
-                        notification.success('Log Out', 'Logout Berhasil', {
-                            icon: 'bi bi-check-circle',
-                            className: 'pastel',
-                        });
-                    });
-                }, 500);
-            }
-            $('#logout-btn').on('click', function() {
-                logout();
+                $.ajax({
+                    url: "/logout",
+                    type: "GET",
+                }).done(function() {
+                    // $('#spinners').hide();
+                    // $('#button-section-group').load(location.href + ' #button-section');
+                    // Swal.fire({
+                    //     icon: 'success',
+                    //     title: 'Berhasil Logout.',
+                    //     showConfirmButton: false,
+                    //     timer: 1000
+                    // }).then(() => {
+                    location.reload();
+                    // });
+                });
             });
         });
     </script>
+
 
     <!-- Leafleat js Component -->
     <script src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js" integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg=" crossorigin=""></script>

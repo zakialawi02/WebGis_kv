@@ -1,3 +1,9 @@
+#map {
+    height: 100vh;
+    width: 100%;
+    z-index: 0;
+}
+
 .legend-panel {
     position: absolute;
     z-index: 1000;
@@ -20,22 +26,33 @@
 }
 
 
-
-/* Container  */
-.button-section-group {
+/* Container button-section-group */
+#button-section-group {
     position: absolute;
     top: 0;
     right: 0;
-    width: 50rem;
+    width: 50vw;
     height: auto;
     background-color: rgba(255, 255, 255, 0.7);
     padding: 10px;
     z-index: 999;
 }
 
+@media (max-width: 768px) {
+    #button-section-group {
+        width: 100%;
+        height: auto;
+    }
+}
+
 #login-btn {
     z-index: 1000;
 }
+
+.modal-dialog {
+    z-index: 10000;
+}
+
 
 #spinners {
     display: none;
@@ -43,5 +60,11 @@
 }
 
 .modal-backdrop {
-    z-index: 1;
+    z-index: auto;
 }
+
+.card-body {
+    padding: 0.25rem 0.5rem;
+}
+
+/* Modal Login */
