@@ -90,7 +90,7 @@
 
                                             <div class="form-group row g-2">
                                                 <label class="col-md-12 mb-2">Wilayah Administrasi</label>
-                                                <select class="col-md-12" id="wilayah" name="wilayah" value="" required>
+                                                <select class="col-md-12" id="wilayah" name="wilayah" style="width: 100%;" value="" required>
 
                                                 </select>
                                             </div>
@@ -300,23 +300,6 @@
     <!-- Template Main JS File -->
     <script src="/js/Scripts.js"></script>
 
-    <script>
-        DataTable.datetime('D MMM YYYY');
-        $(document).ready(function() {
-            $('#table1').DataTable({
-                scrollX: true,
-
-            });
-        });
-    </script>
-    <script>
-        $(document).ready(function() {
-            $(".alert");
-            setTimeout(function() {
-                $(".alert").fadeOut(800);
-            }, 2500);
-        });
-    </script>
     <script>
         $(document).ready(function() {
             $('#wilayah').select2({

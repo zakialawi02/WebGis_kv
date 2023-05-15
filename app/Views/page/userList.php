@@ -44,6 +44,7 @@
                                     <tr>
                                         <th>#</th>
                                         <th>Username</th>
+                                        <th>Name</th>
                                         <th>Email</th>
                                         <th>Role</th>
                                     </tr>
@@ -54,7 +55,12 @@
                                         <tr>
                                             <th scope="row"><?= $i++; ?></th>
                                             <td><?= $user->username; ?></td>
-                                            <td><?= $user->email; ?></td>
+                                            <td><?= $user->full_name; ?></td>
+                                            <?php if (in_groups('SuperAdmin') || in_groups('Admin')) :; ?>
+                                                <td><?= $user->email; ?></td>
+                                            <?php else : ?>
+                                                <td><?= substr($user->email, 0, 1) . str_repeat('*', strpos($user->email, '@') - 1) . substr($user->email, strpos($user->email, '@') - 1); ?></td>
+                                            <?php endif ?>
                                             <td><span class="badge bg-<?= ($user->name == 'Admin' or $user->name == 'SuperAdmin') ? 'info' : 'secondary'; ?>"> <?= $user->name; ?> </span></td>
                                         </tr>
                                     <?php endforeach; ?>

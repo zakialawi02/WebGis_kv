@@ -2,28 +2,22 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
 
     <title><?= $title; ?></title>
-    <meta content="" name="keywords">
-    <meta content="" name="description">
-
     <!-- Favicon -->
     <link href="/img/favicon.png" rel="icon">
 
-    <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Roboto:wght@500;700&display=swap" rel="stylesheet">
-
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <link href=" https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.min.css " rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
     <!-- Template Stylesheet -->
-    <link href="/assets/css/style.css" rel="stylesheet">
     <link href="/css/map.css" rel="stylesheet">
 
     <!-- leaflet Component -->
@@ -32,7 +26,7 @@
     <link rel="stylesheet" href="//unpkg.com/leaflet-gesture-handling/dist/leaflet-gesture-handling.min.css" type="text/css">
     <link rel="stylesheet" href="/leaflet/leaflet-sidepanel.css" />
     <link rel="stylesheet" href="/leaflet/iconLayers.css" />
-    <link rel="stylesheet" href="/leaflet/leaflet-notifications.min.css" />
+    <link rel="stylesheet" href="/leaflet/leaflet.contextmenu.css" />
 
 </head>
 
@@ -44,8 +38,12 @@
     <!-- Spinner End -->
 
     <!-- ISI CONTENT -->
+    <!-- spinner -->
+    <div id="loading-spinner" class="spinner-container d-flex justify-content-center align-items-center position-fixed top-0 start-0 w-100 h-100 d-none">
+        <div class="spinner-border text-light" role="status"></div>
+    </div>
 
-    <!-- Modal only-->
+    <!-- Modal dialog login-->
     <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -84,6 +82,8 @@
                         <div class="row">
                             <div class="col">
                                 <button type="submit" id="login-submit" class=" btn btn-block mybtn btn-primary tx-tfm"><?= lang('Auth.loginAction') ?></button>
+                                <button id="spinnerss" class="btn btn-primary" type="button" disabled>
+                                    <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>Login... </button>
                             </div>
                             <div class="col">
                                 <p class="text-center">
@@ -98,10 +98,227 @@
         </div>
     </div>
 
+    <!-- Modal Add Data -->
+    <div class="modalAdds" id="modalAdd">
+        <div class="modalAdd-content">
+            <div class="modal-header">
+                <h3>Add</h3>
+                <button class="close-button" id="close-button">&times;</button>
+            </div>
+            <hr>
+            <div class="modalAdd-body">
+                <div class="card-body">
+                    <form class="row g-3" action="/admin/addKafe" method="post" enctype="multipart/form-data" name="addKafe" id="addKafe">
+                        <?= csrf_field(); ?>
+
+                        <?php if (in_groups('User')) : ?>
+                            <input type="hidden" class="form-control" for="stat_appv" id="stat_appv" name="stat_appv" value="0">
+                        <?php else : ?>
+                            <input type="hidden" class="form-control" for="stat_appv" id="stat_appv" name="stat_appv" value="1">
+                        <?php endif ?>
+
+                        <div class="form-group">
+                            <label for="nama_kafe" class="form-label" id="floatingInput">Nama Kafe</label>
+                            <input type="text" class="form-control" id="nama_kafe floatingInput" aria-describedby="textlHelp" name="nama_kafe" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="alamat_kafe" class="form-label">Alamat Kafe</label>
+                            <input type="text" class="form-control" id="alamat_kafe" aria-describedby="textlHelp" name="alamat_kafe" required>
+                        </div>
+
+                        <div class="row g-2">
+                            <label for="koordinat" class="">Koordinat</label>
+                            <div class="form-group col-md-6">
+                                <label for="latitude" class="">Latitude</label>
+                                <input type="text" class="form-control" id="latitude" aria-describedby="textlHelp" name="latitude" placeholder="-7.0385384" pattern="/^(\-?\d+(\.\d+)?)$/" title="Tuliskan Sesuai Format" required>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="longitude" class="">Longitude</label>
+                                <input type="text" class="form-control" id="longitude" aria-describedby="textlHelp" name="longitude" placeholder="112.8998345" pattern="/^[^a-zA-Z]*(\-?\d+(\.\d+)?)$/" title="Tuliskan Sesuai Format" required>
+                            </div>
+                            <div id="FileHelp" class="form-text"><span style="font-weight: bold;">NOTE:</span> Ketikan Koordinat Latitude dan Longitude atau klik lokasi pada peta</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-12 mb-2">Wilayah Administrasi</label>
+                            <select class="form-select" id="wilayahA" name="wilayah" style="width: 100%;" value="" required>
+
+                            </select>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="instagram_kafe" class="form-label">Instagram</label>
+                            <div class="input-group form-group mt-1">
+                                <span class="input-group-text" id="basic-addon1">@</span>
+                                <input type="text" class="form-control" id="instagram_kafe" name="instagram_kafe" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="jam-oprasional" class="form-label">Waktu Oprasional</label>
+                            <div class="row mb-3">
+                                <div class="col-4">
+                                    <h5 id="dayTitle">Senin</h5>
+                                    <label class="toggle toggle-alternative">
+                                        <input type="checkbox" id="checkboxBJ" class="checkbox" name="day[]" onclick="senin()" checked />
+                                        <span class="toggle-text"></span>
+                                        <span class="toggle-handle"></span>
+                                    </label>
+                                </div>
+                                <div class="row col" id="jamSenin">
+                                    <div class="col">
+                                        <label for="open-time">Jam Buka:</label>
+                                        <input type="time" class="form-control" id="openSenin" name="open-time[]" checked>
+                                    </div>
+                                    <div class="col">
+                                        <label for="close-time">Jam Tutup:</label>
+                                        <input type="time" class="form-control" id="closeSenin" name="close-time[]">
+                                    </div>
+                                    <a class="btn btn-primary mt-2" onclick="setTimeToMonday()" role=" button">Terapkan Ke Semua Hari</a>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-4">
+                                    <h5 id="dayTitle">Selasa</h5>
+                                    <label class="toggle toggle-alternative">
+                                        <input type="checkbox" id="checkboxBJ" class="checkbox" name="day[]" onclick="Selasa()" checked />
+                                        <span class="toggle-text"></span>
+                                        <span class="toggle-handle"></span>
+                                    </label>
+                                </div>
+                                <div class="row col" id="jamSelasa">
+                                    <div class="col">
+                                        <label for="open-time">Jam Buka:</label>
+                                        <input type="time" class="form-control" id="openSelasa" name="open-time[]" checked>
+                                    </div>
+                                    <div class="col">
+                                        <label for="close-time">Jam Tutup:</label>
+                                        <input type="time" class="form-control" id="closeSelasa" name="close-time[]">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-4">
+                                    <h5 id="dayTitle">Rabu</h5>
+                                    <label class="toggle toggle-alternative">
+                                        <input type="checkbox" id="checkboxBJ" class="checkbox" name="day[]" onclick="Rabu()" checked />
+                                        <span class="toggle-text"></span>
+                                        <span class="toggle-handle"></span>
+                                    </label>
+                                </div>
+                                <div class="row col" id="jamRabu">
+                                    <div class="col">
+                                        <label for="open-time">Jam Buka:</label>
+                                        <input type="time" class="form-control" id="openRabu" name="open-time[]" checked>
+                                    </div>
+                                    <div class="col">
+                                        <label for="close-time">Jam Tutup:</label>
+                                        <input type="time" class="form-control" id="closeRabu" name="close-time[]">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-4">
+                                    <h5 id="dayTitle">Kamis</h5>
+                                    <label class="toggle toggle-alternative">
+                                        <input type="checkbox" id="checkboxBJ" class="checkbox" name="day[]" onclick="Kamis()" checked />
+                                        <span class="toggle-text"></span>
+                                        <span class="toggle-handle"></span>
+                                    </label>
+                                </div>
+                                <div class="row col" id="jamKamis">
+                                    <div class="col">
+                                        <label for="open-time">Jam Buka:</label>
+                                        <input type="time" class="form-control" id="openKamis" name="open-time[]" checked>
+                                    </div>
+                                    <div class="col">
+                                        <label for="close-time">Jam Tutup:</label>
+                                        <input type="time" class="form-control" id="closeKamis" name="close-time[]">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-4">
+                                    <h5 id="dayTitle">Jum'at</h5>
+                                    <label class="toggle toggle-alternative">
+                                        <input type="checkbox" id="checkboxBJ" class="checkbox" name="day[]" onclick="Jumat()" checked />
+                                        <span class="toggle-text"></span>
+                                        <span class="toggle-handle"></span>
+                                    </label>
+                                </div>
+                                <div class="row col" id="jamJumat">
+                                    <div class="col">
+                                        <label for="open-time">Jam Buka:</label>
+                                        <input type="time" class="form-control" id="openJumat" name="open-time[]" checked>
+                                    </div>
+                                    <div class="col">
+                                        <label for="close-time">Jam Tutup:</label>
+                                        <input type="time" class="form-control" id="closeJumat" name="close-time[]">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-4">
+                                    <h5 id="dayTitle">Sabtu</h5>
+                                    <label class="toggle toggle-alternative">
+                                        <input type="checkbox" id="checkboxBJ" class="checkbox" name="day[]" onclick="Sabtu()" />
+                                        <span class="toggle-text"></span>
+                                        <span class="toggle-handle"></span>
+                                    </label>
+                                </div>
+                                <div class="row col" id="jamSabtu" style="display:none;">
+                                    <div class="col">
+                                        <label for="open-time">Jam Buka:</label>
+                                        <input type="time" class="form-control" id="openSabtu" name="open-time[]">
+                                    </div>
+                                    <div class="col">
+                                        <label for="close-time">Jam Tutup:</label>
+                                        <input type="time" class="form-control" id="closeSabtu" name="close-time[]">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-4">
+                                    <h5 id="dayTitle">Minggu</h5>
+                                    <label class="toggle toggle-alternative">
+                                        <input type="checkbox" id="checkboxBJ" class="checkbox" name="day[]" onclick="Minggu()" />
+                                        <span class="toggle-text"></span>
+                                        <span class="toggle-handle"></span>
+                                    </label>
+                                </div>
+                                <div class="row col" id="jamMinggu" style="display:none;">
+                                    <div class="col">
+                                        <label for="open-time">Jam Buka:</label>
+                                        <input type="time" class="form-control" id="openMinggu" name="open-time[]">
+                                    </div>
+                                    <div class="col">
+                                        <label for="close-time">Jam Tutup:</label>
+                                        <input type="time" class="form-control" id="closeMinggu" name="close-time[]">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="formFile" class="form-label">Upload Foto Kafe</label>
+                            <input class="form-control" type="file" name="foto_kafe[]" id="foto_kafe" accept="image/*" multiple required>
+                            <div id="FileHelp" class="form-text">.jpg/.png</div>
+                            <div id="imgPreview"></div>
+                        </div>
+
+                        <button type="submit" onclick="submitWaktu()" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="p-2"></div>
+            </div>
+        </div>
+    </div>
 
     <div id="button-section-group" class="">
         <div id="button-section" class="float-end m-1">
-
+            <button id="modal-button" class="btn btn-primary">Add Data</button>
             <?php if (logged_in()) : ?>
                 <button type="button" id="logout-btn" class="btn btn-primary">Log Out</button>
                 <button id="spinners" class="btn btn-primary" type="button" disabled>
@@ -152,8 +369,50 @@
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
     <!-- Template Javascript -->
-    <script src="/assets/js/main.js"></script>
+    <!-- <script src="/assets/js/main.js"></script> -->
 
+    <?php if (session()->getFlashdata('success')) : ?>
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: 'Success!',
+                text: '<?= session()->getFlashdata('success'); ?>',
+                timer: 1500,
+            });
+        </script>
+    <?php endif; ?>
+
+    <?php if (session()->getFlashdata('error')) : ?>
+        <script>
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: '<?= session()->getFlashdata('error'); ?>',
+                timer: 1500,
+            });
+        </script>
+    <?php endif; ?>
+    <!-- modalAdd -->
+    <script>
+        const modalButton = document.getElementById("modal-button");
+        const modal = document.getElementById("modalAdd");
+        const closeButton = document.getElementById("close-button");
+
+        modalButton.addEventListener("click", function() {
+            modal.style.display = "block";
+        });
+
+        closeButton.addEventListener("click", function() {
+            modal.style.display = "none";
+        });
+
+        window.addEventListener("click", function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        });
+    </script>
+    <!-- login/logout -->
     <script>
         $(document).ready(function() {
             $('form[name="login"]').submit(function(event) {
@@ -162,6 +421,8 @@
                 var url = form.attr('action');
                 var method = form.attr('method');
                 var data = form.serialize();
+                $('#login-submit').hide();
+                $('#spinnerss').show();
                 // AJAX request
                 $.ajax({
                     url: url,
@@ -207,7 +468,219 @@
             });
         });
     </script>
+    <!-- select2 administrasi -->
+    <script>
+        $(document).ready(function() {
+            $('#wilayahA').select2({
+                ajax: {
+                    url: "<?= base_url('Admin/getDataAjaxRemote') ?>",
+                    dataType: "json",
+                    type: "POST",
+                    delay: 300,
+                    data: function(params) {
+                        console.log(params.term);
+                        return {
+                            search: params.term,
+                        }
+                    },
+                    processResults: function(data, page) {
+                        return {
+                            results: data
+                        };
+                    },
+                    cache: true
+                },
+                placeholder: 'Ketik nama desa atau kecamatan',
+                minimumInputLength: 3,
+            });
+        });
+    </script>
+    <!-- preview input image, multiple image -->
+    <script>
+        function readURL(input) {
+            if (input.files) {
+                $('#imgPreview').html(''); // mengosongkan preview
+                for (var i = 0; i < input.files.length; i++) {
+                    var reader = new FileReader();
+                    reader.onload = function(e) {
+                        $('#imgPreview').append('<div><img src="' + e.target.result + '" class="img-kafe"><button type="button" class="btn btn-danger btn-sm remove-preview">Hapus</button></div>');
+                    }
+                    reader.readAsDataURL(input.files[i]);
+                }
+            }
+        }
+        $("#foto_kafe").change(function() {
+            readURL(this);
+        });
+        $('#imgPreview').on('click', '.remove-preview', function() {
+            $(this).parent().remove(); // menghapus preview yang dipilih
+        });
+    </script>
+    <!-- set oprasional hour -->
+    <script>
+        function setTimeToMonday() {
+            // ambil nilai dari input time hari Senin
+            var openTimeMonday = document.getElementById('openSenin').value;
+            var closeTimeMonday = document.getElementById('closeSenin').value;
 
+            // ubah nilai dari input time hari Selasa
+            document.getElementById('openSelasa').value = openTimeMonday;
+            document.getElementById('closeSelasa').value = closeTimeMonday;
+            document.getElementById('openRabu').value = openTimeMonday;
+            document.getElementById('closeRabu').value = closeTimeMonday;
+            document.getElementById('openKamis').value = openTimeMonday;
+            document.getElementById('closeKamis').value = closeTimeMonday;
+            document.getElementById('openJumat').value = openTimeMonday;
+            document.getElementById('closeJumat').value = closeTimeMonday;
+            document.getElementById('openSabtu').value = openTimeMonday;
+            document.getElementById('closeSabtu').value = closeTimeMonday;
+            document.getElementById('openMinggu').value = openTimeMonday;
+            document.getElementById('closeMinggu').value = closeTimeMonday;
+        }
+
+        function submitWaktu() {
+            var senin = document.getElementById("jamSenin");
+            var clear = document.getElementById("openSenin");
+            var clears = document.getElementById("closeSenin");
+            if (senin.style.display === "none") {
+                clear.value = "";
+                clears.value = "";
+            }
+            var selasa = document.getElementById("jamSelasa");
+            var clear = document.getElementById("openSelasa");
+            var clears = document.getElementById("closeSelasa");
+            if (selasa.style.display === "none") {
+                clear.value = "";
+                clears.value = "";
+            }
+            var Rabu = document.getElementById("jamRabu");
+            var clear = document.getElementById("openRabu");
+            var clears = document.getElementById("closeRabu");
+            if (Rabu.style.display === "none") {
+                clear.value = "";
+                clears.value = "";
+            }
+            var Kamis = document.getElementById("jamKamis");
+            var clear = document.getElementById("openKamis");
+            var clears = document.getElementById("closeKamis");
+            if (Kamis.style.display === "none") {
+                clear.value = "";
+                clears.value = "";
+            }
+            var Jumat = document.getElementById("jamJumat");
+            var clear = document.getElementById("openJumat");
+            var clears = document.getElementById("closeJumat");
+            if (Jumat.style.display === "none") {
+                clear.value = "";
+                clears.value = "";
+            }
+            var Sabtu = document.getElementById("jamSabtu");
+            var clear = document.getElementById("openSabtu");
+            var clears = document.getElementById("closeSabtu");
+            if (Sabtu.style.display === "none") {
+                clear.value = "";
+                clears.value = "";
+            }
+            var Minggu = document.getElementById("jamMinggu");
+            var clear = document.getElementById("openMinggu");
+            var clears = document.getElementById("closeMinggu");
+            if (Minggu.style.display === "none") {
+                clear.value = "";
+                clears.value = "";
+            }
+        }
+
+        function senin() {
+            var senin = document.getElementById("jamSenin");
+            var clear = document.getElementById("openSenin");
+            var clears = document.getElementById("closeSenin");
+            if (senin.style.display === "none") {
+                senin.style.display = "";
+                clear.value = "";
+                clears.value = "";
+            } else {
+                senin.style.display = "none";
+            }
+        }
+
+        function Selasa() {
+            var Selasa = document.getElementById("jamSelasa")
+            var clear = document.getElementById("openSelasa");;
+            var clears = document.getElementById("closeSelasa");;
+            if (Selasa.style.display === "none") {
+                Selasa.style.display = "";
+                clear.value = "";
+                clears.value = "";
+            } else {
+                Selasa.style.display = "none";
+            }
+        }
+
+        function Rabu() {
+            var Rabu = document.getElementById("jamRabu");
+            var clear = document.getElementById("openRabu");
+            var clears = document.getElementById("closeRabu");
+            if (Rabu.style.display === "none") {
+                Rabu.style.display = "";
+                clear.value = "";
+                clears.value = "";
+            } else {
+                Rabu.style.display = "none";
+            }
+        }
+
+        function Kamis() {
+            var Kamis = document.getElementById("jamKamis");
+            var clear = document.getElementById("openKamis");
+            var clears = document.getElementById("closeKamis");
+            if (Kamis.style.display === "none") {
+                Kamis.style.display = "";
+                clear.value = "";
+                clears.value = "";
+            } else {
+                Kamis.style.display = "none";
+            }
+        }
+
+        function Jumat() {
+            var Jumat = document.getElementById("jamJumat");
+            var clear = document.getElementById("openJumat");
+            var clears = document.getElementById("closeJumat");
+            if (Jumat.style.display === "none") {
+                Jumat.style.display = "";
+                clear.value = "";
+                clears.value = "";
+            } else {
+                Jumat.style.display = "none";
+            }
+        }
+
+        function Sabtu() {
+            var Sabtu = document.getElementById("jamSabtu");
+            var clear = document.getElementById("openSabtu");
+            var clears = document.getElementById("closeSabtu");
+            if (Sabtu.style.display === "none") {
+                Sabtu.style.display = "";
+                clear.value = "";
+                clears.value = "";
+            } else {
+                Sabtu.style.display = "none";
+            }
+        }
+
+        function Minggu() {
+            var Minggu = document.getElementById("jamMinggu");
+            var clear = document.getElementById("openMinggu");
+            var clears = document.getElementById("closeMinggu");
+            if (Minggu.style.display === "none") {
+                Minggu.style.display = "";
+                clear.value = "";
+                clears.value = "";
+            } else {
+                Minggu.style.display = "none";
+            }
+        }
+    </script>
 
     <!-- Leafleat js Component -->
     <script src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js" integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg=" crossorigin=""></script>
@@ -221,7 +694,7 @@
     <script src="/leaflet/leaflet-sidepanel.min.js"></script>
     <script src="/leaflet/Leaflet.Control.Custom.js"></script>
     <script src="/leaflet/iconLayers.js"></script>
-    <script src="/leaflet/leaflet-notifications.min.js"></script>
+    <script src="/leaflet/leaflet.contextmenu.js"></script>
 
     <!-- Leafleat Setting js-->
     <!-- initialize the map on the "map" div with a given center and zoom -->
@@ -258,8 +731,75 @@
                 zoom: <?= $D->zoom_view; ?>,
                 layers: [peta1],
                 gestureHandling: false,
+                attributionControl: false,
+                contextmenu: true,
+                contextmenuWidth: 200,
+                contextmenuItems: [{
+                    text: 'Copy coordinates',
+                    icon: '/leaflet/icon/copy.png',
+                    callback: function(e) {
+                        copyCoordinates(e);
+                    }
+                }, {
+                    text: 'Add marker',
+                    icon: '/leaflet/icon/addm.png',
+                    callback: function(e) {
+                        addMarker(e);
+                    }
+                }, {
+                    text: 'Center map here',
+                    callback: function(e) {
+                        centerMap(e);
+                    }
+                }, {
+                    text: 'Menu 3',
+                    callback: function() {
+                        tes();
+                    }
+                }, ]
             })
         <?php endforeach ?>
+
+        function tes() {
+            alert('!!')
+        }
+
+        function centerMap(e) {
+            map.panTo(e.latlng);
+        }
+
+        function showCoordinates(e) {
+            alert(e.latlng);
+        }
+
+        function copyCoordinates(e) {
+            var latlng = e.latlng;
+            var lat = latlng.lat.toFixed(6);
+            var lng = latlng.lng.toFixed(6);
+            var coordinates = lat + ',' + lng;
+            navigator.clipboard.writeText(coordinates);
+            alert('Koordinat ' + coordinates + ' berhasil disalin ke clipboard');
+        }
+
+        var addKafe;
+
+        function addMarker(e) {
+            if (addKafe) map.removeLayer(addKafe);
+            addKafe = L.marker(e.latlng, {
+                icon: locKafe
+            }).addTo(map);
+            $("#loading-spinner").removeClass("d-none");
+            lat = e.latlng.lat;
+            lng = e.latlng.lng;
+            koordinat = lat + ", " + lng;
+            $('#latitude').val(lat);
+            $('#longitude').val(lng);
+            setTimeout(function() {
+                $("#loading-spinner").addClass("d-none");
+                modal.style.display = "block";
+            }, 500);
+        }
+
 
         // controller
         map.removeControl(map.zoomControl);
@@ -290,7 +830,6 @@
         baseLayers.addTo(map);
         L.control.mousePosition().addTo(map);
         L.control.scale().addTo(map);
-
 
 
 
@@ -385,7 +924,7 @@
 
         var controlElement = baseLayers.getContainer();
         controlElement.style.position = 'absolute';
-        controlElement.style.bottom = '1.2rem';
+        controlElement.style.bottom = '1rem';
         controlElement.style.right = '3rem';
     </script>
 

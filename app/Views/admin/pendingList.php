@@ -20,6 +20,15 @@
     <!-- Template Main CSS File -->
     <link href="/css/StyleAdmin.css" rel="stylesheet" />
 
+    <!-- Leaflet Component -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
+
+    <style>
+        .mymap {
+            position: relative;
+            height: 50vh;
+        }
+    </style>
 </head>
 
 <body class="sb-nav-fixed">
@@ -52,10 +61,10 @@
                                 <thead>
                                     <tr>
                                         <th>#</th>
+                                        <th>Tanggal Masuk</th>
                                         <th>[From] Username</th>
                                         <th>Nama Kafe</th>
                                         <th>Alamat</th>
-                                        <th>Instagram</th>
                                         <th>Reject/Accept</th>
                                     </tr>
                                 </thead>
@@ -63,17 +72,17 @@
                                     <?php $i = 1; ?>
                                     <?php foreach ($tampilKafe as $S) : ?>
                                         <tr>
-                                            <th scope="row"><?= $i++; ?></th>
-                                            <td>[<?= $S->user; ?>]</td>
+                                            <th><?= $i++; ?></th>
+                                            <th><?= date('d M Y H:i:s', strtotime($S->created_at)); ?></th>
+                                            <td><?= $S->username; ?></td>
                                             <td><?= $S->nama_kafe; ?></td>
                                             <td><?= $S->alamat_kafe; ?></td>
-                                            <td> - </td>
                                             <td>
                                                 <div class="btn-group mr-2" role="group" aria-label="First group">
                                                     <form action="/admin/rejectKafe/<?= $S->id_kafe; ?>" method="post">
                                                         <?= csrf_field(); ?>
                                                         <input type="hidden" name="_method" value="DELETE">
-                                                        <button type="submit" class="btn btn-danger bi bi-x-octagon" data-bs-toggle="tooltip" data-bs-placement="top" title="Reject" onclick="return confirm('Yakin Hapus Data?')"></button>
+                                                        <button type="submit" class="btn btn-danger bi bi-x-octagon" data-bs-toggle="tooltip" data-bs-placement="top" title="Reject" onclick="return confirm('Yakin Tolak Data?')"></button>
                                                     </form>
                                                 </div>
                                                 <div class="btn-group mr-2" role="group" aria-label="First group">
@@ -84,11 +93,107 @@
                                                     </form>
                                                 </div>
                                                 <div class="btn-group mr-2" role="group" aria-label="First group">
-                                                    <form action="/admin/" method="post">
-                                                        <?= csrf_field(); ?>
-                                                        <input type="hidden" name="_method" value="DELETE">
-                                                        <button type="submit" class="btn btn-info bi bi-info-circle"></button>
-                                                    </form>
+                                                    <!-- Trigger modal -->
+                                                    <button type="button" id="infos" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#infoModal-<?= $S->id_kafe ?>" onclick="showMap<?= $S->id_kafe; ?>()">i</button>
+                                                </div>
+                                                <!-- Modal detail -->
+                                                <div class=" modal fade" id="infoModal-<?= $S->id_kafe ?>" tabindex="-1" aria-labelledby="infoModalLabel-<?= $S->id_kafe ?>" aria-hidden="true">
+                                                    <div class="modal-dialog modal-lg modal-fullscreen-lg-down">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="infoModalLabel-<?= $S->id_kafe ?>">Preview</h5>
+                                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <div class="card">
+                                                                    <div class="card-body">
+                                                                        <div class="table-responsive">
+                                                                            <table class="table table-responsive">
+                                                                                <thead class="thead-left">
+                                                                                    <tr>
+                                                                                        <th style="font-weight: 400; border-bottom-width: 1px; border-bottom-color: #dee2e6;">Nama Kafe</th>
+                                                                                        <th style="border-bottom-width: 1px; border-bottom-color: #dee2e6;">:</th>
+                                                                                        <th style="font-weight: 400; border-bottom-width: 1px; border-bottom-color: #dee2e6;"><?= $S->nama_kafe; ?></th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                    <tr>
+                                                                                        <td>Alamat</td>
+                                                                                        <th>:</th>
+                                                                                        <td><?= $S->alamat_kafe; ?></td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td>Koordinat</td>
+                                                                                        <th>:</th>
+                                                                                        <td><?= $S->latitude; ?>, <?= $S->longitude; ?></td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td>Wilayah Administrasi</td>
+                                                                                        <th>:</th>
+                                                                                        <td><?= $S->nama_kelurahan ?>, Kec. <?= $S->nama_kecamatan ?>, <?= $S->nama_kabupaten ?></td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td>Instagram</td>
+                                                                                        <th>:</th>
+                                                                                        <td><a href="https://www.instagram.com/<?= $S->instagram_kafe ?>" target="_blank" rel="noopener noreferrer" class="d-inline-flex align-items-center">
+                                                                                                <span>@<?= $S->instagram_kafe ?> <i class="ri-external-link-line"></i></span></a></td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td>Jam Oprasional</td>
+                                                                                        <th>:</th>
+                                                                                        <td><?php
+                                                                                            $jam_oprasional = json_decode('[' . $S->jam_oprasional . ']', true);
+
+                                                                                            // Urutkan array $jam_oprasional berdasarkan hari dalam seminggu
+                                                                                            usort($jam_oprasional, function ($a, $b) {
+                                                                                                $hari_a = array_search($a['hari'], array('Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu'));
+                                                                                                $hari_b = array_search($b['hari'], array('Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu'));
+                                                                                                return $hari_a - $hari_b;
+                                                                                            });
+
+                                                                                            // Tampilkan jam operasional dalam urutan yang diinginkan
+                                                                                            foreach ($jam_oprasional as $jam) {
+                                                                                                $hari = $jam['hari'];
+                                                                                                $open_time = $jam['open_time'];
+                                                                                                $close_time = $jam['close_time'];
+
+                                                                                                echo $hari . ": ";
+                                                                                                if ($open_time != null && $close_time != null) {
+                                                                                                    echo date("H:i", strtotime($open_time)) . "-" . date("H:i", strtotime($close_time));
+                                                                                                } else {
+                                                                                                    echo "Tutup";
+                                                                                                }
+                                                                                                echo "<br>";
+                                                                                            }
+                                                                                            ?>
+
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td>Created at</td>
+                                                                                        <th>:</th>
+                                                                                        <td><?= date('d M Y H:i:s', strtotime($S->created_at)); ?></td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td>User by</td>
+                                                                                        <th>:</th>
+                                                                                        <td><?= $S->username; ?></td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+
+                                                                <div class="card">
+                                                                    <div class="card-body">
+                                                                        <div id="mymap-<?= $S->id_kafe ?>" class="mymap"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </td>
                                         </tr>
@@ -101,6 +206,8 @@
                     </div>
 
                 </div>
+
+
             </main><!-- End #main -->
 
 
@@ -124,12 +231,41 @@
 
     <script>
         $(document).ready(function() {
+            $("th").css("pointer-events", "none");
+            $(".no-sort").css("pointer-events", "none");
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
             $(".alert");
             setTimeout(function() {
                 $(".alert").fadeOut(800);
             }, 2500);
         });
     </script>
+
+    <!-- Leaflet Component -->
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+
+    <?php foreach ($tampilKafe as $S) : ?>
+        <script>
+            $(document).ready(function() {
+                function showMap<?= $S->id_kafe; ?>() {
+                    var mymap = L.map('mymap-<?= $S->id_kafe; ?>').setView([<?= $S->latitude; ?>, <?= $S->longitude; ?>], 13);
+
+                    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                        attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors',
+                        maxZoom: 18,
+                    }).addTo(mymap);
+                    L.marker([<?= $S->latitude ?>, <?= $S->longitude ?>]).addTo(mymap)
+
+                }
+                $('#infoModal-<?= $S->id_kafe; ?>').on('shown.bs.modal', function() {
+                    showMap<?= $S->id_kafe; ?>();
+                })
+            });
+        </script>
+    <?php endforeach ?>
 
 </body>
 

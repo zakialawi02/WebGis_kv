@@ -118,22 +118,22 @@
                             <tr>
                                 <td>Jam Oprasional</td>
                                 <th>:</th>
-                                <td><?php $jam_oprasional = json_decode('[' . $tampilKafe->jam_oprasional . ']', true); ?>
-                                    <?php foreach ($jam_oprasional as $jam) {
-                                        // Ambil nilai "hari", "open_time", dan "close_time"
+                                <td><?php
+                                    $jam_oprasional = json_decode('[' . $tampilKafe->jam_oprasional . ']', true);
+                                    foreach ($jam_oprasional as $jam) {
                                         $hari = $jam['hari'];
                                         $open_time = $jam['open_time'];
                                         $close_time = $jam['close_time'];
 
-                                        // Tampilkan dalam format yang diinginkan
-                                        echo $hari . "\t: ";
+                                        echo $hari . ": ";
                                         if ($open_time != null && $close_time != null) {
-                                            echo $open_time . "-" . $close_time;
+                                            echo date("H:i", strtotime($open_time)) . "-" . date("H:i", strtotime($close_time));
                                         } else {
                                             echo "Tutup";
                                         }
                                         echo "<br>";
-                                    } ?>
+                                    }
+                                    ?>
 
                                 </td>
                             </tr>
