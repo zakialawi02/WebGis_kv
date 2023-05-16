@@ -160,7 +160,7 @@ class Admin extends BaseController
         $explode = explode('.', $randomName);
         array_pop($explode);
         $randomName = implode('.', $explode);
-        $randomName = $randomName . ".geo" . $fileGeojson->getExtension();
+        $randomName = $randomName . ".geojson";
         // pindah file to hosting
         $fileGeojson->move('geojson/', $randomName);
 

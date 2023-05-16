@@ -4,9 +4,38 @@
     z-index: 0;
 }
 
+.imgMark {
+    max-width: 35vh;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 #loading-spinner {
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 1000;
+}
+
+/* Search */
+.search-container {
+    display: contents;
+    width: 100%;
+    max-width: 500px;
+}
+
+.input-cari {
+    flex: 1;
+    border-radius: 0;
+}
+
+.btn-cari {
+    border-radius: 0;
+    border: none;
+    background-color: #007bff;
+}
+
+.btn-cari:hover {
+    background-color: #0069d9;
 }
 
 /* Legend */
