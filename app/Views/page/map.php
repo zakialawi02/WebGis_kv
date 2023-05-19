@@ -424,7 +424,16 @@
         const closeButton = document.getElementById("close-button");
 
         modalButton.addEventListener("click", function() {
-            modal.style.display = "block";
+            <?php if (logged_in()) : ?>
+                modal.style.display = "block";
+            <?php else : ?>
+                $("#loading-spinner").removeClass("d-none");
+                setTimeout(function() {
+                    $("#loading-spinner").addClass("d-none");
+                    var logModal = new bootstrap.Modal($('#loginModal'));
+                    logModal.show();
+                }, 500);
+            <?php endif ?>
         });
 
         closeButton.addEventListener("click", function() {
@@ -818,7 +827,7 @@
                 setTimeout(function() {
                     $("#loading-spinner").addClass("d-none");
                     modal.style.display = "block";
-                }, 500);
+                }, 800);
             }
         <?php else : ?>
 
@@ -826,10 +835,9 @@
                 $("#loading-spinner").removeClass("d-none");
                 setTimeout(function() {
                     $("#loading-spinner").addClass("d-none");
+                    var logModal = new bootstrap.Modal($('#loginModal'));
+                    logModal.show();
                 }, 500);
-                var logModal = new bootstrap.Modal($('#loginModal'));
-                logModal.show();
-                logModal.hide();
             }
         <?php endif ?>
 
