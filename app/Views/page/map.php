@@ -721,6 +721,8 @@
     <script src="/leaflet/iconLayers.js"></script>
     <script src="/leaflet/leaflet.contextmenu.js"></script>
     <script src="/leaflet/leaflet.lumap.js"></script>
+    <script src="/leaflet/catiline.js"></script>
+    <script src="/leaflet/leaflet.shpfile.js"></script>
 
     <!-- Leafleat Setting js-->
     <!-- initialize the map on the "map" div with a given center and zoom -->
@@ -926,39 +928,33 @@
 
         // geojson
         function popUp(f, l) {
-            var out = "";
+            var popOut = "";
             if (f.properties) {
                 const id_kafe = f.properties.id_kafe;
                 const nama_foto = f.properties.nama_foto[0];
                 const foto_list = nama_foto.split(","); // memecah string dengan koma sebagai delimiter menjadi array
                 const foto_html = foto_list.map(foto => "<img class='imgMark' src='/img/kafe/" + foto.trim() + "'>"); // membuat HTML tag img untuk setiap nama file foto pada array
-                out += foto_html[0];
-                out += "<table>";
-                out += "<tr><td><b>Nama Kafe</b></td><th>:</th><td>" + f.properties.nama_kafe + "</td></tr>";
-                // out += "<tr><td><b>Longitude</b></td><th>:</th><td>" + f.properties.longitude + "</td></tr>";
-                // out += "<tr><td><b>Latitude</b></td><th>:</th><td>" + f.properties.latitude + "</td></tr>";
-                out += "<tr><td><b>Alamat</b></td><th>:</th><td>" + f.properties.alamat_kafe + "</td></tr>";
-                out += "<tr><td><b>Wilayah Administrasi</b></td><th>:</th><td>" + f.properties.nama_kelurahan + ", Kec." + f.properties.nama_kecamatan + ", " + f.properties.nama_kabupaten + "</td></tr>";
-                out += "<tr><td><b>Instagram</b></td><th>:</th><td>" + "@" + f.properties.instagram_kafe + "</td></tr>";
-                out += "<tr><td><b>Jam Oprasional</b></td><th>:</th><td>";
-                // out += "<tr><td><b>Jam Oprasional</b></td><th>:</th><td>" + f.properties.jam_oprasional + "</td></tr>";
+                popOut += foto_html[0];
+                popOut += "<table>";
+                popOut += "<tr><td><b>Nama Kafe</b></td><th>:</th><td>" + f.properties.nama_kafe + "</td></tr>";
+                popOut += "<tr><td><b>Alamat</b></td><th>:</th><td>" + f.properties.alamat_kafe + "</td></tr>";
+                popOut += "<tr><td><b>Wilayah Administrasi</b></td><th>:</th><td>" + f.properties.nama_kelurahan + ", Kec." + f.properties.nama_kecamatan + ", " + f.properties.nama_kabupaten + "</td></tr>";
+                popOut += "<tr><td><b>Instagram</b></td><th>:</th><td>" + "@" + f.properties.instagram_kafe + "</td></tr>";
+                popOut += "<tr><td><b>Jam Oprasional</b></td><th>:</th><td>";
                 const jsonString = f.properties.jam_oprasional;
-                // console.log(jsonString)
                 var jamOperasional = JSON.parse("[" + jsonString[0] + "]");
-                out += "<table>"
+                popOut += "<table>"
                 for (var i = 0; i < jamOperasional.length; i++) {
                     var hari = jamOperasional[i].hari;
                     var openTime = jamOperasional[i].open_time;
                     var closeTime = jamOperasional[i].close_time;
-                    // console.log(hari)
-                    out += "<tbody></tbody><tr></th><th>" + hari + "</th><td>:</td><td>" + openTime + " - " + closeTime + "</td>";
+                    popOut += "<tbody></tbody><tr></th><th>" + hari + "</th><td>:</td><td>" + openTime + " - " + closeTime + "</td>";
                 }
-                out += "</td>";
-                out += "</table>";
-                out += "</table>";
-                out += "<a id='tombol-viewmap' href='/kafe/" + id_kafe + "/detail' style='color:black;'>view</a>";
-
-                l.bindPopup(out);
+                popOut += "</td>";
+                popOut += "</table>";
+                popOut += "</table>";
+                popOut += "<a id='tombol-viewmap' href='/kafe/" + id_kafe + "/detail' style='color:black;'>view</a>";
+                l.bindPopup(popOut);
             }
         }
         var kafes = new L.GeoJSON.AJAX(["<?= base_url(); ?>/api"], {
@@ -981,6 +977,43 @@
         };
         var elLumap = document.querySelector('#lumap');
         var lumap = new Lumap(map, elLumap, [overlayMaps]);
+
+        // shapefile tes
+        var geo = L.geoJson({
+            features: []
+        }, {
+            style: function(feature) {
+                return {
+                    fillColor: 'blue', // Ubah warna poligon
+                    fillOpacity: 0.2, // Ubah tingkat kecerahan poligon
+                    color: 'black', // Ubah warna garis batas poligon
+                    weight: 1 // Ubah ketebalan garis batas poligon 
+                };
+            },
+            onEachFeature: function popUp(f, l) {
+                var properties = f.properties;
+                // Membuat konten HTML untuk popup
+                var popMarker = "<table>";
+                popMarker += "<tr><td><b>Nama Kafe</b></td><th>:</th><td>" + properties.nama_kafe + "</td></tr>";
+                popMarker += "<tr><td><b>Alamat</b></td><th>:</th><td>123</td></tr>";
+                popMarker += "</table>";
+                l.bindPopup(popMarker);
+            }
+        }).addTo(map);
+
+        var wfunc = function(base, cb) {
+            importScripts('/leaflet/shp.js');
+            shp(base).then(cb);
+        }
+        var worker = cw({
+            data: wfunc
+        }, 2);
+        worker.data(cw.makeUrl('/geojson/batas_kelurahan_2021_sby_357820220801090416.zip')).then(function(data) {
+            geo.addData(data);
+        }, function(a) {
+            console.log(a)
+        });
+
 
 
 
