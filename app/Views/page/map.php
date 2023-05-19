@@ -767,7 +767,7 @@
                         copyCoordinates(e);
                     }
                 }, {
-                    text: 'Add marker',
+                    text: 'Add marker here',
                     icon: '/leaflet/icon/addm.png',
                     callback: function(e) {
                         addMarker(e);
@@ -872,9 +872,6 @@
             });
 
 
-
-
-
         // Tambahkan control accordion pada peta
         var legendControl = L.control({
             position: 'bottomleft'
@@ -943,7 +940,21 @@
                 out += "<tr><td><b>Alamat</b></td><th>:</th><td>" + f.properties.alamat_kafe + "</td></tr>";
                 out += "<tr><td><b>Wilayah Administrasi</b></td><th>:</th><td>" + f.properties.nama_kelurahan + ", Kec." + f.properties.nama_kecamatan + ", " + f.properties.nama_kabupaten + "</td></tr>";
                 out += "<tr><td><b>Instagram</b></td><th>:</th><td>" + "@" + f.properties.instagram_kafe + "</td></tr>";
-                out += "<tr><td><b>Jam Oprasional</b></td><th>:</th><td>" + f.properties.jam_oprasional + "</td></tr>";
+                out += "<tr><td><b>Jam Oprasional</b></td><th>:</th><td>";
+                // out += "<tr><td><b>Jam Oprasional</b></td><th>:</th><td>" + f.properties.jam_oprasional + "</td></tr>";
+                const jsonString = f.properties.jam_oprasional;
+                // console.log(jsonString)
+                var jamOperasional = JSON.parse("[" + jsonString[0] + "]");
+                out += "<table>"
+                for (var i = 0; i < jamOperasional.length; i++) {
+                    var hari = jamOperasional[i].hari;
+                    var openTime = jamOperasional[i].open_time;
+                    var closeTime = jamOperasional[i].close_time;
+                    // console.log(hari)
+                    out += "<tbody></tbody><tr></th><th>" + hari + "</th><td>:</td><td>" + openTime + " - " + closeTime + "</td>";
+                }
+                out += "</td>";
+                out += "</table>";
                 out += "</table>";
                 out += "<a id='tombol-viewmap' href='/kafe/" + id_kafe + "/detail' style='color:black;'>view</a>";
 
