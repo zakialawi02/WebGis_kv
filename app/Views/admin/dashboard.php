@@ -287,6 +287,7 @@
                                                                             <th scope="col">ID</th>
                                                                             <th scope="col">Nama Kafe</th>
                                                                             <th scope="col">Status</th>
+                                                                            <th scope="col">Tanggal Update</th>
                                                                         </tr>
                                                                     </thead>
                                                                     <tbody>
@@ -295,6 +296,7 @@
                                                                                 <td scope="row"><?= date('d M Y H:i:s', strtotime($tkafe->created_at)); ?></td>
                                                                                 <td><?= $tkafe->id_kafe; ?></td>
                                                                                 <td><?= $tkafe->nama_kafe; ?></td>
+                                                                                <td><?= date('d M Y H:i:s', strtotime($tkafe->date_updated)); ?></td>
                                                                                 <td><?= $tkafe->stat_appv == 0 ? 'Pending' : ($tkafe->stat_appv == 1 ? 'Terima' : 'Tolak') ?>
                                                                                 </td>
                                                                             </tr>
@@ -321,6 +323,7 @@
                                                                             <th scope="col">ID</th>
                                                                             <th scope="col">Nama Kafe</th>
                                                                             <th scope="col">Status</th>
+                                                                            <th scope="col">Tanggal Update</th>
                                                                         </tr>
                                                                     </thead>
                                                                     <tbody>
@@ -329,6 +332,7 @@
                                                                                 <td scope="row"><?= date('d M Y H:i:s', strtotime($skafe->created_at)); ?></td>
                                                                                 <td><?= $skafe->id_kafe; ?></td>
                                                                                 <td><?= $skafe->nama_kafe; ?></td>
+                                                                                <td><?= date('d M Y H:i:s', strtotime($tkafe->date_updated)); ?></td>
                                                                                 <td><?= $skafe->stat_appv == 0 ? 'Pending' : ($skafe->stat_appv == 1 ? 'Terima' : 'Tolak') ?>
                                                                                 </td>
                                                                             </tr>

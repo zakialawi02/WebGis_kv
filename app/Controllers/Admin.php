@@ -633,23 +633,6 @@ class Admin extends BaseController
         }
     }
 
-    // side server delete image
-    public function deleteImage()
-    {
-        // Menerima ID data yang akan dihapus dari permintaan POST
-        $id = $this->request->getPost('id');
-        $imgData = $this->fotoKafe->getImgRow($id)->getRow();
-        // Remove files from the server  
-        $file = $imgData->nama_file_foto;
-        unlink("img/kafe/" . $file);
-        // Delete image data 
-        $this->fotoKafe->delete(['id' => $id]);
-        // Ambil data gambar dari database
-        $imageUrl = $this->fotoKafe->getFoto()->getResult();
-        // Kembalikan data ke client dalam format JSON
-        return json_encode(['status' => true, 'imageUrl' => $imageUrl]);
-    }
-
     // Pending Data
     public function pending()
     {
@@ -666,6 +649,7 @@ class Admin extends BaseController
     {
         $data = [
             'stat_appv' => '1',
+            'date_updated' => date('Y-m-d H:i:s'),
         ];
         $this->kafe->chck_appv($data, $id_kafe);
         session()->setFlashdata('alert', 'Data Approved.');
@@ -677,22 +661,31 @@ class Admin extends BaseController
     {
         $data = [
             'stat_appv' => '2',
+            'date_updated' => date('Y-m-d H:i:s'),
         ];
         $this->kafe->chck_appv($data, $id_kafe);
         session()->setFlashdata('alert', 'Data Rejected.');
         return $this->response->redirect(site_url('/admin/pending'));
     }
-    // public function rejectKafe($id_kafe)
-    // {
-    //     $data = $this->kafe->callKafe($id_kafe)->getRow();
-    //     $file = $data->foto_kafe;
-    //     unlink("img/sekolah/" . $file);
 
-    //     $this->kafe->delete(['id_kafe' => $id_kafe]);
-    //     session()->setFlashdata('alert', "Data Berhasil dihapus.");
-    //     return $this->response->redirect(site_url('/admin/data/kafe'));
-    // }
 
+
+    // side server delete image
+    public function deleteImage()
+    {
+        // Menerima ID data yang akan dihapus dari permintaan POST
+        $id = $this->request->getPost('id');
+        $imgData = $this->fotoKafe->getImgRow($id)->getRow();
+        // Remove files from the server  
+        $file = $imgData->nama_file_foto;
+        unlink("img/kafe/" . $file);
+        // Delete image data 
+        $this->fotoKafe->delete(['id' => $id]);
+        // Ambil data gambar dari database
+        $imageUrl = $this->fotoKafe->getFoto()->getResult();
+        // Kembalikan data ke client dalam format JSON
+        return json_encode(['status' => true, 'imageUrl' => $imageUrl]);
+    }
 
 
     // side server preview image
