@@ -205,7 +205,6 @@
         });
 
         // set frame view
-
         <?php foreach ($tampilData as $D) : ?>
             var map = L.map('map', {
                 center: [<?= $D->coordinat_wilayah; ?>],

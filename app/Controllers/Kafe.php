@@ -111,6 +111,14 @@ class Kafe extends BaseController
         return view('page/contact', $data);
     }
 
+    public function about()
+    {
+        $data = [
+            'title' => 'ABOUT',
+        ];
+        return view('page/about', $data);
+    }
+
     public function pdf()
     {
         $data = [
