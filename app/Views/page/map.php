@@ -340,6 +340,8 @@
             </form>
         </div>
 
+
+
     </div>
 
 
@@ -725,6 +727,7 @@
     <script src="/leaflet/L.Control.MousePosition.js"></script>
     <script src="//unpkg.com/leaflet-gesture-handling"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-tilelayer-geojson/1.0.2/TileLayer.GeoJSON.min.js"></script>
+    <script src="https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.3.1/leaflet-omnivore.min.js"></script>
     <script src="/leaflet/leaflet-sidepanel.min.js"></script>
     <script src="/leaflet/Leaflet.Control.Custom.js"></script>
     <script src="/leaflet/iconLayers.js"></script>
@@ -872,7 +875,7 @@
         L.control.scale().addTo(map);
 
         var geojsonKafe;
-        fetch('http://localhost:8080/api')
+        fetch('<?= base_url(); ?>/api/aprv')
             .then(function(response) {
                 return response.json();
             })
@@ -930,11 +933,11 @@
         const locKafe = L.icon({
             iconUrl: '<?= base_url(); ?>/leaflet/icon/restaurant_breakfast.png',
             iconSize: [30, 30],
-            iconAnchor: [18.5, 30], // point of the icon which will correspond to marker's location
+            iconAnchor: [16, 30], // point of the icon which will correspond to marker's location
             popupAnchor: [0, -28] // point from which the popup should open relative to the iconAnchor
         });
 
-        // geojson
+        // geojson popup
         function popUp(f, l) {
             var popOut = "";
             if (f.properties) {
@@ -956,7 +959,15 @@
                     var hari = jamOperasional[i].hari;
                     var openTime = jamOperasional[i].open_time;
                     var closeTime = jamOperasional[i].close_time;
-                    popOut += "<tbody></tbody><tr></th><th>" + hari + "</th><td>:</td><td>" + openTime + " - " + closeTime + "</td>";
+                    var jamOperasionalText = "<tbody></tbody><tr></th><th>" + hari + "</th><td>:</td><td>";
+
+                    if (openTime === null || closeTime === null) {
+                        jamOperasionalText += "Tutup";
+                    } else {
+                        jamOperasionalText += openTime + " - " + closeTime;
+                    }
+
+                    popOut += jamOperasionalText + "</td>";
                 }
                 popOut += "</td>";
                 popOut += "</table>";
@@ -965,29 +976,71 @@
                 l.bindPopup(popOut);
             }
         }
-        var kafes = new L.GeoJSON.AJAX(["<?= base_url(); ?>/api/aprv"], {
-            onEachFeature: popUp,
-            pointToLayer: function(feature, latlng) {
-                return L.marker(latlng, {
-                    icon: locKafe,
+        // Mendapatkan GeoJSON melalui AJAX
+        $.ajax({
+            url: '<?= base_url(); ?>/api/aprv',
+            dataType: 'json',
+            success: function(data) {
+                // Membuat layer marker dari GeoJSON
+                var markersLayer = L.geoJSON(data, {
+                    onEachFeature: popUp,
+                    pointToLayer: function(feature, latlng) {
+                        return L.marker(latlng, {
+                            icon: locKafe,
+                        });
+                    }
+                });
+                // layer control
+                var cafes = L.layerGroup([markersLayer]).addTo(map);
+                var overlayKafeMarker = {
+                    id: 'layersMark',
+                    title: 'Data Kafe',
+                    child: [{
+                        title: 'Data Kafe',
+                        icon: `geo`,
+                        layer: cafes
+                    }]
+                };
+                var lumap = new Lumap(map, elLumap, [overlayKafeMarker]);
+
+                function cariKafe() {
+                    var searchText = $('#cariMark').val().toLowerCase();
+                    // Menghapus marker sebelumnya
+                    markersLayer.clearLayers();
+                    // Mencari fitur GeoJSON yang cocok dengan pencarian
+                    var matchedFeatures = data.features.filter(function(feature) {
+                        // Sesuaikan dengan properti yang ingin Anda cari
+                        var propValue = feature.properties.nama_kafe.toLowerCase();
+                        return propValue.indexOf(searchText) !== -1;
+                    });
+                    // Menambahkan marker dari fitur yang cocok
+                    markersLayer.addData(matchedFeatures);
+                }
+                // Fungsi pencarian
+                $('#cariMark').on('input', function() {
+                    var inputText = $(this).val().trim();
+                    var buttonSearch = $('.btn-cari');
+                    var iconSearch = $('.btn-cari i');
+                    if (inputText !== '') {
+                        iconSearch.removeClass('bi-search');
+                        iconSearch.addClass('bi-x');
+                    } else {
+                        iconSearch.removeClass('bi-x');
+                        iconSearch.addClass('bi-search');
+                    }
+                    cariKafe();
+                });
+                $('.btn-cari').on('click', function() {
+                    var inputText = $('#cariMark');
+                    inputText.val('');
+                    cariKafe();
                 });
             }
         });
-        var cafes = L.layerGroup([kafes]).addTo(map);
-        var overlayMaps = {
-            id: 'layers',
-            title: 'Data Kafe',
-            child: [{
-                title: 'Data Kafe',
-                icon: `geo`,
-                layer: cafes
-            }]
-        };
-        var elLumap = document.querySelector('#lumap');
-        var lumap = new Lumap(map, elLumap, [overlayMaps]);
 
-        // shapefile tes
-        var geo = L.geoJson({
+
+        // shapefile
+        var geoshp = L.geoJson({
             features: []
         }, {
             style: function(feature) {
@@ -998,16 +1051,19 @@
                     weight: 1 // Ubah ketebalan garis batas poligon 
                 };
             },
-            onEachFeature: function popUp(f, l) {
-                var properties = f.properties;
-                // Membuat konten HTML untuk popup
-                var popMarker = "<table>";
-                popMarker += "<tr><td><b>Nama Kafe</b></td><th>:</th><td>" + properties.nama_kafe + "</td></tr>";
-                popMarker += "<tr><td><b>Alamat</b></td><th>:</th><td>123</td></tr>";
-                popMarker += "</table>";
-                l.bindPopup(popMarker);
+            onEachFeature: function(feature, layer) {
+                var properties = feature.properties;
+                var popupContent = "";
+                for (var key in properties) {
+                    if (properties.hasOwnProperty(key)) {
+                        popupContent += key + ": " + properties[key] + "<br>";
+                    }
+                }
+                layer.bindPopup(popupContent);
             }
-        }).addTo(map);
+
+        });
+
 
         var wfunc = function(base, cb) {
             importScripts('/leaflet/shp.js');
@@ -1017,13 +1073,16 @@
             data: wfunc
         }, 2);
         worker.data(cw.makeUrl('/geojson/batas_kelurahan_2021_sby_357820220801090416.zip')).then(function(data) {
-            geo.addData(data);
+            geoshp.addData(data);
         }, function(a) {
             console.log(a)
         });
 
+        // layer control
+        var polyShp = L.layerGroup([geoshp]).addTo(map);
 
 
+        var elLumap = document.querySelector('#lumap');
 
         var controlElement = baseLayers.getContainer();
         controlElement.style.position = 'absolute';
