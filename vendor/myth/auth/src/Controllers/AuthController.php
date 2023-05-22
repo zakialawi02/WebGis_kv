@@ -120,6 +120,10 @@ class AuthController extends Controller
      */
     public function register()
     {
+        $data = [
+            'title' => 'Welcome | Register',
+        ];
+
         // check if already logged in.
         if ($this->auth->check()) {
             return redirect()->back();
@@ -130,7 +134,7 @@ class AuthController extends Controller
             return redirect()->back()->withInput()->with('error', lang('Auth.registerDisabled'));
         }
 
-        return $this->_render($this->config->views['register'], ['config' => $this->config]);
+        return $this->_render($this->config->views['register'], $data, ['config' => $this->config]);
     }
 
     /**
@@ -205,11 +209,14 @@ class AuthController extends Controller
      */
     public function forgotPassword()
     {
+        $data = [
+            'title' => 'Lupa Password',
+        ];
         if ($this->config->activeResetter === null) {
             return redirect()->route('login')->with('error', lang('Auth.forgotDisabled'));
         }
 
-        return $this->_render($this->config->views['forgot'], ['config' => $this->config]);
+        return $this->_render($this->config->views['forgot'], $data, ['config' => $this->config]);
     }
 
     /**
