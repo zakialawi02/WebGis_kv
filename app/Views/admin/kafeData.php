@@ -262,7 +262,7 @@
         <?php foreach ($tampilKafe as $K) : ?>
             L.marker([<?= $K->latitude; ?>, <?= $K->longitude; ?>], {
                 icon: locKafe
-            }).addTo(map).bindPopup("<b><?= $K->nama_kafe; ?></b></br><?= $K->alamat_kafe; ?></br><a id='tombol-viewmap' href='/kafe/<?= $K->id_kafe; ?>/detail' style='color:black;'>view</a>");
+            }).addTo(map).bindPopup("<b>Nama Kafe</b> : <?= $K->nama_kafe; ?></br><b>Alamat</b> : <?= $K->alamat_kafe; ?></br><a id='tombol-viewmap' href='/kafe/<?= $K->id_kafe; ?>/detail' style='color:black;'>view</a>");
         <?php endforeach ?>
 
         // Map clik coordinate show

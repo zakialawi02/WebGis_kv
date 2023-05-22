@@ -37,8 +37,6 @@ class Kafe extends BaseController
 
     public function detail($id_kafe)
     {
-        $todayDate = date("m/d");
-
         $data = [
             'title' => 'Detail Kafe',
             'tampilKafe' => $this->kafe->callKafe($id_kafe)->getRow(),

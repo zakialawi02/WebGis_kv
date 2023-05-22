@@ -137,11 +137,6 @@
 
                                 </td>
                             </tr>
-                            <tr>
-                                <td>Kontak</td>
-                                <th>:</th>
-                                <td> ?? </td>
-                            </tr>
                             <?php if (in_groups('SuperAdmin') || in_groups('Admin')) :; ?>
                                 <tr>
                                     <td>Updated at</td>
@@ -151,7 +146,7 @@
                                 <tr>
                                     <td>User by</td>
                                     <th>:</th>
-                                    <td><?= $tampilKafe->user; ?></td>
+                                    <td><?= $tampilKafe->username; ?></td>
                                 </tr>
                             <?php endif ?>
                         </tbody>
@@ -268,16 +263,16 @@
             "OSM": peta3,
         };
 
+        map.removeControl(map.zoomControl);
         L.control.layers(baseLayers).addTo(map);
         L.control.mousePosition().addTo(map);
         L.control.scale().addTo(map);
-
 
         // set marker place
         var locKafe = L.icon({
             iconUrl: '<?= base_url(); ?>/leaflet/icon/restaurant_breakfast.png',
             iconSize: [40, 40],
-            iconAnchor: [20, 40], // point of the icon which will correspond to marker's location
+            iconAnchor: [17, 40], // point of the icon which will correspond to marker's location
             popupAnchor: [0, -38] // point from which the popup should open relative to the iconAnchor
         });
 
