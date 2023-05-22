@@ -990,6 +990,7 @@
                         });
                     }
                 });
+
                 // layer control
                 var cafes = L.layerGroup([markersLayer]).addTo(map);
                 var overlayKafeMarker = {
@@ -997,11 +998,22 @@
                     title: 'Data Kafe',
                     child: [{
                         title: 'Data Kafe',
-                        icon: `geo`,
+                        iconHtml: `<img src="<?= base_url(); ?>/leaflet/icon/restaurant_breakfast.png">`,
                         layer: cafes
                     }]
                 };
-                var lumap = new Lumap(map, elLumap, [overlayKafeMarker]);
+                // layer control 
+                var polyShp = L.layerGroup([geoshp]).addTo(map);
+                var overlayPolygon = {
+                    id: 'layersPoly',
+                    title: 'Administrasi',
+                    child: [{
+                        title: 'Surabaya',
+                        icon: `heptagon-half`,
+                        layer: polyShp
+                    }]
+                };
+                var lumap = new Lumap(map, elLumap, [overlayPolygon, overlayKafeMarker]);
 
                 function cariKafe() {
                     var searchText = $('#cariMark').val().toLowerCase();
@@ -1061,7 +1073,6 @@
                 }
                 layer.bindPopup(popupContent);
             }
-
         });
 
 
@@ -1078,8 +1089,7 @@
             console.log(a)
         });
 
-        // layer control
-        var polyShp = L.layerGroup([geoshp]).addTo(map);
+
 
 
         var elLumap = document.querySelector('#lumap');
