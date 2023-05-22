@@ -902,17 +902,11 @@
                     </h2>
                     <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#legendAccordion">
                         <div class="accordion-body">
-                            <div class="legend-item">
-                                <div class="legend-color" style="background-color: red;"></div>
-                                <div class="legend-label">Layer 1</div>
+                            <div class="legend-item1">
                             </div>
-                            <div class="legend-item">
-                                <div class="legend-color" style="background-color: blue;"></div>
-                                <div class="legend-label">Layer 2</div>
+                            <div class="legend-item2">
                             </div>
-                            <div class="legend-item">
-                                <div class="legend-color" style="background-color: green;"></div>
-                                <div class="legend-label">Layer 3</div>
+                            <div class="legend-item3">
                             </div>
                         </div>
                     </div>
@@ -1017,6 +1011,45 @@
                     }]
                 };
                 var lumap = new Lumap(map, elLumap, [overlayPolygon, overlayKafeMarker]);
+
+                function checkLayerVisibility() {
+                    if (map.hasLayer(polyShp)) {
+                        var legendItem = $('.legend-item1');
+                        legendItem.html('<div class="legend-color" style="background-color: rgba(0,0,255,0.3);"></div>' +
+                            '<div class="legend-label">Batas Administrasi</div>');
+                    } else {
+                        var legendItem = $('.legend-item1');
+                        legendItem.empty();
+                    }
+                    if (map.hasLayer(cafes)) {
+                        var legendItem = $('.legend-item2');
+                        legendItem.html('<div class="legend-img"><img src="<?= base_url(); ?>/leaflet/icon/restaurant_breakfast.png"></div>' +
+                            '<div class="legend-label">Kafe</div>');
+                    } else {
+                        var legendItem = $('.legend-item2');
+                        legendItem.empty();
+                    }
+                }
+                if (map.hasLayer(polyShp)) {
+                    var legendItem1 = $('.legend-item1');
+                    legendItem1.html('<div class="legend-color" style="background-color: rgba(0,0,255,0.3);"></div>' +
+                        '<div class="legend-label">Batas Administrasi</div>');
+                } else {
+                    var legendItem1 = $('.legend-item1');
+                    legendItem1.empty();
+                }
+                if (map.hasLayer(cafes)) {
+                    var legendItem2 = $('.legend-item2');
+                    legendItem2.html('<div class="legend-img"><img src="<?= base_url(); ?>/leaflet/icon/restaurant_breakfast.png"></div>' +
+                        '<div class="legend-label">Kafe</div>');
+                } else {
+                    var legendItem2 = $('.legend-item2');
+                    legendItem2.empty();
+                }
+                // Event listener untuk cek layer visibility saat klik layer control
+                cafes.on('add remove', checkLayerVisibility);
+                polyShp.on('add remove', checkLayerVisibility);
+
 
                 function cariKafe() {
                     var searchText = $('#cariMark').val().toLowerCase();
