@@ -75,17 +75,16 @@
                                                 <input type="text" class="form-control" id="alamat_kafe" aria-describedby="textlHelp" name="alamat_kafe" value="<?= $tampilKafe->alamat_kafe; ?>">
                                             </div>
                                             <div class="row g-2">
-                                                <label for="koordinat" class="form-label">Koordinat</label>
+                                                <label for="koordinat" class="">Koordinat</label>
                                                 <div class="form-group col-md-6">
-                                                    <label for="latitude" class="form-label">Latitude</label>
-                                                    <input type="text" class="form-control" id="latitude" aria-describedby="textlHelp" name="latitude" value="<?= $tampilKafe->latitude; ?>" pattern="/^(\-?\d+(\.\d+)?)$/" title="Tuliskan Sesuai Format" required>
-                                                    <div id="FileHelp" class="form-text">Use Desimal Degree; example: -7.0385384</div>
+                                                    <label for="latitude" class="">Latitude</label>
+                                                    <input type="text" class="form-control" id="latitude" aria-describedby="textlHelp" name="latitude" value="<?= $tampilKafe->latitude; ?>" placeholder="-7.0385384" pattern="/^(\-?\d+(\.\d+)?)$/" title="Tuliskan Sesuai Format" required>
                                                 </div>
                                                 <div class="form-group col-md-6">
-                                                    <label for="longitude" class="form-label">Longitude</label>
-                                                    <input type="text" class="form-control" id="longitude" aria-describedby="textlHelp" name="longitude" value="<?= $tampilKafe->longitude; ?>" pattern="/^[^a-zA-Z]*(\-?\d+(\.\d+)?)$/" title="Tuliskan Sesuai Format" required>
-                                                    <div id="FileHelp" class="form-text">Use Desimal Degree; example: 112.8998345</div>
+                                                    <label for="longitude" class="">Longitude</label>
+                                                    <input type="text" class="form-control" id="longitude" aria-describedby="textlHelp" name="longitude" value="<?= $tampilKafe->longitude; ?>" placeholder="112.8998345" pattern="/^[^a-zA-Z]*(\-?\d+(\.\d+)?)$/" title="Tuliskan Sesuai Format" required>
                                                 </div>
+                                                <div id="FileHelp" class="form-text"><span style="font-weight: bold;">NOTE:</span> Ketikan Koordinat Latitude dan Longitude atau klik lokasi pada peta</div>
                                             </div>
 
                                             <div class="form-group">

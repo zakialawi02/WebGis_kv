@@ -41,9 +41,7 @@ class Admin extends BaseController
             'countAllUser' => $this->user->countAllUser(),
             'userMonth' => $this->user->userMonth()->getResult(),
             'tampilKafe' => $this->kafe->getFiveKafe()->getResult(),
-            'pendingKafe' => $this->kafe->pendingKafe($userid)->getResult(),
-            'terimaKafe' => $this->kafe->terimaKafe($userid)->getResult(),
-            'tolakKafe' => $this->kafe->tolakKafe($userid)->getResult(),
+            'userSubmitKafe' => $this->kafe->userSubmitKafe($userid)->getResult(),
         ];
         // echo '<pre>';
         // print_r($data['pendingKafe']);
@@ -608,10 +606,18 @@ class Admin extends BaseController
 
         if ($updateKafe && $updateTime) {
             session()->setFlashdata('success', 'Data Berhasil diperbarui.');
-            return $this->response->redirect(site_url('/admin/data/kafe'));
+            if (in_groups('User')) {
+                return $this->response->redirect(site_url('/dashboard'));
+            } else {
+                return $this->response->redirect(site_url('/admin/data/kafe'));
+            }
         } else {
             session()->setFlashdata('error', 'Gagal memperbarui data.');
-            return $this->response->redirect(site_url('/admin/data/kafe'));
+            if (in_groups('User')) {
+                return $this->response->redirect(site_url('/dashboard'));
+            } else {
+                return $this->response->redirect(site_url('/admin/data/kafe'));
+            }
         }
     }
 

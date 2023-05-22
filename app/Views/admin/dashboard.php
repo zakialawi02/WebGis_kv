@@ -15,6 +15,7 @@
     <!-- vendor css -->
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link href=" https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.min.css " rel="stylesheet">
 
     <!-- Template Main CSS File -->
     <link href="/css/StyleAdmin.css" rel="stylesheet" />
@@ -229,9 +230,20 @@
 
 
                                 <div class="col-xl-8 p-3">
+                                    <?php $userSubmitKafe = $userSubmitKafe ?>
+                                    <?php foreach ($userSubmitKafe as $submitedData) : ?>
+                                        <?php if ($submitedData->stat_appv == 0) : ?>
+                                            <?php $pendingKafe[] = $submitedData ?>
+                                        <?php elseif ($submitedData->stat_appv == 1) : ?>
+                                            <?php $terimaKafe[] = $submitedData ?>
+                                        <?php else : ?>
+                                            <?php $tolakKafe[] = $submitedData ?>
+                                        <?php endif ?>
+                                    <?php endforeach ?>
                                     <?php $totalPending = count($pendingKafe); ?>
                                     <?php $totalTerima = count($terimaKafe); ?>
                                     <?php $totalTolak = count($tolakKafe); ?>
+
 
                                     <div class="card">
                                         <div class="card-body pt-3">
@@ -253,6 +265,7 @@
                                                                             <th scope="col">ID</th>
                                                                             <th scope="col">Nama Kafe</th>
                                                                             <th scope="col">Status</th>
+                                                                            <th scope="col">Aksi</th>
                                                                         </tr>
                                                                     </thead>
                                                                     <tbody>
@@ -262,6 +275,18 @@
                                                                                 <td><?= $pkafe->id_kafe; ?></td>
                                                                                 <td><?= $pkafe->nama_kafe; ?></td>
                                                                                 <td><?= $pkafe->stat_appv == 0 ? 'Pending' : ($pkafe->stat_appv == 1 ? 'Terima' : 'Tolak') ?>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="btn-group mr-2" role="group" aria-label="First group">
+                                                                                        <a href="/kafe/edit/<?= $pkafe->id_kafe; ?>" class="btn btn-primary bi bi-pencil-square" role="button"></a>
+                                                                                    </div>
+                                                                                    <div class="btn-group mr-2" role="group" aria-label="First group">
+                                                                                        <form id="delete-form-<?= $pkafe->id_kafe; ?>" action="/admin/delete_Kafe/<?= $pkafe->id_kafe; ?>" method="post">
+                                                                                            <?= csrf_field(); ?>
+                                                                                            <input type="hidden" name="_method" value="DELETE">
+                                                                                            <button type="button" class="btn btn-danger bi bi-trash delete-btn" data-id="<?= $pkafe->id_kafe; ?>"></button>
+                                                                                        </form>
+                                                                                    </div>
                                                                                 </td>
                                                                             </tr>
                                                                         <?php endforeach ?>
@@ -296,8 +321,8 @@
                                                                                 <td scope="row"><?= date('d M Y H:i:s', strtotime($tkafe->created_at)); ?></td>
                                                                                 <td><?= $tkafe->id_kafe; ?></td>
                                                                                 <td><?= $tkafe->nama_kafe; ?></td>
-                                                                                <td><?= date('d M Y H:i:s', strtotime($tkafe->date_updated)); ?></td>
                                                                                 <td><?= $tkafe->stat_appv == 0 ? 'Pending' : ($tkafe->stat_appv == 1 ? 'Terima' : 'Tolak') ?>
+                                                                                <td><?= date('d M Y H:i:s', strtotime($tkafe->date_updated)); ?></td>
                                                                                 </td>
                                                                             </tr>
                                                                         <?php endforeach ?>
@@ -324,6 +349,7 @@
                                                                             <th scope="col">Nama Kafe</th>
                                                                             <th scope="col">Status</th>
                                                                             <th scope="col">Tanggal Update</th>
+                                                                            <th scope="col">Aksi</th>
                                                                         </tr>
                                                                     </thead>
                                                                     <tbody>
@@ -332,8 +358,20 @@
                                                                                 <td scope="row"><?= date('d M Y H:i:s', strtotime($skafe->created_at)); ?></td>
                                                                                 <td><?= $skafe->id_kafe; ?></td>
                                                                                 <td><?= $skafe->nama_kafe; ?></td>
-                                                                                <td><?= date('d M Y H:i:s', strtotime($tkafe->date_updated)); ?></td>
                                                                                 <td><?= $skafe->stat_appv == 0 ? 'Pending' : ($skafe->stat_appv == 1 ? 'Terima' : 'Tolak') ?>
+                                                                                <td><?= date('d M Y H:i:s', strtotime($tkafe->date_updated)); ?></td>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="btn-group mr-2" role="group" aria-label="First group">
+                                                                                        <a href="/kafe/edit/<?= $skafe->id_kafe; ?>" class="btn btn-primary bi bi-pencil-square" role="button"></a>
+                                                                                    </div>
+                                                                                    <div class="btn-group mr-2" role="group" aria-label="First group">
+                                                                                        <form id="delete-form-<?= $skafe->id_kafe; ?>" action="/admin/delete_Kafe/<?= $skafe->id_kafe; ?>" method="post">
+                                                                                            <?= csrf_field(); ?>
+                                                                                            <input type="hidden" name="_method" value="DELETE">
+                                                                                            <button type="button" class="btn btn-danger bi bi-trash delete-btn" data-id="<?= $skafe->id_kafe; ?>"></button>
+                                                                                        </form>
+                                                                                    </div>
                                                                                 </td>
                                                                             </tr>
                                                                         <?php endforeach ?>
@@ -370,6 +408,7 @@
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <script src="/js/datatables-simple-demo.js"></script>
     <script src="/js/scripts.js"></script>
+    <script src=" https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.all.min.js "></script>
 
     <script>
         $(document).ready(function() {
@@ -406,6 +445,26 @@
         });
     </script>
 
+    <script>
+        $(document).ready(function() {
+            $('.delete-btn').on('click', function() {
+                var userId = $(this).data('id');
+                Swal.fire({
+                    title: 'Apakah Anda yakin ingin menghapus data ini?',
+                    text: "Data yang sudah dihapus tidak dapat dikembalikan!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Ya, hapus data!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        $('#delete-form-' + userId).submit();
+                    }
+                });
+            });
+        });
+    </script>
 
 </body>
 

@@ -965,7 +965,7 @@
                 l.bindPopup(popOut);
             }
         }
-        var kafes = new L.GeoJSON.AJAX(["<?= base_url(); ?>/api"], {
+        var kafes = new L.GeoJSON.AJAX(["<?= base_url(); ?>/api/aprv"], {
             onEachFeature: popUp,
             pointToLayer: function(feature, latlng) {
                 return L.marker(latlng, {
