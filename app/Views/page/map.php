@@ -735,6 +735,7 @@
     <script src="/leaflet/leaflet.lumap.js"></script>
     <script src="/leaflet/catiline.js"></script>
     <script src="/leaflet/leaflet.shpfile.js"></script>
+    <script src="/leaflet/leaflet-hash.js"></script>
 
     <!-- Leafleat Setting js-->
     <!-- initialize the map on the "map" div with a given center and zoom -->
@@ -873,6 +874,7 @@
         baseLayers.addTo(map);
         L.control.mousePosition().addTo(map);
         L.control.scale().addTo(map);
+        var hash = new L.Hash(map);
 
         var geojsonKafe;
         fetch('<?= base_url(); ?>/api/aprv')
@@ -919,6 +921,7 @@
             return div;
         };
         legendControl.addTo(map);
+
 
         // SidePanel
         const panelRight = L.control.sidepanel('panelID', {
@@ -1074,7 +1077,6 @@
                 layer.bindPopup(popupContent);
             }
         });
-
 
         var wfunc = function(base, cb) {
             importScripts('/leaflet/shp.js');
