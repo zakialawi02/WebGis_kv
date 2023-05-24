@@ -311,7 +311,9 @@ class Admin extends BaseController
             'provinsi' => $this->kafe->allProvinsi(),
         ];
         // echo '<pre>';
-        // print_r($data['tampilKafe']);
+        // $dump = $data['tampilKafe']->jam_oprasional;
+        // $t = json_decode($dump);
+        // print_r($t);
         // die;
         return view('admin/updateKafe', $data);
     }
