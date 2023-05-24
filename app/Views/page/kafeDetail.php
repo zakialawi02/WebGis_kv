@@ -120,7 +120,7 @@
                                 <th>:</th>
                                 <td><?php
                                     $jam_oprasional = json_decode('[' . $tampilKafe->jam_oprasional . ']', true);
-                                    foreach ($jam_oprasional as $jam) {
+                                    foreach ($jam_oprasional[0] as $jam) {
                                         $hari = $jam['hari'];
                                         $open_time = $jam['open_time'];
                                         $close_time = $jam['close_time'];

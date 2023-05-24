@@ -38,7 +38,7 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Kafe::index');
 $routes->get('/noaccess', 'Kafe::noaccess');
-$routes->match(['get', 'post'], 'Admin/getDataAjaxRemote', 'Admin::getDataAjaxRemote');
+$routes->match(['get', 'post'], 'admin/getDataAjaxRemote', 'Admin::getDataAjaxRemote');
 
 $routes->get('/contact', 'Kafe::contact');
 $routes->get('/about', 'Kafe::about');

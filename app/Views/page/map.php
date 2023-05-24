@@ -432,6 +432,7 @@
                 $("#loading-spinner").removeClass("d-none");
                 setTimeout(function() {
                     $("#loading-spinner").addClass("d-none");
+                    Swal.fire('Anda harus login terlebih dahulu')
                     var logModal = new bootstrap.Modal($('#loginModal'));
                     logModal.show();
                 }, 500);
@@ -509,7 +510,7 @@
         $(document).ready(function() {
             $('#wilayahA').select2({
                 ajax: {
-                    url: "<?= base_url('Admin/getDataAjaxRemote') ?>",
+                    url: "<?= base_url('admin/getDataAjaxRemote') ?>",
                     dataType: "json",
                     type: "POST",
                     delay: 300,
@@ -839,6 +840,7 @@
                 $("#loading-spinner").removeClass("d-none");
                 setTimeout(function() {
                     $("#loading-spinner").addClass("d-none");
+                    Swal.fire('Anda harus login terlebih dahulu')
                     var logModal = new bootstrap.Modal($('#loginModal'));
                     logModal.show();
                 }, 500);
@@ -950,7 +952,7 @@
                 popOut += "<tr><td><b>Instagram</b></td><th>:</th><td>" + "@" + f.properties.instagram_kafe + "</td></tr>";
                 popOut += "<tr><td><b>Jam Oprasional</b></td><th>:</th><td>";
                 const jsonString = f.properties.jam_oprasional;
-                var jamOperasional = JSON.parse("[" + jsonString[0] + "]");
+                var jamOperasional = JSON.parse(jsonString[0]);
                 popOut += "<table>"
                 for (var i = 0; i < jamOperasional.length; i++) {
                     var hari = jamOperasional[i].hari;

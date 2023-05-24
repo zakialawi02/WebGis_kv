@@ -314,7 +314,7 @@
                 $(document).ready(function() {
                     $('#wilayah').select2({
                         ajax: {
-                            url: "<?= base_url('Admin/getDataAjaxRemote') ?>",
+                            url: "<?= base_url('admin/getDataAjaxRemote') ?>",
                             dataType: "json",
                             type: "POST",
                             delay: 300,

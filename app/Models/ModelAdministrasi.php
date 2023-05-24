@@ -35,8 +35,8 @@ class ModelAdministrasi extends Model
             ->join('tbl_kecamatan', 'tbl_kecamatan.id_kecamatan = tbl_kelurahan.id_kecamatan')
             ->join('tbl_kabupaten', 'tbl_kabupaten.id_kabupaten = tbl_kecamatan.id_kabupaten')
             ->join('tbl_provinsi', 'tbl_provinsi.id_provinsi = tbl_kabupaten.id_provinsi')
-            ->like('nama_kecamatan', 'keputih')
-            ->orLike('nama_kelurahan', 'keputih')
+            ->like('nama_kecamatan', 'keput')
+            ->orLike('nama_kelurahan', 'keput')
             ->get()->getResultArray();
     }
 

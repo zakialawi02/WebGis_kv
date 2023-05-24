@@ -22,48 +22,79 @@ class ModelKv extends Model
     {
         if ($id_kafe === false) {
 
-            return $this->db->table('tbl_kafe')->select('tbl_kafe.id_kafe, nama_kafe, alamat_kafe, latitude, longitude, instagram_kafe, tbl_provinsi.id_provinsi as id_provinsi, nama_provinsi, tbl_kabupaten.id_kabupaten as id_kabupaten, nama_kabupaten, tbl_kecamatan.id_kecamatan as id_kecamatan, nama_kecamatan, tbl_kelurahan.id_kelurahan as id_kelurahan, nama_kelurahan, created_at, updated_at, tbl_status_appv.user as user, tbl_status_appv.stat_appv as stat_appv, GROUP_CONCAT(DISTINCT nama_file_foto SEPARATOR ",") as nama_foto, GROUP_CONCAT(DISTINCT JSON_OBJECT("hari", tjo.hari, "open_time", tjo.open_time, "close_time", tjo.close_time) ORDER BY FIELD(tjo.hari, "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu")) AS jam_oprasional')
-                ->join('tbl_foto_kafe tfk', 'tfk.id_kafe = tbl_kafe.id_kafe', 'LEFT')
-                ->join('tbl_jam_operasional  tjo', 'tjo.kafe_id = tbl_kafe.id_kafe', 'LEFT')
+            $subquery = $this->db->table('tbl_jam_operasional')
+                ->select("json_agg(json_build_object('hari', hari, 'open_time', open_time, 'close_time', close_time))")
+                ->where('kafe_id = tbl_kafe.id_kafe')
+                ->groupBy('kafe_id')
+                ->getCompiledSelect();
+
+            $builder = $this->db->table('tbl_kafe')
+                ->select('tbl_kafe.*, tbl_provinsi.nama_provinsi, tbl_kabupaten.nama_kabupaten, tbl_kecamatan.nama_kecamatan, tbl_kelurahan.nama_kelurahan, tbl_status_appv.user, tbl_status_appv.stat_appv, tbl_status_appv.date_updated')
+                ->join('tbl_provinsi', 'tbl_provinsi.id_provinsi = tbl_kafe.id_provinsi')
+                ->join('tbl_kabupaten', 'tbl_kabupaten.id_kabupaten = tbl_kafe.id_kabupaten')
+                ->join('tbl_kecamatan', 'tbl_kecamatan.id_kecamatan = tbl_kafe.id_kecamatan')
+                ->join('tbl_kelurahan', 'tbl_kelurahan.id_kelurahan = tbl_kafe.id_kelurahan')
                 ->join('tbl_status_appv', 'tbl_status_appv.id_kafe = tbl_kafe.id_kafe', 'LEFT')
-                ->join('tbl_provinsi', 'tbl_provinsi.id_provinsi = tbl_kafe.id_provinsi', 'LEFT')
-                ->join('tbl_kabupaten', 'tbl_kabupaten.id_kabupaten = tbl_kafe.id_kabupaten', 'LEFT')
-                ->join('tbl_kecamatan', 'tbl_kecamatan.id_kecamatan = tbl_kafe.id_kecamatan', 'LEFT')
-                ->join('tbl_kelurahan', 'tbl_kelurahan.id_kelurahan = tbl_kafe.id_kelurahan', 'LEFT')
-                ->groupBy('id_kafe, tjo.kafe_id')
+                ->groupBy('tbl_kafe.id_kafe, tbl_provinsi.nama_provinsi, tbl_kabupaten.nama_kabupaten, tbl_kecamatan.nama_kecamatan, tbl_kelurahan.nama_kelurahan, tbl_status_appv.user, tbl_status_appv.stat_appv, tbl_status_appv.date_updated')
+                ->select("string_agg(DISTINCT tbl_foto_kafe.nama_file_foto, ',') AS nama_foto")
+                ->join('tbl_foto_kafe', 'tbl_foto_kafe.id_kafe = tbl_kafe.id_kafe', 'left', false)
+                ->select("($subquery) AS jam_oprasional")
                 ->orderBy('id_kafe', 'DESC')
                 ->getWhere(['stat_appv' => '1']);
+
+            return $builder;
         } else {
-            return $this->db->table('tbl_kafe')->select('tbl_kafe.id_kafe, nama_kafe, alamat_kafe, latitude, longitude, instagram_kafe, tbl_provinsi.id_provinsi as id_provinsi, nama_provinsi, tbl_kabupaten.id_kabupaten as id_kabupaten, nama_kabupaten, tbl_kecamatan.id_kecamatan as id_kecamatan, nama_kecamatan, tbl_kelurahan.id_kelurahan as id_kelurahan, nama_kelurahan, tbl_kafe.created_at, tbl_kafe.updated_at, tbl_status_appv.user as user, tbl_status_appv.stat_appv as stat_appv, users.username as username, GROUP_CONCAT(DISTINCT nama_file_foto SEPARATOR ",") as nama_foto, GROUP_CONCAT(DISTINCT JSON_OBJECT("hari", tjo.hari, "open_time", tjo.open_time, "close_time", tjo.close_time) ORDER BY FIELD(tjo.hari, "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu")) AS jam_oprasional')
-                ->join('tbl_foto_kafe tfk', 'tfk.id_kafe = tbl_kafe.id_kafe', 'LEFT')
-                ->join('tbl_jam_operasional  tjo', 'tjo.kafe_id = tbl_kafe.id_kafe', 'LEFT')
+            $subquery = $this->db->table('tbl_jam_operasional')
+                ->select("json_agg(json_build_object('hari', hari, 'open_time', open_time, 'close_time', close_time))")
+                ->where('kafe_id = tbl_kafe.id_kafe')
+                ->groupBy('kafe_id')
+                ->getCompiledSelect();
+
+            $builder = $this->db->table('tbl_kafe')
+                ->select('tbl_kafe.*, tbl_provinsi.nama_provinsi, tbl_kabupaten.nama_kabupaten, tbl_kecamatan.nama_kecamatan, tbl_kelurahan.nama_kelurahan, tbl_status_appv.user, tbl_status_appv.stat_appv, tbl_status_appv.date_updated, users.username')
+                ->join('tbl_provinsi', 'tbl_provinsi.id_provinsi = tbl_kafe.id_provinsi')
+                ->join('tbl_kabupaten', 'tbl_kabupaten.id_kabupaten = tbl_kafe.id_kabupaten')
+                ->join('tbl_kecamatan', 'tbl_kecamatan.id_kecamatan = tbl_kafe.id_kecamatan')
+                ->join('tbl_kelurahan', 'tbl_kelurahan.id_kelurahan = tbl_kafe.id_kelurahan')
                 ->join('tbl_status_appv', 'tbl_status_appv.id_kafe = tbl_kafe.id_kafe', 'LEFT')
-                ->join('tbl_provinsi', 'tbl_provinsi.id_provinsi = tbl_kafe.id_provinsi', 'LEFT')
-                ->join('tbl_kabupaten', 'tbl_kabupaten.id_kabupaten = tbl_kafe.id_kabupaten', 'LEFT')
-                ->join('tbl_kecamatan', 'tbl_kecamatan.id_kecamatan = tbl_kafe.id_kecamatan', 'LEFT')
-                ->join('tbl_kelurahan', 'tbl_kelurahan.id_kelurahan = tbl_kafe.id_kelurahan', 'LEFT')
                 ->join('users', 'users.id = tbl_status_appv.user', 'LEFT')
-                ->groupBy('id_kafe, tjo.kafe_id')
+                ->groupBy('tbl_kafe.id_kafe, tbl_provinsi.nama_provinsi, tbl_kabupaten.nama_kabupaten, tbl_kecamatan.nama_kecamatan, tbl_kelurahan.nama_kelurahan, tbl_status_appv.user, tbl_status_appv.stat_appv, tbl_status_appv.date_updated, users.username')
+                ->select("string_agg(DISTINCT tbl_foto_kafe.nama_file_foto, ',') AS nama_foto")
+                ->join('tbl_foto_kafe', 'tbl_foto_kafe.id_kafe = tbl_kafe.id_kafe', 'left', false)
+                ->select("($subquery) AS jam_oprasional")
+                ->orderBy('id_kafe', 'DESC')
                 ->Where(['tbl_kafe.id_kafe' => $id_kafe])
                 ->get();
+
+            return $builder;
         }
     }
 
     function callPendingData($id_kafe = false)
     {
         if ($id_kafe === false) {
-            return $this->db->table('tbl_kafe')->select('tbl_kafe.id_kafe, nama_kafe, alamat_kafe, latitude, longitude, instagram_kafe, tbl_provinsi.id_provinsi as id_provinsi, nama_provinsi, tbl_kabupaten.id_kabupaten as id_kabupaten, nama_kabupaten, tbl_kecamatan.id_kecamatan as id_kecamatan, nama_kecamatan, tbl_kelurahan.id_kelurahan as id_kelurahan, nama_kelurahan, tbl_kafe.created_at, tbl_kafe.updated_at, tbl_status_appv.user as user, tbl_status_appv.stat_appv as stat_appv, GROUP_CONCAT(DISTINCT nama_file_foto SEPARATOR ",") as nama_foto, GROUP_CONCAT(DISTINCT JSON_OBJECT("hari", tjo.hari, "open_time", tjo.open_time, "close_time", tjo.close_time)) AS jam_oprasional, users.username as username')
-                ->join('tbl_foto_kafe tfk', 'tfk.id_kafe = tbl_kafe.id_kafe', 'LEFT')
-                ->join('tbl_jam_operasional  tjo', 'tjo.kafe_id = tbl_kafe.id_kafe', 'LEFT')
+            $subquery = $this->db->table('tbl_jam_operasional')
+                ->select("json_agg(json_build_object('hari', hari, 'open_time', open_time, 'close_time', close_time))")
+                ->where('kafe_id = tbl_kafe.id_kafe')
+                ->groupBy('kafe_id')
+                ->getCompiledSelect();
+
+            $builder = $this->db->table('tbl_kafe')
+                ->select('tbl_kafe.*, tbl_provinsi.nama_provinsi, tbl_kabupaten.nama_kabupaten, tbl_kecamatan.nama_kecamatan, tbl_kelurahan.nama_kelurahan, tbl_status_appv.user, tbl_status_appv.stat_appv, tbl_status_appv.date_updated, users.username')
+                ->join('tbl_provinsi', 'tbl_provinsi.id_provinsi = tbl_kafe.id_provinsi')
+                ->join('tbl_kabupaten', 'tbl_kabupaten.id_kabupaten = tbl_kafe.id_kabupaten')
+                ->join('tbl_kecamatan', 'tbl_kecamatan.id_kecamatan = tbl_kafe.id_kecamatan')
+                ->join('tbl_kelurahan', 'tbl_kelurahan.id_kelurahan = tbl_kafe.id_kelurahan')
                 ->join('tbl_status_appv', 'tbl_status_appv.id_kafe = tbl_kafe.id_kafe', 'LEFT')
-                ->join('tbl_provinsi', 'tbl_provinsi.id_provinsi = tbl_kafe.id_provinsi', 'LEFT')
-                ->join('tbl_kabupaten', 'tbl_kabupaten.id_kabupaten = tbl_kafe.id_kabupaten', 'LEFT')
-                ->join('tbl_kecamatan', 'tbl_kecamatan.id_kecamatan = tbl_kafe.id_kecamatan', 'LEFT')
-                ->join('tbl_kelurahan', 'tbl_kelurahan.id_kelurahan = tbl_kafe.id_kelurahan', 'LEFT')
                 ->join('users', 'users.id = tbl_status_appv.user', 'LEFT')
-                ->groupBy('id_kafe, tjo.kafe_id')
+                ->groupBy('tbl_kafe.id_kafe, tbl_provinsi.nama_provinsi, tbl_kabupaten.nama_kabupaten, tbl_kecamatan.nama_kecamatan, tbl_kelurahan.nama_kelurahan, tbl_status_appv.user, tbl_status_appv.stat_appv, tbl_status_appv.date_updated, users.username')
+                ->select("string_agg(DISTINCT tbl_foto_kafe.nama_file_foto, ',') AS nama_foto")
+                ->join('tbl_foto_kafe', 'tbl_foto_kafe.id_kafe = tbl_kafe.id_kafe', 'left', false)
+                ->select("($subquery) AS jam_oprasional")
                 ->orderBy('id_kafe', 'DESC')
                 ->getWhere(['stat_appv' => '0']);
+
+            return $builder;
         } else {
             return $this->Where(['id_kafe' => $id_kafe])->get();
         }
@@ -71,17 +102,27 @@ class ModelKv extends Model
 
     function userSubmitKafe($userid)
     {
-        return $this->db->table('tbl_kafe')->select('tbl_kafe.id_kafe, nama_kafe, alamat_kafe, latitude, longitude, instagram_kafe, tbl_provinsi.id_provinsi as id_provinsi, nama_provinsi, tbl_kabupaten.id_kabupaten as id_kabupaten, nama_kabupaten, tbl_kecamatan.id_kecamatan as id_kecamatan, nama_kecamatan, tbl_kelurahan.id_kelurahan as id_kelurahan, nama_kelurahan, created_at, updated_at, tbl_status_appv.user as user, tbl_status_appv.stat_appv as stat_appv, tbl_status_appv.date_updated,  GROUP_CONCAT(DISTINCT nama_file_foto SEPARATOR ",") as nama_foto, GROUP_CONCAT(DISTINCT JSON_OBJECT("hari", tjo.hari, "open_time", tjo.open_time, "close_time", tjo.close_time)) AS jam_oprasional')
-            ->join('tbl_foto_kafe tfk', 'tfk.id_kafe = tbl_kafe.id_kafe', 'LEFT')
-            ->join('tbl_jam_operasional  tjo', 'tjo.kafe_id = tbl_kafe.id_kafe', 'LEFT')
+        $subquery = $this->db->table('tbl_jam_operasional')
+            ->select("json_agg(json_build_object('hari', hari, 'open_time', open_time, 'close_time', close_time))")
+            ->where('kafe_id = tbl_kafe.id_kafe')
+            ->groupBy('kafe_id')
+            ->getCompiledSelect();
+
+        $builder = $this->db->table('tbl_kafe')
+            ->select('tbl_kafe.*, tbl_provinsi.nama_provinsi, tbl_kabupaten.nama_kabupaten, tbl_kecamatan.nama_kecamatan, tbl_kelurahan.nama_kelurahan, tbl_status_appv.user, tbl_status_appv.stat_appv, tbl_status_appv.date_updated')
+            ->join('tbl_provinsi', 'tbl_provinsi.id_provinsi = tbl_kafe.id_provinsi')
+            ->join('tbl_kabupaten', 'tbl_kabupaten.id_kabupaten = tbl_kafe.id_kabupaten')
+            ->join('tbl_kecamatan', 'tbl_kecamatan.id_kecamatan = tbl_kafe.id_kecamatan')
+            ->join('tbl_kelurahan', 'tbl_kelurahan.id_kelurahan = tbl_kafe.id_kelurahan')
             ->join('tbl_status_appv', 'tbl_status_appv.id_kafe = tbl_kafe.id_kafe', 'LEFT')
-            ->join('tbl_provinsi', 'tbl_provinsi.id_provinsi = tbl_kafe.id_provinsi', 'LEFT')
-            ->join('tbl_kabupaten', 'tbl_kabupaten.id_kabupaten = tbl_kafe.id_kabupaten', 'LEFT')
-            ->join('tbl_kecamatan', 'tbl_kecamatan.id_kecamatan = tbl_kafe.id_kecamatan', 'LEFT')
-            ->join('tbl_kelurahan', 'tbl_kelurahan.id_kelurahan = tbl_kafe.id_kelurahan', 'LEFT')
-            ->groupBy('id_kafe, tjo.kafe_id')
+            ->groupBy('tbl_kafe.id_kafe, tbl_provinsi.nama_provinsi, tbl_kabupaten.nama_kabupaten, tbl_kecamatan.nama_kecamatan, tbl_kelurahan.nama_kelurahan, tbl_status_appv.user, tbl_status_appv.stat_appv, tbl_status_appv.date_updated')
+            ->select("string_agg(DISTINCT tbl_foto_kafe.nama_file_foto, ',') AS nama_foto")
+            ->join('tbl_foto_kafe', 'tbl_foto_kafe.id_kafe = tbl_kafe.id_kafe', 'left', false)
+            ->select("($subquery) AS jam_oprasional")
             ->orderBy('id_kafe', 'DESC')
             ->getWhere(['user' => $userid]);
+
+        return $builder;
     }
 
     function getFiveKafe()
@@ -112,7 +153,7 @@ class ModelKv extends Model
     {
         return $this->db->table('tbl_kafe')
             ->join('tbl_status_appv', 'tbl_status_appv.id_kafe = tbl_kafe.id_kafe')
-            ->orderBy('RAND()')->limit(4)->getWhere(['stat_appv' => '1']);
+            ->orderBy('RANDOM()')->limit(4)->getWhere(['stat_appv' => '1']);
     }
 
     function countAllKafe()

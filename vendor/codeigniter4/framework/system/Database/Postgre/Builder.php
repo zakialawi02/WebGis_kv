@@ -49,7 +49,7 @@ class Builder extends BaseBuilder
     {
         $sql = parent::compileIgnore($statement);
 
-        if (! empty($sql)) {
+        if (!empty($sql)) {
             $sql = ' ' . trim($sql);
         }
 
@@ -96,7 +96,7 @@ class Builder extends BaseBuilder
 
         $sql = $this->_update($this->QBFrom[0], [$column => "to_number({$column}, '9999999') + {$value}"]);
 
-        if (! $this->testMode) {
+        if (!$this->testMode) {
             $this->resetWrite();
 
             return $this->db->query($sql, $this->binds, false);
@@ -118,7 +118,7 @@ class Builder extends BaseBuilder
 
         $sql = $this->_update($this->QBFrom[0], [$column => "to_number({$column}, '9999999') - {$value}"]);
 
-        if (! $this->testMode) {
+        if (!$this->testMode) {
             $this->resetWrite();
 
             return $this->db->query($sql, $this->binds, false);
@@ -145,7 +145,7 @@ class Builder extends BaseBuilder
             $this->set($set);
         }
 
-        if (! $this->QBSet) {
+        if (!$this->QBSet) {
             if (CI_DEBUG) {
                 throw new DatabaseException('You must use the "set" method to update an entry.');
             }
@@ -211,7 +211,7 @@ class Builder extends BaseBuilder
      */
     public function delete($where = '', ?int $limit = null, bool $resetData = true)
     {
-        if (! empty($limit) || ! empty($this->QBLimit)) {
+        if (!empty($limit) || !empty($this->QBLimit)) {
             throw new DatabaseException('PostgreSQL does not allow LIMITs on DELETE queries.');
         }
 
@@ -233,7 +233,7 @@ class Builder extends BaseBuilder
      */
     protected function _update(string $table, array $values): string
     {
-        if (! empty($this->QBLimit)) {
+        if (!empty($this->QBLimit)) {
             throw new DatabaseException('Postgres does not support LIMITs with UPDATE queries.');
         }
 
@@ -266,8 +266,8 @@ class Builder extends BaseBuilder
 
         foreach ($final as $k => $v) {
             $cases .= "{$k} = (CASE {$index}\n"
-                    . implode("\n", $v)
-                    . "\nELSE {$k} END), ";
+                . implode("\n", $v)
+                . "\nELSE {$k} END), ";
         }
 
         $this->where("{$index} IN(" . implode(',', $ids) . ')', null, false);
@@ -320,7 +320,7 @@ class Builder extends BaseBuilder
      */
     public function join(string $table, $cond, string $type = '', ?bool $escape = null)
     {
-        if (! in_array('FULL OUTER', $this->joinTypes, true)) {
+        if (!in_array('FULL OUTER', $this->joinTypes, true)) {
             $this->joinTypes = array_merge($this->joinTypes, ['FULL OUTER']);
         }
 

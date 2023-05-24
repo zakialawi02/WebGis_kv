@@ -152,7 +152,7 @@
                                                                                             });
 
                                                                                             // Tampilkan jam operasional dalam urutan yang diinginkan
-                                                                                            foreach ($jam_oprasional as $jam) {
+                                                                                            foreach ($jam_oprasional[0] as $jam) {
                                                                                                 $hari = $jam['hari'];
                                                                                                 $open_time = $jam['open_time'];
                                                                                                 $close_time = $jam['close_time'];

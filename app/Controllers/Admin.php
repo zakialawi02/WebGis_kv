@@ -44,7 +44,7 @@ class Admin extends BaseController
             'userSubmitKafe' => $this->kafe->userSubmitKafe($userid)->getResult(),
         ];
         // echo '<pre>';
-        // print_r($data['pendingKafe']);
+        // print_r($data);
         // die;
         return view('admin/dashboard', $data);
     }
@@ -53,7 +53,23 @@ class Admin extends BaseController
     {
         $data = [
             'title' => 'Tes',
+            'tampilKafe' => $this->kafe->callKafe()->getResult(),
         ];
+        echo '<pre>';
+        print_r($data['tampilKafe']);
+        die;
+        return view('page/tes', $data);
+    }
+
+    public function tess($id_kafe)
+    {
+        $data = [
+            'title' => 'Tes',
+            'tampilKafe' => $this->kafe->getDump($id_kafe)->getResult(),
+        ];
+        echo '<pre>';
+        print_r($data['tampilKafe']);
+        die;
         return view('page/tes', $data);
     }
 
@@ -646,7 +662,9 @@ class Admin extends BaseController
             'title' => 'PENDING LIST',
             'tampilKafe' => $this->kafe->callPendingData()->getResult(),
         ];
-
+        // echo '<pre>';
+        // print_r($data);
+        // die;
         return view('admin/pendingList', $data);
     }
 
@@ -710,7 +728,6 @@ class Admin extends BaseController
         if ($this->request->isAJAX()) {
             $search = $this->request->getPost('search');
             $results = $this->Administrasi->getDataAjaxRemote($search);
-            // var_dump($results);
             if (count($results) > 0) {
                 foreach ($results as $row) {
                     $selectajax[] = [
@@ -735,6 +752,7 @@ class Admin extends BaseController
                 ];
             };
         }
+        echo '<pre>';
         print_r($results);
         print_r($selectajax);
     }
