@@ -192,46 +192,7 @@
             })
         <?php endforeach ?>
 
-        // shapefile/geojson
-        <?php $groupedData = []; ?>
-        <?php foreach ($tampilGeojson as $item) :  ?>
-            <?php $extension = pathinfo($item->geojson, PATHINFO_EXTENSION); ?>
-            <?php if (!isset($groupedData[$extension])) : ?>
-                <?php $groupedData[$extension] = []; ?>
-                <?php $groupedData[$extension][] = $item; ?>
-            <?php endif ?>
-        <?php endforeach ?>
-        <?php $extensionCount = count($groupedData); ?>
-        <?php if ($extensionCount > 1) : ?>
-            <?php foreach ($tampilGeojson as $G) : ?>
-                <?php $ee = pathinfo($G->geojson, PATHINFO_EXTENSION); ?>
 
-                var myStyle<?= $G->id; ?> = {
-                    "color": "<?= $G->warna; ?>",
-                    "weight": 1.5,
-                    "opacity": 0.3,
-                }
-
-                function popUp(f, l) {
-                    var out = [];
-                    if (f.properties) {
-                        for (key in f.properties) {
-                            out.push(key + ": " + f.properties[key]);
-                        }
-                        l.bindPopup(out.join("<br />"));
-                    }
-                }
-                var jsonTest = new L.GeoJSON.AJAX(["<?= base_url(); ?>/geojson/<?= $G->geojson; ?>"], {
-                    onEachFeature: popUp,
-                    style: myStyle<?= $G->id; ?>,
-                }).addTo(map);
-            <?php endforeach ?>
-        <?php elseif ($extensionCount == 1) : ?>
-            <?php $extension = array_keys($extensions)[0]; ?>
-
-        <?php else : ?>
-
-        <?php endif ?>
 
 
 
