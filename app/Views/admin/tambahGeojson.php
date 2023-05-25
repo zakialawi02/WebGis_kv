@@ -70,7 +70,7 @@
                                             </div>
                                             <div class="col-md-10">
                                                 <label for="formFile" class="form-label">Upload File GeoJSON</label>
-                                                <input class="form-control" type="file" name="Fjson" id="Fjson" accept=".geojson, .json">
+                                                <input class="form-control" type="file" name="Fjson" id="Fjson" accept=".geojson, .json, .zip">
                                                 <div id="FileHelp" class="form-text">.GeoJSON</div>
                                             </div>
                                             <div class="col-md-2">
@@ -177,6 +177,7 @@
                 center: [<?= $D->coordinat_wilayah; ?>],
                 zoom: <?= $D->zoom_view; ?>,
                 layers: [peta1],
+                attributionControl: false,
                 gestureHandling: true,
             })
         <?php endforeach ?>

@@ -183,6 +183,7 @@
                 center: [<?= $D->coordinat_wilayah; ?>],
                 zoom: <?= $D->zoom_view; ?>,
                 layers: [peta1],
+                attributionControl: false,
                 gestureHandling: true,
             })
         <?php endforeach ?>

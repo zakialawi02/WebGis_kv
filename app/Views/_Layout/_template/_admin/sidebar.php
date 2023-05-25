@@ -18,7 +18,7 @@
 
                     <a class="nav-link collapsed" href="/admin/data/geojson" data-bs-toggle="collapse" data-bs-target="#collapseGeojson" aria-expanded="false" aria-controls="collapseGeojson">
                         <div class="sb-nav-link-icon"><i class="bi bi-archive-fill"></i></div>
-                        GeoJson
+                        Features
                         <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                     </a>
                     <div class="collapse" id="collapseGeojson" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">

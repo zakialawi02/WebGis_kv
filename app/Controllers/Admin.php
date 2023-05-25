@@ -170,14 +170,19 @@ class Admin extends BaseController
         // ambil file
         $fileGeojson = $this->request->getFile('Fjson');
         //generate random file name
-        $randomName = $fileGeojson->getRandomName();
+        $extension = $fileGeojson->getExtension();
+        $size = $fileGeojson->getSize();
+        $randomName = date('YmdHis') . '_' . $size . '.' . $extension;
         $explode = explode('.', $randomName);
         array_pop($explode);
         $randomName = implode('.', $explode);
-        $randomName = $randomName . ".geojson";
+        if ($extension != 'zip') {
+            $randomName = $randomName . ".geojson";
+        } else {
+            $randomName = $randomName . ".$extension";
+        }
         // pindah file to hosting
         $fileGeojson->move('geojson/', $randomName);
-
 
         $data = [
             'kode_wilayah' => $this->request->getVar('kodeG'),
@@ -310,11 +315,7 @@ class Admin extends BaseController
             'getFoto' => $this->fotoKafe->getFoto($id_kafe)->getResult(),
             'provinsi' => $this->kafe->allProvinsi(),
         ];
-        // echo '<pre>';
-        // $dump = $data['tampilKafe']->jam_oprasional;
-        // $t = json_decode($dump);
-        // print_r($t);
-        // die;
+
         return view('admin/updateKafe', $data);
     }
 

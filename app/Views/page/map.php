@@ -129,13 +129,16 @@
 
                         <div class="row g-2">
                             <label for="koordinat" class="">Koordinat</label>
-                            <div class="form-group col-md-6">
+                            <div class="form-group col-md-5">
                                 <label for="latitude" class="">Latitude</label>
                                 <input type="text" class="form-control" id="latitude" aria-describedby="textlHelp" name="latitude" placeholder="-7.0385384" pattern="/^(\-?\d+(\.\d+)?)$/" title="Tuliskan Sesuai Format" required>
                             </div>
-                            <div class="form-group col-md-6">
+                            <div class="form-group col-md-5">
                                 <label for="longitude" class="">Longitude</label>
                                 <input type="text" class="form-control" id="longitude" aria-describedby="textlHelp" name="longitude" placeholder="112.8998345" pattern="/^[^a-zA-Z]*(\-?\d+(\.\d+)?)$/" title="Tuliskan Sesuai Format" required>
+                            </div>
+                            <div class="col-md gps">
+                                <button type="button" role="button" onclick="mygps()" id="myLoc" class="btn btn-primary bi bi-geo-alt"></button>
                             </div>
                             <div id="FileHelp" class="form-text"><span style="font-weight: bold;">NOTE:</span> Ketikan Koordinat Latitude dan Longitude atau klik kanan lokasi pada peta</div>
                         </div>
@@ -821,7 +824,7 @@
             function addMarker(e) {
                 if (addKafe) map.removeLayer(addKafe);
                 addKafe = L.marker(e.latlng, {
-                    icon: locKafe
+                    icon: inKafe
                 }).addTo(map);
                 $("#loading-spinner").removeClass("d-none");
                 lat = e.latlng.lat;
@@ -846,6 +849,26 @@
                 }, 500);
             }
         <?php endif ?>
+
+        function mygps() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
+                alert("Geolokasi tidak didukung oleh peramban ini.");
+            }
+        }
+
+        function showPosition(position) {
+            var latitude = position.coords.latitude;
+            var longitude = position.coords.longitude;
+            if (addKafe) map.removeLayer(addKafe);
+            addKafe = L.marker([latitude, longitude], {
+                icon: inKafe
+            }).addTo(map);
+            $('#latitude').val(latitude);
+            $('#longitude').val(longitude);
+            map.flyTo([latitude, longitude], 13)
+        }
 
         // controller
         map.removeControl(map.zoomControl);
@@ -877,17 +900,6 @@
         L.control.mousePosition().addTo(map);
         L.control.scale().addTo(map);
         var hash = new L.Hash(map);
-
-        var geojsonKafe;
-        fetch('<?= base_url(); ?>/api/aprv')
-            .then(function(response) {
-                return response.json();
-            })
-            .then(function(data) {
-                var geojsonKafe = data;
-                console.log(geojsonKafe);
-            });
-
 
         // Tambahkan control accordion pada peta
         var legendControl = L.control({
@@ -931,6 +943,12 @@
         // set marker place
         const locKafe = L.icon({
             iconUrl: '<?= base_url(); ?>/leaflet/icon/restaurant_breakfast.png',
+            iconSize: [30, 30],
+            iconAnchor: [16, 30], // point of the icon which will correspond to marker's location
+            popupAnchor: [0, -28] // point from which the popup should open relative to the iconAnchor
+        });
+        const inKafe = L.icon({
+            iconUrl: '<?= base_url(); ?>/leaflet/icon/restaurant_breakfast_y.png',
             iconSize: [30, 30],
             iconAnchor: [16, 30], // point of the icon which will correspond to marker's location
             popupAnchor: [0, -28] // point from which the popup should open relative to the iconAnchor
@@ -1007,8 +1025,8 @@
                     id: 'layersPoly',
                     title: 'Administrasi',
                     child: [{
-                        title: 'Surabaya',
-                        icon: `heptagon-half`,
+                        title: 'Kota Surabaya',
+                        iconHtml: '<div class="legend-color" style="background-color: rgba(0,0,255,0.3); border: 1px solid #000000;"></div>',
                         layer: polyShp
                     }]
                 };
@@ -1017,7 +1035,7 @@
                 function checkLayerVisibility() {
                     if (map.hasLayer(polyShp)) {
                         var legendItem = $('.legend-item1');
-                        legendItem.html('<div class="legend-color" style="background-color: rgba(0,0,255,0.3);"></div>' +
+                        legendItem.html('<div class="legend-color" style="background-color: rgba(0,0,255,0.3); border: 1px solid #000000;"></div>' +
                             '<div class="legend-label">Batas Administrasi</div>');
                     } else {
                         var legendItem = $('.legend-item1');
@@ -1032,22 +1050,7 @@
                         legendItem.empty();
                     }
                 }
-                if (map.hasLayer(polyShp)) {
-                    var legendItem1 = $('.legend-item1');
-                    legendItem1.html('<div class="legend-color" style="background-color: rgba(0,0,255,0.3);"></div>' +
-                        '<div class="legend-label">Batas Administrasi</div>');
-                } else {
-                    var legendItem1 = $('.legend-item1');
-                    legendItem1.empty();
-                }
-                if (map.hasLayer(cafes)) {
-                    var legendItem2 = $('.legend-item2');
-                    legendItem2.html('<div class="legend-img"><img src="<?= base_url(); ?>/leaflet/icon/restaurant_breakfast.png"></div>' +
-                        '<div class="legend-label">Kafe</div>');
-                } else {
-                    var legendItem2 = $('.legend-item2');
-                    legendItem2.empty();
-                }
+                checkLayerVisibility()
                 // Event listener untuk cek layer visibility saat klik layer control
                 cafes.on('add remove', checkLayerVisibility);
                 polyShp.on('add remove', checkLayerVisibility);
@@ -1109,7 +1112,7 @@
                         popupContent += key + ": " + properties[key] + "<br>";
                     }
                 }
-                layer.bindPopup(popupContent);
+                // layer.bindPopup(popupContent);
             }
         });
 
@@ -1125,7 +1128,6 @@
         }, function(a) {
             console.log(a)
         });
-
 
 
 
