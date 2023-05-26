@@ -27,6 +27,16 @@ class ModelAdministrasi extends Model
             ->orLike('nama_kelurahan', $search)
             ->get()->getResultArray();
     }
+    public function getKode($kode)
+    {
+        return $this->db->table('tbl_kelurahan')
+            ->select('tbl_kelurahan.id_kelurahan as id_kelurahan, nama_kelurahan, tbl_kecamatan.id_kecamatan as id_kecamatan, nama_kecamatan, tbl_kabupaten.id_kabupaten as id_kabupaten, nama_kabupaten, tbl_provinsi.id_provinsi as id_provinsi, nama_provinsi')
+            ->join('tbl_kecamatan', 'tbl_kecamatan.id_kecamatan = tbl_kelurahan.id_kecamatan')
+            ->join('tbl_kabupaten', 'tbl_kabupaten.id_kabupaten = tbl_kecamatan.id_kabupaten')
+            ->join('tbl_provinsi', 'tbl_provinsi.id_provinsi = tbl_kabupaten.id_provinsi')
+            ->where('tbl_kelurahan.id_kelurahan',  $kode)
+            ->get()->getResultArray();
+    }
     // vardump AjaxRemote
     public function Remote()
     {

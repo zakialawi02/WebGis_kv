@@ -743,6 +743,18 @@ class Admin extends BaseController
             return $this->response->setJSON($selectajax);
         }
     }
+    public function getkode()
+    {
+        $kode = $this->request->getPost('kode');
+        $results = $this->Administrasi->getKode($kode);
+        $response = [
+            'status' => 'Succes',
+            'id' => $results[0]['id_kelurahan'] . ", " . $results[0]['id_kecamatan'] . ", " . $results[0]['id_kabupaten'] . ", " . $results[0]['id_provinsi'],
+            'text' => $results[0]['nama_kabupaten'] . ", Kecamatan " . $results[0]['nama_kecamatan'] . ", " . $results[0]['nama_kelurahan'],
+        ];
+        return $this->response->setJSON($response);
+    }
+
     // vardump AjaxRemote
     public function wil()
     {

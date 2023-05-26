@@ -740,6 +740,7 @@
     <script src="/leaflet/catiline.js"></script>
     <script src="/leaflet/leaflet.shpfile.js"></script>
     <script src="/leaflet/leaflet-hash.js"></script>
+    <script src='https://unpkg.com/@turf/turf@6/turf.min.js'></script>
 
     <!-- Leafleat Setting js-->
     <!-- initialize the map on the "map" div with a given center and zoom -->
@@ -830,6 +831,48 @@
                 lat = e.latlng.lat;
                 lng = e.latlng.lng;
                 koordinat = lat + ", " + lng;
+
+                var clickedPoint = turf.point([lng, lat]); // Create a Turf.js point object
+                // Check if the clicked point is inside any polygon of the GeoJSON layer
+                var isInsidePolygon = false;
+                geoshp.eachLayer(function(layer) {
+                    var polygon = layer.toGeoJSON();
+                    if (turf.booleanPointInPolygon(clickedPoint, polygon)) {
+                        isInsidePolygon = true;
+                        // Log the information about the polygon to the console
+                        var properties = polygon.properties;
+                        var kode = properties.kode_1;
+                        $.ajax({
+                            type: "POST",
+                            url: "<?php echo base_url('/admin/getkode'); ?>",
+                            data: {
+                                kode: kode
+                            },
+                            dataType: "json",
+                            success: function(response) {
+                                var detectIdWilayah = response.id;
+                                var detectTextWilayah = response.text;
+                                var id = detectIdWilayah;
+                                var text = detectTextWilayah;
+                                // Membuat opsi-select baru dengan data ID
+                                var option = new Option(detectTextWilayah, detectIdWilayah);
+                                // Menghapus semua opsi-select sebelumnya
+                                $('#wilayahA').empty();
+                                // Menambahkan opsi-select baru ke dalam select element
+                                $('#wilayahA').append(option);
+                                // Mengaktifkan opsi-select yang dipilih berdasarkan data ID
+                                $('#wilayahA').val(detectIdWilayah);
+                            },
+                            error: function(xhr, status, error) {
+                                console.log(error);
+                            }
+                        });
+                    }
+                });
+                // If the clicked point is not inside any polygon, display a message
+                if (!isInsidePolygon) {
+                    console.log('Marker is not inside any polygon.');
+                }
                 $('#latitude').val(lat);
                 $('#longitude').val(lng);
                 setTimeout(function() {
