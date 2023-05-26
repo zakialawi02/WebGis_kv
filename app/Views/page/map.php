@@ -28,6 +28,7 @@
     <link rel="stylesheet" href="/leaflet/iconLayers.css" />
     <link rel="stylesheet" href="/leaflet/leaflet.contextmenu.css" />
     <link rel="stylesheet" href="/leaflet/leaflet.lumap.css" />
+    <link rel="stylesheet" href="/leaflet/Leaflet.NavBar.css" />
 
 </head>
 
@@ -740,6 +741,7 @@
     <script src="/leaflet/catiline.js"></script>
     <script src="/leaflet/leaflet.shpfile.js"></script>
     <script src="/leaflet/leaflet-hash.js"></script>
+    <script src="/leaflet/Leaflet.NavBar.js"></script>
     <script src='https://unpkg.com/@turf/turf@6/turf.min.js'></script>
 
     <!-- Leafleat Setting js-->
@@ -942,6 +944,7 @@
         baseLayers.addTo(map);
         L.control.mousePosition().addTo(map);
         L.control.scale().addTo(map);
+        L.control.navbar().addTo(map);
         var hash = new L.Hash(map);
 
         // Tambahkan control accordion pada peta
