@@ -591,7 +591,7 @@
                 }
             }
 
-            var jsonTest = new L.GeoJSON.AJAX(["<?= base_url(); ?>/geojson/<?= $G->geojson; ?>", "counties.geojson"], {
+            var jsonTest = new L.GeoJSON.AJAX(["<?= base_url(); ?>/geojson/<?= $G->features; ?>", "counties.geojson"], {
                 onEachFeature: popUp,
                 style: myStyle<?= $G->id; ?>,
             }).addTo(map);

@@ -132,10 +132,9 @@ class Admin extends BaseController
     public function geojson()
     {
         $data = [
-            'title' => 'DATA GEOJSON',
+            'title' => 'DATA FEATURES',
             'tampilData' => $this->setting->tampilData()->getResult(),
             'tampilGeojson' => $this->FGeojson->callGeojson()->getResult(),
-            'updateGeojson' => $this->FGeojson->callGeojson()->getRow(),
         ];
 
         return view('admin/geojsonData', $data);
@@ -144,7 +143,7 @@ class Admin extends BaseController
     public function editGeojson($id)
     {
         $data = [
-            'title' => 'DATA GEOJSON',
+            'title' => 'DATA FEATURES',
             'updateGeojson' => $this->FGeojson->callGeojson($id)->getRow(),
         ];
 
@@ -154,7 +153,7 @@ class Admin extends BaseController
     public function tambahGeojson()
     {
         $data = [
-            'title' => 'DATA GEOJSON',
+            'title' => 'DATA FEATURES',
             'tampilData' => $this->setting->tampilData()->getResult(),
 
         ];
@@ -166,7 +165,6 @@ class Admin extends BaseController
     public function tambah_Geojson()
     {
         // dd($this->request->getVar());
-
         // ambil file
         $fileGeojson = $this->request->getFile('Fjson');
         //generate random file name
@@ -185,17 +183,19 @@ class Admin extends BaseController
         $fileGeojson->move('geojson/', $randomName);
 
         $data = [
-            'kode_wilayah' => $this->request->getVar('kodeG'),
-            'nama_wilayah'  => $this->request->getVar('Nkec'),
-            'geojson'  => $randomName,
+            'nama_features'  => $this->request->getVar('Nkec'),
+            'features'  => $randomName,
             'warna'  => $this->request->getVar('Kwarna'),
         ];
 
         $addGeojson = $this->FGeojson->addGeojson($data);
 
         if ($addGeojson) {
-            session()->setFlashdata('alert', 'Data Anda Berhasil Ditambahkan.');
-            return $this->response->redirect(site_url('/admin/data/geojson'));
+            session()->setFlashdata('success', 'Data Berhasil ditambahkan.');
+            return $this->response->redirect(site_url('/admin/features'));
+        } else {
+            session()->setFlashdata('error', 'Gagal menambahkan data.');
+            return $this->response->redirect(site_url('/admin/features'));
         }
     }
 
@@ -203,7 +203,6 @@ class Admin extends BaseController
     public function update_Geojson()
     {
         // dd($this->request->getVar());
-
         // ambil file name
         $fileGeojson = $this->request->getFile('Fjson');
         // cek file input
@@ -230,19 +229,18 @@ class Admin extends BaseController
 
         $id = $this->request->getVar('id');
         $data = [
-            'kode_wilayah' => $this->request->getVar('kodeG'),
-            'nama_wilayah'  => $this->request->getVar('Nkec'),
+            'nama_features'  => $this->request->getVar('Nkec'),
             'warna'  => $this->request->getVar('Kwarna'),
-            'geojson'  => $fileGeojsonBaru,
+            'features'  => $fileGeojsonBaru,
         ];
 
         $this->FGeojson->updateGeojson($data, $id);
         if ($this) {
             session()->setFlashdata('success', 'Data Berhasil diperbarui.');
-            return $this->response->redirect(site_url('/admin/data/geojson'));
+            return $this->response->redirect(site_url('/admin/features'));
         } else {
             session()->setFlashdata('error', 'Gagal memperbarui data.');
-            return $this->response->redirect(site_url('/admin/data/geojson'));
+            return $this->response->redirect(site_url('/admin/features'));
         }
     }
 
@@ -251,12 +249,17 @@ class Admin extends BaseController
     {
 
         $data = $this->FGeojson->callGeojson($id)->getRow();
-        $file = $data->geojson;
+        $file = $data->features;
         unlink("geojson/" . $file);
 
         $this->FGeojson->delete(['id' => $id]);
-        session()->setFlashdata('alert', "Data Berhasil dihapus.");
-        return $this->response->redirect(site_url('/admin/data/geojson'));
+        if ($this) {
+            session()->setFlashdata('success', 'Data Berhasil dihapus.');
+            return $this->response->redirect(site_url('/admin/features'));
+        } else {
+            session()->setFlashdata('error', 'Gagal menghapus data.');
+            return $this->response->redirect(site_url('/admin/features'));
+        }
     }
 
 

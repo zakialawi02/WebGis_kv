@@ -7,11 +7,11 @@ use CodeIgniter\Model;
 
 class ModelGeojson extends Model
 {
-    protected $table      = 'tbl_wilayah';
+    protected $table      = 'tbl_features';
     protected $primaryKey = 'id';
 
 
-    protected $allowedFields = ['kode_wilayah', 'nama_wilayah', 'geojson', 'warna'];
+    protected $allowedFields = ['nama_features', 'features', 'warna'];
 
     function __construct()
     {
@@ -21,7 +21,7 @@ class ModelGeojson extends Model
     function callGeojson($id = false)
     {
         if ($id === false) {
-            return $this->db->table('tbl_wilayah')->get();
+            return $this->db->table('tbl_features')->get();
         } else {
             return $this->Where(['id' => $id])->get();
         }
@@ -29,11 +29,11 @@ class ModelGeojson extends Model
 
     function addGeojson($addGeojson)
     {
-        return $this->db->table('tbl_wilayah')->insert($addGeojson);
+        return $this->db->table('tbl_features')->insert($addGeojson);
     }
 
     public function updateGeojson($data, $id)
     {
-        return $this->db->table('tbl_wilayah')->update($data, ['id' => $id]);
+        return $this->db->table('tbl_features')->update($data, ['id' => $id]);
     }
 }

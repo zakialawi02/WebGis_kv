@@ -45,7 +45,7 @@
             <!-- MAIN CONTENT -->
             <main>
                 <div class="container-fluid px-4">
-                    <h1 class="mt-4">Pending Data Kafe</h1>
+                    <h1 class="mt-4">Setting</h1>
                     <div class="card mb-4">
 
                         <div class="card-body">
@@ -200,7 +200,7 @@
                 }
             }
 
-            var jsonTest = new L.GeoJSON.AJAX(["<?= base_url(); ?>/geojson/<?= $G->geojson; ?>", "counties.geojson"], {
+            var jsonTest = new L.GeoJSON.AJAX(["<?= base_url(); ?>/geojson/<?= $G->features; ?>", "counties.geojson"], {
                 onEachFeature: popUp,
                 style: myStyle<?= $G->id; ?>,
             }).addTo(map);

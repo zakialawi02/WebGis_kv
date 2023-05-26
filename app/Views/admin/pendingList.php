@@ -94,7 +94,7 @@
                                                 </div>
                                                 <div class="btn-group mr-2" role="group" aria-label="First group">
                                                     <!-- Trigger modal -->
-                                                    <button type="button" id="infos" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#infoModal-<?= $S->id_kafe ?>" onclick="showMap<?= $S->id_kafe; ?>()">i</button>
+                                                    <button type="button" id="infos" class="btn btn-secondary bi bi-eye" data-bs-toggle="modal" data-bs-target="#infoModal-<?= $S->id_kafe ?>" onclick="showMap<?= $S->id_kafe; ?>()"></button>
                                                 </div>
                                                 <!-- Modal detail -->
                                                 <div class=" modal fade" id="infoModal-<?= $S->id_kafe ?>" tabindex="-1" aria-labelledby="infoModalLabel-<?= $S->id_kafe ?>" aria-hidden="true">
@@ -223,18 +223,12 @@
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/816b3ace5c.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src=" https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.all.min.js "></script>
 
     <!-- Template Main JS File -->
     <script src="/js/datatables-simple-demo.js"></script>
     <script src="/js/scripts.js"></script>
 
-    <script>
-        $(document).ready(function() {
-            $("th").css("pointer-events", "none");
-            $(".no-sort").css("pointer-events", "none");
-        });
-    </script>
     <script>
         $(document).ready(function() {
             $(".alert");
@@ -251,7 +245,7 @@
         <script>
             $(document).ready(function() {
                 function showMap<?= $S->id_kafe; ?>() {
-                    var mymap = L.map('mymap-<?= $S->id_kafe; ?>').setView([<?= $S->latitude; ?>, <?= $S->longitude; ?>], 13);
+                    var mymap = L.map('mymap-<?= $S->id_kafe; ?>').setView([<?= $S->latitude; ?>, <?= $S->longitude; ?>], 14);
 
                     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                         attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors',

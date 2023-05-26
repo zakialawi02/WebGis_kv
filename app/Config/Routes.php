@@ -48,9 +48,9 @@ $routes->get('/admin/pending', 'Admin::pending', ['filter' => 'role:SuperAdmin,A
 $routes->get('/admin/setting', 'Admin::setting', ['filter' => 'role:SuperAdmin,Admin']);
 
 $routes->get('/admin/geojson', 'Admin::geojson', ['filter' => 'role:SuperAdmin,Admin']);
-$routes->get('/admin/data/geojson', 'Admin::geojson', ['filter' => 'role:SuperAdmin,Admin']);
-$routes->get('/admin/data/geojson/tambah', 'Admin::tambahGeojson', ['filter' => 'role:SuperAdmin,Admin']);
-$routes->get('/admin/data/geojson/edit/(:num)', 'Admin::editGeojson/$1', ['filter' => 'role:SuperAdmin,Admin']);
+$routes->get('/admin/features', 'Admin::geojson', ['filter' => 'role:SuperAdmin,Admin']);
+$routes->get('/admin/features/tambah', 'Admin::tambahGeojson', ['filter' => 'role:SuperAdmin,Admin']);
+$routes->get('/admin/features/edit/(:num)', 'Admin::editGeojson/$1', ['filter' => 'role:SuperAdmin,Admin']);
 $routes->delete('/admin/delete_Geojson/(:num)', 'Admin::delete_Geojson/$1', ['filter' => 'role:SuperAdmin,Admin']);
 
 $routes->get('/admin/data/kafe', 'Admin::kafe', ['filter' => 'role:SuperAdmin,Admin']);
