@@ -56,19 +56,19 @@
                                     <?= csrf_field(); ?>
 
                                     <div class="col-12">
-                                        <label for="inputAddress2" class="form-label">Website Name</label>
-                                        <input type="text" class="form-control" name="nama_web" value="<?= $D->nama_web; ?>" id="inputAddress2" placeholder="site name">
+                                        <label for="namaWeb" class="form-label">Website Name</label>
+                                        <input type="text" class="form-control" name="nama_web" value="<?= $D->nama_web; ?>" id="namaWeb" placeholder="site name">
                                     </div>
                                     <div class="col-md-8">
-                                        <label for="inputAddress2" class="form-label">Coordinate</label>
-                                        <input type="text" class="form-control" name="coordinat_wilayah" value="<?= $D->coordinat_wilayah; ?>" id="inputAddress2" placeholder="Latitude, Longitude">
+                                        <label for="koordinatView" class="form-label">Coordinate</label>
+                                        <input type="text" class="form-control" name="coordinat_wilayah" value="<?= $D->coordinat_wilayah; ?>" id="koordinatView" placeholder="Latitude, Longitude">
                                         <div id="passwordHelpBlock" class="form-text">
                                             example: -7.0385384, 112.8998345
                                         </div>
                                     </div>
                                     <div class="col-md-4">
-                                        <label for="inputAddress2" class="form-label">Zoom</label>
-                                        <input type="number" min="1" max="20" class="form-control" name="zoom_view" id="inputAddress2" value="<?= $D->zoom_view; ?>">
+                                        <label for="zoomView" class="form-label">Zoom</label>
+                                        <input type="number" min="1" max="20" class="form-control" name="zoom_view" id="zoomView" value="<?= $D->zoom_view; ?>">
                                         <div id="passwordHelpBlock" class="form-text">
                                             min: 1, Max: 20
                                         </div>
@@ -182,31 +182,6 @@
             })
         <?php endforeach ?>
 
-        // Geojson to Leaflet
-        <?php foreach ($tampilGeojson as $G) : ?>
-            var myStyle<?= $G->id; ?> = {
-                "color": "<?= $G->warna; ?>",
-                "weight": 5,
-                "opacity": 0.5,
-            };
-
-            function popUp(f, l) {
-                var out = [];
-                if (f.properties) {
-                    for (key in f.properties) {
-                        out.push(key + ": " + f.properties[key]);
-                    }
-                    // l.bindPopup(out.join("<br />"));
-                }
-            }
-
-            var jsonTest = new L.GeoJSON.AJAX(["<?= base_url(); ?>/geojson/<?= $G->features; ?>", "counties.geojson"], {
-                onEachFeature: popUp,
-                style: myStyle<?= $G->id; ?>,
-            }).addTo(map);
-        <?php endforeach ?>
-
-
         // controller
         var baseLayers = {
             "Map": peta1,
@@ -218,17 +193,16 @@
         L.control.mousePosition().addTo(map);
         L.control.scale().addTo(map);
 
-        // Map clik coordinate show
-        var popup = L.popup();
-
-        function onMapClick(e) {
-            popup
-                .setLatLng(e.latlng)
-                .setContent("You clicked the map at " + e.latlng.toString())
-                .openOn(map);
-        }
-
-        map.on('click', onMapClick);
+        map.on('move', function(event) {
+            var center = map.getCenter();
+            var latitude = center.lat.toFixed(6); // Bulatkan nilai latitude menjadi 6 desimal
+            var longitude = center.lng.toFixed(6); // Bulatkan nilai longitude menjadi 6 desimal
+            $('#koordinatView').val(latitude + ', ' + longitude)
+        });
+        map.on('zoomend', function(event) {
+            var zoom = map.getZoom();
+            $('#zoomView').val(zoom)
+        });
     </script>
 
 </body>
