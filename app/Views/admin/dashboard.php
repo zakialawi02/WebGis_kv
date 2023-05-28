@@ -293,17 +293,17 @@
                                                                                 <td><?= $pkafe->stat_appv == 0 ? 'Pending' : ($pkafe->stat_appv == 1 ? 'Terima' : 'Tolak') ?>
                                                                                 </td>
                                                                                 <td>
-                                                                                    <div class="btn-group mr-2" role="group" aria-label="First group">
+                                                                                    <div class="btn-group mr-2" role="group" aria-label="First group" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="edit data">
                                                                                         <a href="/kafe/edit/<?= $pkafe->id_kafe; ?>" class="asbn btn btn-primary bi bi-pencil-square" role="button"></a>
                                                                                     </div>
-                                                                                    <div class="btn-group mr-2" role="group" aria-label="First group">
+                                                                                    <div class="btn-group mr-2" role="group" aria-label="First group" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="hapus data">
                                                                                         <form id="delete-form-<?= $pkafe->id_kafe; ?>" action="/admin/delete_Kafe/<?= $pkafe->id_kafe; ?>" method="post">
                                                                                             <?= csrf_field(); ?>
                                                                                             <input type="hidden" name="_method" value="DELETE">
                                                                                             <button type="button" class="asbn btn btn-danger bi bi-trash delete-btn" data-id="<?= $pkafe->id_kafe; ?>"></button>
                                                                                         </form>
                                                                                     </div>
-                                                                                    <div class="btn-group mr-2" role="group" aria-label="First group">
+                                                                                    <div class="btn-group mr-2" role="group" aria-label="First group" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="lihat data">
                                                                                         <!-- Trigger modal -->
                                                                                         <button type="button" role="button" id="infos" class="asbn btn btn-secondary bi bi-eye" data-bs-toggle="modal" data-bs-target="#infoModal-<?= $pkafe->id_kafe ?>" onclick="showMap<?= $pkafe->id_kafe; ?>()"></button>
                                                                                     </div>
@@ -440,14 +440,14 @@
                                                                                 <td><?= date('d M Y H:i:s', strtotime($tkafe->date_updated)); ?></td>
                                                                                 </td>
                                                                                 <td>
-                                                                                    <div class="btn-group mr-2" role="group" aria-label="First group">
+                                                                                    <div class="btn-group mr-2" role="group" aria-label="First group" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="hapus data">
                                                                                         <form id="delete-form-<?= $tkafe->id_kafe; ?>" action="/admin/delete_Kafe/<?= $tkafe->id_kafe; ?>" method="post">
                                                                                             <?= csrf_field(); ?>
                                                                                             <input type="hidden" name="_method" value="DELETE">
                                                                                             <button type="button" class="asbn btn btn-danger bi bi-trash delete-btn" data-id="<?= $tkafe->id_kafe; ?>"></button>
                                                                                         </form>
                                                                                     </div>
-                                                                                    <div class="btn-group mr-2" role="group" aria-label="First group">
+                                                                                    <div class="btn-group mr-2" role="group" aria-label="First group" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="lihat data">
                                                                                         <!-- Trigger modal -->
                                                                                         <button type="button" role="button" id="infos" class="asbn btn btn-secondary bi bi-eye" data-bs-toggle="modal" data-bs-target="#infoModal-<?= $tkafe->id_kafe ?>" onclick="showMap<?= $tkafe->id_kafe; ?>()"></button>
                                                                                     </div>
@@ -584,17 +584,17 @@
                                                                                 <td><?= date('d M Y H:i:s', strtotime($tkafe->date_updated)); ?></td>
                                                                                 </td>
                                                                                 <td>
-                                                                                    <div class="btn-group mr-2" role="group" aria-label="First group">
+                                                                                    <div class="btn-group mr-2" role="group" aria-label="First group" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="edit data">
                                                                                         <a href="/kafe/edit/<?= $skafe->id_kafe; ?>" class="asbn btn btn-primary bi bi-pencil-square" role="button"></a>
                                                                                     </div>
-                                                                                    <div class="btn-group mr-2" role="group" aria-label="First group">
+                                                                                    <div class="btn-group mr-2" role="group" aria-label="First group" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="hapus data">
                                                                                         <form id="delete-form-<?= $skafe->id_kafe; ?>" action="/admin/delete_Kafe/<?= $skafe->id_kafe; ?>" method="post">
                                                                                             <?= csrf_field(); ?>
                                                                                             <input type="hidden" name="_method" value="DELETE">
                                                                                             <button type="button" class="asbn btn btn-danger bi bi-trash delete-btn" data-id="<?= $skafe->id_kafe; ?>"></button>
                                                                                         </form>
                                                                                     </div>
-                                                                                    <div class="btn-group mr-2" role="group" aria-label="First group">
+                                                                                    <div class="btn-group mr-2" role="group" aria-label="First group" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="lihat data">
                                                                                         <!-- Trigger modal -->
                                                                                         <button type="button" role="button" id="infos" class="asbn btn btn-secondary bi bi-eye" data-bs-toggle="modal" data-bs-target="#infoModal-<?= $skafe->id_kafe ?>" onclick="showMap<?= $skafe->id_kafe; ?>()"></button>
                                                                                     </div>
