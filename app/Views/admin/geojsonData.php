@@ -157,6 +157,8 @@
     <script src="/leaflet/catiline.js"></script>
     <script src="/leaflet/leaflet.shpfile.js"></script>
 
+    // shapefile/geojson
+
 
     <?php foreach ($tampilData as $D) : ?>
         <?php $zoom = $D->zoom_view ?>

@@ -4,15 +4,18 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\ModelKv;
+use App\Models\ModelGeojson;
 use CodeIgniter\RESTful\ResourceController;
 
 class Api extends ResourceController
 {
     protected $format = 'json';
     protected $ModelKv;
+    protected $ModelGeojson;
     public function __construct()
     {
         $this->kafe = new ModelKv();
+        $this->FGeojson = new ModelGeojson();
     }
 
     public function aprv()

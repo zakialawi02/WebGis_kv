@@ -131,7 +131,7 @@ class Kafe extends BaseController
     public function map()
     {
         $data = [
-            'title' => 'Map',
+            'title' => 'Map Panel',
             'tampilGeojson' => $this->FGeojson->callGeojson()->getResult(),
             'tampilData' => $this->setting->tampilData()->getResult(),
             'tampilKafe' => $this->kafe->callKafe()->getResult(),
