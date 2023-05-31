@@ -408,7 +408,10 @@
                 icon: 'success',
                 title: 'Success!',
                 text: '<?= session()->getFlashdata('success'); ?>',
-                timer: 1500,
+                timer: 5000,
+                html: 'Menunggu verifikasi, lihat status data anda ' +
+                    '<a href="/dashboard">disini</a> ' +
+                    ' atau masuk ke dashboard',
             });
         </script>
     <?php endif; ?>

@@ -72,16 +72,16 @@
                                             <td style="max-width: 9em;"><?= $S->latitude; ?>, <?= $S->longitude; ?></td>
                                             <td>
                                                 <div class="btn-group mr-2" role="group" aria-label="First group">
-                                                    <a href="/kafe/<?= $S->id_kafe; ?>/detail" class="btn btn-secondary bi bi-eye" role="button" target="_blank"></a>
+                                                    <a href="/kafe/<?= $S->id_kafe; ?>/detail" class="asbn btn btn-secondary bi bi-eye" role="button" target="_blank"></a>
                                                 </div>
                                                 <div class="btn-group mr-2" role="group" aria-label="First group">
-                                                    <a href="/admin/data/kafe/edit/<?= $S->id_kafe; ?>" class="btn btn-primary bi bi-pencil-square" role="button"></a>
+                                                    <a href="/admin/data/kafe/edit/<?= $S->id_kafe; ?>" class="asbn btn btn-primary bi bi-pencil-square" role="button"></a>
                                                 </div>
                                                 <div class="btn-group mr-2" role="group" aria-label="First group">
                                                     <form id="delete-form-<?= $S->id_kafe; ?>" action="/admin/delete_Kafe/<?= $S->id_kafe; ?>" method="post">
                                                         <?= csrf_field(); ?>
                                                         <input type="hidden" name="_method" value="DELETE">
-                                                        <button type="button" class="btn btn-danger bi bi-trash delete-btn" data-id="<?= $S->id_kafe; ?>"></button>
+                                                        <button type="button" class="asbn btn btn-danger bi bi-trash delete-btn" data-id="<?= $S->id_kafe; ?>"></button>
                                                     </form>
                                                 </div>
                                             </td>

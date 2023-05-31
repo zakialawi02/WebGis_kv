@@ -96,6 +96,7 @@ h6 {
   color: var(--dark);
   font-weight: 500;
   outline: none;
+  text-decoration: none;
 }
 
 .navbar .navbar-nav .nav-link:hover,

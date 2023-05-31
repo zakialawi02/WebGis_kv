@@ -63,23 +63,31 @@
                     <div class="product-imgs">
                         <div class="img-display">
                             <div class="img-showcase">
-                                <?php $foto_kafe = explode(', ', $tampilKafe->nama_foto); ?>
-                                <?php foreach ($foto_kafe as $foto) : ?>
-                                    <img src="<?= base_url('/img/kafe/' . $foto); ?>" class="grid-item">
-                                <?php endforeach ?>
+                                <?php if (empty($tampilKafe->nama_foto)) : ?>
+                                    <img src="/img/kafe/no image.jpg" class="grid-item">
+                                <?php else : ?>
+                                    <?php $foto_kafe = explode(', ', $tampilKafe->nama_foto); ?>
+                                    <?php foreach ($foto_kafe as $foto) : ?>
+                                        <img src="<?= base_url('/img/kafe/' . $foto); ?>" class="grid-item">
+                                    <?php endforeach ?>
+                                <?php endif ?>
                             </div>
                         </div>
                         <div class="img-select">
-                            <?php $foto_kafe = explode(', ', $tampilKafe->nama_foto); ?>
-                            <?php $i = 1; ?>
-                            <?php foreach ($foto_kafe as $foto) : ?>
-                                <div class="img-item">
-                                    <a href="#" data-id="<?= $i; ?>">
-                                        <img src="<?= base_url('/img/kafe/' . $foto); ?>" class="grid-item">
-                                    </a>
-                                </div>
-                                <?php $i++; ?>
-                            <?php endforeach ?>
+                            <?php if (empty($tampilKafe->nama_foto)) : ?>
+                                <div class="img-item"></div>
+                            <?php else : ?>
+                                <?php $foto_kafe = explode(', ', $tampilKafe->nama_foto); ?>
+                                <?php $i = 1; ?>
+                                <?php foreach ($foto_kafe as $foto) : ?>
+                                    <div class="img-item">
+                                        <a href="#" data-id="<?= $i; ?>">
+                                            <img src="<?= base_url('/img/kafe/' . $foto); ?>" class="grid-item">
+                                        </a>
+                                    </div>
+                                    <?php $i++; ?>
+                                <?php endforeach ?>
+                            <?php endif ?>
                         </div>
                     </div>
                 </div>
@@ -112,8 +120,14 @@
                             <tr>
                                 <td>Instagram</td>
                                 <th>:</th>
-                                <td><a href="https://www.instagram.com/<?= $tampilKafe->instagram_kafe ?>" target="_blank" rel="noopener noreferrer" class="d-inline-flex align-items-center">
-                                        <span>@<?= $tampilKafe->instagram_kafe ?> <i class="ri-external-link-line"></i></span></a></td>
+                                <td>
+                                    <?php if (empty($tampilKafe->instagram_kafe)) : ?>
+                                        <p>–</p>
+                                    <?php else : ?>
+                                        <a href="https://www.instagram.com/<?= $tampilKafe->instagram_kafe ?>" target="_blank" rel="noopener noreferrer" class="d-inline-flex align-items-center">
+                                            <span>@<?= $tampilKafe->instagram_kafe ?> <i class="ri-external-link-line"></i></span></a>
+                                    <?php endif ?>
+                                </td>
                             </tr>
                             <tr>
                                 <td>Jam Oprasional</td>

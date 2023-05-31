@@ -82,19 +82,19 @@
                                                     <form action="/admin/rejectKafe/<?= $S->id_kafe; ?>" method="post">
                                                         <?= csrf_field(); ?>
                                                         <input type="hidden" name="_method" value="DELETE">
-                                                        <button type="submit" class="btn btn-danger bi bi-x-octagon" data-bs-toggle="tooltip" data-bs-placement="top" title="Reject" onclick="return confirm('Yakin Tolak Data?')"></button>
+                                                        <button type="submit" class="asbn btn btn-danger bi bi-x-octagon" data-bs-toggle="tooltip" data-bs-placement="top" title="Reject" onclick="return confirm('Yakin Tolak Data?')"></button>
                                                     </form>
                                                 </div>
                                                 <div class="btn-group mr-2" role="group" aria-label="First group">
                                                     <form action="/admin/approveKafe/<?= $S->id_kafe; ?>" method="post">
                                                         <?= csrf_field(); ?>
                                                         <input type="hidden" name="_method" value="DELETE">
-                                                        <button type="submit" class="btn btn-success bi bi-check-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="Accept" onclick="return confirm('Approve?')"></button>
+                                                        <button type="submit" class="asbn btn btn-success bi bi-check-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="Accept" onclick="return confirm('Approve?')"></button>
                                                     </form>
                                                 </div>
                                                 <div class="btn-group mr-2" role="group" aria-label="First group">
                                                     <!-- Trigger modal -->
-                                                    <button type="button" id="infos" class="btn btn-secondary bi bi-eye" data-bs-toggle="modal" data-bs-target="#infoModal-<?= $S->id_kafe ?>" onclick="showMap<?= $S->id_kafe; ?>()"></button>
+                                                    <button type="button" id="infos" class="asbn btn btn-secondary bi bi-eye" data-bs-toggle="modal" data-bs-target="#infoModal-<?= $S->id_kafe ?>" onclick="showMap<?= $S->id_kafe; ?>()"></button>
                                                 </div>
                                                 <!-- Modal detail -->
                                                 <div class=" modal fade" id="infoModal-<?= $S->id_kafe ?>" tabindex="-1" aria-labelledby="infoModalLabel-<?= $S->id_kafe ?>" aria-hidden="true">
@@ -135,8 +135,14 @@
                                                                                     <tr>
                                                                                         <td>Instagram</td>
                                                                                         <th>:</th>
-                                                                                        <td><a href="https://www.instagram.com/<?= $S->instagram_kafe ?>" target="_blank" rel="noopener noreferrer" class="d-inline-flex align-items-center">
-                                                                                                <span>@<?= $S->instagram_kafe ?> <i class="ri-external-link-line"></i></span></a></td>
+                                                                                        <td>
+                                                                                            <?php if (empty($S->instagram_kafe)) : ?>
+                                                                                                <p>-</p>
+                                                                                            <?php else : ?>
+                                                                                                <a href="https://www.instagram.com/<?= $S->instagram_kafe ?>" target="_blank" rel="noopener noreferrer" class="d-inline-flex align-items-center">
+                                                                                                    <span>@<?= $S->instagram_kafe ?> <i class="ri-external-link-line"></i></span></a>
+                                                                                            <?php endif ?>
+                                                                                        </td>
                                                                                     </tr>
                                                                                     <tr>
                                                                                         <td>Jam Oprasional</td>

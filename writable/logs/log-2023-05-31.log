@@ -45,3 +45,15 @@ Stack trace:
   thrown
 in SYSTEMPATH\Format\JSONFormatter.php on line 41.
  1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2023-05-31 23:06:41 --> Attempt to read property "nama_kafe" on null
+in APPPATH\Views\page\kafeDetail.php on line 101.
+ 1 APPPATH\Views\page\kafeDetail.php(101): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "nama_kafe" on null', 'APPPATH\\Views\\page\\kafeDetail.php', 101)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\page\\kafeDetail.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('page/kafeDetail', [], true)
+ 5 APPPATH\Controllers\Kafe.php(47): view('page/kafeDetail', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->detail('2204')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
