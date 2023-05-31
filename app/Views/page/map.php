@@ -547,7 +547,7 @@
                 for (var i = 0; i < input.files.length; i++) {
                     var reader = new FileReader();
                     reader.onload = function(e) {
-                        $('#imgPreview').append('<div><img src="' + e.target.result + '" class="img-kafe"><button type="button" class="btn btn-danger btn-sm remove-preview">Hapus</button></div>');
+                        $('#imgPreview').append('<div><img src="' + e.target.result + '" class="img-kafe"></div>');
                     }
                     reader.readAsDataURL(input.files[i]);
                 }

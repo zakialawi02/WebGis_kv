@@ -26,13 +26,6 @@
             position: relative;
             height: 50vh;
         }
-
-        .asbn {
-            background-color: none;
-            border: none;
-            padding: 3px 6px;
-            font-size: 1rem;
-        }
     </style>
 
 </head>
@@ -262,15 +255,19 @@
 
                                     <?php if (!empty($pendingKafe)) : ?>
                                         <?php $totalPending = count($pendingKafe); ?>
+                                    <?php else : ?>
+                                        <?php $totalPending = 0 ?>
                                     <?php endif ?>
                                     <?php if (!empty($terimaKafe)) : ?>
                                         <?php $totalTerima = count($terimaKafe); ?>
+                                    <?php else : ?>
+                                        <?php $totalTerima = 0 ?>
                                     <?php endif ?>
                                     <?php if (!empty($tolakKafe)) : ?>
                                         <?php $totalTolak = count($tolakKafe); ?>
+                                    <?php else : ?>
+                                        <?php $totalTolak = 0 ?>
                                     <?php endif ?>
-
-
 
 
                                     <div class="card">
@@ -281,7 +278,7 @@
                                                     <div class="accordion-item">
                                                         <h2 class="accordion-header" id="headingOne">
                                                             <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                                                Pending<span class="badge bg-secondary m-1"></span> &nbsp;<span type="button" class="bi bi-info-circle-fill" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Menunggu data diverifikasi dan dapat muncul pada publik"></span>
+                                                                Pending<span class="badge bg-secondary m-1"><?= $totalPending; ?></span> &nbsp;<span type="button" class="bi bi-info-circle-fill" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Menunggu data diverifikasi dan dapat muncul pada publik"></span>
                                                             </button>
                                                         </h2>
                                                         <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
@@ -294,7 +291,7 @@
                                                     <div class="accordion-item">
                                                         <h2 class="accordion-header" id="headingOne">
                                                             <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                                                Pending<span class="badge bg-secondary m-1"></span> &nbsp;<span type="button" class="bi bi-info-circle-fill" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Menunggu data diverifikasi dan dapat muncul pada publik"></span>
+                                                                Pending<span class="badge bg-secondary m-1"><?= $totalPending; ?></span> &nbsp;<span type="button" class="bi bi-info-circle-fill" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Menunggu data diverifikasi dan dapat muncul pada publik"></span>
                                                             </button>
                                                         </h2>
                                                         <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
@@ -343,6 +340,18 @@
                                                                                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                                                                     </div>
                                                                                                     <div class="modal-body">
+                                                                                                        <div class="card mb-2">
+                                                                                                            <div class="card-body">
+                                                                                                                <?php if (empty($pkafe->nama_foto)) : ?>
+                                                                                                                    <img src="/img/kafe/no image.jpg" class="img-pending">
+                                                                                                                <?php else : ?>
+                                                                                                                    <?php $foto_kafe = explode(', ', $pkafe->nama_foto); ?>
+                                                                                                                    <?php foreach ($foto_kafe as $foto) : ?>
+                                                                                                                        <img src="<?= base_url('/img/kafe/' . $foto); ?>" class="img-pending">
+                                                                                                                    <?php endforeach ?>
+                                                                                                                <?php endif ?>
+                                                                                                            </div>
+                                                                                                        </div>
                                                                                                         <div class="card">
                                                                                                             <div class="card-body">
                                                                                                                 <div class="table-responsive">
@@ -442,7 +451,7 @@
                                                     <div class="accordion-item">
                                                         <h2 class="accordion-header" id="headingTwo">
                                                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                                                Diterima<span class="badge bg-success m-1"></span>
+                                                                Diterima<span class="badge bg-success m-1"><?= $totalTerima; ?></span> &nbsp;<span type="button" class="bi bi-info-circle-fill" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Data anda tampil kepublik"></span>
                                                             </button>
                                                         </h2>
                                                         <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
@@ -455,7 +464,7 @@
                                                     <div class="accordion-item">
                                                         <h2 class="accordion-header" id="headingTwo">
                                                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                                                Diterima<span class="badge bg-success m-1"></span>
+                                                                Diterima<span class="badge bg-success m-1"><?= $totalTerima; ?></span> &nbsp;<span type="button" class="bi bi-info-circle-fill" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Data anda tampil kepublik"></span>
                                                             </button>
                                                         </h2>
                                                         <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
@@ -502,6 +511,18 @@
                                                                                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                                                                     </div>
                                                                                                     <div class="modal-body">
+                                                                                                        <div class="card mb-2">
+                                                                                                            <div class="card-body">
+                                                                                                                <?php if (empty($tkafe->nama_foto)) : ?>
+                                                                                                                    <img src="/img/kafe/no image.jpg" class="img-pending">
+                                                                                                                <?php else : ?>
+                                                                                                                    <?php $foto_kafe = explode(', ', $tkafe->nama_foto); ?>
+                                                                                                                    <?php foreach ($foto_kafe as $foto) : ?>
+                                                                                                                        <img src="<?= base_url('/img/kafe/' . $foto); ?>" class="img-pending">
+                                                                                                                    <?php endforeach ?>
+                                                                                                                <?php endif ?>
+                                                                                                            </div>
+                                                                                                        </div>
                                                                                                         <div class="card">
                                                                                                             <div class="card-body">
                                                                                                                 <div class="table-responsive">
@@ -601,7 +622,7 @@
                                                     <div class="accordion-item">
                                                         <h2 class="accordion-header" id="headingThree">
                                                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                                                Ditolak<span class="badge bg-danger m-1"></span> &nbsp;<span type="button" class="bi bi-info-circle-fill" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Data akan terhapus dalam 7 hari"></span>
+                                                                Ditolak<span class="badge bg-danger m-1"><?= $totalTolak; ?></span> &nbsp;<span type="button" class="bi bi-info-circle-fill" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Data akan terhapus dalam 7 hari"></span>
                                                             </button>
                                                         </h2>
                                                         <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
@@ -614,7 +635,7 @@
                                                     <div class="accordion-item">
                                                         <h2 class="accordion-header" id="headingThree">
                                                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                                                Ditolak<span class="badge bg-danger m-1"></span> &nbsp;<span type="button" class="bi bi-info-circle-fill" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Data akan terhapus dalam 7 hari"></span>
+                                                                Ditolak<span class="badge bg-danger m-1"><?= $totalTolak; ?></span> &nbsp;<span type="button" class="bi bi-info-circle-fill" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Data akan terhapus dalam 7 hari"></span>
                                                             </button>
                                                         </h2>
                                                         <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
@@ -664,6 +685,18 @@
                                                                                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                                                                     </div>
                                                                                                     <div class="modal-body">
+                                                                                                        <div class="card mb-2">
+                                                                                                            <div class="card-body">
+                                                                                                                <?php if (empty($skafe->nama_foto)) : ?>
+                                                                                                                    <img src="/img/kafe/no image.jpg" class="img-pending">
+                                                                                                                <?php else : ?>
+                                                                                                                    <?php $foto_kafe = explode(', ', $skafe->nama_foto); ?>
+                                                                                                                    <?php foreach ($foto_kafe as $foto) : ?>
+                                                                                                                        <img src="<?= base_url('/img/kafe/' . $foto); ?>" class="img-pending">
+                                                                                                                    <?php endforeach ?>
+                                                                                                                <?php endif ?>
+                                                                                                            </div>
+                                                                                                        </div>
                                                                                                         <div class="card">
                                                                                                             <div class="card-body">
                                                                                                                 <div class="table-responsive">

@@ -105,6 +105,18 @@
                                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                             </div>
                                                             <div class="modal-body">
+                                                                <div class="card mb-2">
+                                                                    <div class="card-body">
+                                                                        <?php if (empty($S->nama_foto)) : ?>
+                                                                            <img src="/img/kafe/no image.jpg" class="img-pending">
+                                                                        <?php else : ?>
+                                                                            <?php $foto_kafe = explode(', ', $S->nama_foto); ?>
+                                                                            <?php foreach ($foto_kafe as $foto) : ?>
+                                                                                <img src="<?= base_url('/img/kafe/' . $foto); ?>" class="img-pending">
+                                                                            <?php endforeach ?>
+                                                                        <?php endif ?>
+                                                                    </div>
+                                                                </div>
                                                                 <div class="card">
                                                                     <div class="card-body">
                                                                         <div class="table-responsive">

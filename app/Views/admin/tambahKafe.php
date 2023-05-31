@@ -251,7 +251,7 @@
 
                                             <div class="mb-3">
                                                 <label for="formFile" class="form-label">Upload Foto Kafe</label>
-                                                <input class="form-control" type="file" name="foto_kafe[]" id="foto_kafe" accept="image/*" multiple required>
+                                                <input class="form-control" type="file" name="foto_kafe[]" id="foto_kafe" accept="image/*" multiple>
                                                 <div id="FileHelp" class="form-text">.jpg/.png</div>
                                                 <div id="imgPreview"></div>
                                             </div>
@@ -334,7 +334,7 @@
                 for (var i = 0; i < input.files.length; i++) {
                     var reader = new FileReader();
                     reader.onload = function(e) {
-                        $('#imgPreview').append('<div><img src="' + e.target.result + '" class="img-kafe"><button type="button" class="btn btn-danger btn-sm remove-preview">Hapus</button></div>');
+                        $('#imgPreview').append('<div><img src="' + e.target.result + '" class="img-kafe"></div>');
                     }
                     reader.readAsDataURL(input.files[i]);
                 }
