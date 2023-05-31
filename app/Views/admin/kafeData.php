@@ -56,21 +56,20 @@
                             <table id="datatablesSimple">
                                 <thead>
                                     <tr>
+                                        <th>Tangal</th>
                                         <th>Nama Kafe</th>
                                         <th>Alamat Kafe</th>
                                         <th>Koordinat</th>
-                                        <th>Instagram</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php foreach ($tampilKafe as $S) : ?>
                                         <tr>
+                                            <td><?= date('d M Y H:i:s', strtotime($S->updated_at)); ?></td>
                                             <td><?= $S->nama_kafe; ?></td>
                                             <td style="min-width: 8em;"><?= $S->alamat_kafe; ?></td>
                                             <td style="max-width: 9em;"><?= $S->latitude; ?>, <?= $S->longitude; ?></td>
-                                            <td> <a href="https://www.instagram.com/<?= $S->instagram_kafe ?>" target="_blank" rel="noopener noreferrer" class="d-inline-flex align-items-center">
-                                                    <span>@<?= $S->instagram_kafe ?> <i class="bi bi-box-arrow-up-right"></i></span></a> </td>
                                             <td>
                                                 <div class="btn-group mr-2" role="group" aria-label="First group">
                                                     <a href="/kafe/<?= $S->id_kafe; ?>/detail" class="btn btn-secondary bi bi-eye" role="button" target="_blank"></a>
@@ -215,29 +214,6 @@
             })
         <?php endforeach ?>
 
-        // Geojson to Leaflet
-        <?php foreach ($tampilGeojson as $G) : ?>
-            var myStyle<?= $G->id; ?> = {
-                "color": "<?= $G->warna; ?>",
-                "weight": 5,
-                "opacity": 0.5,
-            };
-
-            function popUp(f, l) {
-                var out = [];
-                if (f.properties) {
-                    for (key in f.properties) {
-                        out.push(key + ": " + f.properties[key]);
-                    }
-                    // l.bindPopup(out.join("<br />"));
-                }
-            }
-
-            var jsonTest = new L.GeoJSON.AJAX(["<?= base_url(); ?>/geojson/<?= $G->features; ?>"], {
-                onEachFeature: popUp,
-                style: myStyle<?= $G->id; ?>,
-            }).addTo(map);
-        <?php endforeach ?>
 
 
         // controller

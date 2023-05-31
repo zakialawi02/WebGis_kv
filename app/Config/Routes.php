@@ -53,6 +53,7 @@ $routes->get('/admin/features/tambah', 'Admin::tambahGeojson', ['filter' => 'rol
 $routes->get('/admin/features/edit/(:num)', 'Admin::editGeojson/$1', ['filter' => 'role:SuperAdmin,Admin']);
 $routes->delete('/admin/delete_Geojson/(:num)', 'Admin::delete_Geojson/$1', ['filter' => 'role:SuperAdmin,Admin']);
 
+$routes->get('/admin/kafe', 'Admin::kafe', ['filter' => 'role:SuperAdmin,Admin']);
 $routes->get('/admin/data/kafe', 'Admin::kafe', ['filter' => 'role:SuperAdmin,Admin']);
 $routes->get('/admin/data/kafe/tambah', 'Admin::tambahKafe', ['filter' => 'role:SuperAdmin,Admin,User']);
 $routes->get('/admin/data/kafe/edit/(:num)', 'Admin::editKafe/$1', ['filter' => 'role:SuperAdmin,Admin']);

@@ -654,10 +654,18 @@ class Admin extends BaseController
         $this->kafe->delete(['id_kafe' => $id_kafe]);
         if ($this) {
             session()->setFlashdata('success', 'Data berhasil dihapus.');
-            return $this->response->redirect(site_url('/admin/data/kafe'));
+            if (in_groups('User')) {
+                return $this->response->redirect(site_url('/dashboard'));
+            } else {
+                return $this->response->redirect(site_url('/admin/data/kafe'));
+            }
         } else {
             session()->setFlashdata('error', 'Gagal menghapus data.');
-            return $this->response->redirect(site_url('/admin/data/kafe'));
+            if (in_groups('User')) {
+                return $this->response->redirect(site_url('/dashboard'));
+            } else {
+                return $this->response->redirect(site_url('/admin/data/kafe'));
+            }
         }
     }
 
