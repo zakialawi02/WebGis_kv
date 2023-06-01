@@ -36,6 +36,7 @@ class Admin extends BaseController
         $data = [
             'title' => 'Dashboard',
             'userid' => $userid,
+            'allKafe' => $this->kafe->callKafe()->getResult(),
             'countAllKafe' => $this->kafe->countAllKafe(),
             'countAllPending' => $this->kafe->countAllPending(),
             'countAllUser' => $this->user->countAllUser(),

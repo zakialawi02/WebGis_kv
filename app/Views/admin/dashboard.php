@@ -125,14 +125,42 @@
                                             <div class="card recent-sales overflow-auto">
                                                 <div class="card-body">
                                                     <h5 class="card-title">Daftar Kafe</h5>
-
+                                                    <?php $allKafe = $allKafe ?>
+                                                    <?php $kodeTimur = [357824, 357810, 357809, 357803, 357826, 357825, 357808] ?>
+                                                    <?php $kodeBarat = [357814, 357827, 357831, 357830, 357818, 357819, 357828] ?>
+                                                    <?php $kodePusat = [357805, 357811, 357807, 357813] ?>
+                                                    <?php $kodeUtara = [357816, 357812, 357815, 357817, 357829] ?>
+                                                    <?php $kodeSelatan = [357804, 357802, 357820, 357806, 357801, 357823, 357822, 357821] ?>
+                                                    <?php $surabayaTimur = []; ?>
+                                                    <?php $surabayaBarat = []; ?>
+                                                    <?php $surabayaPusat = []; ?>
+                                                    <?php $surabayaUtara = []; ?>
+                                                    <?php $surabayaSelatan = []; ?>
+                                                    <?php foreach ($allKafe as $tp) {
+                                                        if (in_array($tp->id_kecamatan, $kodeTimur)) {
+                                                            $surabayaTimur[] = $tp;
+                                                        } elseif (in_array($tp->id_kecamatan, $kodeBarat)) {
+                                                            $surabayaBarat[] = $tp;
+                                                        } elseif (in_array($tp->id_kecamatan, $kodePusat)) {
+                                                            $surabayaPusat[] = $tp;
+                                                        } elseif (in_array($tp->id_kecamatan, $kodeUtara)) {
+                                                            $surabayaUtara[] = $tp;
+                                                        } elseif (in_array($tp->id_kecamatan, $kodeSelatan)) {
+                                                            $surabayaSelatan[] = $tp;
+                                                        }
+                                                    } ?>
+                                                    <?php $ZsurabayaTimur = count($surabayaTimur); ?>
+                                                    <?php $ZsurabayaBarat = count($surabayaBarat); ?>
+                                                    <?php $ZsurabayaPusat = count($surabayaPusat); ?>
+                                                    <?php $ZsurabayaUtara = count($surabayaUtara); ?>
+                                                    <?php $ZsurabayaSelatan = count($surabayaSelatan); ?>
                                                     <table id="tabels" class="table table-striped table-bordered">
                                                         <thead>
                                                             <tr>
                                                                 <th style="min-width:10em">Nama Kafe</th>
                                                                 <th style="min-width:10em">Alamat</th>
                                                                 <th>Koordinat</th>
-                                                                <th>Tanggal Masuk</th>
+                                                                <th>Data Masuk</th>
                                                                 <th>User By</th>
                                                             </tr>
                                                         </thead>
@@ -301,7 +329,7 @@
                                                                     <table class="table">
                                                                         <thead>
                                                                             <tr>
-                                                                                <th scope="col">Tanggal Masuk</th>
+                                                                                <th scope="col">Data Masuk</th>
                                                                                 <th scope="col">ID</th>
                                                                                 <th scope="col">Nama Kafe</th>
                                                                                 <th scope="col">Status</th>
@@ -473,7 +501,7 @@
                                                                     <table class="table">
                                                                         <thead>
                                                                             <tr>
-                                                                                <th scope="col">Tanggal Masuk</th>
+                                                                                <th scope="col">Data Masuk</th>
                                                                                 <th scope="col">ID</th>
                                                                                 <th scope="col">Nama Kafe</th>
                                                                                 <th scope="col">Status</th>
@@ -644,7 +672,7 @@
                                                                     <table class="table">
                                                                         <thead>
                                                                             <tr>
-                                                                                <th scope="col">Tanggal Masuk</th>
+                                                                                <th scope="col">Data Masuk</th>
                                                                                 <th scope="col">ID</th>
                                                                                 <th scope="col">Nama Kafe</th>
                                                                                 <th scope="col">Status</th>
@@ -832,10 +860,11 @@
         const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
         const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
     </script>
+    <!-- Pie Chart -->
     <script>
         $(document).ready(function() {
             var options = {
-                series: [44, 55, 13, 43, 22],
+                series: [<?php echo $ZsurabayaTimur; ?>, <?php echo $ZsurabayaBarat; ?>, <?= $ZsurabayaPusat; ?>, <?= $ZsurabayaUtara; ?>, <?= $ZsurabayaSelatan; ?>],
                 chart: {
                     width: 300,
                     type: 'pie',
@@ -844,7 +873,7 @@
                 legend: {
                     position: 'bottom'
                 },
-                labels: ['Team A', 'Team B', 'Team C', 'Team D', 'Team E'],
+                labels: ['Surabaya Timur', 'Surabaya Barat', 'Surabaya Pusat', 'Surabaya Utara', 'Surabaya Selatan'],
                 responsive: [{
                     breakpoint: 480,
                     options: {
