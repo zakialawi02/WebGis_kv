@@ -74,10 +74,11 @@
                             </div>
                         </div>
                         <div class="img-select">
-                            <?php if (empty($tampilKafe->nama_foto)) : ?>
+                            <?php $foto_kafe = explode(', ', $tampilKafe->nama_foto); ?>
+                            <?php if (empty($tampilKafe->nama_foto) || count($foto_kafe) === 1) : ?>
                                 <div class="img-item"></div>
                             <?php else : ?>
-                                <?php $foto_kafe = explode(', ', $tampilKafe->nama_foto); ?>
+
                                 <?php $i = 1; ?>
                                 <?php foreach ($foto_kafe as $foto) : ?>
                                     <div class="img-item">

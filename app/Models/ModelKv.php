@@ -152,6 +152,7 @@ class ModelKv extends Model
     function randomFour()
     {
         return $this->db->table('tbl_kafe')
+            ->join('tbl_foto_kafe', 'tbl_foto_kafe.id_kafe = tbl_kafe.id_kafe', 'left', false)
             ->join('tbl_status_appv', 'tbl_status_appv.id_kafe = tbl_kafe.id_kafe')
             ->orderBy('RANDOM()')->limit(4)->getWhere(['stat_appv' => '1']);
     }

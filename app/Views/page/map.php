@@ -1074,7 +1074,7 @@
                     }]
                 };
                 // layer control 
-                var polyShp = L.layerGroup([geoshp]).addTo(map);
+                var polyShp = L.layerGroup([geoshp]);
                 var overlayPolygon = {
                     id: 'layersPoly',
                     title: 'Administrasi',

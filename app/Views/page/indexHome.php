@@ -21,6 +21,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 
     <!-- Libraries Stylesheet -->
     <link href="assets/lib/animate/animate.min.css" rel="stylesheet">
@@ -62,8 +63,8 @@
         <div class="container py-5">
             <div class="row g-5 align-items-center">
                 <div class="hero-content">
-                    <h1>WebGIS Kafe</h1>
-                    <p>Temukan kafe terdekat dan jelajahi menu-menu yang tersedia dengan WebGIS Kafe</p>
+                    <h1>Selamat Datang di WebGIS Kafe Surabaya</h1>
+                    <p style="font-size: 1.4rem;">Jelajahi Kafe-kafe Terbaik, Mulai dari yang Klasik Hingga yang Trendi.</p>
                     <a href="#discovery" class="btn btn-primary p-2">Mulai Jelajahi</a>
                 </div>
                 <div class="col-lg-6 animated fadeIn">
@@ -78,16 +79,16 @@
     <section id="discovery">
         <div class="container-fluid bg-light discovery fadeIn" data-wow-delay="0.1s">
             <div class="container py-5">
-                <div class="pt-5 pb-2">
-                    <h2>Discovery</h2>
+                <div class="pt-3 pb-2">
+                    <h2>Kafe Discover</h2>
                 </div>
 
                 <div class="cards-list">
                     <?php foreach ($randomFour as $rand) : ?>
                         <div class="card <?= $rand->id_kafe; ?>">
-                            <div class="card_image"> <img src="https://i.redd.it/b3esnz5ra34y.jpg" /> </div>
+                            <div class="card_image"> <img src="/img/kafe/<?= is_array($rand->nama_file_foto) ? $rand->nama_file_foto[0] : $rand->nama_file_foto; ?>" /> </div>
                             <div class="card_title title-white">
-                                <a href="#">
+                                <a href="/kafe/<?= $rand->id_kafe; ?>/detail">
                                     <p><?= $rand->nama_kafe; ?></p>
                                 </a>
                             </div>
@@ -106,13 +107,37 @@
                 <div class="container card-map" style="width: 100%;">
                     <div class="row">
                         <div class="p-5 col-md-4">
-                            <h2>Heading</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at dignissim velit. Praesent dictum auctor neque non suscipit. Duis lobortis arcu eu sapien condimentum, a placerat leo elementum. Suspendisse potenti. Ut sollicitudin leo metus sit amet metus.</p>
+                            <h2>Persebaran Kafe</h2>
+                            <p>Dapatkan Gambaran Menarik Tentang Beragam Lokasi Kafe di Kota Ini dan Potensi yang ada.</p>
+                            <p>Melalui Peta Interaktif, Anda Dapat Melihat Sekilas Di Mana Kafe-kafe Menarik Berada.</p>
+                            <button type="button" class="btn btn-primary">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-globe-asia-australia" viewBox="0 0 16 16">
+                                    <path d="m10.495 6.92 1.278-.619a.483.483 0 0 0 .126-.782c-.252-.244-.682-.139-.932.107-.23.226-.513.373-.816.53l-.102.054c-.338.178-.264.626.1.736a.476.476 0 0 0 .346-.027ZM7.741 9.808V9.78a.413.413 0 1 1 .783.183l-.22.443a.602.602 0 0 1-.12.167l-.193.185a.36.36 0 1 1-.5-.516l.112-.108a.453.453 0 0 0 .138-.326ZM5.672 12.5l.482.233A.386.386 0 1 0 6.32 12h-.416a.702.702 0 0 1-.419-.139l-.277-.206a.302.302 0 1 0-.298.52l.761.325Z"></path>
+                                    <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0ZM1.612 10.867l.756-1.288a1 1 0 0 1 1.545-.225l1.074 1.005a.986.986 0 0 0 1.36-.011l.038-.037a.882.882 0 0 0 .26-.755c-.075-.548.37-1.033.92-1.099.728-.086 1.587-.324 1.728-.957.086-.386-.114-.83-.361-1.2-.207-.312 0-.8.374-.8.123 0 .24-.055.318-.15l.393-.474c.196-.237.491-.368.797-.403.554-.064 1.407-.277 1.583-.973.098-.391-.192-.634-.484-.88-.254-.212-.51-.426-.515-.741a6.998 6.998 0 0 1 3.425 7.692 1.015 1.015 0 0 0-.087-.063l-.316-.204a1 1 0 0 0-.977-.06l-.169.082a1 1 0 0 1-.741.051l-1.021-.329A1 1 0 0 0 11.205 9h-.165a1 1 0 0 0-.945.674l-.172.499a1 1 0 0 1-.404.514l-.802.518a1 1 0 0 0-.458.84v.455a1 1 0 0 0 1 1h.257a1 1 0 0 1 .542.16l.762.49a.998.998 0 0 0 .283.126 7.001 7.001 0 0 1-9.49-3.409Z"></path>
+                                </svg>
+                                Mulai Petualangan !!
+                            </button>
                         </div>
                         <div class="col-md-8">
                             <div class="map" id="map"></div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="#about" style="min-height: 20vh;">
+        <div class="container p-5">
+            <h2>About</h2>
+            <div class="row g-2 p-md-3 m-1">
+                <div class="col col-md-7">
+                    <h3>Hello</h3>
+                    <p>Kami memahami bahwa Surabaya adalah kota yang kaya akan keanekaragaman kafe dengan suasana yang unik dan cita rasa yang menggoda. Dengan misi untuk memudahkan pengunjung dalam menemukan pengalaman kafe yang tak terlupakan, kami menghadirkan peta WebGIS interaktif yang memudahkan Anda dalam menjelajahi berbagai kafe yang tersebar di seluruh Surabaya.</p>
+                    <p>Kami juga memberikan kesempatan kepada pengguna untuk berpartisipasi dengan menambahkan informasi tentang kafe-kafe yang belum terdaftar, sehingga dapat membantu komunitas kafe di Surabaya berkembang dan tumbuh.</p>
+                </div>
+                <div class="col col-md-5">
+                    <h3>Heloo</h3>
                 </div>
             </div>
         </div>
@@ -140,8 +165,7 @@
     <script src="/leaflet/leaflet-geojson-vt.js"></script>
     <script src="/leaflet/leaflet.ajax.min.js"></script>
     <script src="/leaflet/leaflet.ajax.js"></script>
-    <script src="/leaflet/L.Control.MousePosition.js"></script>
-    <script src="//unpkg.com/leaflet-gesture-handling"></script>
+    <script src="/leaflet/leaflet.featuregroup.subgroup.js"></script>
     <script src="https://unpkg.com/leaflet.featuregroup.subgroup@1.0.2/dist/leaflet.featuregroup.subgroup.js"></script>
 
     <!-- Leafleat Setting js-->
@@ -193,9 +217,6 @@
             "OSM": peta3,
         };
 
-        L.control.layers(baseLayers).addTo(map);
-        L.control.mousePosition().addTo(map);
-        L.control.scale().addTo(map);
 
 
         // set marker place
@@ -205,9 +226,8 @@
             iconAnchor: [18.5, 30], // point of the icon which will correspond to marker's location
             popupAnchor: [0, -28] // point from which the popup should open relative to the iconAnchor
         });
-
         <?php foreach ($tampilKafe as $K) : ?>
-            L.marker([<?= $K->latitude; ?>, <?= $K->longitude; ?>], {
+            var marker = L.marker([<?= $K->latitude; ?>, <?= $K->longitude; ?>], {
                 icon: locKafe
             }).addTo(map).bindPopup("<b><?= $K->nama_kafe; ?></b></br><?= $K->alamat_kafe; ?>");
         <?php endforeach ?>
