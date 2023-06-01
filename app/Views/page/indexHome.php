@@ -122,8 +122,6 @@
     <!-- FOOTER -->
     <?= $this->include('_Layout/_template/_umum/footer'); ?>
 
-    <!-- Back to Top -->
-    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
 
 
     <!-- JavaScript Libraries -->
@@ -183,6 +181,7 @@
                 center: [<?= $D->coordinat_wilayah; ?>],
                 zoom: <?= $D->zoom_view; ?>,
                 layers: [peta1],
+                attributionControl: false,
                 gestureHandling: true,
             })
         <?php endforeach ?>

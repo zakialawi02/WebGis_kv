@@ -1,0 +1,1307 @@
+CRITICAL - 2023-05-26 12:43:43 --> CodeIgniter\Database\BaseBuilder::like(): Argument #2 ($match) must be of type string, null given, called in F:\WEB\XAMPP\htdocs\WebGis_kv\app\Models\ModelAdministrasi.php on line 26
+in SYSTEMPATH\Database\BaseBuilder.php on line 954.
+ 1 APPPATH\Models\ModelAdministrasi.php(26): CodeIgniter\Database\BaseBuilder->like('nama_kecamatan', null)
+ 2 APPPATH\Controllers\Admin.php(731): App\Models\ModelAdministrasi->getDataAjaxRemote(null)
+ 3 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->getkode()
+ 4 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 5 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+ERROR - 2023-05-26 12:46:46 --> ErrorException: pg_query(): Query failed: ERROR:  operator does not exist: bigint ~~* text
+LINE 6: WHERE  tbl_kelurahan.id_kelurahan  ILIKE '%3578311001%' ESCA...
+                                           ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts. in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\Postgre\Connection.php:140
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_query(): Que...', 'F:\\WEB\\XAMPP\\ht...', 140)
+#1 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\Postgre\Connection.php(140): pg_query(Resource id #154, 'SELECT "tbl_kel...')
+#2 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(666): CodeIgniter\Database\Postgre\Connection->execute('SELECT "tbl_kel...')
+#3 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT "tbl_kel...')
+#4 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT "tbl_kel...', Array, false)
+#5 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Models\ModelAdministrasi.php(27): CodeIgniter\Database\BaseBuilder->get()
+#6 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Controllers\Admin.php(731): App\Models\ModelAdministrasi->getDataAjaxRemote('3578311001')
+#7 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(927): App\Controllers\Admin->getkode()
+#8 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#9 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 F:\WEB\XAMPP\htdocs\WebGis_kv\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(46): require_once('F:\\WEB\\XAMPP\\ht...')
+#12 {main}
+CRITICAL - 2023-05-26 12:46:46 --> pg_query(): Query failed: ERROR:  operator does not exist: bigint ~~* text
+LINE 6: WHERE  tbl_kelurahan.id_kelurahan  ILIKE '%3578311001%' ESCA...
+                                           ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.
+in SYSTEMPATH\Database\Postgre\Connection.php on line 140.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_query(): Query failed: ERROR:  operator does not exist: bigint ~~* text
+LINE 6: WHERE  tbl_kelurahan.id_kelurahan  ILIKE \'%3578311001%\' ESCA...
+                                           ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.', 'SYSTEMPATH\\Database\\Postgre\\Connection.php', 140)
+ 2 SYSTEMPATH\Database\Postgre\Connection.php(140): pg_query(resource (pgsql link), 'SELECT "tbl_kelurahan"."id_kelurahan" as "id_kelurahan", "nama_kelurahan", "tbl_kecamatan"."id_kecamatan" as "id_kecamatan", "nama_kecamatan", "tbl_kabupaten"."id_kabupaten" as "id_kabupaten", "nama_kabupaten", "tbl_provinsi"."id_provinsi" as "id_provinsi", "nama_provinsi"
+FROM "tbl_kelurahan"
+JOIN "tbl_kecamatan" ON "tbl_kecamatan"."id_kecamatan" = "tbl_kelurahan"."id_kecamatan"
+JOIN "tbl_kabupaten" ON "tbl_kabupaten"."id_kabupaten" = "tbl_kecamatan"."id_kabupaten"
+JOIN "tbl_provinsi" ON "tbl_provinsi"."id_provinsi" = "tbl_kabupaten"."id_provinsi"
+WHERE  tbl_kelurahan.id_kelurahan  ILIKE \'%3578311001%\' ESCAPE \'!\' ')
+ 3 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\Postgre\Connection->execute('SELECT "tbl_kelurahan"."id_kelurahan" as "id_kelurahan", "nama_kelurahan", "tbl_kecamatan"."id_kecamatan" as "id_kecamatan", "nama_kecamatan", "tbl_kabupaten"."id_kabupaten" as "id_kabupaten", "nama_kabupaten", "tbl_provinsi"."id_provinsi" as "id_provinsi", "nama_provinsi"
+FROM "tbl_kelurahan"
+JOIN "tbl_kecamatan" ON "tbl_kecamatan"."id_kecamatan" = "tbl_kelurahan"."id_kecamatan"
+JOIN "tbl_kabupaten" ON "tbl_kabupaten"."id_kabupaten" = "tbl_kecamatan"."id_kabupaten"
+JOIN "tbl_provinsi" ON "tbl_provinsi"."id_provinsi" = "tbl_kabupaten"."id_provinsi"
+WHERE  tbl_kelurahan.id_kelurahan  ILIKE \'%3578311001%\' ESCAPE \'!\' ')
+ 4 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT "tbl_kelurahan"."id_kelurahan" as "id_kelurahan", "nama_kelurahan", "tbl_kecamatan"."id_kecamatan" as "id_kecamatan", "nama_kecamatan", "tbl_kabupaten"."id_kabupaten" as "id_kabupaten", "nama_kabupaten", "tbl_provinsi"."id_provinsi" as "id_provinsi", "nama_provinsi"
+FROM "tbl_kelurahan"
+JOIN "tbl_kecamatan" ON "tbl_kecamatan"."id_kecamatan" = "tbl_kelurahan"."id_kecamatan"
+JOIN "tbl_kabupaten" ON "tbl_kabupaten"."id_kabupaten" = "tbl_kecamatan"."id_kabupaten"
+JOIN "tbl_provinsi" ON "tbl_provinsi"."id_provinsi" = "tbl_kabupaten"."id_provinsi"
+WHERE  tbl_kelurahan.id_kelurahan  ILIKE \'%3578311001%\' ESCAPE \'!\' ')
+ 5 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT "tbl_kelurahan"."id_kelurahan" as "id_kelurahan", "nama_kelurahan", "tbl_kecamatan"."id_kecamatan" as "id_kecamatan", "nama_kecamatan", "tbl_kabupaten"."id_kabupaten" as "id_kabupaten", "nama_kabupaten", "tbl_provinsi"."id_provinsi" as "id_provinsi", "nama_provinsi"
+FROM "tbl_kelurahan"
+JOIN "tbl_kecamatan" ON "tbl_kecamatan"."id_kecamatan" = "tbl_kelurahan"."id_kecamatan"
+JOIN "tbl_kabupaten" ON "tbl_kabupaten"."id_kabupaten" = "tbl_kecamatan"."id_kabupaten"
+JOIN "tbl_provinsi" ON "tbl_provinsi"."id_provinsi" = "tbl_kabupaten"."id_provinsi"
+WHERE  tbl_kelurahan.id_kelurahan  ILIKE :tbl_kelurahan.id_kelurahan: ESCAPE \'!\' ', [...], false)
+ 6 APPPATH\Models\ModelAdministrasi.php(27): CodeIgniter\Database\BaseBuilder->get()
+ 7 APPPATH\Controllers\Admin.php(731): App\Models\ModelAdministrasi->getDataAjaxRemote('3578311001')
+ 8 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->getkode()
+ 9 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+10 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+ERROR - 2023-05-26 12:46:56 --> ErrorException: pg_query(): Query failed: ERROR:  operator does not exist: bigint ~~* text
+LINE 6: WHERE  id_kelurahan  ILIKE '%3578311001%' ESCAPE '!' 
+                             ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts. in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\Postgre\Connection.php:140
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_query(): Que...', 'F:\\WEB\\XAMPP\\ht...', 140)
+#1 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\Postgre\Connection.php(140): pg_query(Resource id #154, 'SELECT "tbl_kel...')
+#2 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(666): CodeIgniter\Database\Postgre\Connection->execute('SELECT "tbl_kel...')
+#3 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT "tbl_kel...')
+#4 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT "tbl_kel...', Array, false)
+#5 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Models\ModelAdministrasi.php(27): CodeIgniter\Database\BaseBuilder->get()
+#6 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Controllers\Admin.php(731): App\Models\ModelAdministrasi->getDataAjaxRemote('3578311001')
+#7 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(927): App\Controllers\Admin->getkode()
+#8 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#9 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 F:\WEB\XAMPP\htdocs\WebGis_kv\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(46): require_once('F:\\WEB\\XAMPP\\ht...')
+#12 {main}
+CRITICAL - 2023-05-26 12:46:56 --> pg_query(): Query failed: ERROR:  operator does not exist: bigint ~~* text
+LINE 6: WHERE  id_kelurahan  ILIKE '%3578311001%' ESCAPE '!' 
+                             ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.
+in SYSTEMPATH\Database\Postgre\Connection.php on line 140.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_query(): Query failed: ERROR:  operator does not exist: bigint ~~* text
+LINE 6: WHERE  id_kelurahan  ILIKE \'%3578311001%\' ESCAPE \'!\' 
+                             ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.', 'SYSTEMPATH\\Database\\Postgre\\Connection.php', 140)
+ 2 SYSTEMPATH\Database\Postgre\Connection.php(140): pg_query(resource (pgsql link), 'SELECT "tbl_kelurahan"."id_kelurahan" as "id_kelurahan", "nama_kelurahan", "tbl_kecamatan"."id_kecamatan" as "id_kecamatan", "nama_kecamatan", "tbl_kabupaten"."id_kabupaten" as "id_kabupaten", "nama_kabupaten", "tbl_provinsi"."id_provinsi" as "id_provinsi", "nama_provinsi"
+FROM "tbl_kelurahan"
+JOIN "tbl_kecamatan" ON "tbl_kecamatan"."id_kecamatan" = "tbl_kelurahan"."id_kecamatan"
+JOIN "tbl_kabupaten" ON "tbl_kabupaten"."id_kabupaten" = "tbl_kecamatan"."id_kabupaten"
+JOIN "tbl_provinsi" ON "tbl_provinsi"."id_provinsi" = "tbl_kabupaten"."id_provinsi"
+WHERE  id_kelurahan  ILIKE \'%3578311001%\' ESCAPE \'!\' ')
+ 3 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\Postgre\Connection->execute('SELECT "tbl_kelurahan"."id_kelurahan" as "id_kelurahan", "nama_kelurahan", "tbl_kecamatan"."id_kecamatan" as "id_kecamatan", "nama_kecamatan", "tbl_kabupaten"."id_kabupaten" as "id_kabupaten", "nama_kabupaten", "tbl_provinsi"."id_provinsi" as "id_provinsi", "nama_provinsi"
+FROM "tbl_kelurahan"
+JOIN "tbl_kecamatan" ON "tbl_kecamatan"."id_kecamatan" = "tbl_kelurahan"."id_kecamatan"
+JOIN "tbl_kabupaten" ON "tbl_kabupaten"."id_kabupaten" = "tbl_kecamatan"."id_kabupaten"
+JOIN "tbl_provinsi" ON "tbl_provinsi"."id_provinsi" = "tbl_kabupaten"."id_provinsi"
+WHERE  id_kelurahan  ILIKE \'%3578311001%\' ESCAPE \'!\' ')
+ 4 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT "tbl_kelurahan"."id_kelurahan" as "id_kelurahan", "nama_kelurahan", "tbl_kecamatan"."id_kecamatan" as "id_kecamatan", "nama_kecamatan", "tbl_kabupaten"."id_kabupaten" as "id_kabupaten", "nama_kabupaten", "tbl_provinsi"."id_provinsi" as "id_provinsi", "nama_provinsi"
+FROM "tbl_kelurahan"
+JOIN "tbl_kecamatan" ON "tbl_kecamatan"."id_kecamatan" = "tbl_kelurahan"."id_kecamatan"
+JOIN "tbl_kabupaten" ON "tbl_kabupaten"."id_kabupaten" = "tbl_kecamatan"."id_kabupaten"
+JOIN "tbl_provinsi" ON "tbl_provinsi"."id_provinsi" = "tbl_kabupaten"."id_provinsi"
+WHERE  id_kelurahan  ILIKE \'%3578311001%\' ESCAPE \'!\' ')
+ 5 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT "tbl_kelurahan"."id_kelurahan" as "id_kelurahan", "nama_kelurahan", "tbl_kecamatan"."id_kecamatan" as "id_kecamatan", "nama_kecamatan", "tbl_kabupaten"."id_kabupaten" as "id_kabupaten", "nama_kabupaten", "tbl_provinsi"."id_provinsi" as "id_provinsi", "nama_provinsi"
+FROM "tbl_kelurahan"
+JOIN "tbl_kecamatan" ON "tbl_kecamatan"."id_kecamatan" = "tbl_kelurahan"."id_kecamatan"
+JOIN "tbl_kabupaten" ON "tbl_kabupaten"."id_kabupaten" = "tbl_kecamatan"."id_kabupaten"
+JOIN "tbl_provinsi" ON "tbl_provinsi"."id_provinsi" = "tbl_kabupaten"."id_provinsi"
+WHERE  id_kelurahan  ILIKE :id_kelurahan: ESCAPE \'!\' ', [...], false)
+ 6 APPPATH\Models\ModelAdministrasi.php(27): CodeIgniter\Database\BaseBuilder->get()
+ 7 APPPATH\Controllers\Admin.php(731): App\Models\ModelAdministrasi->getDataAjaxRemote('3578311001')
+ 8 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->getkode()
+ 9 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+10 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-05-26 12:48:45 --> Undefined variable $selectajax
+in APPPATH\Controllers\Admin.php on line 775.
+ 1 APPPATH\Controllers\Admin.php(775): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $selectajax', 'APPPATH\\Controllers\\Admin.php', 775)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->wil()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-05-26 12:51:52 --> Too few arguments to function App\Models\ModelAdministrasi::getDataAjaxRemote(), 0 passed in F:\WEB\XAMPP\htdocs\WebGis_kv\app\Controllers\Admin.php on line 731 and exactly 1 expected
+in APPPATH\Models\ModelAdministrasi.php on line 19.
+ 1 APPPATH\Controllers\Admin.php(731): App\Models\ModelAdministrasi->getDataAjaxRemote()
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->getkode()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+ERROR - 2023-05-26 12:52:32 --> ErrorException: pg_query(): Query failed: ERROR:  operator does not exist: bigint ~~* text
+LINE 6: WHERE  id_kelurahan  ILIKE '%3578311001%' ESCAPE '!' 
+                             ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts. in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\Postgre\Connection.php:140
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_query(): Que...', 'F:\\WEB\\XAMPP\\ht...', 140)
+#1 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\Postgre\Connection.php(140): pg_query(Resource id #154, 'SELECT "tbl_kel...')
+#2 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(666): CodeIgniter\Database\Postgre\Connection->execute('SELECT "tbl_kel...')
+#3 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT "tbl_kel...')
+#4 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT "tbl_kel...', Array, false)
+#5 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Models\ModelAdministrasi.php(38): CodeIgniter\Database\BaseBuilder->get()
+#6 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Controllers\Admin.php(731): App\Models\ModelAdministrasi->getKode('3578311001')
+#7 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(927): App\Controllers\Admin->getkode()
+#8 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#9 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 F:\WEB\XAMPP\htdocs\WebGis_kv\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(46): require_once('F:\\WEB\\XAMPP\\ht...')
+#12 {main}
+CRITICAL - 2023-05-26 12:52:32 --> pg_query(): Query failed: ERROR:  operator does not exist: bigint ~~* text
+LINE 6: WHERE  id_kelurahan  ILIKE '%3578311001%' ESCAPE '!' 
+                             ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.
+in SYSTEMPATH\Database\Postgre\Connection.php on line 140.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_query(): Query failed: ERROR:  operator does not exist: bigint ~~* text
+LINE 6: WHERE  id_kelurahan  ILIKE \'%3578311001%\' ESCAPE \'!\' 
+                             ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.', 'SYSTEMPATH\\Database\\Postgre\\Connection.php', 140)
+ 2 SYSTEMPATH\Database\Postgre\Connection.php(140): pg_query(resource (pgsql link), 'SELECT "tbl_kelurahan"."id_kelurahan" as "id_kelurahan", "nama_kelurahan", "tbl_kecamatan"."id_kecamatan" as "id_kecamatan", "nama_kecamatan", "tbl_kabupaten"."id_kabupaten" as "id_kabupaten", "nama_kabupaten", "tbl_provinsi"."id_provinsi" as "id_provinsi", "nama_provinsi"
+FROM "tbl_kelurahan"
+JOIN "tbl_kecamatan" ON "tbl_kecamatan"."id_kecamatan" = "tbl_kelurahan"."id_kecamatan"
+JOIN "tbl_kabupaten" ON "tbl_kabupaten"."id_kabupaten" = "tbl_kecamatan"."id_kabupaten"
+JOIN "tbl_provinsi" ON "tbl_provinsi"."id_provinsi" = "tbl_kabupaten"."id_provinsi"
+WHERE  id_kelurahan  ILIKE \'%3578311001%\' ESCAPE \'!\' ')
+ 3 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\Postgre\Connection->execute('SELECT "tbl_kelurahan"."id_kelurahan" as "id_kelurahan", "nama_kelurahan", "tbl_kecamatan"."id_kecamatan" as "id_kecamatan", "nama_kecamatan", "tbl_kabupaten"."id_kabupaten" as "id_kabupaten", "nama_kabupaten", "tbl_provinsi"."id_provinsi" as "id_provinsi", "nama_provinsi"
+FROM "tbl_kelurahan"
+JOIN "tbl_kecamatan" ON "tbl_kecamatan"."id_kecamatan" = "tbl_kelurahan"."id_kecamatan"
+JOIN "tbl_kabupaten" ON "tbl_kabupaten"."id_kabupaten" = "tbl_kecamatan"."id_kabupaten"
+JOIN "tbl_provinsi" ON "tbl_provinsi"."id_provinsi" = "tbl_kabupaten"."id_provinsi"
+WHERE  id_kelurahan  ILIKE \'%3578311001%\' ESCAPE \'!\' ')
+ 4 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT "tbl_kelurahan"."id_kelurahan" as "id_kelurahan", "nama_kelurahan", "tbl_kecamatan"."id_kecamatan" as "id_kecamatan", "nama_kecamatan", "tbl_kabupaten"."id_kabupaten" as "id_kabupaten", "nama_kabupaten", "tbl_provinsi"."id_provinsi" as "id_provinsi", "nama_provinsi"
+FROM "tbl_kelurahan"
+JOIN "tbl_kecamatan" ON "tbl_kecamatan"."id_kecamatan" = "tbl_kelurahan"."id_kecamatan"
+JOIN "tbl_kabupaten" ON "tbl_kabupaten"."id_kabupaten" = "tbl_kecamatan"."id_kabupaten"
+JOIN "tbl_provinsi" ON "tbl_provinsi"."id_provinsi" = "tbl_kabupaten"."id_provinsi"
+WHERE  id_kelurahan  ILIKE \'%3578311001%\' ESCAPE \'!\' ')
+ 5 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT "tbl_kelurahan"."id_kelurahan" as "id_kelurahan", "nama_kelurahan", "tbl_kecamatan"."id_kecamatan" as "id_kecamatan", "nama_kecamatan", "tbl_kabupaten"."id_kabupaten" as "id_kabupaten", "nama_kabupaten", "tbl_provinsi"."id_provinsi" as "id_provinsi", "nama_provinsi"
+FROM "tbl_kelurahan"
+JOIN "tbl_kecamatan" ON "tbl_kecamatan"."id_kecamatan" = "tbl_kelurahan"."id_kecamatan"
+JOIN "tbl_kabupaten" ON "tbl_kabupaten"."id_kabupaten" = "tbl_kecamatan"."id_kabupaten"
+JOIN "tbl_provinsi" ON "tbl_provinsi"."id_provinsi" = "tbl_kabupaten"."id_provinsi"
+WHERE  id_kelurahan  ILIKE :id_kelurahan: ESCAPE \'!\' ', [...], false)
+ 6 APPPATH\Models\ModelAdministrasi.php(38): CodeIgniter\Database\BaseBuilder->get()
+ 7 APPPATH\Controllers\Admin.php(731): App\Models\ModelAdministrasi->getKode('3578311001')
+ 8 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->getkode()
+ 9 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+10 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+ERROR - 2023-05-26 12:52:46 --> ErrorException: pg_query(): Query failed: ERROR:  operator does not exist: bigint ~~* text
+LINE 6: WHERE  id_kelurahan  ILIKE '%3578311001%' ESCAPE '!' 
+                             ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts. in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\Postgre\Connection.php:140
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_query(): Que...', 'F:\\WEB\\XAMPP\\ht...', 140)
+#1 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\Postgre\Connection.php(140): pg_query(Resource id #154, 'SELECT "tbl_kel...')
+#2 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(666): CodeIgniter\Database\Postgre\Connection->execute('SELECT "tbl_kel...')
+#3 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT "tbl_kel...')
+#4 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT "tbl_kel...', Array, false)
+#5 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Models\ModelAdministrasi.php(38): CodeIgniter\Database\BaseBuilder->get()
+#6 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Controllers\Admin.php(731): App\Models\ModelAdministrasi->getKode('3578311001')
+#7 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(927): App\Controllers\Admin->getkode()
+#8 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#9 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 F:\WEB\XAMPP\htdocs\WebGis_kv\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(46): require_once('F:\\WEB\\XAMPP\\ht...')
+#12 {main}
+CRITICAL - 2023-05-26 12:52:46 --> pg_query(): Query failed: ERROR:  operator does not exist: bigint ~~* text
+LINE 6: WHERE  id_kelurahan  ILIKE '%3578311001%' ESCAPE '!' 
+                             ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.
+in SYSTEMPATH\Database\Postgre\Connection.php on line 140.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_query(): Query failed: ERROR:  operator does not exist: bigint ~~* text
+LINE 6: WHERE  id_kelurahan  ILIKE \'%3578311001%\' ESCAPE \'!\' 
+                             ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.', 'SYSTEMPATH\\Database\\Postgre\\Connection.php', 140)
+ 2 SYSTEMPATH\Database\Postgre\Connection.php(140): pg_query(resource (pgsql link), 'SELECT "tbl_kelurahan"."id_kelurahan" as "id_kelurahan", "nama_kelurahan", "tbl_kecamatan"."id_kecamatan" as "id_kecamatan", "nama_kecamatan", "tbl_kabupaten"."id_kabupaten" as "id_kabupaten", "nama_kabupaten", "tbl_provinsi"."id_provinsi" as "id_provinsi", "nama_provinsi"
+FROM "tbl_kelurahan"
+JOIN "tbl_kecamatan" ON "tbl_kecamatan"."id_kecamatan" = "tbl_kelurahan"."id_kecamatan"
+JOIN "tbl_kabupaten" ON "tbl_kabupaten"."id_kabupaten" = "tbl_kecamatan"."id_kabupaten"
+JOIN "tbl_provinsi" ON "tbl_provinsi"."id_provinsi" = "tbl_kabupaten"."id_provinsi"
+WHERE  id_kelurahan  ILIKE \'%3578311001%\' ESCAPE \'!\' ')
+ 3 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\Postgre\Connection->execute('SELECT "tbl_kelurahan"."id_kelurahan" as "id_kelurahan", "nama_kelurahan", "tbl_kecamatan"."id_kecamatan" as "id_kecamatan", "nama_kecamatan", "tbl_kabupaten"."id_kabupaten" as "id_kabupaten", "nama_kabupaten", "tbl_provinsi"."id_provinsi" as "id_provinsi", "nama_provinsi"
+FROM "tbl_kelurahan"
+JOIN "tbl_kecamatan" ON "tbl_kecamatan"."id_kecamatan" = "tbl_kelurahan"."id_kecamatan"
+JOIN "tbl_kabupaten" ON "tbl_kabupaten"."id_kabupaten" = "tbl_kecamatan"."id_kabupaten"
+JOIN "tbl_provinsi" ON "tbl_provinsi"."id_provinsi" = "tbl_kabupaten"."id_provinsi"
+WHERE  id_kelurahan  ILIKE \'%3578311001%\' ESCAPE \'!\' ')
+ 4 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT "tbl_kelurahan"."id_kelurahan" as "id_kelurahan", "nama_kelurahan", "tbl_kecamatan"."id_kecamatan" as "id_kecamatan", "nama_kecamatan", "tbl_kabupaten"."id_kabupaten" as "id_kabupaten", "nama_kabupaten", "tbl_provinsi"."id_provinsi" as "id_provinsi", "nama_provinsi"
+FROM "tbl_kelurahan"
+JOIN "tbl_kecamatan" ON "tbl_kecamatan"."id_kecamatan" = "tbl_kelurahan"."id_kecamatan"
+JOIN "tbl_kabupaten" ON "tbl_kabupaten"."id_kabupaten" = "tbl_kecamatan"."id_kabupaten"
+JOIN "tbl_provinsi" ON "tbl_provinsi"."id_provinsi" = "tbl_kabupaten"."id_provinsi"
+WHERE  id_kelurahan  ILIKE \'%3578311001%\' ESCAPE \'!\' ')
+ 5 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT "tbl_kelurahan"."id_kelurahan" as "id_kelurahan", "nama_kelurahan", "tbl_kecamatan"."id_kecamatan" as "id_kecamatan", "nama_kecamatan", "tbl_kabupaten"."id_kabupaten" as "id_kabupaten", "nama_kabupaten", "tbl_provinsi"."id_provinsi" as "id_provinsi", "nama_provinsi"
+FROM "tbl_kelurahan"
+JOIN "tbl_kecamatan" ON "tbl_kecamatan"."id_kecamatan" = "tbl_kelurahan"."id_kecamatan"
+JOIN "tbl_kabupaten" ON "tbl_kabupaten"."id_kabupaten" = "tbl_kecamatan"."id_kabupaten"
+JOIN "tbl_provinsi" ON "tbl_provinsi"."id_provinsi" = "tbl_kabupaten"."id_provinsi"
+WHERE  id_kelurahan  ILIKE :id_kelurahan: ESCAPE \'!\' ', [...], false)
+ 6 APPPATH\Models\ModelAdministrasi.php(38): CodeIgniter\Database\BaseBuilder->get()
+ 7 APPPATH\Controllers\Admin.php(731): App\Models\ModelAdministrasi->getKode('3578311001')
+ 8 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->getkode()
+ 9 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+10 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-05-26 12:53:16 --> Too few arguments to function App\Models\ModelAdministrasi::getKode(), 0 passed in F:\WEB\XAMPP\htdocs\WebGis_kv\app\Controllers\Admin.php on line 731 and exactly 1 expected
+in APPPATH\Models\ModelAdministrasi.php on line 30.
+ 1 APPPATH\Controllers\Admin.php(731): App\Models\ModelAdministrasi->getKode()
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->getkode()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+ERROR - 2023-05-26 12:53:29 --> ErrorException: pg_query(): Query failed: ERROR:  operator does not exist: bigint ~~* text
+LINE 6: WHERE  id_kelurahan  ILIKE '%3578311001%' ESCAPE '!' 
+                             ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts. in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\Postgre\Connection.php:140
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_query(): Que...', 'F:\\WEB\\XAMPP\\ht...', 140)
+#1 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\Postgre\Connection.php(140): pg_query(Resource id #154, 'SELECT "tbl_kel...')
+#2 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(666): CodeIgniter\Database\Postgre\Connection->execute('SELECT "tbl_kel...')
+#3 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT "tbl_kel...')
+#4 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT "tbl_kel...', Array, false)
+#5 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Models\ModelAdministrasi.php(38): CodeIgniter\Database\BaseBuilder->get()
+#6 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Controllers\Admin.php(731): App\Models\ModelAdministrasi->getKode()
+#7 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(927): App\Controllers\Admin->getkode()
+#8 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#9 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 F:\WEB\XAMPP\htdocs\WebGis_kv\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(46): require_once('F:\\WEB\\XAMPP\\ht...')
+#12 {main}
+CRITICAL - 2023-05-26 12:53:29 --> pg_query(): Query failed: ERROR:  operator does not exist: bigint ~~* text
+LINE 6: WHERE  id_kelurahan  ILIKE '%3578311001%' ESCAPE '!' 
+                             ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.
+in SYSTEMPATH\Database\Postgre\Connection.php on line 140.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_query(): Query failed: ERROR:  operator does not exist: bigint ~~* text
+LINE 6: WHERE  id_kelurahan  ILIKE \'%3578311001%\' ESCAPE \'!\' 
+                             ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.', 'SYSTEMPATH\\Database\\Postgre\\Connection.php', 140)
+ 2 SYSTEMPATH\Database\Postgre\Connection.php(140): pg_query(resource (pgsql link), 'SELECT "tbl_kelurahan"."id_kelurahan" as "id_kelurahan", "nama_kelurahan", "tbl_kecamatan"."id_kecamatan" as "id_kecamatan", "nama_kecamatan", "tbl_kabupaten"."id_kabupaten" as "id_kabupaten", "nama_kabupaten", "tbl_provinsi"."id_provinsi" as "id_provinsi", "nama_provinsi"
+FROM "tbl_kelurahan"
+JOIN "tbl_kecamatan" ON "tbl_kecamatan"."id_kecamatan" = "tbl_kelurahan"."id_kecamatan"
+JOIN "tbl_kabupaten" ON "tbl_kabupaten"."id_kabupaten" = "tbl_kecamatan"."id_kabupaten"
+JOIN "tbl_provinsi" ON "tbl_provinsi"."id_provinsi" = "tbl_kabupaten"."id_provinsi"
+WHERE  id_kelurahan  ILIKE \'%3578311001%\' ESCAPE \'!\' ')
+ 3 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\Postgre\Connection->execute('SELECT "tbl_kelurahan"."id_kelurahan" as "id_kelurahan", "nama_kelurahan", "tbl_kecamatan"."id_kecamatan" as "id_kecamatan", "nama_kecamatan", "tbl_kabupaten"."id_kabupaten" as "id_kabupaten", "nama_kabupaten", "tbl_provinsi"."id_provinsi" as "id_provinsi", "nama_provinsi"
+FROM "tbl_kelurahan"
+JOIN "tbl_kecamatan" ON "tbl_kecamatan"."id_kecamatan" = "tbl_kelurahan"."id_kecamatan"
+JOIN "tbl_kabupaten" ON "tbl_kabupaten"."id_kabupaten" = "tbl_kecamatan"."id_kabupaten"
+JOIN "tbl_provinsi" ON "tbl_provinsi"."id_provinsi" = "tbl_kabupaten"."id_provinsi"
+WHERE  id_kelurahan  ILIKE \'%3578311001%\' ESCAPE \'!\' ')
+ 4 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT "tbl_kelurahan"."id_kelurahan" as "id_kelurahan", "nama_kelurahan", "tbl_kecamatan"."id_kecamatan" as "id_kecamatan", "nama_kecamatan", "tbl_kabupaten"."id_kabupaten" as "id_kabupaten", "nama_kabupaten", "tbl_provinsi"."id_provinsi" as "id_provinsi", "nama_provinsi"
+FROM "tbl_kelurahan"
+JOIN "tbl_kecamatan" ON "tbl_kecamatan"."id_kecamatan" = "tbl_kelurahan"."id_kecamatan"
+JOIN "tbl_kabupaten" ON "tbl_kabupaten"."id_kabupaten" = "tbl_kecamatan"."id_kabupaten"
+JOIN "tbl_provinsi" ON "tbl_provinsi"."id_provinsi" = "tbl_kabupaten"."id_provinsi"
+WHERE  id_kelurahan  ILIKE \'%3578311001%\' ESCAPE \'!\' ')
+ 5 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT "tbl_kelurahan"."id_kelurahan" as "id_kelurahan", "nama_kelurahan", "tbl_kecamatan"."id_kecamatan" as "id_kecamatan", "nama_kecamatan", "tbl_kabupaten"."id_kabupaten" as "id_kabupaten", "nama_kabupaten", "tbl_provinsi"."id_provinsi" as "id_provinsi", "nama_provinsi"
+FROM "tbl_kelurahan"
+JOIN "tbl_kecamatan" ON "tbl_kecamatan"."id_kecamatan" = "tbl_kelurahan"."id_kecamatan"
+JOIN "tbl_kabupaten" ON "tbl_kabupaten"."id_kabupaten" = "tbl_kecamatan"."id_kabupaten"
+JOIN "tbl_provinsi" ON "tbl_provinsi"."id_provinsi" = "tbl_kabupaten"."id_provinsi"
+WHERE  id_kelurahan  ILIKE :id_kelurahan: ESCAPE \'!\' ', [...], false)
+ 6 APPPATH\Models\ModelAdministrasi.php(38): CodeIgniter\Database\BaseBuilder->get()
+ 7 APPPATH\Controllers\Admin.php(731): App\Models\ModelAdministrasi->getKode()
+ 8 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->getkode()
+ 9 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+10 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+ERROR - 2023-05-26 12:53:41 --> ErrorException: pg_query(): Query failed: ERROR:  operator does not exist: bigint ~~* text
+LINE 6: WHERE  id_kelurahan  ILIKE '%35783%' ESCAPE '!' 
+                             ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts. in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\Postgre\Connection.php:140
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_query(): Que...', 'F:\\WEB\\XAMPP\\ht...', 140)
+#1 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\Postgre\Connection.php(140): pg_query(Resource id #154, 'SELECT "tbl_kel...')
+#2 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(666): CodeIgniter\Database\Postgre\Connection->execute('SELECT "tbl_kel...')
+#3 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT "tbl_kel...')
+#4 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT "tbl_kel...', Array, false)
+#5 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Models\ModelAdministrasi.php(38): CodeIgniter\Database\BaseBuilder->get()
+#6 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Controllers\Admin.php(731): App\Models\ModelAdministrasi->getKode()
+#7 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(927): App\Controllers\Admin->getkode()
+#8 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#9 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 F:\WEB\XAMPP\htdocs\WebGis_kv\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(46): require_once('F:\\WEB\\XAMPP\\ht...')
+#12 {main}
+CRITICAL - 2023-05-26 12:53:41 --> pg_query(): Query failed: ERROR:  operator does not exist: bigint ~~* text
+LINE 6: WHERE  id_kelurahan  ILIKE '%35783%' ESCAPE '!' 
+                             ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.
+in SYSTEMPATH\Database\Postgre\Connection.php on line 140.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_query(): Query failed: ERROR:  operator does not exist: bigint ~~* text
+LINE 6: WHERE  id_kelurahan  ILIKE \'%35783%\' ESCAPE \'!\' 
+                             ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.', 'SYSTEMPATH\\Database\\Postgre\\Connection.php', 140)
+ 2 SYSTEMPATH\Database\Postgre\Connection.php(140): pg_query(resource (pgsql link), 'SELECT "tbl_kelurahan"."id_kelurahan" as "id_kelurahan", "nama_kelurahan", "tbl_kecamatan"."id_kecamatan" as "id_kecamatan", "nama_kecamatan", "tbl_kabupaten"."id_kabupaten" as "id_kabupaten", "nama_kabupaten", "tbl_provinsi"."id_provinsi" as "id_provinsi", "nama_provinsi"
+FROM "tbl_kelurahan"
+JOIN "tbl_kecamatan" ON "tbl_kecamatan"."id_kecamatan" = "tbl_kelurahan"."id_kecamatan"
+JOIN "tbl_kabupaten" ON "tbl_kabupaten"."id_kabupaten" = "tbl_kecamatan"."id_kabupaten"
+JOIN "tbl_provinsi" ON "tbl_provinsi"."id_provinsi" = "tbl_kabupaten"."id_provinsi"
+WHERE  id_kelurahan  ILIKE \'%35783%\' ESCAPE \'!\' ')
+ 3 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\Postgre\Connection->execute('SELECT "tbl_kelurahan"."id_kelurahan" as "id_kelurahan", "nama_kelurahan", "tbl_kecamatan"."id_kecamatan" as "id_kecamatan", "nama_kecamatan", "tbl_kabupaten"."id_kabupaten" as "id_kabupaten", "nama_kabupaten", "tbl_provinsi"."id_provinsi" as "id_provinsi", "nama_provinsi"
+FROM "tbl_kelurahan"
+JOIN "tbl_kecamatan" ON "tbl_kecamatan"."id_kecamatan" = "tbl_kelurahan"."id_kecamatan"
+JOIN "tbl_kabupaten" ON "tbl_kabupaten"."id_kabupaten" = "tbl_kecamatan"."id_kabupaten"
+JOIN "tbl_provinsi" ON "tbl_provinsi"."id_provinsi" = "tbl_kabupaten"."id_provinsi"
+WHERE  id_kelurahan  ILIKE \'%35783%\' ESCAPE \'!\' ')
+ 4 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT "tbl_kelurahan"."id_kelurahan" as "id_kelurahan", "nama_kelurahan", "tbl_kecamatan"."id_kecamatan" as "id_kecamatan", "nama_kecamatan", "tbl_kabupaten"."id_kabupaten" as "id_kabupaten", "nama_kabupaten", "tbl_provinsi"."id_provinsi" as "id_provinsi", "nama_provinsi"
+FROM "tbl_kelurahan"
+JOIN "tbl_kecamatan" ON "tbl_kecamatan"."id_kecamatan" = "tbl_kelurahan"."id_kecamatan"
+JOIN "tbl_kabupaten" ON "tbl_kabupaten"."id_kabupaten" = "tbl_kecamatan"."id_kabupaten"
+JOIN "tbl_provinsi" ON "tbl_provinsi"."id_provinsi" = "tbl_kabupaten"."id_provinsi"
+WHERE  id_kelurahan  ILIKE \'%35783%\' ESCAPE \'!\' ')
+ 5 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT "tbl_kelurahan"."id_kelurahan" as "id_kelurahan", "nama_kelurahan", "tbl_kecamatan"."id_kecamatan" as "id_kecamatan", "nama_kecamatan", "tbl_kabupaten"."id_kabupaten" as "id_kabupaten", "nama_kabupaten", "tbl_provinsi"."id_provinsi" as "id_provinsi", "nama_provinsi"
+FROM "tbl_kelurahan"
+JOIN "tbl_kecamatan" ON "tbl_kecamatan"."id_kecamatan" = "tbl_kelurahan"."id_kecamatan"
+JOIN "tbl_kabupaten" ON "tbl_kabupaten"."id_kabupaten" = "tbl_kecamatan"."id_kabupaten"
+JOIN "tbl_provinsi" ON "tbl_provinsi"."id_provinsi" = "tbl_kabupaten"."id_provinsi"
+WHERE  id_kelurahan  ILIKE :id_kelurahan: ESCAPE \'!\' ', [...], false)
+ 6 APPPATH\Models\ModelAdministrasi.php(38): CodeIgniter\Database\BaseBuilder->get()
+ 7 APPPATH\Controllers\Admin.php(731): App\Models\ModelAdministrasi->getKode()
+ 8 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->getkode()
+ 9 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+10 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+ERROR - 2023-05-26 12:53:47 --> ErrorException: pg_query(): Query failed: ERROR:  operator does not exist: bigint ~~* text
+LINE 6: WHERE  id_kelurahan  ILIKE '%3578311001%' ESCAPE '!' 
+                             ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts. in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\Postgre\Connection.php:140
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_query(): Que...', 'F:\\WEB\\XAMPP\\ht...', 140)
+#1 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\Postgre\Connection.php(140): pg_query(Resource id #155, 'SELECT "tbl_kel...')
+#2 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(666): CodeIgniter\Database\Postgre\Connection->execute('SELECT "tbl_kel...')
+#3 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT "tbl_kel...')
+#4 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT "tbl_kel...', Array, false)
+#5 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Models\ModelAdministrasi.php(38): CodeIgniter\Database\BaseBuilder->get()
+#6 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Controllers\Admin.php(731): App\Models\ModelAdministrasi->getKode()
+#7 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(927): App\Controllers\Admin->getkode()
+#8 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#9 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 F:\WEB\XAMPP\htdocs\WebGis_kv\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(46): require_once('F:\\WEB\\XAMPP\\ht...')
+#12 {main}
+CRITICAL - 2023-05-26 12:53:47 --> pg_query(): Query failed: ERROR:  operator does not exist: bigint ~~* text
+LINE 6: WHERE  id_kelurahan  ILIKE '%3578311001%' ESCAPE '!' 
+                             ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.
+in SYSTEMPATH\Database\Postgre\Connection.php on line 140.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_query(): Query failed: ERROR:  operator does not exist: bigint ~~* text
+LINE 6: WHERE  id_kelurahan  ILIKE \'%3578311001%\' ESCAPE \'!\' 
+                             ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.', 'SYSTEMPATH\\Database\\Postgre\\Connection.php', 140)
+ 2 SYSTEMPATH\Database\Postgre\Connection.php(140): pg_query(resource (pgsql link), 'SELECT "tbl_kelurahan"."id_kelurahan" as "id_kelurahan", "nama_kelurahan", "tbl_kecamatan"."id_kecamatan" as "id_kecamatan", "nama_kecamatan", "tbl_kabupaten"."id_kabupaten" as "id_kabupaten", "nama_kabupaten", "tbl_provinsi"."id_provinsi" as "id_provinsi", "nama_provinsi"
+FROM "tbl_kelurahan"
+JOIN "tbl_kecamatan" ON "tbl_kecamatan"."id_kecamatan" = "tbl_kelurahan"."id_kecamatan"
+JOIN "tbl_kabupaten" ON "tbl_kabupaten"."id_kabupaten" = "tbl_kecamatan"."id_kabupaten"
+JOIN "tbl_provinsi" ON "tbl_provinsi"."id_provinsi" = "tbl_kabupaten"."id_provinsi"
+WHERE  id_kelurahan  ILIKE \'%3578311001%\' ESCAPE \'!\' ')
+ 3 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\Postgre\Connection->execute('SELECT "tbl_kelurahan"."id_kelurahan" as "id_kelurahan", "nama_kelurahan", "tbl_kecamatan"."id_kecamatan" as "id_kecamatan", "nama_kecamatan", "tbl_kabupaten"."id_kabupaten" as "id_kabupaten", "nama_kabupaten", "tbl_provinsi"."id_provinsi" as "id_provinsi", "nama_provinsi"
+FROM "tbl_kelurahan"
+JOIN "tbl_kecamatan" ON "tbl_kecamatan"."id_kecamatan" = "tbl_kelurahan"."id_kecamatan"
+JOIN "tbl_kabupaten" ON "tbl_kabupaten"."id_kabupaten" = "tbl_kecamatan"."id_kabupaten"
+JOIN "tbl_provinsi" ON "tbl_provinsi"."id_provinsi" = "tbl_kabupaten"."id_provinsi"
+WHERE  id_kelurahan  ILIKE \'%3578311001%\' ESCAPE \'!\' ')
+ 4 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT "tbl_kelurahan"."id_kelurahan" as "id_kelurahan", "nama_kelurahan", "tbl_kecamatan"."id_kecamatan" as "id_kecamatan", "nama_kecamatan", "tbl_kabupaten"."id_kabupaten" as "id_kabupaten", "nama_kabupaten", "tbl_provinsi"."id_provinsi" as "id_provinsi", "nama_provinsi"
+FROM "tbl_kelurahan"
+JOIN "tbl_kecamatan" ON "tbl_kecamatan"."id_kecamatan" = "tbl_kelurahan"."id_kecamatan"
+JOIN "tbl_kabupaten" ON "tbl_kabupaten"."id_kabupaten" = "tbl_kecamatan"."id_kabupaten"
+JOIN "tbl_provinsi" ON "tbl_provinsi"."id_provinsi" = "tbl_kabupaten"."id_provinsi"
+WHERE  id_kelurahan  ILIKE \'%3578311001%\' ESCAPE \'!\' ')
+ 5 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT "tbl_kelurahan"."id_kelurahan" as "id_kelurahan", "nama_kelurahan", "tbl_kecamatan"."id_kecamatan" as "id_kecamatan", "nama_kecamatan", "tbl_kabupaten"."id_kabupaten" as "id_kabupaten", "nama_kabupaten", "tbl_provinsi"."id_provinsi" as "id_provinsi", "nama_provinsi"
+FROM "tbl_kelurahan"
+JOIN "tbl_kecamatan" ON "tbl_kecamatan"."id_kecamatan" = "tbl_kelurahan"."id_kecamatan"
+JOIN "tbl_kabupaten" ON "tbl_kabupaten"."id_kabupaten" = "tbl_kecamatan"."id_kabupaten"
+JOIN "tbl_provinsi" ON "tbl_provinsi"."id_provinsi" = "tbl_kabupaten"."id_provinsi"
+WHERE  id_kelurahan  ILIKE :id_kelurahan: ESCAPE \'!\' ', [...], false)
+ 6 APPPATH\Models\ModelAdministrasi.php(38): CodeIgniter\Database\BaseBuilder->get()
+ 7 APPPATH\Controllers\Admin.php(731): App\Models\ModelAdministrasi->getKode()
+ 8 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->getkode()
+ 9 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+10 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-05-26 12:54:25 --> Call to undefined method CodeIgniter\Database\Postgre\Builder::ilike()
+in APPPATH\Models\ModelAdministrasi.php on line 37.
+ 1 APPPATH\Controllers\Admin.php(731): App\Models\ModelAdministrasi->getKode()
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->getkode()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+ERROR - 2023-05-26 12:54:47 --> ErrorException: pg_query(): Query failed: ERROR:  operator does not exist: bigint ~~* text
+LINE 6: WHERE  id_kelurahan  ILIKE '%3578311001%' ESCAPE '!' 
+                             ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts. in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\Postgre\Connection.php:140
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_query(): Que...', 'F:\\WEB\\XAMPP\\ht...', 140)
+#1 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\Postgre\Connection.php(140): pg_query(Resource id #154, 'SELECT "tbl_kel...')
+#2 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(666): CodeIgniter\Database\Postgre\Connection->execute('SELECT "tbl_kel...')
+#3 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT "tbl_kel...')
+#4 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT "tbl_kel...', Array, false)
+#5 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Models\ModelAdministrasi.php(39): CodeIgniter\Database\BaseBuilder->get()
+#6 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Controllers\Admin.php(731): App\Models\ModelAdministrasi->getKode()
+#7 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(927): App\Controllers\Admin->getkode()
+#8 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#9 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 F:\WEB\XAMPP\htdocs\WebGis_kv\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(46): require_once('F:\\WEB\\XAMPP\\ht...')
+#12 {main}
+CRITICAL - 2023-05-26 12:54:47 --> pg_query(): Query failed: ERROR:  operator does not exist: bigint ~~* text
+LINE 6: WHERE  id_kelurahan  ILIKE '%3578311001%' ESCAPE '!' 
+                             ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.
+in SYSTEMPATH\Database\Postgre\Connection.php on line 140.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_query(): Query failed: ERROR:  operator does not exist: bigint ~~* text
+LINE 6: WHERE  id_kelurahan  ILIKE \'%3578311001%\' ESCAPE \'!\' 
+                             ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.', 'SYSTEMPATH\\Database\\Postgre\\Connection.php', 140)
+ 2 SYSTEMPATH\Database\Postgre\Connection.php(140): pg_query(resource (pgsql link), 'SELECT "tbl_kelurahan"."id_kelurahan" as "id_kelurahan", "nama_kelurahan", "tbl_kecamatan"."id_kecamatan" as "id_kecamatan", "nama_kecamatan", "tbl_kabupaten"."id_kabupaten" as "id_kabupaten", "nama_kabupaten", "tbl_provinsi"."id_provinsi" as "id_provinsi", "nama_provinsi"
+FROM "tbl_kelurahan"
+JOIN "tbl_kecamatan" ON "tbl_kecamatan"."id_kecamatan" = "tbl_kelurahan"."id_kecamatan"
+JOIN "tbl_kabupaten" ON "tbl_kabupaten"."id_kabupaten" = "tbl_kecamatan"."id_kabupaten"
+JOIN "tbl_provinsi" ON "tbl_provinsi"."id_provinsi" = "tbl_kabupaten"."id_provinsi"
+WHERE  id_kelurahan  ILIKE \'%3578311001%\' ESCAPE \'!\' 
+OR  id_kelurahan  ILIKE \'%3578311001%\' ESCAPE \'!\' ')
+ 3 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\Postgre\Connection->execute('SELECT "tbl_kelurahan"."id_kelurahan" as "id_kelurahan", "nama_kelurahan", "tbl_kecamatan"."id_kecamatan" as "id_kecamatan", "nama_kecamatan", "tbl_kabupaten"."id_kabupaten" as "id_kabupaten", "nama_kabupaten", "tbl_provinsi"."id_provinsi" as "id_provinsi", "nama_provinsi"
+FROM "tbl_kelurahan"
+JOIN "tbl_kecamatan" ON "tbl_kecamatan"."id_kecamatan" = "tbl_kelurahan"."id_kecamatan"
+JOIN "tbl_kabupaten" ON "tbl_kabupaten"."id_kabupaten" = "tbl_kecamatan"."id_kabupaten"
+JOIN "tbl_provinsi" ON "tbl_provinsi"."id_provinsi" = "tbl_kabupaten"."id_provinsi"
+WHERE  id_kelurahan  ILIKE \'%3578311001%\' ESCAPE \'!\' 
+OR  id_kelurahan  ILIKE \'%3578311001%\' ESCAPE \'!\' ')
+ 4 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT "tbl_kelurahan"."id_kelurahan" as "id_kelurahan", "nama_kelurahan", "tbl_kecamatan"."id_kecamatan" as "id_kecamatan", "nama_kecamatan", "tbl_kabupaten"."id_kabupaten" as "id_kabupaten", "nama_kabupaten", "tbl_provinsi"."id_provinsi" as "id_provinsi", "nama_provinsi"
+FROM "tbl_kelurahan"
+JOIN "tbl_kecamatan" ON "tbl_kecamatan"."id_kecamatan" = "tbl_kelurahan"."id_kecamatan"
+JOIN "tbl_kabupaten" ON "tbl_kabupaten"."id_kabupaten" = "tbl_kecamatan"."id_kabupaten"
+JOIN "tbl_provinsi" ON "tbl_provinsi"."id_provinsi" = "tbl_kabupaten"."id_provinsi"
+WHERE  id_kelurahan  ILIKE \'%3578311001%\' ESCAPE \'!\' 
+OR  id_kelurahan  ILIKE \'%3578311001%\' ESCAPE \'!\' ')
+ 5 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT "tbl_kelurahan"."id_kelurahan" as "id_kelurahan", "nama_kelurahan", "tbl_kecamatan"."id_kecamatan" as "id_kecamatan", "nama_kecamatan", "tbl_kabupaten"."id_kabupaten" as "id_kabupaten", "nama_kabupaten", "tbl_provinsi"."id_provinsi" as "id_provinsi", "nama_provinsi"
+FROM "tbl_kelurahan"
+JOIN "tbl_kecamatan" ON "tbl_kecamatan"."id_kecamatan" = "tbl_kelurahan"."id_kecamatan"
+JOIN "tbl_kabupaten" ON "tbl_kabupaten"."id_kabupaten" = "tbl_kecamatan"."id_kabupaten"
+JOIN "tbl_provinsi" ON "tbl_provinsi"."id_provinsi" = "tbl_kabupaten"."id_provinsi"
+WHERE  id_kelurahan  ILIKE :id_kelurahan: ESCAPE \'!\' 
+OR  id_kelurahan  ILIKE :id_kelurahan.1: ESCAPE \'!\' ', [...], false)
+ 6 APPPATH\Models\ModelAdministrasi.php(39): CodeIgniter\Database\BaseBuilder->get()
+ 7 APPPATH\Controllers\Admin.php(731): App\Models\ModelAdministrasi->getKode()
+ 8 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->getkode()
+ 9 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+10 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+ERROR - 2023-05-26 12:55:01 --> ErrorException: pg_query(): Query failed: ERROR:  column reference &quot;id_kecamatan&quot; is ambiguous
+LINE 6: WHERE  id_kecamatan  ILIKE '%3578311001%' ESCAPE '!' 
+               ^ in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\Postgre\Connection.php:140
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_query(): Que...', 'F:\\WEB\\XAMPP\\ht...', 140)
+#1 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\Postgre\Connection.php(140): pg_query(Resource id #154, 'SELECT "tbl_kel...')
+#2 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(666): CodeIgniter\Database\Postgre\Connection->execute('SELECT "tbl_kel...')
+#3 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT "tbl_kel...')
+#4 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT "tbl_kel...', Array, false)
+#5 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Models\ModelAdministrasi.php(39): CodeIgniter\Database\BaseBuilder->get()
+#6 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Controllers\Admin.php(731): App\Models\ModelAdministrasi->getKode()
+#7 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(927): App\Controllers\Admin->getkode()
+#8 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#9 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 F:\WEB\XAMPP\htdocs\WebGis_kv\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(46): require_once('F:\\WEB\\XAMPP\\ht...')
+#12 {main}
+CRITICAL - 2023-05-26 12:55:01 --> pg_query(): Query failed: ERROR:  column reference &quot;id_kecamatan&quot; is ambiguous
+LINE 6: WHERE  id_kecamatan  ILIKE '%3578311001%' ESCAPE '!' 
+               ^
+in SYSTEMPATH\Database\Postgre\Connection.php on line 140.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_query(): Query failed: ERROR:  column reference &quot;id_kecamatan&quot; is ambiguous
+LINE 6: WHERE  id_kecamatan  ILIKE \'%3578311001%\' ESCAPE \'!\' 
+               ^', 'SYSTEMPATH\\Database\\Postgre\\Connection.php', 140)
+ 2 SYSTEMPATH\Database\Postgre\Connection.php(140): pg_query(resource (pgsql link), 'SELECT "tbl_kelurahan"."id_kelurahan" as "id_kelurahan", "nama_kelurahan", "tbl_kecamatan"."id_kecamatan" as "id_kecamatan", "nama_kecamatan", "tbl_kabupaten"."id_kabupaten" as "id_kabupaten", "nama_kabupaten", "tbl_provinsi"."id_provinsi" as "id_provinsi", "nama_provinsi"
+FROM "tbl_kelurahan"
+JOIN "tbl_kecamatan" ON "tbl_kecamatan"."id_kecamatan" = "tbl_kelurahan"."id_kecamatan"
+JOIN "tbl_kabupaten" ON "tbl_kabupaten"."id_kabupaten" = "tbl_kecamatan"."id_kabupaten"
+JOIN "tbl_provinsi" ON "tbl_provinsi"."id_provinsi" = "tbl_kabupaten"."id_provinsi"
+WHERE  id_kecamatan  ILIKE \'%3578311001%\' ESCAPE \'!\' 
+OR  id_kelurahan  ILIKE \'%3578311001%\' ESCAPE \'!\' ')
+ 3 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\Postgre\Connection->execute('SELECT "tbl_kelurahan"."id_kelurahan" as "id_kelurahan", "nama_kelurahan", "tbl_kecamatan"."id_kecamatan" as "id_kecamatan", "nama_kecamatan", "tbl_kabupaten"."id_kabupaten" as "id_kabupaten", "nama_kabupaten", "tbl_provinsi"."id_provinsi" as "id_provinsi", "nama_provinsi"
+FROM "tbl_kelurahan"
+JOIN "tbl_kecamatan" ON "tbl_kecamatan"."id_kecamatan" = "tbl_kelurahan"."id_kecamatan"
+JOIN "tbl_kabupaten" ON "tbl_kabupaten"."id_kabupaten" = "tbl_kecamatan"."id_kabupaten"
+JOIN "tbl_provinsi" ON "tbl_provinsi"."id_provinsi" = "tbl_kabupaten"."id_provinsi"
+WHERE  id_kecamatan  ILIKE \'%3578311001%\' ESCAPE \'!\' 
+OR  id_kelurahan  ILIKE \'%3578311001%\' ESCAPE \'!\' ')
+ 4 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT "tbl_kelurahan"."id_kelurahan" as "id_kelurahan", "nama_kelurahan", "tbl_kecamatan"."id_kecamatan" as "id_kecamatan", "nama_kecamatan", "tbl_kabupaten"."id_kabupaten" as "id_kabupaten", "nama_kabupaten", "tbl_provinsi"."id_provinsi" as "id_provinsi", "nama_provinsi"
+FROM "tbl_kelurahan"
+JOIN "tbl_kecamatan" ON "tbl_kecamatan"."id_kecamatan" = "tbl_kelurahan"."id_kecamatan"
+JOIN "tbl_kabupaten" ON "tbl_kabupaten"."id_kabupaten" = "tbl_kecamatan"."id_kabupaten"
+JOIN "tbl_provinsi" ON "tbl_provinsi"."id_provinsi" = "tbl_kabupaten"."id_provinsi"
+WHERE  id_kecamatan  ILIKE \'%3578311001%\' ESCAPE \'!\' 
+OR  id_kelurahan  ILIKE \'%3578311001%\' ESCAPE \'!\' ')
+ 5 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT "tbl_kelurahan"."id_kelurahan" as "id_kelurahan", "nama_kelurahan", "tbl_kecamatan"."id_kecamatan" as "id_kecamatan", "nama_kecamatan", "tbl_kabupaten"."id_kabupaten" as "id_kabupaten", "nama_kabupaten", "tbl_provinsi"."id_provinsi" as "id_provinsi", "nama_provinsi"
+FROM "tbl_kelurahan"
+JOIN "tbl_kecamatan" ON "tbl_kecamatan"."id_kecamatan" = "tbl_kelurahan"."id_kecamatan"
+JOIN "tbl_kabupaten" ON "tbl_kabupaten"."id_kabupaten" = "tbl_kecamatan"."id_kabupaten"
+JOIN "tbl_provinsi" ON "tbl_provinsi"."id_provinsi" = "tbl_kabupaten"."id_provinsi"
+WHERE  id_kecamatan  ILIKE :id_kecamatan: ESCAPE \'!\' 
+OR  id_kelurahan  ILIKE :id_kelurahan: ESCAPE \'!\' ', [...], false)
+ 6 APPPATH\Models\ModelAdministrasi.php(39): CodeIgniter\Database\BaseBuilder->get()
+ 7 APPPATH\Controllers\Admin.php(731): App\Models\ModelAdministrasi->getKode()
+ 8 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->getkode()
+ 9 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+10 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+ERROR - 2023-05-26 12:55:18 --> ErrorException: pg_query(): Query failed: ERROR:  operator does not exist: bigint ~~* text
+LINE 6: WHERE  tbl_kelurahan.id_kelurahan  ILIKE '%3578311001%' ESCA...
+                                           ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts. in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\Postgre\Connection.php:140
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_query(): Que...', 'F:\\WEB\\XAMPP\\ht...', 140)
+#1 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\Postgre\Connection.php(140): pg_query(Resource id #154, 'SELECT "tbl_kel...')
+#2 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(666): CodeIgniter\Database\Postgre\Connection->execute('SELECT "tbl_kel...')
+#3 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT "tbl_kel...')
+#4 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT "tbl_kel...', Array, false)
+#5 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Models\ModelAdministrasi.php(38): CodeIgniter\Database\BaseBuilder->get()
+#6 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Controllers\Admin.php(731): App\Models\ModelAdministrasi->getKode()
+#7 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(927): App\Controllers\Admin->getkode()
+#8 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#9 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 F:\WEB\XAMPP\htdocs\WebGis_kv\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(46): require_once('F:\\WEB\\XAMPP\\ht...')
+#12 {main}
+CRITICAL - 2023-05-26 12:55:18 --> pg_query(): Query failed: ERROR:  operator does not exist: bigint ~~* text
+LINE 6: WHERE  tbl_kelurahan.id_kelurahan  ILIKE '%3578311001%' ESCA...
+                                           ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.
+in SYSTEMPATH\Database\Postgre\Connection.php on line 140.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_query(): Query failed: ERROR:  operator does not exist: bigint ~~* text
+LINE 6: WHERE  tbl_kelurahan.id_kelurahan  ILIKE \'%3578311001%\' ESCA...
+                                           ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.', 'SYSTEMPATH\\Database\\Postgre\\Connection.php', 140)
+ 2 SYSTEMPATH\Database\Postgre\Connection.php(140): pg_query(resource (pgsql link), 'SELECT "tbl_kelurahan"."id_kelurahan" as "id_kelurahan", "nama_kelurahan", "tbl_kecamatan"."id_kecamatan" as "id_kecamatan", "nama_kecamatan", "tbl_kabupaten"."id_kabupaten" as "id_kabupaten", "nama_kabupaten", "tbl_provinsi"."id_provinsi" as "id_provinsi", "nama_provinsi"
+FROM "tbl_kelurahan"
+JOIN "tbl_kecamatan" ON "tbl_kecamatan"."id_kecamatan" = "tbl_kelurahan"."id_kecamatan"
+JOIN "tbl_kabupaten" ON "tbl_kabupaten"."id_kabupaten" = "tbl_kecamatan"."id_kabupaten"
+JOIN "tbl_provinsi" ON "tbl_provinsi"."id_provinsi" = "tbl_kabupaten"."id_provinsi"
+WHERE  tbl_kelurahan.id_kelurahan  ILIKE \'%3578311001%\' ESCAPE \'!\' ')
+ 3 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\Postgre\Connection->execute('SELECT "tbl_kelurahan"."id_kelurahan" as "id_kelurahan", "nama_kelurahan", "tbl_kecamatan"."id_kecamatan" as "id_kecamatan", "nama_kecamatan", "tbl_kabupaten"."id_kabupaten" as "id_kabupaten", "nama_kabupaten", "tbl_provinsi"."id_provinsi" as "id_provinsi", "nama_provinsi"
+FROM "tbl_kelurahan"
+JOIN "tbl_kecamatan" ON "tbl_kecamatan"."id_kecamatan" = "tbl_kelurahan"."id_kecamatan"
+JOIN "tbl_kabupaten" ON "tbl_kabupaten"."id_kabupaten" = "tbl_kecamatan"."id_kabupaten"
+JOIN "tbl_provinsi" ON "tbl_provinsi"."id_provinsi" = "tbl_kabupaten"."id_provinsi"
+WHERE  tbl_kelurahan.id_kelurahan  ILIKE \'%3578311001%\' ESCAPE \'!\' ')
+ 4 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT "tbl_kelurahan"."id_kelurahan" as "id_kelurahan", "nama_kelurahan", "tbl_kecamatan"."id_kecamatan" as "id_kecamatan", "nama_kecamatan", "tbl_kabupaten"."id_kabupaten" as "id_kabupaten", "nama_kabupaten", "tbl_provinsi"."id_provinsi" as "id_provinsi", "nama_provinsi"
+FROM "tbl_kelurahan"
+JOIN "tbl_kecamatan" ON "tbl_kecamatan"."id_kecamatan" = "tbl_kelurahan"."id_kecamatan"
+JOIN "tbl_kabupaten" ON "tbl_kabupaten"."id_kabupaten" = "tbl_kecamatan"."id_kabupaten"
+JOIN "tbl_provinsi" ON "tbl_provinsi"."id_provinsi" = "tbl_kabupaten"."id_provinsi"
+WHERE  tbl_kelurahan.id_kelurahan  ILIKE \'%3578311001%\' ESCAPE \'!\' ')
+ 5 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT "tbl_kelurahan"."id_kelurahan" as "id_kelurahan", "nama_kelurahan", "tbl_kecamatan"."id_kecamatan" as "id_kecamatan", "nama_kecamatan", "tbl_kabupaten"."id_kabupaten" as "id_kabupaten", "nama_kabupaten", "tbl_provinsi"."id_provinsi" as "id_provinsi", "nama_provinsi"
+FROM "tbl_kelurahan"
+JOIN "tbl_kecamatan" ON "tbl_kecamatan"."id_kecamatan" = "tbl_kelurahan"."id_kecamatan"
+JOIN "tbl_kabupaten" ON "tbl_kabupaten"."id_kabupaten" = "tbl_kecamatan"."id_kabupaten"
+JOIN "tbl_provinsi" ON "tbl_provinsi"."id_provinsi" = "tbl_kabupaten"."id_provinsi"
+WHERE  tbl_kelurahan.id_kelurahan  ILIKE :tbl_kelurahan.id_kelurahan: ESCAPE \'!\' ', [...], false)
+ 6 APPPATH\Models\ModelAdministrasi.php(38): CodeIgniter\Database\BaseBuilder->get()
+ 7 APPPATH\Controllers\Admin.php(731): App\Models\ModelAdministrasi->getKode()
+ 8 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->getkode()
+ 9 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+10 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+ERROR - 2023-05-26 12:55:48 --> ErrorException: pg_query(): Query failed: ERROR:  operator does not exist: integer ~~* text
+LINE 6: WHERE  tbl_kecamatan.id_kecamatan  ILIKE '%3578311001%' ESCA...
+                                           ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts. in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\Postgre\Connection.php:140
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_query(): Que...', 'F:\\WEB\\XAMPP\\ht...', 140)
+#1 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\Postgre\Connection.php(140): pg_query(Resource id #154, 'SELECT "tbl_kel...')
+#2 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(666): CodeIgniter\Database\Postgre\Connection->execute('SELECT "tbl_kel...')
+#3 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT "tbl_kel...')
+#4 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT "tbl_kel...', Array, false)
+#5 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Models\ModelAdministrasi.php(39): CodeIgniter\Database\BaseBuilder->get()
+#6 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Controllers\Admin.php(731): App\Models\ModelAdministrasi->getKode()
+#7 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(927): App\Controllers\Admin->getkode()
+#8 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#9 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 F:\WEB\XAMPP\htdocs\WebGis_kv\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(46): require_once('F:\\WEB\\XAMPP\\ht...')
+#12 {main}
+CRITICAL - 2023-05-26 12:55:48 --> pg_query(): Query failed: ERROR:  operator does not exist: integer ~~* text
+LINE 6: WHERE  tbl_kecamatan.id_kecamatan  ILIKE '%3578311001%' ESCA...
+                                           ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.
+in SYSTEMPATH\Database\Postgre\Connection.php on line 140.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_query(): Query failed: ERROR:  operator does not exist: integer ~~* text
+LINE 6: WHERE  tbl_kecamatan.id_kecamatan  ILIKE \'%3578311001%\' ESCA...
+                                           ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.', 'SYSTEMPATH\\Database\\Postgre\\Connection.php', 140)
+ 2 SYSTEMPATH\Database\Postgre\Connection.php(140): pg_query(resource (pgsql link), 'SELECT "tbl_kelurahan"."id_kelurahan" as "id_kelurahan", "nama_kelurahan", "tbl_kecamatan"."id_kecamatan" as "id_kecamatan", "nama_kecamatan", "tbl_kabupaten"."id_kabupaten" as "id_kabupaten", "nama_kabupaten", "tbl_provinsi"."id_provinsi" as "id_provinsi", "nama_provinsi"
+FROM "tbl_kelurahan"
+JOIN "tbl_kecamatan" ON "tbl_kecamatan"."id_kecamatan" = "tbl_kelurahan"."id_kecamatan"
+JOIN "tbl_kabupaten" ON "tbl_kabupaten"."id_kabupaten" = "tbl_kecamatan"."id_kabupaten"
+JOIN "tbl_provinsi" ON "tbl_provinsi"."id_provinsi" = "tbl_kabupaten"."id_provinsi"
+WHERE  tbl_kecamatan.id_kecamatan  ILIKE \'%3578311001%\' ESCAPE \'!\' 
+OR  tbl_kelurahan.id_kelurahan  ILIKE \'%3578311001%\' ESCAPE \'!\' ')
+ 3 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\Postgre\Connection->execute('SELECT "tbl_kelurahan"."id_kelurahan" as "id_kelurahan", "nama_kelurahan", "tbl_kecamatan"."id_kecamatan" as "id_kecamatan", "nama_kecamatan", "tbl_kabupaten"."id_kabupaten" as "id_kabupaten", "nama_kabupaten", "tbl_provinsi"."id_provinsi" as "id_provinsi", "nama_provinsi"
+FROM "tbl_kelurahan"
+JOIN "tbl_kecamatan" ON "tbl_kecamatan"."id_kecamatan" = "tbl_kelurahan"."id_kecamatan"
+JOIN "tbl_kabupaten" ON "tbl_kabupaten"."id_kabupaten" = "tbl_kecamatan"."id_kabupaten"
+JOIN "tbl_provinsi" ON "tbl_provinsi"."id_provinsi" = "tbl_kabupaten"."id_provinsi"
+WHERE  tbl_kecamatan.id_kecamatan  ILIKE \'%3578311001%\' ESCAPE \'!\' 
+OR  tbl_kelurahan.id_kelurahan  ILIKE \'%3578311001%\' ESCAPE \'!\' ')
+ 4 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT "tbl_kelurahan"."id_kelurahan" as "id_kelurahan", "nama_kelurahan", "tbl_kecamatan"."id_kecamatan" as "id_kecamatan", "nama_kecamatan", "tbl_kabupaten"."id_kabupaten" as "id_kabupaten", "nama_kabupaten", "tbl_provinsi"."id_provinsi" as "id_provinsi", "nama_provinsi"
+FROM "tbl_kelurahan"
+JOIN "tbl_kecamatan" ON "tbl_kecamatan"."id_kecamatan" = "tbl_kelurahan"."id_kecamatan"
+JOIN "tbl_kabupaten" ON "tbl_kabupaten"."id_kabupaten" = "tbl_kecamatan"."id_kabupaten"
+JOIN "tbl_provinsi" ON "tbl_provinsi"."id_provinsi" = "tbl_kabupaten"."id_provinsi"
+WHERE  tbl_kecamatan.id_kecamatan  ILIKE \'%3578311001%\' ESCAPE \'!\' 
+OR  tbl_kelurahan.id_kelurahan  ILIKE \'%3578311001%\' ESCAPE \'!\' ')
+ 5 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT "tbl_kelurahan"."id_kelurahan" as "id_kelurahan", "nama_kelurahan", "tbl_kecamatan"."id_kecamatan" as "id_kecamatan", "nama_kecamatan", "tbl_kabupaten"."id_kabupaten" as "id_kabupaten", "nama_kabupaten", "tbl_provinsi"."id_provinsi" as "id_provinsi", "nama_provinsi"
+FROM "tbl_kelurahan"
+JOIN "tbl_kecamatan" ON "tbl_kecamatan"."id_kecamatan" = "tbl_kelurahan"."id_kecamatan"
+JOIN "tbl_kabupaten" ON "tbl_kabupaten"."id_kabupaten" = "tbl_kecamatan"."id_kabupaten"
+JOIN "tbl_provinsi" ON "tbl_provinsi"."id_provinsi" = "tbl_kabupaten"."id_provinsi"
+WHERE  tbl_kecamatan.id_kecamatan  ILIKE :tbl_kecamatan.id_kecamatan: ESCAPE \'!\' 
+OR  tbl_kelurahan.id_kelurahan  ILIKE :tbl_kelurahan.id_kelurahan: ESCAPE \'!\' ', [...], false)
+ 6 APPPATH\Models\ModelAdministrasi.php(39): CodeIgniter\Database\BaseBuilder->get()
+ 7 APPPATH\Controllers\Admin.php(731): App\Models\ModelAdministrasi->getKode()
+ 8 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->getkode()
+ 9 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+10 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+ERROR - 2023-05-26 12:55:56 --> ErrorException: pg_query(): Query failed: ERROR:  operator does not exist: bigint ~~* text
+LINE 6: WHERE  tbl_kelurahan.id_kelurahan  ILIKE '%3578311001%' ESCA...
+                                           ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts. in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\Postgre\Connection.php:140
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_query(): Que...', 'F:\\WEB\\XAMPP\\ht...', 140)
+#1 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\Postgre\Connection.php(140): pg_query(Resource id #154, 'SELECT "tbl_kel...')
+#2 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(666): CodeIgniter\Database\Postgre\Connection->execute('SELECT "tbl_kel...')
+#3 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT "tbl_kel...')
+#4 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT "tbl_kel...', Array, false)
+#5 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Models\ModelAdministrasi.php(38): CodeIgniter\Database\BaseBuilder->get()
+#6 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Controllers\Admin.php(731): App\Models\ModelAdministrasi->getKode()
+#7 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(927): App\Controllers\Admin->getkode()
+#8 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#9 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 F:\WEB\XAMPP\htdocs\WebGis_kv\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(46): require_once('F:\\WEB\\XAMPP\\ht...')
+#12 {main}
+CRITICAL - 2023-05-26 12:55:56 --> pg_query(): Query failed: ERROR:  operator does not exist: bigint ~~* text
+LINE 6: WHERE  tbl_kelurahan.id_kelurahan  ILIKE '%3578311001%' ESCA...
+                                           ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.
+in SYSTEMPATH\Database\Postgre\Connection.php on line 140.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_query(): Query failed: ERROR:  operator does not exist: bigint ~~* text
+LINE 6: WHERE  tbl_kelurahan.id_kelurahan  ILIKE \'%3578311001%\' ESCA...
+                                           ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.', 'SYSTEMPATH\\Database\\Postgre\\Connection.php', 140)
+ 2 SYSTEMPATH\Database\Postgre\Connection.php(140): pg_query(resource (pgsql link), 'SELECT "tbl_kelurahan"."id_kelurahan" as "id_kelurahan", "nama_kelurahan", "tbl_kecamatan"."id_kecamatan" as "id_kecamatan", "nama_kecamatan", "tbl_kabupaten"."id_kabupaten" as "id_kabupaten", "nama_kabupaten", "tbl_provinsi"."id_provinsi" as "id_provinsi", "nama_provinsi"
+FROM "tbl_kelurahan"
+JOIN "tbl_kecamatan" ON "tbl_kecamatan"."id_kecamatan" = "tbl_kelurahan"."id_kecamatan"
+JOIN "tbl_kabupaten" ON "tbl_kabupaten"."id_kabupaten" = "tbl_kecamatan"."id_kabupaten"
+JOIN "tbl_provinsi" ON "tbl_provinsi"."id_provinsi" = "tbl_kabupaten"."id_provinsi"
+WHERE  tbl_kelurahan.id_kelurahan  ILIKE \'%3578311001%\' ESCAPE \'!\' ')
+ 3 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\Postgre\Connection->execute('SELECT "tbl_kelurahan"."id_kelurahan" as "id_kelurahan", "nama_kelurahan", "tbl_kecamatan"."id_kecamatan" as "id_kecamatan", "nama_kecamatan", "tbl_kabupaten"."id_kabupaten" as "id_kabupaten", "nama_kabupaten", "tbl_provinsi"."id_provinsi" as "id_provinsi", "nama_provinsi"
+FROM "tbl_kelurahan"
+JOIN "tbl_kecamatan" ON "tbl_kecamatan"."id_kecamatan" = "tbl_kelurahan"."id_kecamatan"
+JOIN "tbl_kabupaten" ON "tbl_kabupaten"."id_kabupaten" = "tbl_kecamatan"."id_kabupaten"
+JOIN "tbl_provinsi" ON "tbl_provinsi"."id_provinsi" = "tbl_kabupaten"."id_provinsi"
+WHERE  tbl_kelurahan.id_kelurahan  ILIKE \'%3578311001%\' ESCAPE \'!\' ')
+ 4 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT "tbl_kelurahan"."id_kelurahan" as "id_kelurahan", "nama_kelurahan", "tbl_kecamatan"."id_kecamatan" as "id_kecamatan", "nama_kecamatan", "tbl_kabupaten"."id_kabupaten" as "id_kabupaten", "nama_kabupaten", "tbl_provinsi"."id_provinsi" as "id_provinsi", "nama_provinsi"
+FROM "tbl_kelurahan"
+JOIN "tbl_kecamatan" ON "tbl_kecamatan"."id_kecamatan" = "tbl_kelurahan"."id_kecamatan"
+JOIN "tbl_kabupaten" ON "tbl_kabupaten"."id_kabupaten" = "tbl_kecamatan"."id_kabupaten"
+JOIN "tbl_provinsi" ON "tbl_provinsi"."id_provinsi" = "tbl_kabupaten"."id_provinsi"
+WHERE  tbl_kelurahan.id_kelurahan  ILIKE \'%3578311001%\' ESCAPE \'!\' ')
+ 5 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT "tbl_kelurahan"."id_kelurahan" as "id_kelurahan", "nama_kelurahan", "tbl_kecamatan"."id_kecamatan" as "id_kecamatan", "nama_kecamatan", "tbl_kabupaten"."id_kabupaten" as "id_kabupaten", "nama_kabupaten", "tbl_provinsi"."id_provinsi" as "id_provinsi", "nama_provinsi"
+FROM "tbl_kelurahan"
+JOIN "tbl_kecamatan" ON "tbl_kecamatan"."id_kecamatan" = "tbl_kelurahan"."id_kecamatan"
+JOIN "tbl_kabupaten" ON "tbl_kabupaten"."id_kabupaten" = "tbl_kecamatan"."id_kabupaten"
+JOIN "tbl_provinsi" ON "tbl_provinsi"."id_provinsi" = "tbl_kabupaten"."id_provinsi"
+WHERE  tbl_kelurahan.id_kelurahan  ILIKE :tbl_kelurahan.id_kelurahan: ESCAPE \'!\' ', [...], false)
+ 6 APPPATH\Models\ModelAdministrasi.php(38): CodeIgniter\Database\BaseBuilder->get()
+ 7 APPPATH\Controllers\Admin.php(731): App\Models\ModelAdministrasi->getKode()
+ 8 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->getkode()
+ 9 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+10 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+ERROR - 2023-05-26 12:58:07 --> ErrorException: pg_query(): Query failed: ERROR:  operator does not exist: bigint ~~ text
+LINE 6: WHERE &quot;tbl_kelurahan&quot;.&quot;id_kelurahan&quot; LIKE '%3578311001%' ESC...
+                                             ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts. in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\Postgre\Connection.php:140
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_query(): Que...', 'F:\\WEB\\XAMPP\\ht...', 140)
+#1 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\Postgre\Connection.php(140): pg_query(Resource id #154, 'SELECT "tbl_kel...')
+#2 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(666): CodeIgniter\Database\Postgre\Connection->execute('SELECT "tbl_kel...')
+#3 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT "tbl_kel...')
+#4 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT "tbl_kel...', Array, false)
+#5 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Models\ModelAdministrasi.php(38): CodeIgniter\Database\BaseBuilder->get()
+#6 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Controllers\Admin.php(731): App\Models\ModelAdministrasi->getKode()
+#7 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(927): App\Controllers\Admin->getkode()
+#8 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#9 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 F:\WEB\XAMPP\htdocs\WebGis_kv\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(46): require_once('F:\\WEB\\XAMPP\\ht...')
+#12 {main}
+CRITICAL - 2023-05-26 12:58:07 --> pg_query(): Query failed: ERROR:  operator does not exist: bigint ~~ text
+LINE 6: WHERE &quot;tbl_kelurahan&quot;.&quot;id_kelurahan&quot; LIKE '%3578311001%' ESC...
+                                             ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.
+in SYSTEMPATH\Database\Postgre\Connection.php on line 140.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_query(): Query failed: ERROR:  operator does not exist: bigint ~~ text
+LINE 6: WHERE &quot;tbl_kelurahan&quot;.&quot;id_kelurahan&quot; LIKE \'%3578311001%\' ESC...
+                                             ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.', 'SYSTEMPATH\\Database\\Postgre\\Connection.php', 140)
+ 2 SYSTEMPATH\Database\Postgre\Connection.php(140): pg_query(resource (pgsql link), 'SELECT "tbl_kelurahan"."id_kelurahan" as "id_kelurahan", "nama_kelurahan", "tbl_kecamatan"."id_kecamatan" as "id_kecamatan", "nama_kecamatan", "tbl_kabupaten"."id_kabupaten" as "id_kabupaten", "nama_kabupaten", "tbl_provinsi"."id_provinsi" as "id_provinsi", "nama_provinsi"
+FROM "tbl_kelurahan"
+JOIN "tbl_kecamatan" ON "tbl_kecamatan"."id_kecamatan" = "tbl_kelurahan"."id_kecamatan"
+JOIN "tbl_kabupaten" ON "tbl_kabupaten"."id_kabupaten" = "tbl_kecamatan"."id_kabupaten"
+JOIN "tbl_provinsi" ON "tbl_provinsi"."id_provinsi" = "tbl_kabupaten"."id_provinsi"
+WHERE "tbl_kelurahan"."id_kelurahan" LIKE \'%3578311001%\' ESCAPE \'!\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\Postgre\Connection->execute('SELECT "tbl_kelurahan"."id_kelurahan" as "id_kelurahan", "nama_kelurahan", "tbl_kecamatan"."id_kecamatan" as "id_kecamatan", "nama_kecamatan", "tbl_kabupaten"."id_kabupaten" as "id_kabupaten", "nama_kabupaten", "tbl_provinsi"."id_provinsi" as "id_provinsi", "nama_provinsi"
+FROM "tbl_kelurahan"
+JOIN "tbl_kecamatan" ON "tbl_kecamatan"."id_kecamatan" = "tbl_kelurahan"."id_kecamatan"
+JOIN "tbl_kabupaten" ON "tbl_kabupaten"."id_kabupaten" = "tbl_kecamatan"."id_kabupaten"
+JOIN "tbl_provinsi" ON "tbl_provinsi"."id_provinsi" = "tbl_kabupaten"."id_provinsi"
+WHERE "tbl_kelurahan"."id_kelurahan" LIKE \'%3578311001%\' ESCAPE \'!\'')
+ 4 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT "tbl_kelurahan"."id_kelurahan" as "id_kelurahan", "nama_kelurahan", "tbl_kecamatan"."id_kecamatan" as "id_kecamatan", "nama_kecamatan", "tbl_kabupaten"."id_kabupaten" as "id_kabupaten", "nama_kabupaten", "tbl_provinsi"."id_provinsi" as "id_provinsi", "nama_provinsi"
+FROM "tbl_kelurahan"
+JOIN "tbl_kecamatan" ON "tbl_kecamatan"."id_kecamatan" = "tbl_kelurahan"."id_kecamatan"
+JOIN "tbl_kabupaten" ON "tbl_kabupaten"."id_kabupaten" = "tbl_kecamatan"."id_kabupaten"
+JOIN "tbl_provinsi" ON "tbl_provinsi"."id_provinsi" = "tbl_kabupaten"."id_provinsi"
+WHERE "tbl_kelurahan"."id_kelurahan" LIKE \'%3578311001%\' ESCAPE \'!\'')
+ 5 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT "tbl_kelurahan"."id_kelurahan" as "id_kelurahan", "nama_kelurahan", "tbl_kecamatan"."id_kecamatan" as "id_kecamatan", "nama_kecamatan", "tbl_kabupaten"."id_kabupaten" as "id_kabupaten", "nama_kabupaten", "tbl_provinsi"."id_provinsi" as "id_provinsi", "nama_provinsi"
+FROM "tbl_kelurahan"
+JOIN "tbl_kecamatan" ON "tbl_kecamatan"."id_kecamatan" = "tbl_kelurahan"."id_kecamatan"
+JOIN "tbl_kabupaten" ON "tbl_kabupaten"."id_kabupaten" = "tbl_kecamatan"."id_kabupaten"
+JOIN "tbl_provinsi" ON "tbl_provinsi"."id_provinsi" = "tbl_kabupaten"."id_provinsi"
+WHERE "tbl_kelurahan"."id_kelurahan" LIKE :tbl_kelurahan.id_kelurahan: ESCAPE \'!\'', [...], false)
+ 6 APPPATH\Models\ModelAdministrasi.php(38): CodeIgniter\Database\BaseBuilder->get()
+ 7 APPPATH\Controllers\Admin.php(731): App\Models\ModelAdministrasi->getKode()
+ 8 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->getkode()
+ 9 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+10 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-05-26 13:50:45 --> Undefined array key "id_kelurahan"
+in APPPATH\Controllers\Admin.php on line 753.
+ 1 APPPATH\Controllers\Admin.php(753): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "id_kelurahan"', 'APPPATH\\Controllers\\Admin.php', 753)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->getkode()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-05-26 13:50:45 --> Uncaught CodeIgniter\Format\Exceptions\FormatException: Failed to parse json string, error: "Type is not supported". in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Format\JSONFormatter.php:41
+Stack trace:
+#0 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Format\JSONFormatter.php(41): CodeIgniter\Format\Exceptions\FormatException::forInvalidJSON('Type is not sup...')
+#1 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\API\ResponseTrait.php(348): CodeIgniter\Format\JSONFormatter->format(Array)
+#2 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\API\ResponseTrait.php(99): CodeIgniter\Debug\Exceptions->format(Array)
+#3 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Debug\Exceptions.php(133): CodeIgniter\Debug\Exceptions->respond(Array, 500)
+#4 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(ErrorException))
+#5 {main}
+  thrown
+in SYSTEMPATH\Format\JSONFormatter.php on line 41.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2023-05-26 13:50:55 --> Undefined array key "id_kelurahan"
+in APPPATH\Controllers\Admin.php on line 753.
+ 1 APPPATH\Controllers\Admin.php(753): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "id_kelurahan"', 'APPPATH\\Controllers\\Admin.php', 753)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->getkode()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-05-26 13:54:09 --> Undefined array key "id_kelurahan"
+in APPPATH\Controllers\Admin.php on line 753.
+ 1 APPPATH\Controllers\Admin.php(753): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "id_kelurahan"', 'APPPATH\\Controllers\\Admin.php', 753)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->getkode()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-05-26 13:54:26 --> Attempt to read property "id_kelurahan" on array
+in APPPATH\Controllers\Admin.php on line 753.
+ 1 APPPATH\Controllers\Admin.php(753): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "id_kelurahan" on array', 'APPPATH\\Controllers\\Admin.php', 753)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->getkode()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-05-26 13:55:05 --> Undefined array key "data"
+in APPPATH\Controllers\Admin.php on line 753.
+ 1 APPPATH\Controllers\Admin.php(753): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "data"', 'APPPATH\\Controllers\\Admin.php', 753)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->getkode()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-05-26 13:56:54 --> Undefined array key "data"
+in APPPATH\Controllers\Admin.php on line 752.
+ 1 APPPATH\Controllers\Admin.php(752): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "data"', 'APPPATH\\Controllers\\Admin.php', 752)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->getkode()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-05-26 13:57:13 --> Undefined array key "id_kelurahan"
+in APPPATH\Controllers\Admin.php on line 752.
+ 1 APPPATH\Controllers\Admin.php(752): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "id_kelurahan"', 'APPPATH\\Controllers\\Admin.php', 752)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->getkode()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-05-26 13:58:18 --> Undefined array key "id"
+in APPPATH\Controllers\Admin.php on line 752.
+ 1 APPPATH\Controllers\Admin.php(752): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "id"', 'APPPATH\\Controllers\\Admin.php', 752)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->getkode()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-05-26 13:58:35 --> Undefined array key "id"
+in APPPATH\Controllers\Admin.php on line 752.
+ 1 APPPATH\Controllers\Admin.php(752): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "id"', 'APPPATH\\Controllers\\Admin.php', 752)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->getkode()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-05-26 13:58:58 --> Undefined array key "id_kelurahan"
+in APPPATH\Controllers\Admin.php on line 752.
+ 1 APPPATH\Controllers\Admin.php(752): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "id_kelurahan"', 'APPPATH\\Controllers\\Admin.php', 752)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->getkode()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-05-26 13:59:16 --> Attempt to read property "id_kelurahan" on array
+in APPPATH\Controllers\Admin.php on line 752.
+ 1 APPPATH\Controllers\Admin.php(752): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "id_kelurahan" on array', 'APPPATH\\Controllers\\Admin.php', 752)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->getkode()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-05-26 14:00:47 --> Undefined array key "id_kelurahan"
+in APPPATH\Controllers\Admin.php on line 750.
+ 1 APPPATH\Controllers\Admin.php(750): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "id_kelurahan"', 'APPPATH\\Controllers\\Admin.php', 750)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->getkode()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-05-26 14:01:00 --> Array to string conversion
+in APPPATH\Controllers\Admin.php on line 751.
+ 1 APPPATH\Controllers\Admin.php(751): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', 'APPPATH\\Controllers\\Admin.php', 751)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->getkode()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-05-26 14:01:34 --> Undefined array key "id_kelurahan"
+in APPPATH\Controllers\Admin.php on line 750.
+ 1 APPPATH\Controllers\Admin.php(750): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "id_kelurahan"', 'APPPATH\\Controllers\\Admin.php', 750)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->getkode()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-05-26 14:43:02 --> Undefined variable $extensions
+in APPPATH\Views\admin\geojsonData.php on line 212.
+ 1 APPPATH\Views\admin\geojsonData.php(212): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $extensions', 'APPPATH\\Views\\admin\\geojsonData.php', 212)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\geojsonData.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/geojsonData', [], true)
+ 5 APPPATH\Controllers\Admin.php(141): view('admin/geojsonData', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->geojson()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-05-26 15:55:04 --> Undefined variable $S
+in APPPATH\Views\admin\geojsonData.php on line 85.
+ 1 APPPATH\Views\admin\geojsonData.php(85): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $S', 'APPPATH\\Views\\admin\\geojsonData.php', 85)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\geojsonData.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/geojsonData', [], true)
+ 5 APPPATH\Controllers\Admin.php(141): view('admin/geojsonData', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->geojson()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-05-26 16:20:53 --> Undefined variable $extensions
+in APPPATH\Views\admin\geojsonData.php on line 275.
+ 1 APPPATH\Views\admin\geojsonData.php(275): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $extensions', 'APPPATH\\Views\\admin\\geojsonData.php', 275)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\geojsonData.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/geojsonData', [], true)
+ 5 APPPATH\Controllers\Admin.php(141): view('admin/geojsonData', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->geojson()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-05-26 16:38:40 --> Undefined variable $tampilKafe
+in APPPATH\Views\admin\geojsonData.php on line 137.
+ 1 APPPATH\Views\admin\geojsonData.php(137): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $tampilKafe', 'APPPATH\\Views\\admin\\geojsonData.php', 137)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\geojsonData.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/geojsonData', [], true)
+ 5 APPPATH\Controllers\Admin.php(140): view('admin/geojsonData', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->geojson()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-05-26 16:38:51 --> Undefined variable $tampilKafe
+in APPPATH\Views\admin\geojsonData.php on line 137.
+ 1 APPPATH\Views\admin\geojsonData.php(137): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $tampilKafe', 'APPPATH\\Views\\admin\\geojsonData.php', 137)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\geojsonData.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/geojsonData', [], true)
+ 5 APPPATH\Controllers\Admin.php(141): view('admin/geojsonData', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->geojson()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-05-26 16:41:52 --> Undefined property: stdClass::$latitude
+in APPPATH\Views\admin\geojsonData.php on line 169.
+ 1 APPPATH\Views\admin\geojsonData.php(169): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$latitude', 'APPPATH\\Views\\admin\\geojsonData.php', 169)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\geojsonData.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/geojsonData', [], true)
+ 5 APPPATH\Controllers\Admin.php(140): view('admin/geojsonData', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->geojson()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-05-26 19:31:17 --> Undefined property: stdClass::$geojson
+in APPPATH\Views\admin\geojsonData.php on line 209.
+ 1 APPPATH\Views\admin\geojsonData.php(209): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$geojson', 'APPPATH\\Views\\admin\\geojsonData.php', 209)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\geojsonData.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/geojsonData', [], true)
+ 5 APPPATH\Controllers\Admin.php(140): view('admin/geojsonData', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->geojson()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-05-26 19:33:06 --> Undefined variable $features
+in APPPATH\Views\admin\geojsonData.php on line 209.
+ 1 APPPATH\Views\admin\geojsonData.php(209): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $features', 'APPPATH\\Views\\admin\\geojsonData.php', 209)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\geojsonData.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/geojsonData', [], true)
+ 5 APPPATH\Controllers\Admin.php(140): view('admin/geojsonData', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->geojson()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-05-26 19:33:19 --> Undefined variable $features
+in APPPATH\Views\admin\geojsonData.php on line 209.
+ 1 APPPATH\Views\admin\geojsonData.php(209): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $features', 'APPPATH\\Views\\admin\\geojsonData.php', 209)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\geojsonData.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/geojsonData', [], true)
+ 5 APPPATH\Controllers\Admin.php(140): view('admin/geojsonData', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->geojson()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-05-26 19:34:40 --> Undefined variable $features
+in APPPATH\Views\admin\geojsonData.php on line 209.
+ 1 APPPATH\Views\admin\geojsonData.php(209): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $features', 'APPPATH\\Views\\admin\\geojsonData.php', 209)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\geojsonData.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/geojsonData', [], true)
+ 5 APPPATH\Controllers\Admin.php(140): view('admin/geojsonData', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->geojson()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-05-26 19:36:01 --> Undefined property: stdClass::$kode_warna
+in APPPATH\Views\admin\geojsonData.php on line 184.
+ 1 APPPATH\Views\admin\geojsonData.php(184): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$kode_warna', 'APPPATH\\Views\\admin\\geojsonData.php', 184)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\geojsonData.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/geojsonData', [], true)
+ 5 APPPATH\Controllers\Admin.php(140): view('admin/geojsonData', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->geojson()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-05-26 19:36:09 --> Undefined property: stdClass::$warna_kode
+in APPPATH\Views\admin\geojsonData.php on line 184.
+ 1 APPPATH\Views\admin\geojsonData.php(184): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$warna_kode', 'APPPATH\\Views\\admin\\geojsonData.php', 184)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\geojsonData.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('admin/geojsonData', [], true)
+ 5 APPPATH\Controllers\Admin.php(140): view('admin/geojsonData', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->geojson()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-05-26 20:26:41 --> Undefined variable $F
+in APPPATH\Views\page\map.php on line 1069.
+ 1 APPPATH\Views\page\map.php(1069): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $F', 'APPPATH\\Views\\page\\map.php', 1069)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\page\\map.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('page/map', [], true)
+ 5 APPPATH\Controllers\Kafe.php(139): view('page/map', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->map()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-05-26 20:58:01 --> Cannot use object of type stdClass as array
+in APPPATH\Controllers\Admin.php on line 782.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->getSHP()
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-05-26 20:58:11 --> Undefined property: stdClass::$feature
+in APPPATH\Controllers\Admin.php on line 782.
+ 1 APPPATH\Controllers\Admin.php(782): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$feature', 'APPPATH\\Controllers\\Admin.php', 782)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->getSHP()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+ERROR - 2023-05-26 21:16:52 --> ErrorException: pg_query(): Query failed: ERROR:  column &quot;nama&quot; does not exist
+LINE 1: SELECT nama, kode, ST_AsGeoJSON(geometry) as geojson FROM ba...
+               ^ in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\Postgre\Connection.php:140
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_query(): Que...', 'F:\\WEB\\XAMPP\\ht...', 140)
+#1 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\Postgre\Connection.php(140): pg_query(Resource id #153, 'SELECT nama, ko...')
+#2 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(666): CodeIgniter\Database\Postgre\Connection->execute('SELECT nama, ko...')
+#3 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT nama, ko...')
+#4 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Models\ModelGeojson.php(42): CodeIgniter\Database\BaseConnection->query('SELECT nama, ko...')
+#5 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Controllers\Admin.php(780): App\Models\ModelGeojson->getAllShp()
+#6 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(927): App\Controllers\Admin->getSHP()
+#7 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#8 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 F:\WEB\XAMPP\htdocs\WebGis_kv\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(46): require_once('F:\\WEB\\XAMPP\\ht...')
+#11 {main}
+CRITICAL - 2023-05-26 21:16:52 --> pg_query(): Query failed: ERROR:  column &quot;nama&quot; does not exist
+LINE 1: SELECT nama, kode, ST_AsGeoJSON(geometry) as geojson FROM ba...
+               ^
+in SYSTEMPATH\Database\Postgre\Connection.php on line 140.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_query(): Query failed: ERROR:  column &quot;nama&quot; does not exist
+LINE 1: SELECT nama, kode, ST_AsGeoJSON(geometry) as geojson FROM ba...
+               ^', 'SYSTEMPATH\\Database\\Postgre\\Connection.php', 140)
+ 2 SYSTEMPATH\Database\Postgre\Connection.php(140): pg_query(resource (pgsql link), 'SELECT nama, kode, ST_AsGeoJSON(geometry) as geojson FROM batas_kelurahan')
+ 3 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\Postgre\Connection->execute('SELECT nama, kode, ST_AsGeoJSON(geometry) as geojson FROM batas_kelurahan')
+ 4 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT nama, kode, ST_AsGeoJSON(geometry) as geojson FROM batas_kelurahan')
+ 5 APPPATH\Models\ModelGeojson.php(42): CodeIgniter\Database\BaseConnection->query('SELECT nama, kode, ST_AsGeoJSON(geometry) as geojson FROM batas_kelurahan')
+ 6 APPPATH\Controllers\Admin.php(780): App\Models\ModelGeojson->getAllShp()
+ 7 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->getSHP()
+ 8 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-05-26 21:17:54 --> Call to a member function getResult() on array
+in APPPATH\Controllers\Admin.php on line 780.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->getSHP()
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-05-26 21:24:11 --> Undefined property: App\Controllers\Api::$FGeojson
+in APPPATH\Controllers\Api.php on line 115.
+ 1 APPPATH\Controllers\Api.php(115): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\Api::$FGeojson', 'APPPATH\\Controllers\\Api.php', 115)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Api->geoshp()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-05-26 21:29:37 --> Attempt to read property "geometry" on array
+in APPPATH\Views\page\map.php on line 1179.
+ 1 APPPATH\Views\page\map.php(1179): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "geometry" on array', 'APPPATH\\Views\\page\\map.php', 1179)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\page\\map.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('page/map', [], true)
+ 5 APPPATH\Controllers\Kafe.php(140): view('page/map', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->map()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-05-26 21:29:45 --> Attempt to read property "geom" on array
+in APPPATH\Views\page\map.php on line 1179.
+ 1 APPPATH\Views\page\map.php(1179): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "geom" on array', 'APPPATH\\Views\\page\\map.php', 1179)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\page\\map.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('page/map', [], true)
+ 5 APPPATH\Controllers\Kafe.php(140): view('page/map', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->map()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-05-26 21:30:55 --> Undefined array key "geom"
+in APPPATH\Controllers\Kafe.php on line 140.
+ 1 APPPATH\Controllers\Kafe.php(140): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "geom"', 'APPPATH\\Controllers\\Kafe.php', 140)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->map()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-05-26 21:31:35 --> Attempt to read property "geom" on string
+in APPPATH\Views\page\map.php on line 1179.
+ 1 APPPATH\Views\page\map.php(1179): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "geom" on string', 'APPPATH\\Views\\page\\map.php', 1179)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\page\\map.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('page/map', [], true)
+ 5 APPPATH\Controllers\Kafe.php(140): view('page/map', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->map()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-05-26 21:32:23 --> Attempt to read property "geom" on string
+in APPPATH\Views\page\map.php on line 1179.
+ 1 APPPATH\Views\page\map.php(1179): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "geom" on string', 'APPPATH\\Views\\page\\map.php', 1179)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\page\\map.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('page/map', [], true)
+ 5 APPPATH\Controllers\Kafe.php(140): view('page/map', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->map()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-05-26 21:32:26 --> Attempt to read property "geom" on string
+in APPPATH\Views\page\map.php on line 1179.
+ 1 APPPATH\Views\page\map.php(1179): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "geom" on string', 'APPPATH\\Views\\page\\map.php', 1179)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\page\\map.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('page/map', [], true)
+ 5 APPPATH\Controllers\Kafe.php(140): view('page/map', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->map()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-05-26 21:33:53 --> Attempt to read property "geojson" on string
+in APPPATH\Views\page\map.php on line 1179.
+ 1 APPPATH\Views\page\map.php(1179): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "geojson" on string', 'APPPATH\\Views\\page\\map.php', 1179)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\page\\map.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('page/map', [], true)
+ 5 APPPATH\Controllers\Kafe.php(140): view('page/map', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->map()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-05-26 21:34:09 --> Attempt to read property "geojson" on string
+in APPPATH\Views\page\map.php on line 1179.
+ 1 APPPATH\Views\page\map.php(1179): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "geojson" on string', 'APPPATH\\Views\\page\\map.php', 1179)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\page\\map.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('page/map', [], true)
+ 5 APPPATH\Controllers\Kafe.php(140): view('page/map', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->map()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-05-26 21:34:17 --> Undefined array key 0
+in APPPATH\Views\page\map.php on line 1179.
+ 1 APPPATH\Views\page\map.php(1179): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'APPPATH\\Views\\page\\map.php', 1179)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\page\\map.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('page/map', [], true)
+ 5 APPPATH\Controllers\Kafe.php(140): view('page/map', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Kafe->map()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Kafe))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-05-26 21:36:20 --> Call to undefined method CodeIgniter\Database\Postgre\Result::getAllKafe()
+in APPPATH\Controllers\Admin.php on line 56.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->tes()
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+ERROR - 2023-05-26 21:36:51 --> ErrorException: pg_query(): Query failed: ERROR:  column &quot;geom&quot; does not exist
+LINE 1: SELECT *, ST_AsGeoJSON(geom) as geojson FROM tbl_kafe
+                               ^ in F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\Postgre\Connection.php:140
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_query(): Que...', 'F:\\WEB\\XAMPP\\ht...', 140)
+#1 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\Postgre\Connection.php(140): pg_query(Resource id #156, 'SELECT *, ST_As...')
+#2 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(666): CodeIgniter\Database\Postgre\Connection->execute('SELECT *, ST_As...')
+#3 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *, ST_As...')
+#4 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Models\ModelKv.php(202): CodeIgniter\Database\BaseConnection->query('SELECT *, ST_As...')
+#5 F:\WEB\XAMPP\htdocs\WebGis_kv\app\Controllers\Admin.php(57): App\Models\ModelKv->getAllKafe()
+#6 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(927): App\Controllers\Admin->tes()
+#7 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#8 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 F:\WEB\XAMPP\htdocs\WebGis_kv\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 F:\WEB\XAMPP\htdocs\WebGis_kv\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(46): require_once('F:\\WEB\\XAMPP\\ht...')
+#11 {main}
+CRITICAL - 2023-05-26 21:36:51 --> pg_query(): Query failed: ERROR:  column &quot;geom&quot; does not exist
+LINE 1: SELECT *, ST_AsGeoJSON(geom) as geojson FROM tbl_kafe
+                               ^
+in SYSTEMPATH\Database\Postgre\Connection.php on line 140.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'pg_query(): Query failed: ERROR:  column &quot;geom&quot; does not exist
+LINE 1: SELECT *, ST_AsGeoJSON(geom) as geojson FROM tbl_kafe
+                               ^', 'SYSTEMPATH\\Database\\Postgre\\Connection.php', 140)
+ 2 SYSTEMPATH\Database\Postgre\Connection.php(140): pg_query(resource (pgsql link), 'SELECT *, ST_AsGeoJSON(geom) as geojson FROM tbl_kafe')
+ 3 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\Postgre\Connection->execute('SELECT *, ST_AsGeoJSON(geom) as geojson FROM tbl_kafe')
+ 4 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *, ST_AsGeoJSON(geom) as geojson FROM tbl_kafe')
+ 5 APPPATH\Models\ModelKv.php(202): CodeIgniter\Database\BaseConnection->query('SELECT *, ST_AsGeoJSON(geom) as geojson FROM tbl_kafe')
+ 6 APPPATH\Controllers\Admin.php(57): App\Models\ModelKv->getAllKafe()
+ 7 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->tes()
+ 8 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-05-26 21:40:17 --> syntax error, unexpected token "(", expecting identifier or variable or "{" or "$"
+in APPPATH\Models\ModelKv.php on line 202.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(259): CodeIgniter\Autoloader\Autoloader->includeFile('APPPATH\\Models\\ModelKv.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(237): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Models\\ModelKv')
+ 3 APPPATH\Controllers\Admin.php(29): CodeIgniter\Autoloader\Autoloader->loadClass('App\\Models\\ModelKv')
+ 4 SYSTEMPATH\CodeIgniter.php(889): App\Controllers\Admin->__construct()
+ 5 SYSTEMPATH\CodeIgniter.php(473): CodeIgniter\CodeIgniter->createController()
+ 6 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2023-05-26 21:54:49 --> Call to a member function getResult() on array
+in APPPATH\Controllers\Api.php on line 23.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Api->aprv()
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')

@@ -111,6 +111,7 @@
                                     <tr>
                                         <th>#</th>
                                         <th>Username</th>
+                                        <th>Full Name</th>
                                         <th>Email</th>
                                         <th>Role</th>
                                         <th>Active</th>
@@ -123,6 +124,7 @@
                                         <tr>
                                             <th scope="row"><?= $i++; ?></th>
                                             <td><?= $user->username; ?></td>
+                                            <td><?= $user->full_name; ?></td>
                                             <td><?= $user->email; ?></td>
                                             <td><span class="badge bg-<?= ($user->name == 'Admin' or $user->name == 'SuperAdmin') ? 'info' : 'secondary'; ?>"> <?= $user->name; ?> </span></td>
                                             <td><span class="badge bg-<?= ($user->active == '0') ? 'danger' : 'success'; ?>"> <?= ($user->active == '0') ? 'inactive' : 'active'; ?> </span></td>

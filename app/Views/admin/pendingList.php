@@ -82,19 +82,19 @@
                                                     <form action="/admin/rejectKafe/<?= $S->id_kafe; ?>" method="post">
                                                         <?= csrf_field(); ?>
                                                         <input type="hidden" name="_method" value="DELETE">
-                                                        <button type="submit" class="btn btn-danger bi bi-x-octagon" data-bs-toggle="tooltip" data-bs-placement="top" title="Reject" onclick="return confirm('Yakin Tolak Data?')"></button>
+                                                        <button type="submit" class="asbn btn btn-danger bi bi-x-octagon" data-bs-toggle="tooltip" data-bs-placement="top" title="Reject" onclick="return confirm('Yakin Tolak Data?')"></button>
                                                     </form>
                                                 </div>
                                                 <div class="btn-group mr-2" role="group" aria-label="First group">
                                                     <form action="/admin/approveKafe/<?= $S->id_kafe; ?>" method="post">
                                                         <?= csrf_field(); ?>
                                                         <input type="hidden" name="_method" value="DELETE">
-                                                        <button type="submit" class="btn btn-success bi bi-check-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="Accept" onclick="return confirm('Approve?')"></button>
+                                                        <button type="submit" class="asbn btn btn-success bi bi-check-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="Accept" onclick="return confirm('Approve?')"></button>
                                                     </form>
                                                 </div>
                                                 <div class="btn-group mr-2" role="group" aria-label="First group">
                                                     <!-- Trigger modal -->
-                                                    <button type="button" id="infos" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#infoModal-<?= $S->id_kafe ?>" onclick="showMap<?= $S->id_kafe; ?>()">i</button>
+                                                    <button type="button" id="infos" class="asbn btn btn-secondary bi bi-eye" data-bs-toggle="modal" data-bs-target="#infoModal-<?= $S->id_kafe ?>" onclick="showMap<?= $S->id_kafe; ?>()"></button>
                                                 </div>
                                                 <!-- Modal detail -->
                                                 <div class=" modal fade" id="infoModal-<?= $S->id_kafe ?>" tabindex="-1" aria-labelledby="infoModalLabel-<?= $S->id_kafe ?>" aria-hidden="true">
@@ -105,6 +105,18 @@
                                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                             </div>
                                                             <div class="modal-body">
+                                                                <div class="card mb-2">
+                                                                    <div class="card-body">
+                                                                        <?php if (empty($S->nama_foto)) : ?>
+                                                                            <img src="/img/kafe/no image.jpg" class="img-pending">
+                                                                        <?php else : ?>
+                                                                            <?php $foto_kafe = explode(', ', $S->nama_foto); ?>
+                                                                            <?php foreach ($foto_kafe as $foto) : ?>
+                                                                                <img src="<?= base_url('/img/kafe/' . $foto); ?>" class="img-pending">
+                                                                            <?php endforeach ?>
+                                                                        <?php endif ?>
+                                                                    </div>
+                                                                </div>
                                                                 <div class="card">
                                                                     <div class="card-body">
                                                                         <div class="table-responsive">
@@ -135,8 +147,14 @@
                                                                                     <tr>
                                                                                         <td>Instagram</td>
                                                                                         <th>:</th>
-                                                                                        <td><a href="https://www.instagram.com/<?= $S->instagram_kafe ?>" target="_blank" rel="noopener noreferrer" class="d-inline-flex align-items-center">
-                                                                                                <span>@<?= $S->instagram_kafe ?> <i class="ri-external-link-line"></i></span></a></td>
+                                                                                        <td>
+                                                                                            <?php if (empty($S->instagram_kafe)) : ?>
+                                                                                                <p>-</p>
+                                                                                            <?php else : ?>
+                                                                                                <a href="https://www.instagram.com/<?= $S->instagram_kafe ?>" target="_blank" rel="noopener noreferrer" class="d-inline-flex align-items-center">
+                                                                                                    <span>@<?= $S->instagram_kafe ?> <i class="ri-external-link-line"></i></span></a>
+                                                                                            <?php endif ?>
+                                                                                        </td>
                                                                                     </tr>
                                                                                     <tr>
                                                                                         <td>Jam Oprasional</td>
@@ -152,7 +170,7 @@
                                                                                             });
 
                                                                                             // Tampilkan jam operasional dalam urutan yang diinginkan
-                                                                                            foreach ($jam_oprasional as $jam) {
+                                                                                            foreach ($jam_oprasional[0] as $jam) {
                                                                                                 $hari = $jam['hari'];
                                                                                                 $open_time = $jam['open_time'];
                                                                                                 $close_time = $jam['close_time'];
@@ -223,18 +241,12 @@
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/816b3ace5c.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src=" https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.all.min.js "></script>
 
     <!-- Template Main JS File -->
     <script src="/js/datatables-simple-demo.js"></script>
     <script src="/js/scripts.js"></script>
 
-    <script>
-        $(document).ready(function() {
-            $("th").css("pointer-events", "none");
-            $(".no-sort").css("pointer-events", "none");
-        });
-    </script>
     <script>
         $(document).ready(function() {
             $(".alert");
@@ -251,7 +263,7 @@
         <script>
             $(document).ready(function() {
                 function showMap<?= $S->id_kafe; ?>() {
-                    var mymap = L.map('mymap-<?= $S->id_kafe; ?>').setView([<?= $S->latitude; ?>, <?= $S->longitude; ?>], 13);
+                    var mymap = L.map('mymap-<?= $S->id_kafe; ?>').setView([<?= $S->latitude; ?>, <?= $S->longitude; ?>], 14);
 
                     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                         attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors',

@@ -18,7 +18,7 @@ body {
   display: none;
   right: 30px;
   bottom: 60px;
-  z-index: 99;
+  z-index: 2000;
 }
 
 h4,
@@ -96,6 +96,7 @@ h6 {
   color: var(--dark);
   font-weight: 500;
   outline: none;
+  text-decoration: none;
 }
 
 .navbar .navbar-nav .nav-link:hover,

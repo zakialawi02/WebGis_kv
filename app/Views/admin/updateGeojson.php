@@ -44,15 +44,11 @@
                             <form class="row g-3" action="/admin/update_Geojson" method="post" enctype="multipart/form-data">
                                 <?= csrf_field(); ?>
                                 <input type="hidden" class="form-control" for="id" id="id" name="id" value="<?= $updateGeojson->id; ?>">
-                                <input type="hidden" class="form-control" for="jsonLama" id="jsonLama" name="jsonLama" value="<?= $updateGeojson->geojson; ?>">
+                                <input type="hidden" class="form-control" for="jsonLama" id="jsonLama" name="jsonLama" value="<?= $updateGeojson->features; ?>">
 
                                 <div class="mb-3">
-                                    <label for="kodeG" class="form-label">Kode</label>
-                                    <input type="text" class="form-control" id="kodeG" aria-describedby="textlHelp" name="kodeG" value="<?= $updateGeojson->kode_wilayah; ?>">
-                                </div>
-                                <div class="mb-3">
                                     <label for="Nkec" class="form-label">Nama Wilayah</label>
-                                    <input type="text" class="form-control" id="Nkec" aria-describedby="textlHelp" name="Nkec" value="<?= $updateGeojson->nama_wilayah; ?>">
+                                    <input type="text" class="form-control" id="Nkec" aria-describedby="textlHelp" name="Nkec" value="<?= $updateGeojson->nama_features; ?>">
                                 </div>
                                 <div class="col-md-10">
                                     <label for="formFile" class="form-label">Upload File GeoJSON</label>
@@ -81,8 +77,6 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/816b3ace5c.js" crossorigin="anonymous"></script>
     <script src="/js/datatables-simple-demo.js"></script>
     <script src="/js/scripts.js"></script>

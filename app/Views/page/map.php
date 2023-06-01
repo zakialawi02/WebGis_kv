@@ -28,6 +28,7 @@
     <link rel="stylesheet" href="/leaflet/iconLayers.css" />
     <link rel="stylesheet" href="/leaflet/leaflet.contextmenu.css" />
     <link rel="stylesheet" href="/leaflet/leaflet.lumap.css" />
+    <link rel="stylesheet" href="/leaflet/Leaflet.NavBar.css" />
 
 </head>
 
@@ -129,13 +130,16 @@
 
                         <div class="row g-2">
                             <label for="koordinat" class="">Koordinat</label>
-                            <div class="form-group col-md-6">
+                            <div class="form-group col-md-5">
                                 <label for="latitude" class="">Latitude</label>
                                 <input type="text" class="form-control" id="latitude" aria-describedby="textlHelp" name="latitude" placeholder="-7.0385384" pattern="/^(\-?\d+(\.\d+)?)$/" title="Tuliskan Sesuai Format" required>
                             </div>
-                            <div class="form-group col-md-6">
+                            <div class="form-group col-md-5">
                                 <label for="longitude" class="">Longitude</label>
                                 <input type="text" class="form-control" id="longitude" aria-describedby="textlHelp" name="longitude" placeholder="112.8998345" pattern="/^[^a-zA-Z]*(\-?\d+(\.\d+)?)$/" title="Tuliskan Sesuai Format" required>
+                            </div>
+                            <div class="col-md gps">
+                                <button type="button" role="button" onclick="mygps()" id="myLoc" class="btn btn-primary bi bi-geo-alt" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Gunakan lokasi saya sekarang (GPS)"></button>
                             </div>
                             <div id="FileHelp" class="form-text"><span style="font-weight: bold;">NOTE:</span> Ketikan Koordinat Latitude dan Longitude atau klik kanan lokasi pada peta</div>
                         </div>
@@ -404,7 +408,10 @@
                 icon: 'success',
                 title: 'Success!',
                 text: '<?= session()->getFlashdata('success'); ?>',
-                timer: 1500,
+                timer: 5000,
+                html: 'Menunggu verifikasi, lihat status data anda ' +
+                    '<a href="/dashboard">disini</a> ' +
+                    ' atau masuk ke dashboard',
             });
         </script>
     <?php endif; ?>
@@ -419,6 +426,11 @@
             });
         </script>
     <?php endif; ?>
+
+    <script>
+        const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+        const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    </script>
     <!-- modalAdd -->
     <script>
         const modalButton = document.getElementById("modal-button");
@@ -432,6 +444,7 @@
                 $("#loading-spinner").removeClass("d-none");
                 setTimeout(function() {
                     $("#loading-spinner").addClass("d-none");
+                    Swal.fire('Anda harus login terlebih dahulu')
                     var logModal = new bootstrap.Modal($('#loginModal'));
                     logModal.show();
                 }, 500);
@@ -509,7 +522,7 @@
         $(document).ready(function() {
             $('#wilayahA').select2({
                 ajax: {
-                    url: "<?= base_url('Admin/getDataAjaxRemote') ?>",
+                    url: "<?= base_url('admin/getDataAjaxRemote') ?>",
                     dataType: "json",
                     type: "POST",
                     delay: 300,
@@ -539,7 +552,7 @@
                 for (var i = 0; i < input.files.length; i++) {
                     var reader = new FileReader();
                     reader.onload = function(e) {
-                        $('#imgPreview').append('<div><img src="' + e.target.result + '" class="img-kafe"><button type="button" class="btn btn-danger btn-sm remove-preview">Hapus</button></div>');
+                        $('#imgPreview').append('<div><img src="' + e.target.result + '" class="img-kafe"></div>');
                     }
                     reader.readAsDataURL(input.files[i]);
                 }
@@ -736,6 +749,8 @@
     <script src="/leaflet/catiline.js"></script>
     <script src="/leaflet/leaflet.shpfile.js"></script>
     <script src="/leaflet/leaflet-hash.js"></script>
+    <script src="/leaflet/Leaflet.NavBar.js"></script>
+    <script src='https://unpkg.com/@turf/turf@6/turf.min.js'></script>
 
     <!-- Leafleat Setting js-->
     <!-- initialize the map on the "map" div with a given center and zoom -->
@@ -820,12 +835,54 @@
             function addMarker(e) {
                 if (addKafe) map.removeLayer(addKafe);
                 addKafe = L.marker(e.latlng, {
-                    icon: locKafe
+                    icon: inKafe
                 }).addTo(map);
                 $("#loading-spinner").removeClass("d-none");
                 lat = e.latlng.lat;
                 lng = e.latlng.lng;
                 koordinat = lat + ", " + lng;
+
+                var clickedPoint = turf.point([lng, lat]); // Create a Turf.js point object
+                // Check if the clicked point is inside any polygon of the GeoJSON layer
+                var isInsidePolygon = false;
+                geoshp.eachLayer(function(layer) {
+                    var polygon = layer.toGeoJSON();
+                    if (turf.booleanPointInPolygon(clickedPoint, polygon)) {
+                        isInsidePolygon = true;
+                        // Log the information about the polygon to the console
+                        var properties = polygon.properties;
+                        var kode = properties.kode_1;
+                        $.ajax({
+                            type: "POST",
+                            url: "<?php echo base_url('/admin/getkode'); ?>",
+                            data: {
+                                kode: kode
+                            },
+                            dataType: "json",
+                            success: function(response) {
+                                var detectIdWilayah = response.id;
+                                var detectTextWilayah = response.text;
+                                var id = detectIdWilayah;
+                                var text = detectTextWilayah;
+                                // Membuat opsi-select baru dengan data ID
+                                var option = new Option(detectTextWilayah, detectIdWilayah);
+                                // Menghapus semua opsi-select sebelumnya
+                                $('#wilayahA').empty();
+                                // Menambahkan opsi-select baru ke dalam select element
+                                $('#wilayahA').append(option);
+                                // Mengaktifkan opsi-select yang dipilih berdasarkan data ID
+                                $('#wilayahA').val(detectIdWilayah);
+                            },
+                            error: function(xhr, status, error) {
+                                console.log(error);
+                            }
+                        });
+                    }
+                });
+                // If the clicked point is not inside any polygon, display a message
+                if (!isInsidePolygon) {
+                    console.log('Marker is not inside any polygon.');
+                }
                 $('#latitude').val(lat);
                 $('#longitude').val(lng);
                 setTimeout(function() {
@@ -839,11 +896,32 @@
                 $("#loading-spinner").removeClass("d-none");
                 setTimeout(function() {
                     $("#loading-spinner").addClass("d-none");
+                    Swal.fire('Anda harus login terlebih dahulu')
                     var logModal = new bootstrap.Modal($('#loginModal'));
                     logModal.show();
                 }, 500);
             }
         <?php endif ?>
+
+        function mygps() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
+                alert("Geolokasi tidak didukung oleh peramban ini.");
+            }
+        }
+
+        function showPosition(position) {
+            var latitude = position.coords.latitude;
+            var longitude = position.coords.longitude;
+            if (addKafe) map.removeLayer(addKafe);
+            addKafe = L.marker([latitude, longitude], {
+                icon: inKafe
+            }).addTo(map);
+            $('#latitude').val(latitude);
+            $('#longitude').val(longitude);
+            map.flyTo([latitude, longitude], 13)
+        }
 
         // controller
         map.removeControl(map.zoomControl);
@@ -874,18 +952,8 @@
         baseLayers.addTo(map);
         L.control.mousePosition().addTo(map);
         L.control.scale().addTo(map);
+        L.control.navbar().addTo(map);
         var hash = new L.Hash(map);
-
-        var geojsonKafe;
-        fetch('<?= base_url(); ?>/api/aprv')
-            .then(function(response) {
-                return response.json();
-            })
-            .then(function(data) {
-                var geojsonKafe = data;
-                console.log(geojsonKafe);
-            });
-
 
         // Tambahkan control accordion pada peta
         var legendControl = L.control({
@@ -933,6 +1001,12 @@
             iconAnchor: [16, 30], // point of the icon which will correspond to marker's location
             popupAnchor: [0, -28] // point from which the popup should open relative to the iconAnchor
         });
+        const inKafe = L.icon({
+            iconUrl: '<?= base_url(); ?>/leaflet/icon/restaurant_breakfast_y.png',
+            iconSize: [30, 30],
+            iconAnchor: [16, 30], // point of the icon which will correspond to marker's location
+            popupAnchor: [0, -28] // point from which the popup should open relative to the iconAnchor
+        });
 
         // geojson popup
         function popUp(f, l) {
@@ -950,7 +1024,7 @@
                 popOut += "<tr><td><b>Instagram</b></td><th>:</th><td>" + "@" + f.properties.instagram_kafe + "</td></tr>";
                 popOut += "<tr><td><b>Jam Oprasional</b></td><th>:</th><td>";
                 const jsonString = f.properties.jam_oprasional;
-                var jamOperasional = JSON.parse("[" + jsonString[0] + "]");
+                var jamOperasional = JSON.parse(jsonString[0]);
                 popOut += "<table>"
                 for (var i = 0; i < jamOperasional.length; i++) {
                     var hari = jamOperasional[i].hari;
@@ -1005,8 +1079,8 @@
                     id: 'layersPoly',
                     title: 'Administrasi',
                     child: [{
-                        title: 'Surabaya',
-                        icon: `heptagon-half`,
+                        title: 'Kota Surabaya',
+                        iconHtml: '<div class="legend-color" style="background-color: rgba(0,0,255,0.3); border: 1px solid #000000;"></div>',
                         layer: polyShp
                     }]
                 };
@@ -1015,7 +1089,7 @@
                 function checkLayerVisibility() {
                     if (map.hasLayer(polyShp)) {
                         var legendItem = $('.legend-item1');
-                        legendItem.html('<div class="legend-color" style="background-color: rgba(0,0,255,0.3);"></div>' +
+                        legendItem.html('<div class="legend-color" style="background-color: rgba(0,0,255,0.3); border: 1px solid #000000;"></div>' +
                             '<div class="legend-label">Batas Administrasi</div>');
                     } else {
                         var legendItem = $('.legend-item1');
@@ -1030,22 +1104,7 @@
                         legendItem.empty();
                     }
                 }
-                if (map.hasLayer(polyShp)) {
-                    var legendItem1 = $('.legend-item1');
-                    legendItem1.html('<div class="legend-color" style="background-color: rgba(0,0,255,0.3);"></div>' +
-                        '<div class="legend-label">Batas Administrasi</div>');
-                } else {
-                    var legendItem1 = $('.legend-item1');
-                    legendItem1.empty();
-                }
-                if (map.hasLayer(cafes)) {
-                    var legendItem2 = $('.legend-item2');
-                    legendItem2.html('<div class="legend-img"><img src="<?= base_url(); ?>/leaflet/icon/restaurant_breakfast.png"></div>' +
-                        '<div class="legend-label">Kafe</div>');
-                } else {
-                    var legendItem2 = $('.legend-item2');
-                    legendItem2.empty();
-                }
+                checkLayerVisibility()
                 // Event listener untuk cek layer visibility saat klik layer control
                 cafes.on('add remove', checkLayerVisibility);
                 polyShp.on('add remove', checkLayerVisibility);
@@ -1107,7 +1166,7 @@
                         popupContent += key + ": " + properties[key] + "<br>";
                     }
                 }
-                layer.bindPopup(popupContent);
+                // layer.bindPopup(popupContent);
             }
         });
 
@@ -1123,7 +1182,6 @@
         }, function(a) {
             console.log(a)
         });
-
 
 
 

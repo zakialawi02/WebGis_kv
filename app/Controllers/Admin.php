@@ -36,6 +36,7 @@ class Admin extends BaseController
         $data = [
             'title' => 'Dashboard',
             'userid' => $userid,
+            'allKafe' => $this->kafe->callKafe()->getResult(),
             'countAllKafe' => $this->kafe->countAllKafe(),
             'countAllPending' => $this->kafe->countAllPending(),
             'countAllUser' => $this->user->countAllUser(),
@@ -44,7 +45,7 @@ class Admin extends BaseController
             'userSubmitKafe' => $this->kafe->userSubmitKafe($userid)->getResult(),
         ];
         // echo '<pre>';
-        // print_r($data['pendingKafe']);
+        // print_r($data);
         // die;
         return view('admin/dashboard', $data);
     }
@@ -53,7 +54,23 @@ class Admin extends BaseController
     {
         $data = [
             'title' => 'Tes',
+            'tampilKafe' => $this->kafe->callKafe()->getResult(),
         ];
+        echo '<pre>';
+        print_r($data['tampilKafe']);
+        die;
+        return view('page/tes', $data);
+    }
+
+    public function tess($id_kafe)
+    {
+        $data = [
+            'title' => 'Tes',
+            'tampilKafe' => $this->kafe->getDump($id_kafe)->getResult(),
+        ];
+        echo '<pre>';
+        print_r($data['tampilKafe']);
+        die;
         return view('page/tes', $data);
     }
 
@@ -116,10 +133,9 @@ class Admin extends BaseController
     public function geojson()
     {
         $data = [
-            'title' => 'DATA GEOJSON',
+            'title' => 'DATA FEATURES',
             'tampilData' => $this->setting->tampilData()->getResult(),
             'tampilGeojson' => $this->FGeojson->callGeojson()->getResult(),
-            'updateGeojson' => $this->FGeojson->callGeojson()->getRow(),
         ];
 
         return view('admin/geojsonData', $data);
@@ -128,7 +144,7 @@ class Admin extends BaseController
     public function editGeojson($id)
     {
         $data = [
-            'title' => 'DATA GEOJSON',
+            'title' => 'DATA FEATURES',
             'updateGeojson' => $this->FGeojson->callGeojson($id)->getRow(),
         ];
 
@@ -138,7 +154,7 @@ class Admin extends BaseController
     public function tambahGeojson()
     {
         $data = [
-            'title' => 'DATA GEOJSON',
+            'title' => 'DATA FEATURES',
             'tampilData' => $this->setting->tampilData()->getResult(),
 
         ];
@@ -150,31 +166,37 @@ class Admin extends BaseController
     public function tambah_Geojson()
     {
         // dd($this->request->getVar());
-
         // ambil file
         $fileGeojson = $this->request->getFile('Fjson');
         //generate random file name
-        $randomName = $fileGeojson->getRandomName();
+        $extension = $fileGeojson->getExtension();
+        $size = $fileGeojson->getSize();
+        $randomName = date('YmdHis') . '_' . $size . '.' . $extension;
         $explode = explode('.', $randomName);
         array_pop($explode);
         $randomName = implode('.', $explode);
-        $randomName = $randomName . ".geojson";
+        if ($extension != 'zip') {
+            $randomName = $randomName . ".geojson";
+        } else {
+            $randomName = $randomName . ".$extension";
+        }
         // pindah file to hosting
         $fileGeojson->move('geojson/', $randomName);
 
-
         $data = [
-            'kode_wilayah' => $this->request->getVar('kodeG'),
-            'nama_wilayah'  => $this->request->getVar('Nkec'),
-            'geojson'  => $randomName,
+            'nama_features'  => $this->request->getVar('Nkec'),
+            'features'  => $randomName,
             'warna'  => $this->request->getVar('Kwarna'),
         ];
 
         $addGeojson = $this->FGeojson->addGeojson($data);
 
         if ($addGeojson) {
-            session()->setFlashdata('alert', 'Data Anda Berhasil Ditambahkan.');
-            return $this->response->redirect(site_url('/admin/data/geojson'));
+            session()->setFlashdata('success', 'Data Berhasil ditambahkan.');
+            return $this->response->redirect(site_url('/admin/features'));
+        } else {
+            session()->setFlashdata('error', 'Gagal menambahkan data.');
+            return $this->response->redirect(site_url('/admin/features'));
         }
     }
 
@@ -182,7 +204,6 @@ class Admin extends BaseController
     public function update_Geojson()
     {
         // dd($this->request->getVar());
-
         // ambil file name
         $fileGeojson = $this->request->getFile('Fjson');
         // cek file input
@@ -209,19 +230,18 @@ class Admin extends BaseController
 
         $id = $this->request->getVar('id');
         $data = [
-            'kode_wilayah' => $this->request->getVar('kodeG'),
-            'nama_wilayah'  => $this->request->getVar('Nkec'),
+            'nama_features'  => $this->request->getVar('Nkec'),
             'warna'  => $this->request->getVar('Kwarna'),
-            'geojson'  => $fileGeojsonBaru,
+            'features'  => $fileGeojsonBaru,
         ];
 
         $this->FGeojson->updateGeojson($data, $id);
         if ($this) {
             session()->setFlashdata('success', 'Data Berhasil diperbarui.');
-            return $this->response->redirect(site_url('/admin/data/geojson'));
+            return $this->response->redirect(site_url('/admin/features'));
         } else {
             session()->setFlashdata('error', 'Gagal memperbarui data.');
-            return $this->response->redirect(site_url('/admin/data/geojson'));
+            return $this->response->redirect(site_url('/admin/features'));
         }
     }
 
@@ -230,12 +250,17 @@ class Admin extends BaseController
     {
 
         $data = $this->FGeojson->callGeojson($id)->getRow();
-        $file = $data->geojson;
+        $file = $data->features;
         unlink("geojson/" . $file);
 
         $this->FGeojson->delete(['id' => $id]);
-        session()->setFlashdata('alert', "Data Berhasil dihapus.");
-        return $this->response->redirect(site_url('/admin/data/geojson'));
+        if ($this) {
+            session()->setFlashdata('success', 'Data Berhasil dihapus.');
+            return $this->response->redirect(site_url('/admin/features'));
+        } else {
+            session()->setFlashdata('error', 'Gagal menghapus data.');
+            return $this->response->redirect(site_url('/admin/features'));
+        }
     }
 
 
@@ -294,9 +319,7 @@ class Admin extends BaseController
             'getFoto' => $this->fotoKafe->getFoto($id_kafe)->getResult(),
             'provinsi' => $this->kafe->allProvinsi(),
         ];
-        // echo '<pre>';
-        // print_r($data['tampilKafe']);
-        // die;
+
         return view('admin/updateKafe', $data);
     }
 
@@ -632,10 +655,18 @@ class Admin extends BaseController
         $this->kafe->delete(['id_kafe' => $id_kafe]);
         if ($this) {
             session()->setFlashdata('success', 'Data berhasil dihapus.');
-            return $this->response->redirect(site_url('/admin/data/kafe'));
+            if (in_groups('User')) {
+                return $this->response->redirect(site_url('/dashboard'));
+            } else {
+                return $this->response->redirect(site_url('/admin/data/kafe'));
+            }
         } else {
             session()->setFlashdata('error', 'Gagal menghapus data.');
-            return $this->response->redirect(site_url('/admin/data/kafe'));
+            if (in_groups('User')) {
+                return $this->response->redirect(site_url('/dashboard'));
+            } else {
+                return $this->response->redirect(site_url('/admin/data/kafe'));
+            }
         }
     }
 
@@ -646,7 +677,9 @@ class Admin extends BaseController
             'title' => 'PENDING LIST',
             'tampilKafe' => $this->kafe->callPendingData()->getResult(),
         ];
-
+        // echo '<pre>';
+        // print_r($data);
+        // die;
         return view('admin/pendingList', $data);
     }
 
@@ -710,7 +743,6 @@ class Admin extends BaseController
         if ($this->request->isAJAX()) {
             $search = $this->request->getPost('search');
             $results = $this->Administrasi->getDataAjaxRemote($search);
-            // var_dump($results);
             if (count($results) > 0) {
                 foreach ($results as $row) {
                     $selectajax[] = [
@@ -723,6 +755,18 @@ class Admin extends BaseController
             return $this->response->setJSON($selectajax);
         }
     }
+    public function getkode()
+    {
+        $kode = $this->request->getPost('kode');
+        $results = $this->Administrasi->getKode($kode);
+        $response = [
+            'status' => 'Succes',
+            'id' => $results[0]['id_kelurahan'] . ", " . $results[0]['id_kecamatan'] . ", " . $results[0]['id_kabupaten'] . ", " . $results[0]['id_provinsi'],
+            'text' => $results[0]['nama_kabupaten'] . ", Kecamatan " . $results[0]['nama_kecamatan'] . ", " . $results[0]['nama_kelurahan'],
+        ];
+        return $this->response->setJSON($response);
+    }
+
     // vardump AjaxRemote
     public function wil()
     {
@@ -735,6 +779,7 @@ class Admin extends BaseController
                 ];
             };
         }
+        echo '<pre>';
         print_r($results);
         print_r($selectajax);
     }

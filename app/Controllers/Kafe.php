@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use CodeIgniter\Exceptions\PageNotFoundException;
 use App\Models\ModelGeojson;
 use App\Models\ModelKv;
 use App\Models\ModelSetting;
@@ -41,6 +42,9 @@ class Kafe extends BaseController
             'title' => 'Detail Kafe',
             'tampilKafe' => $this->kafe->callKafe($id_kafe)->getRow(),
         ];
+        if (empty($data['tampilKafe'])) {
+            throw new PageNotFoundException();
+        }
         // echo '<pre>';
         // print_r($data['tampilKafe']);
         // die;
@@ -131,7 +135,7 @@ class Kafe extends BaseController
     public function map()
     {
         $data = [
-            'title' => 'Map',
+            'title' => 'Map Panel',
             'tampilGeojson' => $this->FGeojson->callGeojson()->getResult(),
             'tampilData' => $this->setting->tampilData()->getResult(),
             'tampilKafe' => $this->kafe->callKafe()->getResult(),

@@ -77,15 +77,18 @@
 
                                             <div class="row g-2">
                                                 <label for="koordinat" class="">Koordinat</label>
-                                                <div class="form-group col-md-6">
+                                                <div class="form-group col-md-5">
                                                     <label for="latitude" class="">Latitude</label>
                                                     <input type="text" class="form-control" id="latitude" aria-describedby="textlHelp" name="latitude" placeholder="-7.0385384" pattern="/^(\-?\d+(\.\d+)?)$/" title="Tuliskan Sesuai Format" required>
                                                 </div>
-                                                <div class="form-group col-md-6">
+                                                <div class="form-group col-md-5">
                                                     <label for="longitude" class="">Longitude</label>
                                                     <input type="text" class="form-control" id="longitude" aria-describedby="textlHelp" name="longitude" placeholder="112.8998345" pattern="/^[^a-zA-Z]*(\-?\d+(\.\d+)?)$/" title="Tuliskan Sesuai Format" required>
                                                 </div>
-                                                <div id="FileHelp" class="form-text"><span style="font-weight: bold;">NOTE:</span> Ketikan Koordinat Latitude dan Longitude atau klik lokasi pada peta</div>
+                                                <div class="col-md gps">
+                                                    <button type="button" role="button" onclick="mygps()" id="myLoc" class="btn btn-primary bi bi-geo-alt" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Gunakan lokasi saya sekarang (GPS)"></button>
+                                                </div>
+                                                <div id="FileHelp" class="form-text"><span style="font-weight: bold;">NOTE:</span> Ketikan Koordinat Latitude dan Longitude atau klik lokasi pada peta atau gunakan lokasi anda sekarang (gps)</div>
                                             </div>
 
                                             <div class="form-group row g-2">
@@ -251,7 +254,7 @@
 
                                             <div class="mb-3">
                                                 <label for="formFile" class="form-label">Upload Foto Kafe</label>
-                                                <input class="form-control" type="file" name="foto_kafe[]" id="foto_kafe" accept="image/*" multiple required>
+                                                <input class="form-control" type="file" name="foto_kafe[]" id="foto_kafe" accept="image/*" multiple>
                                                 <div id="FileHelp" class="form-text">.jpg/.png</div>
                                                 <div id="imgPreview"></div>
                                             </div>
@@ -304,7 +307,7 @@
         $(document).ready(function() {
             $('#wilayah').select2({
                 ajax: {
-                    url: "<?= base_url('Admin/getDataAjaxRemote') ?>",
+                    url: "<?= base_url('admin/getDataAjaxRemote') ?>",
                     dataType: "json",
                     type: "POST",
                     delay: 300,
@@ -334,7 +337,7 @@
                 for (var i = 0; i < input.files.length; i++) {
                     var reader = new FileReader();
                     reader.onload = function(e) {
-                        $('#imgPreview').append('<div><img src="' + e.target.result + '" class="img-kafe"><button type="button" class="btn btn-danger btn-sm remove-preview">Hapus</button></div>');
+                        $('#imgPreview').append('<div><img src="' + e.target.result + '" class="img-kafe"></div>');
                     }
                     reader.readAsDataURL(input.files[i]);
                 }
@@ -511,6 +514,12 @@
             }
         }
     </script>
+    <script>
+        const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+        const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    </script>
+
+
 
     <!-- Js Leaflet Setting -->
     <!-- Leafleat js Component -->
@@ -568,34 +577,10 @@
                 center: [<?= $D->coordinat_wilayah; ?>],
                 zoom: <?= $D->zoom_view; ?>,
                 layers: [peta1],
+                attributionControl: false,
                 gestureHandling: true,
             })
         <?php endforeach ?>
-
-        // Geojson to Leaflet
-        <?php foreach ($tampilGeojson as $G) : ?>
-            var myStyle<?= $G->id; ?> = {
-                "color": "<?= $G->warna; ?>",
-                "weight": 5,
-                "opacity": 0.5,
-            };
-
-            function popUp(f, l) {
-                var out = [];
-                if (f.properties) {
-                    for (key in f.properties) {
-                        out.push(key + ": " + f.properties[key]);
-                    }
-                    // l.bindPopup(out.join("<br />"));
-                }
-            }
-
-            var jsonTest = new L.GeoJSON.AJAX(["<?= base_url(); ?>/geojson/<?= $G->geojson; ?>", "counties.geojson"], {
-                onEachFeature: popUp,
-                style: myStyle<?= $G->id; ?>,
-            }).addTo(map);
-        <?php endforeach ?>
-
 
         // controller
         var baseLayers = {
@@ -636,6 +621,24 @@
             $('#latitude').val(lat);
             $('#longitude').val(lng);
         });
+
+        function mygps() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
+                alert("Geolokasi tidak didukung oleh peramban ini.");
+            }
+        }
+
+        function showPosition(position) {
+            var latitude = position.coords.latitude;
+            var longitude = position.coords.longitude;
+            if (marker) map.removeLayer(marker);
+            marker = L.marker([latitude, longitude]).addTo(map);
+            $('#latitude').val(latitude);
+            $('#longitude').val(longitude);
+            map.flyTo([latitude, longitude], 13)
+        }
     </script>
 
 

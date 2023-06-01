@@ -56,33 +56,32 @@
                             <table id="datatablesSimple">
                                 <thead>
                                     <tr>
+                                        <th>Tangal</th>
                                         <th>Nama Kafe</th>
                                         <th>Alamat Kafe</th>
                                         <th>Koordinat</th>
-                                        <th>Instagram</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php foreach ($tampilKafe as $S) : ?>
                                         <tr>
+                                            <td><?= date('d M Y H:i:s', strtotime($S->updated_at)); ?></td>
                                             <td><?= $S->nama_kafe; ?></td>
                                             <td style="min-width: 8em;"><?= $S->alamat_kafe; ?></td>
                                             <td style="max-width: 9em;"><?= $S->latitude; ?>, <?= $S->longitude; ?></td>
-                                            <td> <a href="https://www.instagram.com/<?= $S->instagram_kafe ?>" target="_blank" rel="noopener noreferrer" class="d-inline-flex align-items-center">
-                                                    <span>@<?= $S->instagram_kafe ?> <i class="bi bi-box-arrow-up-right"></i></span></a> </td>
                                             <td>
                                                 <div class="btn-group mr-2" role="group" aria-label="First group">
-                                                    <a href="/kafe/<?= $S->id_kafe; ?>/detail" class="btn btn-secondary bi bi-eye" role="button" target="_blank"></a>
+                                                    <a href="/kafe/<?= $S->id_kafe; ?>/detail" class="asbn btn btn-secondary bi bi-eye" role="button" target="_blank"></a>
                                                 </div>
                                                 <div class="btn-group mr-2" role="group" aria-label="First group">
-                                                    <a href="/admin/data/kafe/edit/<?= $S->id_kafe; ?>" class="btn btn-primary bi bi-pencil-square" role="button"></a>
+                                                    <a href="/admin/data/kafe/edit/<?= $S->id_kafe; ?>" class="asbn btn btn-primary bi bi-pencil-square" role="button"></a>
                                                 </div>
                                                 <div class="btn-group mr-2" role="group" aria-label="First group">
                                                     <form id="delete-form-<?= $S->id_kafe; ?>" action="/admin/delete_Kafe/<?= $S->id_kafe; ?>" method="post">
                                                         <?= csrf_field(); ?>
                                                         <input type="hidden" name="_method" value="DELETE">
-                                                        <button type="button" class="btn btn-danger bi bi-trash delete-btn" data-id="<?= $S->id_kafe; ?>"></button>
+                                                        <button type="button" class="asbn btn btn-danger bi bi-trash delete-btn" data-id="<?= $S->id_kafe; ?>"></button>
                                                     </form>
                                                 </div>
                                             </td>
@@ -210,33 +209,11 @@
                 center: [<?= $D->coordinat_wilayah; ?>],
                 zoom: <?= $D->zoom_view; ?>,
                 layers: [peta1],
+                attributionControl: false,
                 gestureHandling: true,
             })
         <?php endforeach ?>
 
-        // Geojson to Leaflet
-        <?php foreach ($tampilGeojson as $G) : ?>
-            var myStyle<?= $G->id; ?> = {
-                "color": "<?= $G->warna; ?>",
-                "weight": 5,
-                "opacity": 0.5,
-            };
-
-            function popUp(f, l) {
-                var out = [];
-                if (f.properties) {
-                    for (key in f.properties) {
-                        out.push(key + ": " + f.properties[key]);
-                    }
-                    // l.bindPopup(out.join("<br />"));
-                }
-            }
-
-            var jsonTest = new L.GeoJSON.AJAX(["<?= base_url(); ?>/geojson/<?= $G->geojson; ?>"], {
-                onEachFeature: popUp,
-                style: myStyle<?= $G->id; ?>,
-            }).addTo(map);
-        <?php endforeach ?>
 
 
         // controller

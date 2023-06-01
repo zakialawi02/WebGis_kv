@@ -16,9 +16,18 @@
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <link href=" https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.min.css " rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css" integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14=" crossorigin="" />
 
     <!-- Template Main CSS File -->
     <link href="/css/StyleAdmin.css" rel="stylesheet" />
+
+    <style>
+        .map {
+            position: relative;
+            height: 50vh;
+        }
+    </style>
+
 </head>
 
 <body class="sb-nav-fixed">
@@ -116,14 +125,42 @@
                                             <div class="card recent-sales overflow-auto">
                                                 <div class="card-body">
                                                     <h5 class="card-title">Daftar Kafe</h5>
-
+                                                    <?php $allKafe = $allKafe ?>
+                                                    <?php $kodeTimur = [357824, 357810, 357809, 357803, 357826, 357825, 357808] ?>
+                                                    <?php $kodeBarat = [357814, 357827, 357831, 357830, 357818, 357819, 357828] ?>
+                                                    <?php $kodePusat = [357805, 357811, 357807, 357813] ?>
+                                                    <?php $kodeUtara = [357816, 357812, 357815, 357817, 357829] ?>
+                                                    <?php $kodeSelatan = [357804, 357802, 357820, 357806, 357801, 357823, 357822, 357821] ?>
+                                                    <?php $surabayaTimur = []; ?>
+                                                    <?php $surabayaBarat = []; ?>
+                                                    <?php $surabayaPusat = []; ?>
+                                                    <?php $surabayaUtara = []; ?>
+                                                    <?php $surabayaSelatan = []; ?>
+                                                    <?php foreach ($allKafe as $tp) {
+                                                        if (in_array($tp->id_kecamatan, $kodeTimur)) {
+                                                            $surabayaTimur[] = $tp;
+                                                        } elseif (in_array($tp->id_kecamatan, $kodeBarat)) {
+                                                            $surabayaBarat[] = $tp;
+                                                        } elseif (in_array($tp->id_kecamatan, $kodePusat)) {
+                                                            $surabayaPusat[] = $tp;
+                                                        } elseif (in_array($tp->id_kecamatan, $kodeUtara)) {
+                                                            $surabayaUtara[] = $tp;
+                                                        } elseif (in_array($tp->id_kecamatan, $kodeSelatan)) {
+                                                            $surabayaSelatan[] = $tp;
+                                                        }
+                                                    } ?>
+                                                    <?php $ZsurabayaTimur = count($surabayaTimur); ?>
+                                                    <?php $ZsurabayaBarat = count($surabayaBarat); ?>
+                                                    <?php $ZsurabayaPusat = count($surabayaPusat); ?>
+                                                    <?php $ZsurabayaUtara = count($surabayaUtara); ?>
+                                                    <?php $ZsurabayaSelatan = count($surabayaSelatan); ?>
                                                     <table id="tabels" class="table table-striped table-bordered">
                                                         <thead>
                                                             <tr>
                                                                 <th style="min-width:10em">Nama Kafe</th>
                                                                 <th style="min-width:10em">Alamat</th>
                                                                 <th>Koordinat</th>
-                                                                <th>Tanggal Masuk</th>
+                                                                <th>Data Masuk</th>
                                                                 <th>User By</th>
                                                             </tr>
                                                         </thead>
@@ -224,13 +261,16 @@
                                                 <a class="badge bg-info"><?= user()->username; ?></a>
                                             <?php endif ?>
                                         </div>
-                                        <a href="/myprofile" class="btn btn-outline-primary m-4">Edit My Profile</a>
+                                        <a href="/MyProfile" class="btn btn-outline-primary m-4">Edit My Profile</a>
                                     </div>
                                 </div>
 
 
                                 <div class="col-xl-8 p-3">
                                     <?php $userSubmitKafe = $userSubmitKafe ?>
+                                    <?php $pendingKafe = []; ?>
+                                    <?php $terimaKafe = []; ?>
+                                    <?php $tolakKafe = []; ?>
                                     <?php foreach ($userSubmitKafe as $submitedData) : ?>
                                         <?php if ($submitedData->stat_appv == 0) : ?>
                                             <?php $pendingKafe[] = $submitedData ?>
@@ -240,147 +280,546 @@
                                             <?php $tolakKafe[] = $submitedData ?>
                                         <?php endif ?>
                                     <?php endforeach ?>
-                                    <?php $totalPending = count($pendingKafe); ?>
-                                    <?php $totalTerima = count($terimaKafe); ?>
-                                    <?php $totalTolak = count($tolakKafe); ?>
+
+                                    <?php if (!empty($pendingKafe)) : ?>
+                                        <?php $totalPending = count($pendingKafe); ?>
+                                    <?php else : ?>
+                                        <?php $totalPending = 0 ?>
+                                    <?php endif ?>
+                                    <?php if (!empty($terimaKafe)) : ?>
+                                        <?php $totalTerima = count($terimaKafe); ?>
+                                    <?php else : ?>
+                                        <?php $totalTerima = 0 ?>
+                                    <?php endif ?>
+                                    <?php if (!empty($tolakKafe)) : ?>
+                                        <?php $totalTolak = count($tolakKafe); ?>
+                                    <?php else : ?>
+                                        <?php $totalTolak = 0 ?>
+                                    <?php endif ?>
 
 
                                     <div class="card">
                                         <div class="card-body pt-3">
                                             <h3>Data</h3>
                                             <div class="accordion" id="accordionExample">
-                                                <div class="accordion-item">
-                                                    <h2 class="accordion-header" id="headingOne">
-                                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                                            Pending<span class="badge bg-secondary m-1"><?= $totalPending; ?></span>
-                                                        </button>
-                                                    </h2>
-                                                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                                        <div class="accordion-body">
-                                                            <div class="table-responsive">
-                                                                <table class="table">
-                                                                    <thead>
-                                                                        <tr>
-                                                                            <th scope="col">Tanggal Masuk</th>
-                                                                            <th scope="col">ID</th>
-                                                                            <th scope="col">Nama Kafe</th>
-                                                                            <th scope="col">Status</th>
-                                                                            <th scope="col">Aksi</th>
-                                                                        </tr>
-                                                                    </thead>
-                                                                    <tbody>
-                                                                        <?php foreach ($pendingKafe as $pkafe) : ?>
-                                                                            <tr class="">
-                                                                                <td scope="row"><?= date('d M Y H:i:s', strtotime($pkafe->created_at)); ?></td>
-                                                                                <td><?= $pkafe->id_kafe; ?></td>
-                                                                                <td><?= $pkafe->nama_kafe; ?></td>
-                                                                                <td><?= $pkafe->stat_appv == 0 ? 'Pending' : ($pkafe->stat_appv == 1 ? 'Terima' : 'Tolak') ?>
-                                                                                </td>
-                                                                                <td>
-                                                                                    <div class="btn-group mr-2" role="group" aria-label="First group">
-                                                                                        <a href="/kafe/edit/<?= $pkafe->id_kafe; ?>" class="btn btn-primary bi bi-pencil-square" role="button"></a>
-                                                                                    </div>
-                                                                                    <div class="btn-group mr-2" role="group" aria-label="First group">
-                                                                                        <form id="delete-form-<?= $pkafe->id_kafe; ?>" action="/admin/delete_Kafe/<?= $pkafe->id_kafe; ?>" method="post">
-                                                                                            <?= csrf_field(); ?>
-                                                                                            <input type="hidden" name="_method" value="DELETE">
-                                                                                            <button type="button" class="btn btn-danger bi bi-trash delete-btn" data-id="<?= $pkafe->id_kafe; ?>"></button>
-                                                                                        </form>
-                                                                                    </div>
-                                                                                </td>
-                                                                            </tr>
-                                                                        <?php endforeach ?>
-                                                                    </tbody>
-                                                                </table>
+                                                <?php if (empty($pendingKafe)) : ?>
+                                                    <div class="accordion-item">
+                                                        <h2 class="accordion-header" id="headingOne">
+                                                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                                Pending<span class="badge bg-secondary m-1"><?= $totalPending; ?></span> &nbsp;<span type="button" class="bi bi-info-circle-fill" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Menunggu data diverifikasi dan dapat muncul pada publik"></span>
+                                                            </button>
+                                                        </h2>
+                                                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                                            <div class="accordion-body">
+                                                                <p>belum ada data</p>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="accordion-item">
-                                                    <h2 class="accordion-header" id="headingTwo">
-                                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                                            Diterima<span class="badge bg-success m-1"><?= $totalTerima; ?></span>
-                                                        </button>
-                                                    </h2>
-                                                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                                                        <div class="accordion-body">
-                                                            <div class="table-responsive">
-                                                                <table class="table">
-                                                                    <thead>
-                                                                        <tr>
-                                                                            <th scope="col">Tanggal Masuk</th>
-                                                                            <th scope="col">ID</th>
-                                                                            <th scope="col">Nama Kafe</th>
-                                                                            <th scope="col">Status</th>
-                                                                            <th scope="col">Tanggal Update</th>
-                                                                        </tr>
-                                                                    </thead>
-                                                                    <tbody>
-                                                                        <?php foreach ($terimaKafe as $tkafe) : ?>
-                                                                            <tr class="">
-                                                                                <td scope="row"><?= date('d M Y H:i:s', strtotime($tkafe->created_at)); ?></td>
-                                                                                <td><?= $tkafe->id_kafe; ?></td>
-                                                                                <td><?= $tkafe->nama_kafe; ?></td>
-                                                                                <td><?= $tkafe->stat_appv == 0 ? 'Pending' : ($tkafe->stat_appv == 1 ? 'Terima' : 'Tolak') ?>
-                                                                                <td><?= date('d M Y H:i:s', strtotime($tkafe->date_updated)); ?></td>
-                                                                                </td>
+                                                <?php else : ?>
+                                                    <div class="accordion-item">
+                                                        <h2 class="accordion-header" id="headingOne">
+                                                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                                Pending<span class="badge bg-secondary m-1"><?= $totalPending; ?></span> &nbsp;<span type="button" class="bi bi-info-circle-fill" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Menunggu data diverifikasi dan dapat muncul pada publik"></span>
+                                                            </button>
+                                                        </h2>
+                                                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                                            <div class="accordion-body">
+                                                                <div class="table-responsive">
+
+                                                                    <table class="table">
+                                                                        <thead>
+                                                                            <tr>
+                                                                                <th scope="col">Data Masuk</th>
+                                                                                <th scope="col">ID</th>
+                                                                                <th scope="col">Nama Kafe</th>
+                                                                                <th scope="col">Status</th>
+                                                                                <th scope="col">Aksi</th>
                                                                             </tr>
-                                                                        <?php endforeach ?>
-                                                                    </tbody>
-                                                                </table>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                            <?php foreach ($pendingKafe as $pkafe) : ?>
+                                                                                <tr class="">
+                                                                                    <td scope="row"><?= date('d M Y H:i:s', strtotime($pkafe->created_at)); ?></td>
+                                                                                    <td><?= $pkafe->id_kafe; ?></td>
+                                                                                    <td><?= $pkafe->nama_kafe; ?></td>
+                                                                                    <td><?= $pkafe->stat_appv == 0 ? 'Pending' : ($pkafe->stat_appv == 1 ? 'Terima' : 'Tolak') ?>
+                                                                                    </td>
+                                                                                    <td>
+                                                                                        <div class="btn-group mr-2" role="group" aria-label="First group" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="edit data">
+                                                                                            <a href="/kafe/edit/<?= $pkafe->id_kafe; ?>" class="asbn btn btn-primary bi bi-pencil-square" role="button"></a>
+                                                                                        </div>
+                                                                                        <div class="btn-group mr-2" role="group" aria-label="First group" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="hapus data">
+                                                                                            <form id="delete-form-<?= $pkafe->id_kafe; ?>" action="/admin/delete_Kafe/<?= $pkafe->id_kafe; ?>" method="post">
+                                                                                                <?= csrf_field(); ?>
+                                                                                                <input type="hidden" name="_method" value="DELETE">
+                                                                                                <button type="button" class="asbn btn btn-danger bi bi-trash delete-btn" data-id="<?= $pkafe->id_kafe; ?>"></button>
+                                                                                            </form>
+                                                                                        </div>
+                                                                                        <div class="btn-group mr-2" role="group" aria-label="First group" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="lihat data">
+                                                                                            <!-- Trigger modal -->
+                                                                                            <button type="button" role="button" id="infos" class="asbn btn btn-secondary bi bi-eye" data-bs-toggle="modal" data-bs-target="#infoModal-<?= $pkafe->id_kafe ?>" onclick="showMap<?= $pkafe->id_kafe; ?>()"></button>
+                                                                                        </div>
+                                                                                        <!-- Modal detail -->
+                                                                                        <div class=" modal fade" id="infoModal-<?= $pkafe->id_kafe ?>" tabindex="-1" aria-labelledby="infoModalLabel-<?= $pkafe->id_kafe ?>" aria-hidden="true">
+                                                                                            <div class="modal-dialog modal-lg modal-fullscreen-lg-down">
+                                                                                                <div class="modal-content">
+                                                                                                    <div class="modal-header">
+                                                                                                        <h5 class="modal-title" id="infoModalLabel-<?= $pkafe->id_kafe ?>">Preview</h5>
+                                                                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                                                    </div>
+                                                                                                    <div class="modal-body">
+                                                                                                        <div class="card mb-2">
+                                                                                                            <div class="card-body">
+                                                                                                                <?php if (empty($pkafe->nama_foto)) : ?>
+                                                                                                                    <img src="/img/kafe/no image.jpg" class="img-pending">
+                                                                                                                <?php else : ?>
+                                                                                                                    <?php $foto_kafe = explode(', ', $pkafe->nama_foto); ?>
+                                                                                                                    <?php foreach ($foto_kafe as $foto) : ?>
+                                                                                                                        <img src="<?= base_url('/img/kafe/' . $foto); ?>" class="img-pending">
+                                                                                                                    <?php endforeach ?>
+                                                                                                                <?php endif ?>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                        <div class="card">
+                                                                                                            <div class="card-body">
+                                                                                                                <div class="table-responsive">
+                                                                                                                    <table class="table table-responsive">
+                                                                                                                        <thead class="thead-left">
+                                                                                                                            <tr>
+                                                                                                                                <th style="font-weight: 400; border-bottom-width: 1px; border-bottom-color: #dee2e6;">Nama Kafe</th>
+                                                                                                                                <th style="border-bottom-width: 1px; border-bottom-color: #dee2e6;">:</th>
+                                                                                                                                <th style="font-weight: 400; border-bottom-width: 1px; border-bottom-color: #dee2e6;"><?= $pkafe->nama_kafe; ?></th>
+                                                                                                                            </tr>
+                                                                                                                        </thead>
+                                                                                                                        <tbody>
+                                                                                                                            <tr>
+                                                                                                                                <td>Alamat</td>
+                                                                                                                                <th>:</th>
+                                                                                                                                <td><?= $pkafe->alamat_kafe; ?></td>
+                                                                                                                            </tr>
+                                                                                                                            <tr>
+                                                                                                                                <td>Koordinat</td>
+                                                                                                                                <th>:</th>
+                                                                                                                                <td><?= $pkafe->latitude; ?>, <?= $pkafe->longitude; ?></td>
+                                                                                                                            </tr>
+                                                                                                                            <tr>
+                                                                                                                                <td>Wilayah Administrasi</td>
+                                                                                                                                <th>:</th>
+                                                                                                                                <td><?= $pkafe->nama_kelurahan ?>, Kec. <?= $pkafe->nama_kecamatan ?>, <?= $pkafe->nama_kabupaten ?></td>
+                                                                                                                            </tr>
+                                                                                                                            <tr>
+                                                                                                                                <td>Instagram</td>
+                                                                                                                                <th>:</th>
+                                                                                                                                <td><a href="https://www.instagram.com/<?= $pkafe->instagram_kafe ?>" target="_blank" rel="noopener noreferrer" class="d-inline-flex align-items-center">
+                                                                                                                                        <span>@<?= $pkafe->instagram_kafe ?> <i class="ri-external-link-line"></i></span></a></td>
+                                                                                                                            </tr>
+                                                                                                                            <tr>
+                                                                                                                                <td>Jam Oprasional</td>
+                                                                                                                                <th>:</th>
+                                                                                                                                <td><?php
+                                                                                                                                    $jam_oprasional = json_decode('[' . $pkafe->jam_oprasional . ']', true);
+
+                                                                                                                                    // Urutkan array $jam_oprasional berdasarkan hari dalam seminggu
+                                                                                                                                    usort($jam_oprasional, function ($a, $b) {
+                                                                                                                                        $hari_a = array_search($a['hari'], array('Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu'));
+                                                                                                                                        $hari_b = array_search($b['hari'], array('Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu'));
+                                                                                                                                        return $hari_a - $hari_b;
+                                                                                                                                    });
+
+                                                                                                                                    // Tampilkan jam operasional dalam urutan yang diinginkan
+                                                                                                                                    foreach ($jam_oprasional[0] as $jam) {
+                                                                                                                                        $hari = $jam['hari'];
+                                                                                                                                        $open_time = $jam['open_time'];
+                                                                                                                                        $close_time = $jam['close_time'];
+
+                                                                                                                                        echo $hari . ": ";
+                                                                                                                                        if ($open_time != null && $close_time != null) {
+                                                                                                                                            echo date("H:i", strtotime($open_time)) . "-" . date("H:i", strtotime($close_time));
+                                                                                                                                        } else {
+                                                                                                                                            echo "Tutup";
+                                                                                                                                        }
+                                                                                                                                        echo "<br>";
+                                                                                                                                    }
+                                                                                                                                    ?>
+
+                                                                                                                                </td>
+                                                                                                                            </tr>
+                                                                                                                            <tr>
+                                                                                                                                <td>Created at</td>
+                                                                                                                                <th>:</th>
+                                                                                                                                <td><?= date('d M Y H:i:s', strtotime($pkafe->created_at)); ?></td>
+                                                                                                                            </tr>
+                                                                                                                        </tbody>
+                                                                                                                    </table>
+                                                                                                                </div>
+                                                                                                            </div>
+
+                                                                                                        </div>
+
+                                                                                                        <div class="card">
+                                                                                                            <div class="card-body">
+                                                                                                                <div id="mymap-<?= $pkafe->id_kafe ?>" class="map"></div>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            <?php endforeach ?>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="accordion-item">
-                                                    <h2 class="accordion-header" id="headingThree">
-                                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                                            Ditolak<span class="badge bg-danger m-1"><?= $totalTolak; ?></span>
-                                                        </button>
-                                                    </h2>
-                                                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                                                        <div class="accordion-body">
-                                                            <div class="table-responsive">
-                                                                <table class="table">
-                                                                    <thead>
-                                                                        <tr>
-                                                                            <th scope="col">Tanggal Masuk</th>
-                                                                            <th scope="col">ID</th>
-                                                                            <th scope="col">Nama Kafe</th>
-                                                                            <th scope="col">Status</th>
-                                                                            <th scope="col">Tanggal Update</th>
-                                                                            <th scope="col">Aksi</th>
-                                                                        </tr>
-                                                                    </thead>
-                                                                    <tbody>
-                                                                        <?php foreach ($tolakKafe as $skafe) : ?>
-                                                                            <tr class="">
-                                                                                <td scope="row"><?= date('d M Y H:i:s', strtotime($skafe->created_at)); ?></td>
-                                                                                <td><?= $skafe->id_kafe; ?></td>
-                                                                                <td><?= $skafe->nama_kafe; ?></td>
-                                                                                <td><?= $skafe->stat_appv == 0 ? 'Pending' : ($skafe->stat_appv == 1 ? 'Terima' : 'Tolak') ?>
-                                                                                <td><?= date('d M Y H:i:s', strtotime($tkafe->date_updated)); ?></td>
-                                                                                </td>
-                                                                                <td>
-                                                                                    <div class="btn-group mr-2" role="group" aria-label="First group">
-                                                                                        <a href="/kafe/edit/<?= $skafe->id_kafe; ?>" class="btn btn-primary bi bi-pencil-square" role="button"></a>
-                                                                                    </div>
-                                                                                    <div class="btn-group mr-2" role="group" aria-label="First group">
-                                                                                        <form id="delete-form-<?= $skafe->id_kafe; ?>" action="/admin/delete_Kafe/<?= $skafe->id_kafe; ?>" method="post">
-                                                                                            <?= csrf_field(); ?>
-                                                                                            <input type="hidden" name="_method" value="DELETE">
-                                                                                            <button type="button" class="btn btn-danger bi bi-trash delete-btn" data-id="<?= $skafe->id_kafe; ?>"></button>
-                                                                                        </form>
-                                                                                    </div>
-                                                                                </td>
-                                                                            </tr>
-                                                                        <?php endforeach ?>
-                                                                    </tbody>
-                                                                </table>
+                                                <?php endif ?>
+                                                <?php if (empty($terimaKafe)) : ?>
+                                                    <div class="accordion-item">
+                                                        <h2 class="accordion-header" id="headingTwo">
+                                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                                                Diterima<span class="badge bg-success m-1"><?= $totalTerima; ?></span> &nbsp;<span type="button" class="bi bi-info-circle-fill" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Data anda tampil kepublik"></span>
+                                                            </button>
+                                                        </h2>
+                                                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                                            <div class="accordion-body">
+                                                                <p>belum ada data</p>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
+                                                <?php else : ?>
+                                                    <div class="accordion-item">
+                                                        <h2 class="accordion-header" id="headingTwo">
+                                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                                                Diterima<span class="badge bg-success m-1"><?= $totalTerima; ?></span> &nbsp;<span type="button" class="bi bi-info-circle-fill" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Data anda tampil kepublik"></span>
+                                                            </button>
+                                                        </h2>
+                                                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                                            <div class="accordion-body">
+                                                                <div class="table-responsive">
+                                                                    <table class="table">
+                                                                        <thead>
+                                                                            <tr>
+                                                                                <th scope="col">Data Masuk</th>
+                                                                                <th scope="col">ID</th>
+                                                                                <th scope="col">Nama Kafe</th>
+                                                                                <th scope="col">Status</th>
+                                                                                <th scope="col">Tanggal Update</th>
+                                                                                <th scope="col">Aksi</th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                            <?php foreach ($terimaKafe as $tkafe) : ?>
+                                                                                <tr class="">
+                                                                                    <td scope="row"><?= date('d M Y H:i:s', strtotime($tkafe->created_at)); ?></td>
+                                                                                    <td><?= $tkafe->id_kafe; ?></td>
+                                                                                    <td><?= $tkafe->nama_kafe; ?></td>
+                                                                                    <td><?= $tkafe->stat_appv == 0 ? 'Pending' : ($tkafe->stat_appv == 1 ? 'Terima' : 'Tolak') ?>
+                                                                                    <td><?= date('d M Y H:i:s', strtotime($tkafe->date_updated)); ?></td>
+                                                                                    </td>
+                                                                                    <td>
+                                                                                        <div class="btn-group mr-2" role="group" aria-label="First group" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="hapus data">
+                                                                                            <form id="delete-form-<?= $tkafe->id_kafe; ?>" action="/admin/delete_Kafe/<?= $tkafe->id_kafe; ?>" method="post">
+                                                                                                <?= csrf_field(); ?>
+                                                                                                <input type="hidden" name="_method" value="DELETE">
+                                                                                                <button type="button" class="asbn btn btn-danger bi bi-trash delete-btn" data-id="<?= $tkafe->id_kafe; ?>"></button>
+                                                                                            </form>
+                                                                                        </div>
+                                                                                        <div class="btn-group mr-2" role="group" aria-label="First group" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="lihat data">
+                                                                                            <!-- Trigger modal -->
+                                                                                            <button type="button" role="button" id="infos" class="asbn btn btn-secondary bi bi-eye" data-bs-toggle="modal" data-bs-target="#infoModal-<?= $tkafe->id_kafe ?>" onclick="showMap<?= $tkafe->id_kafe; ?>()"></button>
+                                                                                        </div>
+                                                                                        <!-- Modal detail -->
+                                                                                        <div class=" modal fade" id="infoModal-<?= $tkafe->id_kafe ?>" tabindex="-1" aria-labelledby="infoModalLabel-<?= $tkafe->id_kafe ?>" aria-hidden="true">
+                                                                                            <div class="modal-dialog modal-lg modal-fullscreen-lg-down">
+                                                                                                <div class="modal-content">
+                                                                                                    <div class="modal-header">
+                                                                                                        <h5 class="modal-title" id="infoModalLabel-<?= $tkafe->id_kafe ?>">Preview</h5>
+                                                                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                                                    </div>
+                                                                                                    <div class="modal-body">
+                                                                                                        <div class="card mb-2">
+                                                                                                            <div class="card-body">
+                                                                                                                <?php if (empty($tkafe->nama_foto)) : ?>
+                                                                                                                    <img src="/img/kafe/no image.jpg" class="img-pending">
+                                                                                                                <?php else : ?>
+                                                                                                                    <?php $foto_kafe = explode(', ', $tkafe->nama_foto); ?>
+                                                                                                                    <?php foreach ($foto_kafe as $foto) : ?>
+                                                                                                                        <img src="<?= base_url('/img/kafe/' . $foto); ?>" class="img-pending">
+                                                                                                                    <?php endforeach ?>
+                                                                                                                <?php endif ?>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                        <div class="card">
+                                                                                                            <div class="card-body">
+                                                                                                                <div class="table-responsive">
+                                                                                                                    <table class="table table-responsive">
+                                                                                                                        <thead class="thead-left">
+                                                                                                                            <tr>
+                                                                                                                                <th style="font-weight: 400; border-bottom-width: 1px; border-bottom-color: #dee2e6;">Nama Kafe</th>
+                                                                                                                                <th style="border-bottom-width: 1px; border-bottom-color: #dee2e6;">:</th>
+                                                                                                                                <th style="font-weight: 400; border-bottom-width: 1px; border-bottom-color: #dee2e6;"><?= $tkafe->nama_kafe; ?></th>
+                                                                                                                            </tr>
+                                                                                                                        </thead>
+                                                                                                                        <tbody>
+                                                                                                                            <tr>
+                                                                                                                                <td>Alamat</td>
+                                                                                                                                <th>:</th>
+                                                                                                                                <td><?= $tkafe->alamat_kafe; ?></td>
+                                                                                                                            </tr>
+                                                                                                                            <tr>
+                                                                                                                                <td>Koordinat</td>
+                                                                                                                                <th>:</th>
+                                                                                                                                <td><?= $tkafe->latitude; ?>, <?= $tkafe->longitude; ?></td>
+                                                                                                                            </tr>
+                                                                                                                            <tr>
+                                                                                                                                <td>Wilayah Administrasi</td>
+                                                                                                                                <th>:</th>
+                                                                                                                                <td><?= $tkafe->nama_kelurahan ?>, Kec. <?= $tkafe->nama_kecamatan ?>, <?= $tkafe->nama_kabupaten ?></td>
+                                                                                                                            </tr>
+                                                                                                                            <tr>
+                                                                                                                                <td>Instagram</td>
+                                                                                                                                <th>:</th>
+                                                                                                                                <td><a href="https://www.instagram.com/<?= $tkafe->instagram_kafe ?>" target="_blank" rel="noopener noreferrer" class="d-inline-flex align-items-center">
+                                                                                                                                        <span>@<?= $tkafe->instagram_kafe ?> <i class="ri-external-link-line"></i></span></a></td>
+                                                                                                                            </tr>
+                                                                                                                            <tr>
+                                                                                                                                <td>Jam Oprasional</td>
+                                                                                                                                <th>:</th>
+                                                                                                                                <td><?php
+                                                                                                                                    $jam_oprasional = json_decode('[' . $tkafe->jam_oprasional . ']', true);
+
+                                                                                                                                    // Urutkan array $jam_oprasional berdasarkan hari dalam seminggu
+                                                                                                                                    usort($jam_oprasional, function ($a, $b) {
+                                                                                                                                        $hari_a = array_search($a['hari'], array('Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu'));
+                                                                                                                                        $hari_b = array_search($b['hari'], array('Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu'));
+                                                                                                                                        return $hari_a - $hari_b;
+                                                                                                                                    });
+
+                                                                                                                                    // Tampilkan jam operasional dalam urutan yang diinginkan
+                                                                                                                                    foreach ($jam_oprasional[0] as $jam) {
+                                                                                                                                        $hari = $jam['hari'];
+                                                                                                                                        $open_time = $jam['open_time'];
+                                                                                                                                        $close_time = $jam['close_time'];
+
+                                                                                                                                        echo $hari . ": ";
+                                                                                                                                        if ($open_time != null && $close_time != null) {
+                                                                                                                                            echo date("H:i", strtotime($open_time)) . "-" . date("H:i", strtotime($close_time));
+                                                                                                                                        } else {
+                                                                                                                                            echo "Tutup";
+                                                                                                                                        }
+                                                                                                                                        echo "<br>";
+                                                                                                                                    }
+                                                                                                                                    ?>
+
+                                                                                                                                </td>
+                                                                                                                            </tr>
+                                                                                                                            <tr>
+                                                                                                                                <td>Created at</td>
+                                                                                                                                <th>:</th>
+                                                                                                                                <td><?= date('d M Y H:i:s', strtotime($tkafe->created_at)); ?></td>
+                                                                                                                            </tr>
+                                                                                                                        </tbody>
+                                                                                                                    </table>
+                                                                                                                </div>
+                                                                                                            </div>
+
+                                                                                                        </div>
+
+                                                                                                        <div class="card">
+                                                                                                            <div class="card-body">
+                                                                                                                <div id="mymap-<?= $tkafe->id_kafe ?>" class="map"></div>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            <?php endforeach ?>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                <?php endif ?>
+                                                <?php if (empty($tolakKafe)) : ?>
+                                                    <div class="accordion-item">
+                                                        <h2 class="accordion-header" id="headingThree">
+                                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                                                Ditolak<span class="badge bg-danger m-1"><?= $totalTolak; ?></span> &nbsp;<span type="button" class="bi bi-info-circle-fill" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Data akan terhapus dalam 7 hari"></span>
+                                                            </button>
+                                                        </h2>
+                                                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                                            <div class="accordion-body">
+                                                                <p>belum ada data</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                <?php else : ?>
+                                                    <div class="accordion-item">
+                                                        <h2 class="accordion-header" id="headingThree">
+                                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                                                Ditolak<span class="badge bg-danger m-1"><?= $totalTolak; ?></span> &nbsp;<span type="button" class="bi bi-info-circle-fill" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Data akan terhapus dalam 7 hari"></span>
+                                                            </button>
+                                                        </h2>
+                                                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                                            <div class="accordion-body">
+                                                                <div class="table-responsive">
+                                                                    <table class="table">
+                                                                        <thead>
+                                                                            <tr>
+                                                                                <th scope="col">Data Masuk</th>
+                                                                                <th scope="col">ID</th>
+                                                                                <th scope="col">Nama Kafe</th>
+                                                                                <th scope="col">Status</th>
+                                                                                <th scope="col">Tanggal Update</th>
+                                                                                <th scope="col">Aksi</th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                            <?php foreach ($tolakKafe as $skafe) : ?>
+                                                                                <tr class="">
+                                                                                    <td scope="row"><?= date('d M Y H:i:s', strtotime($skafe->created_at)); ?></td>
+                                                                                    <td><?= $skafe->id_kafe; ?></td>
+                                                                                    <td><?= $skafe->nama_kafe; ?></td>
+                                                                                    <td><?= $skafe->stat_appv == 0 ? 'Pending' : ($skafe->stat_appv == 1 ? 'Terima' : 'Tolak') ?>
+                                                                                    <td><?= date('d M Y H:i:s', strtotime($skafe->date_updated)); ?></td>
+                                                                                    </td>
+                                                                                    <td>
+                                                                                        <div class="btn-group mr-2" role="group" aria-label="First group" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="edit data">
+                                                                                            <a href="/kafe/edit/<?= $skafe->id_kafe; ?>" class="asbn btn btn-primary bi bi-pencil-square" role="button"></a>
+                                                                                        </div>
+                                                                                        <div class="btn-group mr-2" role="group" aria-label="First group" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="hapus data">
+                                                                                            <form id="delete-form-<?= $skafe->id_kafe; ?>" action="/admin/delete_Kafe/<?= $skafe->id_kafe; ?>" method="post">
+                                                                                                <?= csrf_field(); ?>
+                                                                                                <input type="hidden" name="_method" value="DELETE">
+                                                                                                <button type="button" class="asbn btn btn-danger bi bi-trash delete-btn" data-id="<?= $skafe->id_kafe; ?>"></button>
+                                                                                            </form>
+                                                                                        </div>
+                                                                                        <div class="btn-group mr-2" role="group" aria-label="First group" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="lihat data">
+                                                                                            <!-- Trigger modal -->
+                                                                                            <button type="button" role="button" id="infos" class="asbn btn btn-secondary bi bi-eye" data-bs-toggle="modal" data-bs-target="#infoModal-<?= $skafe->id_kafe ?>" onclick="showMap<?= $skafe->id_kafe; ?>()"></button>
+                                                                                        </div>
+                                                                                        <!-- Modal detail -->
+                                                                                        <div class=" modal fade" id="infoModal-<?= $skafe->id_kafe ?>" tabindex="-1" aria-labelledby="infoModalLabel-<?= $skafe->id_kafe ?>" aria-hidden="true">
+                                                                                            <div class="modal-dialog modal-lg modal-fullscreen-lg-down">
+                                                                                                <div class="modal-content">
+                                                                                                    <div class="modal-header">
+                                                                                                        <h5 class="modal-title" id="infoModalLabel-<?= $skafe->id_kafe ?>">Preview</h5>
+                                                                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                                                    </div>
+                                                                                                    <div class="modal-body">
+                                                                                                        <div class="card mb-2">
+                                                                                                            <div class="card-body">
+                                                                                                                <?php if (empty($skafe->nama_foto)) : ?>
+                                                                                                                    <img src="/img/kafe/no image.jpg" class="img-pending">
+                                                                                                                <?php else : ?>
+                                                                                                                    <?php $foto_kafe = explode(', ', $skafe->nama_foto); ?>
+                                                                                                                    <?php foreach ($foto_kafe as $foto) : ?>
+                                                                                                                        <img src="<?= base_url('/img/kafe/' . $foto); ?>" class="img-pending">
+                                                                                                                    <?php endforeach ?>
+                                                                                                                <?php endif ?>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                        <div class="card">
+                                                                                                            <div class="card-body">
+                                                                                                                <div class="table-responsive">
+                                                                                                                    <table class="table table-responsive">
+                                                                                                                        <thead class="thead-left">
+                                                                                                                            <tr>
+                                                                                                                                <th style="font-weight: 400; border-bottom-width: 1px; border-bottom-color: #dee2e6;">Nama Kafe</th>
+                                                                                                                                <th style="border-bottom-width: 1px; border-bottom-color: #dee2e6;">:</th>
+                                                                                                                                <th style="font-weight: 400; border-bottom-width: 1px; border-bottom-color: #dee2e6;"><?= $skafe->nama_kafe; ?></th>
+                                                                                                                            </tr>
+                                                                                                                        </thead>
+                                                                                                                        <tbody>
+                                                                                                                            <tr>
+                                                                                                                                <td>Alamat</td>
+                                                                                                                                <th>:</th>
+                                                                                                                                <td><?= $skafe->alamat_kafe; ?></td>
+                                                                                                                            </tr>
+                                                                                                                            <tr>
+                                                                                                                                <td>Koordinat</td>
+                                                                                                                                <th>:</th>
+                                                                                                                                <td><?= $skafe->latitude; ?>, <?= $skafe->longitude; ?></td>
+                                                                                                                            </tr>
+                                                                                                                            <tr>
+                                                                                                                                <td>Wilayah Administrasi</td>
+                                                                                                                                <th>:</th>
+                                                                                                                                <td><?= $skafe->nama_kelurahan ?>, Kec. <?= $skafe->nama_kecamatan ?>, <?= $skafe->nama_kabupaten ?></td>
+                                                                                                                            </tr>
+                                                                                                                            <tr>
+                                                                                                                                <td>Instagram</td>
+                                                                                                                                <th>:</th>
+                                                                                                                                <td><a href="https://www.instagram.com/<?= $skafe->instagram_kafe ?>" target="_blank" rel="noopener noreferrer" class="d-inline-flex align-items-center">
+                                                                                                                                        <span>@<?= $skafe->instagram_kafe ?> <i class="ri-external-link-line"></i></span></a></td>
+                                                                                                                            </tr>
+                                                                                                                            <tr>
+                                                                                                                                <td>Jam Oprasional</td>
+                                                                                                                                <th>:</th>
+                                                                                                                                <td><?php
+                                                                                                                                    $jam_oprasional = json_decode('[' . $skafe->jam_oprasional . ']', true);
+
+                                                                                                                                    // Urutkan array $jam_oprasional berdasarkan hari dalam seminggu
+                                                                                                                                    usort($jam_oprasional, function ($a, $b) {
+                                                                                                                                        $hari_a = array_search($a['hari'], array('Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu'));
+                                                                                                                                        $hari_b = array_search($b['hari'], array('Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu'));
+                                                                                                                                        return $hari_a - $hari_b;
+                                                                                                                                    });
+
+                                                                                                                                    // Tampilkan jam operasional dalam urutan yang diinginkan
+                                                                                                                                    foreach ($jam_oprasional[0] as $jam) {
+                                                                                                                                        $hari = $jam['hari'];
+                                                                                                                                        $open_time = $jam['open_time'];
+                                                                                                                                        $close_time = $jam['close_time'];
+
+                                                                                                                                        echo $hari . ": ";
+                                                                                                                                        if ($open_time != null && $close_time != null) {
+                                                                                                                                            echo date("H:i", strtotime($open_time)) . "-" . date("H:i", strtotime($close_time));
+                                                                                                                                        } else {
+                                                                                                                                            echo "Tutup";
+                                                                                                                                        }
+                                                                                                                                        echo "<br>";
+                                                                                                                                    }
+                                                                                                                                    ?>
+
+                                                                                                                                </td>
+                                                                                                                            </tr>
+                                                                                                                            <tr>
+                                                                                                                                <td>Created at</td>
+                                                                                                                                <th>:</th>
+                                                                                                                                <td><?= date('d M Y H:i:s', strtotime($skafe->created_at)); ?></td>
+                                                                                                                            </tr>
+                                                                                                                        </tbody>
+                                                                                                                    </table>
+                                                                                                                </div>
+                                                                                                            </div>
+
+                                                                                                        </div>
+
+                                                                                                        <div class="card">
+                                                                                                            <div class="card-body">
+                                                                                                                <div id="mymap-<?= $skafe->id_kafe ?>" class="map"></div>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            <?php endforeach ?>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                <?php endif ?>
                                             </div>
                                         </div>
                                     </div>
@@ -409,6 +848,7 @@
     <script src="/js/datatables-simple-demo.js"></script>
     <script src="/js/scripts.js"></script>
     <script src=" https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.all.min.js "></script>
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
 
     <script>
         $(document).ready(function() {
@@ -417,9 +857,14 @@
         });
     </script>
     <script>
+        const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+        const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    </script>
+    <!-- Pie Chart -->
+    <script>
         $(document).ready(function() {
             var options = {
-                series: [44, 55, 13, 43, 22],
+                series: [<?php echo $ZsurabayaTimur; ?>, <?php echo $ZsurabayaBarat; ?>, <?= $ZsurabayaPusat; ?>, <?= $ZsurabayaUtara; ?>, <?= $ZsurabayaSelatan; ?>],
                 chart: {
                     width: 300,
                     type: 'pie',
@@ -428,7 +873,7 @@
                 legend: {
                     position: 'bottom'
                 },
-                labels: ['Team A', 'Team B', 'Team C', 'Team D', 'Team E'],
+                labels: ['Surabaya Timur', 'Surabaya Barat', 'Surabaya Pusat', 'Surabaya Utara', 'Surabaya Selatan'],
                 responsive: [{
                     breakpoint: 480,
                     options: {
@@ -442,6 +887,29 @@
 
             var chart = new ApexCharts(document.querySelector("#chart"), options);
             chart.render();
+        });
+    </script>
+
+    <script>
+        $(document).ready(function() {
+            <?php foreach ($userSubmitKafe as $S) : ?>
+
+                function showMap<?= $S->id_kafe; ?>() {
+                    var mymap = L.map('mymap-<?= $S->id_kafe; ?>').setView([<?= $S->latitude; ?>, <?= $S->longitude; ?>], 14);
+
+                    L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiNjg2MzUzMyIsImEiOiJjbDh4NDExZW0wMXZsM3ZwODR1eDB0ajY0In0.6jHWxwN6YfLftuCFHaa1zw', {
+                        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+                            '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+                        id: 'mapbox/streets-v11',
+                        tileSize: 512,
+                        zoomOffset: -1
+                    }).addTo(mymap);
+                    L.marker([<?= $S->latitude ?>, <?= $S->longitude ?>]).addTo(mymap)
+                }
+                $('#infoModal-<?= $S->id_kafe; ?>').on('shown.bs.modal', function() {
+                    showMap<?= $S->id_kafe; ?>();
+                })
+            <?php endforeach ?>
         });
     </script>
 

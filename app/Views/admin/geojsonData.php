@@ -15,7 +15,6 @@
     <!-- Vendor CSS Files -->
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <link href=" https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.min.css " rel="stylesheet">
 
     <!-- Template Main CSS File -->
@@ -27,7 +26,7 @@
     <link rel="stylesheet" href="//unpkg.com/leaflet-gesture-handling/dist/leaflet-gesture-handling.min.css" type="text/css">
 
     <style>
-        #map {
+        .map {
             height: 70vh;
         }
     </style>
@@ -45,19 +44,18 @@
             <!-- MAIN CONTENT -->
             <main>
                 <div class="container-fluid px-4">
-                    <h1 class="mt-2 mb-3">Data GeoJson</h1>
+                    <h1 class="mt-2 mb-3">Data Features</h1>
 
                     <div class="card mb-4">
                         <div class="card-body">
 
-                            <a href="/admin/data/geojson/tambah" class="btn btn-primary m-1 mb-4 bi bi-plus" role="button">Tambah</a>
+                            <a href="/admin/features/tambah" class="btn btn-primary m-1 mb-4 bi bi-plus" role="button">Tambah</a>
 
                             <table id="datatablesSimple">
                                 <thead>
                                     <tr>
-                                        <th>Kode Wilayah</th>
                                         <th>Nama Wilayah</th>
-                                        <th>GeoJSON</th>
+                                        <th>Features</th>
                                         <th>Warna</th>
                                         <th>Aksi</th>
                                     </tr>
@@ -65,13 +63,16 @@
                                 <tbody>
                                     <?php foreach ($tampilGeojson as $G) : ?>
                                         <tr>
-                                            <td><?= $G->kode_wilayah; ?></td>
-                                            <td><?= $G->nama_wilayah; ?></td>
-                                            <td><a href="<?= base_url() . "/geojson/" . $G->geojson; ?>" target="_blank"><?= $G->geojson; ?></a></td>
+                                            <td><?= $G->nama_features; ?></td>
+                                            <td><a href="<?= base_url() . "/geojson/" . $G->features; ?>" target="_blank"><?= $G->features; ?></a></td>
                                             <td><span style="color: <?= $G->warna; ?>; text-decoration-line: underline;  text-decoration-style: solid; text-decoration-color: <?= $G->warna; ?>;text-decoration-thickness: 10px;"><?= $G->warna; ?></span></td>
                                             <td>
                                                 <div class="btn-group mr-2" role="group" aria-label="First group">
-                                                    <a href="/admin/data/geojson/edit/<?= $G->id; ?>" class="btn btn-primary bi bi-pencil-square" role="button"></a>
+                                                    <a href="/admin/features/edit/<?= $G->id; ?>" class="btn btn-primary bi bi-pencil-square" role="button"></a>
+                                                </div>
+                                                <div class="btn-group mr-2" role="group" aria-label="First group">
+                                                    <!-- Trigger modal -->
+                                                    <button type="button" role="button" id="infos" class="btn btn-secondary bi bi-eye" data-bs-toggle="modal" data-bs-target="#infoModal-<?= $G->id ?>" onclick="showMap<?= $G->id; ?>()"></button>
                                                 </div>
                                                 <div class="btn-group mr-2" role="group" aria-label="First group">
                                                     <form action="/admin/delete_Geojson/<?= $G->id; ?>" method="post">
@@ -80,6 +81,25 @@
                                                         <button type="submit" class="btn btn-danger bi bi-trash" onclick="return confirm('Yakin Hapus Data?')"></button>
                                                     </form>
                                                 </div>
+
+                                                <!-- Modal detail -->
+                                                <div class=" modal fade" id="infoModal-<?= $G->id ?>" tabindex="-1" aria-labelledby="infoModalLabel-<?= $G->id ?>" aria-hidden="true">
+                                                    <div class="modal-dialog modal-xl modal-fullscreen-lg-down">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="infoModalLabel-<?= $G->id ?>">Preview</h5>
+                                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <div class="card">
+                                                                    <div class="card-body">
+                                                                        <div id="mymap-<?= $G->id ?>" class="map"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </td>
                                         </tr>
                                     <?php endforeach ?>
@@ -87,12 +107,6 @@
                             </table>
 
 
-                        </div>
-                    </div>
-
-                    <div class="card card-title">
-                        <div class="card-body">
-                            <div class="map" id="map"></div>
                         </div>
                     </div>
 
@@ -110,7 +124,6 @@
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/816b3ace5c.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script src=" https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.all.min.js "></script>
 
     <!-- Template Main JS File -->
@@ -138,104 +151,76 @@
             });
         </script>
     <?php endif; ?>
-    <!-- Leafleat js Component -->
-    <script src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js" integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg=" crossorigin=""></script>
-    <script src="https://unpkg.com/geojson-vt@3.2.0/geojson-vt.js"></script>
-    <script src="/leaflet/leaflet-geojson-vt.js"></script>
-    <script src="/leaflet/leaflet.ajax.min.js"></script>
-    <script src="/leaflet/leaflet.ajax.js"></script>
-    <script src="/leaflet/L.Control.MousePosition.js"></script>
-    <script src="//unpkg.com/leaflet-gesture-handling"></script>
 
-    <!-- Leafleat Setting js-->
-    <!-- initialize the map on the "map" div with a given center and zoom -->
+    <!-- Leaflet Component -->
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+    <script src="/leaflet/catiline.js"></script>
+    <script src="/leaflet/leaflet.shpfile.js"></script>
+
+    // shapefile/geojson
+
+
+    <?php foreach ($tampilData as $D) : ?>
+        <?php $zoom = $D->zoom_view ?>
+        <?php $koord = $D->coordinat_wilayah ?>
+    <?php endforeach ?>
     <script>
-        // Base map
-        var peta1 = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiNjg2MzUzMyIsImEiOiJjbDh4NDExZW0wMXZsM3ZwODR1eDB0ajY0In0.6jHWxwN6YfLftuCFHaa1zw', {
-            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
-                '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-                'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-            id: 'mapbox/streets-v11',
-            tileSize: 512,
-            zoomOffset: -1
-        });
+        $(document).ready(function() {
+            <?php foreach ($tampilGeojson as $G) : ?>
 
-        var peta2 = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiNjg2MzUzMyIsImEiOiJjbDh4NDExZW0wMXZsM3ZwODR1eDB0ajY0In0.6jHWxwN6YfLftuCFHaa1zw', {
-            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
-                '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-                'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-            id: 'mapbox/satellite-v9'
-        });
+                function showMap<?= $G->id; ?>() {
+                    var mymap = L.map('mymap-<?= $G->id; ?>').setView([<?= $koord; ?>], 12);
 
-        var peta3 = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        });
+                    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                        maxZoom: 19,
+                        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+                    }).addTo(mymap);
 
-        var peta4 = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiNjg2MzUzMyIsImEiOiJjbDh4NDExZW0wMXZsM3ZwODR1eDB0ajY0In0.6jHWxwN6YfLftuCFHaa1zw', {
-            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
-                '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-                'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-            id: 'mapbox/dark-v10'
-        });
+                    // shapefile
+                    var geoshp = L.geoJson({
+                        features: []
+                    }, {
+                        style: function(feature) {
+                            return {
+                                fillColor: '<?= $G->warna; ?>', // Ubah warna poligon
+                                fillOpacity: 0.2, // Ubah tingkat kecerahan poligon
+                                color: '<?= $G->warna; ?>', // Ubah warna garis batas poligon
+                                weight: 1 // Ubah ketebalan garis batas poligon 
+                            };
+                        },
+                        onEachFeature: function(feature, layer) {
+                            var properties = feature.properties;
+                            var popupContent = "";
+                            for (var key in properties) {
+                                if (properties.hasOwnProperty(key)) {
+                                    popupContent += key + ": " + properties[key] + "<br>";
+                                }
+                            }
+                            layer.bindPopup(popupContent);
+                        }
+                    });
 
-        // set frame view
-        <?php foreach ($tampilData as $D) : ?>
-            var map = L.map('map', {
-                center: [<?= $D->coordinat_wilayah; ?>],
-                zoom: <?= $D->zoom_view; ?>,
-                layers: [peta1],
-                gestureHandling: true,
-            })
-        <?php endforeach ?>
-
-        // Geojson to Leaflet
-        <?php foreach ($tampilGeojson as $G) : ?>
-            var myStyle<?= $G->id; ?> = {
-                "color": "<?= $G->warna; ?>",
-                "weight": 5,
-                "opacity": 0.5,
-            };
-
-            function popUp(f, l) {
-                var out = [];
-                if (f.properties) {
-                    for (key in f.properties) {
-                        out.push(key + ": " + f.properties[key]);
+                    var wfunc = function(base, cb) {
+                        importScripts('/leaflet/shp.js');
+                        shp(base).then(cb);
                     }
-                    // l.bindPopup(out.join("<br />"));
+                    var worker = cw({
+                        data: wfunc
+                    }, 2);
+                    worker.data(cw.makeUrl('/geojson/<?= $G->features; ?>')).then(function(data) {
+                        geoshp.addData(data).addTo(mymap);
+                    }, function(a) {
+                        console.log(a)
+                    });
                 }
-            }
-
-            var jsonTest = new L.GeoJSON.AJAX(["<?= base_url(); ?>/geojson/<?= $G->geojson; ?>", "counties.geojson"], {
-                onEachFeature: popUp,
-                style: myStyle<?= $G->id; ?>,
-            }).addTo(map);
-        <?php endforeach ?>
-
-        // controller
-        var baseLayers = {
-            "Map": peta1,
-            "Satellite": peta2,
-            "OSM": peta3,
-        };
-
-        L.control.layers(baseLayers).addTo(map);
-
-        L.control.mousePosition().addTo(map);
-        L.control.scale().addTo(map);
-
-        // Map clik coordinate show
-        var popup = L.popup();
-
-        function onMapClick(e) {
-            popup
-                .setLatLng(e.latlng)
-                .setContent("You clicked the map at " + e.latlng.toString())
-                .openOn(map);
-        }
-
-        map.on('click', onMapClick);
+                $('#infoModal-<?= $G->id; ?>').on('shown.bs.modal', function() {
+                    showMap<?= $G->id; ?>();
+                })
+            <?php endforeach ?>
+        });
     </script>
+
+
 
 </body>
 
