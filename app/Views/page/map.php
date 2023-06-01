@@ -132,11 +132,11 @@
                             <label for="koordinat" class="">Koordinat</label>
                             <div class="form-group col-md-5">
                                 <label for="latitude" class="">Latitude</label>
-                                <input type="text" class="form-control" id="latitude" aria-describedby="textlHelp" name="latitude" placeholder="-7.0385384" pattern="/^(\-?\d+(\.\d+)?)$/" title="Tuliskan Sesuai Format" required>
+                                <input type="text" class="form-control" id="latitude" aria-describedby="textlHelp" name="latitude" placeholder="-7.0385384" pattern="/^(-?\d+(\.\d+)?)$/" title="Tuliskan Sesuai Format" required>
                             </div>
                             <div class="form-group col-md-5">
                                 <label for="longitude" class="">Longitude</label>
-                                <input type="text" class="form-control" id="longitude" aria-describedby="textlHelp" name="longitude" placeholder="112.8998345" pattern="/^[^a-zA-Z]*(\-?\d+(\.\d+)?)$/" title="Tuliskan Sesuai Format" required>
+                                <input type="text" class="form-control" id="longitude" aria-describedby="textlHelp" name="longitude" placeholder="112.8998345" pattern="/^[^a-zA-Z]*(-?\d+(\.\d+)?)$/" title="Tuliskan Sesuai Format" required>
                             </div>
                             <div class="col-md gps">
                                 <button type="button" role="button" onclick="mygps()" id="myLoc" class="btn btn-primary bi bi-geo-alt" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Gunakan lokasi saya sekarang (GPS)"></button>
@@ -881,6 +881,7 @@
                 });
                 // If the clicked point is not inside any polygon, display a message
                 if (!isInsidePolygon) {
+                    $('#wilayahA').empty();
                     console.log('Marker is not inside any polygon.');
                 }
                 $('#latitude').val(lat);
@@ -970,9 +971,9 @@
                     </h2>
                     <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#legendAccordion">
                         <div class="accordion-body">
-                            <div class="legend-item1">
-                            </div>
                             <div class="legend-item2">
+                            </div>
+                            <div class="legend-item1">
                             </div>
                             <div class="legend-item3">
                             </div>
@@ -1084,7 +1085,7 @@
                         layer: polyShp
                     }]
                 };
-                var lumap = new Lumap(map, elLumap, [overlayPolygon, overlayKafeMarker]);
+                var lumap = new Lumap(map, elLumap, [overlayKafeMarker, overlayPolygon]);
 
                 function checkLayerVisibility() {
                     if (map.hasLayer(polyShp)) {
