@@ -31,7 +31,3 @@ function scrollFunction() {
         scrollButton.css('display', 'none');
     }
 }
-
-
-// goto section
-var scroll = new SmoothScroll('a[href*="#"]');
