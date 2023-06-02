@@ -830,6 +830,41 @@
 
         var addKafe;
 
+        function processPoint(detectMe) {
+            var isInsidePolygon = false;
+            geoshp.eachLayer(function(layer) {
+                var polygon = layer.toGeoJSON();
+                if (turf.booleanPointInPolygon(detectMe, polygon)) {
+                    isInsidePolygon = true;
+                    var properties = polygon.properties;
+                    var kode = properties.kode_1;
+                    $.ajax({
+                        type: "POST",
+                        url: "<?php echo base_url('/admin/getkode'); ?>",
+                        data: {
+                            kode: kode
+                        },
+                        dataType: "json",
+                        success: function(response) {
+                            var detectIdWilayah = response.id;
+                            var detectTextWilayah = response.text;
+                            var id = detectIdWilayah;
+                            var text = detectTextWilayah;
+                            var option = new Option(detectTextWilayah, detectIdWilayah);
+                            $('#wilayahA').empty().append(option).val(detectIdWilayah);
+                        },
+                        error: function(xhr, status, error) {
+                            console.log(error);
+                        }
+                    });
+                }
+            });
+            if (!isInsidePolygon) {
+                $('#wilayahA').empty();
+                console.log('Marker is not inside any polygon.');
+            }
+        }
+
         <?php if (logged_in()) : ?>
 
             function addMarker(e) {
@@ -842,48 +877,8 @@
                 lng = e.latlng.lng;
                 koordinat = lat + ", " + lng;
 
-                var clickedPoint = turf.point([lng, lat]); // Create a Turf.js point object
-                // Check if the clicked point is inside any polygon of the GeoJSON layer
-                var isInsidePolygon = false;
-                geoshp.eachLayer(function(layer) {
-                    var polygon = layer.toGeoJSON();
-                    if (turf.booleanPointInPolygon(clickedPoint, polygon)) {
-                        isInsidePolygon = true;
-                        // Log the information about the polygon to the console
-                        var properties = polygon.properties;
-                        var kode = properties.kode_1;
-                        $.ajax({
-                            type: "POST",
-                            url: "<?php echo base_url('/admin/getkode'); ?>",
-                            data: {
-                                kode: kode
-                            },
-                            dataType: "json",
-                            success: function(response) {
-                                var detectIdWilayah = response.id;
-                                var detectTextWilayah = response.text;
-                                var id = detectIdWilayah;
-                                var text = detectTextWilayah;
-                                // Membuat opsi-select baru dengan data ID
-                                var option = new Option(detectTextWilayah, detectIdWilayah);
-                                // Menghapus semua opsi-select sebelumnya
-                                $('#wilayahA').empty();
-                                // Menambahkan opsi-select baru ke dalam select element
-                                $('#wilayahA').append(option);
-                                // Mengaktifkan opsi-select yang dipilih berdasarkan data ID
-                                $('#wilayahA').val(detectIdWilayah);
-                            },
-                            error: function(xhr, status, error) {
-                                console.log(error);
-                            }
-                        });
-                    }
-                });
-                // If the clicked point is not inside any polygon, display a message
-                if (!isInsidePolygon) {
-                    $('#wilayahA').empty();
-                    console.log('Marker is not inside any polygon.');
-                }
+                var detectMe = turf.point([lng, lat]); // Create a Turf.js point object
+                processPoint(detectMe);
                 $('#latitude').val(lat);
                 $('#longitude').val(lng);
                 setTimeout(function() {
@@ -915,12 +910,14 @@
         function showPosition(position) {
             var latitude = position.coords.latitude;
             var longitude = position.coords.longitude;
+            var detectMe = turf.point([longitude, latitude]);
             if (addKafe) map.removeLayer(addKafe);
             addKafe = L.marker([latitude, longitude], {
                 icon: inKafe
             }).addTo(map);
             $('#latitude').val(latitude);
             $('#longitude').val(longitude);
+            processPoint(detectMe);
             map.flyTo([latitude, longitude], 13)
         }
 
@@ -954,6 +951,7 @@
         L.control.mousePosition().addTo(map);
         L.control.scale().addTo(map);
         L.control.navbar().addTo(map);
+
         var hash = new L.Hash(map);
 
         // Tambahkan control accordion pada peta
@@ -984,7 +982,6 @@
             return div;
         };
         legendControl.addTo(map);
-
 
         // SidePanel
         const panelRight = L.control.sidepanel('panelID', {
@@ -1189,8 +1186,8 @@
         var elLumap = document.querySelector('#lumap');
 
         var controlElement = baseLayers.getContainer();
-        controlElement.style.position = 'absolute';
-        controlElement.style.bottom = '1rem';
+        controlElement.style.position = 'fixed';
+        controlElement.style.bottom = '0.8rem';
         controlElement.style.right = '3rem';
     </script>
 

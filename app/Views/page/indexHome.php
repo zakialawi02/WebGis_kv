@@ -65,7 +65,7 @@
                 <div class="row g-5 align-items-center">
                     <div class="hero-content">
                         <h1>Selamat Datang di WebGIS Kafe Surabaya</h1>
-                        <p style="font-size: 1.4rem;">Jelajahi Kafe-kafe Terbaik, Mulai dari yang Klasik Hingga yang Trendi.</p>
+                        <p>Jelajahi Kafe-kafe Terbaik, Mulai dari yang Klasik Hingga yang Trendi.</p>
                         <a href="#discovery" class="btn btn-primary p-2">Mulai Jelajahi</a>
                     </div>
                     <!-- <div class="col-lg-6 animated fadeIn">

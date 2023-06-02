@@ -12,7 +12,7 @@
             <a href="<?= base_url(); ?>/#home" class="nav-item nav-link active">Home</a>
             <a href="/data" class="nav-item nav-link">Data</a>
             <a href="/kafe/map" class="nav-item nav-link">Peta</a>
-            <a href="#about" class="nav-item nav-link">About</a>
+            <a href="/#about" class="nav-item nav-link">About</a>
             <a href="/contact" class="nav-item nav-link">Contact</a>
 
 

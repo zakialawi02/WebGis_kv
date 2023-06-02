@@ -356,6 +356,7 @@ class Admin extends BaseController
             'user' => $user,
         ];
         $addStatus = $this->kafe->addStatus($status);
+
         $files = $this->request->getFiles();
         foreach ($files['foto_kafe'] as $key => $img) {
             if ($img->isValid() && !$img->hasMoved()) {

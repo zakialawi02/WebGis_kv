@@ -137,21 +137,23 @@
                                 <th>:</th>
                                 <td><?php
                                     $jam_oprasional = json_decode('[' . $tampilKafe->jam_oprasional . ']', true);
-                                    foreach ($jam_oprasional[0] as $jam) {
-                                        $hari = $jam['hari'];
-                                        $open_time = $jam['open_time'];
-                                        $close_time = $jam['close_time'];
-
-                                        echo $hari . ": ";
-                                        if ($open_time != null && $close_time != null) {
-                                            echo date("H:i", strtotime($open_time)) . "-" . date("H:i", strtotime($close_time));
-                                        } else {
-                                            echo "Tutup";
+                                    if (empty($jam_oprasional)) {
+                                        echo "<p>Kosong</p>";
+                                    } else {
+                                        foreach ($jam_oprasional[0] as $jam) {
+                                            $hari = $jam['hari'];
+                                            $open_time = $jam['open_time'];
+                                            $close_time = $jam['close_time'];
+                                            echo $hari . ": ";
+                                            if ($open_time != null && $close_time != null) {
+                                                echo date("H:i", strtotime($open_time)) . "-" . date("H:i", strtotime($close_time));
+                                            } else {
+                                                echo "Tutup";
+                                            }
+                                            echo "<br>";
                                         }
-                                        echo "<br>";
                                     }
                                     ?>
-
                                 </td>
                             </tr>
                             <?php if (in_groups('SuperAdmin') || in_groups('Admin')) :; ?>
