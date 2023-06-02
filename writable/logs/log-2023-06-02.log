@@ -1,0 +1,48 @@
+ERROR - 2023-06-02 13:36:50 --> ErrorException: pg_query(): Query failed: ERROR:  relation &quot;tbl_setting&quot; does not exist
+LINE 2: FROM &quot;tbl_setting&quot;
+             ^ in /home/zaki/Documents/WebGis_kv/vendor/codeigniter4/framework/system/Database/Postgre/Connection.php:140
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /home/zaki/Documents/WebGis_kv/vendor/codeigniter4/framework/system/Database/Postgre/Connection.php(140): pg_query()
+#2 /home/zaki/Documents/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(666): CodeIgniter\Database\Postgre\Connection->execute()
+#3 /home/zaki/Documents/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery()
+#4 /home/zaki/Documents/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query()
+#5 /home/zaki/Documents/WebGis_kv/vendor/codeigniter4/framework/system/Model.php(772): CodeIgniter\Database\BaseBuilder->get()
+#6 /home/zaki/Documents/WebGis_kv/app/Models/ModelSetting.php(23): CodeIgniter\Model->__call()
+#7 /home/zaki/Documents/WebGis_kv/app/Controllers/Kafe.php(29): App\Models\ModelSetting->tampilData()
+#8 /home/zaki/Documents/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(927): App\Controllers\Kafe->index()
+#9 /home/zaki/Documents/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController()
+#10 /home/zaki/Documents/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest()
+#11 /home/zaki/Documents/WebGis_kv/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#12 /home/zaki/Documents/WebGis_kv/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(46): require_once('...')
+#13 {main}
+CRITICAL - 2023-06-02 13:36:50 --> pg_query(): Query failed: ERROR:  relation &quot;tbl_setting&quot; does not exist
+LINE 2: FROM &quot;tbl_setting&quot;
+             ^
+in SYSTEMPATH/Database/Postgre/Connection.php on line 140.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/Database/Postgre/Connection.php(140): pg_query()
+ 3 SYSTEMPATH/Database/BaseConnection.php(666): CodeIgniter\Database\Postgre\Connection->execute()
+ 4 SYSTEMPATH/Database/BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 5 SYSTEMPATH/Database/BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query()
+ 6 SYSTEMPATH/Model.php(772): CodeIgniter\Database\BaseBuilder->get()
+ 7 APPPATH/Models/ModelSetting.php(23): CodeIgniter\Model->__call()
+ 8 APPPATH/Controllers/Kafe.php(29): App\Models\ModelSetting->tampilData()
+ 9 SYSTEMPATH/CodeIgniter.php(927): App\Controllers\Kafe->index()
+10 SYSTEMPATH/CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController()
+11 SYSTEMPATH/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest()
+12 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH/Commands/Server/rewrite.php(46): require_once('FCPATH/index.php')
+CRITICAL - 2023-06-02 14:05:57 --> explode(): Passing null to parameter #2 ($string) of type string is deprecated
+in APPPATH/Views/page/kafeDetail.php on line 77.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Views/page/kafeDetail.php(77): explode()
+ 3 SYSTEMPATH/View/View.php(213): include('APPPATH/Views/page/kafeDetail.php')
+ 4 SYSTEMPATH/View/View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 5 SYSTEMPATH/Common.php(1134): CodeIgniter\View\View->render()
+ 6 APPPATH/Controllers/Kafe.php(51): view()
+ 7 SYSTEMPATH/CodeIgniter.php(927): App\Controllers\Kafe->detail()
+ 8 SYSTEMPATH/CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest()
+10 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Commands/Server/rewrite.php(46): require_once('FCPATH/index.php')

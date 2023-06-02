@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title><?= $title; ?></title>
+    <title><?= $title; ?> | <?= $tampilKafe->nama_kafe; ?></title>
     <meta content="" name="keywords">
     <meta content="" name="description">
 
@@ -74,7 +74,9 @@
                             </div>
                         </div>
                         <div class="img-select">
-                            <?php $foto_kafe = explode(', ', $tampilKafe->nama_foto); ?>
+                            <?php if (!empty($tampilKafe->nama_foto)) : ?>
+                                <?php $foto_kafe = explode(', ', $tampilKafe->nama_foto); ?>
+                            <?php endif ?>
                             <?php if (empty($tampilKafe->nama_foto) || count($foto_kafe) === 1) : ?>
                                 <div class="img-item"></div>
                             <?php else : ?>

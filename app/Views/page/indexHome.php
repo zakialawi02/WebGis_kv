@@ -127,7 +127,7 @@
         </div>
     </section>
 
-    <section id="#about" style="min-height: 20vh;">
+    <section class="about" id="#about" style="min-height: 20vh;">
         <div class="container p-5">
             <h2>About</h2>
             <div class="row g-2 p-md-3 m-1">
