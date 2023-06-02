@@ -995,15 +995,15 @@
         // set marker place
         const locKafe = L.icon({
             iconUrl: '<?= base_url(); ?>/leaflet/icon/restaurant_breakfast.png',
-            iconSize: [30, 30],
-            iconAnchor: [16, 30], // point of the icon which will correspond to marker's location
-            popupAnchor: [0, -28] // point from which the popup should open relative to the iconAnchor
+            iconSize: [27, 27],
+            iconAnchor: [10, 25], // point of the icon which will correspond to marker's location
+            popupAnchor: [0, -22] // point from which the popup should open relative to the iconAnchor
         });
         const inKafe = L.icon({
             iconUrl: '<?= base_url(); ?>/leaflet/icon/restaurant_breakfast_y.png',
-            iconSize: [30, 30],
-            iconAnchor: [16, 30], // point of the icon which will correspond to marker's location
-            popupAnchor: [0, -28] // point from which the popup should open relative to the iconAnchor
+            iconSize: [27, 27],
+            iconAnchor: [10, 25], // point of the icon which will correspond to marker's location
+            popupAnchor: [0, -22] // point from which the popup should open relative to the iconAnchor
         });
 
         // geojson popup
