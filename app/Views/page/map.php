@@ -786,6 +786,7 @@
                 center: [<?= $D->coordinat_wilayah; ?>],
                 zoom: <?= $D->zoom_view; ?>,
                 layers: [peta1],
+                zoomControl: false,
                 gestureHandling: false,
                 attributionControl: false,
                 contextmenu: true,
@@ -922,7 +923,6 @@
         }
 
         // controller
-        map.removeControl(map.zoomControl);
         L.control.zoom({
             position: 'bottomright'
         }).addTo(map);
