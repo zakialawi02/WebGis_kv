@@ -58,6 +58,7 @@ $routes->get('/admin/data/kafe', 'Admin::kafe', ['filter' => 'role:SuperAdmin,Ad
 $routes->get('/admin/data/kafe/tambah', 'Admin::tambahKafe', ['filter' => 'role:SuperAdmin,Admin,User']);
 $routes->get('/admin/data/kafe/edit/(:num)', 'Admin::editKafe/$1', ['filter' => 'role:SuperAdmin,Admin']);
 $routes->get('/kafe/edit/(:num)', 'Admin::editKafe/$1', ['filter' => 'role:SuperAdmin,Admin,User']);
+$routes->post('/admin/tambah_Kafe', 'Admin::tambah_Kafe');
 
 $routes->get('/user/manajemen', 'User::manajemen', ['filter' => 'role:SuperAdmin,Admin']);
 

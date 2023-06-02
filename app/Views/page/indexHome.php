@@ -59,20 +59,23 @@
 
     <!-- ISI CONTENT -->
     <!-- ======= Hero Section ======= -->
-    <div class="container-fluid hero-header bg-light py-5" id="hero">
-        <div class="container py-5">
-            <div class="row g-5 align-items-center">
-                <div class="hero-content">
-                    <h1>Selamat Datang di WebGIS Kafe Surabaya</h1>
-                    <p style="font-size: 1.4rem;">Jelajahi Kafe-kafe Terbaik, Mulai dari yang Klasik Hingga yang Trendi.</p>
-                    <a href="#discovery" class="btn btn-primary p-2">Mulai Jelajahi</a>
-                </div>
-                <div class="col-lg-6 animated fadeIn">
-                    <img class="img-fluid animated pulse infinite" style="animation-duration: 3s;" src="img/hero-1.png" alt="">
+    <section id="home">
+        <div class="container-fluid hero-header bg-light py-5" id="hero">
+            <div class="container py-5">
+                <div class="row g-5 align-items-center">
+                    <div class="hero-content">
+                        <h1>Selamat Datang di WebGIS Kafe Surabaya</h1>
+                        <p style="font-size: 1.4rem;">Jelajahi Kafe-kafe Terbaik, Mulai dari yang Klasik Hingga yang Trendi.</p>
+                        <a href="#discovery" class="btn btn-primary p-2">Mulai Jelajahi</a>
+                    </div>
+                    <!-- <div class="col-lg-6 animated fadeIn">
+                    <img class="img-fluid animated pulse infinite" style="animation-duration: 3s;" src="img/hero.png" alt="">
+                </div> -->
                 </div>
             </div>
         </div>
-    </div>
+    </section>
+
     <!-- Hdeader End -->
 
     <!-- Discovery -->
@@ -127,11 +130,11 @@
         </div>
     </section>
 
-    <section class="about" id="#about" style="min-height: 20vh;">
+    <section class="about" id="about" style="min-height: 20vh;">
         <div class="container p-5">
             <h2>About</h2>
             <div class="row g-2 p-md-3 m-1">
-                <div class="col col-md-7">
+                <div class="col-md-7">
                     <h3>Hello</h3>
                     <p>Kami memahami bahwa Surabaya adalah kota yang kaya akan keanekaragaman kafe dengan suasana yang unik dan cita rasa yang menggoda. Dengan misi untuk memudahkan pengunjung dalam menemukan pengalaman kafe yang tak terlupakan, kami menghadirkan peta WebGIS interaktif yang memudahkan Anda dalam menjelajahi berbagai kafe yang tersebar di seluruh Surabaya.</p>
                     <p>Kami juga memberikan kesempatan kepada pengguna untuk berpartisipasi dengan menambahkan informasi tentang kafe-kafe yang belum terdaftar, sehingga dapat membantu komunitas kafe di Surabaya berkembang dan tumbuh.</p>
@@ -152,8 +155,6 @@
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/lib/wow/wow.min.js"></script>
-    <script src="assets/lib/owlcarousel/owl.carousel.min.js"></script>
 
     <!-- Template Javascript -->
     <script src="assets/js/main.js"></script>

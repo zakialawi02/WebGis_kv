@@ -18,4 +18,6 @@
    <!-- CPR End -->
 
    <!-- Back to TOP -->
-   <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
+   <a href="#" class="scroll-top">
+       <i class="fas fa-arrow-up"></i>
+   </a>

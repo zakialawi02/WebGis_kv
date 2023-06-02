@@ -270,7 +270,7 @@ class Admin extends BaseController
     public function fasilitas()
     {
         $data = [
-            'title' => 'DATA KV',
+            'title' => 'DATA KAFE',
             'tampilData' => $this->setting->tampilData()->getResult(),
         ];
 
@@ -286,7 +286,7 @@ class Admin extends BaseController
         $todayDate = date("m/d");
 
         $data = [
-            'title' => 'DATA KV',
+            'title' => 'DATA KAFE',
             'tampilData' => $this->setting->tampilData()->getResult(),
             'tampilGeojson' => $this->FGeojson->callGeojson()->getResult(),
             'updateGeojson' => $this->FGeojson->callGeojson()->getRow(),
@@ -301,7 +301,7 @@ class Admin extends BaseController
     public function tambahKafe()
     {
         $data = [
-            'title' => 'DATA KV',
+            'title' => 'DATA KAFE',
             'tampilData' => $this->setting->tampilData()->getResult(),
             'tampilGeojson' => $this->FGeojson->callGeojson()->getResult(),
             'provinsi' => $this->kafe->allProvinsi(),
@@ -312,7 +312,7 @@ class Admin extends BaseController
     public function editKafe($id_kafe)
     {
         $data = [
-            'title' => 'DATA KV',
+            'title' => 'DATA KAFE',
             'tampilData' => $this->setting->tampilData()->getResult(), //ambil settingan mapView
             'tampilGeojson' => $this->FGeojson->callGeojson()->getResult(), //ambil data geojson
             'tampilKafe' => $this->kafe->callKafe($id_kafe)->getRow(),
