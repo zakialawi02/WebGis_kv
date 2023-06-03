@@ -80,7 +80,7 @@
                         <h5 class="card-title">Kafe di Surabaya</h5>
                         <p class="card-text">Data Persebaran Kafe di Surabaya</p>
                         <a href="/kafe/pdf" class="btn btn-primary bi bi-cloud-arrow-down-fill"> PDF</a>
-                        <a href="/api/aprv" class="btn btn-primary bi bi-cloud-arrow-down-fill"> Geojson</a>
+                        <a type="button" class="btn btn-primary bi bi-cloud-arrow-down-fill" onclick="downloadGeoJSON()"> Geojson</a>
                     </div>
                 </div>
 
@@ -120,7 +120,30 @@
     <script src="/assets/js/main.js"></script>
 
 
+    <script>
+        function downloadGeoJSON() {
+            var apiUrl = "/kafe/generatePdf";
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", apiUrl, true);
+            xhr.responseType = "blob";
+            xhr.onload = function() {
+                if (xhr.status === 200) {
+                    var blob = new Blob([xhr.response], {
+                        type: "application/json"
+                    });
+                    var url = URL.createObjectURL(blob);
 
+                    var a = document.createElement("a");
+                    a.href = url;
+                    a.download = "data_kafe.geojson";
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                }
+            };
+            xhr.send();
+        }
+    </script>
 
 </body>
 
