@@ -88,7 +88,7 @@
 
                 <div class="cards-list">
                     <?php foreach ($randomFour as $rand) : ?>
-                        <div class="card <?= $rand->id_kafe; ?> cardDiscover">
+                        <div class="card-discover <?= $rand->id_kafe; ?>">
                             <div class="card_image"> <img src="/img/kafe/<?= is_array($rand->nama_file_foto) ? $rand->nama_file_foto[0] : $rand->nama_file_foto; ?>" /> </div>
                             <div class="card_title title-white">
                                 <a href="/kafe/<?= $rand->id_kafe; ?>/detail">

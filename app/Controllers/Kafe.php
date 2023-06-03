@@ -121,7 +121,36 @@ class Kafe extends BaseController
         return view('page/about', $data);
     }
 
+    public function data()
+    {
+        $data = [
+            'title' => 'DATA',
+            'tampilData' => $this->setting->tampilData()->getResult(),
+            'tampilKafe' => $this->kafe->callKafe()->getResult(),
+        ];
+        return view('page/data', $data);
+    }
+
+    public function sebaran_kafe()
+    {
+        $data = [
+            'title' => 'DATA',
+            'tampilData' => $this->setting->tampilData()->getResult(),
+            'tampilKafe' => $this->kafe->callKafe()->getResult(),
+        ];
+        return view('page/data', $data);
+    }
+
     public function pdf()
+    {
+        $data = [
+            'title' => 'PDF',
+            'tampilKafe' => $this->kafe->callKafe()->getResult(),
+        ];
+        return view('page/pdfKafe', $data);
+    }
+
+    public function peta_pdf()
     {
         $data = [
             'title' => 'Beranda',
