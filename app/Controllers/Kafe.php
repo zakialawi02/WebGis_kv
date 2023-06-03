@@ -156,14 +156,14 @@ class Kafe extends BaseController
     {
         $data = [
             'title' => 'PDF',
+            'tampilKafe' => $this->kafe->callKafe()->getResult(),
         ];
 
         $options = new Options();
         $options->set('isRemoteEnabled', true);
         $dompdf = new Dompdf($options);
 
-        $html = view('page/pdfKafe');
-        sleep(5);
+        $html = view('page/pdfKafe', $data);
         $dompdf->loadHtml($html);
         $dompdf->render();
         $dompdf->stream('data_kafe.pdf', ['Attachment' => false]);
