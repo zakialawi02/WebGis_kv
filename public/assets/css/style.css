@@ -447,8 +447,10 @@ h6 {
 
 @media (max-width:911px) {
   .contact-center {
+    transform: scale(0.85);
     grid-template-columns: 1fr;
     padding: 1rem;
+    margin-top: -1rem;
   }
 
   .contact-center .left {

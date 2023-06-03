@@ -1,0 +1,48 @@
+CRITICAL - 2023-06-04 01:13:08 --> Undefined variable $ZsurabayaTimur
+in APPPATH/Views/admin/dashboard.php on line 870.
+ 1 APPPATH/Views/admin/dashboard.php(870): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(213): include('/home/zaki/Documents/WebGis_kv/app/Views/admin/dashboard.php')
+ 3 SYSTEMPATH/View/View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1184): CodeIgniter\View\View->render()
+ 5 APPPATH/Controllers/Admin.php(50): view()
+ 6 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Admin->index()
+ 7 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/home/zaki/Documents/WebGis_kv/public/index.php')
+CRITICAL - 2023-06-04 01:15:00 --> Undefined variable $ZsurabayaTimur
+in APPPATH/Views/admin/dashboard.php on line 869.
+ 1 APPPATH/Views/admin/dashboard.php(869): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(213): include('/home/zaki/Documents/WebGis_kv/app/Views/admin/dashboard.php')
+ 3 SYSTEMPATH/View/View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1184): CodeIgniter\View\View->render()
+ 5 APPPATH/Controllers/Admin.php(50): view()
+ 6 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Admin->index()
+ 7 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/home/zaki/Documents/WebGis_kv/public/index.php')
+CRITICAL - 2023-06-04 01:39:28 --> Undefined variable $ZsurabayaTimur
+in APPPATH/Views/admin/dashboard.php on line 153.
+ 1 APPPATH/Views/admin/dashboard.php(153): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(213): include('/home/zaki/Documents/WebGis_kv/app/Views/admin/dashboard.php')
+ 3 SYSTEMPATH/View/View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1184): CodeIgniter\View\View->render()
+ 5 APPPATH/Controllers/Admin.php(50): view()
+ 6 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Admin->index()
+ 7 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/home/zaki/Documents/WebGis_kv/public/index.php')
+CRITICAL - 2023-06-04 01:46:48 --> Undefined variable $ZsurabayaTimur
+in APPPATH/Views/admin/dashboard.php on line 870.
+ 1 APPPATH/Views/admin/dashboard.php(870): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(213): include('/home/zaki/Documents/WebGis_kv/app/Views/admin/dashboard.php')
+ 3 SYSTEMPATH/View/View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1184): CodeIgniter\View\View->render()
+ 5 APPPATH/Controllers/Admin.php(50): view()
+ 6 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Admin->index()
+ 7 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/home/zaki/Documents/WebGis_kv/public/index.php')

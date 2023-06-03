@@ -79,7 +79,7 @@
                                         </div><!-- End kafe Card -->
 
                                         <!-- Incrase Card -->
-                                        <div class="col-xxl-4 col-md-6">
+                                        <div class="col-xxl-4 col-md-6 mb-3">
                                             <div class="card info-card pending-card">
                                                 <div class="card-body">
                                                     <h5 class="card-title">Pending <span>| Total</span></h5>
@@ -98,7 +98,7 @@
                                         </div><!-- End Incrase Card -->
 
                                         <!-- user Card -->
-                                        <div class="col-xxl-4 col-xl-12">
+                                        <div class="col-xxl-4 col-xl-12 mb-3">
 
                                             <div class="card info-card users-card">
 
@@ -119,40 +119,8 @@
 
                                         </div><!-- End user Card -->
 
-                                        <?php if (in_groups('Admin' && 'SuperAdmin')) : ?>
-                                            <?php $allKafe = $allKafe ?>
-                                            <?php $kodeTimur = [357824, 357810, 357809, 357803, 357826, 357825, 357808] ?>
-                                            <?php $kodeBarat = [357814, 357827, 357831, 357830, 357818, 357819, 357828] ?>
-                                            <?php $kodePusat = [357805, 357811, 357807, 357813] ?>
-                                            <?php $kodeUtara = [357816, 357812, 357815, 357817, 357829] ?>
-                                            <?php $kodeSelatan = [357804, 357802, 357820, 357806, 357801, 357823, 357822, 357821] ?>
-                                            <?php $surabayaTimur = []; ?>
-                                            <?php $surabayaBarat = []; ?>
-                                            <?php $surabayaPusat = []; ?>
-                                            <?php $surabayaUtara = []; ?>
-                                            <?php $surabayaSelatan = []; ?>
-                                            <?php foreach ($allKafe as $tp) {
-                                                if (in_array($tp->id_kecamatan, $kodeTimur)) {
-                                                    $surabayaTimur[] = $tp;
-                                                } elseif (in_array($tp->id_kecamatan, $kodeBarat)) {
-                                                    $surabayaBarat[] = $tp;
-                                                } elseif (in_array($tp->id_kecamatan, $kodePusat)) {
-                                                    $surabayaPusat[] = $tp;
-                                                } elseif (in_array($tp->id_kecamatan, $kodeUtara)) {
-                                                    $surabayaUtara[] = $tp;
-                                                } elseif (in_array($tp->id_kecamatan, $kodeSelatan)) {
-                                                    $surabayaSelatan[] = $tp;
-                                                }
-                                            } ?>
-                                            <?php $ZsurabayaTimur = count($surabayaTimur); ?>
-                                            <?php $ZsurabayaBarat = count($surabayaBarat); ?>
-                                            <?php $ZsurabayaPusat = count($surabayaPusat); ?>
-                                            <?php $ZsurabayaUtara = count($surabayaUtara); ?>
-                                            <?php $ZsurabayaSelatan = count($surabayaSelatan); ?>
-                                        <?php endif ?>
-
                                         <!-- Daftar Kafe -->
-                                        <div class="col-12">
+                                        <div class="col-12 mb-3">
                                             <div class="card recent-sales overflow-auto">
                                                 <div class="card-body">
                                                     <h5 class="card-title">Daftar Kafe</h5>
@@ -864,36 +832,64 @@
         const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
     </script>
     <!-- Pie Chart -->
-    <?php if (in_groups('Admin' && 'SuperAdmin')) : ?>
-        <script>
-            $(document).ready(function() {
-                var options = {
-                    series: [<?php echo $ZsurabayaTimur; ?>, <?php echo $ZsurabayaBarat; ?>, <?= $ZsurabayaPusat; ?>, <?= $ZsurabayaUtara; ?>, <?= $ZsurabayaSelatan; ?>],
-                    chart: {
-                        width: 300,
-                        type: 'pie',
+    <script>
+        <?php $allKafe = $allKafe ?>
+        <?php $kodeTimur = [357824, 357810, 357809, 357803, 357826, 357825, 357808] ?>
+        <?php $kodeBarat = [357814, 357827, 357831, 357830, 357818, 357819, 357828] ?>
+        <?php $kodePusat = [357805, 357811, 357807, 357813] ?>
+        <?php $kodeUtara = [357816, 357812, 357815, 357817, 357829] ?>
+        <?php $kodeSelatan = [357804, 357802, 357820, 357806, 357801, 357823, 357822, 357821] ?>
+        <?php $surabayaTimur = []; ?>
+        <?php $surabayaBarat = []; ?>
+        <?php $surabayaPusat = []; ?>
+        <?php $surabayaUtara = []; ?>
+        <?php $surabayaSelatan = []; ?>
+        <?php foreach ($allKafe as $tp) {
+            if (in_array($tp->id_kecamatan, $kodeTimur)) {
+                $surabayaTimur[] = $tp;
+            } elseif (in_array($tp->id_kecamatan, $kodeBarat)) {
+                $surabayaBarat[] = $tp;
+            } elseif (in_array($tp->id_kecamatan, $kodePusat)) {
+                $surabayaPusat[] = $tp;
+            } elseif (in_array($tp->id_kecamatan, $kodeUtara)) {
+                $surabayaUtara[] = $tp;
+            } elseif (in_array($tp->id_kecamatan, $kodeSelatan)) {
+                $surabayaSelatan[] = $tp;
+            }
+        } ?>
+        <?php $ZsurabayaTimur = count($surabayaTimur); ?>
+        <?php $ZsurabayaBarat = count($surabayaBarat); ?>
+        <?php $ZsurabayaPusat = count($surabayaPusat); ?>
+        <?php $ZsurabayaUtara = count($surabayaUtara); ?>
+        <?php $ZsurabayaSelatan = count($surabayaSelatan); ?>
 
-                    },
-                    legend: {
-                        position: 'bottom'
-                    },
-                    labels: ['Surabaya Timur', 'Surabaya Barat', 'Surabaya Pusat', 'Surabaya Utara', 'Surabaya Selatan'],
-                    responsive: [{
-                        breakpoint: 480,
-                        options: {
-                            chart: {
-                                width: 300
-                            },
+        $(document).ready(function() {
+            var options = {
+                series: [<?= $ZsurabayaTimur; ?>, <?= $ZsurabayaBarat; ?>, <?= $ZsurabayaPusat; ?>, <?= $ZsurabayaUtara; ?>, <?= $ZsurabayaSelatan; ?>],
+                chart: {
+                    width: 300,
+                    type: 'pie',
 
-                        }
-                    }]
-                };
+                },
+                legend: {
+                    position: 'bottom'
+                },
+                labels: ['Surabaya Timur', 'Surabaya Barat', 'Surabaya Pusat', 'Surabaya Utara', 'Surabaya Selatan'],
+                responsive: [{
+                    breakpoint: 480,
+                    options: {
+                        chart: {
+                            width: 300
+                        },
 
-                var chart = new ApexCharts(document.querySelector("#chart"), options);
-                chart.render();
-            });
-        </script>
-    <?php endif ?>
+                    }
+                }]
+            };
+
+            var chart = new ApexCharts(document.querySelector("#chart"), options);
+            chart.render();
+        });
+    </script>
 
     <script>
         $(document).ready(function() {
