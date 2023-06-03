@@ -173,3 +173,97 @@ in SYSTEMPATH/Session/Session.php on line 912.
 13 SYSTEMPATH/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest()
 14 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
 15 SYSTEMPATH/Commands/Server/rewrite.php(46): require_once('FCPATH/index.php')
+CRITICAL - 2023-06-03 22:04:46 --> Invalid file: pdf/template.php
+in SYSTEMPATH/Exceptions/FrameworkException.php on line 33.
+ 1 SYSTEMPATH/View/View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile()
+ 2 SYSTEMPATH/Common.php(1134): CodeIgniter\View\View->render()
+ 3 APPPATH/Controllers/Kafe.php(167): view()
+ 4 SYSTEMPATH/CodeIgniter.php(927): App\Controllers\Kafe->generatePdf()
+ 5 SYSTEMPATH/CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest()
+ 7 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Commands/Server/rewrite.php(46): require_once('FCPATH/index.php')
+CRITICAL - 2023-06-03 22:05:20 --> Invalid file: kafe/pdf.php
+in SYSTEMPATH/Exceptions/FrameworkException.php on line 33.
+ 1 SYSTEMPATH/View/View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile()
+ 2 SYSTEMPATH/Common.php(1134): CodeIgniter\View\View->render()
+ 3 APPPATH/Controllers/Kafe.php(164): view()
+ 4 SYSTEMPATH/CodeIgniter.php(927): App\Controllers\Kafe->generatePdf()
+ 5 SYSTEMPATH/CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest()
+ 7 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Commands/Server/rewrite.php(46): require_once('FCPATH/index.php')
+CRITICAL - 2023-06-03 22:05:37 --> Invalid file: kafe/pdf.php
+in SYSTEMPATH/Exceptions/FrameworkException.php on line 33.
+ 1 SYSTEMPATH/View/View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile()
+ 2 SYSTEMPATH/Common.php(1134): CodeIgniter\View\View->render()
+ 3 APPPATH/Controllers/Kafe.php(164): view()
+ 4 SYSTEMPATH/CodeIgniter.php(927): App\Controllers\Kafe->generatePdf()
+ 5 SYSTEMPATH/CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest()
+ 7 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Commands/Server/rewrite.php(46): require_once('FCPATH/index.php')
+CRITICAL - 2023-06-03 22:06:00 --> Invalid file: kafe/pdf.php
+in SYSTEMPATH/Exceptions/FrameworkException.php on line 33.
+ 1 SYSTEMPATH/View/View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile()
+ 2 SYSTEMPATH/Common.php(1134): CodeIgniter\View\View->render()
+ 3 APPPATH/Controllers/Kafe.php(164): view()
+ 4 SYSTEMPATH/CodeIgniter.php(927): App\Controllers\Kafe->generatePdf()
+ 5 SYSTEMPATH/CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest()
+ 7 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Commands/Server/rewrite.php(46): require_once('FCPATH/index.php')
+CRITICAL - 2023-06-03 22:06:24 --> syntax error, unexpected token "echo"
+in APPPATH/Controllers/Kafe.php on line 164.
+ 1 SYSTEMPATH/Router/Router.php(499): CodeIgniter\Router\AutoRouter->getRoute()
+ 2 SYSTEMPATH/Router/Router.php(205): CodeIgniter\Router\Router->autoRoute()
+ 3 SYSTEMPATH/CodeIgniter.php(802): CodeIgniter\Router\Router->handle()
+ 4 SYSTEMPATH/CodeIgniter.php(430): CodeIgniter\CodeIgniter->tryToRouteIt()
+ 5 SYSTEMPATH/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Commands/Server/rewrite.php(46): require_once('FCPATH/index.php')
+CRITICAL - 2023-06-03 22:06:34 --> Invalid file: kafe/pdf.php
+in SYSTEMPATH/Exceptions/FrameworkException.php on line 33.
+ 1 SYSTEMPATH/View/View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile()
+ 2 SYSTEMPATH/Common.php(1134): CodeIgniter\View\View->render()
+ 3 APPPATH/Controllers/Kafe.php(164): view()
+ 4 SYSTEMPATH/CodeIgniter.php(927): App\Controllers\Kafe->generatePdf()
+ 5 SYSTEMPATH/CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest()
+ 7 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Commands/Server/rewrite.php(46): require_once('FCPATH/index.php')
+CRITICAL - 2023-06-03 22:07:35 --> Invalid file: kafe/pdf.php
+in SYSTEMPATH/Exceptions/FrameworkException.php on line 33.
+ 1 SYSTEMPATH/View/View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile()
+ 2 SYSTEMPATH/Common.php(1134): CodeIgniter\View\View->render()
+ 3 APPPATH/Controllers/Kafe.php(164): view()
+ 4 SYSTEMPATH/CodeIgniter.php(927): App\Controllers\Kafe->generatePdf()
+ 5 SYSTEMPATH/CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest()
+ 7 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Commands/Server/rewrite.php(46): require_once('FCPATH/index.php')
+CRITICAL - 2023-06-03 22:16:01 --> Cannot modify header information - headers already sent
+in SYSTEMPATH/HTTP/ResponseTrait.php on line 759.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/HTTP/ResponseTrait.php(759): setcookie()
+ 3 SYSTEMPATH/HTTP/ResponseTrait.php(735): CodeIgniter\HTTP\Response->doSetCookie()
+ 4 SYSTEMPATH/HTTP/ResponseTrait.php(715): CodeIgniter\HTTP\Response->dispatchCookies()
+ 5 SYSTEMPATH/HTTP/ResponseTrait.php(446): CodeIgniter\HTTP\Response->sendCookies()
+ 6 SYSTEMPATH/CodeIgniter.php(1111): CodeIgniter\HTTP\Response->send()
+ 7 SYSTEMPATH/CodeIgniter.php(541): CodeIgniter\CodeIgniter->sendResponse()
+ 8 SYSTEMPATH/CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest()
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(46): require_once('FCPATH/index.php')
+CRITICAL - 2023-06-03 22:16:01 --> Uncaught ErrorException: Cannot modify header information - headers already sent in /home/zaki/Documents/WebGis_kv/vendor/codeigniter4/framework/system/HTTP/ResponseTrait.php:759
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /home/zaki/Documents/WebGis_kv/vendor/codeigniter4/framework/system/HTTP/ResponseTrait.php(759): setcookie()
+#2 /home/zaki/Documents/WebGis_kv/vendor/codeigniter4/framework/system/HTTP/ResponseTrait.php(735): CodeIgniter\HTTP\Response->doSetCookie()
+#3 /home/zaki/Documents/WebGis_kv/vendor/codeigniter4/framework/system/HTTP/ResponseTrait.php(715): CodeIgniter\HTTP\Response->dispatchCookies()
+#4 /home/zaki/Documents/WebGis_kv/vendor/codeigniter4/framework/system/HTTP/ResponseTrait.php(446): CodeIgniter\HTTP\Response->sendCookies()
+#5 /home/zaki/Documents/WebGis_kv/vendor/codeigniter4/framework/system/Debug/Exceptions.php(133): CodeIgniter\HTTP\Response->send()
+#6 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler()
+#7 {main}
+  thrown
+in SYSTEMPATH/HTTP/ResponseTrait.php on line 759.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()

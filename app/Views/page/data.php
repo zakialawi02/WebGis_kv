@@ -79,7 +79,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Kafe di Surabaya</h5>
                         <p class="card-text">Data Persebaran Kafe di Surabaya</p>
-                        <a href="/list-kafe" class="btn btn-primary bi bi-cloud-arrow-down-fill"> PDF</a>
+                        <a href="/kafe/pdf" class="btn btn-primary bi bi-cloud-arrow-down-fill"> PDF</a>
                         <a href="/api/aprv" class="btn btn-primary bi bi-cloud-arrow-down-fill"> Geojson</a>
                     </div>
                 </div>
