@@ -122,7 +122,7 @@
 
     <script>
         function downloadGeoJSON() {
-            var apiUrl = "/kafe/generatePdf";
+            var apiUrl = "/api/aprv";
             var xhr = new XMLHttpRequest();
             xhr.open("GET", apiUrl, true);
             xhr.responseType = "blob";
