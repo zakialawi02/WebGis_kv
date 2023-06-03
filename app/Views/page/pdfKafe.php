@@ -70,62 +70,10 @@
                 <th>Instagram</th>
                 <th>Jam Oprasional</th>
             </tr>
-            <tr>
-                <td>1</td>
-                <td>Data 2</td>
-                <td>Data 3</td>
-                <td>Data 4</td>
-                <td>Data 5</td>
-                <td>
-                    <table id="jam">
-                        <tr>
-                            <td id="hari">Hari-hari</td>
-                            <td id="titikdua">:</td>
-                            <td>07:00 - 23:00</td>
-
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-
-
 
         </table>
 
-        <?php
-        $url = "/api/aprv"; // Ganti dengan URL yang sesuai
 
-        $ch = curl_init($url);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-
-        $response = curl_exec($ch);
-
-        if (curl_errno($ch)) {
-            echo 'Error: ' . curl_error($ch);
-        }
-
-        curl_close($ch);
-
-        $data = json_decode($response, true);
-
-        if ($data) {
-            echo "<table>";
-            echo "<tr><th>Property 1</th><th>Property 2</th><th>Property 3</th></tr>";
-
-            foreach ($data['features'] as $feature) {
-                $properties = $feature['properties'];
-                echo "<tr>";
-                echo "<td>{$properties['property1']}</td>";
-                echo "<td>{$properties['property2']}</td>";
-                echo "<td>{$properties['property3']}</td>";
-                echo "</tr>";
-            }
-
-            echo "</table>";
-        } else {
-            echo "Failed to retrieve data.";
-        }
-        ?>
 
     </section>
 
@@ -141,11 +89,69 @@
                 dataType: "json",
                 success: function(data) {
                     // Memasukkan properti GeoJSON ke dalam tabel
-                    data.features.forEach(function(feature) {
+                    data.features.forEach(function(feature, index) {
                         var properties = feature.properties;
                         console.log(properties);
                         var row = $("<tr></tr>");
+                        var noCell = $("<td></td>").text(index + 1);
+                        row.append(noCell);
+                        var namaKafeCell = $("<td></td>").text(properties.nama_kafe);
+                        row.append(namaKafeCell);
+                        var alamatKafeCell = $("<td></td>").text(properties.alamat_kafe);
+                        row.append(alamatKafeCell);
+                        var latitude = parseFloat(properties.latitude);
+                        var longitude = parseFloat(properties.longitude);
+                        var koordinat = latitude.toFixed(6) + ", " + longitude.toFixed(6);
+                        var koordinatCell = $("<td></td>").text(koordinat);
+                        row.append(koordinatCell);
+                        var instagramKafe = properties.instagram_kafe;
+                        if (instagramKafe) {
+                            instagramKafe = "@" + instagramKafe;
+                        } else {
+                            instagramKafe = "-";
+                        }
+                        var instagramCell = $("<td></td>").text(instagramKafe);
+                        row.append(instagramCell);
+                        const jsonString = properties.jam_oprasional;
+                        var jamOperasional = JSON.parse(jsonString[0]);
+                        // Menggabungkan waktu operasional yang sama
+                        var jamOperasionalCell = $("<td></td>");
+                        var mergedOperational = [];
 
+                        for (var i = 0; i < jamOperasional.length; i++) {
+                            var hari = jamOperasional[i].hari;
+                            var openTime = jamOperasional[i].open_time;
+                            var closeTime = jamOperasional[i].close_time;
+                            // Cek jika waktu operasional sama dengan hari sebelumnya
+                            if (i > 0 && openTime === jamOperasional[i - 1].open_time && closeTime === jamOperasional[i - 1].close_time) {
+                                // Gabungkan dengan hari sebelumnya
+                                var lastMerged = mergedOperational[mergedOperational.length - 1];
+                                lastMerged.endDay = hari;
+                            } else {
+                                // Tambahkan waktu operasional baru
+                                mergedOperational.push({
+                                    startDay: hari,
+                                    endDay: hari,
+                                    openTime: openTime,
+                                    closeTime: closeTime
+                                });
+                            }
+                        }
+                        // Format dan tambahkan ke dalam jamOperasionalCell
+                        mergedOperational.forEach(function(operational, index) {
+                            var jamOperasionalText = operational.startDay;
+                            if (operational.startDay !== operational.endDay) {
+                                jamOperasionalText += " - " + operational.endDay;
+                            }
+                            var openTimeHHMM = operational.openTime.substring(0, 5);
+                            var closeTimeHHMM = operational.closeTime.substring(0, 5);
+                            jamOperasionalText += ": " + openTimeHHMM + " - " + closeTimeHHMM;
+                            jamOperasionalCell.append(jamOperasionalText);
+                            if (index < mergedOperational.length - 1) {
+                                jamOperasionalCell.append("<br>");
+                            }
+                        });
+                        row.append(jamOperasionalCell);
 
 
                         $("#data-table").append(row);
