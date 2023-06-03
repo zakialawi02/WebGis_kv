@@ -79,11 +79,11 @@
 }
 
 #map .leaflet-control-zoom {
-    display: block;
-    position: initial;
-    bottom: 0;
-    left: 0;
     margin: 1.4rem 0.5rem;
+}
+
+.leaflet-top.leaflet-left {
+    z-index: 10002;
 }
 
 /* Container button-section-group */

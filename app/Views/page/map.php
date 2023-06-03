@@ -338,7 +338,7 @@
                 <div class="input-group">
                     <input type="text" id="cariMark" class="form-control input-cari" placeholder="Cari...">
                     <span class="input-group-btn">
-                        <button class="btn btn-primary btn-cari" type="button"><i class="bi bi-search"></i></button>
+                        <button type="button" role="button" class="btn btn-primary btn-cari"><i class="bi bi-search"></i></button>
                     </span>
                 </div>
             </form>
@@ -963,11 +963,11 @@
             div.innerHTML = `<div class="accordion" id="legendAccordion">
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="headingOne">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
                             Legenda
                         </button>
                     </h2>
-                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#legendAccordion">
+                    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#legendAccordion">
                         <div class="accordion-body">
                             <div class="legend-item2">
                             </div>

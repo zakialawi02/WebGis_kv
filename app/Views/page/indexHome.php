@@ -88,7 +88,7 @@
 
                 <div class="cards-list">
                     <?php foreach ($randomFour as $rand) : ?>
-                        <div class="card <?= $rand->id_kafe; ?>">
+                        <div class="card <?= $rand->id_kafe; ?> cardDiscover">
                             <div class="card_image"> <img src="/img/kafe/<?= is_array($rand->nama_file_foto) ? $rand->nama_file_foto[0] : $rand->nama_file_foto; ?>" /> </div>
                             <div class="card_title title-white">
                                 <a href="/kafe/<?= $rand->id_kafe; ?>/detail">
@@ -141,6 +141,9 @@
                 </div>
                 <div class="col col-md-5">
                     <h3>Heloo</h3>
+                    <div class="col-lg-6 animated fadeIn">
+                        <img class="img-fluid animated pulse infinite" style="animation-duration: 3s;" src="img/hero.png" alt="">
+                    </div>
                 </div>
             </div>
         </div>
