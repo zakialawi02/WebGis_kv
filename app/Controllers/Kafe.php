@@ -161,6 +161,7 @@ class Kafe extends BaseController
 
         $options = new Options();
         $options->set('isRemoteEnabled', true);
+        $options->setDefaultFont('Times-Roman');
         $dompdf = new Dompdf($options);
 
         $html = view('page/pdfKafe', $data);
