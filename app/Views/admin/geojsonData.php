@@ -54,7 +54,7 @@
                             <table id="datatablesSimple">
                                 <thead>
                                     <tr>
-                                        <th>Nama Wilayah</th>
+                                        <th>Nama</th>
                                         <th>Features</th>
                                         <th>Warna</th>
                                         <th>Aksi</th>
@@ -68,17 +68,17 @@
                                             <td><span style="color: <?= $G->warna; ?>; text-decoration-line: underline;  text-decoration-style: solid; text-decoration-color: <?= $G->warna; ?>;text-decoration-thickness: 10px;"><?= $G->warna; ?></span></td>
                                             <td>
                                                 <div class="btn-group mr-2" role="group" aria-label="First group">
-                                                    <a href="/admin/features/edit/<?= $G->id; ?>" class="btn btn-primary bi bi-pencil-square" role="button"></a>
+                                                    <a href="/admin/features/edit/<?= $G->id; ?>" class="asbn btn btn-primary bi bi-pencil-square" role="button"></a>
                                                 </div>
                                                 <div class="btn-group mr-2" role="group" aria-label="First group">
                                                     <!-- Trigger modal -->
-                                                    <button type="button" role="button" id="infos" class="btn btn-secondary bi bi-eye" data-bs-toggle="modal" data-bs-target="#infoModal-<?= $G->id ?>" onclick="showMap<?= $G->id; ?>()"></button>
+                                                    <button type="button" role="button" id="infos" class="asbn btn btn-secondary bi bi-eye" data-bs-toggle="modal" data-bs-target="#infoModal-<?= $G->id ?>" onclick="showMap<?= $G->id; ?>()"></button>
                                                 </div>
                                                 <div class="btn-group mr-2" role="group" aria-label="First group">
                                                     <form action="/admin/delete_Geojson/<?= $G->id; ?>" method="post">
                                                         <?= csrf_field(); ?>
                                                         <input type="hidden" name="_method" value="DELETE">
-                                                        <button type="submit" class="btn btn-danger bi bi-trash" onclick="return confirm('Yakin Hapus Data?')"></button>
+                                                        <button type="submit" class="asbn btn btn-danger bi bi-trash" onclick="return confirm('Yakin Hapus Data?')"></button>
                                                     </form>
                                                 </div>
 

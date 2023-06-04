@@ -166,6 +166,8 @@ class Kafe extends BaseController
 
         $html = view('page/pdfKafe', $data);
         $dompdf->loadHtml($html);
+        $dompdf->set_option('isHtml5ParserEnabled', true);
+        $dompdf->setPaper('A4', 'portrait');
         $dompdf->render();
         $dompdf->stream('data_kafe.pdf', ['Attachment' => false]);
     }

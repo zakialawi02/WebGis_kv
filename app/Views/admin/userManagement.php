@@ -162,6 +162,7 @@
                                                                     <div class="col-md-6">
                                                                         <label for="password_hash" class="col-form-label">Password</label>
                                                                         <input type="password" class="form-control" name="password_hash" id="password_hash" autocomplete="off">
+                                                                        <div id="emailHelp" class="form-text">Kosongkan jika tidak ingin mengaanti password</div>
                                                                     </div>
                                                                     <div class="col-md-6">
                                                                         <label for="role" class="col-form-label">Role</label>
@@ -258,7 +259,7 @@
                 icon: 'success',
                 title: 'Success!',
                 text: '<?= session()->getFlashdata('success'); ?>',
-                timer: 1500,
+                timer: 3000,
             });
         </script>
     <?php endif; ?>
@@ -269,7 +270,7 @@
                 icon: 'error',
                 title: 'Oops...',
                 text: '<?= session()->getFlashdata('error'); ?>',
-                timer: 1500,
+                timer: 3000,
             });
         </script>
     <?php endif; ?>
