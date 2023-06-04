@@ -348,6 +348,13 @@ code {
   font-weight: 600;
 }
 
+.kaff {
+  display: flex;
+  justify-content: center;
+  align-items: end;
+}
+
+
 /*** data Kafe ***/
 .data {
   min-height: 80vh;

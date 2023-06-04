@@ -1,6 +1,6 @@
    <!-- ======= Footer ======= -->
    <!-- CPR -->
-   <div class="container-fluid bg-light footer pt-5 wow fadeIn">
+   <div class="container-fluid footer pt-5 wow fadeIn">
        <div class="container-fluid copyright">
            <div class="container">
                <div class="row">

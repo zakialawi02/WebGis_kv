@@ -120,8 +120,8 @@
                                         </div><!-- End user Card -->
 
                                         <!-- Daftar Kafe -->
-                                        <div class="col-12 mb-3">
-                                            <div class="card recent-sales overflow-auto">
+                                        <div class="col-12 p-2 pr-2 mb-3">
+                                            <div class="card recent-sales overflow-auto p-2">
                                                 <div class="card-body">
                                                     <h5 class="card-title">Daftar Kafe</h5>
 

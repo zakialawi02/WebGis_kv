@@ -77,13 +77,13 @@
 
     <!-- Discovery -->
     <section id="discovery">
-        <div class="container-fluid bg-light discovery fadeIn" data-wow-delay="0.1s">
+        <div class="container-fluid bg-light discovery pt-3">
             <div class="container py-5">
                 <div class="pt-3 pb-2">
                     <h2>Kafe Discover</h2>
                 </div>
 
-                <div class="cards-list">
+                <div class="cards-list pt-3">
                     <?php foreach ($randomFour as $rand) : ?>
                         <div class="card-discover <?= $rand->id_kafe; ?>">
                             <div class="card_image"> <img src="/img/kafe/<?= is_array($rand->nama_file_foto) ? $rand->nama_file_foto[0] : $rand->nama_file_foto; ?>" /> </div>
@@ -127,67 +127,75 @@
         </div>
     </section>
 
-    <section class="about" id="about" style="min-height: 20vh;">
-        <div class="container p-5">
-            <h2>About</h2>
-            <div class="row g-2 p-md-3 m-1">
-                <div class="col-md-7">
-                    <h3>Hello</h3>
-                    <p>Kami memahami bahwa Surabaya adalah kota yang kaya akan keanekaragaman kafe dengan suasana yang unik dan cita rasa yang menggoda. Dengan misi untuk memudahkan pengunjung dalam menemukan pengalaman kafe yang tak terlupakan, kami menghadirkan peta WebGIS interaktif yang memudahkan Anda dalam menjelajahi berbagai kafe yang tersebar di seluruh Surabaya.</p>
-                    <p>Kami juga memberikan kesempatan kepada pengguna untuk berpartisipasi dengan menambahkan informasi tentang kafe-kafe yang belum terdaftar, sehingga dapat membantu komunitas kafe di Surabaya berkembang dan tumbuh.</p>
+    <section class="about pt-5" id="about" style="min-height: 20vh;">
+        <div class="container p-5 ">
+
+            <h2>Tentang Kami</h2>
+
+            <div class="row g-2">
+                <div class="col-md-7 kaff ">
+                    <p>Selamat datang di WebGIS Inventarisasi Kafe Surabaya! Kami adalah platform yang didedikasikan untuk menyediakan informasi lengkap tentang persebaran kafe di Surabaya. Kami menggunakan teknologi Geographical Information System (GIS) untuk menghadirkan peta interaktif yang mempermudah Anda dalam menjelajahi dan menemukan kafe-kafe menarik di Kota Surabaya. <br><br> Mari bergabung dengan kami dan temukan kafe-kafe terbaik di Surabaya melalui WebGIS Inventarisasi Kafe Surabaya!<br>Kafe yang kami kumpulkan merupakan kafe yang memiliki bangunan tetap dan menyajikan minuman dan makanan ringan. Kafe-kafe ini juga menjadi tempat yang nyaman bagi pengunjung untuk menikmati waktu santai sambil menikmati hidangan yang disajikan.</p>
                 </div>
-                <div class="col col-md-5">
-                    <h3>Heloo</h3>
-                    <div class="col-lg-6 animated fadeIn">
-                        <img class="img-fluid animated pulse infinite" style="animation-duration: 3s;" src="img/hero.jpg" alt="">
-                    </div>
+                <div class="col col-md-5 kaffe d-flex justify-content-center">
+                    <img class="img-fluid p-2" style="width: 16rem;" src="img/kafe.png" alt="">
                 </div>
             </div>
-            <div class="container p-3 m-2">
-                <center>
 
-                    <h3>Frequently Asked Questions</h3>
-
-                    <div class="container p-2 m-2 pt-2" style="width: 80%;">
-                        <div>
-                            <details open>
-                                <summary>
-                                    How do you create an accordion?
-                                </summary>
-                                <div>
-                                    Easy! As long as you don't have to support IE11 or older browsers you could use <code>&lt;details&gt;</code> and <code>&lt;summary&gt;</code> natively.
-                                </div>
-                            </details>
-                            <details>
-                                <summary>
-                                    What if I have to support IE11 or older browsers?
-                                </summary>
-                                <div>
-                                    No worries. The fallback for these elements is quite good. They will display as open. You won't get the open/close mechanism, but you won't lose any content either.
-                                </div>
-                            </details>
-                            <details>
-                                <summary>
-                                    What type of content can I have inside one of these?
-                                </summary>
-                                <div>
-                                    Almost anything you'd like. The <code>&lt;details&gt;</code> element allows all <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Content_categories#flow_content" target="_blank">flow content</a>, which is basically everything.
-                                </div>
-                            </details>
-                            <details>
-                                <summary>
-                                    How does it work?
-                                </summary>
-                                <div>
-                                    The <code>&lt;details&gt;</code> element encapsulates the <code>&lt;summary&gt;</code> element. The <code>&lt;summary&gt;</code> becomes the 'label' for the <code>&lt;details&gt;</code> and acts like a button. When clicked, the attribute <code>open</code> is added to the <code>&lt;details&gt;</code> element, making it display. You can therefore style the open and closed states seperately if you'd like.
-                                </div>
-                            </details>
-                        </div>
-                    </div>
-
-                </center>
-            </div>
         </div>
+
+        <center>
+            <div class="container p-3 m-2">
+                <h3>Frequently Asked Questions</h3>
+
+                <div class="container p-2 m-2 pt-2" style="width: 80%;">
+                    <div>
+                        <details open>
+                            <summary>
+                                Apa itu WebGIS Kafe Surabaya?
+                            </summary>
+                            <div>
+                                WebGIS Kafe Surabaya adalah platform online berbasis website yang dapat membantu anda menemukan kafe-kafe di Surabaya dan Melakukan inventarisasi kafe di Surabaya.
+                            </div>
+                        </details>
+                        <details>
+                            <summary>
+                                Apa itu WebGIS?
+                            </summary>
+                            <div>
+                                WebGIS adalah singkatan dari Web Geographic Information System, yang merupakan sebuah sistem informasi geografis yang diakses melalui internet. WebGIS menggabungkan data geografis dengan teknologi web untuk menyajikan informasi spasial secara interaktif.
+
+                                Dalam konteks WebGIS Inventarisasi Kafe Surabaya, WebGIS digunakan untuk memetakan dan menampilkan persebaran kafe di Surabaya. Pengguna dapat melihat peta interaktif, mencari kafe berdasarkan lokasi atau kriteria lainnya, dan mendapatkan informasi detail tentang kafe-kafe tersebut.
+                            </div>
+                        </details>
+                        <details>
+                            <summary>
+                                Bagaimana cara menggunakan WebGIS Inventarisasi Kafe Surabaya?
+                            </summary>
+                            <div>
+                                Gunakan fungsi pencarian untuk mencari kafe berdasarkan nama. Anda juga dapat menjelajahi peta untuk melihat kafe-kafe yang terdaftar di berbagai area Surabaya Serta menambahkan data kafe anda disini.
+                            </div>
+                        </details>
+                        <details>
+                            <summary>
+                                Bagaimana saya dapat menambahkan kafe baru ke dalam inventaris WeGIS Kafe Surabaya ?
+                            </summary>
+                            <div>
+                                Anda dapat mengirimkan informasi tentang kafe tersebut melalui halaman "Peta" di situs kami. Tim kami akan memverifikasi informasi dan menambahkannya ke dalam inventaris.
+                            </div>
+                        </details>
+                        <details>
+                            <summary>
+                                Apa jenis kafe yang dapat ditambahkan ke dalam WebGIS Inventarisasi Kafe Surabaya?
+                            </summary>
+                            <div>
+                                Kami menyambut berbagai jenis kafe yang memiliki bangunan permanen dan menyajikan minuman serta makanan ringan. Ini termasuk kafe dengan berbagai tema, seperti kafe kopi, kafe teh, kafe dengan makanan penutup, kafe dengan menu makanan khas, dan banyak lagi.
+                            </div>
+                        </details>
+                    </div>
+                </div>
+
+            </div>
+        </center>
     </section>
     <!-- Map End -->
 
