@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
 
     <title>PDF Document</title>
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script>
         $.ajax({
             url: "/api/aprv",
@@ -85,11 +85,10 @@
                 });
             }
         });
-    </script>
+    </script> -->
     <style>
         #pdf {
             min-height: 10vh;
-            margin: 10px;
         }
 
         table {
@@ -100,7 +99,7 @@
 
         th,
         td {
-            padding: 8px;
+            padding: 4px;
             text-align: left;
             border-bottom: 1px solid black;
         }
@@ -137,6 +136,8 @@
             <h2>Data Kafe Surabaya</h2>
         </center>
 
+
+
         <table id="data-table">
             <tr>
                 <th class="no">No</th>
@@ -146,8 +147,75 @@
                 <th>Instagram</th>
                 <th>Jam Oprasional</th>
             </tr>
+            <?php $nomor = 1; ?>
+            <?php foreach ($tampilKafe as $K) : ?>
+                <tr>
+                    <td><?= $nomor++; ?></td>
+                    <td><?= $K->nama_kafe; ?></td>
+                    <td><?= $K->alamat_kafe; ?></td>
+                    <td><?= number_format($K->latitude, 8); ?>, <?= number_format($K->longitude, 8); ?></td>
+                    <td><?= empty($K->instagram_kafe) ? "-" : "@" . $K->instagram_kafe; ?></td>
+                    <td><?php
+                        $jsonString = $K->jam_oprasional;
+                        $jamOperasional = json_decode($jsonString, true);
+                        usort($jamOperasional, function ($a, $b) {
+                            $days = ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu'];
+                            $indexA = array_search($a['hari'], $days);
+                            $indexB = array_search($b['hari'], $days);
+                            return $indexA - $indexB;
+                        });
 
+                        $mergedOperational = [];
+                        $mergedOperational[] = [
+                            'startDay' => $jamOperasional[0]['hari'],
+                            'endDay' => $jamOperasional[0]['hari'],
+                            'openTime' => $jamOperasional[0]['open_time'],
+                            'closeTime' => $jamOperasional[0]['close_time']
+                        ];
+                        for ($i = 1; $i < count($jamOperasional); $i++) {
+                            $hari = $jamOperasional[$i]['hari'];
+                            $openTime = $jamOperasional[$i]['open_time'];
+                            $closeTime = $jamOperasional[$i]['close_time'];
+                            if ($openTime === $jamOperasional[$i - 1]['open_time'] && $closeTime === $jamOperasional[$i - 1]['close_time']) {
+                                $lastMerged = &$mergedOperational[count($mergedOperational) - 1];
+                                $lastMerged['endDay'] = $hari;
+                            } else {
+                                $mergedOperational[] = [
+                                    'startDay' => $hari,
+                                    'endDay' => $hari,
+                                    'openTime' => $openTime,
+                                    'closeTime' => $closeTime
+                                ];
+                            }
+                        }
+                        foreach ($mergedOperational as $index => $operational) {
+                            $jamOperasionalText = $operational['startDay'];
+                            if ($operational['startDay'] !== $operational['endDay']) {
+                                $jamOperasionalText .= " - " . $operational['endDay'];
+                            }
+                            $openTimeHHMM = substr($operational['openTime'], 0, 5);
+                            $closeTimeHHMM = substr($operational['closeTime'], 0, 5);
+                            $jamOperasionalText .= ": " . "<br>" . $openTimeHHMM . " - " . $closeTimeHHMM;
+                            echo $jamOperasionalText . "<br>";
+                        }
+                        ?>
+                    </td>
+                </tr>
+            <?php endforeach ?>
         </table>
+
+
+        <!-- <table id="data-table">
+            <tr>
+                <th class="no">No</th>
+                <th>Nama Kafe</th>
+                <th>Alamat kafe</th>
+                <th>Koordinat</th>
+                <th>Instagram</th>
+                <th>Jam Oprasional</th>
+            </tr>
+
+        </table> -->
 
 
 

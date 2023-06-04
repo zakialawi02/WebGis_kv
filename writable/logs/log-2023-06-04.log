@@ -1,0 +1,206 @@
+CRITICAL - 2023-06-04 01:13:08 --> Undefined variable $ZsurabayaTimur
+in APPPATH/Views/admin/dashboard.php on line 870.
+ 1 APPPATH/Views/admin/dashboard.php(870): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(213): include('/home/zaki/Documents/WebGis_kv/app/Views/admin/dashboard.php')
+ 3 SYSTEMPATH/View/View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1184): CodeIgniter\View\View->render()
+ 5 APPPATH/Controllers/Admin.php(50): view()
+ 6 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Admin->index()
+ 7 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/home/zaki/Documents/WebGis_kv/public/index.php')
+CRITICAL - 2023-06-04 01:15:00 --> Undefined variable $ZsurabayaTimur
+in APPPATH/Views/admin/dashboard.php on line 869.
+ 1 APPPATH/Views/admin/dashboard.php(869): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(213): include('/home/zaki/Documents/WebGis_kv/app/Views/admin/dashboard.php')
+ 3 SYSTEMPATH/View/View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1184): CodeIgniter\View\View->render()
+ 5 APPPATH/Controllers/Admin.php(50): view()
+ 6 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Admin->index()
+ 7 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/home/zaki/Documents/WebGis_kv/public/index.php')
+CRITICAL - 2023-06-04 01:39:28 --> Undefined variable $ZsurabayaTimur
+in APPPATH/Views/admin/dashboard.php on line 153.
+ 1 APPPATH/Views/admin/dashboard.php(153): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(213): include('/home/zaki/Documents/WebGis_kv/app/Views/admin/dashboard.php')
+ 3 SYSTEMPATH/View/View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1184): CodeIgniter\View\View->render()
+ 5 APPPATH/Controllers/Admin.php(50): view()
+ 6 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Admin->index()
+ 7 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/home/zaki/Documents/WebGis_kv/public/index.php')
+CRITICAL - 2023-06-04 01:46:48 --> Undefined variable $ZsurabayaTimur
+in APPPATH/Views/admin/dashboard.php on line 870.
+ 1 APPPATH/Views/admin/dashboard.php(870): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(213): include('/home/zaki/Documents/WebGis_kv/app/Views/admin/dashboard.php')
+ 3 SYSTEMPATH/View/View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1184): CodeIgniter\View\View->render()
+ 5 APPPATH/Controllers/Admin.php(50): view()
+ 6 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Admin->index()
+ 7 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/home/zaki/Documents/WebGis_kv/public/index.php')
+ERROR - 2023-06-04 07:58:32 --> ErrorException: pg_query(): Query failed: ERROR:  null value in column &quot;user_about&quot; of relation &quot;users&quot; violates not-null constraint
+DETAIL:  Failing row contains (26, null, user.jpg, lrykjxnuyagt@internetkeno.com, user5, null, $2y$10$hawhX9xxMNPX82FV/gRZ2O4bePAGylJ0MBrvwoB0yncmVk9LUS3xG, null, null, null, 3e840ff9e22495629a4c98647df43a54, null, null, 0, 0, 2023-06-04 07:58:32, 2023-06-04 07:58:32, null). in /home/zaki/Documents/WebGis_kv/vendor/codeigniter4/framework/system/Database/Postgre/Connection.php:152
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /home/zaki/Documents/WebGis_kv/vendor/codeigniter4/framework/system/Database/Postgre/Connection.php(152): pg_query()
+#2 /home/zaki/Documents/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(692): CodeIgniter\Database\Postgre\Connection->execute()
+#3 /home/zaki/Documents/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+#4 /home/zaki/Documents/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query()
+#5 /home/zaki/Documents/WebGis_kv/vendor/codeigniter4/framework/system/Model.php(330): CodeIgniter\Database\BaseBuilder->insert()
+#6 /home/zaki/Documents/WebGis_kv/vendor/codeigniter4/framework/system/BaseModel.php(782): CodeIgniter\Model->doInsert()
+#7 /home/zaki/Documents/WebGis_kv/vendor/codeigniter4/framework/system/Model.php(730): CodeIgniter\BaseModel->insert()
+#8 /home/zaki/Documents/WebGis_kv/vendor/codeigniter4/framework/system/BaseModel.php(692): CodeIgniter\Model->insert()
+#9 /home/zaki/Documents/WebGis_kv/vendor/myth/auth/src/Controllers/AuthController.php(183): CodeIgniter\BaseModel->save()
+#10 /home/zaki/Documents/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(934): Myth\Auth\Controllers\AuthController->attemptRegister()
+#11 /home/zaki/Documents/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+#12 /home/zaki/Documents/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+#13 /home/zaki/Documents/WebGis_kv/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#14 /home/zaki/Documents/WebGis_kv/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(47): require_once('...')
+#15 {main}
+CRITICAL - 2023-06-04 07:58:33 --> pg_query(): Query failed: ERROR:  null value in column &quot;user_about&quot; of relation &quot;users&quot; violates not-null constraint
+DETAIL:  Failing row contains (26, null, user.jpg, lrykjxnuyagt@internetkeno.com, user5, null, $2y$10$hawhX9xxMNPX82FV/gRZ2O4bePAGylJ0MBrvwoB0yncmVk9LUS3xG, null, null, null, 3e840ff9e22495629a4c98647df43a54, null, null, 0, 0, 2023-06-04 07:58:32, 2023-06-04 07:58:32, null).
+in SYSTEMPATH/Database/Postgre/Connection.php on line 152.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/Database/Postgre/Connection.php(152): pg_query()
+ 3 SYSTEMPATH/Database/BaseConnection.php(692): CodeIgniter\Database\Postgre\Connection->execute()
+ 4 SYSTEMPATH/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 5 SYSTEMPATH/Database/BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query()
+ 6 SYSTEMPATH/Model.php(330): CodeIgniter\Database\BaseBuilder->insert()
+ 7 SYSTEMPATH/BaseModel.php(782): CodeIgniter\Model->doInsert()
+ 8 SYSTEMPATH/Model.php(730): CodeIgniter\BaseModel->insert()
+ 9 SYSTEMPATH/BaseModel.php(692): CodeIgniter\Model->insert()
+10 VENDORPATH/myth/auth/src/Controllers/AuthController.php(183): CodeIgniter\BaseModel->save()
+11 SYSTEMPATH/CodeIgniter.php(934): Myth\Auth\Controllers\AuthController->attemptRegister()
+12 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+13 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+14 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+15 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/home/zaki/Documents/WebGis_kv/public/index.php')
+ERROR - 2023-06-04 08:00:00 --> ErrorException: pg_query(): Query failed: ERROR:  null value in column &quot;user_about&quot; of relation &quot;users&quot; violates not-null constraint
+DETAIL:  Failing row contains (27, , user.jpg, lrykjxnuyagt@internetkeno.com, user5, null, $2y$10$pS182N7C/ZPoAq/nXhsGTO5KhiA3ueO5B3LE0rKhRgVdZIbPTLORy, null, null, null, null, null, null, 1, 0, 2023-06-04 07:59:58, 2023-06-04 09:00:00.587996, null). in /home/zaki/Documents/WebGis_kv/vendor/codeigniter4/framework/system/Database/Postgre/Connection.php:152
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /home/zaki/Documents/WebGis_kv/vendor/codeigniter4/framework/system/Database/Postgre/Connection.php(152): pg_query()
+#2 /home/zaki/Documents/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(692): CodeIgniter\Database\Postgre\Connection->execute()
+#3 /home/zaki/Documents/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+#4 /home/zaki/Documents/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query()
+#5 /home/zaki/Documents/WebGis_kv/app/Models/ModelUser.php(56): CodeIgniter\Database\BaseBuilder->insert()
+#6 /home/zaki/Documents/WebGis_kv/app/Controllers/User.php(59): App\Models\ModelUser->addUser()
+#7 /home/zaki/Documents/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(934): App\Controllers\User->tambah()
+#8 /home/zaki/Documents/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+#9 /home/zaki/Documents/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+#10 /home/zaki/Documents/WebGis_kv/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#11 /home/zaki/Documents/WebGis_kv/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(47): require_once('...')
+#12 {main}
+CRITICAL - 2023-06-04 08:00:00 --> pg_query(): Query failed: ERROR:  null value in column &quot;user_about&quot; of relation &quot;users&quot; violates not-null constraint
+DETAIL:  Failing row contains (27, , user.jpg, lrykjxnuyagt@internetkeno.com, user5, null, $2y$10$pS182N7C/ZPoAq/nXhsGTO5KhiA3ueO5B3LE0rKhRgVdZIbPTLORy, null, null, null, null, null, null, 1, 0, 2023-06-04 07:59:58, 2023-06-04 09:00:00.587996, null).
+in SYSTEMPATH/Database/Postgre/Connection.php on line 152.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/Database/Postgre/Connection.php(152): pg_query()
+ 3 SYSTEMPATH/Database/BaseConnection.php(692): CodeIgniter\Database\Postgre\Connection->execute()
+ 4 SYSTEMPATH/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 5 SYSTEMPATH/Database/BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query()
+ 6 APPPATH/Models/ModelUser.php(56): CodeIgniter\Database\BaseBuilder->insert()
+ 7 APPPATH/Controllers/User.php(59): App\Models\ModelUser->addUser()
+ 8 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\User->tambah()
+ 9 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+10 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+11 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/home/zaki/Documents/WebGis_kv/public/index.php')
+ERROR - 2023-06-04 08:00:31 --> ErrorException: pg_query(): Query failed: ERROR:  null value in column &quot;user_about&quot; of relation &quot;users&quot; violates not-null constraint
+DETAIL:  Failing row contains (28, user5, user.jpg, lrykjxnuyagt@internetkeno.com, user5, null, $2y$10$iJiPFWOCgnLf5sDUUGAM5eViEMTFMHPDMlMqirCZhNnp2ERaxpY2K, null, null, null, null, null, null, 1, 0, 2023-06-04 08:00:29, 2023-06-04 09:00:31.859517, null). in /home/zaki/Documents/WebGis_kv/vendor/codeigniter4/framework/system/Database/Postgre/Connection.php:152
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /home/zaki/Documents/WebGis_kv/vendor/codeigniter4/framework/system/Database/Postgre/Connection.php(152): pg_query()
+#2 /home/zaki/Documents/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(692): CodeIgniter\Database\Postgre\Connection->execute()
+#3 /home/zaki/Documents/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+#4 /home/zaki/Documents/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query()
+#5 /home/zaki/Documents/WebGis_kv/app/Models/ModelUser.php(56): CodeIgniter\Database\BaseBuilder->insert()
+#6 /home/zaki/Documents/WebGis_kv/app/Controllers/User.php(59): App\Models\ModelUser->addUser()
+#7 /home/zaki/Documents/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(934): App\Controllers\User->tambah()
+#8 /home/zaki/Documents/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+#9 /home/zaki/Documents/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+#10 /home/zaki/Documents/WebGis_kv/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#11 /home/zaki/Documents/WebGis_kv/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(47): require_once('...')
+#12 {main}
+CRITICAL - 2023-06-04 08:00:31 --> pg_query(): Query failed: ERROR:  null value in column &quot;user_about&quot; of relation &quot;users&quot; violates not-null constraint
+DETAIL:  Failing row contains (28, user5, user.jpg, lrykjxnuyagt@internetkeno.com, user5, null, $2y$10$iJiPFWOCgnLf5sDUUGAM5eViEMTFMHPDMlMqirCZhNnp2ERaxpY2K, null, null, null, null, null, null, 1, 0, 2023-06-04 08:00:29, 2023-06-04 09:00:31.859517, null).
+in SYSTEMPATH/Database/Postgre/Connection.php on line 152.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/Database/Postgre/Connection.php(152): pg_query()
+ 3 SYSTEMPATH/Database/BaseConnection.php(692): CodeIgniter\Database\Postgre\Connection->execute()
+ 4 SYSTEMPATH/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 5 SYSTEMPATH/Database/BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query()
+ 6 APPPATH/Models/ModelUser.php(56): CodeIgniter\Database\BaseBuilder->insert()
+ 7 APPPATH/Controllers/User.php(59): App\Models\ModelUser->addUser()
+ 8 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\User->tambah()
+ 9 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+10 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+11 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/home/zaki/Documents/WebGis_kv/public/index.php')
+ERROR - 2023-06-04 08:10:42 --> ErrorException: pg_query(): Query failed: ERROR:  null value in column &quot;user_about&quot; of relation &quot;users&quot; violates not-null constraint
+DETAIL:  Failing row contains (29, , user.jpg, lrykjxnuyagt@internetkeno.com, user5, null, $2y$10$RCHUTg5hP1mqVyf1zY665uMWx6oKWSeCa.tOhkJ82qRMBVej0DYry, null, null, null, null, null, null, 1, 0, 2023-06-04 08:10:40, 2023-06-04 09:10:42.397503, null). in /home/zaki/Documents/WebGis_kv/vendor/codeigniter4/framework/system/Database/Postgre/Connection.php:152
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /home/zaki/Documents/WebGis_kv/vendor/codeigniter4/framework/system/Database/Postgre/Connection.php(152): pg_query()
+#2 /home/zaki/Documents/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(692): CodeIgniter\Database\Postgre\Connection->execute()
+#3 /home/zaki/Documents/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+#4 /home/zaki/Documents/WebGis_kv/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query()
+#5 /home/zaki/Documents/WebGis_kv/app/Models/ModelUser.php(56): CodeIgniter\Database\BaseBuilder->insert()
+#6 /home/zaki/Documents/WebGis_kv/app/Controllers/User.php(59): App\Models\ModelUser->addUser()
+#7 /home/zaki/Documents/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(934): App\Controllers\User->tambah()
+#8 /home/zaki/Documents/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+#9 /home/zaki/Documents/WebGis_kv/vendor/codeigniter4/framework/system/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+#10 /home/zaki/Documents/WebGis_kv/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#11 /home/zaki/Documents/WebGis_kv/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(47): require_once('...')
+#12 {main}
+CRITICAL - 2023-06-04 08:10:42 --> pg_query(): Query failed: ERROR:  null value in column &quot;user_about&quot; of relation &quot;users&quot; violates not-null constraint
+DETAIL:  Failing row contains (29, , user.jpg, lrykjxnuyagt@internetkeno.com, user5, null, $2y$10$RCHUTg5hP1mqVyf1zY665uMWx6oKWSeCa.tOhkJ82qRMBVej0DYry, null, null, null, null, null, null, 1, 0, 2023-06-04 08:10:40, 2023-06-04 09:10:42.397503, null).
+in SYSTEMPATH/Database/Postgre/Connection.php on line 152.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/Database/Postgre/Connection.php(152): pg_query()
+ 3 SYSTEMPATH/Database/BaseConnection.php(692): CodeIgniter\Database\Postgre\Connection->execute()
+ 4 SYSTEMPATH/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 5 SYSTEMPATH/Database/BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query()
+ 6 APPPATH/Models/ModelUser.php(56): CodeIgniter\Database\BaseBuilder->insert()
+ 7 APPPATH/Controllers/User.php(59): App\Models\ModelUser->addUser()
+ 8 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\User->tambah()
+ 9 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+10 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+11 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/home/zaki/Documents/WebGis_kv/public/index.php')
+CRITICAL - 2023-06-04 08:21:21 --> preg_match(): Passing null to parameter #2 ($subject) of type string is deprecated
+in SYSTEMPATH/Email/Email.php on line 475.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/Email/Email.php(475): preg_match()
+ 3 VENDORPATH/myth/auth/src/Authentication/Activators/EmailActivator.php(27): CodeIgniter\Email\Email->setFrom()
+ 4 VENDORPATH/myth/auth/src/Controllers/AuthController.php(189): Myth\Auth\Authentication\Activators\EmailActivator->send()
+ 5 SYSTEMPATH/CodeIgniter.php(934): Myth\Auth\Controllers\AuthController->attemptRegister()
+ 6 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 7 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 8 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/home/zaki/Documents/WebGis_kv/public/index.php')
+CRITICAL - 2023-06-04 16:31:33 --> Invalid file: "document.php"
+in SYSTEMPATH/Exceptions/FrameworkException.php on line 33.
+ 1 SYSTEMPATH/View/View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile()
+ 2 SYSTEMPATH/Common.php(1184): CodeIgniter\View\View->render()
+ 3 APPPATH/Controllers/Kafe.php(164): view()
+ 4 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Kafe->generatePdf()
+ 5 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 7 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/home/zaki/Documents/WebGis_kv/public/index.php')
+CRITICAL - 2023-06-04 16:33:38 --> Class "Mpdf\Mpdf\Mpdf" not found
+in APPPATH/Controllers/Kafe.php on line 163.
+ 1 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Kafe->generatePdf()
+ 2 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 4 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/home/zaki/Documents/WebGis_kv/public/index.php')

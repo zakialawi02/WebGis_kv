@@ -7,13 +7,16 @@ namespace Composer\Autoload;
 class ComposerStaticInitbdafac35ad22494a1d6e4884ef9fc04c
 {
     public static $files = array (
-        '3917c79c5052b270641b5a200963dbc2' => __DIR__ . '/..' . '/kint-php/kint/init.php',
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
         '6e3fae29631ef280660b3cdad06f25a8' => __DIR__ . '/..' . '/symfony/deprecation-contracts/function.php',
         'ec07570ca5a812141189b1fa81503674' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Assert/Functions.php',
     );
 
     public static $prefixLengthsPsr4 = array (
+        's' => 
+        array (
+            'setasign\\Fpdi\\' => 14,
+        ),
         'T' => 
         array (
             'Tests\\Support\\' => 14,
@@ -26,21 +29,20 @@ class ComposerStaticInitbdafac35ad22494a1d6e4884ef9fc04c
         'P' => 
         array (
             'Psr\\Log\\' => 8,
+            'Psr\\Http\\Message\\' => 17,
             'Psr\\Container\\' => 14,
             'PhpParser\\' => 10,
         ),
         'M' => 
         array (
             'Myth\\Auth\\' => 10,
+            'Mpdf\\PsrLogAwareTrait\\' => 22,
+            'Mpdf\\' => 5,
             'Masterminds\\' => 12,
         ),
         'L' => 
         array (
             'Laminas\\Escaper\\' => 16,
-        ),
-        'K' => 
-        array (
-            'Kint\\' => 5,
         ),
         'F' => 
         array (
@@ -60,6 +62,10 @@ class ComposerStaticInitbdafac35ad22494a1d6e4884ef9fc04c
     );
 
     public static $prefixDirsPsr4 = array (
+        'setasign\\Fpdi\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/setasign/fpdi/src',
+        ),
         'Tests\\Support\\' => 
         array (
             0 => __DIR__ . '/../..' . '/tests/_support',
@@ -76,6 +82,10 @@ class ComposerStaticInitbdafac35ad22494a1d6e4884ef9fc04c
         array (
             0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
         ),
+        'Psr\\Http\\Message\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/http-message/src',
+        ),
         'Psr\\Container\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/container/src',
@@ -88,6 +98,14 @@ class ComposerStaticInitbdafac35ad22494a1d6e4884ef9fc04c
         array (
             0 => __DIR__ . '/..' . '/myth/auth/src',
         ),
+        'Mpdf\\PsrLogAwareTrait\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/mpdf/psr-log-aware-trait/src',
+        ),
+        'Mpdf\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/mpdf/mpdf/src',
+        ),
         'Masterminds\\' => 
         array (
             0 => __DIR__ . '/..' . '/masterminds/html5/src',
@@ -95,10 +113,6 @@ class ComposerStaticInitbdafac35ad22494a1d6e4884ef9fc04c
         'Laminas\\Escaper\\' => 
         array (
             0 => __DIR__ . '/..' . '/laminas/laminas-escaper/src',
-        ),
-        'Kint\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/kint-php/kint/src',
         ),
         'FontLib\\' => 
         array (
