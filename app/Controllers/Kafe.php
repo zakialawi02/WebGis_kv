@@ -3,8 +3,7 @@
 namespace App\Controllers;
 
 use CodeIgniter\Exceptions\PageNotFoundException;
-use Dompdf\Dompdf;
-use Dompdf\Options;
+use Mpdf\Mpdf;
 use App\Models\ModelGeojson;
 use App\Models\ModelKv;
 use App\Models\ModelSetting;
@@ -159,17 +158,11 @@ class Kafe extends BaseController
             'tampilKafe' => $this->kafe->callKafe()->getResult(),
         ];
 
-        $options = new Options();
-        $options->set('isRemoteEnabled', true);
-        $options->setDefaultFont('Times-Roman');
-        $dompdf = new Dompdf($options);
-
+        $mpdf = new \Mpdf\Mpdf();
         $html = view('page/pdfKafe', $data);
-        $dompdf->loadHtml($html);
-        $dompdf->set_option('isHtml5ParserEnabled', true);
-        $dompdf->setPaper('A4', 'portrait');
-        $dompdf->render();
-        $dompdf->stream('data_kafe.pdf', ['Attachment' => false]);
+        $mpdf->WriteHTML($html);
+        $this->response->setHeader('Content-Type', 'application/pdf');
+        $mpdf->Output('data_kafe.pdf', 'I');
     }
 
     public function peta_pdf()

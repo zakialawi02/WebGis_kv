@@ -68,9 +68,6 @@
                         <p>Jelajahi Kafe-kafe Terbaik, Mulai dari yang Klasik Hingga yang Trendi.</p>
                         <a href="#discovery" class="btn btn-primary p-2">Mulai Jelajahi</a>
                     </div>
-                    <!-- <div class="col-lg-6 animated fadeIn">
-                    <img class="img-fluid animated pulse infinite" style="animation-duration: 3s;" src="img/hero.png" alt="">
-                </div> -->
                 </div>
             </div>
         </div>
@@ -113,13 +110,13 @@
                             <h2>Persebaran Kafe</h2>
                             <p>Dapatkan Gambaran Menarik Tentang Beragam Lokasi Kafe di Kota Ini dan Potensi yang ada.</p>
                             <p>Melalui Peta Interaktif, Anda Dapat Melihat Sekilas Di Mana Kafe-kafe Menarik Berada.</p>
-                            <button type="button" class="btn btn-primary">
+                            <a type="button" href="/map" class="btn btn-primary" target="_blank">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-globe-asia-australia" viewBox="0 0 16 16">
                                     <path d="m10.495 6.92 1.278-.619a.483.483 0 0 0 .126-.782c-.252-.244-.682-.139-.932.107-.23.226-.513.373-.816.53l-.102.054c-.338.178-.264.626.1.736a.476.476 0 0 0 .346-.027ZM7.741 9.808V9.78a.413.413 0 1 1 .783.183l-.22.443a.602.602 0 0 1-.12.167l-.193.185a.36.36 0 1 1-.5-.516l.112-.108a.453.453 0 0 0 .138-.326ZM5.672 12.5l.482.233A.386.386 0 1 0 6.32 12h-.416a.702.702 0 0 1-.419-.139l-.277-.206a.302.302 0 1 0-.298.52l.761.325Z"></path>
                                     <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0ZM1.612 10.867l.756-1.288a1 1 0 0 1 1.545-.225l1.074 1.005a.986.986 0 0 0 1.36-.011l.038-.037a.882.882 0 0 0 .26-.755c-.075-.548.37-1.033.92-1.099.728-.086 1.587-.324 1.728-.957.086-.386-.114-.83-.361-1.2-.207-.312 0-.8.374-.8.123 0 .24-.055.318-.15l.393-.474c.196-.237.491-.368.797-.403.554-.064 1.407-.277 1.583-.973.098-.391-.192-.634-.484-.88-.254-.212-.51-.426-.515-.741a6.998 6.998 0 0 1 3.425 7.692 1.015 1.015 0 0 0-.087-.063l-.316-.204a1 1 0 0 0-.977-.06l-.169.082a1 1 0 0 1-.741.051l-1.021-.329A1 1 0 0 0 11.205 9h-.165a1 1 0 0 0-.945.674l-.172.499a1 1 0 0 1-.404.514l-.802.518a1 1 0 0 0-.458.84v.455a1 1 0 0 0 1 1h.257a1 1 0 0 1 .542.16l.762.49a.998.998 0 0 0 .283.126 7.001 7.001 0 0 1-9.49-3.409Z"></path>
                                 </svg>
                                 Mulai Petualangan !!
-                            </button>
+                            </a>
                         </div>
                         <div class="col-md-8">
                             <div class="map" id="map"></div>
@@ -142,9 +139,53 @@
                 <div class="col col-md-5">
                     <h3>Heloo</h3>
                     <div class="col-lg-6 animated fadeIn">
-                        <img class="img-fluid animated pulse infinite" style="animation-duration: 3s;" src="img/hero.png" alt="">
+                        <img class="img-fluid animated pulse infinite" style="animation-duration: 3s;" src="img/hero.jpg" alt="">
                     </div>
                 </div>
+            </div>
+            <div class="container p-3 m-2">
+                <center>
+
+                    <h3>Frequently Asked Questions</h3>
+
+                    <div class="container p-2 m-2 pt-2" style="width: 80%;">
+                        <div>
+                            <details open>
+                                <summary>
+                                    How do you create an accordion?
+                                </summary>
+                                <div>
+                                    Easy! As long as you don't have to support IE11 or older browsers you could use <code>&lt;details&gt;</code> and <code>&lt;summary&gt;</code> natively.
+                                </div>
+                            </details>
+                            <details>
+                                <summary>
+                                    What if I have to support IE11 or older browsers?
+                                </summary>
+                                <div>
+                                    No worries. The fallback for these elements is quite good. They will display as open. You won't get the open/close mechanism, but you won't lose any content either.
+                                </div>
+                            </details>
+                            <details>
+                                <summary>
+                                    What type of content can I have inside one of these?
+                                </summary>
+                                <div>
+                                    Almost anything you'd like. The <code>&lt;details&gt;</code> element allows all <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Content_categories#flow_content" target="_blank">flow content</a>, which is basically everything.
+                                </div>
+                            </details>
+                            <details>
+                                <summary>
+                                    How does it work?
+                                </summary>
+                                <div>
+                                    The <code>&lt;details&gt;</code> element encapsulates the <code>&lt;summary&gt;</code> element. The <code>&lt;summary&gt;</code> becomes the 'label' for the <code>&lt;details&gt;</code> and acts like a button. When clicked, the attribute <code>open</code> is added to the <code>&lt;details&gt;</code> element, making it display. You can therefore style the open and closed states seperately if you'd like.
+                                </div>
+                            </details>
+                        </div>
+                    </div>
+
+                </center>
             </div>
         </div>
     </section>

@@ -13,6 +13,10 @@ class ComposerStaticInitbdafac35ad22494a1d6e4884ef9fc04c
     );
 
     public static $prefixLengthsPsr4 = array (
+        's' => 
+        array (
+            'setasign\\Fpdi\\' => 14,
+        ),
         'T' => 
         array (
             'Tests\\Support\\' => 14,
@@ -25,12 +29,15 @@ class ComposerStaticInitbdafac35ad22494a1d6e4884ef9fc04c
         'P' => 
         array (
             'Psr\\Log\\' => 8,
+            'Psr\\Http\\Message\\' => 17,
             'Psr\\Container\\' => 14,
             'PhpParser\\' => 10,
         ),
         'M' => 
         array (
             'Myth\\Auth\\' => 10,
+            'Mpdf\\PsrLogAwareTrait\\' => 22,
+            'Mpdf\\' => 5,
             'Masterminds\\' => 12,
         ),
         'L' => 
@@ -55,6 +62,10 @@ class ComposerStaticInitbdafac35ad22494a1d6e4884ef9fc04c
     );
 
     public static $prefixDirsPsr4 = array (
+        'setasign\\Fpdi\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/setasign/fpdi/src',
+        ),
         'Tests\\Support\\' => 
         array (
             0 => __DIR__ . '/../..' . '/tests/_support',
@@ -71,6 +82,10 @@ class ComposerStaticInitbdafac35ad22494a1d6e4884ef9fc04c
         array (
             0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
         ),
+        'Psr\\Http\\Message\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/http-message/src',
+        ),
         'Psr\\Container\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/container/src',
@@ -82,6 +97,14 @@ class ComposerStaticInitbdafac35ad22494a1d6e4884ef9fc04c
         'Myth\\Auth\\' => 
         array (
             0 => __DIR__ . '/..' . '/myth/auth/src',
+        ),
+        'Mpdf\\PsrLogAwareTrait\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/mpdf/psr-log-aware-trait/src',
+        ),
+        'Mpdf\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/mpdf/mpdf/src',
         ),
         'Masterminds\\' => 
         array (

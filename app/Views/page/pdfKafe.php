@@ -89,7 +89,6 @@
     <style>
         #pdf {
             min-height: 10vh;
-            margin: 10px;
         }
 
         table {
@@ -100,7 +99,7 @@
 
         th,
         td {
-            padding: 8px;
+            padding: 4px;
             text-align: left;
             border-bottom: 1px solid black;
         }
@@ -196,7 +195,7 @@
                             }
                             $openTimeHHMM = substr($operational['openTime'], 0, 5);
                             $closeTimeHHMM = substr($operational['closeTime'], 0, 5);
-                            $jamOperasionalText .= ": " . $openTimeHHMM . " - " . $closeTimeHHMM;
+                            $jamOperasionalText .= ": " . "<br>" . $openTimeHHMM . " - " . $closeTimeHHMM;
                             echo $jamOperasionalText . "<br>";
                         }
                         ?>

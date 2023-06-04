@@ -70,7 +70,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Peta Sebaran Kafe</h5>
                         <p class="card-text">Peta Persebaran Kafe di Surabaya</p>
-                        <a href="/list-kafe" class="btn btn-primary bi bi-cloud-arrow-down-fill"> Download</a>
+                        <a href="/data" class="btn btn-primary bi bi-cloud-arrow-down-fill"> Download</a>
                     </div>
                 </div>
 
@@ -79,7 +79,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Kafe di Surabaya</h5>
                         <p class="card-text">Data Persebaran Kafe di Surabaya</p>
-                        <a href="/kafe/pdf" class="btn btn-primary bi bi-cloud-arrow-down-fill"> PDF</a>
+                        <a href="/kafe/generatepdf" class="btn btn-primary bi bi-cloud-arrow-down-fill"> PDF</a>
                         <a type="button" class="btn btn-primary bi bi-cloud-arrow-down-fill" onclick="downloadGeoJSON()"> Geojson</a>
                     </div>
                 </div>
@@ -89,7 +89,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Batas Administrasi Kota Surabaya</h5>
                         <p class="card-text">Data Batas Administrasi Kota Surabaya</p>
-                        <a href="/list-kafe" class="btn btn-primary bi bi-cloud-arrow-down-fill"> Download</a>
+                        <a href="/data" class="btn btn-primary bi bi-cloud-arrow-down-fill"> Download</a>
                     </div>
                 </div>
 
@@ -98,7 +98,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Fasilitas Pendidikan Kota Surabaya</h5>
                         <p class="card-text">Data Fasilitas Pendidikan SMA Sederajat dan Perguruan Tinggi Kota Surabaya</p>
-                        <a href="/list-kafe" class="btn btn-primary bi bi-cloud-arrow-down-fill"> Download</a>
+                        <a href="/data" class="btn btn-primary bi bi-cloud-arrow-down-fill"> Download</a>
                     </div>
                 </div>
 

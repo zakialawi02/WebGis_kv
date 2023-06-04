@@ -187,3 +187,20 @@ in SYSTEMPATH/Email/Email.php on line 475.
  7 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
  8 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
  9 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/home/zaki/Documents/WebGis_kv/public/index.php')
+CRITICAL - 2023-06-04 16:31:33 --> Invalid file: "document.php"
+in SYSTEMPATH/Exceptions/FrameworkException.php on line 33.
+ 1 SYSTEMPATH/View/View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile()
+ 2 SYSTEMPATH/Common.php(1184): CodeIgniter\View\View->render()
+ 3 APPPATH/Controllers/Kafe.php(164): view()
+ 4 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Kafe->generatePdf()
+ 5 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 7 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/home/zaki/Documents/WebGis_kv/public/index.php')
+CRITICAL - 2023-06-04 16:33:38 --> Class "Mpdf\Mpdf\Mpdf" not found
+in APPPATH/Controllers/Kafe.php on line 163.
+ 1 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Kafe->generatePdf()
+ 2 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 4 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/home/zaki/Documents/WebGis_kv/public/index.php')
