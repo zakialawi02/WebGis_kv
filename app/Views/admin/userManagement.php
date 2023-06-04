@@ -130,7 +130,7 @@
                                             <td><span class="badge bg-<?= ($user->active == '0') ? 'danger' : 'success'; ?>"> <?= ($user->active == '0') ? 'inactive' : 'active'; ?> </span></td>
                                             <td>
                                                 <!-- Button trigger modal -->
-                                                <button type="button" class="btn btn-primary bi bi-pencil-square" data-bs-toggle="modal" data-bs-target="#editUserRole-<?= $user->userid ?>"></button>
+                                                <button type="button" class="asbn btn btn-primary bi bi-pencil-square" data-bs-toggle="modal" data-bs-target="#editUserRole-<?= $user->userid ?>"></button>
 
                                                 <!-- Modal -->
                                                 <div class="modal fade mt-5" id="editUserRole-<?= $user->userid ?>" tabindex="-1" style="z-index: 2001 ;" aria-labelledby="exampleModalLabels" aria-hidden="true">
@@ -162,6 +162,7 @@
                                                                     <div class="col-md-6">
                                                                         <label for="password_hash" class="col-form-label">Password</label>
                                                                         <input type="password" class="form-control" name="password_hash" id="password_hash" autocomplete="off">
+                                                                        <div id="emailHelp" class="form-text">Kosongkan jika tidak ingin mengaanti password</div>
                                                                     </div>
                                                                     <div class="col-md-6">
                                                                         <label for="role" class="col-form-label">Role</label>
@@ -196,7 +197,7 @@
                                                     <form id="delete-form-<?= $user->userid ?>" action="/user/delete/<?= $user->userid ?>" method="post">
                                                         <?= csrf_field(); ?>
                                                         <input type="hidden" name="_method" value="DELETE">
-                                                        <button type="button" class="btn btn-danger bi bi-trash delete-btn" data-id="<?= $user->userid ?>"></button>
+                                                        <button type="button" class="asbn btn btn-danger bi bi-trash delete-btn" data-id="<?= $user->userid ?>"></button>
                                                     </form>
                                                 </div>
 
@@ -258,7 +259,7 @@
                 icon: 'success',
                 title: 'Success!',
                 text: '<?= session()->getFlashdata('success'); ?>',
-                timer: 1500,
+                timer: 3000,
             });
         </script>
     <?php endif; ?>
@@ -269,7 +270,7 @@
                 icon: 'error',
                 title: 'Oops...',
                 text: '<?= session()->getFlashdata('error'); ?>',
-                timer: 1500,
+                timer: 3000,
             });
         </script>
     <?php endif; ?>

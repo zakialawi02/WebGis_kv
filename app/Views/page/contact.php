@@ -45,8 +45,10 @@
     <!-- ISI CONTENT -->
     <section class="contact bg-light" id="contact">
 
-        <div class="title-contact">
-            <h1 class="heading-title">CONTACT ME</h1>
+        <div class="container-fluid p-md-5 pt-3 justify-content-center">
+            <center>
+                <h1 class="heading-title p-2">CONTACT ME</h1>
+            </center>
 
             <div class="contact-center">
                 <div class="left">
@@ -101,6 +103,8 @@
                 </div>
             </div>
         </div>
+
+
 
     </section>
 

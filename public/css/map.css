@@ -78,6 +78,13 @@
     margin-right: 10px;
 }
 
+#map .leaflet-control-zoom {
+    margin: 1.4rem 0.5rem;
+}
+
+.leaflet-top.leaflet-left {
+    z-index: 10002;
+}
 
 /* Container button-section-group */
 #button-section-group {
@@ -88,11 +95,16 @@
     height: auto;
     /* background-color: rgba(255, 255, 255, 0.7); */
     padding: 10px;
-    z-index: 999;
+    z-index: 1001;
 }
 
 @media (max-width: 768px) {
     #button-section-group {
+        width: 88%;
+        height: auto;
+    }
+
+    #toggle-section-group {
         width: 100%;
         height: auto;
     }

@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title><?= $title; ?></title>
+    <title><?= $title; ?> | <?= $tampilKafe->nama_kafe; ?></title>
     <meta content="" name="keywords">
     <meta content="" name="description">
 
@@ -74,10 +74,13 @@
                             </div>
                         </div>
                         <div class="img-select">
-                            <?php if (empty($tampilKafe->nama_foto)) : ?>
+                            <?php if (!empty($tampilKafe->nama_foto)) : ?>
+                                <?php $foto_kafe = explode(', ', $tampilKafe->nama_foto); ?>
+                            <?php endif ?>
+                            <?php if (empty($tampilKafe->nama_foto) || count($foto_kafe) === 1) : ?>
                                 <div class="img-item"></div>
                             <?php else : ?>
-                                <?php $foto_kafe = explode(', ', $tampilKafe->nama_foto); ?>
+
                                 <?php $i = 1; ?>
                                 <?php foreach ($foto_kafe as $foto) : ?>
                                     <div class="img-item">
@@ -134,21 +137,23 @@
                                 <th>:</th>
                                 <td><?php
                                     $jam_oprasional = json_decode('[' . $tampilKafe->jam_oprasional . ']', true);
-                                    foreach ($jam_oprasional[0] as $jam) {
-                                        $hari = $jam['hari'];
-                                        $open_time = $jam['open_time'];
-                                        $close_time = $jam['close_time'];
-
-                                        echo $hari . ": ";
-                                        if ($open_time != null && $close_time != null) {
-                                            echo date("H:i", strtotime($open_time)) . "-" . date("H:i", strtotime($close_time));
-                                        } else {
-                                            echo "Tutup";
+                                    if (empty($jam_oprasional)) {
+                                        echo "<p>Kosong</p>";
+                                    } else {
+                                        foreach ($jam_oprasional[0] as $jam) {
+                                            $hari = $jam['hari'];
+                                            $open_time = $jam['open_time'];
+                                            $close_time = $jam['close_time'];
+                                            echo $hari . ": ";
+                                            if ($open_time != null && $close_time != null) {
+                                                echo date("H:i", strtotime($open_time)) . "-" . date("H:i", strtotime($close_time));
+                                            } else {
+                                                echo "Tutup";
+                                            }
+                                            echo "<br>";
                                         }
-                                        echo "<br>";
                                     }
                                     ?>
-
                                 </td>
                             </tr>
                             <?php if (in_groups('SuperAdmin') || in_groups('Admin')) :; ?>

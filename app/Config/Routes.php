@@ -40,6 +40,8 @@ $routes->get('/', 'Kafe::index');
 $routes->get('/noaccess', 'Kafe::noaccess');
 $routes->match(['get', 'post'], 'admin/getDataAjaxRemote', 'Admin::getDataAjaxRemote');
 
+$routes->get('/map', 'Kafe::map');
+$routes->get('/data', 'Kafe::data');
 $routes->get('/contact', 'Kafe::contact');
 $routes->get('/about', 'Kafe::about');
 $routes->get('/dashboard', 'Admin::index', ['filter' => 'role:SuperAdmin,Admin,User']);
@@ -58,6 +60,7 @@ $routes->get('/admin/data/kafe', 'Admin::kafe', ['filter' => 'role:SuperAdmin,Ad
 $routes->get('/admin/data/kafe/tambah', 'Admin::tambahKafe', ['filter' => 'role:SuperAdmin,Admin,User']);
 $routes->get('/admin/data/kafe/edit/(:num)', 'Admin::editKafe/$1', ['filter' => 'role:SuperAdmin,Admin']);
 $routes->get('/kafe/edit/(:num)', 'Admin::editKafe/$1', ['filter' => 'role:SuperAdmin,Admin,User']);
+$routes->post('/admin/tambah_Kafe', 'Admin::tambah_Kafe');
 
 $routes->get('/user/manajemen', 'User::manajemen', ['filter' => 'role:SuperAdmin,Admin']);
 

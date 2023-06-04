@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use CodeIgniter\Exceptions\PageNotFoundException;
+use Mpdf\Mpdf;
 use App\Models\ModelGeojson;
 use App\Models\ModelKv;
 use App\Models\ModelSetting;
@@ -121,7 +122,50 @@ class Kafe extends BaseController
         return view('page/about', $data);
     }
 
+    public function data()
+    {
+        $data = [
+            'title' => 'DATA',
+            'tampilData' => $this->setting->tampilData()->getResult(),
+            'tampilKafe' => $this->kafe->callKafe()->getResult(),
+        ];
+        return view('page/data', $data);
+    }
+
+    public function sebaran_kafe()
+    {
+        $data = [
+            'title' => 'DATA',
+            'tampilData' => $this->setting->tampilData()->getResult(),
+            'tampilKafe' => $this->kafe->callKafe()->getResult(),
+        ];
+        return view('page/data', $data);
+    }
+
     public function pdf()
+    {
+        $data = [
+            'title' => 'PDF',
+            'tampilKafe' => $this->kafe->callKafe()->getResult(),
+        ];
+        return view('page/pdfKafe', $data);
+    }
+
+    public function generatePdf()
+    {
+        $data = [
+            'title' => 'PDF',
+            'tampilKafe' => $this->kafe->callKafe()->getResult(),
+        ];
+
+        $mpdf = new \Mpdf\Mpdf();
+        $html = view('page/pdfKafe', $data);
+        $mpdf->WriteHTML($html);
+        $this->response->setHeader('Content-Type', 'application/pdf');
+        $mpdf->Output('data_kafe.pdf', 'I');
+    }
+
+    public function peta_pdf()
     {
         $data = [
             'title' => 'Beranda',

@@ -79,11 +79,11 @@
                                                 <label for="koordinat" class="">Koordinat</label>
                                                 <div class="form-group col-md-5">
                                                     <label for="latitude" class="">Latitude</label>
-                                                    <input type="text" class="form-control" id="latitude" aria-describedby="textlHelp" name="latitude" placeholder="-7.0385384" pattern="/^(\-?\d+(\.\d+)?)$/" title="Tuliskan Sesuai Format" required>
+                                                    <input type="text" class="form-control" id="latitude" aria-describedby="textlHelp" name="latitude" placeholder="-7.0385384" pattern="^([-+]?)([0-9]{1,2}(?:\.[0-9]+)?|[0-9]{3}(?:\.[0-9]+)?)(?:°)?$" title="Tuliskan Sesuai Format" required>
                                                 </div>
                                                 <div class="form-group col-md-5">
                                                     <label for="longitude" class="">Longitude</label>
-                                                    <input type="text" class="form-control" id="longitude" aria-describedby="textlHelp" name="longitude" placeholder="112.8998345" pattern="/^[^a-zA-Z]*(\-?\d+(\.\d+)?)$/" title="Tuliskan Sesuai Format" required>
+                                                    <input type="text" class="form-control" id="longitude" aria-describedby="textlHelp" name="longitude" placeholder="112.8998345" pattern="^[-+]?([1-9]|[1-9]\d|1[0-7]\d|180)(\.\d+)?$" title="Tuliskan Sesuai Format" required>
                                                 </div>
                                                 <div class="col-md gps">
                                                     <button type="button" role="button" onclick="mygps()" id="myLoc" class="btn btn-primary bi bi-geo-alt" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Gunakan lokasi saya sekarang (GPS)"></button>
@@ -301,7 +301,7 @@
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/proj4js/1.1.0/proj4js-compressed.min.js"></script>
 
     <!-- Template Main JS File -->
-    <script src="/js/Scripts.js"></script>
+    <script type="text/javascript" src="/js/Scripts.js"></script>
 
     <script>
         $(document).ready(function() {

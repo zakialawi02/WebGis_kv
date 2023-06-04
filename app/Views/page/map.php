@@ -132,11 +132,11 @@
                             <label for="koordinat" class="">Koordinat</label>
                             <div class="form-group col-md-5">
                                 <label for="latitude" class="">Latitude</label>
-                                <input type="text" class="form-control" id="latitude" aria-describedby="textlHelp" name="latitude" placeholder="-7.0385384" pattern="/^(\-?\d+(\.\d+)?)$/" title="Tuliskan Sesuai Format" required>
+                                <input type="text" class="form-control" id="latitude" aria-describedby="textlHelp" name="latitude" placeholder="-7.0385384" pattern="^([-+]?)([0-9]{1,2}(?:\.[0-9]+)?|[0-9]{3}(?:\.[0-9]+)?)(?:°)?$" title="Tuliskan Sesuai Format" required>
                             </div>
                             <div class="form-group col-md-5">
                                 <label for="longitude" class="">Longitude</label>
-                                <input type="text" class="form-control" id="longitude" aria-describedby="textlHelp" name="longitude" placeholder="112.8998345" pattern="/^[^a-zA-Z]*(\-?\d+(\.\d+)?)$/" title="Tuliskan Sesuai Format" required>
+                                <input type="text" class="form-control" id="longitude" aria-describedby="textlHelp" name="longitude" placeholder="112.8998345" pattern="^[-+]?([1-9]|[1-9]\d|1[0-7]\d|180)(\.\d+)?$" title="Tuliskan Sesuai Format" required>
                             </div>
                             <div class="col-md gps">
                                 <button type="button" role="button" onclick="mygps()" id="myLoc" class="btn btn-primary bi bi-geo-alt" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Gunakan lokasi saya sekarang (GPS)"></button>
@@ -338,7 +338,7 @@
                 <div class="input-group">
                     <input type="text" id="cariMark" class="form-control input-cari" placeholder="Cari...">
                     <span class="input-group-btn">
-                        <button class="btn btn-primary btn-cari" type="button"><i class="bi bi-search"></i></button>
+                        <button type="button" role="button" class="btn btn-primary btn-cari"><i class="bi bi-search"></i></button>
                     </span>
                 </div>
             </form>
@@ -786,6 +786,7 @@
                 center: [<?= $D->coordinat_wilayah; ?>],
                 zoom: <?= $D->zoom_view; ?>,
                 layers: [peta1],
+                zoomControl: false,
                 gestureHandling: false,
                 attributionControl: false,
                 contextmenu: true,
@@ -830,6 +831,41 @@
 
         var addKafe;
 
+        function processPoint(detectMe) {
+            var isInsidePolygon = false;
+            geoshp.eachLayer(function(layer) {
+                var polygon = layer.toGeoJSON();
+                if (turf.booleanPointInPolygon(detectMe, polygon)) {
+                    isInsidePolygon = true;
+                    var properties = polygon.properties;
+                    var kode = properties.kode_1;
+                    $.ajax({
+                        type: "POST",
+                        url: "<?php echo base_url('/admin/getkode'); ?>",
+                        data: {
+                            kode: kode
+                        },
+                        dataType: "json",
+                        success: function(response) {
+                            var detectIdWilayah = response.id;
+                            var detectTextWilayah = response.text;
+                            var id = detectIdWilayah;
+                            var text = detectTextWilayah;
+                            var option = new Option(detectTextWilayah, detectIdWilayah);
+                            $('#wilayahA').empty().append(option).val(detectIdWilayah);
+                        },
+                        error: function(xhr, status, error) {
+                            console.log(error);
+                        }
+                    });
+                }
+            });
+            if (!isInsidePolygon) {
+                $('#wilayahA').empty();
+                console.log('Marker is not inside any polygon.');
+            }
+        }
+
         <?php if (logged_in()) : ?>
 
             function addMarker(e) {
@@ -842,47 +878,8 @@
                 lng = e.latlng.lng;
                 koordinat = lat + ", " + lng;
 
-                var clickedPoint = turf.point([lng, lat]); // Create a Turf.js point object
-                // Check if the clicked point is inside any polygon of the GeoJSON layer
-                var isInsidePolygon = false;
-                geoshp.eachLayer(function(layer) {
-                    var polygon = layer.toGeoJSON();
-                    if (turf.booleanPointInPolygon(clickedPoint, polygon)) {
-                        isInsidePolygon = true;
-                        // Log the information about the polygon to the console
-                        var properties = polygon.properties;
-                        var kode = properties.kode_1;
-                        $.ajax({
-                            type: "POST",
-                            url: "<?php echo base_url('/admin/getkode'); ?>",
-                            data: {
-                                kode: kode
-                            },
-                            dataType: "json",
-                            success: function(response) {
-                                var detectIdWilayah = response.id;
-                                var detectTextWilayah = response.text;
-                                var id = detectIdWilayah;
-                                var text = detectTextWilayah;
-                                // Membuat opsi-select baru dengan data ID
-                                var option = new Option(detectTextWilayah, detectIdWilayah);
-                                // Menghapus semua opsi-select sebelumnya
-                                $('#wilayahA').empty();
-                                // Menambahkan opsi-select baru ke dalam select element
-                                $('#wilayahA').append(option);
-                                // Mengaktifkan opsi-select yang dipilih berdasarkan data ID
-                                $('#wilayahA').val(detectIdWilayah);
-                            },
-                            error: function(xhr, status, error) {
-                                console.log(error);
-                            }
-                        });
-                    }
-                });
-                // If the clicked point is not inside any polygon, display a message
-                if (!isInsidePolygon) {
-                    console.log('Marker is not inside any polygon.');
-                }
+                var detectMe = turf.point([lng, lat]); // Create a Turf.js point object
+                processPoint(detectMe);
                 $('#latitude').val(lat);
                 $('#longitude').val(lng);
                 setTimeout(function() {
@@ -914,17 +911,18 @@
         function showPosition(position) {
             var latitude = position.coords.latitude;
             var longitude = position.coords.longitude;
+            var detectMe = turf.point([longitude, latitude]);
             if (addKafe) map.removeLayer(addKafe);
             addKafe = L.marker([latitude, longitude], {
                 icon: inKafe
             }).addTo(map);
             $('#latitude').val(latitude);
             $('#longitude').val(longitude);
+            processPoint(detectMe);
             map.flyTo([latitude, longitude], 13)
         }
 
         // controller
-        map.removeControl(map.zoomControl);
         L.control.zoom({
             position: 'bottomright'
         }).addTo(map);
@@ -953,6 +951,7 @@
         L.control.mousePosition().addTo(map);
         L.control.scale().addTo(map);
         L.control.navbar().addTo(map);
+
         var hash = new L.Hash(map);
 
         // Tambahkan control accordion pada peta
@@ -964,15 +963,15 @@
             div.innerHTML = `<div class="accordion" id="legendAccordion">
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="headingOne">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
                             Legenda
                         </button>
                     </h2>
-                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#legendAccordion">
+                    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#legendAccordion">
                         <div class="accordion-body">
-                            <div class="legend-item1">
-                            </div>
                             <div class="legend-item2">
+                            </div>
+                            <div class="legend-item1">
                             </div>
                             <div class="legend-item3">
                             </div>
@@ -983,7 +982,6 @@
             return div;
         };
         legendControl.addTo(map);
-
 
         // SidePanel
         const panelRight = L.control.sidepanel('panelID', {
@@ -997,15 +995,15 @@
         // set marker place
         const locKafe = L.icon({
             iconUrl: '<?= base_url(); ?>/leaflet/icon/restaurant_breakfast.png',
-            iconSize: [30, 30],
-            iconAnchor: [16, 30], // point of the icon which will correspond to marker's location
-            popupAnchor: [0, -28] // point from which the popup should open relative to the iconAnchor
+            iconSize: [27, 27],
+            iconAnchor: [10, 25], // point of the icon which will correspond to marker's location
+            popupAnchor: [0, -22] // point from which the popup should open relative to the iconAnchor
         });
         const inKafe = L.icon({
             iconUrl: '<?= base_url(); ?>/leaflet/icon/restaurant_breakfast_y.png',
-            iconSize: [30, 30],
-            iconAnchor: [16, 30], // point of the icon which will correspond to marker's location
-            popupAnchor: [0, -28] // point from which the popup should open relative to the iconAnchor
+            iconSize: [27, 27],
+            iconAnchor: [10, 25], // point of the icon which will correspond to marker's location
+            popupAnchor: [0, -22] // point from which the popup should open relative to the iconAnchor
         });
 
         // geojson popup
@@ -1074,7 +1072,7 @@
                     }]
                 };
                 // layer control 
-                var polyShp = L.layerGroup([geoshp]).addTo(map);
+                var polyShp = L.layerGroup([geoshp]);
                 var overlayPolygon = {
                     id: 'layersPoly',
                     title: 'Administrasi',
@@ -1084,7 +1082,7 @@
                         layer: polyShp
                     }]
                 };
-                var lumap = new Lumap(map, elLumap, [overlayPolygon, overlayKafeMarker]);
+                var lumap = new Lumap(map, elLumap, [overlayKafeMarker, overlayPolygon]);
 
                 function checkLayerVisibility() {
                     if (map.hasLayer(polyShp)) {
@@ -1188,8 +1186,8 @@
         var elLumap = document.querySelector('#lumap');
 
         var controlElement = baseLayers.getContainer();
-        controlElement.style.position = 'absolute';
-        controlElement.style.bottom = '1rem';
+        controlElement.style.position = 'fixed';
+        controlElement.style.bottom = '0.8rem';
         controlElement.style.right = '3rem';
     </script>
 
