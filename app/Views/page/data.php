@@ -79,7 +79,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Kafe di Surabaya</h5>
                         <p class="card-text">Data Persebaran Kafe di Surabaya</p>
-                        <a href="/kafe/generatepdf" class="btn btn-primary bi bi-cloud-arrow-down-fill"> PDF</a>
+                        <a href="/kafe/generatepdf" class="btn btn-primary bi bi-cloud-arrow-down-fill" target="_blank"> PDF</a>
                         <a type="button" class="btn btn-primary bi bi-cloud-arrow-down-fill" onclick="downloadGeoJSON()"> Geojson</a>
                     </div>
                 </div>
