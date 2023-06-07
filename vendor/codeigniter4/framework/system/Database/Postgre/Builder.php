@@ -50,7 +50,7 @@ class Builder extends BaseBuilder
     {
         $sql = parent::compileIgnore($statement);
 
-        if (! empty($sql)) {
+        if (!empty($sql)) {
             $sql = ' ' . trim($sql);
         }
 
@@ -97,7 +97,7 @@ class Builder extends BaseBuilder
 
         $sql = $this->_update($this->QBFrom[0], [$column => "to_number({$column}, '9999999') + {$value}"]);
 
-        if (! $this->testMode) {
+        if (!$this->testMode) {
             $this->resetWrite();
 
             return $this->db->query($sql, $this->binds, false);
@@ -119,7 +119,7 @@ class Builder extends BaseBuilder
 
         $sql = $this->_update($this->QBFrom[0], [$column => "to_number({$column}, '9999999') - {$value}"]);
 
-        if (! $this->testMode) {
+        if (!$this->testMode) {
             $this->resetWrite();
 
             return $this->db->query($sql, $this->binds, false);
@@ -146,7 +146,7 @@ class Builder extends BaseBuilder
             $this->set($set);
         }
 
-        if (! $this->QBSet) {
+        if (!$this->QBSet) {
             if ($this->db->DBDebug) {
                 throw new DatabaseException('You must use the "set" method to update an entry.');
             }
@@ -229,7 +229,7 @@ class Builder extends BaseBuilder
      */
     public function delete($where = '', ?int $limit = null, bool $resetData = true)
     {
-        if (! empty($limit) || ! empty($this->QBLimit)) {
+        if (!empty($limit) || !empty($this->QBLimit)) {
             throw new DatabaseException('PostgreSQL does not allow LIMITs on DELETE queries.');
         }
 
@@ -251,7 +251,7 @@ class Builder extends BaseBuilder
      */
     protected function _update(string $table, array $values): string
     {
-        if (! empty($this->QBLimit)) {
+        if (!empty($this->QBLimit)) {
             throw new DatabaseException('Postgres does not support LIMITs with UPDATE queries.');
         }
 
@@ -291,7 +291,7 @@ class Builder extends BaseBuilder
      */
     protected function _like_statement(?string $prefix, string $column, ?string $not, string $bind, bool $insensitiveSearch = false): string
     {
-        $op = $insensitiveSearch === true ? 'ILIKE' : 'LIKE';
+        $op = $insensitiveSearch === false ? 'ILIKE' : 'LIKE';
 
         return "{$prefix} {$column} {$not} {$op} :{$bind}:";
     }
@@ -305,7 +305,7 @@ class Builder extends BaseBuilder
      */
     public function join(string $table, $cond, string $type = '', ?bool $escape = null)
     {
-        if (! in_array('FULL OUTER', $this->joinTypes, true)) {
+        if (!in_array('FULL OUTER', $this->joinTypes, true)) {
             $this->joinTypes = array_merge($this->joinTypes, ['FULL OUTER']);
         }
 
@@ -390,8 +390,8 @@ class Builder extends BaseBuilder
                 ",\n",
                 array_map(
                     static fn ($key, $value) => $key . ($value instanceof RawSql ?
-                    " = {$value}" :
-                    " = {$alias}.{$value}"),
+                        " = {$value}" :
+                        " = {$alias}.{$value}"),
                     array_keys($updateFields),
                     $updateFields
                 )
@@ -439,11 +439,8 @@ class Builder extends BaseBuilder
             $sql .= 'WHERE ' . implode(
                 ' AND ',
                 array_map(
-                    static fn ($key, $value) => (
-                        $value instanceof RawSql ?
-                        $value :
-                        (
-                            is_string($key) ?
+                    static fn ($key, $value) => ($value instanceof RawSql ?
+                        $value : (is_string($key) ?
                             $table . '.' . $key . ' = ' . $alias . '.' . $value :
                             $table . '.' . $value . ' = ' . $alias . '.' . $value
                         )
