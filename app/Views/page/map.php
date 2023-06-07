@@ -374,6 +374,11 @@
                                     <div id="lumap"></div>
                                 </div>
                             </div>
+                            <div class="card">
+                                <div class="card-body">
+                                    <div id="lumapi"></div>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="sidepanel-tab-content" data-tab-content="tab-2">
@@ -748,7 +753,9 @@
     <script src="/leaflet/leaflet.lumap.js"></script>
     <script src="/leaflet/catiline.js"></script>
     <script src="/leaflet/leaflet.shpfile.js"></script>
+    <script src="/leaflet/shp.js"></script>
     <script src="/leaflet/leaflet-hash.js"></script>
+    <script src="/leaflet/Leaflet.NavBar.js"></script>
     <script src="/leaflet/Leaflet.NavBar.js"></script>
     <script src='https://unpkg.com/@turf/turf@6/turf.min.js'></script>
 
@@ -1071,28 +1078,18 @@
                         layer: cafes
                     }]
                 };
-                // layer control 
-                var polyShp = L.layerGroup([geoshp]);
-                var overlayPolygon = {
-                    id: 'layersPoly',
-                    title: 'Administrasi',
-                    child: [{
-                        title: 'Kota Surabaya',
-                        iconHtml: '<div class="legend-color" style="background-color: rgba(0,0,255,0.3); border: 1px solid #000000;"></div>',
-                        layer: polyShp
-                    }]
-                };
-                var lumap = new Lumap(map, elLumap, [overlayKafeMarker, overlayPolygon]);
+
+                var lumap = new Lumap(map, elLumap, [overlayKafeMarker]);
 
                 function checkLayerVisibility() {
-                    if (map.hasLayer(polyShp)) {
-                        var legendItem = $('.legend-item1');
-                        legendItem.html('<div class="legend-color" style="background-color: rgba(0,0,255,0.3); border: 1px solid #000000;"></div>' +
-                            '<div class="legend-label">Batas Administrasi</div>');
-                    } else {
-                        var legendItem = $('.legend-item1');
-                        legendItem.empty();
-                    }
+                    // if (map.hasLayer(polyShp)) {
+                    //     var legendItem = $('.legend-item1');
+                    //     legendItem.html('<div class="legend-color" style="background-color: rgba(0,0,255,0.3); border: 1px solid #000000;"></div>' +
+                    //         '<div class="legend-label">Batas Administrasi</div>');
+                    // } else {
+                    //     var legendItem = $('.legend-item1');
+                    //     legendItem.empty();
+                    // }
                     if (map.hasLayer(cafes)) {
                         var legendItem = $('.legend-item2');
                         legendItem.html('<div class="legend-img"><img src="<?= base_url(); ?>/leaflet/icon/restaurant_breakfast.png"></div>' +
@@ -1105,7 +1102,7 @@
                 checkLayerVisibility()
                 // Event listener untuk cek layer visibility saat klik layer control
                 cafes.on('add remove', checkLayerVisibility);
-                polyShp.on('add remove', checkLayerVisibility);
+                // polyShp.on('add remove', checkLayerVisibility);
 
 
                 function cariKafe() {
@@ -1145,69 +1142,69 @@
 
 
         // shapefile
-        var dataFromDatabase = <?= json_encode($tampilGeojson); ?>;
-        var geoshp = L.geoJson({
-            features: []
-        }, {
-            style: function(feature) {
-                return {
-                    fillColor: 'blue', // Ubah warna poligon
-                    fillOpacity: 0.2, // Ubah tingkat kecerahan poligon
-                    color: 'black', // Ubah warna garis batas poligon
-                    weight: 1 // Ubah ketebalan garis batas poligon 
-                };
-            },
-            onEachFeature: function(feature, layer) {
-                var properties = feature.properties;
-                var popupContent = "";
-                for (var key in properties) {
-                    if (properties.hasOwnProperty(key)) {
-                        popupContent += key + ": " + properties[key] + "<br>";
-                    }
-                }
-                layer.bindPopup(popupContent);
-            }
-        });
+        const dataFromDatabase = <?= json_encode($tampilGeojson); ?>;
+        var geoLayers = [];
 
         var wfunc = function(base, cb) {
             importScripts('/leaflet/shp.js');
             shp(base).then(cb);
-        }
+        };
+
         var worker = cw({
             data: wfunc
         }, 2);
 
-        // Loop melalui data dari database
-        dataFromDatabase.forEach(function(data) {
-            var baseUrl = '<?= base_url(); ?>';
-            var url = baseUrl + '/geojson/' + data.features;
+        dataFromDatabase.forEach(function(data, index) {
+            var url = '/geojson/' + data.features;
+            var geoLayer = L.geoJson(null, {
+                style: function(feature) {
+                    return {
+                        fillColor: data.warna || 'red',
+                        fillOpacity: 0.2,
+                        color: 'black',
+                        weight: 1
+                    };
+                },
+                onEachFeature: function(feature, layer) {
+                    var properties = feature.properties;
+                    var popupContent = "";
+                    for (var key in properties) {
+                        if (properties.hasOwnProperty(key)) {
+                            popupContent += key + ": " + properties[key] + "<br>";
+                        }
+                    }
+                    layer.bindPopup(popupContent);
+                }
+            });
 
-            // Menggunakan fungsi fetch untuk mengambil data dari URL
+            geoLayers.push(geoLayer);
+
             fetch(url)
                 .then(response => response.arrayBuffer())
                 .then(buffer => {
-                    // Mengirim buffer ke worker untuk diproses
                     worker.data(buffer).then(function(geojsonData) {
-                        // Menambahkan data ke layer
-                        geoshp.addData(geojsonData);
-
-                        // Mengatur fill color berdasarkan warna dari database
-                        var layers = geoshp.getLayers();
-                        var lastLayer = layers[layers.length - 1];
-                        lastLayer.setStyle({
-                            fillColor: data.warna, // Ubah nilai fillColor sesuai dengan data warna dari database
-                            fillOpacity: 0.2,
-                            color: 'black',
-                            weight: 1
+                            geoLayer.addData(geojsonData);
+                            // map.addLayer(geoLayer);
+                        })
+                        .catch(function(error) {
+                            console.log(error);
                         });
-                    }).catch(function(error) {
-                        console.log(error);
-                    });
                 })
                 .catch(function(error) {
                     console.log(error);
                 });
         });
+
+        // Menambahkan kontrol layer
+        var layerControl = L.control.layers(null, null, {
+            collapsed: false // Set ke true jika ingin kontrol lapisan awalnya dalam keadaan terlipat
+        });
+        layerControl.addTo(map);
+
+        dataFromDatabase.forEach(function(data, index) {
+            layerControl.addOverlay(geoLayers[index], data.nama_features);
+        });
+
 
 
 
