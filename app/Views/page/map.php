@@ -27,7 +27,6 @@
     <link rel="stylesheet" href="/leaflet/leaflet-sidepanel.css" />
     <link rel="stylesheet" href="/leaflet/iconLayers.css" />
     <link rel="stylesheet" href="/leaflet/leaflet.contextmenu.css" />
-    <link rel="stylesheet" href="/leaflet/leaflet.lumap.css" />
     <link rel="stylesheet" href="/leaflet/Leaflet.NavBar.css" />
 
 </head>
@@ -369,9 +368,15 @@
                         <div class="sidepanel-tab-content" data-tab-content="tab-1">
                             <h4>Layer</h4>
                             <hr>
+
                             <div class="card">
                                 <div class="card-body">
                                     <div id="lumap"></div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-body">
+                                    <div id="lumapi"></div>
                                 </div>
                             </div>
                         </div>
@@ -402,19 +407,33 @@
     <!-- Template Javascript -->
     <!-- <script src="/assets/js/main.js"></script> -->
 
-    <?php if (session()->getFlashdata('success')) : ?>
-        <script>
-            Swal.fire({
-                icon: 'success',
-                title: 'Success!',
-                text: '<?= session()->getFlashdata('success'); ?>',
-                timer: 5000,
-                html: 'Menunggu verifikasi, lihat status data anda ' +
-                    '<a href="/dashboard">disini</a> ' +
-                    ' atau masuk ke dashboard',
-            });
-        </script>
-    <?php endif; ?>
+    <?php if (in_groups('Admin' && 'SuperAdmin')) : ?>
+        <?php if (session()->getFlashdata('success')) : ?>
+            <script>
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Success!',
+                    text: '<?= session()->getFlashdata('success'); ?>',
+                    timer: 5000,
+                    html: 'Data berhasil ditambahkan,  ' +
+                        '<a href="/dashboard">lihat dashboard</a> ',
+                });
+            </script>
+        <?php else : ?>
+            <script>
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Success!',
+                    text: '<?= session()->getFlashdata('success'); ?>',
+                    timer: 5000,
+                    html: 'Menunggu verifikasi, lihat status data anda ' +
+                        '<a href="/dashboard">disini</a> ' +
+                        ' atau masuk ke dashboard',
+                });
+            </script>
+        <?php endif; ?>
+    <?php endif ?>
+
 
     <?php if (session()->getFlashdata('error')) : ?>
         <script>
@@ -745,10 +764,11 @@
     <script src="/leaflet/Leaflet.Control.Custom.js"></script>
     <script src="/leaflet/iconLayers.js"></script>
     <script src="/leaflet/leaflet.contextmenu.js"></script>
-    <script src="/leaflet/leaflet.lumap.js"></script>
     <script src="/leaflet/catiline.js"></script>
     <script src="/leaflet/leaflet.shpfile.js"></script>
+    <script src="/leaflet/shp.js"></script>
     <script src="/leaflet/leaflet-hash.js"></script>
+    <script src="/leaflet/Leaflet.NavBar.js"></script>
     <script src="/leaflet/Leaflet.NavBar.js"></script>
     <script src='https://unpkg.com/@turf/turf@6/turf.min.js'></script>
 
@@ -969,11 +989,21 @@
                     </h2>
                     <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#legendAccordion">
                         <div class="accordion-body">
-                            <div class="legend-item2">
+                            <div class="legend-item1000">
+                            </div>
+                            <div class="legend-item0">
                             </div>
                             <div class="legend-item1">
                             </div>
+                            <div class="legend-item2">
+                            </div>
                             <div class="legend-item3">
+                            </div>
+                            <div class="legend-item4">
+                            </div>
+                            <div class="legend-item5">
+                            </div>
+                            <div class="legend-item6">
                             </div>
                         </div>
                     </div>
@@ -1060,52 +1090,48 @@
                     }
                 });
 
-                // layer control
+                // Membuat layer control
                 var cafes = L.layerGroup([markersLayer]).addTo(map);
-                var overlayKafeMarker = {
-                    id: 'layersMark',
-                    title: 'Data Kafe',
-                    child: [{
-                        title: 'Data Kafe',
-                        iconHtml: `<img src="<?= base_url(); ?>/leaflet/icon/restaurant_breakfast.png">`,
-                        layer: cafes
-                    }]
-                };
-                // layer control 
-                var polyShp = L.layerGroup([geoshp]);
-                var overlayPolygon = {
-                    id: 'layersPoly',
-                    title: 'Administrasi',
-                    child: [{
-                        title: 'Kota Surabaya',
-                        iconHtml: '<div class="legend-color" style="background-color: rgba(0,0,255,0.3); border: 1px solid #000000;"></div>',
-                        layer: polyShp
-                    }]
-                };
-                var lumap = new Lumap(map, elLumap, [overlayKafeMarker, overlayPolygon]);
+                var layerControlContainer = document.getElementById('lumap');
+                var checkbox = document.createElement('input');
+                checkbox.type = 'checkbox';
+                checkbox.name = 'layerCheckbox';
+                checkbox.value = cafes;
+                checkbox.checked = map.hasLayer(cafes);
+                checkbox.addEventListener('change', function() {
+                    if (this.checked) {
+                        map.addLayer(cafes);
+                    } else {
+                        map.removeLayer(cafes);
+                    }
+                });
+                var labelDiv = document.createElement('div');
+                labelDiv.classList.add('checkbox-label'); // Menambahkan kelas CSS 'checkbox-label' ke elemen div
+                var legendDiv = document.createElement('div');
+                legendDiv.classList.add('legend-icon');
+                var iconImg = document.createElement('img');
+                iconImg.src = '<?= base_url(); ?>/leaflet/icon/restaurant_breakfast.png';
+                legendDiv.appendChild(iconImg);
+                var label = document.createElement('label');
+                label.appendChild(document.createTextNode("Kafe"));
+                labelDiv.appendChild(legendDiv);
+                labelDiv.appendChild(label);
+                labelDiv.appendChild(checkbox);
+                layerControlContainer.appendChild(labelDiv);
 
                 function checkLayerVisibility() {
-                    if (map.hasLayer(polyShp)) {
-                        var legendItem = $('.legend-item1');
-                        legendItem.html('<div class="legend-color" style="background-color: rgba(0,0,255,0.3); border: 1px solid #000000;"></div>' +
-                            '<div class="legend-label">Batas Administrasi</div>');
-                    } else {
-                        var legendItem = $('.legend-item1');
-                        legendItem.empty();
-                    }
                     if (map.hasLayer(cafes)) {
-                        var legendItem = $('.legend-item2');
+                        var legendItem = $('.legend-item1000');
                         legendItem.html('<div class="legend-img"><img src="<?= base_url(); ?>/leaflet/icon/restaurant_breakfast.png"></div>' +
                             '<div class="legend-label">Kafe</div>');
                     } else {
-                        var legendItem = $('.legend-item2');
+                        var legendItem = $('.legend-item1000');
                         legendItem.empty();
                     }
                 }
                 checkLayerVisibility()
                 // Event listener untuk cek layer visibility saat klik layer control
                 cafes.on('add remove', checkLayerVisibility);
-                polyShp.on('add remove', checkLayerVisibility);
 
 
                 function cariKafe() {
@@ -1145,28 +1171,135 @@
 
 
         // shapefile
+        const dataFromDatabase = <?= json_encode($tampilGeojson); ?>;
+        var geoLayers = [];
+
+        var wfunc = function(base, cb) {
+            importScripts('/leaflet/shp.js');
+            shp(base).then(cb);
+        };
+
+        var worker = cw({
+            data: wfunc
+        }, 2);
+
+        dataFromDatabase.forEach(function(data, index) {
+            var url = '/geojson/' + data.features;
+            var geoLayer = L.geoJson(null, {
+                style: function(feature) {
+                    return {
+                        fillColor: data.warna || 'red',
+                        fillOpacity: 0.2,
+                        color: 'black',
+                        weight: 1
+                    };
+                },
+                onEachFeature: function(feature, layer) {
+                    var properties = feature.properties;
+                    var popupContent = "";
+                    for (var key in properties) {
+                        if (properties.hasOwnProperty(key)) {
+                            popupContent += key + ": " + properties[key] + "<br>";
+                        }
+                    }
+                    layer.bindPopup(popupContent);
+                }
+            });
+
+            geoLayers.push(geoLayer);
+
+            fetch(url)
+                .then(response => response.arrayBuffer())
+                .then(buffer => {
+                    worker.data(buffer).then(function(geojsonData) {
+                            geoLayer.addData(geojsonData);
+                            // map.addLayer(geoLayer);
+                        })
+                        .catch(function(error) {
+                            console.log(error);
+                        });
+                })
+                .catch(function(error) {
+                    console.log(error);
+                });
+        });
+
+        // Menambahkan kontrol layer
+        var overlayMaps = {};
+        var layerControlContainer = document.getElementById('lumapi');
+
+        dataFromDatabase.forEach(function(data, index) {
+            var checkbox = document.createElement('input');
+            checkbox.type = 'checkbox';
+            checkbox.name = 'layerCheckbox';
+            checkbox.value = data.nama_features;
+            checkbox.checked = map.hasLayer(geoLayers[index]);
+            checkbox.addEventListener('change', function() {
+                if (this.checked) {
+                    map.addLayer(geoLayers[index]);
+                } else {
+                    map.removeLayer(geoLayers[index]);
+                }
+            });
+
+            var hexColor = data.warna;
+            var alpha = 0.3;
+            var rgbaColor = hexToRgba(hexColor, alpha);
+
+            function hexToRgba(hex, alpha) {
+                var r = parseInt(hex.slice(1, 3), 16);
+                var g = parseInt(hex.slice(3, 5), 16);
+                var b = parseInt(hex.slice(5, 7), 16);
+                return "rgba(" + r + ", " + g + ", " + b + ", " + alpha + ")";
+            }
+
+            function checkLayers() {
+                dataFromDatabase.forEach(function(data, index) {
+                    if (map.hasLayer(geoLayers[index])) {
+                        var hexColor = data.warna;
+                        var alpha = 0.3;
+                        var rgbaColor = hexToRgba(hexColor, alpha);
+                        var legendItem = $('.legend-item' + index);
+                        legendItem.html('<div class="legend-color" style="background-color: ' + rgbaColor + '; border: 1px solid #000000;"></div>' +
+                            '<div class="legend-label">' + data.nama_features + '</div>');
+                        console.log(data.nama_features);
+                    } else {
+                        var legendItem = $('.legend-item' + index);
+                        legendItem.empty();
+                    }
+                });
+            }
+
+            dataFromDatabase.forEach(function(data, index) {
+                checkLayers();
+                geoLayers[index].on('add remove', checkLayers);
+            });
+
+            var labelDiv = document.createElement('div');
+            labelDiv.classList.add('checkbox-label'); // Menambahkan kelas CSS 'checkbox-label' ke elemen div
+            var legendDiv = document.createElement('div');
+            legendDiv.classList.add('legend-color');
+            legendDiv.style.backgroundColor = rgbaColor;
+            legendDiv.style.border = '1px solid #000000';
+            var label = document.createElement('label');
+            label.appendChild(document.createTextNode(data.nama_features));
+            labelDiv.appendChild(legendDiv);
+            labelDiv.appendChild(label);
+            labelDiv.appendChild(checkbox);
+            layerControlContainer.appendChild(labelDiv);
+            overlayMaps[data.nama_features] = geoLayers[index];
+        });
+
+
+
+
+
+
+
+        // shapefile untuk batas admin detectme()
         var geoshp = L.geoJson({
             features: []
-        }, {
-            style: function(feature) {
-                return {
-                    fillColor: 'blue', // Ubah warna poligon
-                    fillOpacity: 0.2, // Ubah tingkat kecerahan poligon
-                    color: 'black', // Ubah warna garis batas poligon
-                    weight: 1 // Ubah ketebalan garis batas poligon 
-                };
-            },
-            onEachFeature: function(feature, layer) {
-                var properties = feature.properties;
-                var popupContent = "";
-                for (var key in properties) {
-                    if (properties.hasOwnProperty(key)) {
-                        popupContent += key + ": " + properties[key] + "<br>";
-                    }
-                }
-                // layer.bindPopup(popupContent);
-            }
-        });
+        }, );
 
         var wfunc = function(base, cb) {
             importScripts('/leaflet/shp.js');
@@ -1180,10 +1313,6 @@
         }, function(a) {
             console.log(a)
         });
-
-
-
-        var elLumap = document.querySelector('#lumap');
 
         var controlElement = baseLayers.getContainer();
         controlElement.style.position = 'fixed';
