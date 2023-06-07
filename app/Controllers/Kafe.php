@@ -91,9 +91,6 @@ class Kafe extends BaseController
             'tampilData' => $this->setting->tampilData()->getResult(),
             'tampilKafe' => $this->kafe->callKafe()->getResult(),
         ];
-        // echo '<pre>';
-        // print_r($data['tampilKafe']);
-        // die;
         return view('page/nearby', $data);
     }
 
@@ -184,6 +181,9 @@ class Kafe extends BaseController
             'tampilData' => $this->setting->tampilData()->getResult(),
             'tampilKafe' => $this->kafe->callKafe()->getResult(),
         ];
+        // echo '<pre>';
+        // print_r($data['tampilGeojson']);
+        // die;
         return view('page/map', $data);
     }
 }
