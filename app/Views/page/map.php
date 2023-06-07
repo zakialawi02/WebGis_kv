@@ -407,19 +407,33 @@
     <!-- Template Javascript -->
     <!-- <script src="/assets/js/main.js"></script> -->
 
-    <?php if (session()->getFlashdata('success')) : ?>
-        <script>
-            Swal.fire({
-                icon: 'success',
-                title: 'Success!',
-                text: '<?= session()->getFlashdata('success'); ?>',
-                timer: 5000,
-                html: 'Menunggu verifikasi, lihat status data anda ' +
-                    '<a href="/dashboard">disini</a> ' +
-                    ' atau masuk ke dashboard',
-            });
-        </script>
-    <?php endif; ?>
+    <?php if (in_groups('Admin' && 'SuperAdmin')) : ?>
+        <?php if (session()->getFlashdata('success')) : ?>
+            <script>
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Success!',
+                    text: '<?= session()->getFlashdata('success'); ?>',
+                    timer: 5000,
+                    html: 'Data berhasil ditambahkan,  ' +
+                        '<a href="/dashboard">lihat dashboard</a> ',
+                });
+            </script>
+        <?php else : ?>
+            <script>
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Success!',
+                    text: '<?= session()->getFlashdata('success'); ?>',
+                    timer: 5000,
+                    html: 'Menunggu verifikasi, lihat status data anda ' +
+                        '<a href="/dashboard">disini</a> ' +
+                        ' atau masuk ke dashboard',
+                });
+            </script>
+        <?php endif; ?>
+    <?php endif ?>
+
 
     <?php if (session()->getFlashdata('error')) : ?>
         <script>
@@ -1282,7 +1296,23 @@
 
 
 
+        // shapefile untuk batas admin detectme()
+        var geoshp = L.geoJson({
+            features: []
+        }, );
 
+        var wfunc = function(base, cb) {
+            importScripts('/leaflet/shp.js');
+            shp(base).then(cb);
+        }
+        var worker = cw({
+            data: wfunc
+        }, 2);
+        worker.data(cw.makeUrl('/geojson/batas_kelurahan_2021_sby_357820220801090416.zip')).then(function(data) {
+            geoshp.addData(data);
+        }, function(a) {
+            console.log(a)
+        });
 
         var controlElement = baseLayers.getContainer();
         controlElement.style.position = 'fixed';
