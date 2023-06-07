@@ -710,6 +710,45 @@ class Admin extends BaseController
 
 
 
+    public function autodel()
+
+    { // Mendapatkan waktu saat ini
+        $now = time();
+        $thirtyMinutesAgo = $now - (7 * 24 * 60 * 60); // Mengurangi 7 hari dalam detik
+
+        // $query = "DELETE FROM tbl_kafe WHERE stat_appv = 0 AND created_at < '$sevenDaysAgo'";
+        $query = $this->kafe->callTolakData()->getResult();
+
+        $delete = [];
+        foreach ($query as $row) {
+            $createdAt = strtotime($row->created_at);
+            if ($createdAt < $thirtyMinutesAgo) {
+                $id_del[] = $row->id_kafe;
+                $delete[] = $row;
+            }
+        }
+        // Mengubah array $id_del menjadi string dengan pemisah koma
+        $idDelString = implode(',', $id_del);
+        if (!empty($delete)) {
+            // Data ditemukan, lakukan penghapusan
+            $files = $this->fotoKafe->getFoto($idDelString)->getResult();
+            if (!empty($files)) {
+                foreach ($files as $img) {
+                    $file = $img->nama_file_foto;
+                    unlink("img/kafe/" . $file);
+                }
+            }
+            $this->kafe->delete(['id_kafe' => $idDelString]);
+            if ($this) {
+                echo "Data kafe yang tidak disetujui (stat_appv = 2) yang lebih dari 7 hari berhasil dihapus.";
+            } else {
+                echo "Gagal menghapus data kafe.";
+            }
+        } else {
+            echo "Tidak ada data kafe yang memenuhi kriteria penghapusan.";
+        }
+    }
+
     // side server delete image
     public function deleteImage()
     {

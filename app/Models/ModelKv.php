@@ -99,6 +99,35 @@ class ModelKv extends Model
             return $this->Where(['id_kafe' => $id_kafe])->get();
         }
     }
+    function callTolakData($id_kafe = false)
+    {
+        if ($id_kafe === false) {
+            $subquery = $this->db->table('tbl_jam_operasional')
+                ->select("json_agg(json_build_object('hari', hari, 'open_time', open_time, 'close_time', close_time))")
+                ->where('kafe_id = tbl_kafe.id_kafe')
+                ->groupBy('kafe_id')
+                ->getCompiledSelect();
+
+            $builder = $this->db->table('tbl_kafe')
+                ->select('tbl_kafe.*, tbl_provinsi.nama_provinsi, tbl_kabupaten.nama_kabupaten, tbl_kecamatan.nama_kecamatan, tbl_kelurahan.nama_kelurahan, tbl_status_appv.user, tbl_status_appv.stat_appv, tbl_status_appv.date_updated, users.username')
+                ->join('tbl_provinsi', 'tbl_provinsi.id_provinsi = tbl_kafe.id_provinsi')
+                ->join('tbl_kabupaten', 'tbl_kabupaten.id_kabupaten = tbl_kafe.id_kabupaten')
+                ->join('tbl_kecamatan', 'tbl_kecamatan.id_kecamatan = tbl_kafe.id_kecamatan')
+                ->join('tbl_kelurahan', 'tbl_kelurahan.id_kelurahan = tbl_kafe.id_kelurahan')
+                ->join('tbl_status_appv', 'tbl_status_appv.id_kafe = tbl_kafe.id_kafe', 'LEFT')
+                ->join('users', 'users.id = tbl_status_appv.user', 'LEFT')
+                ->groupBy('tbl_kafe.id_kafe, tbl_provinsi.nama_provinsi, tbl_kabupaten.nama_kabupaten, tbl_kecamatan.nama_kecamatan, tbl_kelurahan.nama_kelurahan, tbl_status_appv.user, tbl_status_appv.stat_appv, tbl_status_appv.date_updated, users.username')
+                ->select("string_agg(DISTINCT tbl_foto_kafe.nama_file_foto, ',') AS nama_foto")
+                ->join('tbl_foto_kafe', 'tbl_foto_kafe.id_kafe = tbl_kafe.id_kafe', 'left', false)
+                ->select("($subquery) AS jam_oprasional")
+                ->orderBy('id_kafe', 'DESC')
+                ->getWhere(['stat_appv' => '2']);
+
+            return $builder;
+        } else {
+            return $this->Where(['id_kafe' => $id_kafe])->get();
+        }
+    }
 
     function userSubmitKafe($userid)
     {
