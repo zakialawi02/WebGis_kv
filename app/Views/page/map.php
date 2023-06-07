@@ -1145,6 +1145,7 @@
 
 
         // shapefile
+        var dataFromDatabase = <?= json_encode($tampilGeojson); ?>;
         var geoshp = L.geoJson({
             features: []
         }, {
@@ -1164,7 +1165,7 @@
                         popupContent += key + ": " + properties[key] + "<br>";
                     }
                 }
-                // layer.bindPopup(popupContent);
+                layer.bindPopup(popupContent);
             }
         });
 
@@ -1175,10 +1176,37 @@
         var worker = cw({
             data: wfunc
         }, 2);
-        worker.data(cw.makeUrl('/geojson/batas_kelurahan_2021_sby_357820220801090416.zip')).then(function(data) {
-            geoshp.addData(data);
-        }, function(a) {
-            console.log(a)
+
+        // Loop melalui data dari database
+        dataFromDatabase.forEach(function(data) {
+            var baseUrl = '<?= base_url(); ?>';
+            var url = baseUrl + '/geojson/' + data.features;
+
+            // Menggunakan fungsi fetch untuk mengambil data dari URL
+            fetch(url)
+                .then(response => response.arrayBuffer())
+                .then(buffer => {
+                    // Mengirim buffer ke worker untuk diproses
+                    worker.data(buffer).then(function(geojsonData) {
+                        // Menambahkan data ke layer
+                        geoshp.addData(geojsonData);
+
+                        // Mengatur fill color berdasarkan warna dari database
+                        var layers = geoshp.getLayers();
+                        var lastLayer = layers[layers.length - 1];
+                        lastLayer.setStyle({
+                            fillColor: data.warna, // Ubah nilai fillColor sesuai dengan data warna dari database
+                            fillOpacity: 0.2,
+                            color: 'black',
+                            weight: 1
+                        });
+                    }).catch(function(error) {
+                        console.log(error);
+                    });
+                })
+                .catch(function(error) {
+                    console.log(error);
+                });
         });
 
 
