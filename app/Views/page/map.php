@@ -62,6 +62,7 @@
                             <div class="invalid-feedback">
                                 <?= session('errors.login') ?>
                             </div>
+                            <div class="invalid-feedback" id="loginError"></div>
                         </div>
                         <div class="mb-3">
                             <label for="password"><?= lang('Auth.password') ?></label>
@@ -69,6 +70,7 @@
                             <div class="invalid-feedback">
                                 <?= session('errors.password') ?>
                             </div>
+                            <div class="invalid-feedback" id="passwordError"></div>
                         </div>
                         <div class="mb-3">
                             <label class="form-check-label">
@@ -486,6 +488,22 @@
         $(document).ready(function() {
             $('form[name="login"]').submit(function(event) {
                 event.preventDefault(); // prevent default form submit behavior
+                $('#loginError').text('');
+                $('#passwordError').text('');
+                var login = $('input[name="login"]').val().trim();
+                var password = $('input[name="password"]').val().trim();
+                console.log(login, password);
+                if (login == '') {
+                    $("#loginError").text('Masukkan email/username');
+                    if (password == '' || password.length < 4) {
+                        $("#passwordError").text('Masukkan password');
+                    }
+                    return;
+                }
+                if (password == '' || password.length < 4) {
+                    $("#passwordError").text('Masukkan password');
+                    return;
+                }
                 var form = $(this);
                 var url = form.attr('action');
                 var method = form.attr('method');

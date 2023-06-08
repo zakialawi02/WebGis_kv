@@ -22,6 +22,11 @@
     justify-content: center;
 }
 
+.invalid-feedback {
+    color: rgb(227, 102, 102);
+    display: block;
+}
+
 /* Side Panel */
 #lumap {
     padding: 0.8rem;
