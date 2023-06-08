@@ -638,10 +638,10 @@
             $("#latitude, #longitude").on('keyup', function() {
                 var lat = document.getElementById("latitude").value;
                 var lng = document.getElementById("longitude").value;
-                var detectMe = turf.point([lng, lat]); // Create a Turf.js point object
-                processPoint(detectMe);
                 if (marker) map.removeLayer(marker);
                 marker = L.marker([lat, lng]).addTo(map);
+                var detectMe = turf.point([lng, lat]); // Create a Turf.js point object
+                processPoint(detectMe);
                 document.getElementById("koordinat").textContent = koordinat;
                 map.panTo(new L.LatLng(lat, lng));
             });
@@ -654,12 +654,12 @@
             lat = e.latlng.lat;
             lng = e.latlng.lng;
             koordinat = lat + ", " + lng;
-            var detectMe = turf.point([lng, lat]); // Create a Turf.js point object
-            processPoint(detectMe);
             // console.log(lat);
             // console.log(lng);
             console.log(koordinat);
             marker = L.marker([lat, lng]).addTo(map);
+            var detectMe = turf.point([lng, lat]); // Create a Turf.js point object
+            processPoint(detectMe);
             document.getElementById("koordinat").textContent = koordinat;
             $('#latitude').val(lat);
             $('#longitude').val(lng);
@@ -680,6 +680,8 @@
             marker = L.marker([latitude, longitude]).addTo(map);
             $('#latitude').val(latitude);
             $('#longitude').val(longitude);
+            var detectMe = turf.point([longitude, latitude]); // Create a Turf.js point object
+            processPoint(detectMe);
             map.flyTo([latitude, longitude], 13)
         }
 
