@@ -1062,20 +1062,26 @@
                 popOut += "<tr><td><b>Nama Kafe</b></td><th>:</th><td>" + f.properties.nama_kafe + "</td></tr>";
                 popOut += "<tr><td><b>Alamat</b></td><th>:</th><td>" + f.properties.alamat_kafe + "</td></tr>";
                 popOut += "<tr><td><b>Wilayah Administrasi</b></td><th>:</th><td>" + f.properties.nama_kelurahan + ", Kec." + f.properties.nama_kecamatan + ", " + f.properties.nama_kabupaten + "</td></tr>";
-                popOut += "<tr><td><b>Instagram</b></td><th>:</th><td>" + "@" + f.properties.instagram_kafe + "</td></tr>";
+                if (f.properties.instagram_kafe.length == 0) {
+                    popOut += "<tr><td><b>Instagram</b></td><th>:</th><td> - </td></tr>";
+                } else {
+                    popOut += "<tr><td><b>Instagram</b></td><th>:</th><td>" + "@" + f.properties.instagram_kafe + "</td></tr>";
+                }
                 popOut += "<tr><td><b>Jam Oprasional</b></td><th>:</th><td>";
                 const jsonString = f.properties.jam_oprasional;
                 var jamOperasional = JSON.parse(jsonString[0]);
                 popOut += "<table>"
-                for (var i = 0; i < jamOperasional.length; i++) {
-                    var hari = jamOperasional[i].hari;
-                    var openTime = jamOperasional[i].open_time;
-                    var closeTime = jamOperasional[i].close_time;
+                var daysOfWeek = ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu'];
+                for (var i = 0; i < daysOfWeek.length; i++) {
+                    var hariIndex = i;
+                    var hari = daysOfWeek[hariIndex];
                     var jamOperasionalText = "<tbody></tbody><tr></th><th>" + hari + "</th><td>:</td><td>";
 
-                    if (openTime === null || closeTime === null) {
+                    if (jamOperasional[hariIndex].open_time === null || jamOperasional[hariIndex].close_time === null) {
                         jamOperasionalText += "Tutup";
                     } else {
+                        var openTime = jamOperasional[hariIndex].open_time.substring(0, 5);
+                        var closeTime = jamOperasional[hariIndex].close_time.substring(0, 5);
                         jamOperasionalText += openTime + " - " + closeTime;
                     }
 
