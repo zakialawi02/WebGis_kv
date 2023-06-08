@@ -158,12 +158,17 @@
                             </tr>
                             <?php if (in_groups('SuperAdmin') || in_groups('Admin')) :; ?>
                                 <tr>
-                                    <td>Updated at</td>
+                                    <td>Dibuat Pada</td>
+                                    <th>:</th>
+                                    <td><?= date('d M Y H:i:s', strtotime($tampilKafe->created_at)); ?></td>
+                                </tr>
+                                <tr>
+                                    <td>Terakhir diupdate</td>
                                     <th>:</th>
                                     <td><?= date('d M Y H:i:s', strtotime($tampilKafe->updated_at)); ?></td>
                                 </tr>
                                 <tr>
-                                    <td>User by</td>
+                                    <td>Pengirim by</td>
                                     <th>:</th>
                                     <td><?= $tampilKafe->username; ?></td>
                                 </tr>
