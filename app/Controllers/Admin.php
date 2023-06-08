@@ -692,8 +692,13 @@ class Admin extends BaseController
             'date_updated' => date('Y-m-d H:i:s'),
         ];
         $this->kafe->chck_appv($data, $id_kafe);
-        session()->setFlashdata('alert', 'Data Approved.');
-        return $this->response->redirect(site_url('/admin/pending'));
+        if ($this) {
+            session()->setFlashdata('success', 'Data Approved.');
+            return $this->response->redirect(site_url('/admin/pending'));
+        } else {
+            session()->setFlashdata('error', 'Proses gagal.');
+            return $this->response->redirect(site_url('/admin/pending'));
+        }
     }
 
     // reject data
@@ -704,8 +709,13 @@ class Admin extends BaseController
             'date_updated' => date('Y-m-d H:i:s'),
         ];
         $this->kafe->chck_appv($data, $id_kafe);
-        session()->setFlashdata('alert', 'Data Rejected.');
-        return $this->response->redirect(site_url('/admin/pending'));
+        if ($this) {
+            session()->setFlashdata('success', 'Data Rejected.');
+            return $this->response->redirect(site_url('/admin/pending'));
+        } else {
+            session()->setFlashdata('error', 'Proses gagal.');
+            return $this->response->redirect(site_url('/admin/pending'));
+        }
     }
 
 
