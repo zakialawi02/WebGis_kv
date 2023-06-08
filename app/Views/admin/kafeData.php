@@ -50,8 +50,10 @@
                     <div class="card mb-4">
                         <div class="card-body">
 
-
-                            <a href="/admin/data/kafe/tambah" class="btn btn-primary m-1 mb-4 bi bi-plus" role="button">Tambah</a>
+                            <div class="m-1 mb-4 ">
+                                <a href="/admin/data/kafe/tambah" class="btn btn-primary bi bi-plus" role="button">Tambah</a>
+                                <a href="/kafe/generatepdf" class="btn btn-primary bi bi-file-earmark-pdf-fill" target="_blank"> PDF</a>
+                            </div>
 
                             <table id="datatablesSimple">
                                 <thead>
@@ -66,7 +68,7 @@
                                 <tbody>
                                     <?php foreach ($tampilKafe as $S) : ?>
                                         <tr>
-                                            <td><?= date('d M Y H:i:s', strtotime($S->updated_at)); ?></td>
+                                            <td><?= date('d M Y H:i:s', strtotime($S->created_at)); ?></td>
                                             <td><?= $S->nama_kafe; ?></td>
                                             <td style="min-width: 8em;"><?= $S->alamat_kafe; ?></td>
                                             <td style="max-width: 9em;"><?= $S->latitude; ?>, <?= $S->longitude; ?></td>
