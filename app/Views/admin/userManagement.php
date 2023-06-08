@@ -121,88 +121,90 @@
                                 <tbody>
                                     <?php $i = 1; ?>
                                     <?php foreach ($users as $user) : ?>
-                                        <tr>
-                                            <th scope="row"><?= $i++; ?></th>
-                                            <td><?= $user->username; ?></td>
-                                            <td><?= $user->full_name; ?></td>
-                                            <td><?= $user->email; ?></td>
-                                            <td><span class="badge bg-<?= ($user->name == 'Admin' or $user->name == 'SuperAdmin') ? 'info' : 'secondary'; ?>"> <?= $user->name; ?> </span></td>
-                                            <td><span class="badge bg-<?= ($user->active == '0') ? 'danger' : 'success'; ?>"> <?= ($user->active == '0') ? 'inactive' : 'active'; ?> </span></td>
-                                            <td>
-                                                <!-- Button trigger modal -->
-                                                <button type="button" class="asbn btn btn-primary bi bi-pencil-square" data-bs-toggle="modal" data-bs-target="#editUserRole-<?= $user->userid ?>"></button>
+                                        <?php if ($user->name !== 'SuperAdmin') : ?>
+                                            <tr>
+                                                <th scope="row"><?= $i++; ?></th>
+                                                <td><?= $user->username; ?></td>
+                                                <td><?= $user->full_name; ?></td>
+                                                <td><?= $user->email; ?></td>
+                                                <td><span class="badge bg-<?= ($user->name == 'Admin' or $user->name == 'SuperAdmin') ? 'info' : 'secondary'; ?>"> <?= $user->name; ?> </span></td>
+                                                <td><span class="badge bg-<?= ($user->active == '0') ? 'danger' : 'success'; ?>"> <?= ($user->active == '0') ? 'inactive' : 'active'; ?> </span></td>
+                                                <td>
+                                                    <!-- Button trigger modal -->
+                                                    <button type="button" class="asbn btn btn-primary bi bi-pencil-square" data-bs-toggle="modal" data-bs-target="#editUserRole-<?= $user->userid ?>"></button>
 
-                                                <!-- Modal -->
-                                                <div class="modal fade mt-5" id="editUserRole-<?= $user->userid ?>" tabindex="-1" style="z-index: 2001 ;" aria-labelledby="exampleModalLabels" aria-hidden="true">
-                                                    <div class="modal-dialog">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title" id="exampleModalLabels">Edit User</h5>
-                                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                            </div>
-                                                            <div class="modal-body">
+                                                    <!-- Modal -->
+                                                    <div class="modal fade mt-5" id="editUserRole-<?= $user->userid ?>" tabindex="-1" style="z-index: 2001 ;" aria-labelledby="exampleModalLabels" aria-hidden="true">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="exampleModalLabels">Edit User</h5>
+                                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                </div>
+                                                                <div class="modal-body">
 
-                                                                <form action="/user/updateUser" method="post" enctype="multipart/form-data" class="row g-3" autocomplete="off" id="updateUserForm">
-                                                                    <?= csrf_field(); ?>
+                                                                    <form action="/user/updateUser" method="post" enctype="multipart/form-data" class="row g-3" autocomplete="off" id="updateUserForm">
+                                                                        <?= csrf_field(); ?>
 
-                                                                    <input type="hidden" class="form-control" for="userid" id="userid" name="userid" value="<?= $user->userid ?>">
+                                                                        <input type="hidden" class="form-control" for="userid" id="userid" name="userid" value="<?= $user->userid ?>">
 
-                                                                    <div class="form-group">
-                                                                        <label for="username" class="col-form-label">Username</label>
-                                                                        <input type="text" class="form-control " name="username" id="username" value="<?= $user->username ?>" required>
-                                                                    </div>
-                                                                    <div class="form-group">
-                                                                        <label for="full_name" class="col-form-label">Full Name</label>
-                                                                        <input type="text" class="form-control " name="full_name" id="full_name" value="<?= $user->full_name ?>">
-                                                                    </div>
-                                                                    <div class="col-md-6">
-                                                                        <label for="email" class="col-form-label">Email</label>
-                                                                        <input type="email" class="form-control " name="email" id="email" value="<?= $user->email ?>" required>
-                                                                    </div>
-                                                                    <div class="col-md-6">
-                                                                        <label for="password_hash" class="col-form-label">Password</label>
-                                                                        <input type="password" class="form-control" name="password_hash" id="password_hash" autocomplete="off">
-                                                                        <div id="emailHelp" class="form-text">Kosongkan jika tidak ingin mengaanti password</div>
-                                                                    </div>
-                                                                    <div class="col-md-6">
-                                                                        <label for="role" class="col-form-label">Role</label>
-                                                                        <select class="form-control " name="role" id="role" required>
-                                                                            <option value="">--Pilih Role--</option>
-                                                                            <?php foreach ($auth_groups as $key => $value) : ?>
-                                                                                <option value="<?= $value['id'] ?>" <?= $value['id'] == $user->group_id ? "selected" : null ?>><?= $value['name'] ?></option>
-                                                                            <?php endforeach ?>
-                                                                        </select>
-                                                                    </div>
-                                                                    <div class="col-md-6">
-                                                                        <label for="active" class="col-form-label">Status</label>
-                                                                        <select class="form-control " name="active" id="active" required>
-                                                                            <option value="">--Status--</option>
-                                                                            <?php $active = $user->active; ?>
-                                                                            <option value="1" <?php if ($active == 1) echo "selected"; ?>>Active</option>
-                                                                            <option value="0" <?php if ($active == 0) echo "selected"; ?>>Inactive</option>
-                                                                        </select>
-                                                                    </div>
-                                                                    <div class="modal-footer">
-                                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                                        <button type="submit" class="btn btn-primary">Submit</button>
-                                                                    </div>
-                                                                </form>
+                                                                        <div class="form-group">
+                                                                            <label for="username" class="col-form-label">Username</label>
+                                                                            <input type="text" class="form-control " name="username" id="username" value="<?= $user->username ?>" required>
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <label for="full_name" class="col-form-label">Full Name</label>
+                                                                            <input type="text" class="form-control " name="full_name" id="full_name" value="<?= $user->full_name ?>">
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            <label for="email" class="col-form-label">Email</label>
+                                                                            <input type="email" class="form-control " name="email" id="email" value="<?= $user->email ?>" required>
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            <label for="password_hash" class="col-form-label">Password</label>
+                                                                            <input type="password" class="form-control" name="password_hash" id="password_hash" autocomplete="off">
+                                                                            <div id="emailHelp" class="form-text">Kosongkan jika tidak ingin mengaanti password</div>
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            <label for="role" class="col-form-label">Role</label>
+                                                                            <select class="form-control " name="role" id="role" required>
+                                                                                <option value="">--Pilih Role--</option>
+                                                                                <?php foreach ($auth_groups as $key => $value) : ?>
+                                                                                    <option value="<?= $value['id'] ?>" <?= $value['id'] == $user->group_id ? "selected" : null ?>><?= $value['name'] ?></option>
+                                                                                <?php endforeach ?>
+                                                                            </select>
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            <label for="active" class="col-form-label">Status</label>
+                                                                            <select class="form-control " name="active" id="active" required>
+                                                                                <option value="">--Status--</option>
+                                                                                <?php $active = $user->active; ?>
+                                                                                <option value="1" <?php if ($active == 1) echo "selected"; ?>>Active</option>
+                                                                                <option value="0" <?php if ($active == 0) echo "selected"; ?>>Inactive</option>
+                                                                            </select>
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                                                        </div>
+                                                                    </form>
 
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
 
-                                                <div class="btn-group mr-2" role="group" aria-label="First group">
-                                                    <form id="delete-form-<?= $user->userid ?>" action="/user/delete/<?= $user->userid ?>" method="post">
-                                                        <?= csrf_field(); ?>
-                                                        <input type="hidden" name="_method" value="DELETE">
-                                                        <button type="button" class="asbn btn btn-danger bi bi-trash delete-btn" data-id="<?= $user->userid ?>"></button>
-                                                    </form>
-                                                </div>
+                                                    <div class="btn-group mr-2" role="group" aria-label="First group">
+                                                        <form id="delete-form-<?= $user->userid ?>" action="/user/delete/<?= $user->userid ?>" method="post">
+                                                            <?= csrf_field(); ?>
+                                                            <input type="hidden" name="_method" value="DELETE">
+                                                            <button type="button" class="asbn btn btn-danger bi bi-trash delete-btn" data-id="<?= $user->userid ?>"></button>
+                                                        </form>
+                                                    </div>
 
-                                            </td>
-                                        </tr>
+                                                </td>
+                                            </tr>
+                                        <?php endif ?>
                                     <?php endforeach; ?>
                                 </tbody>
                             </table>

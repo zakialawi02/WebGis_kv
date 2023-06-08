@@ -163,7 +163,8 @@ class ModelKv extends Model
             ->join('tbl_kelurahan', 'tbl_kelurahan.id_kelurahan = tbl_kafe.id_kelurahan', 'LEFT')
             ->join('tbl_status_appv', 'tbl_status_appv.id_kafe = tbl_kafe.id_kafe', 'LEFT')
             ->join('users', 'users.id = tbl_status_appv.user')
-            ->limit(5);
+            ->limit(5)
+            ->orderBy('created_at', 'DESC');
         $query = $buidler->getWhere(['stat_appv' => '1']);
         return $query;
     }
