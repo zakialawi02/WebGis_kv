@@ -530,6 +530,10 @@
     <script src="/leaflet/leaflet.ajax.js"></script>
     <script src="/leaflet/L.Control.MousePosition.js"></script>
     <script src="//unpkg.com/leaflet-gesture-handling"></script>
+    <script src="/leaflet/catiline.js"></script>
+    <script src="/leaflet/leaflet.shpfile.js"></script>
+    <script src="/leaflet/shp.js"></script>
+    <script src='https://unpkg.com/@turf/turf@6/turf.min.js'></script>
 
     <!-- Leafleat Setting js-->
     <!-- initialize the map on the "map" div with a given center and zoom -->
@@ -593,12 +597,49 @@
         L.control.mousePosition().addTo(map);
         L.control.scale().addTo(map);
 
+        // function detectMe
+        function processPoint(detectMe) {
+            var isInsidePolygon = false;
+            geoshp.eachLayer(function(layer) {
+                var polygon = layer.toGeoJSON();
+                if (turf.booleanPointInPolygon(detectMe, polygon)) {
+                    isInsidePolygon = true;
+                    var properties = polygon.properties;
+                    var kode = properties.kode_1;
+                    $.ajax({
+                        type: "POST",
+                        url: "<?php echo base_url('/admin/getkode'); ?>",
+                        data: {
+                            kode: kode
+                        },
+                        dataType: "json",
+                        success: function(response) {
+                            var detectIdWilayah = response.id;
+                            var detectTextWilayah = response.text;
+                            var id = detectIdWilayah;
+                            var text = detectTextWilayah;
+                            var option = new Option(detectTextWilayah, detectIdWilayah);
+                            $('#wilayah').empty().append(option).val(detectIdWilayah);
+                        },
+                        error: function(xhr, status, error) {
+                            console.log(error);
+                        }
+                    });
+                }
+            });
+            if (!isInsidePolygon) {
+                $('#wilayah').empty();
+                console.log('Marker is not inside any polygon.');
+            }
+        }
 
         // set marker place from input
         $(document).ready(function() {
             $("#latitude, #longitude").on('keyup', function() {
                 var lat = document.getElementById("latitude").value;
                 var lng = document.getElementById("longitude").value;
+                var detectMe = turf.point([lng, lat]); // Create a Turf.js point object
+                processPoint(detectMe);
                 if (marker) map.removeLayer(marker);
                 marker = L.marker([lat, lng]).addTo(map);
                 document.getElementById("koordinat").textContent = koordinat;
@@ -613,6 +654,8 @@
             lat = e.latlng.lat;
             lng = e.latlng.lng;
             koordinat = lat + ", " + lng;
+            var detectMe = turf.point([lng, lat]); // Create a Turf.js point object
+            processPoint(detectMe);
             // console.log(lat);
             // console.log(lng);
             console.log(koordinat);
@@ -639,6 +682,26 @@
             $('#longitude').val(longitude);
             map.flyTo([latitude, longitude], 13)
         }
+
+
+
+        // shapefile untuk batas admin detectme()
+        var geoshp = L.geoJson({
+            features: []
+        }, );
+
+        var wfunc = function(base, cb) {
+            importScripts('/leaflet/shp.js');
+            shp(base).then(cb);
+        }
+        var worker = cw({
+            data: wfunc
+        }, 2);
+        worker.data(cw.makeUrl('/geojson/batas_kelurahan_2021_sby_357820220801090416.zip')).then(function(data) {
+            geoshp.addData(data);
+        }, function(a) {
+            console.log(a)
+        });
     </script>
 
 
