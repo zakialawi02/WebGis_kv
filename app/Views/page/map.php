@@ -140,7 +140,7 @@
                             <div class="col-md gps">
                                 <button type="button" role="button" onclick="mygps()" id="myLoc" class="btn btn-primary bi bi-geo-alt" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Gunakan lokasi saya sekarang (GPS)"></button>
                             </div>
-                            <div id="FileHelp" class="form-text"><span style="font-weight: bold;">NOTE:</span> Ketikan Koordinat Latitude dan Longitude atau klik kanan lokasi pada peta</div>
+                            <div id="FileHelp" class="form-text"><span style="font-weight: bold;">NOTE:</span> Ketikan Koordinat Latitude dan Longitude atau klik lokasi pada peta atau gunakan lokasi anda sekarang (gps)</div>
                         </div>
 
                         <div class="form-group">
@@ -382,8 +382,9 @@
                         </div>
 
                         <div class="sidepanel-tab-content" data-tab-content="tab-2">
-                            <h4>Ops</h4>
+                            <h4>About</h4>
                             <hr>
+                            <p style="font-size: 1rem;">Selamat datang di WebGIS Inventarisasi Kafe Surabaya! Kami adalah platform yang didedikasikan untuk menyediakan informasi lengkap tentang persebaran kafe di Surabaya. Kami menggunakan teknologi Geographical Information System (GIS) untuk menghadirkan peta interaktif yang mempermudah Anda dalam menjelajahi dan menemukan kafe-kafe menarik di Kota Surabaya. </p>
                         </div>
                     </div>
                 </div>
@@ -919,6 +920,18 @@
                 }, 500);
             }
         <?php endif ?>
+
+        // set marker place from input
+        $("#latitude, #longitude").on('keyup', function() {
+            var lat = document.getElementById("latitude").value;
+            var lng = document.getElementById("longitude").value;
+            var detectMe = turf.point([lng, lat]); // Create a Turf.js point object
+            processPoint(detectMe);
+            if (addKafe) map.removeLayer(addKafe);
+            addKafe = L.marker([lat, lng], {
+                icon: inKafe
+            }).addTo(map);
+        });
 
         function mygps() {
             if (navigator.geolocation) {
