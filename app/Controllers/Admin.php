@@ -628,6 +628,14 @@ class Admin extends BaseController
             }
         }
 
+        if (in_groups('User')) {
+            $status = [
+                'stat_appv' => '0',
+                'date_updated' => date('Y-m-d H:i:s'),
+            ];
+            $this->kafe->chck_appv($status, $id_kafe);
+        }
+
         if ($updateKafe && $updateTime) {
             session()->setFlashdata('success', 'Data Berhasil diperbarui.');
             if (in_groups('User')) {
