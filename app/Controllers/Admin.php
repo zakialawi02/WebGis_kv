@@ -365,14 +365,14 @@ class Admin extends BaseController
                     // Image manipulation(compress)
                     $image = \Config\Services::image()
                         ->withFile($img)
-                        ->getFile()
-                        ->getProperties(true);
-                    $xOffset = ($image['width'] / 2) - 25;
-                    $yOffset = ($image['height'] / 2) - 25;
-                    \Config\Services::image()
-                        ->withFile($img)
-                        // ->resize(1600, 1200, true, 'height')
-                        ->crop(1600, 1200, $xOffset, $yOffset)
+                        // ->getFile()
+                        // ->getProperties(true);
+                        // $xOffset = ($image['width'] / 2) - 25;
+                        // $yOffset = ($image['height'] / 2) - 25;
+                        // \Config\Services::image()
+                        //     ->withFile($img)
+                        ->resize(1600, 1200, true, 'height')
+                        // ->crop(1600, 1200, $xOffset, $yOffset)
                         ->save(FCPATH . '/img/kafe/' . $imageName);
 
                     $dataF = [
@@ -383,6 +383,7 @@ class Admin extends BaseController
                 }
             }
         }
+
 
         $opens = $this->request->getVar('open-time[]');
         $open = [];
@@ -478,14 +479,14 @@ class Admin extends BaseController
                     // Image manipulation(compress)
                     $image = \Config\Services::image()
                         ->withFile($img)
-                        ->getFile()
-                        ->getProperties(true);
-                    $xOffset = ($image['width'] / 2) - 25;
-                    $yOffset = ($image['height'] / 2) - 25;
-                    \Config\Services::image()
-                        ->withFile($img)
-                        // ->resize(1600, 1200, true, 'height')
-                        ->crop(1600, 1200, $xOffset, $yOffset)
+                        // ->getFile()
+                        // ->getProperties(true);
+                        // $xOffset = ($image['width'] / 2) - 25;
+                        // $yOffset = ($image['height'] / 2) - 25;
+                        // \Config\Services::image()
+                        //     ->withFile($img)
+                        ->resize(1600, 1200, true, 'height')
+                        // ->crop(1600, 1200, $xOffset, $yOffset)
                         ->save(FCPATH . '/img/kafe/' . $imageName);
 
                     $dataF = [
@@ -653,14 +654,14 @@ class Admin extends BaseController
                     // Image manipulation(compress)
                     $image = \Config\Services::image()
                         ->withFile($img)
-                        ->getFile()
-                        ->getProperties(true);
-                    $xOffset = ($image['width'] / 2) - 25;
-                    $yOffset = ($image['height'] / 2) - 25;
-                    \Config\Services::image()
-                        ->withFile($img)
-                        // ->resize(1600, 1200, true, 'height')
-                        ->crop(1600, 1200, $xOffset, $yOffset)
+                        // ->getFile()
+                        // ->getProperties(true);
+                        // $xOffset = ($image['width'] / 2) - 25;
+                        // $yOffset = ($image['height'] / 2) - 25;
+                        // \Config\Services::image()
+                        //     ->withFile($img)
+                        ->resize(1600, 1200, true, 'height')
+                        // ->crop(1600, 1200, $xOffset, $yOffset)
                         ->save(FCPATH . '/img/kafe/' . $imageName);
 
                     $dataF = [
