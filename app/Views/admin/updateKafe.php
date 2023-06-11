@@ -377,7 +377,7 @@
                 for (var i = 0; i < input.files.length; i++) {
                     var reader = new FileReader();
                     reader.onload = function(e) {
-                        $('#imgPreview').append('<div><img src="' + e.target.result + '" class="img-kafeEdit"><button type="button" class="btn btn-danger btn-sm remove-preview">Hapus</button></div>');
+                        $('#imgPreview').append('<div><img src="' + e.target.result + '" class="img-kafeEdit"></div>');
                     }
                     reader.readAsDataURL(input.files[i]);
                 }
@@ -386,9 +386,9 @@
         $("#foto_kafe").change(function() {
             readURL(this);
         });
-        $('#imgPreview').on('click', '.remove-preview', function() {
-            $(this).parent().remove(); // menghapus preview yang dipilih
-        });
+        // $('#imgPreview').on('click', '.remove-preview', function() {
+        //     $(this).parent().remove(); // menghapus preview yang dipilih
+        // });
     </script>
     <script>
         function setTimeToMonday() {
