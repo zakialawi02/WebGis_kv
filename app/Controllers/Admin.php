@@ -365,7 +365,14 @@ class Admin extends BaseController
                     // Image manipulation(compress)
                     $image = \Config\Services::image()
                         ->withFile($img)
-                        ->resize(1600, 1200, true, 'height')
+                        ->getFile()
+                        ->getProperties(true);
+                    $xOffset = ($image['width'] / 2) - 25;
+                    $yOffset = ($image['height'] / 2) - 25;
+                    \Config\Services::image()
+                        ->withFile($img)
+                        // ->resize(1600, 1200, true, 'height')
+                        ->crop(1600, 1200, $xOffset, $yOffset)
                         ->save(FCPATH . '/img/kafe/' . $imageName);
 
                     $dataF = [
@@ -471,7 +478,14 @@ class Admin extends BaseController
                     // Image manipulation(compress)
                     $image = \Config\Services::image()
                         ->withFile($img)
-                        ->resize(1600, 1200, true, 'height')
+                        ->getFile()
+                        ->getProperties(true);
+                    $xOffset = ($image['width'] / 2) - 25;
+                    $yOffset = ($image['height'] / 2) - 25;
+                    \Config\Services::image()
+                        ->withFile($img)
+                        // ->resize(1600, 1200, true, 'height')
+                        ->crop(1600, 1200, $xOffset, $yOffset)
                         ->save(FCPATH . '/img/kafe/' . $imageName);
 
                     $dataF = [
@@ -632,15 +646,29 @@ class Admin extends BaseController
         // die;
 
         $files = $this->request->getFiles();
-        foreach ($files['foto_kafe'] as $key => $img) {
-            if ($img->isValid() && !$img->hasMoved()) {
-                $newName = $img->getRandomName();
-                $dataF = [
-                    'id_kafe' => $id_kafe,
-                    'nama_file_foto' => $newName,
-                ];
-                $this->fotoKafe->addFoto($dataF);
-                $img->move('img/kafe/', $newName);
+        if (isset($files['foto_kafe']) && !empty($files['foto_kafe'])) {
+            foreach ($files['foto_kafe'] as $key => $img) {
+                if ($img->isValid() && !$img->hasMoved()) {
+                    $imageName = $img->getRandomName();
+                    // Image manipulation(compress)
+                    $image = \Config\Services::image()
+                        ->withFile($img)
+                        ->getFile()
+                        ->getProperties(true);
+                    $xOffset = ($image['width'] / 2) - 25;
+                    $yOffset = ($image['height'] / 2) - 25;
+                    \Config\Services::image()
+                        ->withFile($img)
+                        // ->resize(1600, 1200, true, 'height')
+                        ->crop(1600, 1200, $xOffset, $yOffset)
+                        ->save(FCPATH . '/img/kafe/' . $imageName);
+
+                    $dataF = [
+                        'id_kafe' => $id_kafe,
+                        'nama_file_foto' => $imageName,
+                    ];
+                    $this->fotoKafe->addFoto($dataF);
+                }
             }
         }
 
