@@ -92,9 +92,11 @@
         }
 
         table {
+            font-size: 12px;
             width: 100%;
+            word-wrap: break-word;
             border-collapse: collapse;
-            page-break-inside: avoid;
+            page-break-inside: auto;
             border: 1px solid black;
         }
 
@@ -127,6 +129,14 @@
         #titikdua {
             width: 2px;
         }
+
+        .ig {
+            width: 12px;
+        }
+
+        .kor {
+            width: 20px;
+        }
     </style>
 </head>
 
@@ -144,9 +154,9 @@
                 <th class="no">No</th>
                 <th>Nama Kafe</th>
                 <th>Alamat kafe</th>
-                <th>Koordinat</th>
+                <th class="kor">Koordinat</th>
                 <th>Instagram</th>
-                <th>Jam Oprasional</th>
+                <th class="jm">Jam Oprasional</th>
             </tr>
             <?php $nomor = 1; ?>
             <?php foreach ($tampilKafe as $K) : ?>
@@ -155,7 +165,7 @@
                     <td><?= $K->nama_kafe; ?></td>
                     <td><?= $K->alamat_kafe; ?>, <?= $K->nama_kelurahan; ?>, <?= $K->nama_kecamatan; ?></td>
                     <td><?= number_format($K->latitude, 8); ?>, <?= number_format($K->longitude, 8); ?></td>
-                    <td><?= empty($K->instagram_kafe) ? "-" : "@" . $K->instagram_kafe; ?></td>
+                    <td class="ig"><?= empty($K->instagram_kafe) ? "-" : "@" . $K->instagram_kafe; ?></td>
                     <td><?php
                         $jsonString = $K->jam_oprasional;
                         $jamOperasional = json_decode($jsonString, true);
@@ -194,11 +204,16 @@
                             if ($operational['startDay'] !== $operational['endDay']) {
                                 $jamOperasionalText .= " - " . $operational['endDay'];
                             }
-                            $openTimeHHMM = substr($operational['openTime'], 0, 5);
-                            $closeTimeHHMM = substr($operational['closeTime'], 0, 5);
-                            $jamOperasionalText .= ": " . "<br>" . $openTimeHHMM . " - " . $closeTimeHHMM;
+                            $openTimeHHMM = isset($operational['openTime']) ? substr($operational['openTime'], 0, 5) : 'Tutup';
+                            $closeTimeHHMM = isset($operational['closeTime']) ? substr($operational['closeTime'], 0, 5) : 'Tutup';
+                            if ($openTimeHHMM == 'Tutup') {
+                                $jamOperasionalText .= ": " . "<br>" . $openTimeHHMM;
+                            } else {
+                                $jamOperasionalText .= ": " . "<br>" . $openTimeHHMM . " - " . $closeTimeHHMM;
+                            }
                             echo $jamOperasionalText . "<br>";
                         }
+
                         ?>
                     </td>
                 </tr>
