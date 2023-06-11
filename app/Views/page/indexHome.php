@@ -86,12 +86,21 @@
                 <div class="cards-list pt-3">
                     <?php foreach ($randomFour as $rand) : ?>
                         <div class="card-discover <?= $rand->id_kafe; ?>">
-                            <div class="card_image"> <img src="/img/kafe/<?= is_array($rand->nama_file_foto) ? $rand->nama_file_foto[0] : $rand->nama_file_foto; ?>" /> </div>
-                            <div class="card_title title-white">
-                                <a href="/kafe/<?= $rand->id_kafe; ?>/detail">
-                                    <p><?= $rand->nama_kafe; ?></p>
-                                </a>
-                            </div>
+                            <?php if (empty($rand->nama_file_foto)) : ?>
+                                <div class="card_image"> <img src="/img/kafe/no image.jpg" /> </div>
+                                <div class="card_title title-white">
+                                    <a href="/kafe/<?= $rand->id_kafe; ?>/detail">
+                                        <p><?= $rand->nama_kafe; ?></p>
+                                    </a>
+                                </div>
+                            <?php else : ?>
+                                <div class="card_image"> <img src="/img/kafe/<?= is_array($rand->nama_file_foto) ? $rand->nama_file_foto[0] : $rand->nama_file_foto; ?>" /> </div>
+                                <div class="card_title title-white">
+                                    <a href="/kafe/<?= $rand->id_kafe; ?>/detail">
+                                        <p><?= $rand->nama_kafe; ?></p>
+                                    </a>
+                                </div>
+                            <?php endif ?>
                         </div>
                     <?php endforeach ?>
                 </div>
