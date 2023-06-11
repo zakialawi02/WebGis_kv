@@ -83,7 +83,7 @@
 .legend-panel {
     position: absolute;
     z-index: 0;
-    width: 32vh;
+    width: 30vh;
     background-color: #fff;
     border-radius: 5px;
     padding: 10px;
@@ -205,6 +205,10 @@
 
 .card-body {
     padding: 0.25rem 0.5rem;
+}
+
+#loginModal {
+    z-index: 11001;
 }
 
 /* Search */

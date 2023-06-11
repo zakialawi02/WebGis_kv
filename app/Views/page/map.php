@@ -974,7 +974,7 @@
         }
 
         // controller
-        L.control.zoom({
+        var zoomControl = L.control.zoom({
             position: 'bottomright'
         }).addTo(map);
         var baseLayers = new L.Control.IconLayers(
@@ -1355,6 +1355,10 @@
         controlElement.style.position = 'fixed';
         controlElement.style.bottom = '0.8rem';
         controlElement.style.right = '3rem';
+        var zoomTombol = zoomControl.getContainer();
+        zoomTombol.style.position = 'absolute';
+        zoomTombol.style.bottom = '0.2rem';
+        zoomTombol.style.right = '0.2rem';
     </script>
 
 
