@@ -94,6 +94,7 @@
         table {
             width: 100%;
             border-collapse: collapse;
+            page-break-inside: avoid;
             border: 1px solid black;
         }
 
@@ -152,7 +153,7 @@
                 <tr>
                     <td><?= $nomor++; ?></td>
                     <td><?= $K->nama_kafe; ?></td>
-                    <td><?= $K->alamat_kafe; ?></td>
+                    <td><?= $K->alamat_kafe; ?>, <?= $K->nama_kelurahan; ?>, <?= $K->nama_kecamatan; ?></td>
                     <td><?= number_format($K->latitude, 8); ?>, <?= number_format($K->longitude, 8); ?></td>
                     <td><?= empty($K->instagram_kafe) ? "-" : "@" . $K->instagram_kafe; ?></td>
                     <td><?php
