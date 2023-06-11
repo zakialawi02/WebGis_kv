@@ -138,8 +138,14 @@
                                 <td><?php
                                     $jam_oprasional = json_decode('[' . $tampilKafe->jam_oprasional . ']', true);
                                     if (empty($jam_oprasional)) {
-                                        echo "<p>Kosong</p>";
+                                        echo "<p>Tidak ada data</p>";
                                     } else {
+                                        // Urutkan array berdasarkan urutan hari (Senin, Selasa, Rabu, dst.)
+                                        usort($jam_oprasional[0], function ($a, $b) {
+                                            $hari_urutan = ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu'];
+                                            return array_search($a['hari'], $hari_urutan) <=> array_search($b['hari'], $hari_urutan);
+                                        });
+
                                         foreach ($jam_oprasional[0] as $jam) {
                                             $hari = $jam['hari'];
                                             $open_time = $jam['open_time'];

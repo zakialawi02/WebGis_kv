@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 
+use CodeIgniter\Validation\Exceptions\ValidationException;
+use CodeIgniter\Validation\Validation;
 use App\Controllers\BaseController;
 use App\Models\ModelSetting;
 use App\Models\ModelAdministrasi;
@@ -305,6 +307,7 @@ class Admin extends BaseController
             'tampilData' => $this->setting->tampilData()->getResult(),
             'tampilGeojson' => $this->FGeojson->callGeojson()->getResult(),
             'provinsi' => $this->kafe->allProvinsi(),
+            'validation' => \Config\Services::validation()
         ];
         return view('admin/tambahKafe', $data);
     }
@@ -365,14 +368,7 @@ class Admin extends BaseController
                     // Image manipulation(compress)
                     $image = \Config\Services::image()
                         ->withFile($img)
-                        // ->getFile()
-                        // ->getProperties(true);
-                        // $xOffset = ($image['width'] / 2) - 25;
-                        // $yOffset = ($image['height'] / 2) - 25;
-                        // \Config\Services::image()
-                        //     ->withFile($img)
-                        ->resize(1600, 1200, true, 'height')
-                        // ->crop(1600, 1200, $xOffset, $yOffset)
+                        ->resize(1200, 900, true, 'height')
                         ->save(FCPATH . '/img/kafe/' . $imageName);
 
                     $dataF = [
@@ -479,14 +475,7 @@ class Admin extends BaseController
                     // Image manipulation(compress)
                     $image = \Config\Services::image()
                         ->withFile($img)
-                        // ->getFile()
-                        // ->getProperties(true);
-                        // $xOffset = ($image['width'] / 2) - 25;
-                        // $yOffset = ($image['height'] / 2) - 25;
-                        // \Config\Services::image()
-                        //     ->withFile($img)
-                        ->resize(1600, 1200, true, 'height')
-                        // ->crop(1600, 1200, $xOffset, $yOffset)
+                        ->resize(1200, 900, true, 'height')
                         ->save(FCPATH . '/img/kafe/' . $imageName);
 
                     $dataF = [
@@ -654,14 +643,7 @@ class Admin extends BaseController
                     // Image manipulation(compress)
                     $image = \Config\Services::image()
                         ->withFile($img)
-                        // ->getFile()
-                        // ->getProperties(true);
-                        // $xOffset = ($image['width'] / 2) - 25;
-                        // $yOffset = ($image['height'] / 2) - 25;
-                        // \Config\Services::image()
-                        //     ->withFile($img)
-                        ->resize(1600, 1200, true, 'height')
-                        // ->crop(1600, 1200, $xOffset, $yOffset)
+                        ->resize(1200, 900, true, 'height')
                         ->save(FCPATH . '/img/kafe/' . $imageName);
 
                     $dataF = [

@@ -13339,7 +13339,7 @@ body {
     position: relative;
     max-width: 10rem;
     margin-right: 1rem;
-    margin-bottom: 2rem;
+    padding-bottom: 10px;
 }
 
 #image img {
