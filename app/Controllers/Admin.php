@@ -21,7 +21,7 @@ class Admin extends BaseController
     protected $ModelFoto;
     public function __construct()
     {
-        helper(['url']);
+        helper(['form', 'url']);
         $this->setting = new ModelSetting();
         $this->user = new ModelUser();
         $this->Administrasi = new ModelAdministrasi();
@@ -358,15 +358,22 @@ class Admin extends BaseController
         $addStatus = $this->kafe->addStatus($status);
 
         $files = $this->request->getFiles();
-        foreach ($files['foto_kafe'] as $key => $img) {
-            if ($img->isValid() && !$img->hasMoved()) {
-                $newName = $img->getRandomName();
-                $dataF = [
-                    'id_kafe' => $insert_id,
-                    'nama_file_foto' => $newName,
-                ];
-                $this->fotoKafe->addFoto($dataF);
-                $img->move('img/kafe/', $newName);
+        if (isset($files['foto_kafe']) && !empty($files['foto_kafe'])) {
+            foreach ($files['foto_kafe'] as $key => $img) {
+                if ($img->isValid() && !$img->hasMoved()) {
+                    $imageName = $img->getRandomName();
+                    // Image manipulation(compress)
+                    $image = \Config\Services::image()
+                        ->withFile($img)
+                        ->resize(1600, 1200, true, 'height')
+                        ->save(FCPATH . '/img/kafe/' . $imageName);
+
+                    $dataF = [
+                        'id_kafe' => $insert_id,
+                        'nama_file_foto' => $imageName,
+                    ];
+                    $this->fotoKafe->addFoto($dataF);
+                }
             }
         }
 
@@ -422,6 +429,7 @@ class Admin extends BaseController
             return $this->response->redirect(site_url('/admin/data/kafe'));
         }
     }
+
     public function addKafe()
     {
         // dd($this->request->getVar());
@@ -454,16 +462,24 @@ class Admin extends BaseController
             'user' => $user,
         ];
         $addStatus = $this->kafe->addStatus($status);
+
         $files = $this->request->getFiles();
-        foreach ($files['foto_kafe'] as $key => $img) {
-            if ($img->isValid() && !$img->hasMoved()) {
-                $newName = $img->getRandomName();
-                $dataF = [
-                    'id_kafe' => $insert_id,
-                    'nama_file_foto' => $newName,
-                ];
-                $this->fotoKafe->addFoto($dataF);
-                $img->move('img/kafe/', $newName);
+        if (isset($files['foto_kafe']) && !empty($files['foto_kafe'])) {
+            foreach ($files['foto_kafe'] as $key => $img) {
+                if ($img->isValid() && !$img->hasMoved()) {
+                    $imageName = $img->getRandomName();
+                    // Image manipulation(compress)
+                    $image = \Config\Services::image()
+                        ->withFile($img)
+                        ->resize(1600, 1200, true, 'height')
+                        ->save(FCPATH . '/img/kafe/' . $imageName);
+
+                    $dataF = [
+                        'id_kafe' => $insert_id,
+                        'nama_file_foto' => $imageName,
+                    ];
+                    $this->fotoKafe->addFoto($dataF);
+                }
             }
         }
 

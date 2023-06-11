@@ -588,8 +588,15 @@ img {
 
 .img-item:nth-child(1),
 .img-item:nth-child(2),
-.img-item:nth-child(3) {
-  max-width: 7rem;
+.img-item:nth-child(3),
+.img-item:nth-child(4),
+.img-item:nth-child(5),
+.img-item:nth-child(6),
+.img-item:nth-child(7),
+.img-item:nth-child(8),
+.img-item:nth-child(9) {
+  width: 5rem;
+  height: 3rem;
   margin-right: 0;
 }
 
@@ -625,6 +632,7 @@ img {
 
 .dellbut {
   padding: 10px;
+  margin-top: 5px;
 }
 
 #imgPreview {
@@ -650,14 +658,14 @@ img {
 #image {
   display: flex;
   flex-wrap: wrap;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 #image div {
   position: relative;
   max-width: 10rem;
   margin-right: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 2.6rem;
 }
 
 #image img {
