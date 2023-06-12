@@ -1357,7 +1357,7 @@
         if (screenWidth < 455) {
             var controlElement = baseLayers.getContainer();
             controlElement.style.position = 'fixed';
-            controlElement.style.bottom = '0.8rem';
+            controlElement.style.bottom = '0.2rem';
             controlElement.style.right = '0.2rem';
             var zoomTombol = zoomControl.getContainer();
             zoomTombol.style.display = 'none';
