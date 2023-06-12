@@ -1351,14 +1351,26 @@
             console.log(a)
         });
 
-        var controlElement = baseLayers.getContainer();
-        controlElement.style.position = 'fixed';
-        controlElement.style.bottom = '0.8rem';
-        controlElement.style.right = '3rem';
-        var zoomTombol = zoomControl.getContainer();
-        zoomTombol.style.position = 'absolute';
-        zoomTombol.style.bottom = '0.2rem';
-        zoomTombol.style.right = '0.2rem';
+
+
+        const screenWidth = screen.availWidth
+        if (screenWidth < 455) {
+            var controlElement = baseLayers.getContainer();
+            controlElement.style.position = 'fixed';
+            controlElement.style.bottom = '0.8rem';
+            controlElement.style.right = '0.2rem';
+            var zoomTombol = zoomControl.getContainer();
+            zoomTombol.style.display = 'none';
+        } else {
+            var controlElement = baseLayers.getContainer();
+            controlElement.style.position = 'fixed';
+            controlElement.style.bottom = '0.8rem';
+            controlElement.style.right = '3rem';
+            var zoomTombol = zoomControl.getContainer();
+            zoomTombol.style.position = 'absolute';
+            zoomTombol.style.bottom = '0.2rem';
+            zoomTombol.style.right = '0.2rem';
+        }
     </script>
 
 
