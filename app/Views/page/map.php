@@ -466,7 +466,12 @@
                 $("#loading-spinner").removeClass("d-none");
                 setTimeout(function() {
                     $("#loading-spinner").addClass("d-none");
-                    Swal.fire('Anda harus login terlebih dahulu')
+                    Swal.fire({
+                        title: 'Anda harus login terlebih dahulu',
+                        customClass: {
+                            container: 'my-swal',
+                        },
+                    })
                     var logModal = new bootstrap.Modal($('#loginModal'));
                     logModal.show();
                 }, 500);
@@ -1372,7 +1377,6 @@
             zoomTombol.style.right = '0.2rem';
         }
     </script>
-
 
 </body>
 
