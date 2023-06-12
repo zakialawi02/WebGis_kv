@@ -27,6 +27,14 @@
     display: block;
 }
 
+#panelID {
+    z-index: 1050;
+}
+
+.leaflet-top.leaflet-left {
+    z-index: 1050 !important;
+}
+
 /* Side Panel */
 #lumap {
     padding: 0.8rem;
@@ -208,7 +216,7 @@
 }
 
 #loginModal {
-    z-index: 11001;
+    z-index: 1055;
 }
 
 /* Search */
