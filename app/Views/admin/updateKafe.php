@@ -293,10 +293,11 @@
 
             </main><!-- End #main -->
 
+            <!-- FOOTER -->
+            <?= $this->include('_Layout/_template/_admin/footer'); ?>
         </div>
     </div>
-    <!-- FOOTER -->
-    <?= $this->include('_Layout/_template/_admin/footer'); ?>
+
 
 
     <!-- Vendor JS Files -->

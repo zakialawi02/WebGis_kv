@@ -52,8 +52,8 @@
                                 </div>
                                 <div class="col-md-10">
                                     <label for="formFile" class="form-label">Upload File GeoJSON</label>
-                                    <input class="form-control" type="file" name="Fjson" id="Fjson" accept=".geojson, .json">
-                                    <div id="FileHelp" class="form-text">.GeoJSON</div>
+                                    <input class="form-control" type="file" name="Fjson" id="Fjson" accept=".zip, .geojson, .json">
+                                    <div id="FileHelp" class="form-text">.Zip/.GeoJSON</div>
                                 </div>
                                 <div class="col-md-2">
                                     <label for="exampleColorInput" class="form-label">Color</label>

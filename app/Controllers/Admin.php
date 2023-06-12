@@ -215,26 +215,32 @@ class Admin extends BaseController
             // hapus file lama
             $file = $this->request->getVar('jsonLama');
             unlink("geojson/" . $file);
-            // ambil file name
+            // ambil file
             $fileGeojson = $this->request->getFile('Fjson');
             //generate random file name
-            $fileGeojsonBaru = $fileGeojson->getRandomName();
-            $explode = explode('.', $fileGeojsonBaru);
+            $extension = $fileGeojson->getExtension();
+            $size = $fileGeojson->getSize();
+            $randomName = date('YmdHis') . '_' . $size . '.' . $extension;
+            $explode = explode('.', $randomName);
             array_pop($explode);
-            $fileGeojsonBaru = implode('.', $explode);
-            $fileGeojsonBaru = $fileGeojsonBaru . ".geojson";
+            $randomName = implode('.', $explode);
+            if ($extension != 'zip') {
+                $randomName = $randomName . ".geojson";
+            } else {
+                $randomName = $randomName . ".$extension";
+            }
             // pindah file to hosting
-            $fileGeojson->move('geojson/', $fileGeojsonBaru);
+            $fileGeojson->move('geojson/', $randomName);
         } else {
             //    Jika tidak ada file baru
-            $fileGeojsonBaru = $this->request->getPost('jsonLama');
+            $randomName = $this->request->getPost('jsonLama');
         }
 
         $id = $this->request->getVar('id');
         $data = [
             'nama_features'  => $this->request->getVar('Nkec'),
             'warna'  => $this->request->getVar('Kwarna'),
-            'features'  => $fileGeojsonBaru,
+            'features'  => $randomName,
         ];
 
         $this->FGeojson->updateGeojson($data, $id);
