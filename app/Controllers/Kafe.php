@@ -123,7 +123,7 @@ class Kafe extends BaseController
     {
         $data = [
             'title' => 'DATA',
-            'tampilData' => $this->setting->tampilData()->getResult(),
+            'tampilFeatures' => $this->FGeojson->callGeojson()->getResult(),
             'tampilKafe' => $this->kafe->callKafe()->getResult(),
         ];
         return view('page/data', $data);

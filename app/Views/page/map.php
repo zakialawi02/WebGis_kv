@@ -1225,7 +1225,7 @@
             var geoLayer = L.geoJson(null, {
                 style: function(feature) {
                     return {
-                        fillColor: data.warna || 'red',
+                        fillColor: data.color || 'red',
                         fillOpacity: 0.2,
                         color: 'black',
                         weight: 1

@@ -84,23 +84,17 @@
                     </div>
                 </div>
 
-                <div class="card">
-                    <img src="/img/Peta-Surabaya.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Batas Administrasi Kota Surabaya</h5>
-                        <p class="card-text">Data Batas Administrasi Kota Surabaya</p>
-                        <a href="/data" class="btn btn-primary bi bi-cloud-arrow-down-fill"> Download</a>
+                <?php foreach ($tampilFeatures as $F) : ?>
+                    <div class="card">
+                        <img src="/img/zipshapefile.webp" class="card-img-top" alt="..." style="width: 11rem; align-self: center;">
+                        <div class="card-body">
+                            <h5 class="card-title"><?= $F->nama_features; ?></h5>
+                            <p class="card-text">Data <?= $F->nama_features; ?> Kota Surabaya.</p>
+                            <p style="font-size: smaller;">Zipped Shapefile</p>
+                            <a href="/geojson/<?= $F->features; ?>" class="btn btn-primary bi bi-cloud-arrow-down-fill"> Download</a>
+                        </div>
                     </div>
-                </div>
-
-                <div class="card">
-                    <img src="/img/kafe/no image.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Fasilitas Pendidikan Kota Surabaya</h5>
-                        <p class="card-text">Data Fasilitas Pendidikan SMA Sederajat dan Perguruan Tinggi Kota Surabaya</p>
-                        <a href="/data" class="btn btn-primary bi bi-cloud-arrow-down-fill"> Download</a>
-                    </div>
-                </div>
+                <?php endforeach ?>
 
             </div>
     </section>

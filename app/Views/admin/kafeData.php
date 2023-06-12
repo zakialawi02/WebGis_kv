@@ -55,24 +55,24 @@
                                 <a href="/kafe/generatepdf" class="btn btn-primary bi bi-file-earmark-pdf-fill" target="_blank"> PDF</a>
                             </div>
 
-                            <table id="datatablesSimple">
+                            <table id="datatablesSimple" class="datatablesSimple">
                                 <thead>
                                     <tr>
-                                        <th>Tangal</th>
-                                        <th>Nama Kafe</th>
-                                        <th>Alamat Kafe</th>
-                                        <th>Koordinat</th>
-                                        <th>Aksi</th>
+                                        <th class="tgl">Tangal Data Masuk</th>
+                                        <th class="nama">Nama Kafe</th>
+                                        <th class="almkv">Alamat Kafe</th>
+                                        <th class="kood">Koordinat</th>
+                                        <th class="aks">Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php foreach ($tampilKafe as $S) : ?>
                                         <tr>
-                                            <td><?= date('d M Y H:i:s', strtotime($S->created_at)); ?></td>
-                                            <td><?= $S->nama_kafe; ?></td>
-                                            <td style="min-width: 8em;"><?= $S->alamat_kafe; ?></td>
-                                            <td style="max-width: 9em;"><?= $S->latitude; ?>, <?= $S->longitude; ?></td>
-                                            <td>
+                                            <td class="tgl"><?= date('d M Y H:i:s', strtotime($S->created_at)); ?></td>
+                                            <td class="nama"><?= $S->nama_kafe; ?></td>
+                                            <td class="almkv"><?= $S->alamat_kafe; ?></td>
+                                            <td class="kood"><?= $S->latitude; ?>, <?= $S->longitude; ?></td>
+                                            <td class="aks">
                                                 <div class="btn-group mr-2" role="group" aria-label="First group">
                                                     <a href="/kafe/<?= $S->id_kafe; ?>/detail" class="asbn btn btn-secondary bi bi-eye" role="button" target="_blank"></a>
                                                 </div>
