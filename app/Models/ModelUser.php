@@ -87,7 +87,7 @@ class ModelUser extends Model
         $builder->select('users.id as userid, username, email, group_id, name, created_at,  full_name');
         $builder->join('auth_groups_users', 'auth_groups_users.user_id = users.id');
         $builder->join('auth_groups', 'auth_groups.id = auth_groups_users.group_id');
-        $query = $builder->where("created_at BETWEEN CURRENT_TIMESTAMP - INTERVAL '30 day' AND CURRENT_TIMESTAMP")->get();
+        $query = $builder->where("created_at BETWEEN CURRENT_TIMESTAMP - INTERVAL '30 day' AND CURRENT_TIMESTAMP")->orderBy('created_at', 'DESC')->limit(5)->get();
 
         return $query;
     }
