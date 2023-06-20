@@ -243,7 +243,7 @@
 
 /* add kafe */
 .select2-container {
-    z-index: 2000;
+    z-index: 50000;
 }
 
 #dayTitle {
