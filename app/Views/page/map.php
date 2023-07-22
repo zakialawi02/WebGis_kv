@@ -858,6 +858,9 @@
     <script src="/leaflet/Leaflet.NavBar.js"></script>
     <script src="/leaflet/Leaflet.NavBar.js"></script>
     <script src='https://unpkg.com/@turf/turf@6/turf.min.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.9.0/proj4.js"></script>
+    <script src="/leaflet/proj4leaflet.js"></script>
+    <script src="/leaflet/L.LatLng.UTM.js"></script>
 
     <!-- Leafleat Setting js-->
     <!-- initialize the map on the "map" div with a given center and zoom -->
@@ -887,9 +890,12 @@
             id: 'mapbox/dark-v10'
         });
 
+        proj4.defs('EPSG:32749')
+
+
         // set frame view
         <?php foreach ($tampilData as $D) : ?>
-            var map = L.map('map', {
+            const map = L.map('map', {
                 center: [<?= $D->coordinat_wilayah; ?>],
                 zoom: <?= $D->zoom_view; ?>,
                 layers: [peta1],
@@ -1066,8 +1072,23 @@
                 maxLayersInRow: 3
             }
         );
+        // Anggap kita memiliki sebuah marker dengan koordinat latitude dan longitude
+        var latlng = L.latLng(-7.197977, 112.723657);
+
+        // Ubah koordinat latitude dan longitude menjadi koordinat UTM
+        var utmCoord = latlng.utm();
+
+        // Akses properti-properti koordinat UTM
+        console.log(utmCoord);
+        console.log('Zona UTM: ' + utmCoord.zone);
+        console.log('Hemisfer Selatan: ' + utmCoord.southHemi);
+        console.log('Easting: ' + utmCoord.x);
+        console.log('Northing: ' + utmCoord.y);
         baseLayers.addTo(map);
-        L.control.mousePosition().addTo(map);
+        L.control.mousePosition({
+            showUTM: true,
+        }).addTo(map);
+
         L.control.scale().addTo(map);
         L.control.navbar().addTo(map);
 

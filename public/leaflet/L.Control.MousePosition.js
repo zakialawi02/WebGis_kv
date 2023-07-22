@@ -3,6 +3,7 @@ L.Control.MousePosition = L.Control.extend({
     position: 'bottomleft',
     separator: ' ; Longitude:  ',
     emptyString: 'Unavailable',
+    showUTM: false,
     lngFirst: false,
     numDigits: 8,
     lngFormatter: undefined,
@@ -23,9 +24,19 @@ L.Control.MousePosition = L.Control.extend({
   },
 
   _onMouseMove: function (e) {
-    var lng = this.options.lngFormatter ? this.options.lngFormatter(e.latlng.lng) : L.Util.formatNum(e.latlng.lng, this.options.numDigits);
-    var lat = this.options.latFormatter ? this.options.latFormatter(e.latlng.lat) : L.Util.formatNum(e.latlng.lat, this.options.numDigits);
+    var latlng = e.latlng;
+    var lng = this.options.lngFormatter ? this.options.lngFormatter(latlng.lng) : L.Util.formatNum(latlng.lng, this.options.numDigits);
+    var lat = this.options.latFormatter ? this.options.latFormatter(latlng.lat) : L.Util.formatNum(latlng.lat, this.options.numDigits);
     var value = this.options.lngFirst ? lng + this.options.separator + lat : lat + this.options.separator + lng;
+
+    if (this.options.showUTM) {
+      var utmCoord = latlng.utm();
+      var utmX = this.options.lngFormatter ? this.options.lngFormatter(utmCoord.x) : L.Util.formatNum(utmCoord.x, this.options.numDigits);
+      var utmY = this.options.latFormatter ? this.options.latFormatter(utmCoord.y) : L.Util.formatNum(utmCoord.y, this.options.numDigits);
+      var utmValue = utmX + ' , ' + utmY;
+      value += ' | UTM: ' + utmValue;
+    }
+
     var prefixAndValue = this.options.prefix + ' ' + value;
     this._container.innerHTML = prefixAndValue;
   }
