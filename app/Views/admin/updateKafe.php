@@ -108,7 +108,11 @@
 
                                             <div class="form-group">
                                                 <label for="jam-oprasional" class="form-label">Sarana/Prasarana</label>
-                                                <?php $fasilitas = explode(', ', $tampilKafe->fasilitas_kafe) ?>
+                                                <?php if ($tampilKafe->fasilitas_kafe) : ?>
+                                                    <?php $fasilitas = explode(', ', $tampilKafe->fasilitas_kafe) ?>
+                                                <?php else : ?>
+                                                    <?php $fasilitas = [] ?>
+                                                <?php endif ?>
                                                 <div class="row g-2">
                                                     <div class="form-check col-md-3">
                                                         <input class="form-check-input" type="checkbox" value="reservedR" id="reservedR" <?= in_array('reservedR', $fasilitas) ? 'checked' : '' ?>>

@@ -369,11 +369,6 @@
                                                                                                                                 <td><?= $pkafe->alamat_kafe; ?></td>
                                                                                                                             </tr>
                                                                                                                             <tr>
-                                                                                                                                <td>Koordinat</td>
-                                                                                                                                <th>:</th>
-                                                                                                                                <td><?= $pkafe->latitude; ?>, <?= $pkafe->longitude; ?></td>
-                                                                                                                            </tr>
-                                                                                                                            <tr>
                                                                                                                                 <td>Wilayah Administrasi</td>
                                                                                                                                 <th>:</th>
                                                                                                                                 <td><?= $pkafe->nama_kelurahan ?>, Kec. <?= $pkafe->nama_kecamatan ?>, <?= $pkafe->nama_kabupaten ?></td>
@@ -383,6 +378,44 @@
                                                                                                                                 <th>:</th>
                                                                                                                                 <td><a href="https://www.instagram.com/<?= $pkafe->instagram_kafe ?>" target="_blank" rel="noopener noreferrer" class="d-inline-flex align-items-center">
                                                                                                                                         <span>@<?= $pkafe->instagram_kafe ?> <i class="ri-external-link-line"></i></span></a></td>
+                                                                                                                            </tr>
+                                                                                                                            <tr>
+                                                                                                                                <td>Fasilitas</td>
+                                                                                                                                <th>:</th>
+                                                                                                                                <td><?php if (empty($pkafe->fasilitas_kafe)) : ?>
+                                                                                                                                        <p style="margin: 0; color: #7a7979;">Tidak ada data</p>
+                                                                                                                                    <?php else : ?>
+                                                                                                                                        <?php $fasilitas = explode(', ', $pkafe->fasilitas_kafe) ?>
+                                                                                                                                        <?php if (in_array('wifi', $fasilitas)) : ?>
+                                                                                                                                            <p style="margin: 0;">Wifi</p>
+                                                                                                                                        <?php endif ?>
+                                                                                                                                        <?php if (in_array('indoorR', $fasilitas)) : ?>
+                                                                                                                                            <p style="margin: 0;">Indoor Area</p>
+                                                                                                                                        <?php endif ?>
+                                                                                                                                        <?php if (in_array('outdoorR', $fasilitas)) : ?>
+                                                                                                                                            <p style="margin: 0;">Outdoor Area</p>
+                                                                                                                                        <?php endif ?>
+                                                                                                                                        <?php if (in_array('toilet', $fasilitas)) : ?>
+                                                                                                                                            <p style="margin: 0;">Toilet</p>
+                                                                                                                                        <?php endif ?>
+                                                                                                                                        <?php if (in_array('mushollah', $fasilitas)) : ?>
+                                                                                                                                            <p style="margin: 0;">Mushollah</p>
+                                                                                                                                        <?php endif ?>
+                                                                                                                                        <?php if (in_array('reservedR', $fasilitas)) : ?>
+                                                                                                                                            <p style="margin: 0;">Meeting Room/Reserved Room</p>
+                                                                                                                                        <?php endif ?>
+                                                                                                                                    <?php endif ?>
+                                                                                                                                </td>
+                                                                                                                            </tr>
+                                                                                                                            <tr>
+                                                                                                                                <td>Kisaran Harga Menu</td>
+                                                                                                                                <th>:</th>
+                                                                                                                                <td><?php if (empty($pkafe->harga_awal) && empty($pkafe->harga_akhir)) : ?>
+                                                                                                                                        <p style="margin: 0; color: #7a7979;">Tidak ada data</p>
+                                                                                                                                    <?php else : ?>
+                                                                                                                                        Rp. <?= $pkafe->harga_awal; ?> - Rp. <?= $pkafe->harga_akhir; ?>
+                                                                                                                                    <?php endif ?>
+                                                                                                                                </td>
                                                                                                                             </tr>
                                                                                                                             <tr>
                                                                                                                                 <td>Jam Oprasional</td>
@@ -543,11 +576,6 @@
                                                                                                                                 <td><?= $tkafe->alamat_kafe; ?></td>
                                                                                                                             </tr>
                                                                                                                             <tr>
-                                                                                                                                <td>Koordinat</td>
-                                                                                                                                <th>:</th>
-                                                                                                                                <td><?= $tkafe->latitude; ?>, <?= $tkafe->longitude; ?></td>
-                                                                                                                            </tr>
-                                                                                                                            <tr>
                                                                                                                                 <td>Wilayah Administrasi</td>
                                                                                                                                 <th>:</th>
                                                                                                                                 <td><?= $tkafe->nama_kelurahan ?>, Kec. <?= $tkafe->nama_kecamatan ?>, <?= $tkafe->nama_kabupaten ?></td>
@@ -557,6 +585,44 @@
                                                                                                                                 <th>:</th>
                                                                                                                                 <td><a href="https://www.instagram.com/<?= $tkafe->instagram_kafe ?>" target="_blank" rel="noopener noreferrer" class="d-inline-flex align-items-center">
                                                                                                                                         <span>@<?= $tkafe->instagram_kafe ?> <i class="ri-external-link-line"></i></span></a></td>
+                                                                                                                            </tr>
+                                                                                                                            <tr>
+                                                                                                                                <td>Fasilitas</td>
+                                                                                                                                <th>:</th>
+                                                                                                                                <td><?php if (empty($tkafe->fasilitas_kafe)) : ?>
+                                                                                                                                        <p style="margin: 0; color: #7a7979;">Tidak ada data</p>
+                                                                                                                                    <?php else : ?>
+                                                                                                                                        <?php $fasilitas = explode(', ', $tkafe->fasilitas_kafe) ?>
+                                                                                                                                        <?php if (in_array('wifi', $fasilitas)) : ?>
+                                                                                                                                            <p style="margin: 0;">Wifi</p>
+                                                                                                                                        <?php endif ?>
+                                                                                                                                        <?php if (in_array('indoorR', $fasilitas)) : ?>
+                                                                                                                                            <p style="margin: 0;">Indoor Area</p>
+                                                                                                                                        <?php endif ?>
+                                                                                                                                        <?php if (in_array('outdoorR', $fasilitas)) : ?>
+                                                                                                                                            <p style="margin: 0;">Outdoor Area</p>
+                                                                                                                                        <?php endif ?>
+                                                                                                                                        <?php if (in_array('toilet', $fasilitas)) : ?>
+                                                                                                                                            <p style="margin: 0;">Toilet</p>
+                                                                                                                                        <?php endif ?>
+                                                                                                                                        <?php if (in_array('mushollah', $fasilitas)) : ?>
+                                                                                                                                            <p style="margin: 0;">Mushollah</p>
+                                                                                                                                        <?php endif ?>
+                                                                                                                                        <?php if (in_array('reservedR', $fasilitas)) : ?>
+                                                                                                                                            <p style="margin: 0;">Meeting Room/Reserved Room</p>
+                                                                                                                                        <?php endif ?>
+                                                                                                                                    <?php endif ?>
+                                                                                                                                </td>
+                                                                                                                            </tr>
+                                                                                                                            <tr>
+                                                                                                                                <td>Kisaran Harga Menu</td>
+                                                                                                                                <th>:</th>
+                                                                                                                                <td><?php if (empty($tkafe->harga_awal) && empty($tkafe->harga_akhir)) : ?>
+                                                                                                                                        <p style="margin: 0; color: #7a7979;">Tidak ada data</p>
+                                                                                                                                    <?php else : ?>
+                                                                                                                                        Rp. <?= $tkafe->harga_awal; ?> - Rp. <?= $tkafe->harga_akhir; ?>
+                                                                                                                                    <?php endif ?>
+                                                                                                                                </td>
                                                                                                                             </tr>
                                                                                                                             <tr>
                                                                                                                                 <td>Jam Oprasional</td>
@@ -717,11 +783,6 @@
                                                                                                                                 <td><?= $skafe->alamat_kafe; ?></td>
                                                                                                                             </tr>
                                                                                                                             <tr>
-                                                                                                                                <td>Koordinat</td>
-                                                                                                                                <th>:</th>
-                                                                                                                                <td><?= $skafe->latitude; ?>, <?= $skafe->longitude; ?></td>
-                                                                                                                            </tr>
-                                                                                                                            <tr>
                                                                                                                                 <td>Wilayah Administrasi</td>
                                                                                                                                 <th>:</th>
                                                                                                                                 <td><?= $skafe->nama_kelurahan ?>, Kec. <?= $skafe->nama_kecamatan ?>, <?= $skafe->nama_kabupaten ?></td>
@@ -731,6 +792,44 @@
                                                                                                                                 <th>:</th>
                                                                                                                                 <td><a href="https://www.instagram.com/<?= $skafe->instagram_kafe ?>" target="_blank" rel="noopener noreferrer" class="d-inline-flex align-items-center">
                                                                                                                                         <span>@<?= $skafe->instagram_kafe ?> <i class="ri-external-link-line"></i></span></a></td>
+                                                                                                                            </tr>
+                                                                                                                            <tr>
+                                                                                                                                <td>Fasilitas</td>
+                                                                                                                                <th>:</th>
+                                                                                                                                <td><?php if (empty($skafe->fasilitas_kafe)) : ?>
+                                                                                                                                        <p style="margin: 0; color: #7a7979;">Tidak ada data</p>
+                                                                                                                                    <?php else : ?>
+                                                                                                                                        <?php $fasilitas = explode(', ', $skafe->fasilitas_kafe) ?>
+                                                                                                                                        <?php if (in_array('wifi', $fasilitas)) : ?>
+                                                                                                                                            <p style="margin: 0;">Wifi</p>
+                                                                                                                                        <?php endif ?>
+                                                                                                                                        <?php if (in_array('indoorR', $fasilitas)) : ?>
+                                                                                                                                            <p style="margin: 0;">Indoor Area</p>
+                                                                                                                                        <?php endif ?>
+                                                                                                                                        <?php if (in_array('outdoorR', $fasilitas)) : ?>
+                                                                                                                                            <p style="margin: 0;">Outdoor Area</p>
+                                                                                                                                        <?php endif ?>
+                                                                                                                                        <?php if (in_array('toilet', $fasilitas)) : ?>
+                                                                                                                                            <p style="margin: 0;">Toilet</p>
+                                                                                                                                        <?php endif ?>
+                                                                                                                                        <?php if (in_array('mushollah', $fasilitas)) : ?>
+                                                                                                                                            <p style="margin: 0;">Mushollah</p>
+                                                                                                                                        <?php endif ?>
+                                                                                                                                        <?php if (in_array('reservedR', $fasilitas)) : ?>
+                                                                                                                                            <p style="margin: 0;">Meeting Room/Reserved Room</p>
+                                                                                                                                        <?php endif ?>
+                                                                                                                                    <?php endif ?>
+                                                                                                                                </td>
+                                                                                                                            </tr>
+                                                                                                                            <tr>
+                                                                                                                                <td>Kisaran Harga Menu</td>
+                                                                                                                                <th>:</th>
+                                                                                                                                <td><?php if (empty($skafe->harga_awal) && empty($skafe->harga_akhir)) : ?>
+                                                                                                                                        <p style="margin: 0; color: #7a7979;">Tidak ada data</p>
+                                                                                                                                    <?php else : ?>
+                                                                                                                                        Rp. <?= $skafe->harga_awal; ?> - Rp. <?= $skafe->harga_akhir; ?>
+                                                                                                                                    <?php endif ?>
+                                                                                                                                </td>
                                                                                                                             </tr>
                                                                                                                             <tr>
                                                                                                                                 <td>Jam Oprasional</td>
