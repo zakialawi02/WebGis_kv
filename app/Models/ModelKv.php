@@ -11,7 +11,7 @@ class ModelKv extends Model
     protected $primaryKey = 'id_kafe';
     protected $returnType     = 'array';
 
-    protected $allowedFields = ['nama_kafe', 'alamat_kafe', 'longitude', 'latitude', 'foto_kafe', 'id_provinsi', 'id_kabkot', 'id_kecamatan', 'id_kelurahan', 'stat_appv'];
+    protected $allowedFields = ['nama_kafe', 'alamat_kafe', 'fasilitas_kafe', 'harga_awal', 'harga_akhir', 'longitude', 'latitude', 'foto_kafe', 'id_provinsi', 'id_kabkot', 'id_kecamatan', 'id_kelurahan', 'stat_appv'];
 
     function __construct()
     {

@@ -70,7 +70,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Peta Sebaran Kafe</h5>
                         <p class="card-text">Peta Persebaran Kafe di Surabaya</p>
-                        <a href="/data" class="btn btn-primary bi bi-cloud-arrow-down-fill"> Download</a>
+                        <a href="/file/persebaran kafe.jpg" class="btn btn-primary bi bi-cloud-arrow-down-fill"> Download</a>
                     </div>
                 </div>
 
@@ -81,6 +81,25 @@
                         <p class="card-text">Data Persebaran Kafe di Surabaya</p>
                         <a href="/kafe/generatepdf" class="btn btn-primary bi bi-cloud-arrow-down-fill" target="_blank"> PDF</a>
                         <a type="button" class="btn btn-primary bi bi-cloud-arrow-down-fill" onclick="downloadGeoJSON()"> Geojson</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="/img/zipshapefile.webp" class="card-img-top" alt="..." style="width: 11rem; align-self: center;">
+                    <div class="card-body">
+                        <h5 class="card-title">Persebaran Kafe</h5>
+                        <p class="card-text">Data Persebaran Kafe Kota Surabaya.</p>
+                        <p style="font-size: smaller;">Zipped Shapefile</p>
+                        <a href="/file/kafe_sby_intersect.zip" class="btn btn-primary bi bi-cloud-arrow-down-fill"> Download</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="/img/zipshapefile.webp" class="card-img-top" alt="..." style="width: 11rem; align-self: center;">
+                    <div class="card-body">
+                        <h5 class="card-title">Jaringan Jalan</h5>
+                        <p class="card-text">Data Jaringan Jalan Kota Surabaya.</p>
+                        <p style="font-size: smaller;">Zipped Shapefile</p>
+                        <a href="/file/Jalan_sby.zip" class="btn btn-primary bi bi-cloud-arrow-down-fill"> Download</a>
                     </div>
                 </div>
 

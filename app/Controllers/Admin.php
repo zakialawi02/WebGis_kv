@@ -342,6 +342,7 @@ class Admin extends BaseController
         $id_kecamatan = $wilayah[1];
         $id_kabupaten = $wilayah[2];
         $id_provinsi = $wilayah[3];
+        $fasilitas = implode(', ', $this->request->getVar('fasilitas'));
 
         $user = user_id();
         $data = [
@@ -350,6 +351,9 @@ class Admin extends BaseController
             'longitude'  => $this->request->getVar('longitude'),
             'latitude'  => $this->request->getVar('latitude'),
             'instagram_kafe'  => $this->request->getVar('instagram_kafe'),
+            'harga_awal' => $this->request->getVar('harga_awal'),
+            'harga_akhir' => $this->request->getVar('harga_akhir'),
+            'fasilitas_kafe' => $fasilitas,
             'id_provinsi'  => $id_provinsi,
             'id_kabupaten'  => $id_kabupaten,
             'id_kecamatan'  => $id_kecamatan,
@@ -449,6 +453,7 @@ class Admin extends BaseController
         $id_kecamatan = $wilayah[1];
         $id_kabupaten = $wilayah[2];
         $id_provinsi = $wilayah[3];
+        $fasilitas = implode(', ', $this->request->getVar('fasilitas'));
 
         $user = user_id();
         $data = [
@@ -457,6 +462,9 @@ class Admin extends BaseController
             'longitude'  => $this->request->getVar('longitude'),
             'latitude'  => $this->request->getVar('latitude'),
             'instagram_kafe'  => $this->request->getVar('instagram_kafe'),
+            'harga_awal' => $this->request->getVar('harga_awal'),
+            'harga_akhir' => $this->request->getVar('harga_akhir'),
+            'fasilitas_kafe' => $fasilitas,
             'id_provinsi'  => $id_provinsi,
             'id_kabupaten'  => $id_kabupaten,
             'id_kecamatan'  => $id_kecamatan,
@@ -553,6 +561,7 @@ class Admin extends BaseController
         $wilayahLama  = $this->request->getVar('wilayahLama');
         $wilayah  = $this->request->getVar('wilayah');
         $id_kafe = $this->request->getPost('id');
+        $fasilitas = implode(', ', $this->request->getVar('fasilitas'));
 
         if ($wilayah != $wilayahLama) {
             // jika ada berubahan wilayah
@@ -572,6 +581,9 @@ class Admin extends BaseController
                 'longitude'  => $this->request->getVar('longitude'),
                 'latitude'  => $this->request->getVar('latitude'),
                 'instagram_kafe'  => $this->request->getVar('instagram_kafe'),
+                'harga_awal' => $this->request->getVar('harga_awal'),
+                'harga_akhir' => $this->request->getVar('harga_akhir'),
+                'fasilitas_kafe' => $fasilitas,
                 'updated_at' => date('Y-m-d H:i:s'),
             ];
         } else {
@@ -583,6 +595,9 @@ class Admin extends BaseController
                 'longitude'  => $this->request->getVar('longitude'),
                 'latitude'  => $this->request->getVar('latitude'),
                 'instagram_kafe'  => $this->request->getVar('instagram_kafe'),
+                'harga_awal' => $this->request->getVar('harga_awal'),
+                'harga_akhir' => $this->request->getVar('harga_akhir'),
+                'fasilitas_kafe' => $fasilitas,
                 'updated_at' => date('Y-m-d H:i:s'),
             ];
         }

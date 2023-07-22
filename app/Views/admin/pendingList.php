@@ -149,6 +149,44 @@
                                                                                         </td>
                                                                                     </tr>
                                                                                     <tr>
+                                                                                        <td>Fasilitas</td>
+                                                                                        <th>:</th>
+                                                                                        <td><?php if (empty($tampilKafe->fasilitas_kafe)) : ?>
+                                                                                                <p style="margin: 0; color: #7a7979;">Tidak ada data</p>
+                                                                                            <?php else : ?>
+                                                                                                <?php $fasilitas = explode(', ', $tampilKafe->fasilitas_kafe) ?>
+                                                                                                <?php if (in_array('wifi', $fasilitas)) : ?>
+                                                                                                    <p style="margin: 0;">Wifi</p>
+                                                                                                <?php endif ?>
+                                                                                                <?php if (in_array('indoorR', $fasilitas)) : ?>
+                                                                                                    <p style="margin: 0;">Indoor Area</p>
+                                                                                                <?php endif ?>
+                                                                                                <?php if (in_array('outdoorR', $fasilitas)) : ?>
+                                                                                                    <p style="margin: 0;">Outdoor Area</p>
+                                                                                                <?php endif ?>
+                                                                                                <?php if (in_array('toilet', $fasilitas)) : ?>
+                                                                                                    <p style="margin: 0;">Toilet</p>
+                                                                                                <?php endif ?>
+                                                                                                <?php if (in_array('mushollah', $fasilitas)) : ?>
+                                                                                                    <p style="margin: 0;">Mushollah</p>
+                                                                                                <?php endif ?>
+                                                                                                <?php if (in_array('reservedR', $fasilitas)) : ?>
+                                                                                                    <p style="margin: 0;">Meeting Room/Reserved Room</p>
+                                                                                                <?php endif ?>
+                                                                                            <?php endif ?>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td>Kisaran Harga Menu</td>
+                                                                                        <th>:</th>
+                                                                                        <td><?php if (empty($tampilKafe->harga_awal) && empty($tampilKafe->harga_akhir)) : ?>
+                                                                                                <p style="margin: 0; color: #7a7979;">Tidak ada data</p>
+                                                                                            <?php else : ?>
+                                                                                                Rp. <?= $tampilKafe->harga_awal; ?> - Rp. <?= $tampilKafe->harga_akhir; ?>
+                                                                                            <?php endif ?>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                    <tr>
                                                                                         <td>Jam Oprasional</td>
                                                                                         <th>:</th>
                                                                                         <td><?php

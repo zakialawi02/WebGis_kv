@@ -161,6 +161,60 @@
                         </div>
 
                         <div class="form-group">
+                            <label for="jam-oprasional" class="form-label">Sarana/Prasarana</label>
+                            <div class="row g-2">
+                                <div class="form-check col-md-3">
+                                    <input class="form-check-input" type="checkbox" value="reservedR" id="reservedR">
+                                    <label class="form-check-label" for="reservedR">
+                                        Meeting Room/Reserved Room
+                                    </label>
+                                </div>
+                                <div class="form-check col-md-2">
+                                    <input class="form-check-input" type="checkbox" name="fasilitas[]" value="wifi" id="wifi">
+                                    <label class="form-check-label" for="wifi">
+                                        Wifi
+                                    </label>
+                                </div>
+
+                                <div class="form-check col-md-2">
+                                    <input class="form-check-input" type="checkbox" name="fasilitas[]" value="indoorR" id="indoor">
+                                    <label class="form-check-label" for="indoorR">
+                                        Indoor Area
+                                    </label>
+                                </div>
+                                <div class="form-check col-md-2">
+                                    <input class="form-check-input" type="checkbox" name="fasilitas[]" value="outdoorR" id="outdoor">
+                                    <label class="form-check-label" for="outdoorR">
+                                        Outdoor Area
+                                    </label>
+                                </div>
+                                <div class="form-check col-md-2">
+                                    <input class="form-check-input" type="checkbox" name="fasilitas[]" value="toilet" id="toilet">
+                                    <label class="form-check-label" for="toilet">
+                                        Toilet
+                                    </label>
+                                </div>
+                                <div class="form-check col-md-2">
+                                    <input class="form-check-input" type="checkbox" name="fasilitas[]" value="mushollah" id="mushollah">
+                                    <label class="form-check-label" for="mushollah">
+                                        Mushollah
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row g-2">
+                            <label for="harga_menu" class="">Kisaran Harga Menu</label>
+                            <div class="form-group col-md-6">
+                                <input type="text" name="harga_awal" id="harga_awal" class="form-control harga_awal" placeholder="Harga Terendah" onkeypress="return onlyNumber(event)" maxlength="10">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <input type="text" name="harga_akhir" id="harga_akhir" class="form-control harga_akhir" placeholder="Harga Tertinggi" onkeypress="return onlyNumber(event)" maxlength="10">
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
                             <label for="jam-oprasional" class="form-label">Waktu Oprasional</label>
                             <div class="row mb-3">
                                 <div class="col-4">
@@ -307,7 +361,7 @@
 
                         <div class="mb-3">
                             <label for="formFile" class="form-label">Upload Foto Kafe</label>
-                            <input class="form-control" type="file" name="foto_kafe[]" id="foto_kafe" accept="image/*" multiple required>
+                            <input class="form-control" type="file" name="foto_kafe[]" id="foto_kafe" accept="image/*" multiple>
                             <div id="FileHelp" class="form-text">.jpg/.png</div>
                             <div id="imgPreview"></div>
                         </div>
@@ -607,6 +661,15 @@
         $('#imgPreview').on('click', '.remove-preview', function() {
             $(this).parent().remove(); // menghapus preview yang dipilih
         });
+    </script>
+    <script>
+        function onlyNumber(evt) {
+            var charCode = (evt.which) ? evt.which : event.keyCode
+            if (charCode > 31 && (charCode < 48 || charCode > 57))
+
+                return false;
+            return true;
+        }
     </script>
     <!-- set oprasional hour -->
     <script>
