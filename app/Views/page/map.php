@@ -1160,6 +1160,7 @@
         function popUp(f, l) {
             var popOut = "";
             if (f.properties) {
+                console.log(f.properties);
                 const id_kafe = f.properties.id_kafe;
                 const nama_foto = f.properties.nama_foto[0];
                 const foto_list = nama_foto.split(","); // memecah string dengan koma sebagai delimiter menjadi array
@@ -1173,6 +1174,44 @@
                     popOut += "<tr><td><b>Instagram</b></td><th>:</th><td> - </td></tr>";
                 } else {
                     popOut += "<tr><td><b>Instagram</b></td><th>:</th><td>" + "@" + f.properties.instagram_kafe + "</td></tr>";
+                }
+
+                function changeFasilitas(fasilitas) {
+                    switch (fasilitas) {
+                        case 'wifi':
+                            return 'Wifi';
+                        case 'indoorR':
+                            return 'Indoor Area';
+                        case 'outdoorR':
+                            return 'Outdoor Area';
+                        case 'toilet':
+                            return 'Toilet';
+                        case 'mushollah':
+                            return 'Mushollah';
+                        case 'reservedR':
+                            return 'Meeting Room/Reserved Room';
+                            // Tambahkan case sesuai dengan mapping yang diinginkan
+                        default:
+                            return fasilitas;
+                    }
+                }
+                if (f.properties.fasilitas_kafe == null) {
+                    popOut += "<tr><td><b>Fasilitas</b></td><th>:</th><td>Tidak ada data</td></tr>";
+                } else {
+                    var fasilitasArray = f.properties.fasilitas_kafe.split(', ');
+                    popOut += "<tr><td><b>Fasilitas</b></td><th>:</th><td>";
+                    fasilitasArray.forEach(function(fasilitas, index) {
+                        if (index > 0) {
+                            popOut += ", ";
+                        }
+                        popOut += changeFasilitas(fasilitas.trim());
+                    });
+                    popOut += "</td></tr>";
+                }
+                if (f.properties.harga_awal == null) {
+                    popOut += "<tr><td><b>Range harga menu</b></td><th>:</th><td>Tidak ada data</td></tr>";
+                } else {
+                    popOut += "<tr><td><b>Range harga menu</b></td><th>:</th><td>" + "Rp." + f.properties.harga_awal + " - Rp. " + f.properties.harga_akhir + "</td></tr>";
                 }
                 popOut += "<tr><td><b>Jam Oprasional</b></td><th>:</th><td>";
                 const jsonString = f.properties.jam_oprasional;
