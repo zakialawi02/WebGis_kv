@@ -342,7 +342,11 @@ class Admin extends BaseController
         $id_kecamatan = $wilayah[1];
         $id_kabupaten = $wilayah[2];
         $id_provinsi = $wilayah[3];
-        $fasilitas = implode(', ', $this->request->getVar('fasilitas'));
+        if (is_array($this->request->getVar('fasilitas'))) {
+            $fasilitas = implode(', ', $this->request->getVar('fasilitas'));
+        } else {
+            $fasilitas = $this->request->getVar('fasilitas');
+        }
 
         $user = user_id();
         $data = [
@@ -361,6 +365,11 @@ class Admin extends BaseController
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
         ];
+        // Generate custom ID
+        $customID = $this->kafe->generateID($data['id_kelurahan']);
+        // dd($customID);
+        $data['custom_id'] = $customID;
+
         $addKafe = $this->kafe->addKafe($data);
         $insert_id = $this->db->insertID();
         $status = [
@@ -453,7 +462,11 @@ class Admin extends BaseController
         $id_kecamatan = $wilayah[1];
         $id_kabupaten = $wilayah[2];
         $id_provinsi = $wilayah[3];
-        $fasilitas = implode(', ', $this->request->getVar('fasilitas'));
+        if (is_array($this->request->getVar('fasilitas'))) {
+            $fasilitas = implode(', ', $this->request->getVar('fasilitas'));
+        } else {
+            $fasilitas = $this->request->getVar('fasilitas');
+        }
 
         $user = user_id();
         $data = [
@@ -472,6 +485,10 @@ class Admin extends BaseController
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
         ];
+        // Generate custom ID
+        $customID = $this->kafe->generateID($data['id_kelurahan']);
+        // dd($customID);
+        $data['custom_id'] = $customID;
         $addKafe = $this->kafe->addKafe($data);
         $insert_id = $this->db->insertID();
         $status = [
@@ -918,5 +935,30 @@ class Admin extends BaseController
         foreach ($kel as $key => $value) {
             echo '<option value=' . $value['id_kelurahan'] . '>' . $value['nama_kelurahan'] . '</option>';
         }
+    }
+
+    public function isiManualId()
+    {
+        $data = $this->kafe->callKafe()->getResult();
+        $groupedData = [];
+        foreach ($data as $row) {
+            $id_kelurahan = $row->id_kelurahan;
+            $groupedData[$id_kelurahan][] = $row;
+        }
+        $i = 0;
+        foreach ($groupedData as $index => $row) {
+            $lurah = $row;
+            foreach ($lurah as $in => $value) {
+                $idKelurahan = $value->id_kelurahan;
+                $id_kafe = $value->id_kafe;
+                $datas['custom_id'] = '0112023' . $idKelurahan . '00' . ($in + 1);
+                $this->kafe->updateKafe($datas, $id_kafe);
+                echo ($datas['custom_id']);
+                echo ("<br>");
+            }
+        }
+        // dd($idKelurahan);
+        // dd($datas['custom_id']);
+        // die;
     }
 }

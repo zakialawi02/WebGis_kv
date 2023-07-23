@@ -206,10 +206,10 @@
                         <div class="row g-2">
                             <label for="harga_menu" class="">Kisaran Harga Menu</label>
                             <div class="form-group col-md-6">
-                                <input type="text" name="harga_awal" id="harga_awal" class="form-control harga_awal" placeholder="Harga Terendah" onkeypress="return onlyNumber(event)" maxlength="10">
+                                <input type="text" name="harga_awal" id="harga_awal" class="form-control harga_awal" placeholder="Harga Terendah" onkeypress="return onlyNumber(event)" maxlength="10" required>
                             </div>
                             <div class="form-group col-md-6">
-                                <input type="text" name="harga_akhir" id="harga_akhir" class="form-control harga_akhir" placeholder="Harga Tertinggi" onkeypress="return onlyNumber(event)" maxlength="10">
+                                <input type="text" name="harga_akhir" id="harga_akhir" class="form-control harga_akhir" placeholder="Harga Tertinggi" onkeypress="return onlyNumber(event)" maxlength="10" required>
                             </div>
                         </div>
 

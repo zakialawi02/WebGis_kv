@@ -55,6 +55,7 @@
                                         <th>#</th>
                                         <th>Tanggal Masuk</th>
                                         <th>[From] Username</th>
+                                        <th>ID Kafe</th>
                                         <th>Nama Kafe</th>
                                         <th>Alamat</th>
                                         <th>Reject/Accept</th>
@@ -67,6 +68,7 @@
                                             <th><?= $i++; ?></th>
                                             <th><?= date('d M Y H:i:s', strtotime($S->created_at)); ?></th>
                                             <td><?= $S->username; ?></td>
+                                            <td><?= $S->custom_id; ?></td>
                                             <td><?= $S->nama_kafe; ?></td>
                                             <td><?= $S->alamat_kafe; ?></td>
                                             <td>
@@ -115,12 +117,17 @@
                                                                             <table class="table table-responsive">
                                                                                 <thead class="thead-left">
                                                                                     <tr>
-                                                                                        <th style="font-weight: 400; border-bottom-width: 1px; border-bottom-color: #dee2e6;">Nama Kafe</th>
+                                                                                        <th style="font-weight: 400; border-bottom-width: 1px; border-bottom-color: #dee2e6;">ID Kafe</th>
                                                                                         <th style="border-bottom-width: 1px; border-bottom-color: #dee2e6;">:</th>
-                                                                                        <th style="font-weight: 400; border-bottom-width: 1px; border-bottom-color: #dee2e6;"><?= $S->nama_kafe; ?></th>
+                                                                                        <th style="font-weight: 400; border-bottom-width: 1px; border-bottom-color: #dee2e6;"><?= $S->custom_id; ?></th>
                                                                                     </tr>
                                                                                 </thead>
                                                                                 <tbody>
+                                                                                    <tr>
+                                                                                        <td>Nama Kafe</td>
+                                                                                        <th>:</th>
+                                                                                        <td><?= $S->nama_kafe; ?></td>
+                                                                                    </tr>
                                                                                     <tr>
                                                                                         <td>Alamat</td>
                                                                                         <th>:</th>

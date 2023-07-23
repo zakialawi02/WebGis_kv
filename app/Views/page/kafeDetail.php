@@ -99,12 +99,17 @@
                     <table class="table table-responsive">
                         <thead class="thead-left">
                             <tr>
-                                <th style="font-weight: 400; border-bottom-width: 1px; border-bottom-color: #dee2e6;">Nama Kafe</th>
+                                <th style="font-weight: 500; border-bottom-width: 1px; border-bottom-color: #dee2e6;">ID</th>
                                 <th style="border-bottom-width: 1px; border-bottom-color: #dee2e6;">:</th>
-                                <th style="font-weight: 400; border-bottom-width: 1px; border-bottom-color: #dee2e6;"><?= $tampilKafe->nama_kafe; ?></th>
+                                <th style="font-weight: 500; border-bottom-width: 1px; border-bottom-color: #dee2e6;"><?= $tampilKafe->custom_id; ?></th>
                             </tr>
                         </thead>
                         <tbody>
+                            <tr>
+                                <td>Nama Kafe</td>
+                                <th>:</th>
+                                <td><?= $tampilKafe->nama_kafe; ?></td>
+                            </tr>
                             <tr>
                                 <td>Alamat</td>
                                 <th>:</th>

@@ -11,11 +11,34 @@ class ModelKv extends Model
     protected $primaryKey = 'id_kafe';
     protected $returnType     = 'array';
 
-    protected $allowedFields = ['nama_kafe', 'alamat_kafe', 'fasilitas_kafe', 'harga_awal', 'harga_akhir', 'longitude', 'latitude', 'foto_kafe', 'id_provinsi', 'id_kabkot', 'id_kecamatan', 'id_kelurahan', 'stat_appv'];
+    protected $allowedFields = ['custom_id', 'nama_kafe', 'alamat_kafe', 'fasilitas_kafe', 'harga_awal', 'harga_akhir', 'longitude', 'latitude', 'foto_kafe', 'id_provinsi', 'id_kabkot', 'id_kecamatan', 'id_kelurahan', 'stat_appv'];
 
     function __construct()
     {
         $this->db = db_connect();
+    }
+
+    public function generateID($id_kelurahan)
+    {
+        // Mendapatkan tahun saat ini
+        $tahun = date('Y');
+        $cari = $id_kelurahan . '00';
+        // Mendapatkan jumlah data dengan id_kelurahan yang sama
+        $count = $this->db->table('tbl_kafe')
+            ->like('custom_id', $cari)
+            ->orderBy('created_at', 'DESC')
+            ->get()
+            ->getRow();
+        if (empty($count)) {
+            $num = 1;
+        } else {
+            $getId = substr($count->custom_id, 18);
+            $num = $getId + 1;
+        }
+        // Membuat custom ID dengan menggabungkan tahun, id_kelurahan, dan urutan nomor
+        $customID = '011' . $tahun . $id_kelurahan . '00' . $num;
+
+        return $customID;
     }
 
     function callKafe($id_kafe = false)

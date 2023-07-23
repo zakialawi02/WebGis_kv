@@ -301,7 +301,6 @@
                                                                         <thead>
                                                                             <tr>
                                                                                 <th scope="col">Data Masuk</th>
-                                                                                <th scope="col">ID</th>
                                                                                 <th scope="col">Nama Kafe</th>
                                                                                 <th scope="col">Status</th>
                                                                                 <th scope="col">Aksi</th>
@@ -311,7 +310,6 @@
                                                                             <?php foreach ($pendingKafe as $pkafe) : ?>
                                                                                 <tr class="">
                                                                                     <td scope="row"><?= date('d M Y H:i:s', strtotime($pkafe->created_at)); ?></td>
-                                                                                    <td><?= $pkafe->id_kafe; ?></td>
                                                                                     <td><?= $pkafe->nama_kafe; ?></td>
                                                                                     <td><?= $pkafe->stat_appv == 0 ? 'Pending' : ($pkafe->stat_appv == 1 ? 'Terima' : 'Tolak') ?>
                                                                                     </td>
@@ -357,12 +355,17 @@
                                                                                                                     <table class="table table-responsive">
                                                                                                                         <thead class="thead-left">
                                                                                                                             <tr>
-                                                                                                                                <th style="font-weight: 400; border-bottom-width: 1px; border-bottom-color: #dee2e6;">Nama Kafe</th>
+                                                                                                                                <th style="font-weight: 400; border-bottom-width: 1px; border-bottom-color: #dee2e6;">ID</th>
                                                                                                                                 <th style="border-bottom-width: 1px; border-bottom-color: #dee2e6;">:</th>
-                                                                                                                                <th style="font-weight: 400; border-bottom-width: 1px; border-bottom-color: #dee2e6;"><?= $pkafe->nama_kafe; ?></th>
+                                                                                                                                <th style="font-weight: 400; border-bottom-width: 1px; border-bottom-color: #dee2e6;"><?= $pkafe->custom_id; ?></th>
                                                                                                                             </tr>
                                                                                                                         </thead>
                                                                                                                         <tbody>
+                                                                                                                            <tr>
+                                                                                                                                <td>Nama Kafe</td>
+                                                                                                                                <th>:</th>
+                                                                                                                                <td><?= $pkafe->nama_kafe; ?></td>
+                                                                                                                            </tr>
                                                                                                                             <tr>
                                                                                                                                 <td>Alamat</td>
                                                                                                                                 <th>:</th>
@@ -506,7 +509,6 @@
                                                                         <thead>
                                                                             <tr>
                                                                                 <th scope="col">Data Masuk</th>
-                                                                                <th scope="col">ID</th>
                                                                                 <th scope="col">Nama Kafe</th>
                                                                                 <th scope="col">Status</th>
                                                                                 <th scope="col">Tanggal Status</th>
@@ -517,7 +519,6 @@
                                                                             <?php foreach ($terimaKafe as $tkafe) : ?>
                                                                                 <tr class="">
                                                                                     <td scope="row"><?= date('d M Y H:i:s', strtotime($tkafe->created_at)); ?></td>
-                                                                                    <td><?= $tkafe->id_kafe; ?></td>
                                                                                     <td><?= $tkafe->nama_kafe; ?></td>
                                                                                     <td><?= $tkafe->stat_appv == 0 ? 'Pending' : ($tkafe->stat_appv == 1 ? 'Terima' : 'Tolak') ?>
                                                                                     <td><?= date('d M Y H:i:s', strtotime($tkafe->date_updated)); ?></td>
@@ -564,12 +565,17 @@
                                                                                                                     <table class="table table-responsive">
                                                                                                                         <thead class="thead-left">
                                                                                                                             <tr>
-                                                                                                                                <th style="font-weight: 400; border-bottom-width: 1px; border-bottom-color: #dee2e6;">Nama Kafe</th>
+                                                                                                                                <th style="font-weight: 400; border-bottom-width: 1px; border-bottom-color: #dee2e6;">ID</th>
                                                                                                                                 <th style="border-bottom-width: 1px; border-bottom-color: #dee2e6;">:</th>
-                                                                                                                                <th style="font-weight: 400; border-bottom-width: 1px; border-bottom-color: #dee2e6;"><?= $tkafe->nama_kafe; ?></th>
+                                                                                                                                <th style="font-weight: 400; border-bottom-width: 1px; border-bottom-color: #dee2e6;"><?= $tkafe->custom_id; ?></th>
                                                                                                                             </tr>
                                                                                                                         </thead>
                                                                                                                         <tbody>
+                                                                                                                            <tr>
+                                                                                                                                <td>Nama Kafe</td>
+                                                                                                                                <th>:</th>
+                                                                                                                                <td><?= $tkafe->nama_kafe; ?></td>
+                                                                                                                            </tr>
                                                                                                                             <tr>
                                                                                                                                 <td>Alamat</td>
                                                                                                                                 <th>:</th>
@@ -713,7 +719,6 @@
                                                                         <thead>
                                                                             <tr>
                                                                                 <th scope="col">Data Masuk</th>
-                                                                                <th scope="col">ID</th>
                                                                                 <th scope="col">Nama Kafe</th>
                                                                                 <th scope="col">Status</th>
                                                                                 <th scope="col">Tanggal Status</th>
@@ -724,7 +729,6 @@
                                                                             <?php foreach ($tolakKafe as $skafe) : ?>
                                                                                 <tr class="">
                                                                                     <td scope="row"><?= date('d M Y H:i:s', strtotime($skafe->created_at)); ?></td>
-                                                                                    <td><?= $skafe->id_kafe; ?></td>
                                                                                     <td><?= $skafe->nama_kafe; ?></td>
                                                                                     <td><?= $skafe->stat_appv == 0 ? 'Pending' : ($skafe->stat_appv == 1 ? 'Terima' : 'Tolak') ?>
                                                                                     <td><?= date('d M Y H:i:s', strtotime($skafe->date_updated)); ?></td>
@@ -771,12 +775,17 @@
                                                                                                                     <table class="table table-responsive">
                                                                                                                         <thead class="thead-left">
                                                                                                                             <tr>
-                                                                                                                                <th style="font-weight: 400; border-bottom-width: 1px; border-bottom-color: #dee2e6;">Nama Kafe</th>
+                                                                                                                                <th style="font-weight: 400; border-bottom-width: 1px; border-bottom-color: #dee2e6;">ID</th>
                                                                                                                                 <th style="border-bottom-width: 1px; border-bottom-color: #dee2e6;">:</th>
-                                                                                                                                <th style="font-weight: 400; border-bottom-width: 1px; border-bottom-color: #dee2e6;"><?= $skafe->nama_kafe; ?></th>
+                                                                                                                                <th style="font-weight: 400; border-bottom-width: 1px; border-bottom-color: #dee2e6;"><?= $skafe->custom_id; ?></th>
                                                                                                                             </tr>
                                                                                                                         </thead>
                                                                                                                         <tbody>
+                                                                                                                            <tr>
+                                                                                                                                <td>Nama Kafe</td>
+                                                                                                                                <th>:</th>
+                                                                                                                                <td><?= $skafe->nama_kafe; ?></td>
+                                                                                                                            </tr>
                                                                                                                             <tr>
                                                                                                                                 <td>Alamat</td>
                                                                                                                                 <th>:</th>

@@ -67,6 +67,10 @@
                                             <?php endforeach ?>
 
                                             <div class="">
+                                                <label>ID Kafe</label><span> : <?= $tampilKafe->custom_id; ?></span>
+                                            </div>
+
+                                            <div class="">
                                                 <label for="nama_kafe" class="form-label">Nama Kafe</label>
                                                 <input type="text" class="form-control" id="nama_kafe" aria-describedby="textlHelp" name="nama_kafe" value="<?= $tampilKafe->nama_kafe; ?>">
                                             </div>
